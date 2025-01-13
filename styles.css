@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f8f8f8;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.sidebar h1 {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar h1:hover {
+    background-color: #2980b9;
+}
+
+
+.sidebar .folder {
+    margin: 0.5rem 0;
+}
+
+.sidebar .folder-name {
+    font-size: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar .folder-name:hover {
+    background-color: #dfe6e9;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.home-message {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #2c3e50;
+}
+
+
+#breadcrumbs {
+    margin-bottom: 1rem;
+}
+
+#breadcrumbs span {
+    cursor: pointer;
+    color: #3498db;
+}
+
+#breadcrumbs span:hover {
+    text-decoration: underline;
+}
+
+#content .folder, #content .bookmark {
+    margin: 1rem 0;
+}
+
+.bookmark a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bookmark a:hover {
+    color: #3498db;
+}
