@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.folder {
+    margin: 10px 0;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.folder-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #0366d6;
+}
+
+.folder-name:hover {
+    text-decoration: underline;
+}
+
+.folder-children {
+    margin-left: 20px;
+    display: none;
+}
+
+.folder.open .folder-children {
+    display: block;
+}
+
+.bookmark {
+    margin: 5px 0;
+}
+
+.bookmark a {
+    text-decoration: none;
+    color: #0366d6;
+}
+
+.bookmark a:hover {
+    text-decoration: underline;
+}
