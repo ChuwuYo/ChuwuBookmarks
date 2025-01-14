@@ -235,7 +235,7 @@ function searchBookmarks(keyword, data) {
 
 /**
  * 渲染搜索结果
- * @param {Array} results - 匹配的书签结果
+ * @param {Array} results - 显示匹配的书签结果
  */
 function renderSearchResults(results) {
     const content = document.getElementById('content');
