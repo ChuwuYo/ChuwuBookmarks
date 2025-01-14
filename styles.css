@@ -85,7 +85,7 @@ body {
 
 #breadcrumbs {
     margin-bottom: 1rem; /* 设置面包屑导航底部外边距为1rem */
-    padding-top: 40px; /* 如果需要，可以增加上内边距 */
+    padding-top: 60px; 
     padding-left: 10px;
 }
 
