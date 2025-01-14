@@ -5,6 +5,7 @@
  * 3. 渲染主页内容。
  * 4. 为导航标题添加点击事件，点击后重新渲染主页。
  * 5. 为侧边栏切换按钮添加点击事件，点击后切换侧边栏的显示状态。
+ * 6. 为搜索框和搜索按钮添加事件监听器，实现搜索功能。
  */
 document.addEventListener("DOMContentLoaded", () => {
     fetch('bookmarks.json')
@@ -16,23 +17,48 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(data => {
             renderSidebar(data);
-            renderHomePage(); // 页面加载时显示主页
+            renderHomePage();
 
             const navTitle = document.querySelector('h1');
             navTitle.addEventListener('click', () => {
                 renderHomePage();
             });
 
-            // 为侧边栏切换按钮添加点击事件
+            // 侧边栏切换按钮事件
             const toggleSidebarButton = document.getElementById('toggle-sidebar');
             const sidebar = document.querySelector('.sidebar');
-            toggleSidebarButton.addEventListener('click', () => {
+            toggleSidebarButton.addEventListener('click', (e) => {
+                e.preventDefault(); // 阻止默认行为
+                e.stopPropagation(); // 阻止事件冒泡
                 sidebar.classList.toggle('collapsed');
                 const homeMessage = document.querySelector('.home-message');
                 if (sidebar.classList.contains('collapsed')) {
                     homeMessage.style.left = '50%';
                 } else {
                     homeMessage.style.left = 'calc(50% + (220px - 20px) / 2)';
+                }
+            });
+
+            // 搜索功能
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+
+            searchButton.addEventListener('click', () => {
+                const keyword = searchInput.value.trim();
+                if (keyword) {
+                    const results = searchBookmarks(keyword, data);
+                    renderSearchResults(results);
+                }
+            });
+
+            // 支持按下回车键触发搜索
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const keyword = searchInput.value.trim();
+                    if (keyword) {
+                        const results = searchBookmarks(keyword, data);
+                        renderSearchResults(results);
+                    }
                 }
             });
         })
@@ -95,7 +121,7 @@ function renderHomePage() {
 
     const homeMessage = document.createElement('div');
     homeMessage.className = 'home-message';
-    homeMessage.textContent = '初五的书签导航🤗';
+    homeMessage.textContent = '初五的书签🤗';
     content.appendChild(homeMessage);
 }
 
@@ -179,4 +205,92 @@ function renderMainContent(folder) {
             }
         });
     }
+}
+
+/**
+ * 根据关键词搜索书签内容
+ * @param {string} keyword - 搜索关键词
+ * @param {Array} data - 书签数据
+ * @returns {Array} - 匹配的书签结果
+ */
+function searchBookmarks(keyword, data) {
+    const results = [];
+    keyword = keyword.toLowerCase();
+
+    // 递归搜索书签数据
+    function searchItems(items) {
+        items.forEach(item => {
+            if (item.title.toLowerCase().includes(keyword) || (item.url && item.url.toLowerCase().includes(keyword))) {
+                results.push(item);
+            }
+            if (item.children) {
+                searchItems(item.children);
+            }
+        });
+    }
+
+    searchItems(data);
+    return results;
+}
+
+/**
+ * 渲染搜索结果
+ * @param {Array} results - 匹配的书签结果
+ */
+function renderSearchResults(results) {
+    const content = document.getElementById('content');
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    content.innerHTML = '';
+    breadcrumbs.innerHTML = '';
+
+    if (results.length === 0) {
+        content.innerHTML = '<div class="no-results">未找到匹配的书签。</div>';
+        return;
+    }
+
+    // 创建一个容器来包裹所有搜索结果
+    const resultsContainer = document.createElement('div');
+    resultsContainer.className = 'results-container';
+
+    results.forEach(item => {
+        if (item.type === 'folder') {
+            const folderElement = document.createElement('div');
+            folderElement.className = 'folder';
+
+            const icon = document.createElement('span');
+            icon.className = 'folder-icon';
+            icon.textContent = '📁';
+
+            const folderName = document.createElement('span');
+            folderName.className = 'folder-name';
+            folderName.textContent = item.title;
+
+            folderElement.appendChild(icon);
+            folderElement.appendChild(folderName);
+            folderElement.addEventListener('click', () => {
+                renderMainContent(item); // 点击文件夹时渲染其内容
+            });
+
+            resultsContainer.appendChild(folderElement);
+        } else if (item.type === 'link') {
+            const linkElement = document.createElement('div');
+            linkElement.className = 'bookmark';
+
+            const icon = document.createElement('span');
+            icon.className = 'bookmark-icon';
+            icon.textContent = '🔗';
+
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.textContent = item.title;
+            link.target = '_blank';
+
+            linkElement.appendChild(icon);
+            linkElement.appendChild(link);
+            resultsContainer.appendChild(linkElement);
+        }
+    });
+
+    // 将搜索结果容器添加到主内容区域
+    content.appendChild(resultsContainer);
 }
