@@ -117,7 +117,6 @@ body {
     color: #3498db; /* 当鼠标悬停在书签链接上时，文字颜色变为浅蓝色 */
 }
 
-/* 搜索框容器样式 */
 .search-container {
     position: fixed; /* 将元素固定在视口 */
     top: 2%; /* 将元素的顶部边缘设置为视口顶部边缘的2% */
@@ -125,7 +124,6 @@ body {
     margin-left: 50px; /* 与侧边栏切换按钮保持一定距离 */
 }
 
-/* 搜索输入框样式 */
 #search-input {
     padding: 8px; /* 设置输入框内边距为8px */
     font-size: 1rem; /* 设置字体大小为1rem */
@@ -134,7 +132,6 @@ body {
     width: 200px; /* 设置输入框宽度为200px */
 }
 
-/* 搜索按钮样式 */
 #search-button {
     padding: 8px 12px; /* 设置按钮内边距为上下8px，左右12px */
     font-size: 1rem; /* 设置字体大小为1rem */
@@ -150,7 +147,6 @@ body {
     background-color: #f5aed9; /* 当鼠标悬停在按钮上时，背景颜色变为浅粉色 */
 }
 
-/* 无搜索结果时的提示样式 */
 .no-results {
     font-size: 1.2rem; /* 设置字体大小为1.2rem */
     color: #888; /* 设置文字颜色为灰色 */
