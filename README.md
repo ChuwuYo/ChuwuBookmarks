@@ -2,9 +2,9 @@
 
 开发一个基于浏览器的书签导航网页，旨在将用户的书签数据（以 JSON 格式存储）转换为一个美观且功能丰富的网页应用。用户可以通过该网页方便地管理和访问自己的书签，支持多级文件夹的展开和折叠、搜索、面包屑导航等功能。
 
+本人技术目前仅限于此，小bug真的修不完，抱歉😥
 
-
-
+[![hatsuchwuu-github-io.png](https://i.postimg.cc/XJkQ0rYc/hatsuchwuu-github-io.png)](https://postimg.cc/62Tdr5Ry)
 
 * * *
 
