@@ -27,7 +27,7 @@ body {
 
 #toggle-sidebar {
     position: fixed; /* 将元素固定在视口 */
-    top: 2%; /* 将元素的顶部边缘设置为视口顶部边缘的2% */
+    top: 1%; /* 将元素的顶部边缘设置为视口顶部边缘的1% */
     background: none; /* 去除按钮背景 */
     border: none; /* 去除按钮边框 */
     font-size: 1.8rem; /* 设置按钮字体大小为1.8rem */
@@ -119,7 +119,7 @@ body {
 
 .search-container {
     position: fixed; /* 将元素固定在视口 */
-    top: 2%; /* 将元素的顶部边缘设置为视口顶部边缘的2% */
+    top: 1%; /* 将元素的顶部边缘设置为视口顶部边缘的1% */
     display: inline-block;
     margin-left: 50px; /* 与侧边栏切换按钮保持一定距离 */
 }
