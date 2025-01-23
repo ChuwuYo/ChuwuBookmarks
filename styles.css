@@ -1,3 +1,4 @@
+/* 页面基础样式 */
 body {
     font-family: Arial, sans-serif; /* 设置页面的字体为Arial或无衬线字体 */
     margin: 0; /* 去除页面默认的外边距 */
@@ -7,71 +8,141 @@ body {
     background-color: #f5f5f5; /* 设置页面背景颜色为浅灰色 */
 }
 
+/* 侧边栏样式 */
 .sidebar {
-    width: 220px; /* 设置侧边栏宽度为220px */
-    background-color: #e2f5f5; /* 设置侧边栏背景颜色为淡灰色 */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加右侧阴影效果 */
-    padding: 20px; /* 设置侧边栏内边距为20px */
-    transition: width 0.3s ease; /* 添加宽度过渡效果，持续时间为0.3秒，过渡效果为缓动 */
-    overflow: hidden; /* 隐藏超出侧边栏的内容 */
+    position: fixed; /* 固定定位 */
+    top: 0;
+    left: 0;
+    width: 220px;
+    background-color: #e2f5f5;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    z-index: 1000;
+    transition: background-color 0.5s; /* 添加背景颜色过渡效果，持续时间为0.5秒 */
 }
 
+/* 折叠状态下的侧边栏样式 */
 .sidebar.collapsed {
-    width: 20px; /* 设置侧边栏折叠时的宽度为20px */
+    width: 0; /* 完全收起侧边栏 */
+    padding: 0; /* 移除内边距 */
+    transition: background-color 0.5s; /* 添加背景颜色过渡效果，持续时间为0.5秒 */
 }
 
+/* 折叠状态下隐藏侧边栏标题和文件夹名称 */
 .sidebar.collapsed h1,
 .sidebar.collapsed .folder-name {
     display: none; /* 当侧边栏折叠时，隐藏标题和文件夹名称 */
 }
 
+/* 切换侧边栏按钮样式 */
 #toggle-sidebar {
-    position: fixed; /* 将元素固定在视口 */
-    top: 1%; /* 将元素的顶部边缘设置为视口顶部边缘的1% */
-    background: none; /* 去除按钮背景 */
-    border: none; /* 去除按钮边框 */
-    font-size: 1.8rem; /* 设置按钮字体大小为1.8rem */
-    cursor: pointer; /* 设置鼠标指针样式为指针 */
-    margin-bottom: 1rem; /* 设置按钮底部外边距为1rem */
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-right: 5px; /* 与侧栏边框保持间距 */
 }
 
+/* 普通状态下的按钮（在侧边栏内） */
+.sidebar:not(.collapsed) #toggle-sidebar {
+    background-color: transparent;
+}
+
+/* 普通状态下按钮的悬停效果 */
+.sidebar:not(.collapsed) #toggle-sidebar:hover {
+    background-color: rgba(136, 205, 250, 0.1);
+}
+
+/* 侧边栏收起时的按钮样式 */
+.sidebar.collapsed #toggle-sidebar {
+    position: fixed;
+    left: 0;
+    top: 20px;
+    background-color: #e2f5f5;
+    /* 设置元素的圆角，左上角和左下角为直角，右上角和右下角为5像素的圆角 */
+    border-radius: 0 5px 5px 0;
+    /* 设置元素的内边距，上下为15像素，左右为10像素 */
+    padding: 8px 8px;
+    /* 设置元素的阴影效果，水平偏移2像素，垂直偏移0像素，模糊半径5像素，颜色为半透明黑色（rgba(0, 0, 0, 0.1)） */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 侧边栏收起时按钮的悬停效果 */
+.sidebar.collapsed #toggle-sidebar:hover {
+    background-color: #d1efef;
+}
+
+/* 侧边栏头部样式 */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 增加两个按钮之间的间距 */
+    margin-bottom: 20px;
+    padding: 0 5px; /* 与侧边栏边缘保持间距 */
+}
+
+/* 侧边栏标题样式 */
 .sidebar h1 {
-    background-color: #88cdfa; /* 设置侧边栏标题背景颜色为浅蓝色 */
-    color: white; /* 设置侧边栏标题文字颜色为白色 */
-    padding: 8px 10px; /* 设置侧边栏标题内边距为上下8px，左右10px */
-    border-radius: 5px; /* 设置侧边栏标题边框圆角为5px */
-    text-align: center; /* 设置侧边栏标题文字居中对齐 */
-    cursor: pointer; /* 设置鼠标指针样式为指针 */
-    transition: background-color 0.3s ease; /* 添加背景颜色过渡效果，持续时间为0.3秒，过渡效果为缓动 */
+    background-color: #88cdfa;
+    color: white;
+    padding: 8px 20px; /* 增加左右padding使按钮更长 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0;
+    flex-grow: 0; /* 防止自动拉伸 */
 }
 
+/* 侧边栏标题的悬停效果 */
 .sidebar h1:hover {
     background-color: #f5aed9; /* 当鼠标悬停在侧边栏标题上时，背景颜色变为浅粉色 */
 }
 
+/* 文件夹样式 */
 .sidebar .folder {
-    margin: 0.5rem 0; /* 设置文件夹上下外边距为0.5rem */
+    margin: 1rem 0; /* 设置文件夹上下外边距为1rem */
 }
 
+/* 文件夹名称样式 */
 .sidebar .folder-name {
-    font-size: 1.1rem; /* 设置文件夹名称字体大小为1.1rem */
+    font-size: 1.2rem; /* 设置文件夹名称字体大小为1.2rem */
     padding: 0.5rem; /* 设置文件夹名称内边距为0.5rem */
     cursor: pointer; /* 设置鼠标指针样式为指针 */
     transition: background-color 0.3s; /* 添加背景颜色过渡效果，持续时间为0.3秒 */
 }
 
+/* 文件夹名称的悬停效果 */
 .sidebar .folder-name:hover {
     background-color: #dfe6e9; /* 当鼠标悬停在文件夹名称上时，背景颜色变为淡灰色 */
 }
 
+/* 主内容区域样式 */
 .main-content {
-    flex: 1; /* 设置主内容区域占据剩余空间 */
-    padding: 20px; /* 设置主内容区域内边距 */
-    background-color: #f8faef; /* 设置主内容区域背景颜色为米白色 */
-    transition: margin-left 0.3s ease; /* 添加左侧外边距过渡效果，持续时间为0.3秒，过渡效果为缓动 */
-    min-height: calc(100vh - 40px); /* 确保主内容区域至少占满整个视口高度（减去内边距） */
+    position: relative;
+    margin-left: 260px;
+    min-height: 100vh;
+    padding: 20px 20px 20px 40px;
+    background-color: #f8faef;
+    transition: all 0.3s ease;
+    width: calc(100% - 220px);
+    box-sizing: border-box;
 }
 
+/* 侧边栏收起时主要内容区域的样式 */
+.sidebar.collapsed + .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+/* 首页消息样式 */
 .home-message {
     position: fixed; /* 将元素固定在视口 */
     top: 50%; /* 将元素的顶部边缘设置为视口顶部边缘的50% */
@@ -83,47 +154,65 @@ body {
     color: #42502c; /* 设置文本颜色 */
 }
 
+/* 面包屑导航样式 */
 #breadcrumbs {
     margin-bottom: 1rem; /* 设置面包屑导航底部外边距为1rem */
     padding-top: 60px; 
     padding-left: 10px;
 }
 
+/* 面包屑导航文字样式 */
 #breadcrumbs span {
     cursor: pointer; /* 设置面包屑导航文字指针样式为指针 */
     color: #3498db; /* 设置面包屑导航文字颜色为浅蓝色 */
 }
 
+/* 面包屑导航文字的悬停效果 */
 #breadcrumbs span:hover {
     text-decoration: underline; /* 当鼠标悬停在面包屑导航文字上时，添加下划线效果 */
 }
 
+/* 内容区域样式 */
 #content {
     display: block; /* 确保内容以块级元素排列 */
     padding-left: 10px;
 }
 
+/* 文件夹和书签样式 */
 #content .folder, #content .bookmark {
     margin: 1rem 0; /* 设置文件夹和书签的上下外边距为1rem */
 }
 
+/* 书签链接样式 */
 .bookmark a {
     color: #2c3e50; /* 设置书签链接文字颜色为深蓝色 */
     text-decoration: none; /* 去除书签链接下划线 */
     transition: color 0.3s; /* 添加文字颜色过渡效果，持续时间为0.3秒 */
 }
 
+/* 书签链接的悬停效果 */
 .bookmark a:hover {
     color: #3498db; /* 当鼠标悬停在书签链接上时，文字颜色变为浅蓝色 */
 }
 
+/* 搜索容器样式 */
 .search-container {
-    position: fixed; /* 将元素固定在视口 */
-    top: 1%; /* 将元素的顶部边缘设置为视口顶部边缘的1% */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: inline-block;
-    margin-left: 50px; /* 与侧边栏切换按钮保持一定距离 */
+    transition: all 0.3s ease;
+    z-index: 999;
+    margin-left: 110px; /* 侧边栏宽度的一半，用于补偿居中位置 */
 }
 
+/* 侧边栏收起时搜索容器的样式 */
+.sidebar.collapsed + .main-content .search-container {
+    margin-left: 0; /* 侧边栏收起时不需要补偿 */
+}
+
+/* 搜索输入框样式 */
 #search-input {
     padding: 8px; /* 设置输入框内边距为8px */
     font-size: 1rem; /* 设置字体大小为1rem */
@@ -132,6 +221,7 @@ body {
     width: 200px; /* 设置输入框宽度为200px */
 }
 
+/* 搜索按钮样式 */
 #search-button {
     padding: 8px 12px; /* 设置按钮内边距为上下8px，左右12px */
     font-size: 1rem; /* 设置字体大小为1rem */
@@ -143,10 +233,12 @@ body {
     margin-left: 5px; /* 设置按钮左侧外边距为5px */
 }
 
+/* 搜索按钮的悬停效果 */
 #search-button:hover {
     background-color: #f5aed9; /* 当鼠标悬停在按钮上时，背景颜色变为浅粉色 */
 }
 
+/* 无搜索结果样式 */
 .no-results {
     font-size: 1.2rem; /* 设置字体大小为1.2rem */
     color: #888; /* 设置文字颜色为灰色 */
