@@ -323,6 +323,13 @@
             "title": "ACG港湾 | 游戏分享的港湾",
             "icon": "https://logo.clearbit.com/www.acggw.me",
             "url": "https://www.acggw.me/?ref=moe-box.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1737128974777,
+            "title": "NyaFun - 最新发布页",
+            "icon": "https://logo.clearbit.com/www.nyacg.net",
+            "url": "https://www.nyacg.net/"
           }
         ]
       },
@@ -488,9 +495,9 @@
           {
             "type": "link",
             "addDate": 1714748259937,
-            "title": "MissAV.com | 免费高清AV在线看",
-            "icon": "https://logo.clearbit.com/missav.com",
-            "url": "https://missav.com/cn"
+            "title": "MissAV.ws | 免费高清AV在线看",
+            "icon": "https://logo.clearbit.com/missav.ai",
+            "url": "https://missav.ai/"
           },
           {
             "type": "link",
@@ -887,13 +894,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "OwenTV直播源",
-            "icon": "https://logo.clearbit.com/github.com",
-            "url": "https://github.com/owen2000wy/owentv"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "動漫狂 - 免費動畫漫畫分享社群 !",
             "icon": "https://logo.clearbit.com/www.cartoonmad.com",
             "url": "https://www.cartoonmad.com/"
@@ -904,6 +904,13 @@
             "title": "在线看漫画_飒漫乐画_妃夕妍雪 - 看漫画",
             "icon": "https://logo.clearbit.com/www.manhuagui.com",
             "url": "https://www.manhuagui.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1737097419343,
+            "title": "MYCOMIC - 我的漫画",
+            "icon": "https://logo.clearbit.com/mycomic.com",
+            "url": "https://mycomic.com/cn"
           },
           {
             "type": "link",
@@ -964,9 +971,9 @@
           {
             "type": "link",
             "addDate": 1732848728595,
-            "title": "pianbar.net",
-            "icon": "https://logo.clearbit.com/pianbar.net",
-            "url": "http://pianbar.net/"
+            "title": "pianbar",
+            "icon": "https://logo.clearbit.com/www.vaueo.com",
+            "url": "https://www.vaueo.com/"
           },
           {
             "type": "link",
@@ -1347,6 +1354,13 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
+                "title": "小妖怪分享网永久地址发布页，收藏我回家不迷路！",
+                "icon": "https://logo.clearbit.com/zzzz688.top",
+                "url": "https://zzzz688.top/"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
                 "title": "小妖怪分享|兴趣使然的资源搬运Blog",
                 "icon": "https://logo.clearbit.com/www.xyg688.com",
                 "url": "https://www.xyg688.com/"
@@ -1427,13 +1441,6 @@
                 "title": "游戏天堂-全球游戏下载基地",
                 "icon": "https://logo.clearbit.com/www.zzzzz688.com",
                 "url": "https://www.zzzzz688.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "小妖怪分享网永久地址发布页，收藏我回家不迷路！",
-                "icon": "https://logo.clearbit.com/zzzz688.top",
-                "url": "https://zzzz688.top/"
               },
               {
                 "type": "link",
@@ -1791,6 +1798,13 @@
                 "title": "主页 | 猫猫网盘",
                 "icon": "https://logo.clearbit.com/pan.catcat.blog",
                 "url": "https://pan.catcat.blog/"
+              },
+              {
+                "type": "link",
+                "addDate": 1737128563124,
+                "title": "初音的青葱发布页",
+                "icon": "https://logo.clearbit.com/www.xygalgame.com",
+                "url": "https://www.xygalgame.com/"
               }
             ]
           },
@@ -2339,6 +2353,13 @@
             "title": "lofi.cafe - lofi music 🎧",
             "icon": "https://logo.clearbit.com/www.lofi.cafe",
             "url": "https://www.lofi.cafe/"
+          },
+          {
+            "type": "link",
+            "addDate": 1737129038993,
+            "title": "自由男人网络硬盘|asmr网盘",
+            "icon": "https://logo.clearbit.com/okfree.men",
+            "url": "https://okfree.men/"
           }
         ]
       },
@@ -2347,13 +2368,6 @@
         "addDate": 1704014875971,
         "title": "音乐",
         "children": [
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "Listen 1 音乐播放器",
-            "icon": "https://logo.clearbit.com/listen1.github.io",
-            "url": "https://listen1.github.io/listen1/"
-          },
           {
             "type": "link",
             "addDate": 1730376473942,
@@ -2419,24 +2433,17 @@
           },
           {
             "type": "link",
-            "addDate": 1706603610580,
-            "title": "发现 - 好听轻音乐-在线试听-MP3下载-银色乐航",
-            "icon": "https://logo.clearbit.com/imoongo2.com",
-            "url": "https://imoongo2.com/discover"
-          },
-          {
-            "type": "link",
-            "addDate": 1712296735683,
-            "title": "lx音乐源密码：lxmusic",
-            "icon": "https://logo.clearbit.com/wwp.lanzouq.com",
-            "url": "https://wwp.lanzouq.com/b02fq9w8d"
-          },
-          {
-            "type": "link",
             "addDate": 1713525688140,
             "title": "coriander_player: Windows端本地音乐播放器，使用Material You配色。Dart (Flutter) + Rust (lofty) + C (bass lib) 多语言项目。绝赞开发中。",
             "icon": "https://logo.clearbit.com/github.com",
             "url": "https://github.com/Ferry-200/coriander_player"
+          },
+          {
+            "type": "link",
+            "addDate": 1706603610580,
+            "title": "发现 - 好听轻音乐-在线试听-MP3下载-银色乐航",
+            "icon": "https://logo.clearbit.com/imoongo2.com",
+            "url": "https://imoongo2.com/discover"
           },
           {
             "type": "link",
@@ -2471,7 +2478,7 @@
             "addDate": 1732890022253,
             "title": "每日签到 - HiFiNi",
             "icon": "https://logo.clearbit.com/www.hifini.com",
-            "url": "https://www.hifini.com/sg_sign.htm"
+            "url": "https://www.hifini.com/"
           },
           {
             "type": "link",
@@ -2556,6 +2563,20 @@
             "title": "母带吧音乐 - 192kHz/24bit",
             "icon": "https://logo.clearbit.com/www.mudaiba.com",
             "url": "https://www.mudaiba.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1736865222488,
+            "title": "imsyy/SPlayer: 🎉 一个简约的音乐播放器，支持逐字歌词，下载歌曲，展示评论区，音乐云盘及歌单管理，音乐频谱，移动端基础适配 | 网易云音乐 | A minimalist music player",
+            "icon": "https://logo.clearbit.com/github.com",
+            "url": "https://github.com/imsyy/SPlayer"
+          },
+          {
+            "type": "link",
+            "addDate": 1737213174164,
+            "title": "方格音乐& 悦听音乐-无损下载器V1 & 尼卡音乐APP v1.1.0 &音乐搜索 APP 1.7.0修复版，音乐畅听下载合集，最高支持无损音质下载",
+            "icon": "https://logo.clearbit.com/www.ittel.cn",
+            "url": "https://www.ittel.cn/archives/27380.html/comment-page-1"
           }
         ]
       },
@@ -2927,6 +2948,13 @@
             "title": "24h搜书 - AI免费电子书下载",
             "icon": "https://logo.clearbit.com/24hbook.com",
             "url": "https://24hbook.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1737128340534,
+            "title": "轻书架",
+            "icon": "https://logo.clearbit.com/www.lightnovel.app",
+            "url": "https://www.lightnovel.app/home"
           }
         ]
       },
@@ -4229,6 +4257,13 @@
             "title": "Flathub - Apps for Linux",
             "icon": "https://logo.clearbit.com/flathub.org",
             "url": "https://flathub.org/"
+          },
+          {
+            "type": "link",
+            "addDate": 1736864977825,
+            "title": "怪咖资源网导航页 | Link3",
+            "icon": "https://logo.clearbit.com/link3.cc",
+            "url": "https://link3.cc/gkzyw"
           }
         ]
       },
@@ -4439,13 +4474,6 @@
             "title": "DeviantArt - The Largest Online Art Gallery and Community",
             "icon": "https://logo.clearbit.com/www.deviantart.com",
             "url": "https://www.deviantart.com/"
-          },
-          {
-            "type": "link",
-            "addDate": 1731683971341,
-            "title": "Dribbble - Discover the World’s Top Designers & Creative Professionals",
-            "icon": "https://logo.clearbit.com/dribbble.com",
-            "url": "https://dribbble.com/"
           },
           {
             "type": "link",
@@ -6787,6 +6815,13 @@
                     "title": "Free AI Chat | Chat with GPT4o/Claude/Gemini Online | Felo Chat",
                     "icon": "https://logo.clearbit.com/chat.felo.ai",
                     "url": "https://chat.felo.ai/"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1737123777317,
+                    "title": "Qwen",
+                    "icon": "https://logo.clearbit.com/chat.qwenlm.ai",
+                    "url": "https://chat.qwenlm.ai/"
                   }
                 ]
               },
@@ -7762,6 +7797,13 @@
                 "title": "UI组件Uiverse | The Largest Library of Open-Source UI elements",
                 "icon": "https://logo.clearbit.com/uiverse.io",
                 "url": "https://uiverse.io/"
+              },
+              {
+                "type": "link",
+                "addDate": 1731683971341,
+                "title": "Dribbble - Discover the World’s Top Designers & Creative Professionals",
+                "icon": "https://logo.clearbit.com/dribbble.com",
+                "url": "https://dribbble.com/"
               }
             ]
           },
@@ -7923,6 +7965,13 @@
                 "title": "后端教程  Python 教程  PHP 教程  HTML and CSS  HTML 教程  CSS 教程  数据库  SQL 教程  MySQL 教程  工具",
                 "icon": "https://logo.clearbit.com/www.begtut.com",
                 "url": "https://www.begtut.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1737270501992,
+                "title": "计算机视觉实战演练：算法与应用🌱",
+                "icon": "https://logo.clearbit.com/charmve.github.io",
+                "url": "https://charmve.github.io/computer-vision-in-action/#/"
               }
             ]
           },
@@ -8513,6 +8562,13 @@
             "title": "NocoBase-开源、私有部署的轻量级无代码和低代码开发平台",
             "icon": "https://logo.clearbit.com/cn.nocobase.com",
             "url": "https://cn.nocobase.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1736744837281,
+            "title": "JSON Online Validator and Formatter - JSON Lint",
+            "icon": "https://logo.clearbit.com/jsonlint.com",
+            "url": "https://jsonlint.com/"
           }
         ]
       },
