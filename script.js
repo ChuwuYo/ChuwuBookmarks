@@ -30,12 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleSidebarButton.addEventListener('click', (e) => {
                 e.preventDefault(); // 阻止默认行为
                 e.stopPropagation(); // 阻止事件冒泡
+                const isCollapsed = sidebar.classList.contains('collapsed');
                 sidebar.classList.toggle('collapsed');
+                // 更新切换按钮的文本
+                toggleSidebarButton.textContent = isCollapsed ? '🫷' : '🫸';
+                
+                // 调整主页信息的位置
                 const homeMessage = document.querySelector('.home-message');
-                if (sidebar.classList.contains('collapsed')) {
-                    homeMessage.style.left = '50%';
-                } else {
-                    homeMessage.style.left = 'calc(50% + (220px - 20px) / 2)';
+                if (homeMessage) {
+                    if (!isCollapsed) {
+                        homeMessage.style.left = '50%';
+                    } else {
+                        homeMessage.style.left = 'calc(50% + 110px)'; // 220px/2
+                    }
                 }
             });
 
