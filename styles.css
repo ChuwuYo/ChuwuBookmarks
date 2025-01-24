@@ -201,10 +201,12 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: inline-block;
+    display: flex;
+    align-items: center;
     transition: all 0.3s ease;
     z-index: 999;
     margin-left: 110px; /* 侧边栏宽度的一半，用于补偿居中位置 */
+    white-space: nowrap;
 }
 
 /* 侧边栏收起时搜索容器的样式 */
@@ -219,6 +221,7 @@ body {
     border: 1px solid #ccc; /* 设置边框为1px的灰色实线 */
     border-radius: 5px; /* 设置边框圆角为5px */
     width: 200px; /* 设置输入框宽度为200px */
+    max-width: calc(100vw - 120px); /* 确保在小屏幕上不会溢出 */
 }
 
 /* 搜索按钮样式 */
@@ -231,6 +234,73 @@ body {
     color: white; /* 设置文字颜色为白色 */
     cursor: pointer; /* 设置鼠标指针样式为指针 */
     margin-left: 5px; /* 设置按钮左侧外边距为5px */
+}
+
+/* 移动设备适配 */
+@media screen and (max-width: 768px) {
+    /* 默认收起侧边栏 */
+    .sidebar {
+        width: 0;
+        padding: 0;
+    }
+
+    /* 隐藏侧边栏内容 */
+    .sidebar h1,
+    .sidebar .folder-name,
+    .sidebar #sidebar-folders {
+        display: none;
+    }
+
+    /* 默认把切换按钮固定在左侧（折叠状态） */
+    .sidebar.collapsed #toggle-sidebar {
+        position: fixed;
+        left: 0;
+        top: 20px;
+        background-color: #e2f5f5;
+        border-radius: 0 5px 5px 0;
+        padding: 8px 8px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 展开状态下将切换按钮放回标题栏 */
+    .sidebar:not(.collapsed) #toggle-sidebar {
+        position: static;
+        background: none;
+        box-shadow: none;
+        border-radius: 5px;
+    }
+
+    /* 调整主内容区域 */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* 调整搜索容器位置 */
+    .search-container {
+        margin-left: 40px; /* 为侧边栏切换按钮留出空间 */
+        max-width: calc(100% - 60px); /* 防止内容溢出 */
+    }
+
+    /* 展开时的侧边栏样式 */
+    .sidebar:not(.collapsed) {
+        width: 220px;
+        padding: 20px;
+    }
+
+    /* 展开时显示侧边栏内容 */
+    .sidebar:not(.collapsed) h1,
+    .sidebar:not(.collapsed) .folder-name,
+    .sidebar:not(.collapsed) #sidebar-folders {
+        display: block;
+    }
+
+    /* 展开时主内容区域的样式 */
+    .sidebar:not(.collapsed) + .main-content {
+        margin-left: 260px;
+        width: calc(100% - 220px);
+    }
 }
 
 /* 搜索按钮的悬停效果 */
