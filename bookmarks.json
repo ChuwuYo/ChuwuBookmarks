@@ -2132,13 +2132,6 @@
           },
           {
             "type": "link",
-            "addDate": 1704012714000,
-            "title": "ASMR收藏夹 - 有你想要的吗？",
-            "icon": "https://logo.clearbit.com/www.asmrscj.com",
-            "url": "http://www.asmrscj.com/"
-          },
-          {
-            "type": "link",
             "addDate": 1726935983642,
             "title": "Chinese | Hentai ASMR",
             "icon": "https://logo.clearbit.com/www.hentaiasmr.moe",
@@ -2199,13 +2192,6 @@
             "title": "STUDY WITH MIKU",
             "icon": "https://logo.clearbit.com/studymiku.wenqi.icu",
             "url": "https://studymiku.wenqi.icu/#"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "STUDY WITH MIKU",
-            "icon": "https://logo.clearbit.com/vincentcroft.github.io",
-            "url": "https://vincentcroft.github.io/StudyWithMiku/#"
           },
           {
             "type": "link",
@@ -4587,13 +4573,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1719372588552,
-                "title": "一分机场",
-                "icon": "https://logo.clearbit.com/xn--4gqx1hgtfdmt.com",
-                "url": "https://xn--4gqx1hgtfdmt.com/#/login"
-              },
-              {
-                "type": "link",
                 "addDate": 1720417430311,
                 "title": "丛雨云发布页",
                 "icon": "https://logo.clearbit.com/cn.congyu.org",
@@ -4601,24 +4580,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1720807222737,
-                "title": "登录页 | XQC Retard",
-                "icon": "https://logo.clearbit.com/api.xqc.best",
-                "url": "https://api.xqc.best/#/login"
-              },
-              {
-                "type": "link",
                 "addDate": 1720855458639,
                 "title": "首页 - 倾城极速",
                 "icon": "https://logo.clearbit.com/wcnmdmht.biz",
                 "url": "https://wcnmdmht.biz/#/home"
-              },
-              {
-                "type": "link",
-                "addDate": 1723296163738,
-                "title": "COO",
-                "icon": "https://logo.clearbit.com/web.coo.skin",
-                "url": "https://web.coo.skin/#/login"
               },
               {
                 "type": "link",
@@ -4639,7 +4604,7 @@
                 "addDate": 1726936837965,
                 "title": "注册账户 - Citruscloud",
                 "icon": "https://logo.clearbit.com/portal.citruscloud.cyou",
-                "url": "https://portal.citruscloud.cyou/reguser?aff=4RF3Nvpe"
+                "url": "https://portal.citruscloud.cyou/login"
               },
               {
                 "type": "link",
@@ -4653,12 +4618,12 @@
                 "addDate": 1731421553147,
                 "title": "注册账户 - 魔戒.net",
                 "icon": "https://logo.clearbit.com/mojie.app",
-                "url": "https://mojie.app/register?aff=JE7wHOT0"
+                "url": "https://mojie.app/login"
               },
               {
                 "type": "link",
                 "addDate": 1732274989102,
-                "title": "SakuraCat_DokiDokiWeb - 实用小工具导航",
+                "title": "SakuraCat_DokiDokiWeb",
                 "icon": "https://logo.clearbit.com/dokidokiweb.com",
                 "url": "https://dokidokiweb.com/"
               },
@@ -4703,13 +4668,6 @@
                 "title": "Cloudflare 中国官网 | 智能化云服务平台 | 免费CDN安全防护 | Cloudflare",
                 "icon": "https://logo.clearbit.com/www.cloudflare-cn.com",
                 "url": "https://www.cloudflare-cn.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "CloudflareSpeedTest: 🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 网站 IP ~",
-                "icon": "https://logo.clearbit.com/github.com",
-                "url": "https://github.com/XIU2/CloudflareSpeedTest"
               },
               {
                 "type": "link",
@@ -8429,6 +8387,13 @@
                 "url": "https://oshwhub.com/"
               }
             ]
+          },
+          {
+            "type": "link",
+            "addDate": 1737740791086,
+            "title": "GitHub Dashboard",
+            "icon": "https://logo.clearbit.com/github.com",
+            "url": "https://github.com/dashboard"
           },
           {
             "type": "link",
