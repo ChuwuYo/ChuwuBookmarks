@@ -5,7 +5,11 @@
 本人技术目前仅限于此，小bug真的修不完，抱歉😥
 移动端显示问题暂未解决,要求高建议看一下Pintree和TabMark，是两个个成熟的项目了（前者开源有付费模式，后者闭源）
 
+PC：
 [![image.png](https://i.postimg.cc/Kzvy2FpK/image.png)](https://postimg.cc/94SkP3hV)
+
+移动端：
+[![hatsuchuwu-github-io.png](https://i.postimg.cc/x8hrq4qJ/hatsuchuwu-github-io.png)](https://postimg.cc/hQLZ5MLc)
 
 * * *
 
