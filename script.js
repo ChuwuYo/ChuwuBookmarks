@@ -7,7 +7,42 @@
  * 5. 为侧边栏切换按钮添加点击事件，点击后切换侧边栏的显示状态。
  * 6. 为搜索框和搜索按钮添加事件监听器，实现搜索功能。
  */
+// 创建媒体查询匹配器
+const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+// 处理侧边栏在移动设备上的状态
+function handleMobileView(e) {
+    const sidebar = document.querySelector('.sidebar');
+    const toggleButton = document.getElementById('toggle-sidebar');
+    
+    if (e.matches) {
+        // 小屏幕模式
+        sidebar.classList.add('collapsed');
+        toggleButton.textContent = '🫸';
+    }
+}
+
+// 初始检查和添加监听器
+mobileMediaQuery.addListener(handleMobileView);
+
+// 调整home-message的位置
+function adjustHomeMessagePosition(isCollapsed) {
+    const homeMessage = document.querySelector('.home-message');
+    if (homeMessage) {
+        if (mobileMediaQuery.matches) {
+            // 在移动设备视图下，始终居中
+            homeMessage.style.left = '50%';
+        } else {
+            // 在桌面视图下，根据侧边栏状态调整
+            homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // 初始检查移动设备视图
+    handleMobileView(mobileMediaQuery);
+    
     fetch('bookmarks.json')
         .then(response => {
             if (!response.ok) {
@@ -36,14 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleSidebarButton.textContent = isCollapsed ? '🫷' : '🫸';
                 
                 // 调整主页信息的位置
-                const homeMessage = document.querySelector('.home-message');
-                if (homeMessage) {
-                    if (!isCollapsed) {
-                        homeMessage.style.left = '50%';
-                    } else {
-                        homeMessage.style.left = 'calc(50% + 110px)'; // 220px/2
-                    }
-                }
+                adjustHomeMessagePosition(!isCollapsed);
             });
 
             // 搜索功能
@@ -130,6 +158,11 @@ function renderHomePage() {
     homeMessage.className = 'home-message';
     homeMessage.textContent = '初五的书签🤗';
     content.appendChild(homeMessage);
+    
+    // 初始化home-message位置
+    const sidebar = document.querySelector('.sidebar');
+    const isCollapsed = sidebar.classList.contains('collapsed');
+    adjustHomeMessagePosition(isCollapsed);
 }
 
 /**
