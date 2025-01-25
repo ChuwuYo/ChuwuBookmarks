@@ -113,8 +113,15 @@ function renderSidebar(data) {
 
     const rootFolder = data.find(item => item.title === '书签栏');
     if (rootFolder) {
+        // 为根文件夹的直接子文件夹设置父引用
         rootFolder.children.forEach(item => {
             if (item.type === 'folder') {
+                item.parent = rootFolder;
+                // 递归设置所有子文件夹的父引用
+                if (item.children) {
+                    setParentReferences(item.children, item);
+                }
+                
                 const folderElement = document.createElement('div');
                 folderElement.className = 'folder';
 
@@ -139,6 +146,18 @@ function renderSidebar(data) {
     }
 }
 
+// 递归设置所有子文件夹的父引用
+function setParentReferences(items, parent) {
+    items.forEach(item => {
+        if (item.type === 'folder') {
+            item.parent = parent;
+            if (item.children) {
+                setParentReferences(item.children, item);
+            }
+        }
+    });
+}
+
 /**
  * 渲染主页内容。
  * 主页显示一个欢迎消息，并居中显示。
@@ -152,13 +171,13 @@ function renderHomePage() {
     content.style.display = 'flex';
     content.style.justifyContent = 'center';
     content.style.alignItems = 'center';
-    content.style.height = '100%';
+    content.style.height = '100%'; // 设置高度为100%，使内容垂直居中
 
     const homeMessage = document.createElement('div');
     homeMessage.className = 'home-message';
     homeMessage.textContent = '初五的书签🤗';
     content.appendChild(homeMessage);
-    
+        
     // 初始化home-message位置
     const sidebar = document.querySelector('.sidebar');
     const isCollapsed = sidebar.classList.contains('collapsed');
@@ -192,16 +211,27 @@ function renderMainContent(folder) {
         currentFolder = currentFolder.parent;
     }
 
-    breadcrumbPath.forEach((crumb, index) => {
+    // 过滤掉"书签栏"，只显示从一级文件夹开始的路径
+    const filteredPath = breadcrumbPath.filter(crumb => crumb.title !== '书签栏');
+    
+    filteredPath.forEach((crumb, index) => {
         const crumbElement = document.createElement('span');
         crumbElement.textContent = crumb.title;
-        crumbElement.addEventListener('click', () => {
-            renderMainContent(crumb);
-        });
+        crumbElement.className = 'breadcrumb-item';
+        
+        // 为面包屑项添加点击事件，但不包括"书签栏"和当前项
+        if (crumb.parent && index !== filteredPath.length - 1) {
+            crumbElement.addEventListener('click', () => {
+                renderMainContent(crumb);
+            });
+        }
 
         breadcrumbs.appendChild(crumbElement);
-        if (index < breadcrumbPath.length - 1) {
-            breadcrumbs.appendChild(document.createTextNode(' > '));
+        if (index < filteredPath.length - 1) {
+            const separator = document.createElement('span');
+            separator.textContent = ' > ';
+            separator.className = 'breadcrumb-separator';
+            breadcrumbs.appendChild(separator);
         }
     });
 

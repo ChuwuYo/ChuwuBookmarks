@@ -1,11 +1,13 @@
 /* 页面基础样式 */
 body {
-    font-family: Arial, sans-serif; /* 设置页面的字体为Arial或无衬线字体 */
-    margin: 0; /* 去除页面默认的外边距 */
-    padding: 0; /* 去除页面默认的内边距 */
-    display: flex; /* 使用弹性布局 */
-    min-height: 100vh; /* 设置最小高度为视口高度 */
-    background-color: #f5f5f5; /* 设置页面背景颜色为浅灰色 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8faef;
+    overflow-x: hidden; /* 防止页面级别的水平滚动 */
+    width: 100%; /* 确保body宽度为100% */
 }
 
 /* 侧边栏样式 */
@@ -16,7 +18,7 @@ body {
     width: 220px;
     background-color: #e2f5f5;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 20px 20px 40px 20px; /* 底部增加到40px */
     transition: all 0.3s ease;
     overflow-y: auto;
     overflow-x: hidden;
@@ -57,7 +59,7 @@ body {
 
 /* 普通状态下按钮的悬停效果 */
 .sidebar:not(.collapsed) #toggle-sidebar:hover {
-    background-color: rgba(136, 205, 250, 0.1);
+    background-color: rgba(32, 74, 102, 0.1);
 }
 
 /* 侧边栏收起时的按钮样式 */
@@ -107,12 +109,12 @@ body {
 
 /* 文件夹样式 */
 .sidebar .folder {
-    margin: 1rem 0; /* 设置文件夹上下外边距为1rem */
+    margin: 1.2rem 0; /* 设置文件夹上下外边距为1rem */
 }
 
 /* 文件夹名称样式 */
 .sidebar .folder-name {
-    font-size: 1.2rem; /* 设置文件夹名称字体大小为1.2rem */
+    font-size: 1.0rem; /* 设置文件夹名称字体大小为1.2rem */
     padding: 0.5rem; /* 设置文件夹名称内边距为0.5rem */
     cursor: pointer; /* 设置鼠标指针样式为指针 */
     transition: background-color 0.3s; /* 添加背景颜色过渡效果，持续时间为0.3秒 */
@@ -131,14 +133,13 @@ body {
     padding: 20px 20px 20px 40px;
     background-color: #f8faef;
     transition: all 0.3s ease;
-    width: calc(100% - 220px);
+    flex: 1;
     box-sizing: border-box;
 }
 
 /* 侧边栏收起时主要内容区域的样式 */
 .sidebar.collapsed + .main-content {
     margin-left: 0;
-    width: 100%;
     padding: 20px;
 }
 
@@ -156,20 +157,44 @@ body {
 
 /* 面包屑导航样式 */
 #breadcrumbs {
-    margin-bottom: 1rem; /* 设置面包屑导航底部外边距为1rem */
-    padding-top: 60px; 
+    margin-bottom: 1rem;
+    padding-top: 60px;
     padding-left: 10px;
+    font-size: 1.1rem;
 }
 
-/* 面包屑导航文字样式 */
-#breadcrumbs span {
-    cursor: pointer; /* 设置面包屑导航文字指针样式为指针 */
-    color: #3498db; /* 设置面包屑导航文字颜色为浅蓝色 */
+/* 面包屑导航项样式 */
+.breadcrumb-item {
+    cursor: pointer;
+    color: #3498db;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-/* 面包屑导航文字的悬停效果 */
-#breadcrumbs span:hover {
-    text-decoration: underline; /* 当鼠标悬停在面包屑导航文字上时，添加下划线效果 */
+/* 面包屑导航项的悬停效果 */
+.breadcrumb-item:hover {
+    background-color: #eef7fe;
+    text-decoration: underline;
+}
+
+/* 面包屑分隔符样式 */
+.breadcrumb-separator {
+    color: #7f8c8d;
+    margin: 0 4px;
+    user-select: none;
+}
+
+/* 最后一个面包屑项（当前位置）样式 */
+.breadcrumb-item:last-child {
+    color: #2c3e50;
+    font-weight: bold;
+    cursor: default;
+}
+
+.breadcrumb-item:last-child:hover {
+    background-color: transparent;
+    text-decoration: none;
 }
 
 /* 内容区域样式 */
