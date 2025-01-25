@@ -7,11 +7,11 @@
 
 PC：
 
-[![image.png](https://i.postimg.cc/Kzvy2FpK/image.png)](https://postimg.cc/94SkP3hV)
+[![PC.png](https://i.postimg.cc/x8w8by2s/PC.png)](https://postimg.cc/XBg4R5XF)
 
 移动端：
 
-[![hatsuchuwu-github-io.png](https://i.postimg.cc/x8hrq4qJ/hatsuchuwu-github-io.png)](https://postimg.cc/hQLZ5MLc)
+[![image.png](https://i.postimg.cc/y6tk5BZF/image.png)](https://postimg.cc/qgcJhPQR)
 
 * * *
 
