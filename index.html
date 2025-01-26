@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <!-- 设置视口，确保页面在移动设备上正确显示 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的书签导航</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,6 +21,7 @@
         <div class="search-container">
             <input type="text" id="search-input" placeholder="搜索书签..." />
             <button id="search-button">🔍</button>
+            <button id="theme-toggle" class="theme-toggle">🌞</button>
         </div>
         <div id="breadcrumbs"></div><!-- 面包屑导航容器 -->
         <div id="content"></div><!-- 主内容容器 -->

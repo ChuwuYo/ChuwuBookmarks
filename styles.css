@@ -1,13 +1,39 @@
 /* 页面基础样式 */
+/* 浅色主题样式 */
+[data-theme='light'] {
+    --bg-color: #f8faef;
+    --sidebar-bg: #e2f5f5;
+    --text-color: #2c3e50;
+    --link-color: #3498db;
+    --hover-bg: #dfe6e9;
+    --button-bg: #88cdfa;
+    --button-hover: #f5aed9;
+    --header-bg: #88cdfa;
+}
+
+/* 深色主题样式 */
+[data-theme='dark'] {
+    --bg-color: #1a1a1a;
+    --sidebar-bg: #2d3436;
+    --text-color: #ecf0f1;
+    --link-color: #74b9ff;
+    --hover-bg: #2d3436;
+    --button-bg: #0984e3;
+    --button-hover: #6c5ce7;
+    --header-bg: #0984e3;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     min-height: 100vh;
-    background-color: #f8faef;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     overflow-x: hidden; /* 防止页面级别的水平滚动 */
     width: 100%; /* 确保body宽度为100% */
+    transition: background-color 0.3s ease;
 }
 
 /* 侧边栏样式 */
@@ -16,22 +42,20 @@ body {
     top: 0;
     left: 0;
     width: 220px;
-    background-color: #e2f5f5;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--sidebar-bg);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     padding: 20px 20px 40px 20px; /* 底部增加到40px */
     transition: all 0.3s ease;
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
     z-index: 1000;
-    transition: background-color 0.5s; /* 添加背景颜色过渡效果，持续时间为0.5秒 */
 }
 
 /* 折叠状态下的侧边栏样式 */
 .sidebar.collapsed {
     width: 0; /* 完全收起侧边栏 */
     padding: 0; /* 移除内边距 */
-    transition: background-color 0.5s; /* 添加背景颜色过渡效果，持续时间为0.5秒 */
 }
 
 /* 折叠状态下隐藏侧边栏标题和文件夹名称 */
@@ -49,7 +73,8 @@ body {
     padding: 8px 10px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    margin-right: 5px; /* 与侧栏边框保持间距 */
+    margin-right: 5px;
+    color: var(--text-color);
 }
 
 /* 普通状态下的按钮（在侧边栏内） */
@@ -59,7 +84,7 @@ body {
 
 /* 普通状态下按钮的悬停效果 */
 .sidebar:not(.collapsed) #toggle-sidebar:hover {
-    background-color: rgba(32, 74, 102, 0.1);
+    background-color: var(--hover-bg);
 }
 
 /* 侧边栏收起时的按钮样式 */
@@ -67,62 +92,59 @@ body {
     position: fixed;
     left: 0;
     top: 20px;
-    background-color: #e2f5f5;
-    /* 设置元素的圆角，左上角和左下角为直角，右上角和右下角为5像素的圆角 */
+    background-color: var(--sidebar-bg);
     border-radius: 0 5px 5px 0;
-    /* 设置元素的内边距，上下为15像素，左右为10像素 */
     padding: 8px 8px;
-    /* 设置元素的阴影效果，水平偏移2像素，垂直偏移0像素，模糊半径5像素，颜色为半透明黑色（rgba(0, 0, 0, 0.1)） */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 侧边栏收起时按钮的悬停效果 */
 .sidebar.collapsed #toggle-sidebar:hover {
-    background-color: #d1efef;
+    background-color: var(--hover-bg);
 }
 
 /* 侧边栏头部样式 */
 .sidebar-header {
     display: flex;
     align-items: center;
-    gap: 20px; /* 增加两个按钮之间的间距 */
+    gap: 20px;
     margin-bottom: 20px;
-    padding: 0 5px; /* 与侧边栏边缘保持间距 */
+    padding: 0 5px;
 }
 
 /* 侧边栏标题样式 */
 .sidebar h1 {
-    background-color: #88cdfa;
+    background-color: var(--header-bg);
     color: white;
-    padding: 8px 20px; /* 增加左右padding使按钮更长 */
+    padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 0;
-    flex-grow: 0; /* 防止自动拉伸 */
+    flex-grow: 0;
 }
 
 /* 侧边栏标题的悬停效果 */
 .sidebar h1:hover {
-    background-color: #f5aed9; /* 当鼠标悬停在侧边栏标题上时，背景颜色变为浅粉色 */
+    background-color: var(--button-hover);
 }
 
 /* 文件夹样式 */
 .sidebar .folder {
-    margin: 1.2rem 0; /* 设置文件夹上下外边距为1rem */
+    margin: 1.2rem 0;
 }
 
 /* 文件夹名称样式 */
 .sidebar .folder-name {
-    font-size: 1.0rem; /* 设置文件夹名称字体大小为1.2rem */
-    padding: 0.5rem; /* 设置文件夹名称内边距为0.5rem */
-    cursor: pointer; /* 设置鼠标指针样式为指针 */
-    transition: background-color 0.3s; /* 添加背景颜色过渡效果，持续时间为0.3秒 */
+    font-size: 1.0rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 /* 文件夹名称的悬停效果 */
 .sidebar .folder-name:hover {
-    background-color: #dfe6e9; /* 当鼠标悬停在文件夹名称上时，背景颜色变为淡灰色 */
+    background-color: var(--hover-bg);
 }
 
 /* 主内容区域样式 */
@@ -131,7 +153,7 @@ body {
     margin-left: 260px;
     min-height: 100vh;
     padding: 20px 20px 20px 40px;
-    background-color: #f8faef;
+    background-color: var(--bg-color);
     transition: all 0.3s ease;
     flex: 1;
     box-sizing: border-box;
@@ -145,14 +167,14 @@ body {
 
 /* 首页消息样式 */
 .home-message {
-    position: fixed; /* 将元素固定在视口 */
-    top: 50%; /* 将元素的顶部边缘设置为视口顶部边缘的50% */
-    left: calc(50% + (220px - 20px) / 2); /* 计算元素左侧边缘的位置，使其根据侧边栏是否隐藏来动态调整 */
-    transform: translate(-50%, -50%); /* 将元素向左和向上移动50%，使其中心对准视口中心 */
-    font-size: 1.6rem; /* 设置字体大小 */
-    font-weight: bold; /* 设置字体加粗 */
-    text-align: center; /* 设置文本居中对齐 */
-    color: #42502c; /* 设置文本颜色 */
+    position: fixed;
+    top: 50%;
+    left: calc(50% + (220px - 20px) / 2);
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
 }
 
 /* 面包屑导航样式 */
@@ -166,7 +188,7 @@ body {
 /* 面包屑导航项样式 */
 .breadcrumb-item {
     cursor: pointer;
-    color: #3498db;
+    color: var(--link-color);
     padding: 4px 8px;
     border-radius: 4px;
     transition: all 0.2s ease;
@@ -174,20 +196,20 @@ body {
 
 /* 面包屑导航项的悬停效果 */
 .breadcrumb-item:hover {
-    background-color: #eef7fe;
+    background-color: var(--hover-bg);
     text-decoration: underline;
 }
 
 /* 面包屑分隔符样式 */
 .breadcrumb-separator {
-    color: #7f8c8d;
+    color: var(--text-color);
     margin: 0 4px;
     user-select: none;
 }
 
 /* 最后一个面包屑项（当前位置）样式 */
 .breadcrumb-item:last-child {
-    color: #2c3e50;
+    color: var(--text-color);
     font-weight: bold;
     cursor: default;
 }
@@ -199,25 +221,25 @@ body {
 
 /* 内容区域样式 */
 #content {
-    display: block; /* 确保内容以块级元素排列 */
+    display: block;
     padding-left: 10px;
 }
 
 /* 文件夹和书签样式 */
 #content .folder, #content .bookmark {
-    margin: 1rem 0; /* 设置文件夹和书签的上下外边距为1rem */
+    margin: 1rem 0;
 }
 
 /* 书签链接样式 */
 .bookmark a {
-    color: #2c3e50; /* 设置书签链接文字颜色为深蓝色 */
-    text-decoration: none; /* 去除书签链接下划线 */
-    transition: color 0.3s; /* 添加文字颜色过渡效果，持续时间为0.3秒 */
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 /* 书签链接的悬停效果 */
 .bookmark a:hover {
-    color: #3498db; /* 当鼠标悬停在书签链接上时，文字颜色变为浅蓝色 */
+    color: var(--link-color);
 }
 
 /* 搜索容器样式 */
@@ -230,35 +252,69 @@ body {
     align-items: center;
     transition: all 0.3s ease;
     z-index: 999;
-    margin-left: 110px; /* 侧边栏宽度的一半，用于补偿居中位置 */
+    margin-left: 110px;
     white-space: nowrap;
 }
 
 /* 侧边栏收起时搜索容器的样式 */
 .sidebar.collapsed + .main-content .search-container {
-    margin-left: 0; /* 侧边栏收起时不需要补偿 */
+    margin-left: 0;
 }
 
 /* 搜索输入框样式 */
 #search-input {
-    padding: 8px; /* 设置输入框内边距为8px */
-    font-size: 1rem; /* 设置字体大小为1rem */
-    border: 1px solid #ccc; /* 设置边框为1px的灰色实线 */
-    border-radius: 5px; /* 设置边框圆角为5px */
-    width: 200px; /* 设置输入框宽度为200px */
-    max-width: calc(100vw - 120px); /* 确保在小屏幕上不会溢出 */
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    width: 200px;
+    max-width: calc(100vw - 120px);
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* 搜索按钮样式 */
 #search-button {
-    padding: 8px 12px; /* 设置按钮内边距为上下8px，左右12px */
-    font-size: 1rem; /* 设置字体大小为1rem */
-    border: 1px solid #ccc; /* 设置边框为1px的灰色实线 */
-    border-radius: 5px; /* 设置边框圆角为5px */
-    background-color: #88cdfa; /* 设置按钮背景颜色为浅蓝色 */
-    color: white; /* 设置文字颜色为白色 */
-    cursor: pointer; /* 设置鼠标指针样式为指针 */
-    margin-left: 5px; /* 设置按钮左侧外边距为5px */
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover,
+#search-button:hover {
+    background-color: var(--button-hover);
+}
+
+/* 在较窄的屏幕上将主题按钮变成圆形 */
+@media screen and (max-width: 640px) {
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* 移动设备适配 */
@@ -281,10 +337,10 @@ body {
         position: fixed;
         left: 0;
         top: 20px;
-        background-color: #e2f5f5;
+        background-color: var(--sidebar-bg);
         border-radius: 0 5px 5px 0;
         padding: 8px 8px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     }
 
     /* 展开状态下将切换按钮放回标题栏 */
@@ -304,8 +360,8 @@ body {
 
     /* 调整搜索容器位置 */
     .search-container {
-        margin-left: 40px; /* 为侧边栏切换按钮留出空间 */
-        max-width: calc(100% - 60px); /* 防止内容溢出 */
+        margin-left: 40px;
+        max-width: calc(100% - 60px);
     }
 
     /* 展开时的侧边栏样式 */
@@ -328,15 +384,10 @@ body {
     }
 }
 
-/* 搜索按钮的悬停效果 */
-#search-button:hover {
-    background-color: #f5aed9; /* 当鼠标悬停在按钮上时，背景颜色变为浅粉色 */
-}
-
 /* 无搜索结果样式 */
 .no-results {
-    font-size: 1.2rem; /* 设置字体大小为1.2rem */
-    color: #888; /* 设置文字颜色为灰色 */
-    text-align: center; /* 设置文字居中对齐 */
-    margin-top: 20px; /* 设置顶部外边距为20px */
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 20px;
 }

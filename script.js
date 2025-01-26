@@ -39,7 +39,30 @@ function adjustHomeMessagePosition(isCollapsed) {
     }
 }
 
+// 初始化主题设置
+function initTheme() {
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.textContent = theme === 'light' ? '🌞' : '🌙';
+}
+
+// 切换主题
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // 更新按钮图标
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.textContent = newTheme === 'light' ? '🌞' : '🌙';
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // 初始化主题
+    initTheme();
+    
     // 初始检查移动设备视图
     handleMobileView(mobileMediaQuery);
     
@@ -96,6 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             });
+
+            // 主题切换按钮事件监听
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', toggleTheme);
         })
         .catch(error => console.error(error));
 });
