@@ -1,4 +1,5 @@
 /* 页面基础样式 */
+
 /* 浅色主题样式 */
 [data-theme='light'] {
     --bg-color: #f8faef;
@@ -237,7 +238,7 @@ body {
     transition: color 0.3s;
 }
 
-/* 书签链接的悬停效果 */
+/* 书签链接悬停效果 */
 .bookmark a:hover {
     color: var(--link-color);
 }
