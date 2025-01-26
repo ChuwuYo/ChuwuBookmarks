@@ -7818,6 +7818,13 @@
                 "title": "Hexo",
                 "icon": "https://logo.clearbit.com/hexo.io",
                 "url": "https://hexo.io/zh-cn/"
+              },
+              {
+                "type": "link",
+                "addDate": 1737887389602,
+                "title": "在线IDE StackBlitz | Instant Dev Environments | Click. Code. Done.",
+                "icon": "https://logo.clearbit.com/stackblitz.com",
+                "url": "https://stackblitz.com/"
               }
             ]
           },
