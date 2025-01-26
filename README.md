@@ -7,7 +7,7 @@
 
 PC：
 
-[![PC.png](https://i.postimg.cc/TPWc6Jct/PC.png)](https://postimg.cc/bGpn0bWn)      [![PC.png](https://i.postimg.cc/3N3j25Qq/PC.png)](https://postimg.cc/XGDy0PJK)
+[![PC.png](https://i.postimg.cc/x1Vf504q/PC.png)](https://postimg.cc/SJVbNpqp)     [![PC.png](https://i.postimg.cc/3N3j25Qq/PC.png)](https://postimg.cc/XGDy0PJK)
 
 移动端：
 
