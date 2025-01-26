@@ -7,11 +7,13 @@
 
 PC：
 
-[![PC.png](https://i.postimg.cc/x8w8by2s/PC.png)](https://postimg.cc/XBg4R5XF)
+[![PC.png](https://i.postimg.cc/TPWc6Jct/PC.png)](https://postimg.cc/bGpn0bWn)
+
+[![PC.png](https://i.postimg.cc/3N3j25Qq/PC.png)](https://postimg.cc/XGDy0PJK)
 
 移动端：
 
-[![image.png](https://i.postimg.cc/y6tk5BZF/image.png)](https://postimg.cc/qgcJhPQR)
+[![image.png](https://i.postimg.cc/ZRtxKv74/image.png)](https://postimg.cc/5HgCsyWR)      [![image.png](https://i.postimg.cc/JnNcy7vJ/image.png)](https://postimg.cc/WF4JCV2b)
 
 * * *
 
@@ -111,8 +113,6 @@ PC：
 
 1. **书签管理功能**：
    
-   * 支持书签的增删改操作。
-   
    * 提供书签导入和导出功能。
 
 2. **用户自定义**：
@@ -127,24 +127,8 @@ PC：
    
    * 实现懒加载，减少初始加载时间。
 
-4. **扩展功能**：
-   
-   * 支持书签的分类和标签功能。
-   
-   * 提供书签的分享和协作功能。
-
 ---
 
 ### **未完成的功能**
 
-1. **主题切换**：
-   
-   * 项目文档中提到支持深色模式和浅色模式切换，但目前的 `styles.css` 中没有实现主题切换功能。
-   
-   * 需要添加主题切换的逻辑，可能通过 JavaScript 动态切换 CSS 类来实现。
-
-2. **书签管理功能**：
-   
-   * 项目文档中提到未来改进方向包括书签的增删改操作，以及书签的导入和导出功能。这些功能目前尚未实现。
-
-3. **自动获取网页的icon或缩略图**
+1. **自动获取网页的icon或缩略图**
