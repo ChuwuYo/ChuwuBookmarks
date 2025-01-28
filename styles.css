@@ -4,8 +4,8 @@
 [data-theme='light'] {
     --bg-color: #f8faef;
     --sidebar-bg: #e2f5f5;
-    --text-color: #2c3e50;
-    --link-color: #3498db;
+    --text-color: #0e141a;
+    --link-color: #2bc3ce;
     --hover-bg: #dfe6e9;
     --button-bg: #88cdfa;
     --button-hover: #f5aed9;
@@ -180,6 +180,7 @@ body {
 
 /* 面包屑导航样式 */
 #breadcrumbs {
+    font-weight: bold;
     margin-bottom: 1rem;
     padding-top: 60px;
     padding-left: 10px;
@@ -224,6 +225,7 @@ body {
 #content {
     display: block;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 /* 文件夹和书签样式 */
@@ -281,7 +283,7 @@ body {
     border: 1px solid var(--text-color);
     border-radius: 5px;
     background-color: var(--button-bg);
-    color: white;
+    color: rgb(122, 252, 254);
     cursor: pointer;
     margin-left: 5px;
     transition: all 0.3s ease;
@@ -289,19 +291,6 @@ body {
 
 .theme-toggle:hover {
     background-color: var(--button-hover);
-}
-
-/* 在较窄的屏幕上将主题按钮变成圆形 */
-@media screen and (max-width: 640px) {
-    .theme-toggle {
-        width: 36px;
-        height: 36px;
-        padding: 6px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 }
 
 /* 移动设备适配 */
