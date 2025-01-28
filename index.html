@@ -2,29 +2,30 @@
 <html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <!-- 设置视口，确保页面在移动设备上正确显示 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的书签导航</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <h1>🏠🎏</h1>
+            <h1 onclick="renderHome()">🏠🎏</h1>
             <button id="toggle-sidebar">🫷</button>
         </div>
-        <!-- 侧边栏文件夹容器 -->
         <div id="sidebar-folders"></div>
     </div>
     <div class="main-content">
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="搜索书签..." />
-            <button id="search-button">🔍</button>
+            <input type="text"
+                   id="search-input"
+                   name="query"
+                   placeholder="🔍 搜索书签..."
+                   onkeyup="debounceSearch(event)"/>
             <button id="theme-toggle" class="theme-toggle">🌞</button>
         </div>
-        <div id="breadcrumbs"></div><!-- 面包屑导航容器 -->
-        <div id="content"></div><!-- 主内容容器 -->
+        <div id="breadcrumbs"></div>
+        <div id="content"></div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
