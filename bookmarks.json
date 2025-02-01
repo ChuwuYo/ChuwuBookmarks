@@ -330,6 +330,13 @@
             "title": "NyaFun - 最新发布页",
             "icon": "https://logo.clearbit.com/www.nyacg.net",
             "url": "https://www.nyacg.net/"
+          },
+          {
+            "type": "link",
+            "addDate": 1738153452602,
+            "title": "扶她404 – 动画追番与漫画推荐",
+            "icon": "https://logo.clearbit.com/www.futa404.org",
+            "url": "http://www.futa404.org/"
           }
         ]
       },
@@ -4339,6 +4346,20 @@
                 "title": "登录 - XFLTD",
                 "icon": "https://logo.clearbit.com/xfltd.cc",
                 "url": "https://xfltd.cc/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738145064878,
+                "title": "MESL – Global Acceleration",
+                "icon": "https://logo.clearbit.com/mesl.cloud",
+                "url": "https://mesl.cloud/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738145249926,
+                "title": "泡泡Dog地址发布页",
+                "icon": "https://logo.clearbit.com/ppg.369.cyou",
+                "url": "https://ppg.369.cyou/#"
               }
             ]
           },
@@ -4468,13 +4489,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1708535918022,
-                "title": "SagerNet/sing-box: The universal proxy platform",
-                "icon": "https://logo.clearbit.com/github.com",
-                "url": "https://github.com/SagerNet/sing-box"
-              },
-              {
-                "type": "link",
                 "addDate": 1711788175081,
                 "title": "NekoBox & NekoRay 官网下载 - NekoBox & NekoRay",
                 "icon": "https://logo.clearbit.com/getnekobox.com",
@@ -4510,13 +4524,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1718272949554,
-                "title": "sub-store-org/Sub-Store：QX、Loon、Surge、Stash 和 Shadowrocket 的高级订阅管理器！",
-                "icon": "https://logo.clearbit.com/github.com",
-                "url": "https://github.com/sub-store-org/Sub-Store"
-              },
-              {
-                "type": "link",
                 "addDate": 1727076101923,
                 "title": "FlClash: A multi-platform proxy client based on ClashMeta,simple and easy to use, open-source and ad-free.",
                 "icon": "https://logo.clearbit.com/github.com",
@@ -4528,6 +4535,13 @@
                 "title": "小地球仪",
                 "icon": "https://logo.clearbit.com/www.xiaodiqiuyi.com",
                 "url": "https://www.xiaodiqiuyi.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738255051532,
+                "title": "SagerNet/sing-box: The universal proxy platform",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/SagerNet/sing-box"
               }
             ]
           },
@@ -5647,7 +5661,7 @@
           {
             "type": "folder",
             "addDate": 1704014875998,
-            "title": "文字工具",
+            "title": "文本工具",
             "children": [
               {
                 "type": "link",
@@ -5767,6 +5781,13 @@
                 "title": "论文阅读-ReadPaper - 轻松读论文 | 专业翻译 | 一键引文 | 图表同屏",
                 "icon": "https://logo.clearbit.com/readpaper.com",
                 "url": "https://readpaper.com/new"
+              },
+              {
+                "type": "link",
+                "addDate": 1738151124495,
+                "title": "README 生成器",
+                "icon": "https://logo.clearbit.com/readme.rustc.cloud",
+                "url": "https://readme.rustc.cloud/zh"
               }
             ]
           },
@@ -6430,6 +6451,13 @@
                     "title": "ChatGippity",
                     "icon": "https://logo.clearbit.com/gippity.chat",
                     "url": "https://gippity.chat/"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1738185534922,
+                    "title": "Lambda Chat",
+                    "icon": "https://logo.clearbit.com/lambda.chat",
+                    "url": "https://lambda.chat/"
                   }
                 ]
               },
@@ -6863,39 +6891,67 @@
             ]
           },
           {
+            "type": "folder",
+            "addDate": 1738151225254,
+            "title": "格式转换",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1722620014110,
+                "title": "Convertr.org",
+                "icon": "https://logo.clearbit.com/convertr.org",
+                "url": "https://convertr.org/zh/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738151197431,
+                "title": "Convert document, image, video and audio files online",
+                "icon": "https://logo.clearbit.com/www.aconvert.com",
+                "url": "https://www.aconvert.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1730695241367,
+                "title": "rippod/apate: 简洁、快速地对文件进行格式伪装",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/rippod/apate"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1738151264483,
+            "title": "文件/病毒检测",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "病毒总计",
+                "icon": "https://logo.clearbit.com/www.virustotal.com",
+                "url": "https://www.virustotal.com/gui/home/upload"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "腾讯哈勃分析系统",
+                "icon": "https://logo.clearbit.com/habo.qq.com",
+                "url": "https://habo.qq.com/index"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "VirScan - 多引擎文件在线检测平台",
+                "icon": "https://logo.clearbit.com/www.virscan.org",
+                "url": "https://www.virscan.org/"
+              }
+            ]
+          },
+          {
             "type": "link",
             "addDate": 1704012714000,
             "title": "源仓库",
             "icon": "https://logo.clearbit.com/www.yckceo.com",
             "url": "https://www.yckceo.com/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "病毒总计",
-            "icon": "https://logo.clearbit.com/www.virustotal.com",
-            "url": "https://www.virustotal.com/gui/home/upload"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "腾讯哈勃分析系统",
-            "icon": "https://logo.clearbit.com/habo.qq.com",
-            "url": "https://habo.qq.com/index"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "VirScan - 多引擎文件在线检测平台",
-            "icon": "https://logo.clearbit.com/www.virscan.org",
-            "url": "https://www.virscan.org/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "Thief: 一款创新跨平台摸鱼神器，支持小说、股票、网页、视频、直播、PDF、游戏等摸鱼模式，为上班族打造的上班必备神器，使用此软件可以让上班倍感轻松，远离 ICU。",
-            "icon": "https://logo.clearbit.com/github.com",
-            "url": "https://github.com/cteamx/Thief"
           },
           {
             "type": "link",
@@ -6917,20 +6973,6 @@
             "title": "taojy123/KeymouseGo: 类似按键精灵的鼠标键盘录制和自动化操作 模拟点击和键入 | automate mouse clicks and keyboard input",
             "icon": "https://logo.clearbit.com/github.com",
             "url": "https://github.com/taojy123/KeymouseGo"
-          },
-          {
-            "type": "link",
-            "addDate": 1722620014110,
-            "title": "Convertr.org",
-            "icon": "https://logo.clearbit.com/convertr.org",
-            "url": "https://convertr.org/zh/"
-          },
-          {
-            "type": "link",
-            "addDate": 1730695241367,
-            "title": "rippod/apate: 简洁、快速地对文件进行格式伪装",
-            "icon": "https://logo.clearbit.com/github.com",
-            "url": "https://github.com/rippod/apate"
           },
           {
             "type": "link",
@@ -8119,6 +8161,20 @@
                 "title": "</> htmx ~ Documentation",
                 "icon": "https://logo.clearbit.com/htmx.org",
                 "url": "https://htmx.org/docs/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738344223909,
+                "title": "CSS 和界面  |  CSS and UI  |  Chrome for Developers",
+                "icon": "https://logo.clearbit.com/developer.chrome.com",
+                "url": "https://developer.chrome.com/docs/css-ui?hl=zh-cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1738344311045,
+                "title": "MDN Web 文档 - MDN 文档",
+                "icon": "https://logo.clearbit.com/mdn.org.cn",
+                "url": "https://mdn.org.cn/en-US/"
               }
             ]
           },
@@ -8191,6 +8247,13 @@
             "title": "NocoBase-开源、私有部署的轻量级无代码和低代码开发平台",
             "icon": "https://logo.clearbit.com/cn.nocobase.com",
             "url": "https://cn.nocobase.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1738162727901,
+            "title": "Open VSX Registry",
+            "icon": "https://logo.clearbit.com/open-vsx.org",
+            "url": "https://open-vsx.org/"
           }
         ]
       },
@@ -8985,41 +9048,6 @@
           },
           {
             "type": "folder",
-            "addDate": 1704014876014,
-            "title": "E5",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "E5：1805948721@houjunwen.onmicrosoft.com",
-                "icon": "https://logo.clearbit.com/myaccount.microsoft.com",
-                "url": "https://myaccount.microsoft.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Active users - Microsoft 365 admin center",
-                "icon": "https://logo.clearbit.com/admin.microsoft.com",
-                "url": "https://admin.microsoft.com/Adminportal/Home?#/users"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "E5 续订加 官方网站",
-                "icon": "https://logo.clearbit.com/e5renew.com",
-                "url": "https://e5renew.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "E5续订集合 | 程源の小站",
-                "icon": "https://logo.clearbit.com/blog.cycxtit.top",
-                "url": "https://blog.cycxtit.top/p/1d1b"
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1704014876015,
             "title": "网页快照",
             "children": [
@@ -9029,13 +9057,6 @@
                 "title": "Internet Archive: Wayback Machine",
                 "icon": "https://logo.clearbit.com/archive.org",
                 "url": "https://archive.org/web/"
-              },
-              {
-                "type": "link",
-                "addDate": 1713250808871,
-                "title": "回溯机",
-                "icon": "https://logo.clearbit.com/web.archive.org",
-                "url": "https://web.archive.org/"
               },
               {
                 "type": "link",
