@@ -42,7 +42,7 @@ body {
     position: fixed; /* 固定定位 */
     top: 0;
     left: 0;
-    width: 220px;
+    width: 220px; /* 默认宽度 */
     background-color: var(--sidebar-bg);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     padding: 20px 20px 40px 20px; /* 底部增加到40px */
@@ -57,46 +57,59 @@ body {
 .sidebar.collapsed {
     width: 0; /* 完全收起侧边栏 */
     padding: 0; /* 移除内边距 */
+    transition: all 0.3s ease;
 }
 
-/* 折叠状态下隐藏侧边栏标题和文件夹名称 */
+/* 折叠状态下隐藏侧边栏内容 */
 .sidebar.collapsed h1,
 .sidebar.collapsed .folder-name {
     display: none; /* 当侧边栏折叠时，隐藏标题和文件夹名称 */
 }
 
-/* 切换侧边栏按钮样式 */
+/* 侧边栏折叠按钮样式 */
 #toggle-sidebar {
-    background: none;
+    position: fixed; /* 固定定位 */
+    left: 0; /* 保持在侧边栏左侧 */
+    top: 20px; /* 调整按钮位置 */
+    background-color: var(--sidebar-bg); /* 与侧边栏背景一致 */
     border: none;
-    font-size: 1.4rem;
+    border-radius: 0 15px 15px 0; /* 圆角效果 */
+    padding: 8px 12px; /* 调整按钮大小 */
     cursor: pointer;
-    padding: 8px 10px;
-    border-radius: 5px;
+    z-index: 1001; /* 确保按钮在侧边栏之上 */
     transition: all 0.3s ease;
-    margin-right: 5px;
-    color: var(--text-color);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    font-size: 1.3rem;
 }
 
-/* 普通状态下的按钮（在侧边栏内） */
+/* 侧边栏展开时按钮样式 */
 .sidebar:not(.collapsed) #toggle-sidebar {
-    background-color: transparent;
+    left: 200px; /* 侧边栏展开时按钮移动到右侧 */
+    border-radius: 15px; /* 完整圆角 */
+    font-size: 1.3rem;
+    box-shadow: 2px 0 5px rgba(111, 111, 111, 0.2); /* 添加阴影 */
+    padding: 8px 12px; /* 调整按钮大小 */
+}
+
+/* 侧边栏内容的渐变显示 */
+.sidebar .folder-name {
+    opacity: 1; /* 默认显示 */
+    transition: opacity 0.3s ease 0.3s; /* 延迟渐显 */
+}
+
+/* 折叠状态下侧边栏内容的初始状态 */
+.sidebar.collapsed .folder-name {
+    opacity: 0; /* 初始透明度为0 */
+}
+
+/* 侧边栏展开时内容的显示 */
+.sidebar:not(.collapsed) .folder-name {
+    opacity: 1; /* 完全显示 */
 }
 
 /* 普通状态下按钮的悬停效果 */
 .sidebar:not(.collapsed) #toggle-sidebar:hover {
     background-color: var(--hover-bg);
-}
-
-/* 侧边栏收起时的按钮样式 */
-.sidebar.collapsed #toggle-sidebar {
-    position: fixed;
-    left: 0;
-    top: 20px;
-    background-color: var(--sidebar-bg);
-    border-radius: 0 5px 5px 0;
-    padding: 8px 8px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 侧边栏收起时按钮的悬停效果 */
@@ -366,4 +379,30 @@ body {
     color: var(--text-color);
     text-align: center;
     margin-top: 20px;
+}
+
+/* 圆形滑块的滚动条样式（适用于WebKit浏览器，如Chrome、Safari、Edge） */
+::-webkit-scrollbar {
+    width: 12px; /* 滚动条宽度 */
+    height: 12px; /* 滚动条高度（适用于水平滚动） */
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; /* 滚动条轨道背景色 */
+    border-radius: 6px; /* 圆润的轨道 */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* 滚动条滑块颜色 */
+    border-radius: 6px; /* 圆形滑块 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* 滚动条滑块悬停时颜色 */
+}
+
+/* Firefox 滚动条样式 */
+html {
+    scrollbar-width: thin; /* 设置滚动条宽度为细 */
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* 滑块颜色和轨道颜色 */
 }
