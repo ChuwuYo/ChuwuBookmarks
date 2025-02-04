@@ -7,11 +7,13 @@
 
 PC：
 
-[![PC.png](https://i.postimg.cc/x1Vf504q/PC.png)](https://postimg.cc/SJVbNpqp)     [![PC.png](https://i.postimg.cc/3N3j25Qq/PC.png)](https://postimg.cc/XGDy0PJK)
+![image](https://github.com/user-attachments/assets/1432c882-c63b-47f2-b9ca-db3199253dee)      ![image](https://github.com/user-attachments/assets/26f70f91-5ec9-4585-a94f-52c690f5f0bc)
+
 
 移动端：
 
-[![image.png](https://i.postimg.cc/ZRtxKv74/image.png)](https://postimg.cc/5HgCsyWR)      [![image.png](https://i.postimg.cc/JnNcy7vJ/image.png)](https://postimg.cc/WF4JCV2b)
+![image](https://github.com/user-attachments/assets/a8302f6e-0dca-49bc-80ee-8792ba725fca)      ![image](https://github.com/user-attachments/assets/7267e7e6-5ff6-423e-85ef-ac670c1d2f31)
+
 
 * * *
 
