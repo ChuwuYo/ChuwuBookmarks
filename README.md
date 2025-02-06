@@ -12,7 +12,7 @@ PC：
 
 移动端：
 
-![image](https://github.com/user-attachments/assets/a8302f6e-0dca-49bc-80ee-8792ba725fca)      ![image](https://github.com/user-attachments/assets/7267e7e6-5ff6-423e-85ef-ac670c1d2f31)
+![image](https://github.com/user-attachments/assets/a8302f6e-0dca-49bc-80ee-8792ba725fca)![image](https://github.com/user-attachments/assets/7267e7e6-5ff6-423e-85ef-ac670c1d2f31)
 
 
 * * *
