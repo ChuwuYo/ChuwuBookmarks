@@ -4131,6 +4131,13 @@
             "title": "咕咕小站-首页",
             "icon": "https://logo.clearbit.com/www.guguxz.com",
             "url": "https://www.guguxz.com/"
+          },
+          {
+            "type": "link",
+            "addDate": 1739016350314,
+            "title": "Danbooru: Anime Image Board",
+            "icon": "https://logo.clearbit.com/danbooru.donmai.us",
+            "url": "https://danbooru.donmai.us/"
           }
         ]
       },
@@ -6486,6 +6493,13 @@
                     "title": "Lambda Chat",
                     "icon": "https://logo.clearbit.com/lambda.chat",
                     "url": "https://lambda.chat/"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1738943207137,
+                    "title": "火山方舟r1",
+                    "icon": "https://logo.clearbit.com/console.volcengine.com",
+                    "url": "https://console.volcengine.com/ark/region:ark+cn-beijing/experience/chat"
                   }
                 ]
               },
@@ -6712,6 +6726,13 @@
                 "title": "镜像Models - Hugging Face",
                 "icon": "https://logo.clearbit.com/hf-mirror.com",
                 "url": "https://hf-mirror.com/models"
+              },
+              {
+                "type": "link",
+                "addDate": 1739016081175,
+                "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/lobehub/lobe-chat"
               }
             ]
           },
@@ -6782,6 +6803,13 @@
                 "title": "棒糖短信测压",
                 "icon": "https://logo.clearbit.com/sms.bangtang.top",
                 "url": "https://sms.bangtang.top/"
+              },
+              {
+                "type": "link",
+                "addDate": 1739016006729,
+                "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/sherlock-project/sherlock"
               }
             ]
           },
@@ -6915,6 +6943,13 @@
                 "title": "大同搜索",
                 "icon": "https://logo.clearbit.com/datong.info",
                 "url": "https://datong.info/ui/index.html"
+              },
+              {
+                "type": "link",
+                "addDate": 1738943472663,
+                "title": "秘塔AI搜索",
+                "icon": "https://logo.clearbit.com/metaso.cn",
+                "url": "https://metaso.cn/"
               }
             ]
           },
@@ -7080,13 +7115,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "基于机器学习的学术搜索引擎Semantic Scholar | Product",
-                "icon": "https://logo.clearbit.com/www.semanticscholar.org",
-                "url": "https://www.semanticscholar.org/product"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Paper Digest – AI-Powered Research Platform --- 论文摘要 – 人工智能研究平台",
                 "icon": "https://logo.clearbit.com/www.paperdigest.org",
                 "url": "https://www.paperdigest.org/"
@@ -7104,13 +7132,6 @@
                 "title": "中文DOI",
                 "icon": "https://logo.clearbit.com/www.chinadoi.cn",
                 "url": "http://www.chinadoi.cn/portal/index.htm"
-              },
-              {
-                "type": "link",
-                "addDate": 1717502726087,
-                "title": "互联网档案学术",
-                "icon": "https://logo.clearbit.com/scholar.archive.org",
-                "url": "https://scholar.archive.org/"
               },
               {
                 "type": "link",
@@ -7194,34 +7215,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "哎上课官网_专升本备考一站式服务平台",
-            "icon": "https://logo.clearbit.com/loveshangke.com",
-            "url": "https://loveshangke.com/question/mock"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "中国教育在线-推动教育前进的力量",
-            "icon": "https://logo.clearbit.com/www.eol.cn",
-            "url": "https://www.eol.cn/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "网易公开课",
-            "icon": "https://logo.clearbit.com/open.163.com",
-            "url": "https://open.163.com/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "国家高等教育智慧教育平台",
-            "icon": "https://logo.clearbit.com/www.chinaooc.com.cn",
-            "url": "https://www.chinaooc.com.cn/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "四级真题(2014-2023年6月) | 英语真题在线",
             "icon": "https://logo.clearbit.com/zhenti.burningvocabulary.cn",
             "url": "https://zhenti.burningvocabulary.cn/cet4"
@@ -7232,13 +7225,6 @@
             "title": "懒懒背单词",
             "icon": "https://logo.clearbit.com/47.96.186.148",
             "url": "http://47.96.186.148:8889/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "天问·博学易知",
-            "icon": "https://logo.clearbit.com/www.twbxyz.net",
-            "url": "https://www.twbxyz.net/html/homeZsb/#/Home"
           },
           {
             "type": "link",
@@ -7520,13 +7506,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1712573316700,
-                "title": "Quick Reference & Quick Reference",
-                "icon": "https://logo.clearbit.com/wangchujiang.com",
-                "url": "https://wangchujiang.com/reference/"
-              },
-              {
-                "type": "link",
                 "addDate": 1712573374172,
                 "title": "书栈网 · BookStack_程序员IT互联网开源编程书籍免费阅读，助您【码】力十足！",
                 "icon": "https://logo.clearbit.com/www.bookstack.cn",
@@ -7538,13 +7517,6 @@
                 "title": "Mojo官网 Mojo社区 | Mojo中文网",
                 "icon": "https://logo.clearbit.com/mojocn.org",
                 "url": "https://mojocn.org/"
-              },
-              {
-                "type": "link",
-                "addDate": 1713247303823,
-                "title": "MDN Web Docs",
-                "icon": "https://logo.clearbit.com/developer.mozilla.org",
-                "url": "https://developer.mozilla.org/zh-CN/?utm_source=www.mozilla.org&utm_medium=referral&utm_campaign=nav&utm_content=innovation"
               },
               {
                 "type": "link",
@@ -7608,13 +7580,6 @@
                 "title": "计算机视觉实战演练：算法与应用🌱",
                 "icon": "https://logo.clearbit.com/charmve.github.io",
                 "url": "https://charmve.github.io/computer-vision-in-action/#/"
-              },
-              {
-                "type": "link",
-                "addDate": 1738498081120,
-                "title": "makemepulse - global creative studio - News & Insights",
-                "icon": "https://logo.clearbit.com/www.makemepulse.com",
-                "url": "https://www.makemepulse.com/"
               }
             ]
           },
@@ -8112,6 +8077,13 @@
                 "title": "Replit – Build apps and sites with AI",
                 "icon": "https://logo.clearbit.com/replit.com",
                 "url": "https://replit.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1738913916147,
+                "title": "安装 Goose | 代号 goose",
+                "icon": "https://logo.clearbit.com/block.github.io",
+                "url": "https://block.github.io/goose/docs/getting-started/installation"
               }
             ]
           },
@@ -8189,6 +8161,13 @@
                 "title": "daisyUI — Tailwind CSS Components ( version 4 update is here )",
                 "icon": "https://logo.clearbit.com/daisyui.com",
                 "url": "https://daisyui.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1739015902635,
+                "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/FortAwesome/Font-Awesome"
               }
             ]
           },
@@ -8197,6 +8176,13 @@
             "addDate": 1738068748771,
             "title": "文档",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1712573316700,
+                "title": "Quick Reference & Quick Reference",
+                "icon": "https://logo.clearbit.com/wangchujiang.com",
+                "url": "https://wangchujiang.com/reference/"
+              },
               {
                 "type": "link",
                 "addDate": 1738068941023,
@@ -8265,23 +8251,9 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "Node.js 中文网",
-            "icon": "https://logo.clearbit.com/nodejs.cn",
-            "url": "https://nodejs.cn/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "HelloGitHub",
             "icon": "https://logo.clearbit.com/hellogithub.com",
             "url": "https://hellogithub.com/"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "浏览项目 · GitLab",
-            "icon": "https://logo.clearbit.com/0xacab.org",
-            "url": "https://0xacab.org/explore"
           },
           {
             "type": "link",
@@ -8289,13 +8261,6 @@
             "title": "Cloud Studio - 云端开发，化繁为简",
             "icon": "https://logo.clearbit.com/cloudstudio.net",
             "url": "https://cloudstudio.net/"
-          },
-          {
-            "type": "link",
-            "addDate": 1716691671447,
-            "title": "NocoBase-开源、私有部署的轻量级无代码和低代码开发平台",
-            "icon": "https://logo.clearbit.com/cn.nocobase.com",
-            "url": "https://cn.nocobase.com/"
           },
           {
             "type": "link",
@@ -9140,13 +9105,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "@gmail.com - Gmail",
-            "icon": "https://logo.clearbit.com/mail.google.com",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "Mikutap",
             "icon": "https://logo.clearbit.com/aidn.jp",
             "url": "https://aidn.jp/mikutap/"
@@ -9185,6 +9143,13 @@
             "title": "不死鸟 - 分享为王官网",
             "icon": "https://logo.clearbit.com/iui.su",
             "url": "https://iui.su/"
+          },
+          {
+            "type": "link",
+            "addDate": 1704012714000,
+            "title": "@gmail.com - Gmail",
+            "icon": "https://logo.clearbit.com/mail.google.com",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
           }
         ]
       },
