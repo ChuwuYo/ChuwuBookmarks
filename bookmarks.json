@@ -6489,17 +6489,17 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1738185534922,
-                    "title": "Lambda Chat",
-                    "icon": "https://logo.clearbit.com/lambda.chat",
-                    "url": "https://lambda.chat/"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1738943207137,
                     "title": "火山方舟r1",
                     "icon": "https://logo.clearbit.com/console.volcengine.com",
                     "url": "https://console.volcengine.com/ark/region:ark+cn-beijing/experience/chat"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739024709510,
+                    "title": "体验中心详情 | 大模型知识引擎",
+                    "icon": "https://logo.clearbit.com/lke.cloud.tencent.com",
+                    "url": "https://lke.cloud.tencent.com/lke#/experience-center/detail?expAppBizId=1887453086201675776&appType=knowledge_qa&avatar=https%3A%2F%2Fqidian-qbot-1251316161.cos.ap-guangzhou.myqcloud.com%2Fpublic%2F1773234660389421056%2Fimage%2FnCpqyPwvZLpKKLIogCmk-1887453082234912768.png&name=DeepSeek%E8%81%94%E7%BD%91%E5%8A%A9%E6%89%8B"
                   }
                 ]
               },
@@ -6659,17 +6659,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1709020955283,
-                "title": "Chat With RTX | NVIDIA",
-                "icon": "https://logo.clearbit.com/www.nvidia.com",
-                "url": "https://www.nvidia.com/en-us/ai-on-rtx/chat-with-rtx-generative-ai/"
-              },
-              {
-                "type": "link",
                 "addDate": 1732352815750,
                 "title": "试用 NVIDIA NIM API",
                 "icon": "https://logo.clearbit.com/build.nvidia.com",
-                "url": "https://build.nvidia.com/nim?filters=nimType%3Anim_type_run_anywhere"
+                "url": "https://build.nvidia.com/explore/discover?ncid=no-ncid"
               },
               {
                 "type": "link",
@@ -6733,6 +6726,13 @@
                 "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
                 "icon": "https://logo.clearbit.com/github.com",
                 "url": "https://github.com/lobehub/lobe-chat"
+              },
+              {
+                "type": "link",
+                "addDate": 1739025041752,
+                "title": "coze.cn",
+                "icon": "https://logo.clearbit.com/www.coze.cn",
+                "url": "https://www.coze.cn/"
               }
             ]
           },
@@ -7597,6 +7597,20 @@
               },
               {
                 "type": "link",
+                "addDate": 1739032456911,
+                "title": "xLog - Write. Own. Earn.",
+                "icon": "https://logo.clearbit.com/xlog.app",
+                "url": "https://xlog.app/"
+              },
+              {
+                "type": "link",
+                "addDate": 1736320089898,
+                "title": "Hexo",
+                "icon": "https://logo.clearbit.com/hexo.io",
+                "url": "https://hexo.io/zh-cn/"
+              },
+              {
+                "type": "link",
                 "addDate": 1720800119292,
                 "title": "vscode.dev/profile/github/567661d570e7760398c2afca03be5b40?vscode-lang=zh-cn",
                 "icon": "https://logo.clearbit.com/vscode.dev",
@@ -7615,13 +7629,6 @@
                 "title": "mirai-mamori/Sakurairo: 一个多彩、轻松上手、体验完善，具有强大自定义功能的WordPress主题（基于Sakura主题，支持简繁英日多语言）A Colorful, Easy-to-use, Perfect Experience, and Powerful Customizable WordPress Theme (Based on Theme Sakura. Support Simplified Chinese, Traditional Chinese, English and Japanese languages)",
                 "icon": "https://logo.clearbit.com/github.com",
                 "url": "https://github.com/mirai-mamori/Sakurairo"
-              },
-              {
-                "type": "link",
-                "addDate": 1736320089898,
-                "title": "Hexo",
-                "icon": "https://logo.clearbit.com/hexo.io",
-                "url": "https://hexo.io/zh-cn/"
               },
               {
                 "type": "link",
@@ -9057,6 +9064,13 @@
                 "title": "紅楓吟 · 风落花语风落天，花落风雨花落田.",
                 "icon": "https://logo.clearbit.com/honmaple.me",
                 "url": "https://honmaple.me/"
+              },
+              {
+                "type": "link",
+                "addDate": 1739032397351,
+                "title": "道阻且长",
+                "icon": "https://logo.clearbit.com/zsakvo.xlog.app",
+                "url": "https://zsakvo.xlog.app/"
               }
             ]
           },
