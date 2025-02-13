@@ -3963,6 +3963,13 @@
             "title": "WebCatalog",
             "icon": "https://logo.clearbit.com/webcatalog.io",
             "url": "https://webcatalog.io/zh-CN/apps"
+          },
+          {
+            "type": "link",
+            "addDate": 1739472555748,
+            "title": "主页 | yeahhe",
+            "icon": "https://logo.clearbit.com/www.yeahhe.online",
+            "url": "https://www.yeahhe.online/"
           }
         ]
       },
@@ -6531,13 +6538,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1735038594045,
-                    "title": "Free AI Chat | Chat with GPT4o/Claude/Gemini Online | Felo Chat",
-                    "icon": "https://logo.clearbit.com/chat.felo.ai",
-                    "url": "https://chat.felo.ai/"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1737123777317,
                     "title": "Qwen",
                     "icon": "https://logo.clearbit.com/chat.qwenlm.ai",
@@ -6563,6 +6563,27 @@
                     "title": "体验中心详情 | 大模型知识引擎",
                     "icon": "https://logo.clearbit.com/lke.cloud.tencent.com",
                     "url": "https://lke.cloud.tencent.com/lke#/experience-center/detail?expAppBizId=1887453086201675776&appType=knowledge_qa&avatar=https%3A%2F%2Fqidian-qbot-1251316161.cos.ap-guangzhou.myqcloud.com%2Fpublic%2F1773234660389421056%2Fimage%2FnCpqyPwvZLpKKLIogCmk-1887453082234912768.png&name=DeepSeek%E8%81%94%E7%BD%91%E5%8A%A9%E6%89%8B"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739472714159,
+                    "title": "问小白",
+                    "icon": "https://logo.clearbit.com/www.wenxiaobai.com",
+                    "url": "https://www.wenxiaobai.com/chat/tourist"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739472984226,
+                    "title": "OpenAI Chat",
+                    "icon": "https://logo.clearbit.com/cxm.us.kg",
+                    "url": "https://cxm.us.kg/#/chat"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739473080814,
+                    "title": "NextChat",
+                    "icon": "https://logo.clearbit.com/chat.toapis.org",
+                    "url": "https://chat.toapis.org/#/chat"
                   }
                 ]
               },
@@ -6928,7 +6949,7 @@
                 "addDate": 1717329860081,
                 "title": "WebPilot",
                 "icon": "https://logo.clearbit.com/www.webpilot.ai",
-                "url": "https://www.webpilot.ai/home?mode=search&lang=zh-CN&utm_source=%E7%A5%9E%E5%99%A8%E9%9B%86"
+                "url": "https://www.webpilot.ai/home?mode=search&lang=zh-CN"
               },
               {
                 "type": "link",
@@ -6957,13 +6978,6 @@
                 "title": "Devv",
                 "icon": "https://logo.clearbit.com/devv.ai",
                 "url": "https://devv.ai/zh"
-              },
-              {
-                "type": "link",
-                "addDate": 1718977346157,
-                "title": "Genspark",
-                "icon": "https://logo.clearbit.com/www.genspark.ai",
-                "url": "https://www.genspark.ai/"
               },
               {
                 "type": "link",
