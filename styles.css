@@ -315,7 +315,7 @@ html {
 
 /* 侧边栏收起时搜索容器的样式 */
 .sidebar.collapsed + .main-content .search-container {
-    margin-left: 0;
+    margin-left: 20px;
 }
 
 /* 搜索输入框样式 */
