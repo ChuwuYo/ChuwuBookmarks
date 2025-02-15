@@ -16,25 +16,25 @@ function toggleTheme() {
 }
 
 // 响应式处理
-const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
-function handleMobileView(e) {
+function handleMobileView() {
     const sidebar = document.querySelector('.sidebar');
     const toggleButton = document.getElementById('toggle-sidebar');
-    if (e.matches) {
-        sidebar.classList.add('collapsed');
-        toggleButton.textContent = '🫸';
-    }
+    // 移动端检测：结合触控支持和屏幕宽度
+    const isMobile = window.matchMedia('(pointer: coarse)').matches || 
+                    window.innerWidth <= 768;
+    // 初始化侧边栏状态
+    sidebar.classList.toggle('collapsed', isMobile);
+    toggleButton.textContent = isMobile ? '🫸' : '🫷';
+    // 同步主页消息位置
+    adjustHomeMessagePosition(isMobile);
 }
+
 
 // 调整主页信息位置
 function adjustHomeMessagePosition(isCollapsed) {
     const homeMessage = document.querySelector('.home-message');
     if (homeMessage) {
-        if (mobileMediaQuery.matches) {
-            homeMessage.style.left = '50%';
-        } else {
-            homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
-        }
+        homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
     }
 }
 
@@ -238,8 +238,7 @@ function renderSearchResults(results) {
 // 初始化
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
-    handleMobileView(mobileMediaQuery);
-    mobileMediaQuery.addListener(handleMobileView);
+    handleMobileView();
 
     try {
         const response = await fetch('bookmarks.json');
@@ -251,15 +250,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderSidebar(data);
         renderHome();
 
+        // 更新侧边栏切换按钮事件监听
         const toggleButton = document.getElementById('toggle-sidebar');
         const sidebar = document.querySelector('.sidebar');
+        
         toggleButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            const isCollapsed = sidebar.classList.contains('collapsed');
-            sidebar.classList.toggle('collapsed');
-            toggleButton.textContent = isCollapsed ? '🫷' : '🫸';
-            adjustHomeMessagePosition(!isCollapsed);
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            toggleButton.textContent = isCollapsed ? '🫸' : '🫷';
+            adjustHomeMessagePosition(isCollapsed);
+            // 强制重绘解决过渡动画问题
+            void sidebar.offsetWidth; 
         });
 
         const themeToggle = document.getElementById('theme-toggle');
@@ -267,4 +269,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error(error);
     }
+});
+
+// 监听窗口尺寸变化
+window.addEventListener('resize', () => {
+    handleMobileView();
+    adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
 });
