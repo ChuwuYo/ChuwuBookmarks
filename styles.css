@@ -359,11 +359,17 @@ html {
 
 /* 移动设备适配 */
 @media screen and (max-width: 768px) {
+
     /* 修正侧边栏默认状态 */
     .sidebar.collapsed {
         width: 0 !important;
         padding: 0 !important;
     }
+
+    .sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
     /* 隐藏侧边栏内容 */
     .sidebar h1,
@@ -408,6 +414,8 @@ html {
     .sidebar:not(.collapsed) {
         width: 220px;
         padding: 20px;
+        pointer-events: auto;
+        touch-action: pan-y; /* 允许在侧边栏上滑动 */
     }
 
     /* 展开时显示侧边栏内容 */
@@ -518,3 +526,47 @@ html {
 }
 }
 
+#breadcrumbs {
+    overflow-x: auto; /* 允许横向滚动 */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 40px; /* 缩小顶部间距 */
+}
+
+* {
+    -webkit-tap-highlight-color: transparent; /* 移除点击高亮 */
+  }
+  
+  /* 针对文件夹条目强化控制 */
+  .folder {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-touch-callout: none; /* iOS 的覆盖系统默认行为 */
+    -webkit-touch-callout: none;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* 面包屑导航点击效果优化 */
+  .breadcrumb-item { 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+/* 给所有可点击元素补充样式 */ 
+[onclick], 
+.folder, 
+.breadcrumb-item, 
+#toggle-sidebar, 
+.sidebar h1 {
+  outline: none !important;
+  transition: background-color 0.1s linear;
+}
+
+/* 强制移除焦点环 */
+button:focus, 
+input:focus, 
+a:focus { 
+  outline: none !important;
+  box-shadow: none !important;
+}

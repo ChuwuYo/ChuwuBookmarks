@@ -71,10 +71,23 @@ async function renderSidebar(data) {
                     <span class="folder-name">${item.title}</span>
                 `;
                 
-                folderElement.addEventListener('click', () => {
-                    renderMainContent(item);
+                folderElement.addEventListener('click', (event) => {
+                    const isMobile = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+                    
+                    if (isMobile) {
+                        const sidebar = document.querySelector('.sidebar');
+                        sidebar.classList.add('collapsed');
+                        document.getElementById('toggle-sidebar').textContent = '🫸';
+                        adjustHomeMessagePosition(true);
+                        // 延迟渲染确保动画完成
+                        setTimeout(() => {
+                            renderMainContent(item);
+                        }, 300);
+                    } else {
+                        renderMainContent(item);
+                    }
+                    event.stopPropagation();
                 });
-
                 sidebar.appendChild(folderElement);
             }
         });
@@ -100,6 +113,9 @@ function renderMainContent(folder) {
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
 
+    // 使用文档碎片批量插入元素
+    const fragment = document.createDocumentFragment();
+
     const breadcrumbPath = [];
     let currentFolder = folder;
     while (currentFolder) {
@@ -115,8 +131,23 @@ function renderMainContent(folder) {
         crumbElement.className = 'breadcrumb-item';
         
         if (crumb.parent && index !== filteredPath.length - 1) {
-            crumbElement.addEventListener('click', () => {
-                renderMainContent(crumb);
+            crumbElement.addEventListener('click', (event) => {
+                const isMobile = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    const sidebar = document.querySelector('.sidebar');
+                    sidebar.classList.add('collapsed');
+                    document.getElementById('toggle-sidebar').textContent = '🫸';
+                    adjustHomeMessagePosition(true);
+                    
+                    setTimeout(() => {
+                        renderMainContent(crumb);
+                        document.querySelector('.search-container').style.marginLeft = '20px';
+                    }, 300);
+                } else {
+                    renderMainContent(crumb);
+                }
+                event.stopPropagation();
             });
         }
 
