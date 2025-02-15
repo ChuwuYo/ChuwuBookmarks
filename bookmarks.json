@@ -2,7 +2,7 @@
   {
     "type": "folder",
     "title": "书签栏",
-    "addDate": 1739545384254,
+    "addDate": 1739597810300,
     "children": [
       {
         "type": "folder",
@@ -771,6 +771,13 @@
             "title": "漫自由mhx12_epub漫畫Kindle漫畫下载",
             "url": "https://mhx12.com/",
             "icon": "https://logo.clearbit.com/mhx12.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1739551775269,
+            "title": "Pick Anime Cool | Better Bangumi Search",
+            "url": "https://ezer015.github.io/pick-anime-cool/?sort=match&keyword=",
+            "icon": "https://logo.clearbit.com/ezer015.github.io"
           }
         ]
       },
@@ -7879,27 +7886,6 @@
                     "title": "CUDA Toolkit Archive | NVIDIA Developer",
                     "url": "https://developer.nvidia.com/cuda-toolkit-archive",
                     "icon": "https://logo.clearbit.com/developer.nvidia.com"
-                  }
-                ]
-              },
-              {
-                "type": "folder",
-                "addDate": 1714185987898,
-                "title": "AI编写",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1714185819134,
-                    "title": "wandb/openui: OpenUI let's you describe UI using your imagination, then see it rendered live.",
-                    "url": "https://github.com/wandb/openui",
-                    "icon": "https://logo.clearbit.com/github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1712573675705,
-                    "title": "意象 |用计算机思考和创造的新方式 |在几分钟内构建一个无代码人工智能应用程序",
-                    "url": "https://create.imagica.ai/fot/#/editor",
-                    "icon": "https://logo.clearbit.com/create.imagica.ai"
                   }
                 ]
               },
