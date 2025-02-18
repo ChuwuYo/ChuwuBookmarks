@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1739865936203,
+    "addDate": 1739882747542,
     "title": "书签栏",
     "children": [
       {
@@ -5480,6 +5480,13 @@
                 "title": "Tohrusky/Final2x: 2^x Image Super-Resolution",
                 "url": "https://github.com/Tohrusky/Final2x",
                 "icon": "https://logo.clearbit.com/github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704014615000,
+                "title": "Akuma",
+                "url": "https://akuma.ai/",
+                "icon": "https://logo.clearbit.com/akuma.ai"
               }
             ]
           },
@@ -6280,14 +6287,7 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "Pi, your personal AI",
-                    "url": "https://pi.ai/talk",
-                    "icon": "https://logo.clearbit.com/pi.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "PoeAI（墙），手机号和谷歌邮箱注册了",
+                    "title": "PoeAI",
                     "url": "https://poe.com/",
                     "icon": "https://logo.clearbit.com/poe.com"
                   },
@@ -6433,13 +6433,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1734799091135,
-                    "title": "Lite-GPT - Free ChatGPT Mirror Site",
-                    "url": "https://link.fuckicoding.com/#/",
-                    "icon": "https://logo.clearbit.com/link.fuckicoding.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1734799149530,
                     "title": "我的AI / My AI",
                     "url": "https://www.myai.asia/",
@@ -6503,66 +6496,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1739809397026,
-                    "title": "DeepSeek",
-                    "url": "https://chat.scnet.cn/#/home",
-                    "icon": "https://logo.clearbit.com/chat.scnet.cn"
-                  }
-                ]
-              },
-              {
-                "type": "folder",
-                "addDate": 1704014876005,
-                "title": "绘画设计",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Mage 🧙 | Free, Fast, Unfiltered Stable Diffusion",
-                    "url": "https://www.mage.space/",
-                    "icon": "https://logo.clearbit.com/www.mage.space"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "AiDraw | AiDraw",
-                    "url": "https://guide.novelai.dev/",
-                    "icon": "https://logo.clearbit.com/guide.novelai.dev"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Dora - NoCode Design Platform",
-                    "url": "https://www.dora.run/",
-                    "icon": "https://logo.clearbit.com/www.dora.run"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "UI生成v0 by Vercel",
-                    "url": "https://v0.dev/",
-                    "icon": "https://logo.clearbit.com/v0.dev"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Text to Image - Runway --- 文本到图像 - 跑道",
-                    "url": "https://app.runwayml.com/video-tools/teams/s1805948721/dashboard",
-                    "icon": "https://logo.clearbit.com/app.runwayml.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
-                    "url": "https://icons8.com/lunacy",
-                    "icon": "https://logo.clearbit.com/icons8.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704014615000,
-                    "title": "Akuma",
-                    "url": "https://akuma.ai/",
-                    "icon": "https://logo.clearbit.com/akuma.ai"
+                    "addDate": 1739879673541,
+                    "title": "Grok",
+                    "url": "https://grok.com/",
+                    "icon": "https://logo.clearbit.com/grok.com"
                   }
                 ]
               },
@@ -8077,6 +8014,20 @@
                 "title": "安装 Goose | 代号 goose",
                 "url": "https://block.github.io/goose/docs/getting-started/installation",
                 "icon": "https://logo.clearbit.com/block.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Dora - NoCode Design Platform",
+                "url": "https://www.dora.run/",
+                "icon": "https://logo.clearbit.com/www.dora.run"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
+                "url": "https://icons8.com/lunacy",
+                "icon": "https://logo.clearbit.com/icons8.com"
               }
             ]
           },
