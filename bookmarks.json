@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1739807094161,
+    "addDate": 1739865936203,
     "title": "书签栏",
     "children": [
       {
@@ -1994,7 +1994,7 @@
             "type": "link",
             "addDate": 1704012714000,
             "title": "Rainyscope weather simulator: the beauty of the changing seasons.",
-            "url": "http://rainyscope.com/#slide-1",
+            "url": "http://rainyscope.com/",
             "icon": "https://logo.clearbit.com/rainyscope.com"
           },
           {
@@ -2045,13 +2045,6 @@
             "title": "Lofi.co - Craft your focus environment --- Lofi.co - 打造您的专注环境",
             "url": "https://app.lofi.co/?auth=verified",
             "icon": "https://logo.clearbit.com/app.lofi.co"
-          },
-          {
-            "type": "link",
-            "addDate": 1715086495725,
-            "title": "雨视镜 |雨声发生器 - 美丽的雨声。",
-            "url": "https://rainyscope.com/",
-            "icon": "https://logo.clearbit.com/rainyscope.com"
           },
           {
             "type": "link",
@@ -5704,6 +5697,13 @@
                 "title": "idiap/coqui-ai-TTS: 🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production",
                 "url": "https://github.com/idiap/coqui-ai-TTS",
                 "icon": "https://logo.clearbit.com/github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1739809365872,
+                "title": "FunAudioLLM/CosyVoice: Multi-lingual large voice generation model, providing inference, training and deployment full-stack ability.",
+                "url": "https://github.com/FunAudioLLM/CosyVoice",
+                "icon": "https://logo.clearbit.com/github.com"
               }
             ]
           },
@@ -6500,6 +6500,13 @@
                     "title": "小艺",
                     "url": "https://xiaoyi.huawei.com/chat/",
                     "icon": "https://logo.clearbit.com/xiaoyi.huawei.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739809397026,
+                    "title": "DeepSeek",
+                    "url": "https://chat.scnet.cn/#/home",
+                    "icon": "https://logo.clearbit.com/chat.scnet.cn"
                   }
                 ]
               },
@@ -7274,6 +7281,13 @@
             "title": "NotebookLM",
             "url": "https://notebooklm.google.com/",
             "icon": "https://logo.clearbit.com/notebooklm.google.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1739809448001,
+            "title": "SaDuck上岸鸭",
+            "url": "https://www.saduck.top/",
+            "icon": "https://logo.clearbit.com/www.saduck.top"
           }
         ]
       },
@@ -7433,6 +7447,20 @@
                 "title": "抽象动态背景生成器,免费导出图片视频或JS脚本",
                 "url": "https://www.color4bg.com/zh-hans/",
                 "icon": "https://logo.clearbit.com/www.color4bg.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1739809411892,
+                "title": "Template0 - Explore and Share Free Templates",
+                "url": "https://template0.com/",
+                "icon": "https://logo.clearbit.com/template0.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1739811366421,
+                "title": "Browse Fonts - Google Fonts",
+                "url": "https://fonts.google.com/",
+                "icon": "https://logo.clearbit.com/fonts.google.com"
               }
             ]
           },
