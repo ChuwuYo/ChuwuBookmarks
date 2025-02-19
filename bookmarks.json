@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1739882747542,
+    "addDate": 1739953909750,
     "title": "书签栏",
     "children": [
       {
@@ -4612,6 +4612,13 @@
                 "title": "NekoRay-MatsuriDayo",
                 "url": "https://matsuridayo.github.io/",
                 "icon": "https://logo.clearbit.com/matsuridayo.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1739951007571,
+                "title": "GUI-for-Cores/GUI.for.SingBox: GUI for SingBox",
+                "url": "https://github.com/GUI-for-Cores/GUI.for.SingBox",
+                "icon": "https://logo.clearbit.com/github.com"
               }
             ]
           },
@@ -4705,6 +4712,13 @@
             "title": "I2P 匿名网络",
             "url": "https://geti2p.net/zh/",
             "icon": "https://logo.clearbit.com/geti2p.net"
+          },
+          {
+            "type": "link",
+            "addDate": 1739892268532,
+            "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
+            "url": "https://github-hosts.tinsfox.com/",
+            "icon": "https://logo.clearbit.com/github-hosts.tinsfox.com"
           }
         ]
       },
@@ -5407,13 +5421,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "水印去除 - 删除照片中的任何水印",
-                "url": "https://www.watermarkremover.io/zh",
-                "icon": "https://logo.clearbit.com/www.watermarkremover.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "图片修复工具ama-cleaner: Image inpainting tool powered by SOTA AI Model. Remove any unwanted object, defect, people from your pictures or erase and replace(powered by stable diffusion) any thing on your pictures. --- Sanster/lama-cleaner：由SOTA AI模型提供支持的图像修复工具。从图片中删除任何不需要的物体，缺陷，人物，或擦除和替换（由稳定扩散提供动力）图片上的任何东西。",
                 "url": "https://github.com/Sanster/lama-cleaner",
                 "icon": "https://logo.clearbit.com/github.com"
@@ -5438,13 +5445,6 @@
                 "title": "图片压缩meowtec/Imagine: 🖼️ PNG/JPEG optimization app for macOS, Windows and Linux.",
                 "url": "https://github.com/meowtec/Imagine",
                 "icon": "https://logo.clearbit.com/github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "多功能图片转换器无需上传文件",
-                "url": "https://www.imagestool.cn/",
-                "icon": "https://logo.clearbit.com/www.imagestool.cn"
               },
               {
                 "type": "link",
@@ -7398,6 +7398,27 @@
                 "title": "Browse Fonts - Google Fonts",
                 "url": "https://fonts.google.com/",
                 "icon": "https://logo.clearbit.com/fonts.google.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
+                "url": "https://icons8.com/lunacy",
+                "icon": "https://logo.clearbit.com/icons8.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Dora - NoCode Design Platform",
+                "url": "https://www.dora.run/",
+                "icon": "https://logo.clearbit.com/www.dora.run"
+              },
+              {
+                "type": "link",
+                "addDate": 1739953400662,
+                "title": "Napkin AI - The visual AI for business storytelling",
+                "url": "https://www.napkin.ai/",
+                "icon": "https://logo.clearbit.com/www.napkin.ai"
               }
             ]
           },
@@ -8014,20 +8035,6 @@
                 "title": "安装 Goose | 代号 goose",
                 "url": "https://block.github.io/goose/docs/getting-started/installation",
                 "icon": "https://logo.clearbit.com/block.github.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Dora - NoCode Design Platform",
-                "url": "https://www.dora.run/",
-                "icon": "https://logo.clearbit.com/www.dora.run"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
-                "url": "https://icons8.com/lunacy",
-                "icon": "https://logo.clearbit.com/icons8.com"
               }
             ]
           },
