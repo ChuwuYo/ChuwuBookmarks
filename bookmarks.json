@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1739955381591,
+    "addDate": 1740156174297,
     "title": "书签栏",
     "children": [
       {
@@ -169,13 +169,6 @@
             "title": "琉璃神社 ★ HACG.me | 最新的ACG资讯 分享同人动漫的快乐",
             "url": "https://www.liuli.app/",
             "icon": "https://www.google.com/s2/favicons?domain=www.liuli.app"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "琉璃神社 ★ HACG.me | 最新的ACG资讯 分享同人动漫的快乐",
-            "url": "https://www.hacg.me/wp/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.hacg.me"
           },
           {
             "type": "link",
@@ -3924,13 +3917,6 @@
           },
           {
             "type": "link",
-            "addDate": 1736864977825,
-            "title": "怪咖资源网导航页 | Link3",
-            "url": "https://link3.cc/gkzyw",
-            "icon": "https://www.google.com/s2/favicons?domain=link3.cc"
-          },
-          {
-            "type": "link",
             "addDate": 1737914273952,
             "title": "Windows实用电脑生产力工具,数字素养网P1-Windows软件官网，P1-Windows软件导航为您提供服务，精心挑选，安全无毒，找P1-Windows软件网址就来数字素养网，这里收集全网最全的网站资源。,Windows浏览器、输入法、解压缩软件、密码管理工具、下载软件、网盘工具、文件搜索、资源管理、看图软件、音频处理、视频录制等实用电脑生产力工具|数字素养网",
             "url": "https://szsyw.cn/favorites/windows",
@@ -5617,13 +5603,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "语音合成TTS-Vue |",
-                "url": "https://loker-page.lgwawork.com/home.html",
-                "icon": "https://www.google.com/s2/favicons?domain=loker-page.lgwawork.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "LuckyHookin/edge-TTS-record: 一个可以录制 Microsoft Edge 浏览器的语音合成（TTS）语音并输出为 .wav 音频的（windows平台）工具。",
                 "url": "https://github.com/LuckyHookin/edge-TTS-record",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -5696,6 +5675,20 @@
                 "addDate": 1739809365872,
                 "title": "FunAudioLLM/CosyVoice: Multi-lingual large voice generation model, providing inference, training and deployment full-stack ability.",
                 "url": "https://github.com/FunAudioLLM/CosyVoice",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740024068067,
+                "title": "remsky/Kokoro-FastAPI: Dockerized FastAPI wrapper for Kokoro-82M text-to-speech model w/CPU ONNX and NVIDIA GPU PyTorch support, handling, and auto-stitching",
+                "url": "https://github.com/remsky/Kokoro-FastAPI",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740113273339,
+                "title": "ChatTTS/docs/cn/README.md at main · 2noise/ChatTTS",
+                "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -6003,13 +5996,6 @@
                     "title": "免费在线视频下载器 - VideoFk",
                     "url": "https://www.videofk.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.videofk.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1732329878457,
-                    "title": "YouTube解析及下载 - Aha! Mega | 免费、在线、无需登录",
-                    "url": "https://ahamega.com/youtube",
-                    "icon": "https://www.google.com/s2/favicons?domain=ahamega.com"
                   }
                 ]
               },
@@ -6981,6 +6967,195 @@
         "addDate": 1704014876008,
         "title": "学习",
         "children": [
+          {
+            "type": "folder",
+            "addDate": 1740112797281,
+            "title": "学校",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1740112797281,
+                "title": "无锡职业技术学院",
+                "url": "https://mail.wxit.edu.cn/cgi-bin/frame_html?sid=ZBaEecK2t7KH9EAn,2&sign_type=&r=f87319da16993e4422bec6d9d978fee0",
+                "icon": "https://www.google.com/s2/favicons?domain=mail.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "中国大学MOOC(慕课)_国家精品课程在线学习平台",
+                "url": "https://www.icourse163.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.icourse163.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "学习空间",
+                "url": "https://zjy2.icve.com.cn/study/index",
+                "icon": "https://www.google.com/s2/favicons?domain=zjy2.icve.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "侯竣文同学的工作室",
+                "url": "https://mooc.icve.com.cn/learning/u/student/student/mooc_index.action",
+                "icon": "https://www.google.com/s2/favicons?domain=mooc.icve.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "泛雅无锡职业技术学院",
+                "url": "http://wxit.fanya.chaoxing.com/portal",
+                "icon": "https://www.google.com/s2/favicons?domain=wxit.fanya.chaoxing.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "教务处",
+                "url": "https://jw.wxit.edu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=jw.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "学院信息服务门户",
+                "url": "http://rhmh.wxit.edu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=rhmh.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "大学",
+                "url": "https://www.wxit.edu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "资源访问控制系统 - 资源站点",
+                "url": "https://vpn.wxit.edu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "网络接入认证",
+                "url": "http://net.wxit.edu.cn/#/login",
+                "icon": "https://www.google.com/s2/favicons?domain=net.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "江苏教育",
+                "url": "https://jyt.jiangsu.gov.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=jyt.jiangsu.gov.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "统一身份认证平台",
+                "url": "https://vpn.wxit.edu.cn/http/77726476706e69737468656265737421f9f352d230286144300d8db9d6562d/authserver/login?service=https%3A%2F%2Fvpn.wxit.edu.cn%2Flogin%3Fcas_login%3Dtrue",
+                "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "中国知网",
+                "url": "https://vpn.wxit.edu.cn/https/77726476706e69737468656265737421e7e056d2243e635930068cb8/",
+                "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "个人中心",
+                "url": "https://ids.wxit.edu.cn/personalInfo/personCenter/index.html#/authorization",
+                "icon": "https://www.google.com/s2/favicons?domain=ids.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "学生成长中心",
+                "url": "https://tsa.wxit.edu.cn/stu/home/",
+                "icon": "https://www.google.com/s2/favicons?domain=tsa.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "首页-质量管理信息平台",
+                "url": "https://zksys.wxit.edu.cn/home",
+                "icon": "https://www.google.com/s2/favicons?domain=zksys.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "ETEST 通行证 - 主页",
+                "url": "https://passport.neea.edu.cn/Manage/Index?see=1",
+                "icon": "https://www.google.com/s2/favicons?domain=passport.neea.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "全国大学生创业服务网",
+                "url": "https://cy.ncss.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=cy.ncss.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "全国大学英语四、六级考试报名网",
+                "url": "https://cet-bm.neea.edu.cn/Home/Index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=cet-bm.neea.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "硕博导师评价网· 主页",
+                "url": "https://www.daoshipingjia.org/ds/index.php",
+                "icon": "https://www.google.com/s2/favicons?domain=www.daoshipingjia.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "无锡职业技术学院大学生创新创业训练智能管理系统",
+                "url": "http://dcxl.wxit.edu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=dcxl.wxit.edu.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "江苏工匠课堂",
+                "url": "https://rs.jshrss.jiangsu.gov.cn/leaf6-zxpx/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=rs.jshrss.jiangsu.gov.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797284,
+                "title": "中国高等教育学生信息网（学信网）",
+                "url": "https://www.chsi.com.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.chsi.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797284,
+                "title": "第六届全国高校创新英语挑战赛官网（NCIECC）",
+                "url": "https://www.nciecc.com/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.nciecc.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797284,
+                "title": "赛氪 - 全国大学生竞赛活动平台，汇聚高含金量比赛信息，提供专业报名系统和赛事服务-赛氪",
+                "url": "https://www.saikr.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.saikr.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797284,
+                "title": "全国大学生比赛信息网-大学生比赛门户",
+                "url": "http://bisai.172xiaoyuan.com/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=bisai.172xiaoyuan.com"
+              }
+            ]
+          },
           {
             "type": "folder",
             "addDate": 1704014876008,
@@ -8205,202 +8380,6 @@
             "title": "Open VSX Registry",
             "url": "https://open-vsx.org/",
             "icon": "https://www.google.com/s2/favicons?domain=open-vsx.org"
-          }
-        ]
-      },
-      {
-        "type": "folder",
-        "addDate": 1704014876021,
-        "title": "学校",
-        "children": [
-          {
-            "type": "link",
-            "addDate": 1731556505830,
-            "title": "无锡职业技术学院",
-            "url": "https://mail.wxit.edu.cn/cgi-bin/frame_html?sid=ZBaEecK2t7KH9EAn,2&sign_type=&r=f87319da16993e4422bec6d9d978fee0",
-            "icon": "https://www.google.com/s2/favicons?domain=mail.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "中国大学MOOC(慕课)_国家精品课程在线学习平台",
-            "url": "https://www.icourse163.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.icourse163.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1732019428158,
-            "title": "学习空间",
-            "url": "https://zjy2.icve.com.cn/study/index",
-            "icon": "https://www.google.com/s2/favicons?domain=zjy2.icve.com.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1710573886030,
-            "title": "侯竣文同学的工作室",
-            "url": "https://mooc.icve.com.cn/learning/u/student/student/mooc_index.action",
-            "icon": "https://www.google.com/s2/favicons?domain=mooc.icve.com.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "泛雅无锡职业技术学院",
-            "url": "http://wxit.fanya.chaoxing.com/portal",
-            "icon": "https://www.google.com/s2/favicons?domain=wxit.fanya.chaoxing.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "教务处",
-            "url": "https://jw.wxit.edu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=jw.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "学院信息服务门户",
-            "url": "http://rhmh.wxit.edu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=rhmh.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "大学",
-            "url": "https://www.wxit.edu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "资源访问控制系统 - 资源站点",
-            "url": "https://vpn.wxit.edu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "网络接入认证",
-            "url": "http://net.wxit.edu.cn/#/login",
-            "icon": "https://www.google.com/s2/favicons?domain=net.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "江苏教育",
-            "url": "https://jyt.jiangsu.gov.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=jyt.jiangsu.gov.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "统一身份认证平台",
-            "url": "https://vpn.wxit.edu.cn/http/77726476706e69737468656265737421f9f352d230286144300d8db9d6562d/authserver/login?service=https%3A%2F%2Fvpn.wxit.edu.cn%2Flogin%3Fcas_login%3Dtrue",
-            "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "中国知网",
-            "url": "https://vpn.wxit.edu.cn/https/77726476706e69737468656265737421e7e056d2243e635930068cb8/",
-            "icon": "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "个人中心",
-            "url": "https://ids.wxit.edu.cn/personalInfo/personCenter/index.html#/authorization",
-            "icon": "https://www.google.com/s2/favicons?domain=ids.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "学生成长中心",
-            "url": "https://tsa.wxit.edu.cn/stu/home/",
-            "icon": "https://www.google.com/s2/favicons?domain=tsa.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "首页-质量管理信息平台",
-            "url": "https://zksys.wxit.edu.cn/home",
-            "icon": "https://www.google.com/s2/favicons?domain=zksys.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1709125742132,
-            "title": "ETEST 通行证 - 主页",
-            "url": "https://passport.neea.edu.cn/Manage/Index?see=1",
-            "icon": "https://www.google.com/s2/favicons?domain=passport.neea.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1711624675118,
-            "title": "智能课程-不止课程",
-            "url": "http://smartcourse.ltd/login?redirect_url=%2Fscript_detail%3Fid%3D10",
-            "icon": "https://www.google.com/s2/favicons?domain=smartcourse.ltd"
-          },
-          {
-            "type": "link",
-            "addDate": 1715767626976,
-            "title": "全国大学生创业服务网",
-            "url": "https://cy.ncss.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=cy.ncss.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1718977790940,
-            "title": "全国大学英语四、六级考试报名网",
-            "url": "https://cet-bm.neea.edu.cn/Home/Index.html",
-            "icon": "https://www.google.com/s2/favicons?domain=cet-bm.neea.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1719328503366,
-            "title": "硕博导师评价网· 主页",
-            "url": "https://www.daoshipingjia.org/ds/index.php",
-            "icon": "https://www.google.com/s2/favicons?domain=www.daoshipingjia.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1726820126760,
-            "title": "无锡职业技术学院大学生创新创业训练智能管理系统",
-            "url": "http://dcxl.wxit.edu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=dcxl.wxit.edu.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1728748139889,
-            "title": "江苏工匠课堂",
-            "url": "https://rs.jshrss.jiangsu.gov.cn/leaf6-zxpx/#/",
-            "icon": "https://www.google.com/s2/favicons?domain=rs.jshrss.jiangsu.gov.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "中国高等教育学生信息网（学信网）",
-            "url": "https://www.chsi.com.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.chsi.com.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1735289060242,
-            "title": "第六届全国高校创新英语挑战赛官网（NCIECC）",
-            "url": "https://www.nciecc.com/index.html",
-            "icon": "https://www.google.com/s2/favicons?domain=www.nciecc.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1735309578663,
-            "title": "赛氪 - 全国大学生竞赛活动平台，汇聚高含金量比赛信息，提供专业报名系统和赛事服务-赛氪",
-            "url": "https://www.saikr.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.saikr.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1735319404953,
-            "title": "全国大学生比赛信息网-大学生比赛门户",
-            "url": "http://bisai.172xiaoyuan.com/index.html",
-            "icon": "https://www.google.com/s2/favicons?domain=bisai.172xiaoyuan.com"
           }
         ]
       },
