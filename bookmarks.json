@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1739955381591,
+    "addDate": 1740156174297,
     "title": "书签栏",
     "children": [
       {
@@ -169,13 +169,6 @@
             "title": "琉璃神社 ★ HACG.me | 最新的ACG资讯 分享同人动漫的快乐",
             "url": "https://www.liuli.app/",
             "icon": "https://www.google.com/s2/favicons?domain=www.liuli.app"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "琉璃神社 ★ HACG.me | 最新的ACG资讯 分享同人动漫的快乐",
-            "url": "https://www.hacg.me/wp/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.hacg.me"
           },
           {
             "type": "link",
@@ -3924,13 +3917,6 @@
           },
           {
             "type": "link",
-            "addDate": 1736864977825,
-            "title": "怪咖资源网导航页 | Link3",
-            "url": "https://link3.cc/gkzyw",
-            "icon": "https://www.google.com/s2/favicons?domain=link3.cc"
-          },
-          {
-            "type": "link",
             "addDate": 1737914273952,
             "title": "Windows实用电脑生产力工具,数字素养网P1-Windows软件官网，P1-Windows软件导航为您提供服务，精心挑选，安全无毒，找P1-Windows软件网址就来数字素养网，这里收集全网最全的网站资源。,Windows浏览器、输入法、解压缩软件、密码管理工具、下载软件、网盘工具、文件搜索、资源管理、看图软件、音频处理、视频录制等实用电脑生产力工具|数字素养网",
             "url": "https://szsyw.cn/favorites/windows",
@@ -5617,13 +5603,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "语音合成TTS-Vue |",
-                "url": "https://loker-page.lgwawork.com/home.html",
-                "icon": "https://www.google.com/s2/favicons?domain=loker-page.lgwawork.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "LuckyHookin/edge-TTS-record: 一个可以录制 Microsoft Edge 浏览器的语音合成（TTS）语音并输出为 .wav 音频的（windows平台）工具。",
                 "url": "https://github.com/LuckyHookin/edge-TTS-record",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -5696,6 +5675,20 @@
                 "addDate": 1739809365872,
                 "title": "FunAudioLLM/CosyVoice: Multi-lingual large voice generation model, providing inference, training and deployment full-stack ability.",
                 "url": "https://github.com/FunAudioLLM/CosyVoice",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740024068067,
+                "title": "remsky/Kokoro-FastAPI: Dockerized FastAPI wrapper for Kokoro-82M text-to-speech model w/CPU ONNX and NVIDIA GPU PyTorch support, handling, and auto-stitching",
+                "url": "https://github.com/remsky/Kokoro-FastAPI",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740113273339,
+                "title": "ChatTTS/docs/cn/README.md at main · 2noise/ChatTTS",
+                "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -6003,13 +5996,6 @@
                     "title": "免费在线视频下载器 - VideoFk",
                     "url": "https://www.videofk.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.videofk.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1732329878457,
-                    "title": "YouTube解析及下载 - Aha! Mega | 免费、在线、无需登录",
-                    "url": "https://ahamega.com/youtube",
-                    "icon": "https://www.google.com/s2/favicons?domain=ahamega.com"
                   }
                 ]
               },
