@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740156174297,
+    "addDate": 1740282261456,
     "title": "书签栏",
     "children": [
       {
@@ -64,13 +64,6 @@
             "title": "Tokyo Toshokan :: #tokyotosho @ irc.rizon.net :: Torrent Listing",
             "url": "https://www.tokyotosho.info/",
             "icon": "https://www.google.com/s2/favicons?domain=www.tokyotosho.info"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "搜番",
-            "url": "https://sofan.icu/",
-            "icon": "https://www.google.com/s2/favicons?domain=sofan.icu"
           },
           {
             "type": "link",
@@ -166,13 +159,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "琉璃神社 ★ HACG.me | 最新的ACG资讯 分享同人动漫的快乐",
-            "url": "https://www.liuli.app/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.liuli.app"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "琉璃神社★分享动漫快乐",
             "url": "https://www.hacg.me/",
             "icon": "https://www.google.com/s2/favicons?domain=www.hacg.me"
@@ -221,6 +207,13 @@
           },
           {
             "type": "link",
+            "addDate": 1739299162022,
+            "title": "暗♥萌",
+            "url": "https://dmoe.us/",
+            "icon": "https://www.google.com/s2/favicons?domain=dmoe.us"
+          },
+          {
+            "type": "link",
             "addDate": 1704012714000,
             "title": "IACG.RIP",
             "url": "https://iacg.site/",
@@ -246,13 +239,6 @@
             "title": "JComic发布页https://jmcomic6.org/",
             "url": "https://jmcmomic.github.io/",
             "icon": "https://www.google.com/s2/favicons?domain=jmcmomic.github.io"
-          },
-          {
-            "type": "link",
-            "addDate": 1714749013407,
-            "title": "acgbuster发布页",
-            "url": "https://www.acgcbk.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.acgcbk.com"
           },
           {
             "type": "link",
@@ -340,13 +326,6 @@
           },
           {
             "type": "link",
-            "addDate": 1739299162022,
-            "title": "暗♥萌",
-            "url": "https://dmoe.us/",
-            "icon": "https://www.google.com/s2/favicons?domain=dmoe.us"
-          },
-          {
-            "type": "link",
             "addDate": 1739300071070,
             "title": "ACG | 喵窝",
             "url": "https://home.lolineko.moe/ACG",
@@ -355,7 +334,7 @@
           {
             "type": "link",
             "addDate": 1739302576369,
-            "title": "【　　　】NeoACG - ★一个ACG小圈子★",
+            "title": "NeoACG - ★一个ACG小圈子★",
             "url": "https://neoacg.com/",
             "icon": "https://www.google.com/s2/favicons?domain=neoacg.com"
           },
