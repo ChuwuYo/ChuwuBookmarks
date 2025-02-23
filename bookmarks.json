@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740282606944,
+    "addDate": 1740293557026,
     "title": "书签栏",
     "children": [
       {
@@ -4663,13 +4663,6 @@
             "title": "I2P 匿名网络",
             "url": "https://geti2p.net/zh/",
             "icon": "https://www.google.com/s2/favicons?domain=geti2p.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1739892268532,
-            "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
-            "url": "https://github-hosts.tinsfox.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=github-hosts.tinsfox.com"
           }
         ]
       },
@@ -5835,6 +5828,13 @@
                     "title": "GITGPT",
                     "url": "http://gitgpt.aitop66.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=gitgpt.aitop66.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739892268532,
+                    "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
+                    "url": "https://github-hosts.tinsfox.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=github-hosts.tinsfox.com"
                   }
                 ]
               },
