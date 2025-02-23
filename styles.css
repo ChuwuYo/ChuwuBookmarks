@@ -348,15 +348,18 @@ html {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    transition: all 0.3s ease;
     z-index: 999;
-    margin-left: 110px;
     white-space: nowrap;
 }
 
-/* 侧边栏收起时搜索容器的样式 */
-.sidebar.collapsed + .main-content .search-container {
-    margin-left: 20px;
+@media screen and (min-width: 769px) {
+    .search-container {
+        margin-left: 110px;
+    }
+    
+    .sidebar.collapsed + .main-content .search-container {
+        margin-left: 20px;
+    }
 }
 
 /* 搜索输入框样式 */
@@ -445,11 +448,7 @@ html {
         padding: 20px;
     }
 
-    /* 调整搜索容器位置 */
-    .search-container {
-        margin-left: 40px;
-        max-width: calc(100% - 60px);
-    }
+
 
     /* 展开时的侧边栏样式 */
     .sidebar:not(.collapsed) {
