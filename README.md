@@ -24,7 +24,7 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 <table>
     <tr>
         <td>
-            <img src="https://github.com/user-attachments/assets/dbc4f10d-f36c-4e14-8a29-cd81f3e8b4b1" alt="Mobile Light">
+            <img src="https://github.com/user-attachments/assets/ff81ee43-abf4-4e4b-b2a4-9b3bb5251f32" alt="Mobile Light">
         </td>
         <td>
             <img src="https://github.com/user-attachments/assets/2d4573f0-a5ab-4bab-ad64-a1a98a7a8d31" alt="Mobile Dark">
