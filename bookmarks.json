@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740401075466,
+    "addDate": 1740403406615,
     "title": "书签栏",
     "children": [
       {
@@ -2237,6 +2237,20 @@
                     "title": "gridea: ✍️ A static blog writing client (一个静态博客写作客户端)",
                     "url": "https://github.com/getgridea/gridea",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740403145841,
+                    "title": "usememos/memos：一款开源、轻量级的笔记解决方案。轻松创建有意义的笔记。您的笔记，您的方式。",
+                    "url": "https://github.com/usememos/memos",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740403365384,
+                    "title": "Beaver-Notes/Beaver-Notes: Build your knowledge one log at a time",
+                    "url": "https://github.com/Beaver-Notes/Beaver-Notes",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -2272,6 +2286,13 @@
                     "title": "Rubick",
                     "url": "https://rubickcenter.github.io/rubick/",
                     "icon": "https://www.google.com/s2/favicons?domain=rubickcenter.github.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740403355289,
+                    "title": "rubickCenter/rubick: 🔧 Electron based open source toolbox, free integration of rich plug-ins. 基于 electron 的开源工具箱，自由集成丰富插件。",
+                    "url": "https://github.com/rubickCenter/rubick",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -2426,6 +2447,13 @@
                     "title": "Tuta：免费开启电子邮件、日历和联系人隐私保护功能 | Tuta",
                     "url": "https://tuta.com/zh-hans",
                     "icon": "https://www.google.com/s2/favicons?domain=tuta.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "@gmail.com - Gmail",
+                    "url": "https://mail.google.com/mail/u/0/#inbox",
+                    "icon": "https://www.google.com/s2/favicons?domain=mail.google.com"
                   }
                 ]
               },
@@ -2899,13 +2927,6 @@
             "title": "MJJ工作室",
             "url": "https://www.naiz.cc/",
             "icon": "https://www.google.com/s2/favicons?domain=www.naiz.cc"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "LITEAPKS - Free APK & Mod - Download for Android",
-            "url": "https://liteapks.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=liteapks.com"
           },
           {
             "type": "link",
@@ -5555,6 +5576,13 @@
                     "title": "Grok",
                     "url": "https://grok.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=grok.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740402607019,
+                    "title": "Heck.ai",
+                    "url": "https://heck.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=heck.ai"
                   }
                 ]
               },
@@ -7356,6 +7384,13 @@
                 "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
                 "url": "https://github.com/FortAwesome/Font-Awesome",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740403036301,
+                "title": "wandb/openui: OpenUI let's you describe UI using your imagination, then see it rendered live.",
+                "url": "https://github.com/wandb/openui",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -8121,13 +8156,6 @@
             "title": "不死鸟 - 分享为王官网",
             "url": "https://iui.su/",
             "icon": "https://www.google.com/s2/favicons?domain=iui.su"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "@gmail.com - Gmail",
-            "url": "https://mail.google.com/mail/u/0/#inbox",
-            "icon": "https://www.google.com/s2/favicons?domain=mail.google.com"
           }
         ]
       },
