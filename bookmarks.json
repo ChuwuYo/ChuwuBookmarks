@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740323640501,
+    "addDate": 1740374569015,
     "title": "书签栏",
     "children": [
       {
@@ -3806,13 +3806,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "下次一定 - 专门为白嫖怪开发的宝藏网站",
-            "url": "https://www.iiice.cn/?utm_source=xinquji#/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.iiice.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "1915046496",
             "url": "https://shouku123.com/Demian",
             "icon": "https://www.google.com/s2/favicons?domain=shouku123.com"
@@ -3865,13 +3858,6 @@
             "title": "镜像站目录Unblockit - Proxies to access your favourite blocked sites",
             "url": "https://unblockit.pages.dev/",
             "icon": "https://www.google.com/s2/favicons?domain=unblockit.pages.dev"
-          },
-          {
-            "type": "link",
-            "addDate": 1728037745367,
-            "title": "纸鸢の导航",
-            "url": "https://paperkitenavs.xyz/",
-            "icon": "https://www.google.com/s2/favicons?domain=paperkitenavs.xyz"
           },
           {
             "type": "link",
@@ -4780,6 +4766,13 @@
                 "title": "ChatTTS/docs/cn/README.md at main · 2noise/ChatTTS",
                 "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740361013433,
+                "title": "GitHub - stepfun-ai/Step-Audio",
+                "url": "https://github.com/stepfun-ai/Step-Audio",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -4906,6 +4899,13 @@
                 "title": "README 生成器",
                 "url": "https://readme.rustc.cloud/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=readme.rustc.cloud"
+              },
+              {
+                "type": "link",
+                "addDate": 1740374229686,
+                "title": "microsoft/markitdown: Python tool for converting files and office documents to Markdown.",
+                "url": "https://github.com/microsoft/markitdown",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -5330,6 +5330,13 @@
                     "addDate": 1732352717708,
                     "title": "LiLittleCat/awesome-free-chatgpt: 🆓免费的 ChatGPT 镜像网站列表，持续更新。List of free ChatGPT mirror sites, continuously updated.",
                     "url": "https://github.com/LiLittleCat/awesome-free-chatgpt",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740374247151,
+                    "title": "deepseek-ai/awesome-deepseek-integration",
+                    "url": "https://github.com/deepseek-ai/awesome-deepseek-integration",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -7908,13 +7915,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "股票报价、商业资讯和股市数据 | MSN 财经",
-            "url": "https://www.msn.cn/zh-cn/money?ocid=winp2octtaskbar",
-            "icon": "https://www.google.com/s2/favicons?domain=www.msn.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "Mikutap",
             "url": "https://aidn.jp/mikutap/",
             "icon": "https://www.google.com/s2/favicons?domain=aidn.jp"
@@ -7970,57 +7970,92 @@
         "children": [
           {
             "type": "folder",
-            "addDate": 1704014876011,
-            "title": "虚拟信用卡",
+            "addDate": 1740374334710,
+            "title": "经济",
             "children": [
               {
                 "type": "link",
-                "addDate": 1705679743068,
-                "title": "PayPal: 账户首页",
-                "url": "https://www.paypal.com/myaccount/summary",
-                "icon": "https://www.google.com/s2/favicons?domain=www.paypal.com"
+                "addDate": 1713950335838,
+                "title": "以太坊ethereum.org",
+                "url": "https://ethereum.org/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
+              },
+              {
+                "type": "folder",
+                "addDate": 1704014876011,
+                "title": "虚拟信用卡",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1705679743068,
+                    "title": "PayPal: 账户首页",
+                    "url": "https://www.paypal.com/myaccount/summary",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.paypal.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "DePay: Web3 Payments platform for blockchains. Directly into your wallet. Fast and secure. --- DePay：区块链的 Web3 支付平台。直接放入您的钱包。快速且安全。",
+                    "url": "https://depay.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=depay.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Wise，前称为 TransferWise：在线汇款 | 国际银行业务功能",
+                    "url": "https://wise.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=wise.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "香港第一虛擬銀行 | 眾安銀行 ZA Bank",
+                    "url": "https://bank.za.group/hk",
+                    "icon": "https://www.google.com/s2/favicons?domain=bank.za.group"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "招商永隆银行 – CMB Wing Lung Bank",
+                    "url": "https://www.cmbwinglungbank.com/wlb_corporate/cn/index.html",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.cmbwinglungbank.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Paytend",
+                    "url": "https://www.paytend.com/zh/home",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.paytend.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1727117776474,
+                    "title": "MyGuava | The Ultimate Payments App",
+                    "url": "https://myguava.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=myguava.com"
+                  }
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1720089419513,
+                "title": "集思录",
+                "url": "https://www.jisilu.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.jisilu.cn"
               },
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "DePay: Web3 Payments platform for blockchains. Directly into your wallet. Fast and secure. --- DePay：区块链的 Web3 支付平台。直接放入您的钱包。快速且安全。",
-                "url": "https://depay.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=depay.com"
+                "title": "股票报价、商业资讯和股市数据 | MSN 财经",
+                "url": "https://www.msn.cn/zh-cn/money?ocid=winp2octtaskbar",
+                "icon": "https://www.google.com/s2/favicons?domain=www.msn.cn"
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "Wise，前称为 TransferWise：在线汇款 | 国际银行业务功能",
-                "url": "https://wise.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=wise.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "香港第一虛擬銀行 | 眾安銀行 ZA Bank",
-                "url": "https://bank.za.group/hk",
-                "icon": "https://www.google.com/s2/favicons?domain=bank.za.group"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "招商永隆银行 – CMB Wing Lung Bank",
-                "url": "https://www.cmbwinglungbank.com/wlb_corporate/cn/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=www.cmbwinglungbank.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Paytend",
-                "url": "https://www.paytend.com/zh/home",
-                "icon": "https://www.google.com/s2/favicons?domain=www.paytend.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1727117776474,
-                "title": "MyGuava | The Ultimate Payments App",
-                "url": "https://myguava.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=myguava.com"
+                "addDate": 1734775656142,
+                "title": "myhhub/stock: stock股票.获取股票数据,计算股票指标,识别股票形态,综合选股,选股策略,股票验证回测,股票自动交易,支持PC及移动设备。",
+                "url": "https://github.com/myhhub/stock",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -8250,24 +8285,10 @@
           },
           {
             "type": "link",
-            "addDate": 1713950335838,
-            "title": "以太坊ethereum.org",
-            "url": "https://ethereum.org/zh/",
-            "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
-          },
-          {
-            "type": "link",
             "addDate": 1726067974340,
             "title": "《数字极权时代生存手记》",
             "url": "https://reconsidera.github.io/#/",
             "icon": "https://www.google.com/s2/favicons?domain=reconsidera.github.io"
-          },
-          {
-            "type": "link",
-            "addDate": 1720089419513,
-            "title": "集思录",
-            "url": "https://www.jisilu.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.jisilu.cn"
           },
           {
             "type": "link",
@@ -8282,13 +8303,6 @@
             "title": "Versus | 万物皆可对比",
             "url": "https://versus.com/cn",
             "icon": "https://www.google.com/s2/favicons?domain=versus.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1734775656142,
-            "title": "myhhub/stock: stock股票.获取股票数据,计算股票指标,识别股票形态,综合选股,选股策略,股票验证回测,股票自动交易,支持PC及移动设备。",
-            "url": "https://github.com/myhhub/stock",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           },
           {
             "type": "link",
