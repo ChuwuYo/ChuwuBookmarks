@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740374569015,
+    "addDate": 1740401075466,
     "title": "书签栏",
     "children": [
       {
@@ -2101,13 +2101,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "RIME | 中州韻輸入法引擎",
-                    "url": "https://rime.im/",
-                    "icon": "https://www.google.com/s2/favicons?domain=rime.im"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "Simplenote",
                     "url": "https://simplenote.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=simplenote.com"
@@ -2258,13 +2251,6 @@
                     "title": "快速输入Espanso - A Privacy-first, Cross-platform Text Expander",
                     "url": "https://espanso.org/",
                     "icon": "https://www.google.com/s2/favicons?domain=espanso.org"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "快捷键组合Quicker 您的指尖工具箱 - Quicker",
-                    "url": "https://getquicker.net/#nbwzcom",
-                    "icon": "https://www.google.com/s2/favicons?domain=getquicker.net"
                   },
                   {
                     "type": "link",
@@ -2572,6 +2558,13 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
+                "title": "RIME | 中州韻輸入法引擎",
+                "url": "https://rime.im/",
+                "icon": "https://www.google.com/s2/favicons?domain=rime.im"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
                 "title": "OfficeTools: 一键自动化 下载、安装、激活 Office 的利器。",
                 "url": "https://github.com/OdysseusYuan/LKY_OfficeTools",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -2634,13 +2627,6 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1725877007254,
-                "title": "Flash Copilot（原 Flash Switcher） 闪记 —— 浏览器超级助手 for Edge - dppcnmibpgmagiigcnfdjpnghplibbna - Extpose",
-                "url": "https://extpose.com/ext/dppcnmibpgmagiigcnfdjpnghplibbna",
-                "icon": "https://www.google.com/s2/favicons?domain=extpose.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1717498808619,
                 "title": "Sleazy Fork - 安全、有用的成人用户脚本大全",
                 "url": "https://sleazyfork.org/zh-CN",
@@ -2652,6 +2638,13 @@
                 "title": "首页 | ScriptCat",
                 "url": "https://docs.scriptcat.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.scriptcat.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Greasy Fork - 安全、实用的用户脚本大全",
+                "url": "https://greasyfork.org/zh-CN",
+                "icon": "https://www.google.com/s2/favicons?domain=greasyfork.org"
               }
             ]
           },
@@ -6396,13 +6389,6 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "搜尋 学术",
-            "url": "https://cn.bing.com/academic/?FORM=HDRSC4",
-            "icon": "https://www.google.com/s2/favicons?domain=cn.bing.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "考试宝 - 可以导入题库的在线考试刷题学习平台",
             "url": "https://www.zaixiankaoshi.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.zaixiankaoshi.com"
@@ -8093,13 +8079,6 @@
                 "icon": "https://www.google.com/s2/favicons?domain=www.loc.gov"
               }
             ]
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "Greasy Fork - 安全、实用的用户脚本大全",
-            "url": "https://greasyfork.org/zh-CN",
-            "icon": "https://www.google.com/s2/favicons?domain=greasyfork.org"
           },
           {
             "type": "link",
