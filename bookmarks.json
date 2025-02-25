@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740403406615,
+    "addDate": 1740498142230,
     "title": "书签栏",
     "children": [
       {
@@ -2006,6 +2006,13 @@
                     "title": "M2Team/NanaZip: The 7-Zip derivative intended for the modern Windows experience",
                     "url": "https://github.com/M2Team/NanaZip",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740498100556,
+                    "title": "PeaZip",
+                    "url": "https://www.peazip.org/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.peazip.org"
                   }
                 ]
               },
@@ -2775,27 +2782,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "无痕哥 - 专注于分享，分享好资源",
-                "url": "https://www.whg6.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.whg6.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "当下软件园-绿色软件_最新绿色下载软件_免费软件下载网站 - 当下软件园",
-                "url": "http://www.downxia.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.downxia.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "阿虚同学的储物间",
-                "url": "https://axutongxue.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=axutongxue.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Puresys纯净系统-软件下载",
                 "url": "https://www.puresys.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.puresys.net"
@@ -2839,7 +2825,7 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "大眼仔旭 - 专注开源软件、视频剪辑、免费商用字体、屏幕录像工具、思维导图等办公资源分享",
-                "url": "http://www.dayanzai.me/?ref=nav.sbkko.com",
+                "url": "http://www.dayanzai.me/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.dayanzai.me"
               },
               {
@@ -2848,13 +2834,6 @@
                 "title": "枫音应用 - 专注分享免费、绿色、无毒无广的实用软件！",
                 "url": "https://www.fy6b.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.fy6b.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "六音",
-                "url": "https://www.6yit.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.6yit.com"
               },
               {
                 "type": "link",
@@ -2869,13 +2848,6 @@
                 "title": "th_sjy 专注软件汉化和资源分享，Software localization, Sinicization",
                 "url": "http://www.th-sjy.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.th-sjy.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "ucbug软件站 - 免费软件下载_绿色软件下载",
-                "url": "https://www.ucbug.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.ucbug.com"
               },
               {
                 "type": "link",
@@ -2897,13 +2869,6 @@
                 "title": "MemoryStory",
                 "url": "https://cnxiaobai.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=cnxiaobai.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "file.cnxiaobai.com",
-                "url": "https://file.cnxiaobai.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=file.cnxiaobai.com"
               },
               {
                 "type": "link",
@@ -3004,13 +2969,6 @@
             "title": "OSSSR.COM",
             "url": "https://www.osssr.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.osssr.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1731827521604,
-            "title": "绿软小站 - 分享绿色软件、免费软件、最新资讯！",
-            "url": "https://www.gndown.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.gndown.com"
           },
           {
             "type": "link",
@@ -4734,13 +4692,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1717829379800,
-                "title": "fishaudio/fish-speech: Brand new TTS solution",
-                "url": "https://github.com/fishaudio/fish-speech?tab=readme-ov-file",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1721310793572,
                 "title": "Fish Audio: Audio Generation For All",
                 "url": "https://fish.audio/zh-CN/",
@@ -4769,13 +4720,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1740024068067,
-                "title": "remsky/Kokoro-FastAPI: Dockerized FastAPI wrapper for Kokoro-82M text-to-speech model w/CPU ONNX and NVIDIA GPU PyTorch support, handling, and auto-stitching",
-                "url": "https://github.com/remsky/Kokoro-FastAPI",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1740113273339,
                 "title": "ChatTTS/docs/cn/README.md at main · 2noise/ChatTTS",
                 "url": "https://github.com/2noise/ChatTTS/blob/main/docs/cn/README.md",
@@ -4786,6 +4730,20 @@
                 "addDate": 1740361013433,
                 "title": "GitHub - stepfun-ai/Step-Audio",
                 "url": "https://github.com/stepfun-ai/Step-Audio",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740466872161,
+                "title": "RVC-Boss/GPT-SoVITS: 1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
+                "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740363125054,
+                "title": "GitHub - RVC-Boss/GPT-SoVITS: 1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
+                "url": "https://github.com/RVC-Boss/GPT-SoVITS?tab=readme-ov-file",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -5537,13 +5495,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1737914600868,
-                    "title": "ChatGippity",
-                    "url": "https://gippity.chat/",
-                    "icon": "https://www.google.com/s2/favicons?domain=gippity.chat"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1739472714159,
                     "title": "问小白",
                     "url": "https://www.wenxiaobai.com/chat/tourist",
@@ -5583,6 +5534,13 @@
                     "title": "Heck.ai",
                     "url": "https://heck.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=heck.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740497711705,
+                    "title": "百小应-懂搜索的AI助手",
+                    "url": "https://ying.baichuan-ai.com/chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=ying.baichuan-ai.com"
                   }
                 ]
               },
