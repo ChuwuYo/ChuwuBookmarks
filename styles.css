@@ -45,6 +45,7 @@ body::before {
     height: 100vh;
     background-image: url('assets/images/moecat.gif');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     z-index: 1;
     pointer-events: none;
