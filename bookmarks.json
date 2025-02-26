@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740498142230,
+    "addDate": 1740546585816,
     "title": "书签栏",
     "children": [
       {
@@ -6222,6 +6222,13 @@
                 "title": "全国大学生比赛信息网-大学生比赛门户",
                 "url": "http://bisai.172xiaoyuan.com/index.html",
                 "icon": "https://www.google.com/s2/favicons?domain=bisai.172xiaoyuan.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740543510309,
+                "title": "课程详情-华为人才在线",
+                "url": "https://e.huawei.com/cn/talent/#/course/course-details?applicationId=1735740537824&courseType=ICT&invitedCode=BFLSpk&urlForm=myclass",
+                "icon": "https://www.google.com/s2/favicons?domain=e.huawei.com"
               }
             ]
           },
@@ -7039,6 +7046,13 @@
                     "title": "CUDA Toolkit Archive | NVIDIA Developer",
                     "url": "https://developer.nvidia.com/cuda-toolkit-archive",
                     "icon": "https://www.google.com/s2/favicons?domain=developer.nvidia.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740543863704,
+                    "title": "仓颉编程语言官网",
+                    "url": "https://cangjie-lang.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=cangjie-lang.cn"
                   }
                 ]
               },
@@ -7090,6 +7104,13 @@
                 "title": "ATerminal - 你的SSH捷径工具，快速连接无需等待",
                 "url": "https://aterminal.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=aterminal.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1740543873577,
+                "title": "开发-HarmonyOS NEXT鸿蒙应用开发平台-华为开发者联盟",
+                "url": "https://developer.huawei.com/consumer/cn/develop/",
+                "icon": "https://www.google.com/s2/favicons?domain=developer.huawei.com"
               }
             ]
           },
@@ -7391,6 +7412,13 @@
                 "title": "DevDocs API Documentation",
                 "url": "https://devdocs.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=devdocs.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1740543953302,
+                "title": "文档-仓颉编程语言官网",
+                "url": "https://cangjie-lang.cn/docs?url=%2F0.53.18%2Fuser_manual%2Fsource_zh_cn%2Ffirst_understanding%2Fbasic.html",
+                "icon": "https://www.google.com/s2/favicons?domain=cangjie-lang.cn"
               }
             ]
           },
@@ -7400,6 +7428,13 @@
             "title": "GitHub Dashboard",
             "url": "https://github.com/dashboard",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1740543635991,
+            "title": "GitCode - 全球开发者的开源社区,开源代码托管平台",
+            "url": "https://gitcode.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=gitcode.com"
           },
           {
             "type": "link",
