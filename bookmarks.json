@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740546585816,
+    "addDate": 1740565274750,
     "title": "书签栏",
     "children": [
       {
@@ -6229,6 +6229,13 @@
                 "title": "课程详情-华为人才在线",
                 "url": "https://e.huawei.com/cn/talent/#/course/course-details?applicationId=1735740537824&courseType=ICT&invitedCode=BFLSpk&urlForm=myclass",
                 "icon": "https://www.google.com/s2/favicons?domain=e.huawei.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740554990940,
+                "title": "ThingsBoard | 首页",
+                "url": "http://210.28.148.162:8080/home",
+                "icon": "https://www.google.com/s2/favicons?domain=210.28.148.162"
               }
             ]
           },
@@ -7001,13 +7008,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "MSYS2",
-                    "url": "https://www.msys2.org/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.msys2.org"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "python.org",
                     "url": "https://www.python.org/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.python.org"
@@ -7419,6 +7419,13 @@
                 "title": "文档-仓颉编程语言官网",
                 "url": "https://cangjie-lang.cn/docs?url=%2F0.53.18%2Fuser_manual%2Fsource_zh_cn%2Ffirst_understanding%2Fbasic.html",
                 "icon": "https://www.google.com/s2/favicons?domain=cangjie-lang.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "MSYS2",
+                "url": "https://www.msys2.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.msys2.org"
               }
             ]
           },
