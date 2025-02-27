@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740647045932,
+    "addDate": 1740654157527,
     "title": "书签栏",
     "children": [
       {
@@ -6621,6 +6621,13 @@
                 "title": "Napkin AI - The visual AI for business storytelling",
                 "url": "https://www.napkin.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.napkin.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1740648860751,
+                "title": "Material Theme Builder",
+                "url": "https://material-foundation.github.io/material-theme-builder/",
+                "icon": "https://www.google.com/s2/favicons?domain=material-foundation.github.io"
               }
             ]
           },
