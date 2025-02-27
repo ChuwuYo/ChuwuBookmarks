@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740654157527,
+    "addDate": 1740663268596,
     "title": "书签栏",
     "children": [
       {
@@ -1278,9 +1278,23 @@
           },
           {
             "type": "link",
+            "addDate": 1737977529709,
+            "title": "chenmozhijin/LDDC: 简单易用的精准歌词(逐字歌词/卡拉OK歌词)下载匹配工具|A simple and user-friendly tool for downloading and matching precise lyrics (word-by-word lyrics/Karaoke lyrics)",
+            "url": "https://github.com/chenmozhijin/LDDC",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
             "addDate": 1706599537830,
             "title": "zhongyang219/MusicPlayer2: 这是一款可以播放常见音频格式的音频播放器。支持歌词显示、歌词卡拉OK样式显示、歌词在线下载、歌词编辑、歌曲标签识别、Win10小娜搜索显示歌词、频谱分析、音效设置、任务栏缩略图按钮、主题颜色等功能。 播放内核为BASS音频库(V2.4)。",
             "url": "https://github.com/zhongyang219/MusicPlayer2",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1736865222488,
+            "title": "imsyy/SPlayer: 🎉 一个简约的音乐播放器，支持逐字歌词，下载歌曲，展示评论区，音乐云盘及歌单管理，音乐频谱，移动端基础适配 | 网易云音乐 | A minimalist music player",
+            "url": "https://github.com/imsyy/SPlayer",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
           },
           {
@@ -1422,20 +1436,6 @@
             "title": "母带吧音乐 - 192kHz/24bit",
             "url": "https://www.mudaiba.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.mudaiba.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1736865222488,
-            "title": "imsyy/SPlayer: 🎉 一个简约的音乐播放器，支持逐字歌词，下载歌曲，展示评论区，音乐云盘及歌单管理，音乐频谱，移动端基础适配 | 网易云音乐 | A minimalist music player",
-            "url": "https://github.com/imsyy/SPlayer",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1737977529709,
-            "title": "chenmozhijin/LDDC: 简单易用的精准歌词(逐字歌词/卡拉OK歌词)下载匹配工具|A simple and user-friendly tool for downloading and matching precise lyrics (word-by-word lyrics/Karaoke lyrics)",
-            "url": "https://github.com/chenmozhijin/LDDC",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           },
           {
             "type": "link",
@@ -7342,6 +7342,13 @@
                 "title": "wandb/openui: OpenUI let's you describe UI using your imagination, then see it rendered live.",
                 "url": "https://github.com/wandb/openui",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740663218048,
+                "title": "Naive UI: 一个 Vue 3 组件库",
+                "url": "https://www.naiveui.com/zh-CN/os-theme",
+                "icon": "https://www.google.com/s2/favicons?domain=www.naiveui.com"
               }
             ]
           },
@@ -7398,6 +7405,13 @@
                 "title": "MSYS2",
                 "url": "https://www.msys2.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.msys2.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1740663248695,
+                "title": "简介 | Electron",
+                "url": "https://www.electronjs.org/zh/docs/latest/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.electronjs.org"
               }
             ]
           },
