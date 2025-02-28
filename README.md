@@ -15,8 +15,8 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 ### PC：
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/5f9248bd-dd25-4d8b-bd33-3c5ed019ddc9" alt="PC Light">
-    <img src="https://github.com/user-attachments/assets/afe49e46-f96c-47d5-8e29-0a6bc36d6029" alt="PC Dark">
+    <img src="https://github.com/user-attachments/assets/af6ef7fc-7206-4415-9be1-78db45ff3f58" alt="PC Light">
+    <img src="https://github.com/user-attachments/assets/c5b3b489-c69e-4156-b232-5679281a9b6a" alt="PC Dark">
 </div>
 
 ### 移动端：
