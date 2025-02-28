@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740663268596,
+    "addDate": 1740757329196,
     "title": "书签栏",
     "children": [
       {
@@ -2191,13 +2191,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1712572021887,
-                    "title": "Craft for Free",
-                    "url": "https://www.craft.do/download",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.craft.do"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1717330070045,
                     "title": "墨屉 — 终身知识，深入脑海",
                     "url": "https://oflg.github.io/Tidme/manual/zh-Hans",
@@ -2244,6 +2237,13 @@
                     "title": "Beaver-Notes/Beaver-Notes: Build your knowledge one log at a time",
                     "url": "https://github.com/Beaver-Notes/Beaver-Notes",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740710112292,
+                    "title": "狮子笔记 | Lionote",
+                    "url": "https://www.lionote.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.lionote.com"
                   }
                 ]
               },
@@ -3910,13 +3910,6 @@
                     "title": "SysRi一键重装 - 一个纯净、强大、易用的系统重装工具",
                     "url": "https://sysri.cn/",
                     "icon": "https://www.google.com/s2/favicons?domain=sysri.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "CowPE | CowPE",
-                    "url": "http://cowpe.myzwq.cn/project/8c11",
-                    "icon": "https://www.google.com/s2/favicons?domain=cowpe.myzwq.cn"
                   },
                   {
                     "type": "link",
