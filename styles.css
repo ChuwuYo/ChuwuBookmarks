@@ -107,7 +107,7 @@ html {
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
     transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
@@ -226,6 +226,8 @@ html {
     flex: 1;
     box-sizing: border-box;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* 添加 position 确保 z-index 生效 */
+    z-index: 2; /* 置于 GIF 背景层之上 */
 }
 
 .sidebar.collapsed + .main-content {
@@ -290,16 +292,65 @@ html {
 /* 内容区域 */
 #content .folder,
 #content .bookmark {
-    margin: 1rem 0;
+    margin: 1.1rem 0; /* 统一间隔，比侧栏少，比原书签多 */
 }
 
-.bookmark a {
+#content .folder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+#content .folder .folder-name {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+}
+
+#content .folder .folder-name:hover {
+    background: var(--hover-bg);
+    border-radius: 5px;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+#content .bookmark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#content .bookmark .bookmark-icon {
+    flex-shrink: 0; /* 防止图标被压缩 */
+}
+
+#content .bookmark a {
     color: var(--text-color);
     text-decoration: none;
+    display: inline-block;
+    padding: 0.25rem 0;
+    max-width: 63%; /* 基于 .main-content 的宽度，留出空间给图标和间距 */
+    white-space: nowrap; /* 防止换行 */
+    overflow: hidden; /* 溢出隐藏 */
+    text-overflow: ellipsis; /* 过长时显示省略号 */
 }
 
-.bookmark a:hover {
+#content .bookmark a:hover {
     color: var(--link-color);
+}
+
+/* 为书签添加悬停效果，增强空间感 */
+#content .bookmark:hover {
+    transform: translateY(-1px); /* 轻微上移 */
+}
+
+#content .bookmark:hover a {
+    box-shadow: var(--shadow-sm); /* 轻微阴影 */
 }
 
 /* GitHub链接 */
@@ -427,7 +478,9 @@ html {
     .folder-name:hover,
     .breadcrumb-item:hover,
     #search-input:hover,
-    .theme-toggle:hover {
+    .theme-toggle:hover,
+    #content .bookmark:hover,
+    #content .bookmark:hover a {
         transform: none;
         box-shadow: none;
     }
@@ -438,6 +491,11 @@ html {
 
     #breadcrumbs {
         padding-top: 40px;
+    }
+
+    /* 移动端保持 80% */
+    #content .bookmark a {
+        max-width: 80%;
     }
 }
 
