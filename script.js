@@ -6,7 +6,6 @@
 const initTheme = () => {
     const theme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', theme);
-    document.getElementById('theme-toggle').textContent = theme === 'light' ? '🌞' : '🌙';
 };
 
 const toggleTheme = () => {
@@ -14,7 +13,6 @@ const toggleTheme = () => {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    document.getElementById('theme-toggle').textContent = newTheme === 'light' ? '🌞' : '🌙';
 };
 
 /** 设备和视图适配 */
