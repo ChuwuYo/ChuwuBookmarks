@@ -344,7 +344,6 @@ html {
     color: var(--link-color);
 }
 
-/* 为书签添加悬停效果，增强空间感 */
 #content .bookmark:hover {
     transform: translateY(-1px); /* 轻微上移 */
 }
@@ -385,7 +384,7 @@ html {
     padding: 8px;
     font-size: 1rem;
     border: 1px solid var(--text-color);
-    border-radius: 25px;
+    border-radius: 10px;
     width: 200px;
     max-width: calc(100vw - 120px);
     background: var(--bg-color);
@@ -402,7 +401,7 @@ html {
     padding: 8px 12px;
     font-size: 1rem;
     border: 1px solid var(--text-color);
-    border-radius: 15px;
+    border-radius: 10px;
     background: var(--button-bg);
     color: rgb(122, 252, 254);
     cursor: pointer;
