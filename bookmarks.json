@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740829878047,
+    "addDate": 1740916095920,
     "title": "书签栏",
     "children": [
       {
@@ -6191,13 +6191,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "论文和代码The latest in Machine Learning | Papers With Code --- 机器学习的最新动态 |带代码的论文",
-                "url": "https://paperswithcode.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=paperswithcode.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "GeenMedical 根哥学术",
                 "url": "https://www.geenmedical.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.geenmedical.com"
@@ -6320,13 +6313,6 @@
                 "title": "矩阵计算器 - Reshish",
                 "url": "https://matrix.reshish.com/zh/",
                 "icon": "https://www.google.com/s2/favicons?domain=matrix.reshish.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1717499271079,
-                "title": "AI 数学",
-                "url": "https://ai-math.top/zh/teacher",
-                "icon": "https://www.google.com/s2/favicons?domain=ai-math.top"
               }
             ]
           },
