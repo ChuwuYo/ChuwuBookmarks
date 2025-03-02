@@ -165,7 +165,7 @@ html {
     transform: translateY(-2px);
 }
 
-/* 移除主页按钮的弹簧效果 */
+/* 主页按钮 */
 .sidebar h1 {
     background: var(--header-bg);
     color: white;
@@ -174,6 +174,7 @@ html {
     cursor: pointer;
     margin: 0;
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    user-select: none;
 }
 
 .sidebar h1:hover {
@@ -195,6 +196,7 @@ html {
     z-index: 1001;
     box-shadow: var(--button-shadow);
     font-size: 1.3rem;
+    user-select: none;
 }
 
 .sidebar:not(.collapsed) #toggle-sidebar {
@@ -244,6 +246,12 @@ html {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
+    transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.sidebar.collapsed + .main-content .home-message {
+    left: 50%;
 }
 
 /* 面包屑导航 */
@@ -378,6 +386,7 @@ html {
     align-items: center;
     z-index: 999;
     white-space: nowrap;
+    user-select: none;
 }
 
 #search-input {
@@ -389,6 +398,7 @@ html {
     max-width: calc(100vw - 120px);
     background: var(--bg-color);
     color: var(--text-color);
+    user-select: text; /* 输入框内文本仍然可选 */
 }
 
 #search-input:hover {
@@ -397,22 +407,66 @@ html {
     transform: scale(1.02);
 }
 
+/* 主题切换按钮 */
 .theme-toggle {
-    padding: 8px 12px;
+    padding: 0;
     font-size: 1rem;
     border: 1px solid var(--text-color);
     border-radius: 10px;
     background: var(--button-bg);
-    color: rgb(122, 252, 254);
+    color: var(--text-color);
     cursor: pointer;
     margin-left: 5px;
     box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 调整按钮尺寸与搜索框高度一致 */
+    height: calc(1rem + 16px + 4px); /* 字体大小 + 上下padding + 边框 */
+    width: calc(1rem + 16px + 4px); /* 保持正方形 */
+    position: relative;
+}
+
+.theme-toggle svg {
+    width: calc(1rem + 8px);
+    height: calc(1rem + 8px);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle .sun,
+.theme-toggle .moon {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+[data-theme='light'] .theme-toggle .sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme='light'] .theme-toggle .moon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+[data-theme='dark'] .theme-toggle .sun {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+[data-theme='dark'] .theme-toggle .moon {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .theme-toggle:hover {
     background: var(--button-hover);
     box-shadow: var(--theme-shadow-hover);
     transform: scale(1.05);
+}
+
+.theme-toggle:hover svg {
+    transform: rotate(30deg);
 }
 
 /* 无搜索结果 */
@@ -504,7 +558,7 @@ html {
     }
 
     .sidebar.collapsed + .main-content .search-container {
-        margin-left: 20px;
+        margin-left: 10px;
     }
 }
 
