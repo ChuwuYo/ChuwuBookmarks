@@ -48,9 +48,38 @@ const renderHome = () => {
 const createElement = (type, item, onClick) => {
     const element = document.createElement('div');
     element.className = type;
-    element.innerHTML = type === 'folder' 
-        ? `<span class="folder-icon">📁</span><span class="folder-name">${item.title}</span>`
-        : `<span class="bookmark-icon">🔗</span><a href="${item.url}" target="_blank">${item.title}</a>`;
+    
+    if (type === 'folder') {
+        element.innerHTML = `<span class="folder-icon">📁</span><span class="folder-name">${item.title}</span>`;
+    } else {
+        const bookmarkIcon = document.createElement('span');
+        bookmarkIcon.className = 'bookmark-icon';
+        bookmarkIcon.textContent = '🔗';
+        
+        if (item.icon) {
+            const img = document.createElement('img');
+            img.src = item.icon;
+            img.alt = '🔗';
+            img.style.display = 'none';
+            img.onload = function() {
+                bookmarkIcon.textContent = '';
+                this.style.display = '';
+                bookmarkIcon.appendChild(this);
+            };
+            img.onerror = function() {
+                this.remove();
+            };
+        }
+        
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.target = '_blank';
+        link.textContent = item.title;
+        
+        element.appendChild(bookmarkIcon);
+        element.appendChild(link);
+    }
+    
     if (onClick) element.addEventListener('click', onClick);
     return element;
 };

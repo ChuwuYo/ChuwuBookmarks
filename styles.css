@@ -262,6 +262,7 @@ html {
     font-size: 1.1rem;
     white-space: normal;
     overflow-x: visible;
+    user-select: none;
 }
 
 .breadcrumb-item {
@@ -271,6 +272,7 @@ html {
     border-radius: 4px;
     display: inline-block;
     margin: 0 4px 4px 0;
+    user-select: none;
 }
 
 .breadcrumb-item:hover {
@@ -335,6 +337,16 @@ html {
 
 #content .bookmark .bookmark-icon {
     flex-shrink: 0; /* 防止图标被压缩 */
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+#content .bookmark .bookmark-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 #content .bookmark a {
@@ -346,6 +358,7 @@ html {
     white-space: nowrap; /* 防止换行 */
     overflow: hidden; /* 溢出隐藏 */
     text-overflow: ellipsis; /* 过长时显示省略号 */
+    user-select: text; /* 确保链接文本可选 */
 }
 
 #content .bookmark a:hover {
