@@ -40,7 +40,7 @@
 
 /* 全局样式 */
 * {
-    transition: all 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -106,8 +106,10 @@ html {
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
-    transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
@@ -150,12 +152,14 @@ html {
     -webkit-touch-callout: none;
     backface-visibility: hidden;
     transform: translateZ(0);
+    transition: transform 0.2s ease;
 }
 
 .sidebar .folder-name {
     font-size: 1rem;
     padding: 0.5rem 0;
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sidebar .folder-name:hover {
@@ -173,7 +177,7 @@ html {
     border-radius: 5px;
     cursor: pointer;
     margin: 0;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     user-select: none;
 }
 
@@ -227,7 +231,8 @@ html {
     padding: 20px 20px 20px 40px;
     flex: 1;
     box-sizing: border-box;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative; /* 添加 position 确保 z-index 生效 */
     z-index: 2; /* 置于 GIF 背景层之上 */
 }
@@ -246,8 +251,16 @@ html {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
-    transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     user-select: none;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* 通用动画定义 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .sidebar.collapsed + .main-content .home-message {
@@ -263,6 +276,19 @@ html {
     white-space: normal;
     overflow-x: visible;
     user-select: none;
+    opacity: 0;
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .breadcrumb-item {
@@ -273,6 +299,7 @@ html {
     display: inline-block;
     margin: 0 4px 4px 0;
     user-select: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, text-decoration 0.2s ease;
 }
 
 .breadcrumb-item:hover {
@@ -303,6 +330,20 @@ html {
 #content .folder,
 #content .bookmark {
     margin: 1.1rem 0; /* 统一间隔，比侧栏少，比原书签多 */
+    opacity: 0;
+    animation: fadeInUp 0.3s ease forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.05s);
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #content .folder {
@@ -314,25 +355,21 @@ html {
     -webkit-touch-callout: none;
     backface-visibility: hidden;
     transform: translateZ(0);
+    transition: transform 0.2s ease;
 }
 
 #content .folder .folder-name {
     font-size: 1rem;
     padding: 0.25rem 0;
     cursor: pointer;
-}
-
-#content .folder .folder-name:hover {
-    background: var(--hover-bg);
-    border-radius: 5px;
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-2px);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #content .bookmark {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: transform 0.2s ease;
 }
 
 #content .bookmark .bookmark-icon {
@@ -340,6 +377,7 @@ html {
     display: inline-flex;
     align-items: center;
     user-select: none;
+    transition: transform 0.2s ease;
 }
 
 #content .bookmark .bookmark-icon img {
@@ -347,6 +385,7 @@ html {
     height: 16px;
     object-fit: contain;
     vertical-align: middle;
+    transition: opacity 0.3s ease;
 }
 
 #content .bookmark a {
@@ -359,6 +398,7 @@ html {
     overflow: hidden; /* 溢出隐藏 */
     text-overflow: ellipsis; /* 过长时显示省略号 */
     user-select: text; /* 确保链接文本可选 */
+    transition: color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #content .bookmark a:hover {
@@ -400,6 +440,7 @@ html {
     z-index: 999;
     white-space: nowrap;
     user-select: none;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #search-input {
@@ -438,6 +479,7 @@ html {
     height: calc(1rem + 16px + 4px); /* 字体大小 + 上下padding + 边框 */
     width: calc(1rem + 16px + 4px); /* 保持正方形 */
     position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .theme-toggle svg {
@@ -452,24 +494,25 @@ html {
     transition: all 0.3s ease;
 }
 
+/* 主题图标状态 */
 [data-theme='light'] .theme-toggle .sun {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0);
 }
 
 [data-theme='light'] .theme-toggle .moon {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.5) rotate(-30deg);
 }
 
 [data-theme='dark'] .theme-toggle .sun {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.5) rotate(30deg);
 }
 
 [data-theme='dark'] .theme-toggle .moon {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0);
 }
 
 .theme-toggle:hover {
@@ -482,7 +525,12 @@ html {
     transform: rotate(30deg);
 }
 
-/* 无搜索结果 */
+/* 搜索结果相关 */
+.no-results, .results-container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
 .no-results {
     font-size: 1.2rem;
     color: var(--text-color);
@@ -492,6 +540,7 @@ html {
 
 /* 移动设备适配 */
 @media screen and (max-width: 768px) {
+    /* 侧边栏移动端优化 */
     .sidebar {
         transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                     padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -528,6 +577,7 @@ html {
         border-radius: 5px;
     }
 
+    /* 主内容区域移动端优化 */
     .main-content {
         margin-left: 0 !important;
         width: 100% !important;
@@ -539,6 +589,7 @@ html {
         width: calc(100% - 220px);
     }
 
+    /* 移动端禁用悬停效果 */
     #toggle-sidebar:hover,
     .sidebar h1:hover,
     .folder-name:hover,
