@@ -197,7 +197,7 @@ html {
     border-radius: 0 15px 15px 0;
     padding: 8px 12px;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 999;
     box-shadow: var(--button-shadow);
     font-size: 1.3rem;
     user-select: none;
