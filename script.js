@@ -75,7 +75,6 @@ const createElement = (type, item, onClick) => {
         link.href = item.url;
         link.target = '_blank';
         link.textContent = item.title;
-        
         element.appendChild(bookmarkIcon);
         element.appendChild(link);
     }
