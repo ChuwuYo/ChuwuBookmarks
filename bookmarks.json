@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1740980683833,
+    "addDate": 1741093163839,
     "title": "书签栏",
     "children": [
       {
@@ -1592,13 +1592,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "三四中文网",
-                "url": "http://www.434zw.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.434zw.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Kindle电子书,mobi电子书,epub电子书,azw3电子书,PDF,TXT格式免费下载|Aibooks积微书斋",
                 "url": "https://www.aibooks.cc/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.aibooks.cc"
@@ -1644,13 +1637,6 @@
                 "title": "书葵网_海量图书检索下载",
                 "url": "https://www.shukui.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.shukui.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1728346210341,
-                "title": "皇帝之家（原看帮网） - 精品全本电子书在线阅读及txt下载网。",
-                "url": "https://www.huangdizhijia.com/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=www.huangdizhijia.com"
               },
               {
                 "type": "link",
@@ -1728,8 +1714,8 @@
             "type": "link",
             "addDate": 1704012714000,
             "title": "owllook - 网络小说搜索引擎 - 最简洁清新的搜索阅读体验",
-            "url": "https://owllook2.yueing.org/md",
-            "icon": "https://www.google.com/s2/favicons?domain=owllook2.yueing.org"
+            "url": "https://www.owlook.com.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.owlook.com.cn"
           },
           {
             "type": "link",
@@ -2696,13 +2682,6 @@
             "title": "AlternativeTo - Crowdsourced software recommendations",
             "url": "https://alternativeto.net/",
             "icon": "https://www.google.com/s2/favicons?domain=alternativeto.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1722953555035,
-            "title": "Open Source Alternatives to Popular Software – OpenAlternative",
-            "url": "https://openalternative.co/",
-            "icon": "https://www.google.com/s2/favicons?domain=openalternative.co"
           },
           {
             "type": "link",
