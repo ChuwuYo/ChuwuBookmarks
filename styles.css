@@ -44,8 +44,13 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+@font-face {
+    font-family: 'LXGW WenKai';
+    src: url('assets/typeface/LXGWWenKai-Medium.ttf') format('truetype');
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'LXGW WenKai', Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -156,7 +161,7 @@ html {
 }
 
 .sidebar .folder-name {
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 0.5rem 0;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -248,13 +253,37 @@ html {
     top: 50%;
     left: calc(50% + 110px);
     transform: translate(-50%, -50%);
-    font-size: 1.6rem;
+    font-size: 6rem;
     font-weight: bold;
     text-align: center;
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     user-select: none;
     opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+@font-face {
+    font-family: 'DingTalk JinBuTi';
+    src: url('assets/typeface/DingTalk JinBuTi.ttf') format('truetype');
+}
+
+.home-message .chinese-text {
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    font-size: 6rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    transform: translateZ(0);
+    transition: color 0.3s ease;
+}
+
+.home-message .english-text {
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    font-size: 4rem;
+    color: var(--link-color);
+    font-style: italic;
+    opacity: 0.9;
+    white-space: pre;
 }
 
 /* 通用动画定义 */
@@ -433,7 +462,7 @@ html {
 .search-container {
     position: fixed;
     top: 20px;
-    left: 50%;
+    left: 50.5%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
@@ -647,4 +676,31 @@ a:focus {
 
 .sidebar.collapsed .folder-name {
     opacity: 0; /* 直接淡出，不移动 */
+}
+.chinese-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes textJump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
 }
