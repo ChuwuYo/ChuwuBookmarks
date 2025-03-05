@@ -2,13 +2,15 @@
 <html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0，maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="assets/icon/bocchi.png">
     <title>我的书签导航</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- 引入 GSAP 动画库 -->
+    <script src="assets/gsap-public/minified/gsap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 引入 fastclick 库消除300ms延迟
+            // 引入 fastclick 库消除300ms延迟（需确保 fastclick.js 已引入）
             if ('addEventListener' in document) {
                 document.addEventListener('DOMContentLoaded', function() {
                     FastClick.attach(document.body);
@@ -30,11 +32,7 @@
     </div>
     <div class="main-content">
         <div class="search-container">
-            <input type="text"
-                   id="search-input"
-                   name="query"
-                   placeholder="🔍 搜索书签..."
-                   onkeyup="debounceSearch(event)"/>
+            <input type="text" id="search-input" name="query" placeholder="🔍 搜索书签..." onkeyup="debounceSearch(event)"/>
             <button id="theme-toggle" class="theme-toggle">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
@@ -56,5 +54,6 @@
         <div id="content"></div>
     </div>
     <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91b83ac94ac2bae4',t:'MTc0MTE2MzE5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
