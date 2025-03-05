@@ -23,6 +23,36 @@ const updateSidebarState = (sidebar, isCollapsed) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
     document.getElementById('toggle-sidebar').textContent = isCollapsed ? '🫸' : '🫷';
     adjustHomeMessagePosition(isCollapsed);
+    
+    // 使用GSAP为侧边栏文件夹添加动画效果
+    const folderElements = sidebar.querySelectorAll('.folder');
+    if (!isCollapsed) {  // 侧边栏展开时的动画
+        // 先设置初始状态，确保所有文件夹都隐藏
+        gsap.set(folderElements, { opacity: 0, visibility: 'visible' });
+        // 为每个文件夹元素添加纯透明度渐变动画
+        folderElements.forEach((folder, index) => {
+            gsap.to(folder, {
+                opacity: 1,
+                duration: 0.3,
+                delay: 0.1 + (index * 0.05),
+                ease: "power2.out",
+                onStart: () => folder.style.visibility = 'visible'
+            });
+        });
+    } else {
+        // 侧边栏收起时的动画
+        gsap.to(folderElements, {
+            opacity: 0,
+            duration: 0.2,
+            stagger: 0.02,
+            ease: "power2.in",
+            onComplete: () => {
+                folderElements.forEach(folder => {
+                    folder.style.visibility = 'hidden';
+                });
+            }
+        });
+    }
 };
 
 const handleMobileView = () => {

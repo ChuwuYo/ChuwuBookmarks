@@ -151,17 +151,17 @@ html {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 1.2rem 0;
+    margin: 1.0rem 0;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
     backface-visibility: hidden;
+    will-change: opacity; /* 优化动画性能 */
     transform: translateZ(0);
-    transition: transform 0.2s ease;
 }
 
 .sidebar .folder-name {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     padding: 0.5rem 0;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -206,6 +206,7 @@ html {
     box-shadow: var(--button-shadow);
     font-size: 1.3rem;
     user-select: none;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
 
 .sidebar:not(.collapsed) #toggle-sidebar {
@@ -247,17 +248,20 @@ html {
     padding: 20px;
 }
 
+.sidebar.collapsed .folder {
+    visibility: hidden !important; /* 确保收起时完全不可见 */
+}
+
 /* 首页消息 */
 .home-message {
     position: fixed;
     top: 50%;
     left: calc(50% + 110px);
     transform: translate(-50%, -50%);
-    font-size: 6rem;
     font-weight: bold;
     text-align: center;
-    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     user-select: none;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     opacity: 0;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -270,7 +274,7 @@ html {
 
 .home-message .chinese-text {
     font-family: 'DingTalk JinBuTi', sans-serif;
-    font-size: 6rem;
+    font-size: 5rem;
     margin-bottom: 20px;
     color: var(--text-color);
     transform: translateZ(0);
@@ -301,7 +305,7 @@ html {
     font-weight: bold;
     margin-bottom: 1rem;
     padding: 60px 0 0 10px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     white-space: normal;
     overflow-x: visible;
     user-select: none;
@@ -384,14 +388,37 @@ html {
     -webkit-touch-callout: none;
     backface-visibility: hidden;
     transform: translateZ(0);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+#content .folder:hover {
+    transform: translateX(8px) scale(1.02);
+    cursor: pointer;
+}
+
+#content .folder-name {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    max-width: 80%;
+    transition: all 0.2s ease;
+}
+
+#content .folder-name:hover {
+    background: var(--hover-bg);
+    border-radius: 5px;
+    box-shadow: var(--shadow-sm);
 }
 
 #content .folder .folder-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 0.25rem 0;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#content .folder:hover .folder-name {
+    color: var(--link-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 #content .bookmark {
@@ -422,12 +449,13 @@ html {
     text-decoration: none;
     display: inline-block;
     padding: 0.25rem 0;
-    max-width: 63%; /* 基于 .main-content 的宽度，留出空间给图标和间距 */
-    white-space: nowrap; /* 防止换行 */
-    overflow: hidden; /* 溢出隐藏 */
-    text-overflow: ellipsis; /* 过长时显示省略号 */
-    user-select: text; /* 确保链接文本可选 */
-    transition: color 0.2s ease, box-shadow 0.2s ease;
+    max-width: 63%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, background-color 0.3s ease, all 0.3s ease;
 }
 
 #content .bookmark a:hover {
@@ -514,13 +542,13 @@ html {
 .theme-toggle svg {
     width: calc(1rem + 8px);
     height: calc(1rem + 8px);
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, all 0.3s ease;
 }
 
 .theme-toggle .sun,
 .theme-toggle .moon {
     position: absolute;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, all 0.3s ease;
 }
 
 /* 主题图标状态 */
@@ -669,13 +697,17 @@ a:focus {
 }
 
 /* 优化侧边栏收起动画 */
-.sidebar .folder-name {
+.sidebar .folder {
     opacity: 1;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* 只保留opacity过渡 */
+    transform: translateZ(0);
+    will-change: opacity; /* 优化动画性能 */
+    backface-visibility: hidden;
 }
 
-.sidebar.collapsed .folder-name {
-    opacity: 0; /* 直接淡出，不移动 */
+.sidebar.collapsed .folder,
+.sidebar.collapsed h1 {
+    opacity: 0;
+    visibility: hidden !important; /* 确保收起时完全不可见 */
 }
 .chinese-text {
     font-size: 2.5em;
