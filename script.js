@@ -23,34 +23,22 @@ const updateSidebarState = (sidebar, isCollapsed) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
     document.getElementById('toggle-sidebar').textContent = isCollapsed ? '🫸' : '🫷';
     adjustHomeMessagePosition(isCollapsed);
-    
-    // 使用GSAP为侧边栏文件夹添加动画效果
+
+    // 修复文件夹动画状态
     const folderElements = sidebar.querySelectorAll('.folder');
-    if (!isCollapsed) {  // 侧边栏展开时的动画
-        // 先设置初始状态，确保所有文件夹都隐藏
+    if (isCollapsed) {
+        // 收起时隐藏所有文件夹
+        gsap.set(folderElements, { opacity: 0, visibility: 'hidden' });
+    } else {
+        // 展开时重置文件夹动画
         gsap.set(folderElements, { opacity: 0, visibility: 'visible' });
-        // 为每个文件夹元素添加纯透明度渐变动画
         folderElements.forEach((folder, index) => {
             gsap.to(folder, {
                 opacity: 1,
+                delay: index * 0.05, // 添加延迟以实现顺序动画
                 duration: 0.3,
-                delay: 0.1 + (index * 0.05),
-                ease: "power2.out",
-                onStart: () => folder.style.visibility = 'visible'
+                ease: "power1.out"
             });
-        });
-    } else {
-        // 侧边栏收起时的动画
-        gsap.to(folderElements, {
-            opacity: 0,
-            duration: 0.2,
-            stagger: 0.02,
-            ease: "power2.in",
-            onComplete: () => {
-                folderElements.forEach(folder => {
-                    folder.style.visibility = 'hidden';
-                });
-            }
         });
     }
 };
@@ -63,9 +51,17 @@ const handleMobileView = () => {
 const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
     if (homeMessage) {
-        homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
+        if (!isMobileDevice()) {
+            homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
+        }
     }
 };
+
+// 在事件监听中保持调用
+window.addEventListener('resize', () => {
+    handleMobileView();
+    adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
+});
 
 /** 渲染相关 */
 const renderHome = () => {

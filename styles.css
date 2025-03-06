@@ -699,6 +699,8 @@ a:focus {
 .sidebar .folder {
     opacity: 1;
     transform: translateZ(0);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: visible; /* 确保默认状态为可见 */
     will-change: opacity; /* 优化动画性能 */
     backface-visibility: hidden;
 }
@@ -710,9 +712,11 @@ a:focus {
 }
 
 /* 固定主页消息位置 */
-.home-message {
+@media screen and (max-width: 768px) {
+    .home-message {
     left: 50% !important;
     transition: opacity 0.3s ease;
+    }
 }
 
 .home-message .chinese-text {
