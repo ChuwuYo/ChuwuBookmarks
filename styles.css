@@ -608,19 +608,18 @@ html {
         padding: 0 !important;
     }
 
-    .sidebar h1,
-    .sidebar .folder-name,
-    .sidebar #sidebar-folders {
+    /* 合并隐藏和显示的选择器 */
+    .sidebar.collapsed h1,
+    .sidebar.collapsed .folder-name,
+    .sidebar.collapsed #sidebar-folders {
         display: none;
     }
-
     .sidebar:not(.collapsed) {
         width: 220px;
         padding: 20px;
         pointer-events: auto;
         touch-action: pan-y;
     }
-
     .sidebar:not(.collapsed) h1,
     .sidebar:not(.collapsed) .folder-name,
     .sidebar:not(.collapsed) #sidebar-folders {
@@ -709,14 +708,19 @@ a:focus {
     opacity: 0;
     visibility: hidden !important; /* 确保收起时完全不可见 */
 }
-.chinese-text {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--text-color);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+
+/* 固定主页消息位置 */
+.home-message {
+    left: 50% !important;
+    transition: opacity 0.3s ease;
+}
+
+.home-message .chinese-text {
+    font-size: 3rem;
+}
+
+.home-message .english-text {
+    font-size: 2rem;
 }
 
 @keyframes floatUpDown {
