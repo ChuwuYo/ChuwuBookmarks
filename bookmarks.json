@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741153029167,
+    "addDate": 1741267479173,
     "title": "书签栏",
     "children": [
       {
@@ -1251,7 +1251,7 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "https://www.missevan.com/",
+            "title": "猫耳FM",
             "url": "https://www.missevan.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.missevan.com"
           },
@@ -5392,8 +5392,8 @@
                     "type": "link",
                     "addDate": 1737123777317,
                     "title": "Qwen",
-                    "url": "https://chat.qwenlm.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.qwenlm.ai"
+                    "url": "https://chat.qwen.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.qwen.ai"
                   },
                   {
                     "type": "link",
@@ -5436,6 +5436,13 @@
                     "title": "百小应-懂搜索的AI助手",
                     "url": "https://ying.baichuan-ai.com/chat",
                     "icon": "https://www.google.com/s2/favicons?domain=ying.baichuan-ai.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1741230098719,
+                    "title": "EasyChat",
+                    "url": "https://www.easychat.work/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.easychat.work"
                   }
                 ]
               },
@@ -6962,6 +6969,27 @@
                     "title": "仓颉编程语言官网",
                     "url": "https://cangjie-lang.cn/",
                     "icon": "https://www.google.com/s2/favicons?domain=cangjie-lang.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "下载 Microsoft Build of OpenJDK | Microsoft Learn",
+                    "url": "https://learn.microsoft.com/zh-cn/java/openjdk/download",
+                    "icon": "https://www.google.com/s2/favicons?domain=learn.microsoft.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Download Java for Windows",
+                    "url": "https://www.java.com/en/download/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.java.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1741267422495,
+                    "title": "Java Download | Java 8, Java 11, Java 17, Java 21, Java 23 - OpenJDK Builds for Linux, Windows & macOS",
+                    "url": "https://bell-sw.com/pages/downloads/#jdk-21-lts",
+                    "icon": "https://www.google.com/s2/favicons?domain=bell-sw.com"
                   }
                 ]
               },
@@ -7349,6 +7377,13 @@
                 "title": "简介 | Electron",
                 "url": "https://www.electronjs.org/zh/docs/latest/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.electronjs.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1741158601372,
+                "title": "docsHome | GSAP | Docs & Learning",
+                "url": "https://gsap.com/docs/v3/",
+                "icon": "https://www.google.com/s2/favicons?domain=gsap.com"
               }
             ]
           },
