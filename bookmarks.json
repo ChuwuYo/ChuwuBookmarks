@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741452897960,
+    "addDate": 1741453033854,
     "title": "书签栏",
     "children": [
       {
@@ -7044,13 +7044,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1707380850143,
-                "title": "Apifox - API 文档、调试、Mock、测试一体化协作平台。拥有接口文档管理、接口调试、Mock、自动化测试等功能，接口开发、测试、联调效率，提升 10 倍。最好用的接口文档管理工具，接口自动化测试工具。",
-                "url": "https://apifox.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=apifox.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1712573392630,
                 "title": "Slidev为开发者打造的演示文稿工具",
                 "url": "https://cn.sli.dev/",
@@ -7175,13 +7168,6 @@
             "addDate": 1719239905714,
             "title": "AI编程",
             "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "CodeGeeX - 免费的AI编程助手 - CodeGeeX",
-                "url": "https://codegeex.cn/zh-CN",
-                "icon": "https://www.google.com/s2/favicons?domain=codegeex.cn"
-              },
               {
                 "type": "link",
                 "addDate": 1715580062788,
@@ -7350,6 +7336,13 @@
             "addDate": 1738068748771,
             "title": "文档",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1707380850143,
+                "title": "Apifox - API 文档、调试、Mock、测试一体化协作平台。拥有接口文档管理、接口调试、Mock、自动化测试等功能，接口开发、测试、联调效率，提升 10 倍。最好用的接口文档管理工具，接口自动化测试工具。",
+                "url": "https://apifox.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=apifox.com"
+              },
               {
                 "type": "link",
                 "addDate": 1712573316700,
