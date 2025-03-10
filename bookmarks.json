@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741453033854,
+    "addDate": 1741615207590,
     "title": "书签栏",
     "children": [
       {
@@ -7160,6 +7160,13 @@
                 "title": "MirrorZ.org",
                 "url": "https://mirrorz.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=mirrorz.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1712829092350,
+                "title": "Cloud Studio - 云端开发，化繁为简",
+                "url": "https://cloudstudio.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
               }
             ]
           },
@@ -7405,6 +7412,13 @@
                 "title": "docsHome | GSAP | Docs & Learning",
                 "url": "https://gsap.com/docs/v3/",
                 "icon": "https://www.google.com/s2/favicons?domain=gsap.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1741493244424,
+                "title": "Getting started with conda — conda 25.1.2.dev59 documentation",
+                "url": "https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html",
+                "icon": "https://www.google.com/s2/favicons?domain=docs.conda.io"
               }
             ]
           },
@@ -7456,13 +7470,6 @@
             "title": "HelloGitHub",
             "url": "https://hellogithub.com/",
             "icon": "https://www.google.com/s2/favicons?domain=hellogithub.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1712829092350,
-            "title": "Cloud Studio - 云端开发，化繁为简",
-            "url": "https://cloudstudio.net/",
-            "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
           },
           {
             "type": "link",
@@ -8070,6 +8077,13 @@
                 "title": "安知鱼 - 生活明朗 万物可爱",
                 "url": "https://blog.anheyu.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=blog.anheyu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1741492189746,
+                "title": "doupoa.site",
+                "url": "http://doupoa.site/",
+                "icon": "https://www.google.com/s2/favicons?domain=doupoa.site"
               }
             ]
           },
