@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741615207590,
+    "addDate": 1741704292712,
     "title": "书签栏",
     "children": [
       {
@@ -4350,20 +4350,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Restore Photos",
-                "url": "https://www.restorephotos.io/restore",
-                "icon": "https://www.google.com/s2/favicons?domain=www.restorephotos.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "ClipDrop",
-                "url": "https://clipdrop.co/",
-                "icon": "https://www.google.com/s2/favicons?domain=clipdrop.co"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "图片修复工具ama-cleaner: Image inpainting tool powered by SOTA AI Model. Remove any unwanted object, defect, people from your pictures or erase and replace(powered by stable diffusion) any thing on your pictures. --- Sanster/lama-cleaner：由SOTA AI模型提供支持的图像修复工具。从图片中删除任何不需要的物体，缺陷，人物，或擦除和替换（由稳定扩散提供动力）图片上的任何东西。",
                 "url": "https://github.com/Sanster/lama-cleaner",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -4700,20 +4686,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "火山写作",
-                "url": "https://www.writingo.net/document",
-                "icon": "https://www.google.com/s2/favicons?domain=www.writingo.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Paraphrasing Tool - QuillBot AI --- 释义工具 - QuillBot AI",
-                "url": "https://quillbot.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=quillbot.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Effidit",
                 "url": "https://effidit.qq.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=effidit.qq.com"
@@ -4738,20 +4710,6 @@
                 "title": "Fonts & Text Symbols (♍︎□︎◻︎⍓︎ 𝒂𝒏𝒅 𝐩𝐚𝐬𝐭𝐞) --- 字体和文本符号（︎ ♍□︎ ︎⍓︎◻和粘贴）",
                 "url": "https://instafonts.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=instafonts.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "秘塔写作猫",
-                "url": "https://xiezuocat.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=xiezuocat.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "OCR图片转文字识别软件，完全离线。截屏/批量导入图片，支持多国语言、合并段落、竖排文字。可排除水印区域，提取干净的文本。基于 PaddleOCR 。",
-                "url": "https://github.com/hiroi-sora/Umi-OCR",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
