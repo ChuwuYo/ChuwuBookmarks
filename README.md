@@ -15,8 +15,8 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 ### PC：
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/af6ef7fc-7206-4415-9be1-78db45ff3f58" alt="PC Light">
-    <img src="https://github.com/user-attachments/assets/c5b3b489-c69e-4156-b232-5679281a9b6a" alt="PC Dark">
+    <img src="https://github.com/user-attachments/assets/5a0f10fc-05bf-4e8c-b8bc-94e6837c6833" alt="PC Light">
+    <img src="https://github.com/user-attachments/assets/376ddf9c-d565-41ec-a55b-a6bcbb7e4ab5" alt="PC Dark">
 </div>
 
 ### 移动端：
@@ -24,10 +24,10 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 <table>
     <tr>
         <td>
-            <img src="https://github.com/user-attachments/assets/ff81ee43-abf4-4e4b-b2a4-9b3bb5251f32" alt="Mobile Light">
+            <img src="https://github.com/user-attachments/assets/f27d5ccf-896e-494d-afa0-1e1b7521c5a4" alt="Mobile Light">
         </td>
         <td>
-            <img src="https://github.com/user-attachments/assets/2d4573f0-a5ab-4bab-ad64-a1a98a7a8d31" alt="Mobile Dark">
+            <img src="https://github.com/user-attachments/assets/10ae35c2-9002-41c6-801e-d1d6678e7fe5" alt="Mobile Dark">
         </td>
     </tr>
 </table>
@@ -107,9 +107,7 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 
 ### **需修复的问题**
 
-1. CSS冗余，两个移动端媒体查询合并
-
-2. 不论侧栏是否展开，从移动端切换为PC端网页，侧栏上一半文件夹消失
+    * 暂未发现 *
 
 ---
 
