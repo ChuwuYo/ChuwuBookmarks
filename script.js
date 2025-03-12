@@ -26,20 +26,24 @@ const updateSidebarState = (sidebar, isCollapsed) => {
 
     // 修复文件夹动画状态
     const folderElements = sidebar.querySelectorAll('.folder');
-    if (isCollapsed) {
-        // 收起时隐藏所有文件夹
-        gsap.set(folderElements, { opacity: 0, visibility: 'hidden' });
-    } else {
-        // 展开时重置文件夹动画
-        gsap.set(folderElements, { opacity: 0, visibility: 'visible' });
-        folderElements.forEach((folder, index) => {
-            gsap.to(folder, {
-                opacity: 1,
-                delay: index * 0.05, // 添加延迟以实现顺序动画
-                duration: 0.3,
-                ease: "power1.out"
+    
+    // 添加检查确保元素存在且不为空
+    if (folderElements && folderElements.length > 0) {
+        if (isCollapsed) {
+            // 收起时隐藏所有文件夹
+            gsap.set(folderElements, { opacity: 0, visibility: 'hidden' });
+        } else {
+            // 展开时重置文件夹动画
+            gsap.set(folderElements, { opacity: 0, visibility: 'visible' });
+            folderElements.forEach((folder, index) => {
+                gsap.to(folder, {
+                    opacity: 1,
+                    delay: index * 0.05, // 添加延迟以实现顺序动画
+                    duration: 0.3,
+                    ease: "power1.out"
+                });
             });
-        });
+        }
     }
 };
 
@@ -411,14 +415,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     handleMobileView();
 
     try {
+        // 添加更详细的错误处理
         const response = await fetch('bookmarks.json');
-        if (!response.ok) throw new Error('Failed to fetch bookmarks');
-        const data = await response.json();
-        localStorage.setItem('bookmarksData', JSON.stringify(data));
-        renderSidebar(data);
-        renderHome();
+        if (!response.ok) {
+            console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
+            // 尝试使用备用路径
+            const backupResponse = await fetch('./bookmarks.json');
+            if (!backupResponse.ok) {
+                throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
+            }
+            const data = await backupResponse.json();
+            localStorage.setItem('bookmarksData', JSON.stringify(data));
+            renderSidebar(data);
+            renderHome();
+        } else {
+            const data = await response.json();
+            localStorage.setItem('bookmarksData', JSON.stringify(data));
+            renderSidebar(data);
+            renderHome();
+        }
     } catch (error) {
-        console.error(error);
+        console.error('书签加载错误:', error);
+        // 显示错误信息给用户
+        document.getElementById('content').innerHTML = `
+            <div class="error-message" style="text-align:center; margin-top:50px; color:var(--text-color)">
+                <h2>加载书签数据失败</h2>
+                <p>请确保 bookmarks.json 文件存在且格式正确</p>
+                <p>错误详情: ${error.message}</p>
+            </div>
+        `;
     }
 
     const sidebar = document.querySelector('.sidebar');
