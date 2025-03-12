@@ -79,69 +79,50 @@ const renderHome = () => {
     document.getElementById('breadcrumbs').innerHTML = '';
     adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
 
+    // 优化动画性能 - 减少初始动画复杂度
     const masterTimeline = gsap.timeline();
     
-    // 设置初始状态
+    // 设置初始状态 - 简化初始设置
     gsap.set('.home-message', { opacity: 0 });
     gsap.set('.chinese-text', { 
         opacity: 0,
-        scale: 0.5,
-        x: -100,
-        transformPerspective: 1000,
+        scale: 0.8,  // 从0.5改为0.8，减少变形量
+        x: -50,      // 从-100改为-50，减少移动距离
         transformOrigin: "center center"
     });
     gsap.set('.english-text', { 
         opacity: 0,
-        scale: 0.5,
-        x: -100,
-        transformPerspective: 1000,
+        scale: 0.8,  // 从0.5改为0.8
+        x: -50,      // 从-100改为-50
         transformOrigin: "center center"
     });
     
-    // 主容器淡入 - 减少延迟
+    // 主容器淡入 - 进一步减少延迟
     masterTimeline.to('.home-message', {
         opacity: 1,
-        duration: 0.5,  // 从 0.8 减少到 0.5
-        ease: "power2.inOut"
+        duration: 0.3,  // 从0.5减少到0.3
+        ease: "power1.out"  // 使用更简单的缓动函数
     });
     
-    // 中文文本动画 - 减少延迟
+    // 简化中文和英文文本动画 - 移除重复的动画
     masterTimeline.to('.chinese-text', {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: 0.8,  // 从 1.2 减少到 0.8
-        ease: "power2.out"
-    }, "-=0.3");  // 从 -0.4 改为 -0.3
+        duration: 0.5,  // 从0.8减少到0.5
+        ease: "power1.out"
+    }, "-=0.2");  // 从-0.3改为-0.2
     
-    // 英文文本动画 - 减少延迟
     masterTimeline.to('.english-text', {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: 0.8,  // 从 1.2 减少到 0.8
-        ease: "power2.out"
-    }, "-=0.6");  // 从 -0.8 改为 -0.6
+        duration: 0.5,  // 从0.8减少到0.5
+        ease: "power1.out"
+    }, "-=0.3");  // 从-0.6改为-0.3
     
-    // 中文文本动画 - 从左向右渐显
-    masterTimeline.to('.chinese-text', {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        duration: 1.2,
-        ease: "power2.out"
-    }, "-=0.4");
-    
-    // 英文文本动画 - 从左向右渐显
-    masterTimeline.to('.english-text', {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        duration: 1.2,
-        ease: "power2.out"
-    }, "-=0.8");
-    
-    // 为中文文本的每个字符添加特殊动画效果
+    // 移除重复的动画部分
+    // 为中文文本的每个字符添加特殊动画效果 - 优化动画延迟
     const chineseText = document.querySelector('.chinese-text');
     const chineseChars = chineseText.textContent.split('');
     chineseText.innerHTML = '';
@@ -153,38 +134,38 @@ const renderHome = () => {
         charSpan.style.position = 'relative';
         chineseText.appendChild(charSpan);
         
-        // 为每个字符添加从左向右渐显动画
+        // 为每个字符添加渐显动画 - 减少延迟和持续时间
         gsap.set(charSpan, {
             opacity: 0,
-            x: -20
+            x: -10  // 从-20改为-10
         });
         
         gsap.to(charSpan, {
             opacity: 1,
             x: 0,
-            duration: 0.3,
-            delay: 0.8 + (index * 0.08),  // 从 1.2 减少到 0.8，从 0.1 减少到 0.08
+            duration: 0.2,  // 从0.3减少到0.2
+            delay: 0.5 + (index * 0.05),  // 从0.8减少到0.5，从0.08减少到0.05
             ease: "power1.out"
         });
         
-        // 为"的"字符添加从上方掉落的动画
+        // 为"的"字符添加从上方掉落的动画 - 减少延迟
         if (char === '的') {
             gsap.set(charSpan, {
-                y: -100,
+                y: -50,  // 从-100改为-50
                 opacity: 0
             });
             
             gsap.to(charSpan, {
                 y: 0,
                 opacity: 1,
-                duration: 1,  // 从 1.2 减少到 1
-                delay: 1.8,   // 从 2.5 减少到 1.8
+                duration: 0.8,  // 从1减少到0.8
+                delay: 1.2,     // 从1.8减少到1.2
                 ease: "bounce.out"
             });
         }
     });
     
-    // 为英文文本的每个字符添加特殊动画效果
+    // 为英文文本的每个字符添加特殊动画效果 - 优化动画延迟
     const englishText = document.querySelector('.english-text');
     const englishChars = englishText.textContent.split('');
     englishText.innerHTML = '';
@@ -196,45 +177,45 @@ const renderHome = () => {
         charSpan.style.position = 'relative';
         englishText.appendChild(charSpan);
         
-        // 为每个字符添加从左向右渐显动画
+        // 为每个字符添加从左向右渐显动画 - 减少延迟和持续时间
         gsap.set(charSpan, {
             opacity: 0,
-            x: -20
+            x: -10  // 从-20改为-10
         });
         
         gsap.to(charSpan, {
             opacity: 1,
             x: 0,
-            duration: 0.3,
-            delay: 1 + (index * 0.06),  // 从 1.5 减少到 1，从 0.08 减少到 0.06
+            duration: 0.2,  // 从0.3减少到0.2
+            delay: 0.7 + (index * 0.04),  // 从1减少到0.7，从0.06减少到0.04
             ease: "power1.out"
         });
         
-        // 为"'s"添加从上方掉落的动画
+        // 为"'s"添加从上方掉落的动画 - 减少延迟
         if (char === "'") {
             gsap.set(charSpan, {
-                y: -100,
+                y: -50,  // 从-100改为-50
                 opacity: 0
             });
             
             gsap.to(charSpan, {
                 y: 0,
                 opacity: 1,
-                duration: 1,    // 从 1.2 减少到 1
-                delay: 2.2,     // 从 3.0 减少到 2.2
+                duration: 0.8,  // 从1减少到0.8
+                delay: 1.5,     // 从2.2减少到1.5
                 ease: "bounce.out"
             });
         } else if (char === "s") {
             gsap.set(charSpan, {
-                y: -100,
+                y: -50,  // 从-100改为-50
                 opacity: 0
             });
             
             gsap.to(charSpan, {
                 y: 0,
                 opacity: 1,
-                duration: 1,    // 从 1.2 减少到 1
-                delay: 2.4,     // 从 3.2 减少到 2.4
+                duration: 0.8,  // 从1减少到0.8
+                delay: 1.7,     // 从2.4减少到1.7
                 ease: "bounce.out"
             });
         }
