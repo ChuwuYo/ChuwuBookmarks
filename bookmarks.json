@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741777803526,
+    "addDate": 1741959191516,
     "title": "书签栏",
     "children": [
       {
@@ -6491,13 +6491,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1739809411892,
-                "title": "Template0 - Explore and Share Free Templates",
-                "url": "https://template0.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=template0.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1739811366421,
                 "title": "Browse Fonts - Google Fonts",
                 "url": "https://fonts.google.com/",
@@ -6516,13 +6509,6 @@
                 "title": "Dora - NoCode Design Platform",
                 "url": "https://www.dora.run/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.dora.run"
-              },
-              {
-                "type": "link",
-                "addDate": 1739953400662,
-                "title": "Napkin AI - The visual AI for business storytelling",
-                "url": "https://www.napkin.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.napkin.ai"
               },
               {
                 "type": "link",
@@ -7363,6 +7349,27 @@
                 "title": "Getting started with conda — conda 25.1.2.dev59 documentation",
                 "url": "https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.conda.io"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1741958708320,
+            "title": "聚合网站",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1741958606934,
+                "title": "INDIE HACKERS TOOLS独立开发者导航站，发掘最优秀的工具，助力你快速发布下一个网页",
+                "url": "https://free.mkdirs.com/zh/group/new",
+                "icon": "https://www.google.com/s2/favicons?domain=free.mkdirs.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1739809411892,
+                "title": "Template0 - Explore and Share Free Templates",
+                "url": "https://template0.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=template0.com"
               }
             ]
           },
