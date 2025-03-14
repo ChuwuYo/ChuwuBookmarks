@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1741959191516,
+    "addDate": 1741962724983,
     "title": "书签栏",
     "children": [
       {
@@ -6530,6 +6530,13 @@
                 "title": "奇迹秀 - 因设计·而美丽",
                 "url": "https://www.qijishow.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.qijishow.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1741960330910,
+                "title": "CodePen: Online Code Editor and Front End Web Developer Community",
+                "url": "https://codepen.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
               }
             ]
           },
