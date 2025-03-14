@@ -1,0 +1,172 @@
+/* 主题切换按钮的日出/日落效果 */
+@property --sunray1 {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 27%;
+}
+
+@property --sunlight {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 91%;
+}
+
+/* 主题切换按钮基础样式 */
+.theme-toggle {
+  --speed: 0.4s;
+  appearance: none;
+  padding: 0;
+  font-size: 1rem;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  background: var(--button-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  margin-left: 5px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(1rem + 16px + 4px);
+  width: calc(1rem + 16px + 4px);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal), transform 0.3s ease;
+}
+
+/* 日/月图标基础样式 */
+.theme-toggle svg {
+  width: calc(1rem + 8px);
+  height: calc(1rem + 8px);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.theme-toggle .sun,
+.theme-toggle .moon {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* 日出效果 - 伪元素 */
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    /* 太阳光芒 - 更扩散的效果 */
+    radial-gradient(circle at 50% calc(100% - 0.3em), #ffef 0.075em, #fccc, #fc89, #f855, #f851, #fff0 1.2em) 50% 100%,
+    radial-gradient(circle at 50% calc(100% - 0.2em), #fff8 0.25em, #fff3 0.6em, #fff0 1em),
+    repeating-conic-gradient(at 50% calc(100% - 0.3em), #ffffff08 0 4%, #fff0 9%),
+    repeating-conic-gradient(at 50% calc(100% - 0.3em), #ffffff05 6%, #fff0 14%),
+    repeating-conic-gradient(at 50% calc(100% - 0.3em), #ffffff05 1deg, #fff0 4deg);
+  mask: radial-gradient(farthest-side at 50% calc(100% - 0.3em), #000 85%, #0000);
+  opacity: 0;
+  transform: translate(0, 100%);
+  transition: transform var(--speed), opacity var(--speed);
+}
+
+/* 月亮/地面效果 - 伪元素 */
+.theme-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 0 -0.15em 0.2em -0.2em #fff;
+  background:
+    /* 月光/地面效果 */
+    radial-gradient(circle at 50% 0, #ffe8, #fcc4, #fc81, #fff0 2em) 50% 100%,
+    radial-gradient(100% 50% at 50% 0, #fff2, #ff00 20%),
+    radial-gradient(farthest-side at 20% 50%, #2108 80%, #0000),
+    radial-gradient(farthest-side at 70% 50%, #1208 80%, #0000),
+    radial-gradient(60% 50%, #123c var(--sunlight), #ffff),
+    repeating-conic-gradient(at 50% 0, #fff0 27%, #fff var(--sunray1)),
+    radial-gradient(farthest-side, #0128 60%, #0123 70%, #eee 99%);
+  transform: translate(0, 65%);
+  transition: transform var(--speed), box-shadow var(--speed), --sunray1 var(--speed), --sunlight var(--speed);
+}
+
+/* 亮色主题状态 */
+[data-theme='light'] .theme-toggle .sun {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  z-index: 4;
+}
+
+[data-theme='light'] .theme-toggle .moon {
+  opacity: 0;
+  transform: scale(0.5) rotate(-30deg);
+}
+
+[data-theme='light'] .theme-toggle::before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+[data-theme='light'] .theme-toggle::after {
+  --sunray1: 40%;
+  --sunlight: 81%;
+  transform: translate(0, 100%);
+}
+
+/* 暗色主题状态 */
+[data-theme='dark'] .theme-toggle .sun {
+  opacity: 0;
+  transform: scale(0.5) rotate(30deg);
+}
+
+[data-theme='dark'] .theme-toggle .moon {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  z-index: 4;
+}
+
+[data-theme='dark'] .theme-toggle::before {
+  opacity: 0;
+  transform: translate(0, 100%);
+}
+
+[data-theme='dark'] .theme-toggle::after {
+  --sunray1: 27%;
+  --sunlight: 91%;
+  transform: translate(0, 65%);
+}
+
+/* 悬停效果 */
+.theme-toggle:hover {
+  background: var(--button-hover);
+  box-shadow: var(--theme-shadow-hover);
+  transform: scale(1.05);
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+[data-theme='light'] .theme-toggle:hover::after {
+  --sunlight: 85%;
+}
+
+[data-theme='dark'] .theme-toggle:hover::after {
+  --sunlight: 88%;
+}
+
+/* 减少动画 */
+@media (prefers-reduced-motion) {
+  .theme-toggle,
+  .theme-toggle::before,
+  .theme-toggle::after,
+  .theme-toggle svg,
+  .theme-toggle .sun,
+  .theme-toggle .moon {
+    transition-duration: 0s;
+  }
+}

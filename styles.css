@@ -180,25 +180,26 @@ html {
     transform: translateY(-2px);
 }
 
-/* 主页按钮 */
+/* 主页按钮 - 添加伪3D效果 */
 .sidebar h1 {
-    background: var(--header-bg);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
+    background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5);
+    color: #333;
+    padding: 10px 25px;
+    border-radius: 12px;
     cursor: pointer;
     margin: 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     user-select: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* 添加内阴影 */
 }
 
 .sidebar h1:hover {
-    background: var(--button-hover);
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
+    background: linear-gradient(to bottom, #d1d1f3a5, #9ee9f4d8);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
-/* 侧边栏切换按钮 */
+/* 侧栏控制按钮 - 添加伪3D效果 */
 #toggle-sidebar {
     position: fixed;
     left: 0;
@@ -209,7 +210,7 @@ html {
     padding: 8px 12px;
     cursor: pointer;
     z-index: 999;
-    box-shadow: var(--button-shadow);
+    box-shadow: var(--button-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* 添加内阴影 */
     font-size: 1.3rem;
     user-select: none;
     transition: left 0.3s var(--cubic-bezier), border-radius 0.3s var(--cubic-bezier), box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
@@ -221,11 +222,13 @@ html {
     box-shadow: var(--button-shadow-expanded);
 }
 
+
 #toggle-sidebar:hover {
     background: var(--button-hover);
-    box-shadow: var(--button-shadow-hover);
+    box-shadow: var(--button-shadow-hover), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     transform: scale(1.05);
 }
+
 
 /* 侧边栏头部 */
 .sidebar-header {
@@ -541,69 +544,7 @@ body::before {
     transform: scale(1.02);
 }
 
-/* 主题切换按钮 */
-.theme-toggle {
-    padding: 0;
-    font-size: 1rem;
-    border: 1px solid var(--text-color);
-    border-radius: 10px;
-    background: var(--button-bg);
-    color: var(--text-color);
-    cursor: pointer;
-    margin-left: 5px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* 调整按钮尺寸与搜索框高度一致 */
-    height: calc(1rem + 16px + 4px); /* 字体大小 + 上下padding + 边框 */
-    width: calc(1rem + 16px + 4px); /* 保持正方形 */
-    position: relative;
-    transition: var(--transition-normal), transform 0.3s ease;
-}
-
-.theme-toggle svg {
-    width: calc(1rem + 8px);
-    height: calc(1rem + 8px);
-    transition: all 0.3s ease;
-}
-
-.theme-toggle .sun,
-.theme-toggle .moon {
-    position: absolute;
-    transition: all 0.3s ease;
-}
-
-/* 主题图标状态 */
-[data-theme='light'] .theme-toggle .sun {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-}
-
-[data-theme='light'] .theme-toggle .moon {
-    opacity: 0;
-    transform: scale(0.5) rotate(-30deg);
-}
-
-[data-theme='dark'] .theme-toggle .sun {
-    opacity: 0;
-    transform: scale(0.5) rotate(30deg);
-}
-
-[data-theme='dark'] .theme-toggle .moon {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-}
-
-.theme-toggle:hover {
-    background: var(--button-hover);
-    box-shadow: var(--theme-shadow-hover);
-    transform: scale(1.05);
-}
-
-.theme-toggle:hover svg {
-    transform: rotate(30deg);
-}
+/* 主题切换按钮样式已移至 assets/css/theme-toggle.css */
 
 /* 搜索结果相关 */
 .no-results, .results-container {
