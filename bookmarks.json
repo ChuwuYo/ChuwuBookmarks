@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742049226933,
+    "addDate": 1742049972813,
     "title": "书签栏",
     "children": [
       {
@@ -1298,39 +1298,123 @@
         "title": "音乐",
         "children": [
           {
+            "type": "folder",
+            "addDate": 1742049368049,
+            "title": "下载",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "动漫无损音乐下载资讯站_ACG漫音社_专注分享二次元高品质音乐~",
+                "url": "http://www.acgjc.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.acgjc.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "MidiShow - 领先的MIDI音乐交流与下载网站",
+                "url": "https://www.midishow.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.midishow.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1732890022253,
+                "title": "每日签到 - HiFiNi",
+                "url": "https://www.hifini.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hifini.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1730375232786,
+                "title": "网易云音乐无损解析 - VUE3",
+                "url": "https://api.toubiec.cn/wyapi.html",
+                "icon": "https://www.google.com/s2/favicons?domain=api.toubiec.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1732889519860,
+                "title": "lucida | music at internet speed",
+                "url": "https://lucida.to/",
+                "icon": "https://www.google.com/s2/favicons?domain=lucida.to"
+              },
+              {
+                "type": "link",
+                "addDate": 1733406715612,
+                "title": "音乐魔石官网-全网无损音乐mp3歌曲免费下载网站",
+                "url": "https://www.yym4.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.yym4.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1708537078957,
+                "title": "DoubleDouble - Music Downloads",
+                "url": "https://doubledouble.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=doubledouble.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1734791151811,
+                "title": "极光无损音乐免费下载-无损音乐下载mp3歌曲免费下载-jgwav.com",
+                "url": "https://www.jgwav.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.jgwav.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1735038287667,
+                "title": "母带吧音乐 - 192kHz/24bit",
+                "url": "https://www.mudaiba.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.mudaiba.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1740827228780,
+                "title": "昔枫音乐盒",
+                "url": "https://mu-jie.cc/musicBox/",
+                "icon": "https://www.google.com/s2/favicons?domain=mu-jie.cc"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1742049694128,
+            "title": "开源软件",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1737977529709,
+                "title": "chenmozhijin/LDDC: 简单易用的精准歌词(逐字歌词/卡拉OK歌词)下载匹配工具|A simple and user-friendly tool for downloading and matching precise lyrics (word-by-word lyrics/Karaoke lyrics)",
+                "url": "https://github.com/chenmozhijin/LDDC",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1706599537830,
+                "title": "zhongyang219/MusicPlayer2: 这是一款可以播放常见音频格式的音频播放器。支持歌词显示、歌词卡拉OK样式显示、歌词在线下载、歌词编辑、歌曲标签识别、Win10小娜搜索显示歌词、频谱分析、音效设置、任务栏缩略图按钮、主题颜色等功能。 播放内核为BASS音频库(V2.4)。",
+                "url": "https://github.com/zhongyang219/MusicPlayer2",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1736865222488,
+                "title": "imsyy/SPlayer: 🎉 一个简约的音乐播放器，支持逐字歌词，下载歌曲，展示评论区，音乐云盘及歌单管理，音乐频谱，移动端基础适配 | 网易云音乐 | A minimalist music player",
+                "url": "https://github.com/imsyy/SPlayer",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1713525688140,
+                "title": "coriander_player: Windows端本地音乐播放器，使用Material You配色。Dart (Flutter) + Rust (lofty) + C (bass lib) 多语言项目。绝赞开发中。",
+                "url": "https://github.com/Ferry-200/coriander_player",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              }
+            ]
+          },
+          {
             "type": "link",
             "addDate": 1730376473942,
             "title": "网易云音乐",
             "url": "https://music.163.com/#",
             "icon": "https://www.google.com/s2/favicons?domain=music.163.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "动漫无损音乐下载资讯站_ACG漫音社_专注分享二次元高品质音乐~",
-            "url": "http://www.acgjc.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.acgjc.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "猫耳FM",
-            "url": "https://www.missevan.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.missevan.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "MidiShow - 领先的MIDI音乐交流与下载网站",
-            "url": "https://www.midishow.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.midishow.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1735965835184,
-            "title": "MyFreeMP3",
-            "url": "https://tools.liumingye.cn/music/#/",
-            "icon": "https://www.google.com/s2/favicons?domain=tools.liumingye.cn"
           },
           {
             "type": "link",
@@ -1341,31 +1425,17 @@
           },
           {
             "type": "link",
-            "addDate": 1737977529709,
-            "title": "chenmozhijin/LDDC: 简单易用的精准歌词(逐字歌词/卡拉OK歌词)下载匹配工具|A simple and user-friendly tool for downloading and matching precise lyrics (word-by-word lyrics/Karaoke lyrics)",
-            "url": "https://github.com/chenmozhijin/LDDC",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+            "addDate": 1704012714000,
+            "title": "猫耳FM",
+            "url": "https://www.missevan.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.missevan.com"
           },
           {
             "type": "link",
-            "addDate": 1706599537830,
-            "title": "zhongyang219/MusicPlayer2: 这是一款可以播放常见音频格式的音频播放器。支持歌词显示、歌词卡拉OK样式显示、歌词在线下载、歌词编辑、歌曲标签识别、Win10小娜搜索显示歌词、频谱分析、音效设置、任务栏缩略图按钮、主题颜色等功能。 播放内核为BASS音频库(V2.4)。",
-            "url": "https://github.com/zhongyang219/MusicPlayer2",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1736865222488,
-            "title": "imsyy/SPlayer: 🎉 一个简约的音乐播放器，支持逐字歌词，下载歌曲，展示评论区，音乐云盘及歌单管理，音乐频谱，移动端基础适配 | 网易云音乐 | A minimalist music player",
-            "url": "https://github.com/imsyy/SPlayer",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1713525688140,
-            "title": "coriander_player: Windows端本地音乐播放器，使用Material You配色。Dart (Flutter) + Rust (lofty) + C (bass lib) 多语言项目。绝赞开发中。",
-            "url": "https://github.com/Ferry-200/coriander_player",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+            "addDate": 1735965835184,
+            "title": "MyFreeMP3",
+            "url": "https://tools.liumingye.cn/music/#/",
+            "icon": "https://www.google.com/s2/favicons?domain=tools.liumingye.cn"
           },
           {
             "type": "link",
@@ -1376,45 +1446,10 @@
           },
           {
             "type": "link",
-            "addDate": 1716970720937,
-            "title": "Listen Notes: The best podcast search engine",
-            "url": "https://www.listennotes.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.listennotes.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1717947764200,
-            "title": "洛雪音乐LX_Music 3gut",
-            "url": "https://yoyodadada.lanzouw.com/b01fqx5vc#3gut",
-            "icon": "https://www.google.com/s2/favicons?domain=yoyodadada.lanzouw.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1732890022253,
-            "title": "每日签到 - HiFiNi",
-            "url": "https://www.hifini.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.hifini.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1732889519860,
-            "title": "lucida | music at internet speed",
-            "url": "https://lucida.to/",
-            "icon": "https://www.google.com/s2/favicons?domain=lucida.to"
-          },
-          {
-            "type": "link",
-            "addDate": 1730375232786,
-            "title": "网易云音乐无损解析 - VUE3",
-            "url": "https://api.toubiec.cn/wyapi.html",
-            "icon": "https://www.google.com/s2/favicons?domain=api.toubiec.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1740323559896,
-            "title": "Songlink/Odesli",
-            "url": "https://odesli.co/",
-            "icon": "https://www.google.com/s2/favicons?domain=odesli.co"
+            "addDate": 1733464662948,
+            "title": "Home | DoujinStyle.com - The Home of Doujin Music and Games",
+            "url": "https://doujinstyle.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=doujinstyle.com"
           },
           {
             "type": "link",
@@ -1453,41 +1488,6 @@
           },
           {
             "type": "link",
-            "addDate": 1733406715612,
-            "title": "音乐魔石官网-全网无损音乐mp3歌曲免费下载网站",
-            "url": "https://www.yym4.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.yym4.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1733464662948,
-            "title": "Home | DoujinStyle.com - The Home of Doujin Music and Games",
-            "url": "https://doujinstyle.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=doujinstyle.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1734013978043,
-            "title": "ACG漫音社 _ 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~",
-            "url": "https://www.acgjc.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.acgjc.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1708537078957,
-            "title": "DoubleDouble - Music Downloads",
-            "url": "https://doubledouble.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=doubledouble.top"
-          },
-          {
-            "type": "link",
-            "addDate": 1734791151811,
-            "title": "极光无损音乐免费下载-无损音乐下载mp3歌曲免费下载-jgwav.com",
-            "url": "https://www.jgwav.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.jgwav.com"
-          },
-          {
-            "type": "link",
             "addDate": 1734949476181,
             "title": "主页 | 阿梓歌 音频分享",
             "url": "https://files.233510.xyz/",
@@ -1495,24 +1495,10 @@
           },
           {
             "type": "link",
-            "addDate": 1735038287667,
-            "title": "母带吧音乐 - 192kHz/24bit",
-            "url": "https://www.mudaiba.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.mudaiba.com"
-          },
-          {
-            "type": "link",
             "addDate": 1739645312083,
             "title": "雀乐",
             "url": "https://www.indie.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.indie.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1740827228780,
-            "title": "昔枫音乐盒",
-            "url": "https://mu-jie.cc/musicBox/",
-            "icon": "https://www.google.com/s2/favicons?domain=mu-jie.cc"
           }
         ]
       },
@@ -1714,6 +1700,20 @@
                 "title": "创世纪图书馆 - 维基百科，自由的百科全书",
                 "url": "https://zh.wikipedia.org/wiki/%E5%88%9B%E4%B8%96%E7%BA%AA%E5%9B%BE%E4%B9%A6%E9%A6%86",
                 "icon": "https://www.google.com/s2/favicons?domain=zh.wikipedia.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1735967728042,
+                "title": "24h搜书 - AI免费电子书下载",
+                "url": "https://24hbook.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=24hbook.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1720709069597,
+                "title": "安娜的档案",
+                "url": "https://zh.annas-archive.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=zh.annas-archive.org"
               }
             ]
           },
@@ -1760,18 +1760,32 @@
             ]
           },
           {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "轻小说文库 ",
-            "url": "https://www.wenku8.net/index.php",
-            "icon": "https://www.google.com/s2/favicons?domain=www.wenku8.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "神凑轻小说文库_神凑小说网",
-            "url": "http://www.shencou.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.shencou.com"
+            "type": "folder",
+            "addDate": 1742049718135,
+            "title": "轻小说",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "轻小说文库 ",
+                "url": "https://www.wenku8.net/index.php",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wenku8.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "神凑轻小说文库_神凑小说网",
+                "url": "http://www.shencou.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.shencou.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1737128340534,
+                "title": "轻书架",
+                "url": "https://www.lightnovel.app/home",
+                "icon": "https://www.google.com/s2/favicons?domain=www.lightnovel.app"
+              }
+            ]
           },
           {
             "type": "link",
@@ -1779,6 +1793,13 @@
             "title": "owllook - 网络小说搜索引擎 - 最简洁清新的搜索阅读体验",
             "url": "https://www.owlook.com.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.owlook.com.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1717499897179,
+            "title": "mianfei22.com",
+            "url": "https://mianfei22.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=mianfei22.com"
           },
           {
             "type": "link",
@@ -1810,20 +1831,6 @@
           },
           {
             "type": "link",
-            "addDate": 1717499897179,
-            "title": "mianfei22.com",
-            "url": "https://mianfei22.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=mianfei22.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1720709069597,
-            "title": "安娜的档案",
-            "url": "https://zh.annas-archive.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=zh.annas-archive.org"
-          },
-          {
-            "type": "link",
             "addDate": 1726068544682,
             "title": "無產階級圖書館 - 解放知識！",
             "url": "https://library.proletarian.me/",
@@ -1835,20 +1842,6 @@
             "title": "搜索- SaltyLeo 的书架",
             "url": "https://book.tstrs.me/search",
             "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
-          },
-          {
-            "type": "link",
-            "addDate": 1735967728042,
-            "title": "24h搜书 - AI免费电子书下载",
-            "url": "https://24hbook.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=24hbook.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1737128340534,
-            "title": "轻书架",
-            "url": "https://www.lightnovel.app/home",
-            "icon": "https://www.google.com/s2/favicons?domain=www.lightnovel.app"
           }
         ]
       },
@@ -6065,32 +6058,53 @@
             ]
           },
           {
+            "type": "folder",
+            "addDate": 1742049838296,
+            "title": "英语",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "四级真题(2014-2023年6月) | 英语真题在线",
+                "url": "https://zhenti.burningvocabulary.cn/cet4",
+                "icon": "https://www.google.com/s2/favicons?domain=zhenti.burningvocabulary.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "懒懒背单词",
+                "url": "http://47.96.186.148:8889/",
+                "icon": "https://www.google.com/s2/favicons?domain=47.96.186.148"
+              },
+              {
+                "type": "link",
+                "addDate": 1704514122092,
+                "title": "Qwerty Learner — 为键盘工作者设计的单词与肌肉记忆锻炼软件",
+                "url": "https://qwerty.kaiyi.cool/",
+                "icon": "https://www.google.com/s2/favicons?domain=qwerty.kaiyi.cool"
+              },
+              {
+                "type": "link",
+                "addDate": 1734396357015,
+                "title": "English News In Levels - Daily News for ESL Learners at Every Level",
+                "url": "https://englishnewsinlevels.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=englishnewsinlevels.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1715086631473,
+                "title": "visuwords.com",
+                "url": "https://visuwords.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=visuwords.com"
+              }
+            ]
+          },
+          {
             "type": "link",
             "addDate": 1704012714000,
             "title": "考试宝 - 可以导入题库的在线考试刷题学习平台",
             "url": "https://www.zaixiankaoshi.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.zaixiankaoshi.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "四级真题(2014-2023年6月) | 英语真题在线",
-            "url": "https://zhenti.burningvocabulary.cn/cet4",
-            "icon": "https://www.google.com/s2/favicons?domain=zhenti.burningvocabulary.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "懒懒背单词",
-            "url": "http://47.96.186.148:8889/",
-            "icon": "https://www.google.com/s2/favicons?domain=47.96.186.148"
-          },
-          {
-            "type": "link",
-            "addDate": 1704514122092,
-            "title": "Qwerty Learner — 为键盘工作者设计的单词与肌肉记忆锻炼软件",
-            "url": "https://qwerty.kaiyi.cool/",
-            "icon": "https://www.google.com/s2/favicons?domain=qwerty.kaiyi.cool"
           },
           {
             "type": "link",
@@ -6108,24 +6122,10 @@
           },
           {
             "type": "link",
-            "addDate": 1715086631473,
-            "title": "visuwords.com",
-            "url": "https://visuwords.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=visuwords.com"
-          },
-          {
-            "type": "link",
             "addDate": 1719753047715,
             "title": "Coursera | Degrees, Certificates, & Free Online Courses",
             "url": "https://www.coursera.org/",
             "icon": "https://www.google.com/s2/favicons?domain=www.coursera.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1734396357015,
-            "title": "English News In Levels - Daily News for ESL Learners at Every Level",
-            "url": "https://englishnewsinlevels.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=englishnewsinlevels.com"
           },
           {
             "type": "link",
