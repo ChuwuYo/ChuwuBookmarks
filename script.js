@@ -16,8 +16,21 @@ const toggleTheme = () => {
 };
 
 /** 设备和视图适配 */
-const isMobileDevice = () => 
-    window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+const isMobileDevice = () => {
+    // 像素检测（原有逻辑）
+    const isSmallScreen = window.innerWidth <= 1300;
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    
+    // UA检测（新增逻辑）
+    const ua = navigator.userAgent.toLowerCase();
+    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(ua);
+    
+    // 特殊情况处理：iPad等平板设备可能有较大屏幕但仍是移动设备
+    const isTablet = /ipad|android(?!.*mobile)/i.test(ua);
+    
+    // 综合判断：像素检测 或 UA检测为移动设备
+    return isSmallScreen || isCoarsePointer || isMobileUA || isTablet;
+};
 
 const updateSidebarState = (sidebar, isCollapsed) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
@@ -49,7 +62,9 @@ const updateSidebarState = (sidebar, isCollapsed) => {
 
 const handleMobileView = () => {
     const sidebar = document.querySelector('.sidebar');
-    updateSidebarState(sidebar, isMobileDevice());
+    const isMobile = isMobileDevice();
+    document.body.classList.toggle('mobile-device', isMobile);
+    updateSidebarState(sidebar, isMobile);
 };
 
 const adjustHomeMessagePosition = (isCollapsed) => {
