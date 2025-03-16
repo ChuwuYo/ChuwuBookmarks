@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742049972813,
+    "addDate": 1742126366155,
     "title": "书签栏",
     "children": [
       {
@@ -393,6 +393,13 @@
             "title": "芯幻 – 次元★一个ACG小圈子ovo!",
             "url": "https://xhcys.com/",
             "icon": "https://www.google.com/s2/favicons?domain=xhcys.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1742122974857,
+            "title": "术力口视频网络",
+            "url": "http://www.shuliko.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.shuliko.cn"
           }
         ]
       },
@@ -4546,23 +4553,9 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Speech Studio - Microsoft Azure",
-                "url": "https://speech.microsoft.com/portal",
-                "icon": "https://www.google.com/s2/favicons?domain=speech.microsoft.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "RVC-Project",
                 "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Enhance Speech from Adobe | Free AI filter for cleaning up spoken audio --- 增强来自 Adobe 的语音 |用于清理语音音频的免费AI过滤器",
-                "url": "https://podcast.adobe.com/enhance",
-                "icon": "https://www.google.com/s2/favicons?domain=podcast.adobe.com"
               },
               {
                 "type": "link",
@@ -4581,13 +4574,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "LuckyHookin/edge-TTS-record: 一个可以录制 Microsoft Edge 浏览器的语音合成（TTS）语音并输出为 .wav 音频的（windows平台）工具。",
-                "url": "https://github.com/LuckyHookin/edge-TTS-record",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Bark-Voice-Cloning/README_zh.md at main · KevinWang676/Bark-Voice-Cloning",
                 "url": "https://github.com/KevinWang676/Bark-Voice-Cloning/blob/main/README_zh.md",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -4598,27 +4584,6 @@
                 "title": "Boost Volume and Sound Quality on Your PC - FxSound",
                 "url": "https://www.fxsound.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.fxsound.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1712032845244,
-                "title": "Suno AI",
-                "url": "https://app.suno.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=app.suno.ai"
-              },
-              {
-                "type": "link",
-                "addDate": 1714382656800,
-                "title": "Udio | AI Music Generator - Official Website",
-                "url": "https://www.udio.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.udio.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1717499796946,
-                "title": "Replay | Free AI Voice Cloning and Stemming using RVC Models",
-                "url": "https://www.tryreplay.io/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.tryreplay.io"
               },
               {
                 "type": "link",
@@ -8056,6 +8021,20 @@
                 "title": "doupoa.site",
                 "url": "http://doupoa.site/",
                 "icon": "https://www.google.com/s2/favicons?domain=doupoa.site"
+              },
+              {
+                "type": "link",
+                "addDate": 1742056167367,
+                "title": "無名小栈",
+                "url": "https://blog.imsyy.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=blog.imsyy.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1742056227204,
+                "title": "叶泯希主页·叶泯希的杂七杂八的主页引导页",
+                "url": "https://418121.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=418121.xyz"
               }
             ]
           },
