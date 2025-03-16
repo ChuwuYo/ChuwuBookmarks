@@ -26,7 +26,7 @@
         --link-color: #74b9ff;
         --hover-bg: #2d3436;
         --button-bg: #5d6687;
-        --button-hover: #cbd67d;
+        --button-hover: rgba(238, 247, 175, 0.826);
         --header-bg: #ffffff4b;
         --shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
         --shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
@@ -176,8 +176,15 @@ html {
 .sidebar .folder-name:hover {
     background: var(--hover-bg);
     border-radius: 5px;
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-2px);
+    box-shadow: 16px 6px 12px rgba(0, 0, 0, 0.3); /* 增加阴影的扩散范围和透明度 */
+    transform: translateY(-2px) scale(1.05);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 深色主题下的悬停效果 */
+[data-theme='dark'] .sidebar .folder-name:hover {
+    background: rgba(255, 255, 255, 0.1); /* 使用更明显的背景色 */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); /* 增强阴影效果 */
 }
 
 /* 主页按钮 - 添加伪3D效果 */
@@ -560,32 +567,31 @@ body::before {
 }
 
 /* 移动设备适配 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1300px) {
     /* 优化移动端触摸响应 */
-    [onclick],
-    button,
-    .folder,
-    .breadcrumb-item,
-    #toggle-sidebar,
-    .sidebar h1,
-    .theme-toggle,
-    a {
+    .mobile-device [onclick],
+    .mobile-device button,
+    .mobile-device .folder,
+    .mobile-device .breadcrumb-item,
+    .mobile-device #toggle-sidebar,
+    .mobile-device .sidebar h1,
+    .mobile-device .theme-toggle,
+    .mobile-device a {
         cursor: pointer;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
     }
-    
-    /* 修复移动端点击后背景色问题 */
-    [onclick]:active,
-    button:active,
-    .folder:active,
-    .breadcrumb-item:active,
-    #toggle-sidebar:active,
-    .sidebar h1:active,
-    .theme-toggle:active,
-    a:active {
-        background-color: inherit; /* 使用继承的背景色 */
-        transition: background-color 0s; /* 立即恢复 */
+    /*移动端背景色优化*/
+    .mobile-device [onclick]:active,
+    .mobile-device button:active,
+    .mobile-device .folder:active,
+    .mobile-device .breadcrumb-item:active,
+    .mobile-device #toggle-sidebar:active,
+    .mobile-device .sidebar h1:active,
+    .mobile-device .theme-toggle:active,
+    .mobile-device a:active {
+        background-color: inherit;
+        transition: background-color 0s;
     }
     
     /* 确保主题切换按钮恢复正确颜色 */
