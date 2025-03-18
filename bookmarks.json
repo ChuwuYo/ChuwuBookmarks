@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742126366155,
+    "addDate": 1742311085289,
     "title": "书签栏",
     "children": [
       {
@@ -715,6 +715,13 @@
                 "icon": "https://www.google.com/s2/favicons?domain=mhx12.com"
               }
             ]
+          },
+          {
+            "type": "link",
+            "addDate": 1742311028029,
+            "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+            "url": "https://www.bilibili.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.bilibili.com"
           },
           {
             "type": "link",
@@ -5280,8 +5287,8 @@
                     "type": "link",
                     "addDate": 1728988403320,
                     "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
-                    "url": "https://hailuoai.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=hailuoai.com"
+                    "url": "https://chat.minimaxi.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
                   },
                   {
                     "type": "link",
@@ -8121,13 +8128,6 @@
             "title": "经济",
             "children": [
               {
-                "type": "link",
-                "addDate": 1713950335838,
-                "title": "以太坊ethereum.org",
-                "url": "https://ethereum.org/zh/",
-                "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
-              },
-              {
                 "type": "folder",
                 "addDate": 1704014876011,
                 "title": "虚拟信用卡",
@@ -8185,6 +8185,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1713950335838,
+                "title": "以太坊ethereum.org",
+                "url": "https://ethereum.org/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
+              },
+              {
+                "type": "link",
                 "addDate": 1720089419513,
                 "title": "集思录",
                 "url": "https://www.jisilu.cn/",
@@ -8203,6 +8210,20 @@
                 "title": "myhhub/stock: stock股票.获取股票数据,计算股票指标,识别股票形态,综合选股,选股策略,股票验证回测,股票自动交易,支持PC及移动设备。",
                 "url": "https://github.com/myhhub/stock",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1742310998503,
+                "title": "同花顺财经__让投资变得更简单",
+                "url": "https://www.10jqka.com.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.10jqka.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1742311006316,
+                "title": "东方财富网：财经门户，提供专业的财经、股票、行情、证券、基金、理财、银行、保险、信托、期货、黄金、股吧、博客等各类财经资讯及数据",
+                "url": "https://www.eastmoney.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.eastmoney.com"
               }
             ]
           },
