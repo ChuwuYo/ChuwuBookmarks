@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742311085289,
+    "addDate": 1742355837047,
     "title": "书签栏",
     "children": [
       {
@@ -4640,6 +4640,13 @@
                 "title": "RVC-Boss/GPT-SoVITS: 1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
                 "url": "https://github.com/RVC-Boss/GPT-SoVITS",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1742354904723,
+                "title": "SparkAudio/Spark-TTS: Spark-TTS Inference Code",
+                "url": "https://github.com/SparkAudio/Spark-TTS",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -7160,6 +7167,20 @@
                 "title": "安装 Goose | 代号 goose",
                 "url": "https://block.github.io/goose/docs/getting-started/installation",
                 "icon": "https://www.google.com/s2/favicons?domain=block.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1742354797675,
+                "title": "a0.dev - Create Mobile Apps with AI",
+                "url": "https://a0.dev/",
+                "icon": "https://www.google.com/s2/favicons?domain=a0.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1742355172134,
+                "title": "same.new",
+                "url": "https://same.new/",
+                "icon": "https://www.google.com/s2/favicons?domain=same.new"
               }
             ]
           },
