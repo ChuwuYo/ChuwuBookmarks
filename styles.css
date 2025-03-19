@@ -183,8 +183,8 @@ html {
 
 /* 深色主题下的悬停效果 */
 [data-theme='dark'] .sidebar .folder-name:hover {
-    background: rgba(255, 255, 255, 0.1); /* 使用更明显的背景色 */
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); /* 增强阴影效果 */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 /* 主页按钮 - 添加伪3D效果 */
@@ -204,7 +204,7 @@ html {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     border-radius: 18px;
     transform: translateY(-2px);
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 }
 
 /* 侧栏控制按钮 - 添加伪3D效果 */
@@ -679,9 +679,14 @@ body::before {
     #content .bookmark a {
         max-width: 80%;
     }
+
+    /* 隐藏移动端背景GIF */
+    body::before {
+        display: none;
+    }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     .search-container {
         margin-left: 110px;
     }
