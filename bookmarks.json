@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742483230740,
+    "addDate": 1742548048533,
     "title": "书签栏",
     "children": [
       {
@@ -584,13 +584,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "動漫狂 - 免費動畫漫畫分享社群 !",
-                "url": "https://www.cartoonmad.com/#nbwzcom",
-                "icon": "https://www.google.com/s2/favicons?domain=www.cartoonmad.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "首頁 - Myself 動漫 | 日本在線動畫﹑免費任您收看",
                 "url": "https://myself-bbs.com/portal.php",
                 "icon": "https://www.google.com/s2/favicons?domain=myself-bbs.com"
@@ -646,24 +639,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1717499530283,
-                "title": "蜜糖动漫 - 引导站",
-                "url": "https://www.mitang.tv/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.mitang.tv"
-              },
-              {
-                "type": "link",
                 "addDate": 1717511477548,
                 "title": "饭团动漫 - ACG饭团",
                 "url": "https://fantuantv.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=fantuantv.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1722686111538,
-                "title": "小祥の小窝",
-                "url": "https://bangumi.sakiko.top/#/",
-                "icon": "https://www.google.com/s2/favicons?domain=bangumi.sakiko.top"
               },
               {
                 "type": "link",
@@ -7300,6 +7279,13 @@
                 "title": "CodePen: Online Code Editor and Front End Web Developer Community",
                 "url": "https://codepen.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1742535315087,
+                "title": "21st.dev – The NPM for Design Engineers",
+                "url": "https://21st.dev/?tab=components&sort=recommended",
+                "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
               }
             ]
           },
@@ -7951,6 +7937,13 @@
                 "title": "same.new",
                 "url": "https://same.new/",
                 "icon": "https://www.google.com/s2/favicons?domain=same.new"
+              },
+              {
+                "type": "link",
+                "addDate": 1742535384069,
+                "title": "Lovable",
+                "url": "https://lovable.dev/",
+                "icon": "https://www.google.com/s2/favicons?domain=lovable.dev"
               }
             ]
           },
