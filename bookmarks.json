@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742548048533,
+    "addDate": 1742657843439,
     "title": "书签栏",
     "children": [
       {
@@ -141,6 +141,13 @@
             "title": "BT之家1LOU站永久地址发布页",
             "url": "https://www.1lou.cc/",
             "icon": "https://www.google.com/s2/favicons?domain=www.1lou.cc"
+          },
+          {
+            "type": "link",
+            "addDate": 1742656654125,
+            "title": "磁力熊 - 豆瓣高分电影1080P下载",
+            "url": "https://www.cilixiong.org/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.cilixiong.org"
           }
         ]
       },
@@ -393,13 +400,6 @@
             "title": "芯幻 – 次元★一个ACG小圈子ovo!",
             "url": "https://xhcys.com/",
             "icon": "https://www.google.com/s2/favicons?domain=xhcys.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1742122974857,
-            "title": "术力口视频网络",
-            "url": "http://www.shuliko.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.shuliko.cn"
           }
         ]
       },
@@ -692,6 +692,13 @@
                 "title": "漫自由mhx12_epub漫畫Kindle漫畫下载",
                 "url": "https://mhx12.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=mhx12.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1742657599517,
+                "title": "搜漫_一站式漫画搜索引擎",
+                "url": "https://www.hisoman.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hisoman.com"
               }
             ]
           },
@@ -778,6 +785,13 @@
             "title": "Pick Anime Cool | Better Bangumi Search",
             "url": "https://ezer015.github.io/pick-anime-cool/?sort=match&keyword=",
             "icon": "https://www.google.com/s2/favicons?domain=ezer015.github.io"
+          },
+          {
+            "type": "link",
+            "addDate": 1742656460828,
+            "title": "Cmbok，一款免费开源的漫画、图书下载软件",
+            "url": "https://github.com/hlning/cmbok",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       },
@@ -1262,6 +1276,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1742438682326,
+                "title": "晴空咖啡馆 Galgame资源和补丁站",
+                "url": "https://aozoracafe.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=aozoracafe.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1704012714000,
                 "title": "KDays 论坛",
                 "url": "https://bbs2.kdays.net/",
@@ -1448,20 +1469,6 @@
                 "title": "初音的青葱发布页",
                 "url": "https://www.xygalgame.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xygalgame.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1742438682326,
-                "title": "晴空咖啡馆 Galgame资源和补丁站",
-                "url": "https://aozoracafe.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=aozoracafe.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1742438734360,
-                "title": "稻荷 • Galgame资源网站",
-                "url": "https://www.amoebi.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.amoebi.com"
               }
             ]
           },
@@ -2134,6 +2141,13 @@
                 "title": "昔枫音乐盒",
                 "url": "https://mu-jie.cc/musicBox/",
                 "icon": "https://www.google.com/s2/favicons?domain=mu-jie.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1742657492035,
+                "title": "GD音乐台 - GD Studio's Online Music Platform",
+                "url": "https://music.gdstudio.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=music.gdstudio.xyz"
               }
             ]
           },
@@ -2605,6 +2619,13 @@
             "title": "搜索- SaltyLeo 的书架",
             "url": "https://book.tstrs.me/search",
             "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
+          },
+          {
+            "type": "link",
+            "addDate": 1742657675638,
+            "title": "古诗文网-古诗文经典传承",
+            "url": "https://www.gushiwen.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.gushiwen.cn"
           }
         ]
       },
@@ -2873,21 +2894,119 @@
               {
                 "type": "folder",
                 "addDate": 1704014875976,
-                "title": "笔记阅读翻译",
+                "title": "笔记阅读",
                 "children": [
+                  {
+                    "type": "folder",
+                    "addDate": 1742656983830,
+                    "title": "文档管理阅读",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "koodo-reader: A modern ebook manager and reader with sync and backup capacities for Windows, macOS, Linux and Web",
+                        "url": "https://github.com/troyeguo/koodo-reader",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Reader - 开源无边界小说阅读器",
+                        "url": "https://github.com/binbyu/Reader",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "怡氧 - 一站式生产力工具集",
+                        "url": "https://www.eo2suite.cn/home/index",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.eo2suite.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Zotero | Your personal research assistant",
+                        "url": "https://www.zotero.org/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.zotero.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "视频漫画小说阅读器miru-app/README-zh.md at dev · miru-project/miru-app",
+                        "url": "https://github.com/miru-project/miru-app/blob/dev/README-zh.md",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "PDFgear - 将易于使用的PDF软件带给大众",
+                        "url": "https://www.pdfgear.com/zh/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.pdfgear.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1736055299167,
+                        "title": "Readest — Where You Read, Digest and Get Insight",
+                        "url": "https://readest.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=readest.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1742657028108,
+                        "title": "Free PDF Reader - Sumatra PDF",
+                        "url": "https://www.sumatrapdfreader.org/free-pdf-reader",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.sumatrapdfreader.org"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "folder",
+                    "addDate": 1742657117841,
+                    "title": "工具",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Neat Converter - 免费电子文档转码器，支持ePub，Azw3，Mobi，PDF，Docx，TXT文件的相互转换",
+                        "url": "http://www.neat-reader.cn/downloads/converter",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.neat-reader.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1742657143656,
+                        "title": "所有 PDF 问题的解决方案 - 100% 免费 - PDF24",
+                        "url": "https://www.pdf24.org/zh/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.pdf24.org"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "folder",
+                    "addDate": 1742657298988,
+                    "title": "AI",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1742657266886,
+                        "title": "NotebookLM",
+                        "url": "https://notebooklm.google.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=notebooklm.google.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1742657287555,
+                        "title": "ima.copilot-腾讯智能工作台",
+                        "url": "https://ima.qq.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=ima.qq.com"
+                      }
+                    ]
+                  },
                   {
                     "type": "link",
                     "addDate": 1704012714000,
                     "title": "幕布 - 极简大纲笔记 ｜ 一键生成思维导图",
                     "url": "https://mubu.com/home",
                     "icon": "https://www.google.com/s2/favicons?domain=mubu.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Neat Converter - 免费电子文档转码器，支持ePub，Azw3，Mobi，PDF，Docx，TXT文件的相互转换",
-                    "url": "http://www.neat-reader.cn/downloads/converter",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.neat-reader.cn"
                   },
                   {
                     "type": "link",
@@ -2899,92 +3018,8 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "koodo-reader: A modern ebook manager and reader with sync and backup capacities for Windows, macOS, Linux and Web",
-                    "url": "https://github.com/troyeguo/koodo-reader",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "团子翻译器-主页",
-                    "url": "https://translator.dango.cloud/",
-                    "icon": "https://www.google.com/s2/favicons?domain=translator.dango.cloud"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Reader --- 发布 ·宾比尤/读者",
-                    "url": "https://github.com/binbyu/Reader/releases",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "火山翻译 - 在线翻译",
-                    "url": "https://translate.volcengine.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=translate.volcengine.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Reader - 开源无边界小说阅读器",
-                    "url": "https://github.com/binbyu/Reader",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "腾讯交互翻译TranSmart",
-                    "url": "https://yi.qq.com/zh-CN/index",
-                    "icon": "https://www.google.com/s2/favicons?domain=yi.qq.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "怡氧 - 一站式生产力工具集",
-                    "url": "https://www.eo2suite.cn/home/index",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.eo2suite.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "视频漫画小说阅读器miru-app/README-zh.md at dev · miru-project/miru-app",
-                    "url": "https://github.com/miru-project/miru-app/blob/dev/README-zh.md",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Zotero | Your personal research assistant",
-                    "url": "https://www.zotero.org/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.zotero.org"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "PDFgear - 将易于使用的PDF软件带给大众",
-                    "url": "https://www.pdfgear.com/zh/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.pdfgear.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Blossom | Blossom",
-                    "url": "https://www.wangyunf.com/blossom-doc/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.wangyunf.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1706188137429,
-                    "title": "pot-app/pot-app-plugin-list: 🌟Pot App Plugin Collection",
-                    "url": "https://github.com/pot-app/pot-app-plugin-list",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1707645337483,
-                    "title": "LunaTranslator: Galgame翻译工具，支持剪贴板、OCR、HOOK，支持40余种翻译引擎。Visual Novel translate tool , support clipboard / OCR/ HOOK, support 40+ translate engines.",
-                    "url": "https://github.com/HIllya51/LunaTranslator",
+                    "title": "Blossom",
+                    "url": "https://github.com/blossom-editor/blossom",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
@@ -2996,31 +3031,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1717330090202,
-                    "title": "维克日记",
-                    "url": "https://vic-diary.zeabur.app/",
-                    "icon": "https://www.google.com/s2/favicons?domain=vic-diary.zeabur.app"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1736055299167,
-                    "title": "Readest — Where You Read, Digest and Get Insight",
-                    "url": "https://readest.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=readest.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1737698630815,
                     "title": "小筑树形笔记 - 无限分层、整洁清晰",
                     "url": "https://www.athinkthings.com/Note/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.athinkthings.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1738434980628,
-                    "title": "gridea: ✍️ A static blog writing client (一个静态博客写作客户端)",
-                    "url": "https://github.com/getgridea/gridea",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
                     "type": "link",
@@ -3038,10 +3052,52 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1740710112292,
-                    "title": "狮子笔记 | Lionote",
-                    "url": "https://www.lionote.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.lionote.com"
+                    "addDate": 1742657174064,
+                    "title": "Obsidian - Sharpen your thinking",
+                    "url": "https://obsidian.md/",
+                    "icon": "https://www.google.com/s2/favicons?domain=obsidian.md"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742657196681,
+                    "title": "byxiaozhi/Typedown: A markdown editor",
+                    "url": "https://github.com/byxiaozhi/Typedown",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1738434980628,
+                    "title": "gridea: ✍️ A static blog writing client (一个静态博客写作客户端)",
+                    "url": "https://github.com/getgridea/gridea",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1742656906181,
+                "title": "翻译",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1742656936470,
+                    "title": "团子翻译器-主页",
+                    "url": "https://translator.dango.cloud/",
+                    "icon": "https://www.google.com/s2/favicons?domain=translator.dango.cloud"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742656936470,
+                    "title": "pot-app/pot-app-plugin-list: 🌟Pot App Plugin Collection",
+                    "url": "https://github.com/pot-app/pot-app-plugin-list",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742656936471,
+                    "title": "LunaTranslator: Galgame翻译工具，支持剪贴板、OCR、HOOK，支持40余种翻译引擎。Visual Novel translate tool , support clipboard / OCR/ HOOK, support 40+ translate engines.",
+                    "url": "https://github.com/HIllya51/LunaTranslator",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -4607,13 +4663,6 @@
             "title": "数字素养网|数字素养与技能提升学习社区！www.szsyw.cn",
             "url": "https://szsyw.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=szsyw.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1742048904495,
-            "title": "Free.中国 - 自由时光",
-            "url": "https://free.xn--fiqs8s/",
-            "icon": "https://www.google.com/s2/favicons?domain=free.xn--fiqs8s"
           }
         ]
       },
@@ -6320,6 +6369,13 @@
                 "title": "GPT Mirror",
                 "url": "https://www.mfc972.com/?label=8",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mfc972.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1742657321120,
+                "title": "Cherry Studio 官方网站 - 全能的AI助手",
+                "url": "https://cherry-ai.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=cherry-ai.com"
               }
             ]
           },
@@ -7057,13 +7113,6 @@
             "title": "Coursera | Degrees, Certificates, & Free Online Courses",
             "url": "https://www.coursera.org/",
             "icon": "https://www.google.com/s2/favicons?domain=www.coursera.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1736577620448,
-            "title": "NotebookLM",
-            "url": "https://notebooklm.google.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=notebooklm.google.com"
           },
           {
             "type": "link",
