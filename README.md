@@ -24,10 +24,10 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 <table>
     <tr>
         <td>
-            <img src="https://github.com/user-attachments/assets/41d354eb-9e87-4675-a20c-95185380155d" alt="Mobile Light" width="412" height="882">
+            <img src="https://github.com/user-attachments/assets/41d354eb-9e87-4675-a20c-95185380155d" alt="Mobile Light" width="412" height="888">
         </td>
         <td>
-            <img src="https://github.com/user-attachments/assets/0e678cb3-db23-4002-b993-2c1095fb3c0c" alt="Mobile Dark" width="412" height="882">
+            <img src="https://github.com/user-attachments/assets/0e678cb3-db23-4002-b993-2c1095fb3c0c" alt="Mobile Dark" width="412" height="888">
         </td>
     </tr>
 </table>
