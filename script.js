@@ -72,6 +72,9 @@ const adjustHomeMessagePosition = (isCollapsed) => {
     if (homeMessage) {
         if (!isMobileDevice()) {
             homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
+        } else {
+            // 在移动设备上始终居中
+            homeMessage.style.left = '50%';
         }
     }
 };
@@ -456,4 +459,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 window.addEventListener('resize', () => {
     handleMobileView();
     adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
+});
+
+// 简化 FastClick 初始化，避免嵌套的事件监听器
+document.addEventListener('DOMContentLoaded', function() { 
+    if (typeof FastClick !== 'undefined') {
+        FastClick.attach(document.body);
+    }
+});
+
+// 标题变更功能
+const originalTitle = document.title;
+const newTitle = "你要离开我了吗ヽ(*。>Д<)o゜";
+
+// 鼠标离开页面时触发的事件
+document.addEventListener('mouseout', function(e) {
+    // 仅当鼠标离开窗口时进行处理
+    if (e.relatedTarget === null) {
+        document.title = newTitle;
+    }
+});
+
+// 鼠标回到页面时触发的事件
+document.addEventListener('mouseover', function() {
+    document.title = originalTitle;
 });
