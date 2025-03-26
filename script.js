@@ -34,7 +34,11 @@ const isMobileDevice = () => {
 
 const updateSidebarState = (sidebar, isCollapsed) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
-    document.getElementById('toggle-sidebar').textContent = isCollapsed ? '🫸' : '🫷';
+    const toggleButton = document.getElementById('toggle-sidebar');
+    const showPanel = toggleButton.querySelector('.show-panel');
+    const hidePanel = toggleButton.querySelector('.hide-panel');
+    showPanel.style.display = isCollapsed ? 'block' : 'none';
+    hidePanel.style.display = isCollapsed ? 'none' : 'block';
     adjustHomeMessagePosition(isCollapsed);
 
     // 修复文件夹动画状态
