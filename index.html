@@ -10,8 +10,10 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="assets/css/theme-toggle.css" as="style">
+    <link rel="preload" href="assets/css/sidepanel.css" as="style">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
+    <link rel="stylesheet" href="assets/css/sidepanel.css">
     <!-- 引入 GSAP 动画库 - 添加 defer 属性 -->
     <script src="assets/gsap-public/minified/gsap.min.js" defer></script>
     <!-- 引入 FastClick 库 - 添加 defer 属性 -->
@@ -32,7 +34,10 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <h1 onclick="renderHome()">🏠</h1>
-            <button id="toggle-sidebar">🫷</button>
+            <button id="toggle-sidebar">
+                <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="Show Panel">
+                <img src="assets/images/hide_siodepanel.svg" class="hide-panel" alt="Hide Panel">
+            </button>
         </div>
         <div id="sidebar-folders"></div>
     </div>
