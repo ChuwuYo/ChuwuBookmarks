@@ -1,0 +1,45 @@
+/* 侧栏控制按钮样式 */
+#toggle-sidebar {
+    position: fixed;
+    left: 0;
+    top: 20px;
+    background: var(--button-hover);
+    border: 1.5px solid #a4d1c4;
+    border-radius: 0 15px 15px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: var(--button-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    font-size: 1.3rem;
+    user-select: none;
+    transition: left 0.2s var(--cubic-bezier), border-radius 0.3s var(--cubic-bezier), box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#toggle-sidebar:hover {
+    box-shadow: var(--button-shadow-hover), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+#toggle-sidebar img {
+    width: 24px;
+    height: 24px;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#toggle-sidebar:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar:not(.collapsed) #toggle-sidebar {
+    left: 200px;
+    border-radius: 15px;
+    box-shadow: var(--button-shadow-expanded);
+}
+
+/* 移动设备适配 */
+@media screen and (max-width: 1300px) {
+    #toggle-sidebar:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
