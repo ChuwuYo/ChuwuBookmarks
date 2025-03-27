@@ -1,4 +1,4 @@
-<div align="center">
+~<div align="center">
     <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="Bocchi" width="200" height="200">
     <h1>ChuwuBookmarks</h1>
 </div>
@@ -107,7 +107,7 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 
 ### **需修复的问题**
 
-    1.暂无
+    1.侧边栏收起时主页按钮的消失动画问题
 
 ---
 
