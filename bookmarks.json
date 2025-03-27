@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1743083014831,
+    "addDate": 1743092515911,
     "title": "书签栏",
     "children": [
       {
@@ -2435,6 +2435,13 @@
                 "title": "速读谷-最新热门小说免费阅读网",
                 "url": "https://www.sudugu.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.sudugu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1743090124346,
+                "title": "小說狂人 | 超過120000部免費小說看到飽！PTT網友推薦",
+                "url": "https://czbooks.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=czbooks.net"
               }
             ]
           },
@@ -3583,6 +3590,13 @@
                 "title": "Seal: 🦭 Video/Audio Downloader for Android, based on yt-dlp, designed with Material You",
                 "url": "https://github.com/JunkFood02/Seal",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1743089640764,
+                "title": "Nicegram: Your All-round Messaging App for Secure Communication",
+                "url": "https://nicegram.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=nicegram.app"
               }
             ]
           },
@@ -6467,6 +6481,13 @@
                 "title": "Cherry Studio 官方网站 - 全能的AI助手",
                 "url": "https://cherry-ai.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=cherry-ai.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1743089942060,
+                "title": "Humanize AI—将 AI 文本人性化",
+                "url": "https://www.humanizeai.pro/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.humanizeai.pro"
               }
             ]
           },
@@ -7418,7 +7439,7 @@
           {
             "type": "folder",
             "addDate": 1704014876019,
-            "title": "软件",
+            "title": "官网",
             "children": [
               {
                 "type": "folder",
@@ -7685,6 +7706,13 @@
                 "title": "开发-HarmonyOS NEXT鸿蒙应用开发平台-华为开发者联盟",
                 "url": "https://developer.huawei.com/consumer/cn/develop/",
                 "icon": "https://www.google.com/s2/favicons?domain=developer.huawei.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1743089827886,
+                "title": "Docker Hub Container Image Library | App Containerization",
+                "url": "https://hub.docker.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=hub.docker.com"
               }
             ]
           },
@@ -9043,6 +9071,13 @@
                 "title": "奇客资讯网",
                 "url": "https://www.solidot.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.solidot.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1743089885769,
+                "title": "TED：创意改变一切",
+                "url": "https://www.ted.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ted.com"
               }
             ]
           },
@@ -9129,6 +9164,20 @@
             "title": "探索知名人物的人生高光时刻 - TopTimeline",
             "url": "https://toptimeline.net/zh",
             "icon": "https://www.google.com/s2/favicons?domain=toptimeline.net"
+          },
+          {
+            "type": "link",
+            "addDate": 1743089249633,
+            "title": "iFixit：免费修理手册",
+            "url": "https://zh.ifixit.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=zh.ifixit.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1743089698547,
+            "title": "OmeTV Video Chat — Omegle Random Cam Chat Alternative 2025",
+            "url": "https://ome.tv/",
+            "icon": "https://www.google.com/s2/favicons?domain=ome.tv"
           }
         ]
       }
