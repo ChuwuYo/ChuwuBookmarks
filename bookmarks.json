@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1742919184394,
+    "addDate": 1743083014831,
     "title": "书签栏",
     "children": [
       {
@@ -7254,10 +7254,24 @@
               },
               {
                 "type": "link",
+                "addDate": 1742969934660,
+                "title": "Download 1,408,300 free icons (SVG, PNG)",
+                "url": "https://icons8.com/icons",
+                "icon": "https://www.google.com/s2/favicons?domain=icons8.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1715431857268,
                 "title": "矢量图标和贴纸 - PNG、SVG、EPS、PSD 和 CSS",
                 "url": "https://www.flaticon.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.flaticon.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1742969893386,
+                "title": "SVG Repo - Free SVG Vectors and Icons",
+                "url": "https://www.svgrepo.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.svgrepo.com"
               },
               {
                 "type": "link",
@@ -7654,7 +7668,7 @@
               {
                 "type": "folder",
                 "addDate": 1708534919338,
-                "title": "编译器",
+                "title": "编辑器",
                 "children": [
                   {
                     "type": "link",
@@ -7722,9 +7736,23 @@
                   {
                     "type": "link",
                     "addDate": 1733186460486,
-                    "title": "Thank you for downloading Windsurf Editor",
+                    "title": "Windsurf Editor",
                     "url": "https://codeium.com/windsurf/download",
                     "icon": "https://www.google.com/s2/favicons?domain=codeium.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1743082488736,
+                    "title": "Trae - Ship Faster with Trae",
+                    "url": "https://www.trae.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.trae.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1743082557432,
+                    "title": "Android Studio 和应用工具 - Android 开发者  |  Android Developers",
+                    "url": "https://developer.android.com/studio?hl=zh-cn",
+                    "icon": "https://www.google.com/s2/favicons?domain=developer.android.com"
                   }
                 ]
               },
@@ -8245,6 +8273,13 @@
                 "title": "Getting started with conda — conda 25.1.2.dev59 documentation",
                 "url": "https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.conda.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1742987528846,
+                "title": "快速上手 - Lynx",
+                "url": "https://lynxjs.org/zh/guide/start/quick-start.html#ios-simulator-platform=macos-arm64,explorer-platform=ios-simulator",
+                "icon": "https://www.google.com/s2/favicons?domain=lynxjs.org"
               }
             ]
           },
