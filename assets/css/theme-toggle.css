@@ -32,6 +32,9 @@
   position: relative;
   overflow: hidden;
   transition: var(--transition-normal), transform 0.3s ease;
+  will-change: transform; /* 提示浏览器优化变换 */
+  contain: layout; /* 包含布局变化 */
+  transform: translateZ(0); /* 启用GPU加速 */
 }
 
 /* 日/月图标基础样式 */

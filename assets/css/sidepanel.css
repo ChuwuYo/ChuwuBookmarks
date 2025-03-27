@@ -13,6 +13,11 @@
     font-size: 1.3rem;
     user-select: none;
     transition: left 0.2s var(--cubic-bezier), border-radius 0.3s var(--cubic-bezier), box-shadow 0.3s ease, transform 0.3s ease;
+    will-change: transform, left; /* 提示浏览器优化变换 */
+    contain: layout; /* 包含布局变化 */
+    transform: translateZ(0); /* 启用GPU加速 */
+    box-sizing: content-box; /* 确保padding不影响总尺寸 */
+    transform-origin: center center; /* 固定变换原点 */
 }
 
 #toggle-sidebar:hover {
@@ -24,6 +29,9 @@
     height: 24px;
     color: var(--text-color);
     transition: color 0.3s ease, transform 0.3s ease;
+    display: block; /* 确保图标始终占据空间 */
+    top: 8px; /* 垂直居中 */
+    left: 12px; /* 水平居中 */
 }
 
 #toggle-sidebar:hover img {
@@ -34,6 +42,7 @@
     left: 200px;
     border-radius: 15px;
     box-shadow: var(--button-shadow-expanded);
+    /* 保持相同的尺寸，只改变位置和样式 */
 }
 
 /* 移动设备适配 */
