@@ -193,27 +193,6 @@ html {
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
-/* 主页按钮 - 添加伪3D效果 */
-.sidebar h1 {
-    background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5);
-    color: #333;
-    padding: 10px 25px;
-    border-radius: 12px;
-    cursor: pointer;
-    margin: 0;
-    transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease, border-radius 0.5s ease;
-    user-select: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* 添加内阴影 */
-    transform: translateY(0);
-}
-
-.sidebar h1:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-    border-radius: 18px;
-    transform: translateY(-2px);
-    transition: 0.3s ease;
-}
-
 
 
 /* 侧边栏头部 */
@@ -510,6 +489,9 @@ body::before {
     white-space: nowrap;
     user-select: none;
     transition: margin-left 0.3s var(--cubic-bezier);
+    height: calc(1rem + 16px + 6px); /* 确保与主题切换按钮高度一致 */
+    will-change: transform; /* 提示浏览器优化变换 */
+    contain: layout; /* 包含布局变化 */
 }
 
 #search-input {
@@ -552,20 +534,12 @@ body::before {
     .mobile-device .folder,
     .mobile-device .breadcrumb-item,
     .mobile-device #toggle-sidebar,
-    .mobile-device .sidebar h1,
+    .mobile-device .home-button,
     .mobile-device .theme-toggle,
     .mobile-device a {
         cursor: pointer;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
-    }
-    /*移动端背景色优化*/
-    /* 禁用移动端主页按钮的悬停效果 */
-    .mobile-device .sidebar h1:hover {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-        border-radius: 12px;
-        transform: translateY(0);
-        transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease, border-radius 0.5s ease;
     }
     
     /* 禁用移动端侧栏控制按钮的悬停效果 */
@@ -581,7 +555,7 @@ body::before {
     .mobile-device .folder:active,
     .mobile-device .breadcrumb-item:active,
     .mobile-device #toggle-sidebar:active,
-    .mobile-device .sidebar h1:active,
+    .mobile-device .home-button:active,
     .mobile-device .theme-toggle:active,
     .mobile-device a:active {
         background-color: inherit;
@@ -593,10 +567,6 @@ body::before {
         background-color: var(--button-bg) !important;
     }
     
-    /* 确保侧边栏标题恢复正确颜色 */
-    .sidebar h1:active {
-        background-color: var(--header-bg) !important;
-    }
 
     /* 侧边栏移动端优化 */
     .sidebar {
@@ -675,7 +645,7 @@ body::before {
 .folder,
 .breadcrumb-item,
 #toggle-sidebar,
-.sidebar h1,
+.home-button,
 button:focus,
 input:focus,
 a:focus {
