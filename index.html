@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="assets/icon/bocchi.png">
     <title>我的书签导航</title>
-    <!-- 预加载关键资源 -->
+    <!-- 预加载 -->
     <link rel="preload" href="assets/gsap-public/minified/gsap.min.js" as="script">
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="assets/js/lazy-load.js" as="script">
     <link rel="preload" href="assets/css/theme-toggle.css" as="style">
     <link rel="preload" href="assets/css/sidepanel.css" as="style">
     <link rel="preload" href="assets/css/homebutton.css" as="style">
     <link rel="preload" href="assets/images/show_sidepanel.svg" as="image">
-    <link rel="preload" href="assets/images/hide_siodepanel.svg" as="image">
+    <link rel="preload" href="assets/images/hide_siodepanel.svg" as="image">、
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
     <link rel="stylesheet" href="assets/css/sidepanel.css">
     <link rel="stylesheet" href="assets/css/homebutton.css">
-    <!-- 引入 GSAP 动画库 - 添加 defer 属性 -->
+    <!-- 引入 GSAP 动画库 -->
     <script src="assets/gsap-public/minified/gsap.min.js" defer></script>
-    <!-- 引入 FastClick 库 - 添加 defer 属性 -->
+    <!-- 引入 FastClick 库 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js" defer></script>
+    <!-- 引入 Intersection Observer Polyfill 用于图片懒加载 -->
+    <script src="assets/js/polyfill.min.js" defer></script>
     <script>
         // 简化 FastClick 初始化，避免嵌套的事件监听器
         document.addEventListener('DOMContentLoaded', function() { 
@@ -78,6 +81,8 @@
         <div id="breadcrumbs"></div>
         <div id="content"></div>
     </div>
+    <!-- 引入脚本 -->
+    <script src="assets/js/lazy-load.js" defer></script>
     <script src="script.js"></script>
 </body>
 </html>
