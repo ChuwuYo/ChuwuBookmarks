@@ -259,17 +259,59 @@ const createElement = (type, item, onClick) => {
         
         if (item.icon) {
             const img = document.createElement('img');
-            img.src = item.icon;
+            // 实现图片懒加载 - 使用data-src存储实际URL
+            img.dataset.src = item.icon;
             img.alt = '🔗';
             img.style.display = 'none';
-            img.onload = function() {
-                bookmarkIcon.textContent = '';
-                this.style.display = '';
-                bookmarkIcon.appendChild(this);
-            };
-            img.onerror = function() {
-                this.remove();
-            };
+            img.classList.add('lazy-image');
+            
+            // 将图片添加到DOM，但不立即加载
+            bookmarkIcon.appendChild(img);
+            
+            // 使用IntersectionObserver实现懒加载
+            if ('IntersectionObserver' in window) {
+                // 延迟执行，确保元素已添加到DOM
+                setTimeout(() => {
+                    if (!window.lazyImageObserver) {
+                        // 创建全局观察者实例
+                        window.lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const lazyImage = entry.target;
+                                    lazyImage.src = lazyImage.dataset.src;
+                                    lazyImage.onload = function() {
+                                        lazyImage.parentNode.textContent = '';
+                                        lazyImage.style.display = '';
+                                        lazyImage.parentNode.appendChild(lazyImage);
+                                        lazyImage.classList.remove('lazy-image');
+                                    };
+                                    lazyImage.onerror = function() {
+                                        this.remove();
+                                    };
+                                    observer.unobserve(lazyImage);
+                                }
+                            });
+                        }, {
+                            rootMargin: '200px', // 提前200px开始加载
+                            threshold: 0.01 // 当1%的元素可见时触发
+                        });
+                    }
+                    
+                    // 观察新添加的图片
+                    window.lazyImageObserver.observe(img);
+                }, 0);
+            } else {
+                // 降级处理：如果不支持IntersectionObserver，则立即加载
+                img.src = img.dataset.src;
+                img.onload = function() {
+                    bookmarkIcon.textContent = '';
+                    this.style.display = '';
+                    bookmarkIcon.appendChild(this);
+                };
+                img.onerror = function() {
+                    this.remove();
+                };
+            }
         }
         
         const link = document.createElement('a');
@@ -289,17 +331,23 @@ const renderSidebar = (data) => {
     sidebar.innerHTML = '';
     const rootFolder = data.find(item => item.title === '书签栏');
     if (!rootFolder) return;
-
+    
+    // 使用DocumentFragment减少DOM操作
+    const fragment = document.createDocumentFragment();
+    
     rootFolder.children
         .filter(item => item.type === 'folder')
         .forEach(item => {
             item.parent = rootFolder;
             if (item.children) setParentReferences(item.children, item);
-            sidebar.appendChild(createElement('folder', item, (e) => {
+            fragment.appendChild(createElement('folder', item, (e) => {
                 e.stopPropagation();
                 renderMainContent(item, true);
             }));
         });
+    
+    // 一次性将所有元素添加到DOM
+    sidebar.appendChild(fragment);
 };
 
 const setParentReferences = (items, parent) => {
@@ -320,40 +368,59 @@ const renderMainContent = (folder, fromSidebar = false) => {
         updateSidebarState(document.querySelector('.sidebar'), true);
     }
 
-    const breadcrumbPath = [];
-    let current = folder;
-    while (current) {
-        breadcrumbPath.unshift(current);
-        current = current.parent;
-    }
+    // 使用requestAnimationFrame优化渲染
+    requestAnimationFrame(() => {
+        // 使用DocumentFragment减少DOM操作
+        const breadcrumbFragment = document.createDocumentFragment();
+        
+        const breadcrumbPath = [];
+        let current = folder;
+        while (current) {
+            breadcrumbPath.unshift(current);
+            current = current.parent;
+        }
 
-    breadcrumbPath
-        .filter(crumb => crumb.title !== '书签栏')
-        .forEach((crumb, index, arr) => {
-            const crumbElement = document.createElement('span');
-            crumbElement.textContent = crumb.title;
-            crumbElement.className = 'breadcrumb-item';
-            if (crumb.parent && index < arr.length - 1) {
-                crumbElement.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    renderMainContent(crumb, true);
-                });
-            }
-            breadcrumbs.appendChild(crumbElement);
-            if (index < arr.length - 1) {
-                breadcrumbs.appendChild(Object.assign(document.createElement('span'), {
-                    textContent: ' > ',
-                    className: 'breadcrumb-separator'
-                }));
-            }
+        breadcrumbPath
+            .filter(crumb => crumb.title !== '书签栏')
+            .forEach((crumb, index, arr) => {
+                const crumbElement = document.createElement('span');
+                crumbElement.textContent = crumb.title;
+                crumbElement.className = 'breadcrumb-item';
+                if (crumb.parent && index < arr.length - 1) {
+                    crumbElement.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        renderMainContent(crumb, true);
+                    });
+                }
+                breadcrumbFragment.appendChild(crumbElement);
+                if (index < arr.length - 1) {
+                    breadcrumbFragment.appendChild(Object.assign(document.createElement('span'), {
+                        textContent: ' > ',
+                        className: 'breadcrumb-separator'
+                    }));
+                }
+            });
+            
+        // 一次性将所有面包屑元素添加到DOM
+        breadcrumbs.appendChild(breadcrumbFragment);
+        
+        // 使用DocumentFragment减少DOM操作
+        const contentFragment = document.createDocumentFragment();
+        
+        folder.children?.forEach((item, index) => {
+            const element = createElement(
+                item.type === 'folder' ? 'folder' : 'bookmark',
+                item,
+                item.type === 'folder' ? () => renderMainContent(item) : null
+            );
+            
+            // 设置动画延迟索引
+            element.style.setProperty('--item-index', index);
+            contentFragment.appendChild(element);
         });
-
-    folder.children?.forEach(item => {
-        content.appendChild(createElement(
-            item.type === 'folder' ? 'folder' : 'bookmark',
-            item,
-            item.type === 'folder' ? () => renderMainContent(item) : null
-        ));
+        
+        // 一次性将所有内容元素添加到DOM
+        content.appendChild(contentFragment);
     });
 };
 
@@ -391,64 +458,129 @@ const renderSearchResults = (results) => {
         content.innerHTML = '<div class="no-results">未找到匹配的书签。</div>';
         return;
     }
-
-    const container = document.createElement('div');
-    container.className = 'results-container';
-    ['folder', 'link'].forEach(type => {
-        results.filter(item => item.type === type)
-            .forEach(item => container.appendChild(createElement(
-                type === 'folder' ? 'folder' : 'bookmark',
-                item,
-                type === 'folder' ? () => renderMainContent(item) : null
-            )));
+    
+    // 使用requestAnimationFrame优化渲染
+    requestAnimationFrame(() => {
+        // 使用DocumentFragment减少DOM操作
+        const fragment = document.createDocumentFragment();
+        const container = document.createElement('div');
+        container.className = 'results-container';
+        
+        let itemIndex = 0;
+        ['folder', 'link'].forEach(type => {
+            results.filter(item => item.type === type)
+                .forEach(item => {
+                    const element = createElement(
+                        type === 'folder' ? 'folder' : 'bookmark',
+                        item,
+                        type === 'folder' ? () => renderMainContent(item) : null
+                    );
+                    // 设置动画延迟索引
+                    element.style.setProperty('--item-index', itemIndex++);
+                    container.appendChild(element);
+                });
+        });
+        
+        fragment.appendChild(container);
+        // 一次性将所有元素添加到DOM
+        content.appendChild(fragment);
     });
-    content.appendChild(container);
+};
+
+// 初始化Web Worker
+let searchWorker;
+
+// 检查浏览器是否支持Web Worker
+const initSearchWorker = () => {
+    if (window.Worker) {
+        searchWorker = new Worker('assets/js/search-worker.js');
+        
+        // 监听来自Worker的消息
+        searchWorker.addEventListener('message', (e) => {
+            const { action, results, message } = e.data;
+            
+            switch(action) {
+                case 'searchResults':
+                    renderSearchResults(results);
+                    break;
+                case 'error':
+                    console.error('搜索Worker错误:', message);
+                    break;
+            }
+        });
+    }
 };
 
 const debounceSearch = debounce((event) => {
     const keyword = event.target.value.trim();
     if (!keyword) return renderHome();
+    
     const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-    renderSearchResults(searchBookmarks(keyword, data));
+    
+    // 如果支持Web Worker，则使用Worker执行搜索
+    if (searchWorker) {
+        searchWorker.postMessage({
+            action: 'search',
+            data: {
+                keyword: keyword,
+                bookmarks: data
+            }
+        });
+    } else {
+        // 降级处理：如果不支持Web Worker，则在主线程中执行搜索
+        renderSearchResults(searchBookmarks(keyword, data));
+    }
 }, 500);
 
 /** 初始化和事件监听 */
 document.addEventListener('DOMContentLoaded', async () => {
+    // 初始化主题和移动视图
     initTheme();
     handleMobileView();
-
+    
+    // 初始化搜索Web Worker
+    initSearchWorker();
+    
     try {
-        // 添加更详细的错误处理
-        const response = await fetch('bookmarks.json');
-        if (!response.ok) {
-            console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
-            // 尝试使用备用路径
-            const backupResponse = await fetch('./bookmarks.json');
-            if (!backupResponse.ok) {
-                throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
+        // 使用requestAnimationFrame优化初始化流程
+        requestAnimationFrame(async () => {
+            try {
+                // 添加更详细的错误处理
+                const response = await fetch('bookmarks.json');
+                if (!response.ok) {
+                    console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
+                    // 尝试使用备用路径
+                    const backupResponse = await fetch('./bookmarks.json');
+                    if (!backupResponse.ok) {
+                        throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
+                    }
+                    const data = await backupResponse.json();
+                    localStorage.setItem('bookmarksData', JSON.stringify(data));
+                    renderSidebar(data);
+                    renderHome();
+                } else {
+                    const data = await response.json();
+                    localStorage.setItem('bookmarksData', JSON.stringify(data));
+                    renderSidebar(data);
+                    renderHome();
+                }
+            } catch (error) {
+                console.error('书签加载错误:', error);
+                // 显示错误信息给用户
+                document.getElementById('content').innerHTML = `
+                    <div class="error-message" style="text-align:center; margin-top:50px; color:var(--text-color)">
+                        <h2>加载书签数据失败</h2>
+                        <p>请确保 bookmarks.json 文件存在且格式正确</p>
+                        <p>错误详情: ${error.message}</p>
+                    </div>
+                `;
             }
-            const data = await backupResponse.json();
-            localStorage.setItem('bookmarksData', JSON.stringify(data));
-            renderSidebar(data);
-            renderHome();
-        } else {
-            const data = await response.json();
-            localStorage.setItem('bookmarksData', JSON.stringify(data));
-            renderSidebar(data);
-            renderHome();
-        }
+        });
     } catch (error) {
-        console.error('书签加载错误:', error);
-        // 显示错误信息给用户
-        document.getElementById('content').innerHTML = `
-            <div class="error-message" style="text-align:center; margin-top:50px; color:var(--text-color)">
-                <h2>加载书签数据失败</h2>
-                <p>请确保 bookmarks.json 文件存在且格式正确</p>
-                <p>错误详情: ${error.message}</p>
-            </div>
-        `;
+        console.error('初始化错误:', error);
     }
 
+    // 使用事件委托减少事件监听器数量
     const sidebar = document.querySelector('.sidebar');
     document.getElementById('toggle-sidebar').addEventListener('click', (e) => {
         e.preventDefault();
@@ -458,6 +590,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     document.getElementById('search-input').addEventListener('keyup', debounceSearch);
+    
+    // 初始化背景图片懒加载
+    const lazyLoadBackgroundImage = () => {
+        // 创建一个新的Image对象预加载背景GIF
+        const bgImage = new Image();
+        bgImage.src = 'assets/images/moecat.gif';
+        bgImage.onload = () => {
+            // 图片加载完成后，添加类以显示背景
+            document.body.classList.add('bg-loaded');
+        };
+    };
+    
+    // 延迟加载背景图片，优先加载关键内容
+    setTimeout(lazyLoadBackgroundImage, 100);
 });
 
 window.addEventListener('resize', () => {
