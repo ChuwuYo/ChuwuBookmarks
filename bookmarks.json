@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1743427642561,
+    "addDate": 1743504138180,
     "title": "书签栏",
     "children": [
       {
@@ -1007,6 +1007,13 @@
                 "title": "Alicorn - 面向任何玩家的全能 Minecraft 启动器",
                 "url": "https://alc.pages.dev/",
                 "icon": "https://www.google.com/s2/favicons?domain=alc.pages.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1743489807628,
+                "title": "YM 汉化组 | 一个用爱发电专注于汉化MC整合包与地图的非盈利组织",
+                "url": "https://vmct-cn.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=vmct-cn.top"
               }
             ]
           },
@@ -2218,6 +2225,20 @@
                 "title": "GD音乐台 - GD Studio's Online Music Platform",
                 "url": "https://music.gdstudio.xyz/",
                 "icon": "https://www.google.com/s2/favicons?domain=music.gdstudio.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1743503512747,
+                "title": "网易云VIP解析 - 全栈工具 - 免费实用的在线工具网站",
+                "url": "https://tools.qzxdp.cn/wyy_vip",
+                "icon": "https://www.google.com/s2/favicons?domain=tools.qzxdp.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1743503702798,
+                "title": "网易云音乐无损解析工具 · 创空间",
+                "url": "https://www.modelscope.cn/studios/Genius-Society/parser163",
+                "icon": "https://www.google.com/s2/favicons?domain=www.modelscope.cn"
               }
             ]
           },
@@ -2944,13 +2965,6 @@
                     "title": "Google Chrome 网络浏览器",
                     "url": "https://www.google.cn/chrome/index.html",
                     "icon": "https://www.google.com/s2/favicons?domain=www.google.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Chrome Offline Installer Download",
-                    "url": "http://viewver.coolpage.biz/chrome.php",
-                    "icon": "https://www.google.com/s2/favicons?domain=viewver.coolpage.biz"
                   },
                   {
                     "type": "link",
