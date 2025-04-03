@@ -40,7 +40,7 @@
     </a>
     <div class="sidebar">
         <div class="sidebar-header">
-            <div class="home-button" onclick="renderHome()">
+            <div class="home-button" onclick="renderHome()" tabindex="0" role="button" aria-label="返回首页">
                 <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M22 22L2 22" stroke-width="1.5" stroke-linecap="round"/>
                     <path d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486" stroke-width="1.5" stroke-linecap="round"/>
@@ -51,9 +51,9 @@
                     <path d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z" stroke-width="1.5"/>
                 </svg>
             </div>
-            <button id="toggle-sidebar">
-                <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="Show Panel">
-                <img src="assets/images/hide_siodepanel.svg" class="hide-panel" alt="Hide Panel">
+            <button id="toggle-sidebar" tabindex="0" aria-label="切换侧边栏">
+                <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="显示侧边栏">
+                <img src="assets/images/hide_siodepanel.svg" class="hide-panel" alt="隐藏侧边栏">
             </button>
         </div>
         <div id="sidebar-folders"></div>
@@ -61,7 +61,7 @@
     <div class="main-content">
         <div class="search-container">
             <input type="text" id="search-input" name="query" placeholder="🔍 搜索书签..." onkeyup="debounceSearch(event)"/>
-            <button id="theme-toggle" class="theme-toggle">
+            <button id="theme-toggle" class="theme-toggle" tabindex="0" aria-label="切换主题">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>

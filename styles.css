@@ -185,6 +185,8 @@ html {
     backface-visibility: hidden;
     will-change: opacity; /* 优化动画性能 */
     transform: translateZ(0);
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 .sidebar .folder-name {
@@ -258,6 +260,8 @@ html {
     transform-style: preserve-3d;
     will-change: opacity, transform; /* 添加will-change提示浏览器优化 */
     content-visibility: auto; /* 添加内容可见性优化 */
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 .home-message .chinese-text {
@@ -318,6 +322,8 @@ body::before {
     user-select: none;
     opacity: 0;
     animation: slideDown 0.3s ease forwards;
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 @keyframes slideDown {
@@ -340,6 +346,8 @@ body::before {
     margin: 0 4px 4px 0;
     user-select: none;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, text-decoration 0.2s ease;
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 .breadcrumb-item:hover {
@@ -396,6 +404,8 @@ body::before {
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.2s ease, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 #content .folder:hover {
@@ -508,6 +518,8 @@ body::before {
     height: calc(1rem + 16px + 6px); /* 确保与主题切换按钮高度一致 */
     will-change: transform; /* 提示浏览器优化变换 */
     contain: layout; /* 包含布局变化 */
+    /* 允许键盘焦点 */
+    outline: none;
 }
 
 #search-input {
@@ -678,6 +690,19 @@ input:focus,
 a:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+/* 键盘焦点样式 - 允许键盘操作 */
+[onclick]:focus-visible,
+.folder:focus-visible,
+.breadcrumb-item:focus-visible,
+#toggle-sidebar:focus-visible,
+.home-button:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--link-color) !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2) !important;
 }
 
 /* 优化侧边栏收起动画 */
