@@ -340,10 +340,21 @@ const renderSidebar = (data) => {
         .forEach(item => {
             item.parent = rootFolder;
             if (item.children) setParentReferences(item.children, item);
-            fragment.appendChild(createElement('folder', item, (e) => {
+            const folderElement = createElement('folder', item, (e) => {
                 e.stopPropagation();
                 renderMainContent(item, true);
-            }));
+            });
+            // 添加键盘可访问性
+            folderElement.setAttribute('tabindex', '0');
+            folderElement.setAttribute('role', 'button');
+            folderElement.setAttribute('aria-label', `文件夹: ${item.title}`);
+            folderElement.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    renderMainContent(item, true);
+                }
+            });
+            fragment.appendChild(folderElement);
         });
     
     // 一次性将所有元素添加到DOM
@@ -373,6 +384,26 @@ const renderMainContent = (folder, fromSidebar = false) => {
         // 使用DocumentFragment减少DOM操作
         const breadcrumbFragment = document.createDocumentFragment();
         
+        // 添加主页链接
+        const homeLink = document.createElement('span');
+        homeLink.className = 'breadcrumb-item';
+        homeLink.textContent = '主页';
+        homeLink.setAttribute('tabindex', '0'); // 添加tabindex使其可以接收键盘焦点
+        homeLink.setAttribute('role', 'button'); // 添加ARIA角色
+        homeLink.setAttribute('aria-label', '返回主页'); // 添加ARIA标签
+        homeLink.addEventListener('click', (e) => {
+            e.stopPropagation();
+            renderHome();
+        });
+        // 添加键盘事件处理
+        homeLink.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                renderHome();
+            }
+        });
+        breadcrumbFragment.appendChild(homeLink);
+        
         const breadcrumbPath = [];
         let current = folder;
         while (current) {
@@ -383,22 +414,32 @@ const renderMainContent = (folder, fromSidebar = false) => {
         breadcrumbPath
             .filter(crumb => crumb.title !== '书签栏')
             .forEach((crumb, index, arr) => {
+                // 添加分隔符
+                breadcrumbFragment.appendChild(Object.assign(document.createElement('span'), {
+                    textContent: ' > ',
+                    className: 'breadcrumb-separator'
+                }));
+                
                 const crumbElement = document.createElement('span');
                 crumbElement.textContent = crumb.title;
                 crumbElement.className = 'breadcrumb-item';
                 if (crumb.parent && index < arr.length - 1) {
+                    crumbElement.setAttribute('tabindex', '0'); // 添加tabindex使其可以接收键盘焦点
+                    crumbElement.setAttribute('role', 'button'); // 添加ARIA角色
+                    crumbElement.setAttribute('aria-label', `导航到${crumb.title}`); // 添加ARIA标签
                     crumbElement.addEventListener('click', (e) => {
                         e.stopPropagation();
                         renderMainContent(crumb, true);
                     });
+                    // 添加键盘事件处理
+                    crumbElement.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            renderMainContent(crumb, true);
+                        }
+                    });
                 }
                 breadcrumbFragment.appendChild(crumbElement);
-                if (index < arr.length - 1) {
-                    breadcrumbFragment.appendChild(Object.assign(document.createElement('span'), {
-                        textContent: ' > ',
-                        className: 'breadcrumb-separator'
-                    }));
-                }
             });
             
         // 一次性将所有面包屑元素添加到DOM
@@ -413,6 +454,19 @@ const renderMainContent = (folder, fromSidebar = false) => {
                 item,
                 item.type === 'folder' ? () => renderMainContent(item) : null
             );
+            
+            // 添加键盘可访问性
+            if (item.type === 'folder') {
+                element.setAttribute('tabindex', '0');
+                element.setAttribute('role', 'button');
+                element.setAttribute('aria-label', `文件夹: ${item.title}`);
+                element.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        renderMainContent(item);
+                    }
+                });
+            }
             
             // 设置动画延迟索引
             element.style.setProperty('--item-index', index);
@@ -582,14 +636,40 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 使用事件委托减少事件监听器数量
     const sidebar = document.querySelector('.sidebar');
-    document.getElementById('toggle-sidebar').addEventListener('click', (e) => {
+    const toggleSidebar = document.getElementById('toggle-sidebar');
+    toggleSidebar.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
     });
+    toggleSidebar.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
+        }
+    });
 
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleTheme();
+        }
+    });
+    
     document.getElementById('search-input').addEventListener('keyup', debounceSearch);
+    
+    // 主页按钮键盘事件
+    const homeButton = document.querySelector('.home-button');
+    if (homeButton) {
+        homeButton.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                renderHome();
+            }
+        });
+    }
     
     // 初始化背景图片懒加载
     const lazyLoadBackgroundImage = () => {
@@ -633,4 +713,197 @@ document.addEventListener('mouseout', function(e) {
 // 鼠标回到页面时触发的事件
 document.addEventListener('mouseover', function() {
     document.title = originalTitle;
+});
+
+/** 键盘导航系统 */
+const initKeyboardNavigation = () => {
+    // 定义可聚焦元素的选择器
+    const focusableSelectors = [
+        '#search-input',                // 搜索框
+        '#theme-toggle',               // 主题切换按钮
+        '#toggle-sidebar',             // 侧边栏切换按钮
+        '.home-button',                // 主页按钮
+        '.sidebar .folder',            // 侧边栏文件夹
+        '.breadcrumb-item',            // 面包屑导航项
+        '#content .folder',            // 内容区域文件夹
+        '#content .bookmark a'         // 内容区域书签链接
+    ];
+    
+    // 获取所有可聚焦元素
+    const getFocusableElements = () => {
+        return Array.from(document.querySelectorAll(focusableSelectors.join(',')));
+    };
+    
+    // 获取当前聚焦元素的索引
+    const getCurrentFocusIndex = (elements) => {
+        const activeElement = document.activeElement;
+        return elements.findIndex(el => el === activeElement);
+    };
+    
+    // 获取元素的区域类型
+    const getElementRegion = (element) => {
+        if (!element) return null;
+        
+        if (element.closest('.sidebar')) return 'sidebar';
+        if (element.closest('#breadcrumbs')) return 'breadcrumbs';
+        if (element.closest('#content')) return 'content';
+        if (element.id === 'search-input') return 'search';
+        if (element.id === 'theme-toggle') return 'theme';
+        if (element.id === 'toggle-sidebar' || element.classList.contains('home-button')) return 'controls';
+        
+        return null;
+    };
+    
+    // 根据方向和当前位置获取下一个要聚焦的元素
+    const getNextFocusElement = (direction, currentIndex, elements) => {
+        const currentElement = elements[currentIndex];
+        const currentRegion = getElementRegion(currentElement);
+        
+        // 如果当前没有聚焦元素，默认聚焦搜索框
+        if (currentIndex === -1) {
+            return elements.find(el => el.id === 'search-input') || elements[0];
+        }
+        
+        // 根据方向和区域确定下一个聚焦元素
+        switch (direction) {
+            case 'right': {
+                // 从左到右的导航逻辑
+                if (currentRegion === 'sidebar') {
+                    // 从侧边栏移动到搜索框或内容区域
+                    return elements.find(el => el.id === 'search-input') || 
+                           elements.find(el => getElementRegion(el) === 'content') || 
+                           elements[currentIndex + 1] || elements[0];
+                } else if (currentRegion === 'search') {
+                    // 从搜索框移动到主题按钮
+                    return elements.find(el => el.id === 'theme-toggle') || elements[currentIndex + 1] || elements[0];
+                } else if (currentRegion === 'theme') {
+                    // 从主题按钮移动到内容区域
+                    return elements.find(el => getElementRegion(el) === 'content') || elements[currentIndex + 1] || elements[0];
+                } else if (currentRegion === 'breadcrumbs') {
+                    // 从面包屑移动到内容区域
+                    return elements.find(el => getElementRegion(el) === 'content') || elements[currentIndex + 1] || elements[0];
+                } else {
+                    // 默认向右移动一个元素
+                    return elements[currentIndex + 1] || elements[0];
+                }
+            }
+            case 'left': {
+                // 从右到左的导航逻辑
+                if (currentRegion === 'content') {
+                    // 从内容区域移动到侧边栏或面包屑
+                    const breadcrumbElement = elements.find(el => getElementRegion(el) === 'breadcrumbs');
+                    const sidebarElement = elements.find(el => getElementRegion(el) === 'sidebar');
+                    return breadcrumbElement || sidebarElement || elements[currentIndex - 1] || elements[elements.length - 1];
+                } else if (currentRegion === 'theme') {
+                    // 从主题按钮移动到搜索框
+                    return elements.find(el => el.id === 'search-input') || elements[currentIndex - 1] || elements[elements.length - 1];
+                } else if (currentRegion === 'search') {
+                    // 从搜索框移动到侧边栏
+                    return elements.find(el => getElementRegion(el) === 'sidebar') || elements[currentIndex - 1] || elements[elements.length - 1];
+                } else {
+                    // 默认向左移动一个元素
+                    return elements[currentIndex - 1] || elements[elements.length - 1];
+                }
+            }
+            case 'up': {
+                // 向上导航逻辑
+                const sameRegionElements = elements.filter(el => getElementRegion(el) === currentRegion);
+                const currentRegionIndex = sameRegionElements.findIndex(el => el === currentElement);
+                
+                if (currentRegionIndex > 0) {
+                    // 同一区域内向上移动
+                    return sameRegionElements[currentRegionIndex - 1];
+                } else {
+                    // 跨区域向上移动
+                    if (currentRegion === 'content') {
+                        // 从内容区域移动到面包屑
+                        return elements.find(el => getElementRegion(el) === 'breadcrumbs') || 
+                               elements.find(el => el.id === 'search-input') || 
+                               elements[currentIndex - 1] || elements[elements.length - 1];
+                    } else if (currentRegion === 'breadcrumbs') {
+                        // 从面包屑移动到搜索框
+                        return elements.find(el => el.id === 'search-input') || elements[currentIndex - 1] || elements[elements.length - 1];
+                    } else {
+                        // 默认向上移动到上一个元素
+                        return elements[currentIndex - 1] || elements[elements.length - 1];
+                    }
+                }
+            }
+            case 'down': {
+                // 向下导航逻辑
+                const sameRegionElements = elements.filter(el => getElementRegion(el) === currentRegion);
+                const currentRegionIndex = sameRegionElements.findIndex(el => el === currentElement);
+                
+                if (currentRegionIndex < sameRegionElements.length - 1) {
+                    // 同一区域内向下移动
+                    return sameRegionElements[currentRegionIndex + 1];
+                } else {
+                    // 跨区域向下移动
+                    if (currentRegion === 'search' || currentRegion === 'theme' || currentRegion === 'controls') {
+                        // 从顶部控件移动到面包屑或内容区域
+                        return elements.find(el => getElementRegion(el) === 'breadcrumbs') || 
+                               elements.find(el => getElementRegion(el) === 'content') || 
+                               elements[currentIndex + 1] || elements[0];
+                    } else if (currentRegion === 'breadcrumbs') {
+                        // 从面包屑移动到内容区域
+                        return elements.find(el => getElementRegion(el) === 'content') || elements[currentIndex + 1] || elements[0];
+                    } else {
+                        // 默认向下移动到下一个元素
+                        return elements[currentIndex + 1] || elements[0];
+                    }
+                }
+            }
+            default:
+                return elements[currentIndex];
+        }
+    };
+    
+    // 处理键盘导航事件
+    document.addEventListener('keydown', (e) => {
+        // 仅处理Ctrl+方向键组合
+        if (!e.ctrlKey) return;
+        
+        let direction = null;
+        
+        switch (e.key) {
+            case 'ArrowRight':
+                direction = 'right';
+                break;
+            case 'ArrowLeft':
+                direction = 'left';
+                break;
+            case 'ArrowUp':
+                direction = 'up';
+                break;
+            case 'ArrowDown':
+                direction = 'down';
+                break;
+            default:
+                return; // 不是方向键，不处理
+        }
+        
+        e.preventDefault(); // 阻止默认行为
+        
+        const focusableElements = getFocusableElements();
+        const currentIndex = getCurrentFocusIndex(focusableElements);
+        const nextElement = getNextFocusElement(direction, currentIndex, focusableElements);
+        
+        if (nextElement) {
+            nextElement.focus();
+            
+            // 如果是侧边栏折叠状态且聚焦到侧边栏元素，自动展开侧边栏
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar.classList.contains('collapsed') && getElementRegion(nextElement) === 'sidebar') {
+                updateSidebarState(sidebar, false);
+            }
+            
+            // 滚动到可见区域
+            nextElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+};
+
+// 在DOM加载完成后初始化键盘导航
+document.addEventListener('DOMContentLoaded', function() {
+    initKeyboardNavigation();
 });
