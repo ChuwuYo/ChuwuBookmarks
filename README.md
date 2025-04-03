@@ -10,7 +10,7 @@
 Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal) 导出：
 
 本人技术目前仅限于此，只做了这个静态部署的网页项目(仅学了一点点前端)，小bug真的修不完，抱歉😥
-如果不介意闭源或付费可以看一下Pintree和TabMark这两个项目（前者开源有付费模式，后者闭源）
+若不介意闭源或付费，可参考 [Pintree](https://github.com/Pintree)（开源+付费模式）或 [TabMark](https://tabmark.app)（闭源）。
 
 ### PC：
 
@@ -83,6 +83,12 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 
    * 主页消息加入GSAP动画内容。
 
+8. **键盘聚焦支持**：
+
+   * 支持 `Tab` 键聚焦网页内容。
+
+   * 支持 `Ctrl + K` 快捷键聚焦搜索框。
+
 * * *
 
 ### **未来改进方向**
@@ -96,12 +102,6 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
    * 允许用户自定义主题颜色和布局。
    
    * 支持用户添加自定义图标和描述。
-
-4. **性能优化**：
-   
-   * 降低LCP值
-   
-   * 实现懒加载，减少初始加载时间。
 
 ---
 
