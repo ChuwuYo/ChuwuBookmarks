@@ -11,7 +11,7 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 
 本人技术目前仅限于此，只做了这个静态部署的网页项目(仅学了一点点前端)，小bug真的修不完，抱歉😥
 
-若不介意闭源或付费，可参考 [Pintree](https://github.com/Pintree)（开源+付费模式）或 [TabMark](https://tabmark.app)（闭源）。
+若不介意闭源或付费，可参考 [Pintree](https://github.com/Pintree-io/pintree)（开源+付费模式）或 [TabMark](https://www.ainewtab.app)（闭源）。
 
 ### PC：
 
