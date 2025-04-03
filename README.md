@@ -15,8 +15,8 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 ### PC：
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/9a132f7b-cf25-4c8a-882d-f006ce0104af" alt="PC Light">
-    <img src="https://github.com/user-attachments/assets/36e96efd-8846-4490-9fe3-64be98d86959" alt="PC Dark">
+    <img src="https://github.com/user-attachments/assets/4eaad285-81d1-4667-a0ae-2212686ff9eb" alt="PC Light">
+    <img src="https://github.com/user-attachments/assets/62ff3f49-dee5-468d-af0a-0ea0955f2619" alt="PC Dark">
 </div>
 
 ### 移动端：
@@ -24,10 +24,10 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 <table>
     <tr>
         <td>
-            <img src="https://github.com/user-attachments/assets/41d354eb-9e87-4675-a20c-95185380155d" alt="Mobile Light" width="412" height="888">
+            <img src="https://github.com/user-attachments/assets/31bea867-c0d4-4727-9251-8de7418ca687" alt="Mobile Light" width="412" height="888">
         </td>
         <td>
-            <img src="https://github.com/user-attachments/assets/0e678cb3-db23-4002-b993-2c1095fb3c0c" alt="Mobile Dark" width="412" height="888">
+            <img src="https://github.com/user-attachments/assets/d852e758-c372-4ed9-b899-05b048c9ad8f" alt="Mobile Dark" width="412" height="888">
         </td>
     </tr>
 </table>
