@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1743672267795,
+    "addDate": 1743682314487,
     "title": "书签栏",
     "children": [
       {
@@ -869,6 +869,13 @@
             "title": "不太灵影视网址发布页",
             "url": "https://butailing.com/",
             "icon": "https://www.google.com/s2/favicons?domain=butailing.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1704012714000,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.youtube.com"
           }
         ]
       },
@@ -2353,6 +2360,13 @@
             "title": "雀乐",
             "url": "https://www.indie.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.indie.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1743676313979,
+            "title": "什么值得听 - 只有你知道，什么值得听",
+            "url": "https://shenmezhideting.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=shenmezhideting.com"
           }
         ]
       },
@@ -3294,13 +3308,6 @@
                     "title": "观看为你推荐热门视频 | TikTok",
                     "url": "https://www.tiktok.com/foryou?lang=zh-Hans",
                     "icon": "https://www.google.com/s2/favicons?domain=www.tiktok.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "YouTube",
-                    "url": "https://www.youtube.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.youtube.com"
                   },
                   {
                     "type": "link",
