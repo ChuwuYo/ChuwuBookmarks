@@ -47,6 +47,32 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+/* 搜索快捷键提示样式 */
+.shortcut-hint {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 2px;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.shortcut-hint span {
+    background: var(--button-bg);
+    color: var(--text-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+#search-input:focus ~ .shortcut-hint,
+#search-input:not(:placeholder-shown) ~ .shortcut-hint {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
 /* 字体定义 */
 @font-face {
     font-family: 'LXGW WenKai';
@@ -191,9 +217,10 @@ html {
 
 .sidebar .folder-name {
     font-size: 1.15rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 4px;
 }
 
 .sidebar .folder-name:hover {
@@ -406,24 +433,13 @@ body::before {
     transition: transform 0.2s ease, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
     /* 允许键盘焦点 */
     outline: none;
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
 }
 
 #content .folder:hover {
     transform: translateX(8px) scale(1.02);
     cursor: pointer;
-}
-
-#content .folder-name {
-    display: inline-block;
-    padding: 0.25rem 1rem;
-    max-width: 80%;
-    transition: all 0.2s ease;
-}
-
-#content .folder-name:hover {
-    background: var(--hover-bg);
-    border-radius: 5px;
-    box-shadow: var(--shadow-sm);
 }
 
 #content .folder .folder-name {
@@ -465,7 +481,7 @@ body::before {
     color: var(--text-color);
     text-decoration: none;
     display: inline-block;
-    padding: 0.25rem 0;
+    padding: 0.25rem 0.5rem;
     max-width: 63%;
     white-space: nowrap;
     overflow: hidden;
@@ -473,6 +489,7 @@ body::before {
     user-select: text;
     font-size: 1.1rem;
     transition: var(--transition-normal);
+    border-radius: 4px;
 }
 
 #content .bookmark a:hover {
@@ -703,6 +720,7 @@ a:focus-visible {
     outline: 2px solid var(--link-color) !important;
     outline-offset: 2px;
     box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2) !important;
+    border-radius: 4px;
 }
 
 /* 优化侧边栏收起动画 */
