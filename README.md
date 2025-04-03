@@ -117,3 +117,10 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 ---
 
 # <s>这个项目其实已经完工了，今后应该只有日常维护了。</s>
+
+---
+
+## 感谢所有贡献者作出的努力
+<a href="https://github.com/HatsuChuwu/ChuwuBookmarks/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
+</a>
