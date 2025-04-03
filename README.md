@@ -107,7 +107,12 @@ Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal]
 
 ### **需修复的问题**
 
-    1.侧边栏收起时主页按钮的消失动画问题
+    修改键盘导航逻辑，实现了以下功能：
+    1. 修改Tab键的默认聚焦顺序，使其跳过搜索框，首次按Tab键会聚焦到主页按钮
+    2. 添加Ctrl+K快捷键功能，按下该组合键可以直接聚焦到搜索框
+    3. 在script.js中添加新的initKeyboardNavigation函数，用于初始化键盘导航功能
+    4. 将搜索框的tabindex设置为-1，使其在Tab键导航序列中被跳过
+    5. 在页面加载时调用initKeyboardNavigation函数以确保功能正常工作
 
 ---
 
