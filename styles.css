@@ -165,9 +165,9 @@ html {
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
     transition: width 0.3s var(--cubic-bezier),
-                padding 0.3s var(--cubic-bezier),
-                background-color 0.3s ease,
-                box-shadow 0.3s ease;
+        padding 0.3s var(--cubic-bezier),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
@@ -186,15 +186,18 @@ html {
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
+
 .sidebar::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 4px;
 }
+
 .sidebar::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     border: 2px solid var(--sidebar-bg);
 }
+
 .sidebar::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.4);
 }
@@ -209,7 +212,8 @@ html {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
     backface-visibility: hidden;
-    will-change: opacity; /* 优化动画性能 */
+    will-change: opacity;
+    /* 优化动画性能 */
     transform: translateZ(0);
     /* 允许键盘焦点 */
     outline: none;
@@ -734,18 +738,12 @@ a:focus-visible {
 }
 
 .sidebar.collapsed .folder,
-.sidebar.collapsed h1 {
+.sidebar.collapsed h1,
+.sidebar.collapsed .home-button {
     opacity: 0;
     visibility: hidden !important;
     transition: opacity 0s linear 0s, visibility 0s linear 0s, transform 0s linear 0s;
     transform: translateY(0) !important;
-}
-
-.sidebar.collapsed + .main-content .home-button {
-    opacity: 0;
-    visibility: hidden !important;
-    transform: translateX(-100px) !important;
-    transition: opacity 0.3s var(--cubic-bezier), visibility 0.3s var(--cubic-bezier), transform 0.3s var(--cubic-bezier);
 }
 
 /* 固定主页消息位置 */
