@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1743702789082,
+    "addDate": 1743866744992,
     "title": "书签栏",
     "children": [
       {
@@ -4180,6 +4180,20 @@
             "title": "免费素材视频 · Pexels 视频",
             "url": "https://www.pexels.com/zh-cn/videos/",
             "icon": "https://www.google.com/s2/favicons?domain=www.pexels.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1743866570604,
+            "title": "Unsplash",
+            "url": "https://unsplash.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=unsplash.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1743866603602,
+            "title": "5.4 million+ Stunning Free Images to Use Anywhere - Pixabay",
+            "url": "https://pixabay.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=pixabay.com"
           }
         ]
       },
@@ -4796,6 +4810,20 @@
             "title": "数字素养网|数字素养与技能提升学习社区！www.szsyw.cn",
             "url": "https://szsyw.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=szsyw.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1743866703748,
+            "title": "分享鸭 - 分享优质网站",
+            "url": "https://shareduck.fun/",
+            "icon": "https://www.google.com/s2/favicons?domain=shareduck.fun"
+          },
+          {
+            "type": "link",
+            "addDate": 1739717960382,
+            "title": "精选最新热门不同分类神器工具合集 - AI神器集",
+            "url": "https://hao.logosc.cn/collections",
+            "icon": "https://www.google.com/s2/favicons?domain=hao.logosc.cn"
           }
         ]
       },
@@ -6066,13 +6094,6 @@
                     "title": "AI工具集官网 | 1000+ AI工具集合，国内外AI工具集导航大全",
                     "url": "https://ai-bot.cn/",
                     "icon": "https://www.google.com/s2/favicons?domain=ai-bot.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1739717960382,
-                    "title": "精选最新热门不同分类神器工具合集 - AI神器集",
-                    "url": "https://hao.logosc.cn/collections",
-                    "icon": "https://www.google.com/s2/favicons?domain=hao.logosc.cn"
                   }
                 ]
               },
@@ -6798,6 +6819,13 @@
             "title": "DiG GUI - DiG Online, DiG Web Interface, DiG DNS, Google Dig, Online Dig, Dig Tool",
             "url": "https://www.diggui.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.diggui.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1743866519948,
+            "title": "海豹聪聪 | 专业历史时间线收集整理工具",
+            "url": "https://www.wiseal.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.wiseal.cn"
           }
         ]
       },
@@ -9099,6 +9127,13 @@
                 "title": "东方财富网：财经门户，提供专业的财经、股票、行情、证券、基金、理财、银行、保险、信托、期货、黄金、股吧、博客等各类财经资讯及数据",
                 "url": "https://www.eastmoney.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.eastmoney.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1743866458611,
+                "title": "大盘云图",
+                "url": "https://52etf.site/",
+                "icon": "https://www.google.com/s2/favicons?domain=52etf.site"
               }
             ]
           },
