@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1743866744992,
+    "addDate": 1744036833094,
     "title": "书签栏",
     "children": [
       {
@@ -2731,6 +2731,13 @@
             "title": " 『京墨』开源的古诗词文（名句）、歇后语、成语、传统节日、绕口令等的阅读APP",
             "url": "https://github.com/hefengbao/jingmo",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744036819344,
+            "title": "中國哲學書電子化計劃",
+            "url": "https://ctext.org/zh",
+            "icon": "https://www.google.com/s2/favicons?domain=ctext.org"
           }
         ]
       },
@@ -3614,8 +3621,15 @@
             "children": [
               {
                 "type": "link",
+                "addDate": 1704012714000,
+                "title": "Greasy Fork - 安全、实用的用户脚本大全",
+                "url": "https://greasyfork.org/zh-CN",
+                "icon": "https://www.google.com/s2/favicons?domain=greasyfork.org"
+              },
+              {
+                "type": "link",
                 "addDate": 1717498808619,
-                "title": "Sleazy Fork - 安全、有用的成人用户脚本大全",
+                "title": "Sleazy Fork",
                 "url": "https://sleazyfork.org/zh-CN",
                 "icon": "https://www.google.com/s2/favicons?domain=sleazyfork.org"
               },
@@ -3625,13 +3639,6 @@
                 "title": "首页 | ScriptCat",
                 "url": "https://docs.scriptcat.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.scriptcat.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Greasy Fork - 安全、实用的用户脚本大全",
-                "url": "https://greasyfork.org/zh-CN",
-                "icon": "https://www.google.com/s2/favicons?domain=greasyfork.org"
               }
             ]
           },
@@ -6160,13 +6167,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1713176202661,
-                    "title": "chuwu - Bot Store - Coze",
-                    "url": "https://www.coze.com/store/bot/7358033072903716881?panel=1&bid=MDQEECx7MRYvofwQt5X7RIf8ZVIEHjH0dFFIf5cEsS9OK-xd-h5aPsqz97gbdl9H2uMvQgQA",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.coze.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1713853816390,
                     "title": "Gemini",
                     "url": "https://gemini.google.com/app",
@@ -6276,13 +6276,6 @@
                     "title": "NextChat",
                     "url": "https://chat.toapis.org/#/chat",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.toapis.org"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1739645235188,
-                    "title": "小艺",
-                    "url": "https://xiaoyi.huawei.com/chat/",
-                    "icon": "https://www.google.com/s2/favicons?domain=xiaoyi.huawei.com"
                   },
                   {
                     "type": "link",
@@ -6488,6 +6481,13 @@
                 "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
                 "url": "https://github.com/lobehub/lobe-chat",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1713176202661,
+                "title": "chuwu - Bot Store - Coze",
+                "url": "https://www.coze.com/store/bot/7358033072903716881?panel=1&bid=MDQEECx7MRYvofwQt5X7RIf8ZVIEHjH0dFFIf5cEsS9OK-xd-h5aPsqz97gbdl9H2uMvQgQA",
+                "icon": "https://www.google.com/s2/favicons?domain=www.coze.com"
               },
               {
                 "type": "link",
@@ -8580,7 +8580,7 @@
           {
             "type": "folder",
             "addDate": 1704014876012,
-            "title": "程序",
+            "title": "博客",
             "children": [
               {
                 "type": "link",
@@ -8945,6 +8945,13 @@
                 "title": "叶泯希主页·叶泯希的杂七杂八的主页引导页",
                 "url": "https://418121.xyz/",
                 "icon": "https://www.google.com/s2/favicons?domain=418121.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1743875821030,
+                "title": "NiceBowl的博客",
+                "url": "https://nicebowl.fun/",
+                "icon": "https://www.google.com/s2/favicons?domain=nicebowl.fun"
               }
             ]
           },
