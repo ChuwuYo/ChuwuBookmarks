@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744036833094,
+    "addDate": 1744122778130,
     "title": "书签栏",
     "children": [
       {
@@ -148,6 +148,27 @@
             "title": "磁力熊 - 豆瓣高分电影1080P下载",
             "url": "https://www.cilixiong.org/",
             "icon": "https://www.google.com/s2/favicons?domain=www.cilixiong.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1744121600023,
+            "title": "WebTorrent - 流媒体 torrent 客户端",
+            "url": "https://webtorrent.io/",
+            "icon": "https://www.google.com/s2/favicons?domain=webtorrent.io"
+          },
+          {
+            "type": "link",
+            "addDate": 1744121847757,
+            "title": "主页 — Torrents-CSV",
+            "url": "https://torrents-csv.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=torrents-csv.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744122065014,
+            "title": "数据生态系统",
+            "url": "https://dat-ecosystem.org/",
+            "icon": "https://www.google.com/s2/favicons?domain=dat-ecosystem.org"
           }
         ]
       },
@@ -5977,13 +5998,6 @@
                 "title": "视频下载器 KurtBestor/Hitomi-Downloader: Desktop utility to download images/videos/music/text from various websites, and more.",
                 "url": "https://github.com/KurtBestor/Hitomi-Downloader",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Spotify Downloader - Download Spotify songs, playlists, and albums",
-                "url": "https://spotify-downloader.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=spotify-downloader.com"
               },
               {
                 "type": "link",
