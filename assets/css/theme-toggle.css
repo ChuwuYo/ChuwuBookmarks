@@ -19,6 +19,7 @@
   font-size: 1rem;
   border: 2px solid #a4d1c4;
   border-radius: 10px;
+  background: var(--button-bg);
   background: #d6e3ff; /* 日间主题背景色 */
   color: var(--text-color);
   cursor: pointer;
@@ -32,9 +33,6 @@
   position: relative;
   overflow: hidden;
   transition: var(--transition-normal), transform 0.3s ease;
-  will-change: transform; /* 提示浏览器优化变换 */
-  contain: layout; /* 包含布局变化 */
-  transform: translateZ(0); /* 启用GPU加速 */
 }
 
 /* 日/月图标基础样式 */
@@ -48,6 +46,9 @@
 .theme-toggle .sun,
 .theme-toggle .moon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: all 0.3s ease;
 }
 
@@ -100,13 +101,13 @@
 /* 亮色主题状态 */
 [data-theme='light'] .theme-toggle .sun {
   opacity: 1;
-  transform: scale(1) rotate(0);
+  transform: translate(-50%, -50%) scale(1) rotate(0);
   z-index: 4;
 }
 
 [data-theme='light'] .theme-toggle .moon {
   opacity: 0;
-  transform: scale(0.5) rotate(-30deg);
+  transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);
 }
 
 [data-theme='light'] .theme-toggle::before {
@@ -123,12 +124,12 @@
 /* 暗色主题状态 */
 [data-theme='dark'] .theme-toggle .sun {
   opacity: 0;
-  transform: scale(0.5) rotate(30deg);
+  transform: translate(-50%, -50%) scale(0.5) rotate(30deg);
 }
 
 [data-theme='dark'] .theme-toggle .moon {
   opacity: 1;
-  transform: scale(1) rotate(0);
+  transform: translate(-50%, -50%) scale(1) rotate(0);
   z-index: 4;
 }
 
@@ -145,7 +146,7 @@
 
 /* 夜间主题状态 */
 [data-theme='dark'] .theme-toggle {
-  background: #6988b7; /* 夜间主题背景色 */
+  background: #7498ce; /* 夜间主题背景色 */
 }
 
 /* 悬停效果 */
@@ -155,8 +156,12 @@
   transform: scale(1.05);
 }
 
-.theme-toggle:hover svg {
-  transform: rotate(15deg);
+.theme-toggle:hover .sun {
+  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+}
+
+.theme-toggle:hover .moon {
+  transform: translate(-50%, -50%) scale(1) rotate(15deg);
 }
 
 [data-theme='light'] .theme-toggle:hover::after {
