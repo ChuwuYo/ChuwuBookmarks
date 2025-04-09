@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744122778130,
+    "addDate": 1744211481776,
     "title": "书签栏",
     "children": [
       {
@@ -1637,6 +1637,13 @@
                 "title": "Neal.fun --- Neal.fun",
                 "url": "https://neal.fun/",
                 "icon": "https://www.google.com/s2/favicons?domain=neal.fun"
+              },
+              {
+                "type": "link",
+                "addDate": 1744193568698,
+                "title": "汉兜 - 汉字 Wordle",
+                "url": "https://handle.antfu.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=handle.antfu.me"
               }
             ]
           },
@@ -5431,6 +5438,20 @@
                 "title": "搜图Bot酱",
                 "url": "https://soutubot.moe/",
                 "icon": "https://www.google.com/s2/favicons?domain=soutubot.moe"
+              },
+              {
+                "type": "link",
+                "addDate": 1744190469829,
+                "title": "光栅效果Tooooools.app",
+                "url": "https://www.tooooools.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.tooooools.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1744190531658,
+                "title": "像素字图像Type Dither",
+                "url": "https://typedither.vercel.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=typedither.vercel.app"
               }
             ]
           },
@@ -6325,6 +6346,13 @@
                     "title": "Space",
                     "url": "https://space.reka.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744123329942,
+                    "title": "FreeWbot2(fei)",
+                    "url": "https://w2feichat.wbot.ecylt.top/#/chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
                   }
                 ]
               },
@@ -6840,6 +6868,20 @@
             "title": "海豹聪聪 | 专业历史时间线收集整理工具",
             "url": "https://www.wiseal.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.wiseal.cn"
+          },
+          {
+            "type": "folder",
+            "addDate": 1744190623851,
+            "title": "3D",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1744190626365,
+                "title": "粒子效果Spline Matrix",
+                "url": "https://matrix.spline.design/",
+                "icon": "https://www.google.com/s2/favicons?domain=matrix.spline.design"
+              }
+            ]
           }
         ]
       },
@@ -7309,60 +7351,200 @@
             "title": "设计",
             "children": [
               {
-                "type": "link",
-                "addDate": 1715431824948,
-                "title": "Freepik | Create great designs, faster",
-                "url": "https://www.freepik.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.freepik.com"
+                "type": "folder",
+                "addDate": 1744173942762,
+                "title": "图标等",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1715431824948,
+                    "title": "Freepik | Create great designs, faster",
+                    "url": "https://www.freepik.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.freepik.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742969934660,
+                    "title": "Download 1,408,300 free icons (SVG, PNG)",
+                    "url": "https://icons8.com/icons",
+                    "icon": "https://www.google.com/s2/favicons?domain=icons8.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1715431857268,
+                    "title": "矢量图标和贴纸 - PNG、SVG、EPS、PSD 和 CSS",
+                    "url": "https://www.flaticon.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.flaticon.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742969893386,
+                    "title": "SVG Repo - Free SVG Vectors and Icons",
+                    "url": "https://www.svgrepo.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.svgrepo.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1715432025919,
+                    "title": "下载免费矢量、图像和背景|维克特兹",
+                    "url": "https://www.vecteezy.com/free-vector",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.vecteezy.com"
+                  }
+                ]
               },
               {
-                "type": "link",
-                "addDate": 1742969934660,
-                "title": "Download 1,408,300 free icons (SVG, PNG)",
-                "url": "https://icons8.com/icons",
-                "icon": "https://www.google.com/s2/favicons?domain=icons8.com"
+                "type": "folder",
+                "addDate": 1744174059642,
+                "title": "字体",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1717324112597,
+                    "title": "在线书法字体转换_毛笔书法字体生成_矢量书法字典在线查询",
+                    "url": "http://www.shufaziti.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.shufaziti.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "字由-让设计更有价值",
+                    "url": "https://www.hellofont.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.hellofont.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1724787610246,
+                    "title": "字集-免费字体",
+                    "url": "https://wordshub.github.io/free-font/",
+                    "icon": "https://www.google.com/s2/favicons?domain=wordshub.github.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1738435005095,
+                    "title": "Download Free Chinese Fonts",
+                    "url": "https://www.freechinesefont.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.freechinesefont.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739811366421,
+                    "title": "Browse Fonts - Google Fonts",
+                    "url": "https://fonts.google.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=fonts.google.com"
+                  }
+                ]
               },
               {
-                "type": "link",
-                "addDate": 1715431857268,
-                "title": "矢量图标和贴纸 - PNG、SVG、EPS、PSD 和 CSS",
-                "url": "https://www.flaticon.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.flaticon.com"
+                "type": "folder",
+                "addDate": 1744173948207,
+                "title": "设计器",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
+                    "url": "https://icons8.com/lunacy",
+                    "icon": "https://www.google.com/s2/favicons?domain=icons8.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Dora - NoCode Design Platform",
+                    "url": "https://www.dora.run/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.dora.run"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740648860751,
+                    "title": "Material Theme Builder",
+                    "url": "https://material-foundation.github.io/material-theme-builder/",
+                    "icon": "https://www.google.com/s2/favicons?domain=material-foundation.github.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744173918446,
+                    "title": "Figma: The Collaborative Interface Design Tool",
+                    "url": "https://www.figma.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.figma.com"
+                  }
+                ]
               },
               {
-                "type": "link",
-                "addDate": 1742969893386,
-                "title": "SVG Repo - Free SVG Vectors and Icons",
-                "url": "https://www.svgrepo.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.svgrepo.com"
+                "type": "folder",
+                "addDate": 1744173960076,
+                "title": "背景",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1739645399243,
+                    "title": "抽象动态背景生成器,免费导出图片视频或JS脚本",
+                    "url": "https://www.color4bg.com/zh-hans/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.color4bg.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "清新背景渐变|💎 WebGradients.com",
+                    "url": "https://webgradients.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=webgradients.com"
+                  }
+                ]
               },
               {
-                "type": "link",
-                "addDate": 1715432025919,
-                "title": "下载免费矢量、图像和背景|维克特兹",
-                "url": "https://www.vecteezy.com/free-vector",
-                "icon": "https://www.google.com/s2/favicons?domain=www.vecteezy.com"
+                "type": "folder",
+                "addDate": 1744173964942,
+                "title": "组件",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1741960330910,
+                    "title": "CodePen: Online Code Editor and Front End Web Developer Community",
+                    "url": "https://codepen.io/",
+                    "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742535315087,
+                    "title": "21st.dev – The NPM for Design Engineers",
+                    "url": "https://21st.dev/?tab=components&sort=recommended",
+                    "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1743189375125,
+                    "title": "Code Info | HTML CSS JavaScript - Web Development",
+                    "url": "https://www.codeinfoweb.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.codeinfoweb.com"
+                  }
+                ]
               },
               {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Galgame 表情包kungalgame-stickers: KUN's Visual Novel (galgame) sticker set. To recommend games to more people. Galgame 表情包仓库 --- KUN1007/kungalgame贴纸：KUN的视觉小说（galgame）贴纸套装。向更多人推荐游戏。Galgame表情包仓库",
-                "url": "https://github.com/KUN1007/kungalgame-stickers",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "免费可定制插图Storyset | Customize, animate and download illustration for free",
-                "url": "https://storyset.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=storyset.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1717324112597,
-                "title": "在线书法字体转换_毛笔书法字体生成_矢量书法字典在线查询",
-                "url": "http://www.shufaziti.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.shufaziti.com"
+                "type": "folder",
+                "addDate": 1744174306439,
+                "title": "表情与插图",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Galgame 表情包kungalgame-stickers: KUN's Visual Novel (galgame) sticker set. To recommend games to more people. Galgame 表情包仓库 --- KUN1007/kungalgame贴纸：KUN的视觉小说（galgame）贴纸套装。向更多人推荐游戏。Galgame表情包仓库",
+                    "url": "https://github.com/KUN1007/kungalgame-stickers",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "免费可定制插图Storyset | Customize, animate and download illustration for free",
+                    "url": "https://storyset.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=storyset.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "かわいいフリー素材集 いらすとや --- 可爱的免费材料集合伊拉苏托亚",
+                    "url": "https://www.irasutoya.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.irasutoya.com"
+                  }
+                ]
               },
               {
                 "type": "link",
@@ -7380,80 +7562,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "字由-让设计更有价值",
-                "url": "https://www.hellofont.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.hellofont.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1724787610246,
-                "title": "字集-免费字体",
-                "url": "https://wordshub.github.io/free-font/",
-                "icon": "https://www.google.com/s2/favicons?domain=wordshub.github.io"
-              },
-              {
-                "type": "link",
                 "addDate": 1731683971341,
                 "title": "Dribbble - Discover the World’s Top Designers & Creative Professionals",
                 "url": "https://dribbble.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=dribbble.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "かわいいフリー素材集 いらすとや --- 可爱的免费材料集合伊拉苏托亚",
-                "url": "https://www.irasutoya.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.irasutoya.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1738435005095,
-                "title": "Download Free Chinese Fonts",
-                "url": "https://www.freechinesefont.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.freechinesefont.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1739645399243,
-                "title": "抽象动态背景生成器,免费导出图片视频或JS脚本",
-                "url": "https://www.color4bg.com/zh-hans/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.color4bg.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1739811366421,
-                "title": "Browse Fonts - Google Fonts",
-                "url": "https://fonts.google.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=fonts.google.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "设计Lunacy – Free Design Software for Win, Mac, Linux --- Lunacy – Win，Mac，Linux的免费设计软件",
-                "url": "https://icons8.com/lunacy",
-                "icon": "https://www.google.com/s2/favicons?domain=icons8.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Dora - NoCode Design Platform",
-                "url": "https://www.dora.run/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.dora.run"
-              },
-              {
-                "type": "link",
-                "addDate": 1740648860751,
-                "title": "Material Theme Builder",
-                "url": "https://material-foundation.github.io/material-theme-builder/",
-                "icon": "https://www.google.com/s2/favicons?domain=material-foundation.github.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "清新背景渐变|💎 WebGradients.com",
-                "url": "https://webgradients.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=webgradients.com"
               },
               {
                 "type": "link",
@@ -7464,24 +7576,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1741960330910,
-                "title": "CodePen: Online Code Editor and Front End Web Developer Community",
-                "url": "https://codepen.io/",
-                "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1742535315087,
-                "title": "21st.dev – The NPM for Design Engineers",
-                "url": "https://21st.dev/?tab=components&sort=recommended",
-                "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1743189375125,
-                "title": "Code Info | HTML CSS JavaScript - Web Development",
-                "url": "https://www.codeinfoweb.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.codeinfoweb.com"
+                "addDate": 1744190421646,
+                "title": "Javier Bórquez创意设计",
+                "url": "https://javier.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=javier.xyz"
               }
             ]
           },
@@ -8101,13 +8199,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1738913916147,
-                "title": "安装 Goose | 代号 goose",
-                "url": "https://block.github.io/goose/docs/getting-started/installation",
-                "icon": "https://www.google.com/s2/favicons?domain=block.github.io"
-              },
-              {
-                "type": "link",
                 "addDate": 1742354797675,
                 "title": "a0.dev - Create Mobile Apps with AI",
                 "url": "https://a0.dev/",
@@ -8399,6 +8490,20 @@
                 "title": "Stack Overflow - Where Developers Learn, Share, & Build Careers --- Stack Overflow - 开发人员学习、分享和建立职业生涯的地方",
                 "url": "https://stackoverflow.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=stackoverflow.com"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1744123173565,
+            "title": "API",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1744123162183,
+                "title": "首页 | 二次元API",
+                "url": "https://docs.api.ecylt.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=docs.api.ecylt.top"
               }
             ]
           },
