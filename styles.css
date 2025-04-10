@@ -1,7 +1,7 @@
 /* 主题变量定义 */
 :root {
-    /* 通用过渡效果 */
-    --transition-normal: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    /* 通用过渡效果 - 优化过渡时间和属性 */
+    --transition-normal: background-color 0.2s ease, color 0.2s ease;
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
     /* 浅色主题默认值 */
@@ -43,7 +43,7 @@
 
 /* 全局样式 */
 * {
-    transition: var(--transition-normal);
+    transition: background-color 0.2s ease, color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -114,7 +114,8 @@ body::before {
     z-index: 1;
     pointer-events: none;
     opacity: 0.8;
-    transition: left 0.2s var(--cubic-bezier), width 0.2s var(--cubic-bezier), background-image 0.3s ease;
+    transition: left 0.15s var(--cubic-bezier), width 0.15s var(--cubic-bezier), background-image 0.2s ease;
+    will-change: background-color;
 }
 
 /* 背景图片懒加载 */
@@ -164,16 +165,16 @@ html {
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
-    transition: width 0.3s var(--cubic-bezier),
-        padding 0.3s var(--cubic-bezier),
-        background-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: width 0.2s var(--cubic-bezier),
+        padding 0.2s var(--cubic-bezier),
+        background-color 0.2s ease;
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
     z-index: 1000;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    will-change: background-color;
 }
 
 .sidebar.collapsed {
@@ -259,10 +260,11 @@ html {
     padding: 20px 20px 20px 40px;
     flex: 1;
     box-sizing: border-box;
-    transition: margin-left 0.3s var(--cubic-bezier), 
-                padding 0.3s var(--cubic-bezier);
+    transition: margin-left 0.2s var(--cubic-bezier), 
+                padding 0.2s var(--cubic-bezier);
     position: relative; /* 添加 position 确保 z-index 生效 */
     z-index: 2; /* 置于 GIF 背景层之上 */
+    will-change: margin-left, padding;
 }
 
 .sidebar.collapsed + .main-content {
@@ -285,7 +287,7 @@ html {
     font-weight: bold;
     text-align: center;
     user-select: none;
-    transition: left 0.3s var(--cubic-bezier), opacity 0.3s ease;
+    transition: left 0.2s var(--cubic-bezier), opacity 0.2s ease;
     opacity: 0;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -301,7 +303,7 @@ html {
     margin-bottom: 20px;
     color: var(--text-color);
     transform: translateZ(0); /* 启用GPU加速 */
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     will-change: opacity, transform; /* 添加will-change提示浏览器优化 */
 }
 
@@ -379,6 +381,7 @@ body::before {
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, text-decoration 0.2s ease;
     /* 允许键盘焦点 */
     outline: none;
+    will-change: transform, background;
 }
 
 .breadcrumb-item:hover {
@@ -434,11 +437,12 @@ body::before {
     -webkit-touch-callout: none;
     backface-visibility: hidden;
     transform: translateZ(0);
-    transition: transform 0.2s ease, background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    transition: transform 0.2s ease, background 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
     /* 允许键盘焦点 */
     outline: none;
     width: fit-content;
     padding: 0.25rem 0.5rem;
+    will-change: transform;
 }
 
 #content .folder:hover {
@@ -464,7 +468,8 @@ body::before {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease;
+    will-change: transform;
 }
 
 #content .bookmark .bookmark-icon {
@@ -494,7 +499,7 @@ body::before {
     text-overflow: ellipsis;
     user-select: text;
     font-size: 1.1rem;
-    transition: var(--transition-normal);
+    transition: color 0.15s ease;
     border-radius: 4px;
 }
 
