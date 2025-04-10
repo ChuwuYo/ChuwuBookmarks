@@ -30,8 +30,12 @@ const initFocusManagement = () => {
 const toggleTheme = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    
+    // 使用requestAnimationFrame优化渲染
+    requestAnimationFrame(() => {
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
 };
 
 /** 设备和视图适配 */
