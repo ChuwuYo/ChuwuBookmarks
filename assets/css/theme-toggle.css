@@ -19,8 +19,7 @@
   font-size: 1rem;
   border: 2px solid #a4d1c4;
   border-radius: 10px;
-  background: var(--button-bg);
-  background: #d6e3ff; /* 日间主题背景色 */
+  background: var(--button-bg); /* 使用变量定义背景色 */
   color: var(--text-color);
   cursor: pointer;
   margin-left: 5px;
@@ -28,8 +27,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(1rem + 16px + 6px);
-  width: calc(1rem + 16px + 6px);
+  height: calc(1rem + 16px + 8px);
+  width: calc(1rem + 16px + 8px);
   position: relative;
   overflow: hidden;
   transition: var(--transition-normal), transform 0.3s ease;
@@ -146,22 +145,28 @@
 
 /* 夜间主题状态 */
 [data-theme='dark'] .theme-toggle {
-  background: #7498ce; /* 夜间主题背景色 */
+  background: var(--button-bg); /* 使用变量定义夜间主题背景色 */
 }
 
 /* 悬停效果 */
 .theme-toggle:hover {
-  background: var(--button-hover);
+  background: var(--button-hover) !important;
   box-shadow: var(--theme-shadow-hover);
-  transform: scale(1.05);
+}
+
+/* 为按钮添加一个包装器来实现缩放效果，不影响内部元素 */
+.theme-toggle::before, .theme-toggle::after {
+  transition: transform var(--speed), opacity var(--speed), --sunray1 var(--speed), --sunlight var(--speed), box-shadow var(--speed);
 }
 
 .theme-toggle:hover .sun {
-  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+  /* 保留translate变换，同时添加旋转效果 */
+  transform: translate(-50%, -50%) scale(1.05) rotate(15deg);
 }
 
 .theme-toggle:hover .moon {
-  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+  /* 保留translate变换，同时添加旋转效果 */
+  transform: translate(-50%, -50%) scale(1.05) rotate(15deg);
 }
 
 [data-theme='light'] .theme-toggle:hover::after {
