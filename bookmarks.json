@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744287685522,
+    "addDate": 1744387289842,
     "title": "书签栏",
     "children": [
       {
@@ -258,6 +258,13 @@
                 "title": "Pick Anime Cool | Better Bangumi Search",
                 "url": "https://ezer015.github.io/pick-anime-cool/?sort=match&keyword=",
                 "icon": "https://www.google.com/s2/favicons?domain=ezer015.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1744364280859,
+                "title": "动漫新番表 byHazx. 2025年4月新番表 | 2025年1月新番表 | Hazx新番表 | 追番表 | 番剧表 | H萌",
+                "url": "https://xf.hmacg.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=xf.hmacg.cn"
               }
             ]
           },
@@ -1049,6 +1056,13 @@
                 "title": "YM 汉化组 | 一个用爱发电专注于汉化MC整合包与地图的非盈利组织",
                 "url": "https://vmct-cn.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=vmct-cn.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1744346116532,
+                "title": "PCL-Community/PCL2-CE: PCL2 社区版，可体验上游暂未合并的功能",
+                "url": "https://github.com/PCL-Community/PCL2-CE",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -1651,6 +1665,27 @@
                 "title": "汉兜 - 汉字 Wordle",
                 "url": "https://handle.antfu.me/",
                 "icon": "https://www.google.com/s2/favicons?domain=handle.antfu.me"
+              },
+              {
+                "type": "link",
+                "addDate": 1744346236099,
+                "title": "太鼓ウェブ - Taiko Web",
+                "url": "https://cjdgrevival.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=cjdgrevival.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744346692383,
+                "title": "在线 DOS 游戏",
+                "url": "https://dos.lol/",
+                "icon": "https://www.google.com/s2/favicons?domain=dos.lol"
+              },
+              {
+                "type": "link",
+                "addDate": 1744346701830,
+                "title": "老游戏在线玩",
+                "url": "https://zaixianwan.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=zaixianwan.app"
               }
             ]
           },
@@ -7305,6 +7340,13 @@
                     "title": "Figma: The Collaborative Interface Design Tool",
                     "url": "https://www.figma.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.figma.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744346152251,
+                    "title": "Napkin AI——用于商业故事讲述的视觉人工智能",
+                    "url": "https://www.napkin.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.napkin.ai"
                   }
                 ]
               },
@@ -8070,6 +8112,13 @@
                 "title": "Lovable",
                 "url": "https://lovable.dev/",
                 "icon": "https://www.google.com/s2/favicons?domain=lovable.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1744328323530,
+                "title": "Firebase Studio",
+                "url": "https://firebase.studio/",
+                "icon": "https://www.google.com/s2/favicons?domain=firebase.studio"
               }
             ]
           },
