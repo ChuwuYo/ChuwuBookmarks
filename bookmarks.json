@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744387289842,
+    "addDate": 1744696647725,
     "title": "书签栏",
     "children": [
       {
@@ -1686,6 +1686,13 @@
                 "title": "老游戏在线玩",
                 "url": "https://zaixianwan.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=zaixianwan.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1744628505642,
+                "title": "二刺猿笑传之猜猜呗",
+                "url": "https://anime-character-guessr.netlify.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=anime-character-guessr.netlify.app"
               }
             ]
           },
@@ -2729,6 +2736,13 @@
                 "title": "轻书架",
                 "url": "https://www.lightnovel.app/home",
                 "icon": "https://www.google.com/s2/favicons?domain=www.lightnovel.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1744448600433,
+                "title": "哔哩轻小说_日本动漫轻小说在线阅读",
+                "url": "https://www.bilinovel.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.bilinovel.com"
               }
             ]
           },
@@ -4521,6 +4535,13 @@
                 "title": "首页 - NanoCloud",
                 "url": "http://nanoair.github.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=nanoair.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1744519067567,
+                "title": "登入 | TSMeow",
+                "url": "https://tsmeod.top/zh/#/auth/login",
+                "icon": "https://www.google.com/s2/favicons?domain=tsmeod.top"
               }
             ]
           },
@@ -5788,6 +5809,20 @@
                 "title": "microsoft/markitdown: Python tool for converting files and office documents to Markdown.",
                 "url": "https://github.com/microsoft/markitdown",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744456106687,
+                "title": "AI Detector - Trusted AI Checker for ChatGPT, GPT4 & Gemini",
+                "url": "https://www.zerogpt.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.zerogpt.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744456146513,
+                "title": "AI 文本、PDF 检测器和检查器 | 快速准确",
+                "url": "https://scispace.com/zh/ai-detector",
+                "icon": "https://www.google.com/s2/favicons?domain=scispace.com"
               }
             ]
           },
@@ -6416,6 +6451,13 @@
                     "title": "FreeWbot2(fei)",
                     "url": "https://w2feichat.wbot.ecylt.top/#/chat",
                     "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744474655813,
+                    "title": "Optimus Alpha",
+                    "url": "https://www.optimus-alpha.org/zh/chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.optimus-alpha.org"
                   }
                 ]
               },
@@ -6621,6 +6663,13 @@
                 "title": "Humanize AI—将 AI 文本人性化",
                 "url": "https://www.humanizeai.pro/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.humanizeai.pro"
+              },
+              {
+                "type": "link",
+                "addDate": 1744450111875,
+                "title": "OpenRouter",
+                "url": "https://openrouter.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
               }
             ]
           },
