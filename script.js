@@ -770,7 +770,7 @@ const initKeyboardNavigation = () => {
     document.addEventListener('keydown', (e) => {
         // 检测Ctrl+K组合键
         if (e.ctrlKey && e.key === 'k') {
-            e.preventDefault(); // 阻止默认行为
+            if (e) e.preventDefault(); // 阻止默认行为
             if (searchInput) {
                 searchInput.focus();
             }
@@ -900,7 +900,7 @@ const initKeyboardNavigation = () => {
     };
 
 
-    e.preventDefault(); // 阻止默认行为
+    if (e) e.preventDefault(); // 阻止默认行为
 
     const focusableElements = getFocusableElements();
     const currentIndex = getCurrentFocusIndex(focusableElements);
