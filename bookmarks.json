@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744782123379,
+    "addDate": 1744803501818,
     "title": "书签栏",
     "children": [
       {
@@ -3497,6 +3497,13 @@
                     "title": "蔷薇花园",
                     "url": "https://iirose.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=iirose.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744799400432,
+                    "title": "Element",
+                    "url": "https://app.element.io/#/room/!KaazwePCmXFbtgBUro:matrix.im",
+                    "icon": "https://www.google.com/s2/favicons?domain=app.element.io"
                   }
                 ]
               },
@@ -6273,20 +6280,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "PoeAI",
-                    "url": "https://poe.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=poe.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Sure, I can chat in Chinese. --- 当然，我可以用中文聊天。",
-                    "url": "https://huggingface.co/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "豆包 - 你的智能小助手",
                     "url": "https://www.doubao.com/chat/2801708802",
                     "icon": "https://www.google.com/s2/favicons?domain=www.doubao.com"
@@ -6304,13 +6297,6 @@
                     "title": "DeepSeek - 探索未至之境",
                     "url": "https://chat.deepseek.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.deepseek.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "智谱清言",
-                    "url": "https://chatglm.cn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chatglm.cn"
                   },
                   {
                     "type": "link",
@@ -6342,24 +6328,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1715088237654,
-                    "title": "Workers AI LLM Playground",
-                    "url": "https://playground.ai.cloudflare.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1717499188488,
                     "title": "Le Chat - Mistral AI",
                     "url": "https://chat.mistral.ai/chat",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1717502475880,
-                    "title": "使用开放大型语言模型进行聊天",
-                    "url": "https://lmarena.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=lmarena.ai"
                   },
                   {
                     "type": "link",
@@ -6384,38 +6356,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1732185940222,
-                    "title": "在问 | 让知识无界,智能触手可及",
-                    "url": "https://zaiwen.xueban.org.cn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=zaiwen.xueban.org.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Official Index - Free Chat",
-                    "url": "https://i.free-chat.asia/",
-                    "icon": "https://www.google.com/s2/favicons?domain=i.free-chat.asia"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1734799149530,
-                    "title": "我的AI / My AI",
-                    "url": "https://www.myai.asia/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.myai.asia"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1734800649587,
-                    "title": "Duck Duck Go AI Chat",
-                    "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
-                    "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1734800841837,
-                    "title": "RawChat公益站点",
-                    "url": "https://kelaode.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=kelaode.ai"
+                    "addDate": 1744783078475,
+                    "title": "Z.ai",
+                    "url": "https://chat.z.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
                   },
                   {
                     "type": "link",
@@ -6433,24 +6377,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1739473080814,
-                    "title": "NextChat",
-                    "url": "https://chat.toapis.org/#/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.toapis.org"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1739879673541,
                     "title": "Grok",
                     "url": "https://grok.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=grok.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1740402607019,
-                    "title": "Heck.ai",
-                    "url": "https://heck.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=heck.ai"
                   },
                   {
                     "type": "link",
@@ -6461,31 +6391,108 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1741230098719,
-                    "title": "EasyChat",
-                    "url": "https://www.easychat.work/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.easychat.work"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1741757615317,
                     "title": "Space",
                     "url": "https://space.reka.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
                   },
                   {
-                    "type": "link",
-                    "addDate": 1744123329942,
-                    "title": "FreeWbot2(fei)",
-                    "url": "https://w2feichat.wbot.ecylt.top/#/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1744474655813,
-                    "title": "Optimus Alpha",
-                    "url": "https://www.optimus-alpha.org/zh/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.optimus-alpha.org"
+                    "type": "folder",
+                    "addDate": 1744783271020,
+                    "title": "第三方",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "PoeAI",
+                        "url": "https://poe.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=poe.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Sure, I can chat in Chinese. --- 当然，我可以用中文聊天。",
+                        "url": "https://huggingface.co/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1717502475880,
+                        "title": "使用开放大型语言模型进行聊天",
+                        "url": "https://lmarena.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=lmarena.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734799149530,
+                        "title": "我的AI / My AI",
+                        "url": "https://www.myai.asia/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.myai.asia"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1739473080814,
+                        "title": "NextChat",
+                        "url": "https://chat.toapis.org/#/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.toapis.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1741230098719,
+                        "title": "EasyChat",
+                        "url": "https://www.easychat.work/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.easychat.work"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734800841837,
+                        "title": "RawChat公益站点",
+                        "url": "https://kelaode.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=kelaode.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1744123329942,
+                        "title": "FreeWbot2(fei)",
+                        "url": "https://w2feichat.wbot.ecylt.top/#/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1744474655813,
+                        "title": "Optimus Alpha",
+                        "url": "https://www.optimus-alpha.org/zh/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.optimus-alpha.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Official Index - Free Chat",
+                        "url": "https://i.free-chat.asia/",
+                        "icon": "https://www.google.com/s2/favicons?domain=i.free-chat.asia"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1732185940222,
+                        "title": "在问 | 让知识无界,智能触手可及",
+                        "url": "https://zaiwen.xueban.org.cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=zaiwen.xueban.org.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1715088237654,
+                        "title": "Workers AI LLM Playground",
+                        "url": "https://playground.ai.cloudflare.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734800649587,
+                        "title": "Duck Duck Go AI Chat",
+                        "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
+                        "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
+                      }
+                    ]
                   }
                 ]
               },
