@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744696647725,
+    "addDate": 1744782123379,
     "title": "书签栏",
     "children": [
       {
@@ -2309,6 +2309,13 @@
                 "title": "网易云音乐无损解析工具 · 创空间",
                 "url": "https://www.modelscope.cn/studios/Genius-Society/parser163",
                 "icon": "https://www.google.com/s2/favicons?domain=www.modelscope.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781979372,
+                "title": "音乐榜 - 免费无损音乐MP3、FLAC、WAV在线播放下载网站",
+                "url": "https://mp3b.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=mp3b.com"
               }
             ]
           },
@@ -5270,6 +5277,13 @@
                 "title": "rayenghanmi/RyTuneX: RyTuneX is a cutting-edge optimizer built with the WinUI 3 framework, designed to amplify the performance of Windows devices. Crafted for both Windows 10 and 11.",
                 "url": "https://github.com/rayenghanmi/RyTuneX",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781455276,
+                "title": "云萌激活TGSAN/CMWTAT_Digital_Edition: CloudMoe Windows 10/11 Activation Toolkit get digital license, the best open source Win 10/11 activator in GitHub. GitHub 上最棒的开源 Win10/Win11 数字权利（数字许可证）激活工具！",
+                "url": "https://github.com/TGSAN/CMWTAT_Digital_Edition",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -5396,6 +5410,20 @@
                 "title": "你的免费工具集 | UFreeTools",
                 "url": "https://www.ufreetools.com/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=www.ufreetools.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781907448,
+                "title": " 独特工具箱 - dute.org",
+                "url": "https://www.dute.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.dute.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781928875,
+                "title": "零代码-前端工具箱",
+                "url": "https://beta.lingdaima.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=beta.lingdaima.com"
               }
             ]
           },
@@ -6670,6 +6698,13 @@
                 "title": "OpenRouter",
                 "url": "https://openrouter.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1744776003455,
+                "title": "朱雀大模型AI检测",
+                "url": "https://matrix.tencent.com/ai-detect/",
+                "icon": "https://www.google.com/s2/favicons?domain=matrix.tencent.com"
               }
             ]
           },
@@ -7524,6 +7559,13 @@
                 "title": "Liquid Metal • Paper液态金属化图片",
                 "url": "https://liquid.paper.design/?refraction=0.015&edge=0.4&patternBlur=0.005&liquid=0.07&speed=0.3&patternScale=2&background=metal",
                 "icon": "https://www.google.com/s2/favicons?domain=liquid.paper.design"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781685795,
+                "title": "Supademo:创建交互式产品演示的最快方式 AI Interactive Product Demos",
+                "url": "https://supademo.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=supademo.com"
               }
             ]
           },
@@ -8196,6 +8238,13 @@
                 "title": "硬件设计，嘉立创EDA开源硬件平台，硬件工程师的电路家园",
                 "url": "https://oshwhub.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=oshwhub.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744709764745,
+                "title": "半导小芯-芯片查询工具_芯片替代查询_数据手册查询_规格书查询_datasheet查询_IC查询_国产替代",
+                "url": "https://www.semiee.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.semiee.com"
               }
             ]
           },
@@ -9029,6 +9078,13 @@
                 "title": "Evan's Space - Keep It Real",
                 "url": "https://www.evan.xin/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.evan.xin"
+              },
+              {
+                "type": "link",
+                "addDate": 1744781990509,
+                "title": "AcoFork Blog",
+                "url": "https://072103.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=072103.xyz"
               }
             ]
           },
