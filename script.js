@@ -30,7 +30,7 @@ const initFocusManagement = () => {
 const toggleTheme = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
+
     // 使用requestAnimationFrame优化渲染
     requestAnimationFrame(() => {
         document.documentElement.setAttribute('data-theme', newTheme);
@@ -748,7 +748,7 @@ document.addEventListener('mouseover', function () {
 });
 
 /** 键盘导航系统 */
-const initKeyboardNavigation = () => {
+const initKeyboardNavigation = (direction, e) => {
     // 定义可聚焦元素的选择器
     const focusableSelectors = [
         '.home-button',                // 主页按钮
@@ -899,7 +899,6 @@ const initKeyboardNavigation = () => {
         }
     };
 
-
     if (e) e.preventDefault(); // 阻止默认行为
 
     const focusableElements = getFocusableElements();
@@ -923,5 +922,17 @@ const initKeyboardNavigation = () => {
 
 // 在DOM加载完成后初始化键盘导航
 document.addEventListener('DOMContentLoaded', function () {
-    initKeyboardNavigation();
+    // 添加键盘导航事件监听
+    document.addEventListener('keydown', function (e) {
+        // 方向键导航
+        if (e.key === 'ArrowUp') {
+            initKeyboardNavigation('up', e);
+        } else if (e.key === 'ArrowDown') {
+            initKeyboardNavigation('down', e);
+        } else if (e.key === 'ArrowLeft') {
+            initKeyboardNavigation('left', e);
+        } else if (e.key === 'ArrowRight') {
+            initKeyboardNavigation('right', e);
+        }
+    });
 });
