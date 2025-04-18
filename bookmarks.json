@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744886023023,
+    "addDate": 1744974605759,
     "title": "书签栏",
     "children": [
       {
@@ -2811,20 +2811,6 @@
           },
           {
             "type": "link",
-            "addDate": 1742657675638,
-            "title": "古诗文网-古诗文经典传承",
-            "url": "https://www.gushiwen.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.gushiwen.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1708922939796,
-            "title": " 『京墨』开源的古诗词文（名句）、歇后语、成语、传统节日、绕口令等的阅读APP",
-            "url": "https://github.com/hefengbao/jingmo",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
             "addDate": 1744036819344,
             "title": "中國哲學書電子化計劃",
             "url": "https://ctext.org/zh",
@@ -2920,13 +2906,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "Motrix",
-                    "url": "https://motrix.app/",
-                    "icon": "https://www.google.com/s2/favicons?domain=motrix.app"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "BitComet - Downloads",
                     "url": "https://www.bitcomet.com/en/downloads",
                     "icon": "https://www.google.com/s2/favicons?domain=www.bitcomet.com"
@@ -2944,13 +2923,6 @@
                     "title": "Neat Download Manager for Mac and Windows (Free Internet Download Manager Mac & Windows )",
                     "url": "https://www.neatdownloadmanager.com/index.php/en/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.neatdownloadmanager.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1719236604915,
-                    "title": "HTTP Downloader Eric 的项目页面",
-                    "url": "https://erickutcher.github.io/#HTTP_Downloader",
-                    "icon": "https://www.google.com/s2/favicons?domain=erickutcher.github.io"
                   },
                   {
                     "type": "link",
@@ -3273,6 +3245,13 @@
                     "title": "Excalidraw",
                     "url": "https://excalidraw.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=excalidraw.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1717415338840,
+                    "title": "draw.io",
+                    "url": "https://www.drawio.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.drawio.com"
                   }
                 ]
               },
@@ -5211,20 +5190,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "激活massgravel/Microsoft-Activation-Scripts: A Windows and Office activator using HWID / KMS38 / Online KMS activation methods, with a focus on open-source code and fewer antivirus detections. --- massgravel/Microsoft-Activation-Scripts：使用HWID / KMS38 /Online KMS激活方法的Windows和Office激活器，专注于开源代码和更少的防病毒检测。",
-                "url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "GitHub - zbezj/HEU_KMS_Activator",
-                "url": "https://github.com/zbezj/HEU_KMS_Activator",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "文件搜索orange/README_cn.md at release · naaive/orange",
                 "url": "https://github.com/naaive/orange/blob/release/README_cn.md",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
@@ -5232,16 +5197,9 @@
               {
                 "type": "link",
                 "addDate": 1712572631432,
-                "title": "多功能用于查找重复项、空文件夹、相似图像等。",
+                "title": "czkawka多功能用于查找重复项、空文件夹、相似图像等。",
                 "url": "https://github.com/qarmin/czkawka",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1713781347179,
-                "title": "zTasker-定时|热键|计划|自动化任务",
-                "url": "http://everauto.net/cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=everauto.net"
               },
               {
                 "type": "link",
@@ -5283,13 +5241,6 @@
                 "addDate": 1734194111369,
                 "title": "rayenghanmi/RyTuneX: RyTuneX is a cutting-edge optimizer built with the WinUI 3 framework, designed to amplify the performance of Windows devices. Crafted for both Windows 10 and 11.",
                 "url": "https://github.com/rayenghanmi/RyTuneX",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1744781455276,
-                "title": "云萌激活TGSAN/CMWTAT_Digital_Edition: CloudMoe Windows 10/11 Activation Toolkit get digital license, the best open source Win 10/11 activator in GitHub. GitHub 上最棒的开源 Win10/Win11 数字权利（数字许可证）激活工具！",
-                "url": "https://github.com/TGSAN/CMWTAT_Digital_Edition",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -6155,13 +6106,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1729144752698,
-                "title": "imfile-io/imfile-desktop: A full-featured download manager.",
-                "url": "https://github.com/imfile-io/imfile-desktop?tab=readme-ov-file",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1729858784878,
                 "title": "Aha! Mega - 这可啥都有｜免费、在线、无需登录",
                 "url": "https://ahamega.com/",
@@ -6173,13 +6117,6 @@
                 "title": "魔法解析 - VIP视频解析播放",
                 "url": "https://yi.sd.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=yi.sd.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1734396327893,
-                "title": "文件加速下载",
-                "url": "https://dalao.ru/g/",
-                "icon": "https://www.google.com/s2/favicons?domain=dalao.ru"
               },
               {
                 "type": "link",
@@ -6424,13 +6361,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1734800841837,
-                        "title": "RawChat公益站点",
-                        "url": "https://kelaode.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=kelaode.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1744123329942,
                         "title": "FreeWbot2(fei)",
                         "url": "https://w2feichat.wbot.ecylt.top/#/chat",
@@ -6603,13 +6533,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1712573752991,
-                "title": "RawChat公益站点",
-                "url": "https://chatgptplus.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=chatgptplus.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1734575817389,
                 "title": "Fuclaude",
                 "url": "https://claude.github.cn.com/login?returnTo=%2F%3F",
@@ -6688,23 +6611,9 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Xinの迷你轰炸台 - 免费在线短信炸弹 - By xinxin8816",
-                "url": "https://zeallr.com/oldfile/zha.php",
-                "icon": "https://www.google.com/s2/favicons?domain=zeallr.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Privacy | 个人数据泄漏检测",
                 "url": "https://privacy.aiuys.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=privacy.aiuys.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "q绑查询、微博查询、历史数据泄露在线免费查询",
-                "url": "https://avsov.com/#study",
-                "icon": "https://www.google.com/s2/favicons?domain=avsov.com"
               },
               {
                 "type": "link",
@@ -6715,10 +6624,24 @@
               },
               {
                 "type": "link",
+                "addDate": 1739016006729,
+                "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+                "url": "https://github.com/sherlock-project/sherlock",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1717499823096,
                 "title": "解加密Ciphey/Ciphey: ⚡ Automatically decrypt encryptions without knowing the key or cipher, decode encodings, and crack hashes ⚡",
                 "url": "https://github.com/Ciphey/Ciphey",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "q绑查询、微博查询、历史数据泄露在线免费查询",
+                "url": "https://avsov.com/#study",
+                "icon": "https://www.google.com/s2/favicons?domain=avsov.com"
               },
               {
                 "type": "link",
@@ -6729,17 +6652,17 @@
               },
               {
                 "type": "link",
+                "addDate": 1704012714000,
+                "title": "Xinの迷你轰炸台 - 免费在线短信炸弹 - By xinxin8816",
+                "url": "https://zeallr.com/oldfile/zha.php",
+                "icon": "https://www.google.com/s2/favicons?domain=zeallr.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1717502514798,
                 "title": "棒糖短信测压",
                 "url": "https://sms.bangtang.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=sms.bangtang.top"
-              },
-              {
-                "type": "link",
-                "addDate": 1739016006729,
-                "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
-                "url": "https://github.com/sherlock-project/sherlock",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -6754,13 +6677,6 @@
                 "title": "FinalShell-Helper Online",
                 "url": "https://launium.com/app/finalshell/",
                 "icon": "https://www.google.com/s2/favicons?domain=launium.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1708535997078,
-                "title": "KMS一键激活 windows/office",
-                "url": "https://kms.cx/",
-                "icon": "https://www.google.com/s2/favicons?domain=kms.cx"
               }
             ]
           },
@@ -6769,13 +6685,6 @@
             "addDate": 1704014876005,
             "title": "搜索",
             "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "The AI Search Engine You Control | AI Chat & Apps --- 您掌控的 AI 搜索引擎 |AI 聊天和应用程序",
-                "url": "https://you.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=you.com"
-              },
               {
                 "type": "link",
                 "addDate": 1704012714000,
@@ -6799,31 +6708,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1717498892053,
-                "title": "Lepton Search",
-                "url": "https://search.lepton.run/",
-                "icon": "https://www.google.com/s2/favicons?domain=search.lepton.run"
-              },
-              {
-                "type": "link",
-                "addDate": 1717499217789,
-                "title": "Komo Search - AI Search & Explore",
-                "url": "https://komo.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=komo.ai"
-              },
-              {
-                "type": "link",
                 "addDate": 1717501718323,
                 "title": "Farfalle",
                 "url": "https://www.farfalle.dev/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.farfalle.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Devv",
-                "url": "https://devv.ai/zh",
-                "icon": "https://www.google.com/s2/favicons?domain=devv.ai"
               },
               {
                 "type": "link",
@@ -6838,13 +6726,6 @@
                 "title": "Startpage - Private Search Engine. No Tracking. No Search History.",
                 "url": "https://www.startpage.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.startpage.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1726068207319,
-                "title": "SearXNG instances",
-                "url": "https://searx.space/",
-                "icon": "https://www.google.com/s2/favicons?domain=searx.space"
               },
               {
                 "type": "link",
@@ -7190,13 +7071,6 @@
             "title": "Coursera | Degrees, Certificates, & Free Online Courses",
             "url": "https://www.coursera.org/",
             "icon": "https://www.google.com/s2/favicons?domain=www.coursera.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1739809448001,
-            "title": "SaDuck上岸鸭",
-            "url": "https://www.saduck.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.saduck.top"
           }
         ]
       },
@@ -7305,6 +7179,13 @@
                     "title": "Emoji大全 | Emoji表情符号词典 📓 | EmojiAll中文官方网站",
                     "url": "https://www.emojiall.com/zh-hans",
                     "icon": "https://www.google.com/s2/favicons?domain=www.emojiall.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1733044916467,
+                    "title": "AppIcon Forge - Create & Customize Stunning App Icons Online",
+                    "url": "https://zhangyu1818.github.io/appicon-forge/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zhangyu1818.github.io"
                   }
                 ]
               },
@@ -7496,20 +7377,6 @@
                     "icon": "https://www.google.com/s2/favicons?domain=matrix.spline.design"
                   }
                 ]
-              },
-              {
-                "type": "link",
-                "addDate": 1717415338840,
-                "title": "draw.io",
-                "url": "https://www.drawio.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.drawio.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1717723401573,
-                "title": "GeekCard-Share Text More Beautifully",
-                "url": "https://geekcard.app/",
-                "icon": "https://www.google.com/s2/favicons?domain=geekcard.app"
               },
               {
                 "type": "link",
@@ -8248,13 +8115,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1733044916467,
-                "title": "AppIcon Forge - Create & Customize Stunning App Icons Online",
-                "url": "https://zhangyu1818.github.io/appicon-forge/",
-                "icon": "https://www.google.com/s2/favicons?domain=zhangyu1818.github.io"
-              },
-              {
-                "type": "link",
                 "addDate": 1737823004911,
                 "title": "daisyUI — Tailwind CSS Components ( version 4 update is here )",
                 "url": "https://daisyui.com/",
@@ -8574,13 +8434,6 @@
                 "title": "Android 台灣中文網 智慧型手機 免費 遊戲下載 軟體下載 韌體下載 APP下載 刷機教程 - APK.TW",
                 "url": "https://apk.tw/forum.php",
                 "icon": "https://www.google.com/s2/favicons?domain=apk.tw"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "论坛 - stage1/s1 游戏动漫论坛",
-                "url": "https://bbs.saraba1st.com/2b/forum.php",
-                "icon": "https://www.google.com/s2/favicons?domain=bbs.saraba1st.com"
               },
               {
                 "type": "link",
@@ -9372,6 +9225,13 @@
                 "title": "markItDown | Free & Open Source Markdown Editor",
                 "url": "https://markitdown.netlify.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=markitdown.netlify.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1739809448001,
+                "title": "SaDuck上岸鸭",
+                "url": "https://www.saduck.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.saduck.top"
               }
             ]
           },
