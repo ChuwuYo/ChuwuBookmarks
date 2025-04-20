@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1744974605759,
+    "addDate": 1745159210107,
     "title": "书签栏",
     "children": [
       {
@@ -1693,6 +1693,13 @@
                 "title": "二刺猿笑传之猜猜呗",
                 "url": "https://anime-character-guessr.netlify.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=anime-character-guessr.netlify.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903648849,
+                "title": "Drive Mad 🕹️ Free Online Unblocked Car Games",
+                "url": "https://drive-mad.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=drive-mad.cc"
               }
             ]
           },
@@ -2316,6 +2323,13 @@
                 "title": "音乐榜 - 免费无损音乐MP3、FLAC、WAV在线播放下载网站",
                 "url": "https://mp3b.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=mp3b.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903312332,
+                "title": "轻听音乐",
+                "url": "http://qlisten.qytechs.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=qlisten.qytechs.cn"
               }
             ]
           },
@@ -2451,6 +2465,20 @@
             "title": "什么值得听 - 只有你知道，什么值得听",
             "url": "https://shenmezhideting.com/",
             "icon": "https://www.google.com/s2/favicons?domain=shenmezhideting.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744901547382,
+            "title": "音乐迁移-GoMusic",
+            "url": "https://music.unmeta.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=music.unmeta.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1744901553853,
+            "title": "在不同的音乐服务之间迁移播放列表 | Tune My Music",
+            "url": "https://www.tunemymusic.com/zh-CN/transfer",
+            "icon": "https://www.google.com/s2/favicons?domain=www.tunemymusic.com"
           }
         ]
       },
@@ -2750,6 +2778,41 @@
                 "title": "哔哩轻小说_日本动漫轻小说在线阅读",
                 "url": "https://www.bilinovel.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.bilinovel.com"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1744904172811,
+            "title": "古诗词文",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1742657675638,
+                "title": "古诗文网-古诗文经典传承",
+                "url": "https://www.gushiwen.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.gushiwen.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1708922939796,
+                "title": " 『京墨』开源的古诗词文（名句）、歇后语、成语、传统节日、绕口令等的阅读APP",
+                "url": "https://github.com/hefengbao/jingmo",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903543327,
+                "title": "五十弦 - AI诗文搜索",
+                "url": "https://www.wushixian.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wushixian.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1744904140984,
+                "title": "海棠诗社",
+                "url": "https://shi300.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=shi300.com"
               }
             ]
           },
@@ -3124,6 +3187,13 @@
                         "title": "Free PDF Reader - Sumatra PDF",
                         "url": "https://www.sumatrapdfreader.org/free-pdf-reader",
                         "icon": "https://www.google.com/s2/favicons?domain=www.sumatrapdfreader.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1745159066359,
+                        "title": "Anxcye/anx-reader: Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused. 集成多种 AI 能力，支持丰富的电子书格式，让阅读更智能、更专注。",
+                        "url": "https://github.com/Anxcye/anx-reader",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
                       }
                     ]
                   },
@@ -3252,6 +3322,13 @@
                     "title": "draw.io",
                     "url": "https://www.drawio.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.drawio.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744902005675,
+                    "title": "开源白板工具Drawnix",
+                    "url": "https://github.com/plait-board/drawnix",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -3998,6 +4075,13 @@
             "title": "WebCatalog",
             "url": "https://webcatalog.io/zh-CN/apps",
             "icon": "https://www.google.com/s2/favicons?domain=webcatalog.io"
+          },
+          {
+            "type": "link",
+            "addDate": 1744900428467,
+            "title": "剑二十七 - 精品软件下载",
+            "url": "https://www.jian27.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.jian27.com"
           }
         ]
       },
@@ -4278,6 +4362,13 @@
             "title": "Stunning royalty-free images & royalty-free stock",
             "url": "https://pixabay.com/",
             "icon": "https://www.google.com/s2/favicons?domain=pixabay.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744885825177,
+            "title": "影视飓风",
+            "url": "https://www.ysjf.com/home",
+            "icon": "https://www.google.com/s2/favicons?domain=www.ysjf.com"
           }
         ]
       },
@@ -4399,6 +4490,27 @@
                     "addDate": 1730626932439,
                     "title": "soroushmirzaei/telegram-configs-collector：该脚本从 Telegram 频道和订阅链接收集 Juicity、Hysteria、Tuic、Vless、Vmess、Trojan 和 Shadowsocks 配置",
                     "url": "https://github.com/soroushmirzaei/telegram-configs-collector",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1744977212612,
+                "title": "名单",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1744977028690,
+                    "title": "DiningFactory/panda-vpn-pro: 🚁🚀 2025机场推荐 | 熊猫VPN（PandaVPNPro）已确定跑路！快连VPN ，小牛加速器（小牛VPN）体验不佳且价格贵。低价机场，便宜机场，平价机场，性价比机场，高速机场，稳定机场，一元机场，翻墙机场，付费机场，收费机场，冷门机场，优质机场，廉价机场。机场评测，中国翻墙，科学上网，梯子。非永久免费梯子，官网，非永久免费VPN，非免费机场！VPN China。机场节点订阅，节点分享，Clash节点，V2ray节点，非免费节点。适用ClashForWindows，V2rayN，singbox，nekobox，小火箭等代理软件🚀🚁",
+                    "url": "https://github.com/DiningFactory/panda-vpn-pro",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744977196259,
+                    "title": "limbopro/Paolujichang: 科学上网🕸️之跑路机场名单收集（2020-2025），欢迎投稿。Ad🔗🈲🙅❌",
+                    "url": "https://github.com/limbopro/Paolujichang",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -4535,6 +4647,13 @@
                 "title": "登入 | TSMeow",
                 "url": "https://tsmeod.top/zh/#/auth/login",
                 "icon": "https://www.google.com/s2/favicons?domain=tsmeod.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1744977141800,
+                "title": "农夫山泉",
+                "url": "https://www.nfsq.us/#/login",
+                "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
               }
             ]
           },
@@ -4766,6 +4885,13 @@
                 "title": "Check your IP address | MyIP.com",
                 "url": "https://www.myip.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.myip.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902752733,
+                "title": "字节跳动网络诊断工具",
+                "url": "https://diting.bytedance.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=diting.bytedance.com"
               }
             ]
           },
@@ -4810,6 +4936,13 @@
             "title": "I2P 匿名网络",
             "url": "https://geti2p.net/zh/",
             "icon": "https://www.google.com/s2/favicons?domain=geti2p.net"
+          },
+          {
+            "type": "link",
+            "addDate": 1739892268532,
+            "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
+            "url": "https://github-hosts.tinsfox.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=github-hosts.tinsfox.com"
           }
         ]
       },
@@ -4922,6 +5055,27 @@
             "title": "一网一匠极速版 - 一起发现有趣的新产品",
             "url": "https://ywyj.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=ywyj.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1744901832832,
+            "title": "新趣集 - 一起发现有趣的新产品",
+            "url": "https://xinquji.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=xinquji.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744901864837,
+            "title": "1000UserGuide",
+            "url": "https://1000userguide.com/#/?id=%f0%9f%8c%90%e5%9b%bd%e5%86%85%e7%bd%91%e7%ab%99",
+            "icon": "https://www.google.com/s2/favicons?domain=1000userguide.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1744902432350,
+            "title": "整理下一些公共服务镜像 | lm379のBlog",
+            "url": "https://lm379.cn/2024/06/14/%E9%83%A8%E5%88%86%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E9%95%9C%E5%83%8F/",
+            "icon": "https://www.google.com/s2/favicons?domain=lm379.cn"
           }
         ]
       },
@@ -5118,6 +5272,41 @@
                 ]
               },
               {
+                "type": "folder",
+                "addDate": 1744900212020,
+                "title": "激活",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "激活massgravel/Microsoft-Activation-Scripts: A Windows and Office activator using HWID / KMS38 / Online KMS activation methods, with a focus on open-source code and fewer antivirus detections. --- massgravel/Microsoft-Activation-Scripts：使用HWID / KMS38 /Online KMS激活方法的Windows和Office激活器，专注于开源代码和更少的防病毒检测。",
+                    "url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744781455276,
+                    "title": "云萌激活TGSAN/CMWTAT_Digital_Edition: CloudMoe Windows 10/11 Activation Toolkit get digital license, the best open source Win 10/11 activator in GitHub. GitHub 上最棒的开源 Win10/Win11 数字权利（数字许可证）激活工具！",
+                    "url": "https://github.com/TGSAN/CMWTAT_Digital_Edition",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "GitHub - zbezj/HEU_KMS_Activator",
+                    "url": "https://github.com/zbezj/HEU_KMS_Activator",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1708535997078,
+                    "title": "KMS一键激活 windows/office",
+                    "url": "https://kms.cx/",
+                    "icon": "https://www.google.com/s2/favicons?domain=kms.cx"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "LDTools - LaodiTeachTips",
@@ -5221,6 +5410,13 @@
                 "title": "存储分析WizTree - The Fastest Disk Space Analyzer",
                 "url": "https://www.diskanalyzer.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.diskanalyzer.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744900410547,
+                "title": "SpaceSniffer download | SourceForge.net",
+                "url": "https://sourceforge.net/projects/spacesniffer/",
+                "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net"
               },
               {
                 "type": "link",
@@ -5382,6 +5578,13 @@
                 "title": "零代码-前端工具箱",
                 "url": "https://beta.lingdaima.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=beta.lingdaima.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902087655,
+                "title": "极速箱 | Jisuxiang - 高效开发工具集成平台 | 程序员必备在线工具箱",
+                "url": "https://jisuxiang.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=jisuxiang.com"
               }
             ]
           },
@@ -5508,6 +5711,48 @@
                 "title": "搜图Bot酱",
                 "url": "https://soutubot.moe/",
                 "icon": "https://www.google.com/s2/favicons?domain=soutubot.moe"
+              },
+              {
+                "type": "link",
+                "addDate": 1744901470038,
+                "title": "精准截图 - 您的智能创作伙伴",
+                "url": "https://puzzledu.com/shot",
+                "icon": "https://www.google.com/s2/favicons?domain=puzzledu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902372222,
+                "title": "Scan PDF-让PDF看起来就像是扫描件",
+                "url": "https://scanpdf.online/",
+                "icon": "https://www.google.com/s2/favicons?domain=scanpdf.online"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902697041,
+                "title": "纸由我 PaperMe - 自定义打印纸生成器",
+                "url": "https://paperme.toolooz.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=paperme.toolooz.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902801185,
+                "title": "图片压缩/pixzip-lite: Easy to use batch image compression software. Powered by Svelte 5 🧡 Electron. 简单易用的批量图片压缩软件，使用 Svelte 5、Electron 构建。",
+                "url": "https://github.com/richhost/pixzip-lite",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902978702,
+                "title": "RevizePic - 免费专业的在线图像画质增强工具 | 16种强大功能",
+                "url": "https://revizepic.toolooz.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=revizepic.toolooz.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903474062,
+                "title": "风格水印照片picseal.zhiweio.me",
+                "url": "https://picseal.zhiweio.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=picseal.zhiweio.me"
               }
             ]
           },
@@ -5788,6 +6033,27 @@
                 "title": "朱雀大模型AI检测",
                 "url": "https://matrix.tencent.com/ai-detect/",
                 "icon": "https://www.google.com/s2/favicons?domain=matrix.tencent.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903516336,
+                "title": "最简单方法创建  READMEreadme.so",
+                "url": "https://readme.so/cn",
+                "icon": "https://www.google.com/s2/favicons?domain=readme.so"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903694824,
+                "title": "输入网页链接将内容转换 Markdown URL Parser - Translate a URL into an LLM-compatible input.",
+                "url": "https://www.urlparser.online/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.urlparser.online"
+              },
+              {
+                "type": "link",
+                "addDate": 1745041672984,
+                "title": "opendatalab/MinerU: A high-quality tool for convert PDF to Markdown and JSON.一站式开源高质量数据提取工具，将PDF转换成Markdown和JSON格式。",
+                "url": "https://github.com/opendatalab/mineru",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -5828,13 +6094,6 @@
                     "title": "GITGPT",
                     "url": "http://gitgpt.aitop66.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=gitgpt.aitop66.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1739892268532,
-                    "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
-                    "url": "https://github-hosts.tinsfox.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=github-hosts.tinsfox.com"
                   }
                 ]
               },
@@ -6131,6 +6390,13 @@
                 "title": "速链 | 公益站",
                 "url": "https://sl.hvxi.cn/user",
                 "icon": "https://www.google.com/s2/favicons?domain=sl.hvxi.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1744900895129,
+                "title": "文件加速下载",
+                "url": "https://s.iao.su/g/",
+                "icon": "https://www.google.com/s2/favicons?domain=s.iao.su"
               }
             ]
           },
@@ -6568,13 +6834,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1739025041752,
-                "title": "coze.cn",
-                "url": "https://www.coze.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.coze.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1734801174097,
                 "title": "GPT Mirror",
                 "url": "https://www.mfc972.com/?label=8",
@@ -6663,6 +6922,13 @@
                 "title": "棒糖短信测压",
                 "url": "https://sms.bangtang.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=sms.bangtang.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902210134,
+                "title": "Local File Encrypt | 在本地加解密文本、文件或整个文件夹",
+                "url": "https://localfileencrypt.com/#encrypt",
+                "icon": "https://www.google.com/s2/favicons?domain=localfileencrypt.com"
               }
             ]
           },
@@ -7006,6 +7272,13 @@
                 "title": "矩阵计算器 - Reshish",
                 "url": "https://matrix.reshish.com/zh/",
                 "icon": "https://www.google.com/s2/favicons?domain=matrix.reshish.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744967015726,
+                "title": "maki-lab",
+                "url": "https://www.maki-math.com/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.maki-math.com"
               }
             ]
           },
@@ -7182,6 +7455,13 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1744903058625,
+                    "title": "Aha Icon - 完全免费的全能文字图标生成器",
+                    "url": "https://ahaicon.com/zh",
+                    "icon": "https://www.google.com/s2/favicons?domain=ahaicon.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1733044916467,
                     "title": "AppIcon Forge - Create & Customize Stunning App Icons Online",
                     "url": "https://zhangyu1818.github.io/appicon-forge/",
@@ -7228,6 +7508,20 @@
                     "title": "Browse Fonts - Google Fonts",
                     "url": "https://fonts.google.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=fonts.google.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744902911031,
+                    "title": "喵闪字库-提供中文字体的在线预览和免费下载",
+                    "url": "https://www.miao3.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.miao3.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744967848909,
+                    "title": "Fusion-JetBrainsMapleMono: JetBrains Maple Mono: The free and open-source font fused with JetBrains Mono & Maple Mono",
+                    "url": "https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -7366,6 +7660,34 @@
               },
               {
                 "type": "folder",
+                "addDate": 1744885923387,
+                "title": "图片效果",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1744285153476,
+                    "title": "Liquid Metal • Paper液态金属化图片",
+                    "url": "https://liquid.paper.design/?refraction=0.015&edge=0.4&patternBlur=0.005&liquid=0.07&speed=0.3&patternScale=2&background=metal",
+                    "icon": "https://www.google.com/s2/favicons?domain=liquid.paper.design"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744190531658,
+                    "title": "像素字图像Type Dither",
+                    "url": "https://typedither.vercel.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=typedither.vercel.app"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744190469829,
+                    "title": "光栅效果Tooooools.app",
+                    "url": "https://www.tooooools.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.tooooools.app"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
                 "addDate": 1744190623851,
                 "title": "3D",
                 "children": [
@@ -7375,6 +7697,41 @@
                     "title": "粒子效果Spline Matrix",
                     "url": "https://matrix.spline.design/",
                     "icon": "https://www.google.com/s2/favicons?domain=matrix.spline.design"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1744903829757,
+                "title": "卡片",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1717723401573,
+                    "title": "GeekCard-Share Text More Beautifully",
+                    "url": "https://geekcard.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=geekcard.app"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744902177964,
+                    "title": "MD2Card - Markdown 转知识卡片工具",
+                    "url": "https://md2card.com/zh/editor",
+                    "icon": "https://www.google.com/s2/favicons?domain=md2card.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744903804440,
+                    "title": "Codepng | Create awesome images from your code.",
+                    "url": "https://www.codepng.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.codepng.app"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744904079238,
+                    "title": "文字转图片OneIMG",
+                    "url": "https://oneimgai.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=oneimgai.com"
                   }
                 ]
               },
@@ -8238,6 +8595,13 @@
                 "title": "文档 | Flutter 中文文档 - Flutter 中文开发者网站 - Flutter",
                 "url": "https://docs.flutter.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.flutter.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1744997659777,
+                "title": "Astro 文档 | Docs",
+                "url": "https://docs.astro.build/zh-cn/getting-started/",
+                "icon": "https://www.google.com/s2/favicons?domain=docs.astro.build"
               }
             ]
           },
@@ -8903,6 +9267,13 @@
                 "title": "AcoFork Blog",
                 "url": "https://072103.xyz/",
                 "icon": "https://www.google.com/s2/favicons?domain=072103.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902339451,
+                "title": "首页 - 老胡的周刊",
+                "url": "https://weekly.howie6879.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=weekly.howie6879.com"
               }
             ]
           },
@@ -9162,6 +9533,13 @@
                 "title": "常用原研药目录参比制剂 | 原研药列表",
                 "url": "https://medicinex.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=medicinex.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1744901176140,
+                "title": "医保政策导航",
+                "url": "https://yibao.233h.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=yibao.233h.com"
               }
             ]
           },
@@ -9228,10 +9606,24 @@
               },
               {
                 "type": "link",
+                "addDate": 1744902623558,
+                "title": "计算机面试导航",
+                "url": "https://www.codecrack.cn/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=www.codecrack.cn"
+              },
+              {
+                "type": "link",
                 "addDate": 1739809448001,
                 "title": "SaDuck上岸鸭",
                 "url": "https://www.saduck.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.saduck.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1744903028831,
+                "title": "JOYCEQL/magic-resume: free online AI resume editor",
+                "url": "https://github.com/JOYCEQL/magic-resume",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
