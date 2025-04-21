@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745159210107,
+    "addDate": 1745252284780,
     "title": "书签栏",
     "children": [
       {
@@ -2042,7 +2042,7 @@
           {
             "type": "folder",
             "addDate": 1741452602438,
-            "title": "环境音",
+            "title": "白噪音",
             "children": [
               {
                 "type": "link",
@@ -5977,13 +5977,6 @@
                 "title": "NovelAI - The AI Storyteller",
                 "url": "https://novelai.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=novelai.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Fonts & Text Symbols (♍︎□︎◻︎⍓︎ 𝒂𝒏𝒅 𝐩𝐚𝐬𝐭𝐞) --- 字体和文本符号（︎ ♍□︎ ︎⍓︎◻和粘贴）",
-                "url": "https://instafonts.io/",
-                "icon": "https://www.google.com/s2/favicons?domain=instafonts.io"
               },
               {
                 "type": "link",
