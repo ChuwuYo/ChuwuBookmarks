@@ -3,34 +3,128 @@
  * 用于在后台线程处理大批量数据操作，避免阻塞主UI线程
  */
 
+// 缓存系统 - 用于存储已处理过的数据结果
+const cache = {
+    process: new Map(),  // 处理结果缓存
+    sort: new Map(),     // 排序结果缓存
+    filter: new Map()    // 过滤结果缓存
+};
+
+// 缓存键生成函数
+const generateCacheKey = (action, params) => {
+    return JSON.stringify({ action, params });
+};
+
 // 监听来自主线程的消息
 self.addEventListener('message', function(e) {
-    const { action, data } = e.data;
+    const { action, data, useCache = true } = e.data;
     
     // 根据不同的操作类型执行相应的处理
     switch(action) {
         case 'processBookmarks':
+            // 生成缓存键
+            if (useCache) {
+                const cacheKey = generateCacheKey('process', data.options);
+                // 检查缓存中是否有结果
+                if (cache.process.has(cacheKey)) {
+                    // 直接返回缓存结果
+                    self.postMessage({
+                        action: 'processResult',
+                        result: cache.process.get(cacheKey),
+                        fromCache: true
+                    });
+                    return;
+                }
+            }
+            
+            // 处理数据
             const result = processBookmarks(data.bookmarks, data.options);
+            
+            // 缓存结果
+            if (useCache) {
+                const cacheKey = generateCacheKey('process', data.options);
+                cache.process.set(cacheKey, result);
+            }
+            
             // 将处理结果发送回主线程
             self.postMessage({
                 action: 'processResult',
-                result: result
+                result: result,
+                fromCache: false
             });
             break;
             
         case 'sortBookmarks':
+            // 生成缓存键
+            if (useCache) {
+                const cacheKey = generateCacheKey('sort', { sortBy: data.sortBy, sortOrder: data.sortOrder });
+                // 检查缓存中是否有结果
+                if (cache.sort.has(cacheKey)) {
+                    // 直接返回缓存结果
+                    self.postMessage({
+                        action: 'sortResult',
+                        result: cache.sort.get(cacheKey),
+                        fromCache: true
+                    });
+                    return;
+                }
+            }
+            
+            // 排序数据
             const sorted = sortBookmarks(data.bookmarks, data.sortBy, data.sortOrder);
+            
+            // 缓存结果
+            if (useCache) {
+                const cacheKey = generateCacheKey('sort', { sortBy: data.sortBy, sortOrder: data.sortOrder });
+                cache.sort.set(cacheKey, sorted);
+            }
+            
             self.postMessage({
                 action: 'sortResult',
-                result: sorted
+                result: sorted,
+                fromCache: false
             });
             break;
             
         case 'filterBookmarks':
+            // 生成缓存键
+            if (useCache) {
+                const cacheKey = generateCacheKey('filter', data.filters);
+                // 检查缓存中是否有结果
+                if (cache.filter.has(cacheKey)) {
+                    // 直接返回缓存结果
+                    self.postMessage({
+                        action: 'filterResult',
+                        result: cache.filter.get(cacheKey),
+                        fromCache: true
+                    });
+                    return;
+                }
+            }
+            
+            // 过滤数据
             const filtered = filterBookmarks(data.bookmarks, data.filters);
+            
+            // 缓存结果
+            if (useCache) {
+                const cacheKey = generateCacheKey('filter', data.filters);
+                cache.filter.set(cacheKey, filtered);
+            }
+            
             self.postMessage({
                 action: 'filterResult',
-                result: filtered
+                result: filtered,
+                fromCache: false
+            });
+            break;
+            
+        case 'clearCache':
+            // 清除缓存
+            cache.process.clear();
+            cache.sort.clear();
+            cache.filter.clear();
+            self.postMessage({
+                action: 'cacheCleared'
             });
             break;
             
