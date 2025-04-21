@@ -3,22 +3,35 @@
     <h1>ChuwuBookmarks</h1>
 </div>
 
-## 项目概述
+项目概述
 
-这是一个基于浏览器的书签导航网页，旨在将书签数据（以 JSON 格式存储）转换为一个美观且功能丰富的网页应用。可以通过该网页方便地访问自己的书签，支持多级文件夹的展开和折叠、搜索、面包屑导航等功能。
-非中国大陆可访问 [EdgeOne](https://chuwubookmarks.edgeone.app/) / [CloudFlare](https://chuwubookmarks.pages.dev/) / [Vercel](https://chuwu-bookmarks-tau.vercel.app/) 体验
+这是一个基于浏览器的书签导航网页，旨在将书签数据（以 JSON 格式存储）转换为一个美观且功能丰富的网页应用。
+
+通过该网页，您可以方便地访问自己的书签，支持多级文件夹的展开和折叠、搜索、面包屑导航等功能。
+
+非中国大陆可访问以下链接进行体验：
+
+[EdgeOne](https://chuwubookmarks.edgeone.app/)
+
+[CloudFlare](https://chuwubookmarks.pages.dev/)
+
+[Vercel](https://chuwu-bookmarks-tau.vercel.app/)
+
+## Json 格式书签树的导出
+
+Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal) 导出。
+
+## 其他参考项目
+
+若不介意闭源或付费，可参考以下项目：
+
+[Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式）
+
+[TabMark](https://www.ainewtab.app)（闭源）
 
 ***
 
-Json格式的书签树由我开发的这个browser拓展程序 [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal) 导出
-
----
-
-若不介意闭源或付费，可参考 [Pintree](https://github.com/Pintree-io/pintree)（开源+付费模式）或 [TabMark](https://www.ainewtab.app)（闭源）
-
-***
-
-界面截图
+## 界面截图
 ---
 ### PC：
 
