@@ -12,11 +12,13 @@
     box-shadow: var(--button-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     font-size: 1.3rem;
     user-select: none;
+    /* 允许键盘焦点操作 */
+    outline: none;
     transition: left 0.2s var(--cubic-bezier), border-radius 0.3s var(--cubic-bezier), box-shadow 0.3s ease, transform 0.3s ease;
-    will-change: transform, left; /* 提示浏览器优化变换 */
-    contain: layout; /* 包含布局变化 */
-    transform: translateZ(0); /* 启用GPU加速 */
-    box-sizing: content-box; /* 确保padding不影响总尺寸 */
+    will-change: transform, left;
+    contain: layout;
+    transform: translateZ(0);
+    box-sizing: content-box;
     transform-origin: center center; /* 固定变换原点 */
 }
 
@@ -29,9 +31,19 @@
     height: 24px;
     color: var(--text-color);
     transition: color 0.3s ease, transform 0.3s ease;
-    display: block; /* 确保图标始终占据空间 */
-    top: 8px; /* 垂直居中 */
-    left: 12px; /* 水平居中 */
+    display: none; /* 默认隐藏所有图标 */
+    position: relative; /* 添加定位上下文 */
+    top: 0; /* 重置垂直位置 */
+    left: 0; /* 重置水平位置 */
+}
+
+/* 根据侧边栏状态显示对应图标 */
+.sidebar.collapsed #toggle-sidebar .show-panel {
+    display: block; /* 侧边栏收起时显示展开图标 */
+}
+
+.sidebar:not(.collapsed) #toggle-sidebar .hide-panel {
+    display: block; /* 侧边栏展开时显示收起图标 */
 }
 
 #toggle-sidebar:hover img {
@@ -52,3 +64,4 @@
         box-shadow: none;
     }
 }
+
