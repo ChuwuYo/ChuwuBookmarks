@@ -14,7 +14,7 @@
 
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
-[Vercel](https://chuwu-bookmarks-tau.vercel.app/)
+[Vercel](chuwubookmarks.vercel.app)
 
 [Netlify](https://chuwubookmarks.netlify.app/)
 
