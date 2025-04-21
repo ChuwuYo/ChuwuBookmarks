@@ -10,9 +10,9 @@
     --text-color: #0e141a;
     --link-color: #2bc3ce;
     --hover-bg: #dfe6e9;
-    --button-bg: #88cdfa;
+    --button-bg: #a1dcf5;
     --button-hover: #f6e3ef;
-    --header-bg: #88cdfa;
+    --header-bg: #88dcfa;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@
     --bg-color: #1a1a1a;
     --sidebar-bg: #2d3436;
     --text-color: #ecf0f1;
-    --link-color: #74b9ff;
+    --link-color: #74ceff;
     --hover-bg: #2d3436;
     --button-bg: #5d6687;
     --button-hover: rgba(222, 231, 162, 0.934);
