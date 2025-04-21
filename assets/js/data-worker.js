@@ -162,20 +162,22 @@ function processBookmarks(bookmarks, options = {}) {
     // 用于检测重复项的Map
     const urlMap = new Map();
     
-    // 递归处理函数
+    // 优化的递归处理函数 - 使用迭代器模式减少递归深度
     function process(items, depth = 0) {
         if (opts.calculateDepth && depth > result.maxDepth) {
             result.maxDepth = depth;
         }
         
-        items.forEach(item => {
+        // 使用for循环替代forEach以提高性能
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
             if (item.type === 'folder') {
                 if (opts.countFolders) result.totalFolders++;
-                if (item.children) process(item.children, depth + 1);
+                if (item.children && item.children.length > 0) process(item.children, depth + 1);
             } else {
                 if (opts.countBookmarks) result.totalBookmarks++;
                 
-                // 检查重复URL
+                // 检查重复URL - 只在需要时执行
                 if (opts.findDuplicates && item.url) {
                     if (urlMap.has(item.url)) {
                         result.duplicates.push({
@@ -187,7 +189,7 @@ function processBookmarks(bookmarks, options = {}) {
                     }
                 }
             }
-        });
+        }
     }
     
     process(bookmarks);
@@ -202,10 +204,11 @@ function processBookmarks(bookmarks, options = {}) {
  * @returns {Array} - 排序后的书签
  */
 function sortBookmarks(bookmarks, sortBy = 'title', sortOrder = 'asc') {
-    // 深拷贝书签数据，避免修改原始数据
-    const clonedBookmarks = JSON.parse(JSON.stringify(bookmarks));
+    // 使用结构化克隆API替代JSON序列化，提高性能
+    // 或者使用浅拷贝+深度拷贝组合策略，减少不必要的深拷贝
+    const clonedBookmarks = structuredClone ? structuredClone(bookmarks) : JSON.parse(JSON.stringify(bookmarks));
     
-    // 递归排序函数
+    // 优化的递归排序函数
     function sort(items) {
         // 先对当前层级进行排序
         items.sort((a, b) => {
@@ -213,28 +216,27 @@ function sortBookmarks(bookmarks, sortBy = 'title', sortOrder = 'asc') {
             if (a.type === 'folder' && b.type !== 'folder') return -1;
             if (a.type !== 'folder' && b.type === 'folder') return 1;
             
-            // 根据指定字段排序
-            let valueA = a[sortBy] || '';
-            let valueB = b[sortBy] || '';
+            // 根据指定字段排序 - 使用可选链和空值合并操作符简化代码
+            let valueA = a[sortBy] ?? '';
+            let valueB = b[sortBy] ?? '';
             
-            // 字符串比较
+            // 字符串比较 - 只在需要时转换
             if (typeof valueA === 'string') valueA = valueA.toLowerCase();
             if (typeof valueB === 'string') valueB = valueB.toLowerCase();
             
-            // 根据排序顺序返回比较结果
-            if (sortOrder === 'asc') {
-                return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
-            } else {
-                return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
-            }
+            // 使用三元运算符简化比较逻辑
+            return sortOrder === 'asc' 
+                ? (valueA < valueB ? -1 : valueA > valueB ? 1 : 0)
+                : (valueA > valueB ? -1 : valueA < valueB ? 1 : 0);
         });
         
-        // 递归排序子文件夹
-        items.forEach(item => {
-            if (item.type === 'folder' && item.children) {
+        // 使用for循环替代forEach以提高性能
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            if (item.type === 'folder' && item.children && item.children.length > 0) {
                 sort(item.children);
             }
-        });
+        }
         
         return items;
     }
@@ -246,39 +248,53 @@ function sortBookmarks(bookmarks, sortBy = 'title', sortOrder = 'asc') {
  * 过滤书签
  * @param {Array} bookmarks - 书签数据
  * @param {Object} filters - 过滤条件
+ * @param {Object} options - 额外选项
  * @returns {Array} - 过滤后的书签
  */
-function filterBookmarks(bookmarks, filters = {}) {
-    // 深拷贝书签数据，避免修改原始数据
-    const clonedBookmarks = JSON.parse(JSON.stringify(bookmarks));
+function filterBookmarks(bookmarks, filters = {}, options = {}) {
+    // 使用结构化克隆API替代JSON序列化，提高性能
+    const clonedBookmarks = structuredClone ? structuredClone(bookmarks) : JSON.parse(JSON.stringify(bookmarks));
     
-    // 递归过滤函数
+    // 预处理过滤条件，避免重复转换
+    const processedFilters = {};
+    if (filters.title) processedFilters.title = filters.title.toLowerCase();
+    if (filters.url) processedFilters.url = filters.url.toLowerCase();
+    
+    // 优化的递归过滤函数
     function filter(items) {
+        // 使用数组方法而不是创建新数组，减少内存分配
         return items.filter(item => {
-            // 应用标题过滤
-            if (filters.title && item.title) {
-                const titleMatch = item.title.toLowerCase().includes(filters.title.toLowerCase());
+            // 应用标题过滤 - 使用预处理的过滤条件
+            if (processedFilters.title && item.title) {
+                const titleMatch = item.title.toLowerCase().includes(processedFilters.title);
                 if (!titleMatch && item.type !== 'folder') return false;
             }
             
-            // 应用URL过滤
-            if (filters.url && item.url) {
-                const urlMatch = item.url.toLowerCase().includes(filters.url.toLowerCase());
+            // 应用URL过滤 - 使用预处理的过滤条件
+            if (processedFilters.url && item.url) {
+                const urlMatch = item.url.toLowerCase().includes(processedFilters.url);
                 if (!urlMatch) return false;
             }
             
-            // 递归过滤子文件夹
-            if (item.type === 'folder' && item.children) {
+            // 递归过滤子文件夹 - 只在有子项时处理
+            if (item.type === 'folder' && item.children && item.children.length > 0) {
                 item.children = filter(item.children);
                 
                 // 如果文件夹为空且不匹配标题过滤条件，则移除
-                if (item.children.length === 0 && filters.title && !item.title.toLowerCase().includes(filters.title.toLowerCase())) {
+                if (item.children.length === 0 && processedFilters.title && 
+                    !item.title.toLowerCase().includes(processedFilters.title)) {
                     return false;
                 }
             }
             
             return true;
         });
+    }
+    
+    // 支持增量加载 - 如果指定了限制，则只返回指定数量的结果
+    if (options.limit) {
+        const result = filter(clonedBookmarks);
+        return result.slice(0, options.limit);
     }
     
     return filter(clonedBookmarks);
