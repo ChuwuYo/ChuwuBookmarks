@@ -7,12 +7,10 @@
 ---
 
 这是一个基于浏览器的书签导航网页，旨在将书签数据（以 JSON 格式存储）转换为一个美观且功能丰富的网页应用。通过该网页，您可以方便地访问自己的书签，支持多级文件夹的展开和折叠、搜索、面包屑导航等功能。
+
 非中国大陆可访问以下链接进行体验：
-
 [EdgeOne](https://chuwubookmarks.edgeone.app/)
-
 [CloudFlare](https://chuwubookmarks.pages.dev/)
-
 [Vercel](https://chuwu-bookmarks-tau.vercel.app/)
 
 ***
