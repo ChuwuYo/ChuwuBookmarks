@@ -566,22 +566,69 @@ const renderSearchResults = (results) => {
 
 // 初始化Web Worker
 let searchWorker;
+let dataWorker;
+
+// 清除所有Worker缓存
+const clearWorkerCaches = () => {
+    if (searchWorker) {
+        searchWorker.postMessage({
+            action: 'clearCache'
+        });
+    }
+    
+    if (dataWorker) {
+        dataWorker.postMessage({
+            action: 'clearCache'
+        });
+    }
+};
 
 // 检查浏览器是否支持Web Worker
 const initSearchWorker = () => {
     if (window.Worker) {
+        // 初始化搜索Worker
         searchWorker = new Worker('assets/js/search-worker.js');
 
-        // 监听来自Worker的消息
+        // 监听来自搜索Worker的消息
         searchWorker.addEventListener('message', (e) => {
-            const { action, results, message } = e.data;
+            const { action, results, message, fromCache } = e.data;
 
             switch (action) {
                 case 'searchResults':
                     renderSearchResults(results);
+                    if (fromCache) {
+                        console.log('使用缓存的搜索结果');
+                    }
+                    break;
+                case 'cacheCleared':
+                    console.log('搜索缓存已清除');
                     break;
                 case 'error':
                     console.error('搜索Worker错误:', message);
+                    break;
+            }
+        });
+        
+        // 初始化数据处理Worker
+        dataWorker = new Worker('assets/js/data-worker.js');
+        
+        // 监听来自数据Worker的消息
+        dataWorker.addEventListener('message', (e) => {
+            const { action, result, message, fromCache } = e.data;
+            
+            switch (action) {
+                case 'processResult':
+                case 'sortResult':
+                case 'filterResult':
+                    if (fromCache) {
+                        console.log(`使用缓存的${action}结果`);
+                    }
+                    break;
+                case 'cacheCleared':
+                    console.log('数据处理缓存已清除');
+                    break;
+                case 'error':
+                    console.error('数据处理Worker错误:', message);
                     break;
             }
         });
@@ -591,6 +638,15 @@ const initSearchWorker = () => {
 const debounceSearch = debounce((event) => {
     const keyword = event.target.value.trim();
     if (!keyword) return renderHome();
+    
+    // 显示加载指示器
+    const content = document.getElementById('content');
+    content.innerHTML = `
+        <div class="loading-indicator" style="text-align:center; margin-top:50px; color:var(--text-color)">
+            <h2>正在搜索...</h2>
+            <div class="loading-spinner"></div>
+        </div>
+    `;
 
     const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
 
@@ -618,29 +674,83 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 初始化搜索Web Worker
     initSearchWorker();
+    
+    // 添加加载状态指示器
+    const showLoadingIndicator = () => {
+        const content = document.getElementById('content');
+        content.innerHTML = `
+            <div class="loading-indicator" style="text-align:center; margin-top:50px; color:var(--text-color)">
+                <h2>正在加载书签数据...</h2>
+                <div class="loading-spinner"></div>
+            </div>
+        `;
+    };
+    
+    // 显示加载指示器
+    showLoadingIndicator();
 
     try {
         // 使用requestAnimationFrame优化初始化流程
         requestAnimationFrame(async () => {
             try {
-                // 添加更详细的错误处理
+                // 首先尝试从localStorage获取缓存数据进行快速渲染
+                const cachedData = localStorage.getItem('bookmarksData');
+                let data;
+                
+                if (cachedData) {
+                    // 使用缓存数据进行初始渲染
+                    data = JSON.parse(cachedData);
+                    // 先渲染侧边栏和主页，提高用户体验
+                    renderSidebar(data);
+                    renderHome();
+                }
+                
+                // 无论是否有缓存，都异步加载最新数据
                 const response = await fetch('bookmarks.json');
                 if (!response.ok) {
                     console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
                     // 尝试使用备用路径
                     const backupResponse = await fetch('./bookmarks.json');
                     if (!backupResponse.ok) {
-                        throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
+                        // 如果已经有缓存数据，则继续使用
+                        if (!cachedData) {
+                            throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
+                        }
+                    } else {
+                        // 使用备用路径获取的数据
+                        data = await backupResponse.json();
+                        localStorage.setItem('bookmarksData', JSON.stringify(data));
+                        // 如果之前没有缓存数据，则现在渲染
+                        if (!cachedData) {
+                            renderSidebar(data);
+                            renderHome();
+                        } else {
+                            // 清除Worker缓存并使用新数据更新视图
+                            clearWorkerCaches();
+                            // 只在数据有变化时更新视图
+                            if (JSON.stringify(data) !== cachedData) {
+                                renderSidebar(data);
+                                renderHome();
+                            }
+                        }
                     }
-                    const data = await backupResponse.json();
-                    localStorage.setItem('bookmarksData', JSON.stringify(data));
-                    renderSidebar(data);
-                    renderHome();
                 } else {
-                    const data = await response.json();
+                    // 使用主路径获取的数据
+                    data = await response.json();
                     localStorage.setItem('bookmarksData', JSON.stringify(data));
-                    renderSidebar(data);
-                    renderHome();
+                    // 如果之前没有缓存数据，则现在渲染
+                    if (!cachedData) {
+                        renderSidebar(data);
+                        renderHome();
+                    } else {
+                        // 清除Worker缓存并使用新数据更新视图
+                        clearWorkerCaches();
+                        // 只在数据有变化时更新视图
+                        if (JSON.stringify(data) !== cachedData) {
+                            renderSidebar(data);
+                            renderHome();
+                        }
+                    }
                 }
             } catch (error) {
                 console.error('书签加载错误:', error);
