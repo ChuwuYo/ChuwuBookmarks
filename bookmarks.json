@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745252284780,
+    "addDate": 1745323881631,
     "title": "书签栏",
     "children": [
       {
@@ -2120,6 +2120,20 @@
                 "title": "Ambient rain simulator for pluviophiles. Relaxing sound of rain.",
                 "url": "https://pluvior.com/index.html",
                 "icon": "https://www.google.com/s2/favicons?domain=pluvior.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745229491129,
+                "title": "白噪音播放器 - 高品质白噪音生成器 | 免费在线白噪声 | 情境音效助力深度睡眠与放松",
+                "url": "https://www.whitenoisegenerator.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.whitenoisegenerator.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1745229631946,
+                "title": "Sound Box - 专业的白噪音生成器 | 免费在线白噪声 | 情境音效助眠放松平台",
+                "url": "https://soundbox.fun/?utm_source=xinquji",
+                "icon": "https://www.google.com/s2/favicons?domain=soundbox.fun"
               }
             ]
           },
@@ -4332,6 +4346,13 @@
                 "title": "Color Hex Color Codes",
                 "url": "https://www.color-hex.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.color-hex.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745229478092,
+                "title": "颜色代码表 - 专业的在线颜色代码转换配色工具网站",
+                "url": "https://www.ysdaima.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ysdaima.com"
               }
             ]
           },
@@ -5438,6 +5459,13 @@
                 "title": "rayenghanmi/RyTuneX: RyTuneX is a cutting-edge optimizer built with the WinUI 3 framework, designed to amplify the performance of Windows devices. Crafted for both Windows 10 and 11.",
                 "url": "https://github.com/rayenghanmi/RyTuneX",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745227253864,
+                "title": "Winhance: PowerShell GUI application designed to optimize and customize your Windows experience.",
+                "url": "https://github.com/memstechtips/Winhance",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -5837,6 +5865,13 @@
                 "title": "海外录播助手StreamRecorder Dashboard",
                 "url": "https://streamrecorder.io/userdashboard",
                 "icon": "https://www.google.com/s2/favicons?domain=streamrecorder.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1745228522237,
+                "title": "bilive: 极快的B站直播录制、自动切片、自动渲染弹幕以及字幕并投稿至B站，综合多种模态模型，兼容超低配置机器。",
+                "url": "https://github.com/timerring/bilive?utm_source=xinquji",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -7515,6 +7550,34 @@
                     "title": "Fusion-JetBrainsMapleMono: JetBrains Maple Mono: The free and open-source font fused with JetBrains Mono & Maple Mono",
                     "url": "https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745228599911,
+                    "title": "FontShow - 本地字体预览对比工具",
+                    "url": "https://www.fontshow.com/zh",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.fontshow.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745228747409,
+                    "title": "Fonts & Text Symbols (♍︎□︎◻︎⍓︎ 𝒂𝒏𝒅 𝐩𝐚𝐬𝐭𝐞) --- 字体和文本符号（︎ ♍□︎ ︎⍓︎◻和粘贴）",
+                    "url": "https://instafonts.io/",
+                    "icon": "https://www.google.com/s2/favicons?domain=instafonts.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745228749516,
+                    "title": "Free Freaky Font Generator 🥳 | 𝒞O̶𝒫𝐘 🄰𝓃🄳 𝐏𝒜𝒮𝐓E̶",
+                    "url": "https://freaky-fonts.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=freaky-fonts.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745229616900,
+                    "title": "字玩-一款用于生成个人字库（或图标字库）的开源创意工具",
+                    "url": "https://www.font-player.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.font-player.com"
                   }
                 ]
               },
