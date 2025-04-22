@@ -121,11 +121,7 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 ### **Future Improvements**
 
-1. **Bookmark Management**:
-
-   * Provide bookmark import and export functionality.
-
-2. **User Customization**:
+1. **User Customization**:
 
    * Allow users to customize theme colors and layouts.
 
