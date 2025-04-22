@@ -5,11 +5,12 @@
 </div>
 
 ---
-## Project Overview
+Project Overview
+---
 
-This is a browser-based bookmark navigation webpage designed to transform bookmark data (stored in JSON format) into an aesthetically pleasing and feature-rich web application. Through this webpage, you can conveniently access your bookmarks. It supports features such as expanding and collapsing multi-level folders, searching, and breadcrumb navigation.
+This is a browser-based bookmark navigation webpage designed to convert bookmark data (stored in JSON format) into a visually appealing and feature-rich web application. Through this webpage, you can easily access your bookmarks, with support for expanding and collapsing multi-level folders, searching, breadcrumb navigation, and more.
 
-Users  can access the following links to experience it:
+For users outside mainland China, you can experience the application through the following links:
 
 [EdgeOne](https://chuwubookmarks.edgeone.app/)
 
@@ -19,126 +20,129 @@ Users  can access the following links to experience it:
 
 [Netlify](https://chuwubookmarks.netlify.app/)
 
-[Surge](http://chuwubookmarks.surge.sh/) (The version may be ahead or behind)
-
-
+[Surge](http://chuwubookmarks.surge.sh/) (version may be ahead or behind)
 
 ***
 
-## Export of the JSON-formatted Bookmark Tree
+## Exporting JSON Format Bookmark Tree
 
-The JSON-formatted bookmark tree is exported by the browser extension [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal) developed by me.
-
-
+The JSON format bookmark tree is exported using a browser extension I developed called [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal).
 
 ***
 
 ## Other Reference Projects
 
-If you don't mind closed-source or paid projects, you can refer to the following:
+If you don't mind closed-source or paid options, you can refer to the following projects:
 
-[Pintree](https://github.com/Pintree-io/pintree) (Open source + paid model)
+[Pintree](https://github.com/Pintree-io/pintree) (open-source + paid model)
 
-[TabMark](https://www.ainewtab.app) (Closed source)
-
-
+[TabMark](https://www.ainewtab.app) (closed-source)
 
 ***
 
-## Interface Screenshots
-
+## Screenshots
 ### PC:
+
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/4eaad285-81d1-4667-a0ae-2212686ff9eb" alt="PC Light">
+    <img src="https://github.com/user-attachments/assets/62ff3f49-dee5-468d-af0a-0ea0955f2619" alt="PC Dark">
+</div>
 
 ### Mobile:
 
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/31bea867-c0d4-4727-9251-8de7418ca687" alt="Mobile Light">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/d852e758-c372-4ed9-b899-05b048c9ad8f" alt="Mobile Dark">
+        </td>
+    </tr>
+</table>
 
-
-***
+---
 
 ### **Core Features**
 
-**Sidebar Navigation**:
+1. **Sidebar Navigation**:
 
-Displays first-level folders.
+   * Displays first-level folders.
 
-When a first-level folder is clicked, subfolders and bookmarks are shown in the main content area on the right.
+   * Clicking a first-level folder displays subfolders and bookmarks in the main content area.
 
-Supports nested expansion and collapse of multi-level folders.
+   * Supports expanding and collapsing nested multi-level folders.
 
-**Main Content Area**:
+2. **Main Content Area**:
 
-Displays subfolders and bookmarks of the current folder.
+   * Displays subfolders and bookmarks of the current folder.
 
-Bookmarks are presented in card form and support click-to-jump.
+   * Bookmarks are displayed as cards, supporting click-to-navigate.
 
-Folders are presented as icons and support clicking to enter subfolders.
+   * Folders are displayed as icons, supporting click-to-enter subfolders.
 
-**Breadcrumb Navigation**:
+3. **Breadcrumb Navigation**:
 
-Displays the current path (the hierarchy of clicked folders).
+   * Displays the current path (level of clicked folders).
 
-Supports returning to the previous level via breadcrumb navigation.
+   * Supports returning to the previous level via breadcrumb navigation.
 
-**Search Function**:
+4. **Search Functionality**:
 
-Supports searching for bookmarks by title.
+   * Supports searching bookmarks by title.
 
-Search results replace the content in the main content area.
+   * Search results replace the content in the main content area.
 
-Supports real-time rendering.
+   * Supports real-time rendering.
 
-**Theme Switching**:
+5. **Theme Switching**:
 
-Supports switching between dark mode and light mode.
+   * Supports switching between dark and light modes.
 
-Almost all buttons support mouse hover effects.
+   * Most buttons support hover effects.
 
-**Mobile Support**:
+6. **Mobile Support**:
 
-Supports responsive layout for mobile devices.
+   * Supports responsive layout for mobile devices.
 
-The sidebar automatically collapses on mobile devices.
+   * Automatically hides the sidebar on mobile devices.
 
-**GSAP Animation Support**:
+7. **GSAP Animation Support**:
 
-GSAP animation content is added to the homepage messages.
+   * Homepage messages include GSAP animations.
 
-**Keyboard Focus Support**:
+8. **Keyboard Focus Support**:
 
-Supports using the `Tab` key to focus on webpage content.
+   * Supports focusing on webpage content using the `Tab` key.
 
-Supports using the `Ctrl + K` shortcut to focus on the search box.
+   * Supports focusing on the search box using the `Ctrl + K` shortcut.
 
+* * *
 
+### **Future Improvements**
 
-***
+1. **Bookmark Management**:
 
-### **Future Improvement Directions**
+   * Provide bookmark import and export functionality.
 
-**Bookmark Management Function**:
+2. **User Customization**:
 
-Provide bookmark import and export functions.
+   * Allow users to customize theme colors and layouts.
 
-**User Customization**:
-
-Allow users to customize theme colors and layouts.
-
-Support users to add custom icons and descriptions.
-
-
+   * Support users adding custom icons and descriptions.
 
 ---
 
-### **Problems to be Fixed**
+### **Known Issues**
 
-    Currently, there are no issues to be fixed.
-
+    None
 ---
 
-# This project is actually completed, and there should only be routine maintenance in the future.
+# <s>This project is actually completed, and future work will likely only involve routine maintenance.</s>
 
-
-
-***
+---
 
 ## Thanks to all contributors for their efforts
+<a href="https://github.com/HatsuChuwu/ChuwuBookmarks/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
+</a>
