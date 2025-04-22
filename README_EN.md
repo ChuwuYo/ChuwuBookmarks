@@ -1,8 +1,10 @@
 <div align="center">
     <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="Bocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
+    <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README.md">简体中文</a> | <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README_EN.md">English</a>
 </div>
 
+---
 ## Project Overview
 
 This is a browser-based bookmark navigation webpage designed to transform bookmark data (stored in JSON format) into an aesthetically pleasing and feature-rich web application. Through this webpage, you can conveniently access your bookmarks. It supports features such as expanding and collapsing multi-level folders, searching, and breadcrumb navigation.
