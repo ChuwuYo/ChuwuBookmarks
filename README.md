@@ -3,11 +3,11 @@
     <h1>ChuwuBookmarks</h1>
 </div>
 
----
 
-[简体中文](https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README.md) | [English](https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README_EN.md)
+<p style="text-align: center; font-size: 24px;">
+  <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README.md">简体中文</a> | <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README_EN.md">English</a>
+</p>
 
----
 
 项目概述
 ---
