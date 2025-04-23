@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745337653242,
+    "addDate": 1745402050097,
     "title": "书签栏",
     "children": [
       {
@@ -5402,13 +5402,6 @@
                 "addDate": 1734194111369,
                 "title": "rayenghanmi/RyTuneX: RyTuneX is a cutting-edge optimizer built with the WinUI 3 framework, designed to amplify the performance of Windows devices. Crafted for both Windows 10 and 11.",
                 "url": "https://github.com/rayenghanmi/RyTuneX",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1745227253864,
-                "title": "Winhance: PowerShell GUI application designed to optimize and customize your Windows experience.",
-                "url": "https://github.com/memstechtips/Winhance",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
