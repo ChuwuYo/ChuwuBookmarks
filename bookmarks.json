@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745402050097,
+    "addDate": 1745457936046,
     "title": "书签栏",
     "children": [
       {
@@ -4362,13 +4362,6 @@
             "title": "[FILMGRAB] ",
             "url": "https://film-grab.com/",
             "icon": "https://www.google.com/s2/favicons?domain=film-grab.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "免费素材视频 · Pexels 视频",
-            "url": "https://www.pexels.com/zh-cn/videos/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.pexels.com"
           },
           {
             "type": "link",
