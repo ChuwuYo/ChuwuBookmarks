@@ -566,7 +566,7 @@ body::before {
 }
 
 #search-input {
-    padding: 8px;
+    padding: 6px;
     font-size: 1rem;
     border: 2px solid #a4d1c4;
     border-radius: 8px;
@@ -718,7 +718,7 @@ body::before {
 
     .search-container {
         left: 50% !important;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.2s ease;
     }
 
     #breadcrumbs {
