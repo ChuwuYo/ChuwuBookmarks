@@ -8,6 +8,8 @@
     margin: 0;
     transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease, border-radius 0.5s ease, opacity 0.3s var(--cubic-bezier), left 0.3s var(--cubic-bezier);
     user-select: none;
+    /* 允许键盘焦点操作 */
+    outline: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* 添加内阴影 */
     transform: translateY(0);
     display: flex;
@@ -25,8 +27,8 @@
 
 /* SVG图标样式 */
 .home-icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     stroke: #333;
     fill: none;
     transition: transform 0.3s ease, stroke 0.3s ease;
