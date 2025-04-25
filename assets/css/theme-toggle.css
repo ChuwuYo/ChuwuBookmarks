@@ -13,11 +13,11 @@
 
 /* 主题切换按钮基础样式 */
 .theme-toggle {
-  --speed: 0.4s;
+  --speed: 0.25s;
   appearance: none;
   padding: 0;
   font-size: 1rem;
-  border: 2px solid #a4d1c4;
+  border: 2.5px solid #a4d1c4;
   border-radius: 10px;
   background: var(--button-bg); /* 使用变量定义背景色 */
   color: var(--text-color);
@@ -27,18 +27,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(1rem + 16px + 8px);
-  width: calc(1rem + 16px + 8px);
+  height: calc(1rem + 16px + 5px);
+  width: calc(1rem + 16px + 5px);
   position: relative;
   overflow: hidden;
-  transition: var(--transition-normal), transform 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  will-change: background-color, transform;
 }
 
 /* 日/月图标基础样式 */
 .theme-toggle svg {
-  width: calc(1rem + 8px);
-  height: calc(1rem + 8px);
-  transition: all 0.3s ease;
+  width: calc(1rem + 5px);
+  height: calc(1rem + 5px);
+  transition: all 0.2s ease;
   z-index: 3;
 }
 
@@ -48,7 +49,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  will-change: opacity, transform;
 }
 
 /* 日出效果 - 伪元素 */
