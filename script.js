@@ -96,12 +96,29 @@ const handleMobileView = () => {
 
 const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
-    if (homeMessage) {
+    const searchContainer = document.querySelector('.search-container');
+    
+    if (homeMessage || searchContainer) {
         if (!isMobileDevice()) {
-            homeMessage.style.left = isCollapsed ? '50%' : 'calc(50% + 110px)';
+            // 统一主页消息和搜索容器的位置调整逻辑
+            const newPosition = isCollapsed ? '50%' : 'calc(50% + 110px)';
+            
+            if (homeMessage) {
+                homeMessage.style.left = newPosition;
+            }
+            
+            if (searchContainer) {
+                searchContainer.style.left = newPosition;
+            }
         } else {
             // 在移动设备上始终居中
-            homeMessage.style.left = '50%';
+            if (homeMessage) {
+                homeMessage.style.left = '50%';
+            }
+            
+            if (searchContainer) {
+                searchContainer.style.left = '50%';
+            }
         }
     }
 };
@@ -222,7 +239,7 @@ const renderHome = () => {
         charSpan.style.position = 'relative';
         englishText.appendChild(charSpan);
 
-        // 为每个字符添加从左向右渐显动画 - 减少延迟和持续时间
+        // 为每个字符添加渐显动画 - 减少延迟和持续时间
         gsap.set(charSpan, {
             opacity: 0,
             x: -10  // 从-20改为-10

@@ -177,6 +177,14 @@ html {
     will-change: background-color;
 }
 
+.sidebar::after {
+    content: "";
+    display: block;
+    height: 32px;
+    width: 100%;
+    background: transparent;
+}
+
 .sidebar.collapsed {
     width: 0;
     padding: 0;
@@ -230,7 +238,6 @@ html {
 
 .sidebar .folder-name:hover {
     background: var(--hover-bg);
-    border-radius: 5px;
     box-shadow: 16px 6px 12px rgba(0, 0, 0, 0.3); /* 增加阴影的扩散范围和透明度 */
     transform: translateY(-2px) scale(1.05);
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -287,11 +294,11 @@ html {
     font-weight: bold;
     text-align: center;
     user-select: none;
-    transition: left 0.2s var(--cubic-bezier), opacity 0.2s ease;
+    transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
     opacity: 0;
     perspective: 1000px;
     transform-style: preserve-3d;
-    will-change: opacity, transform; /* 添加will-change提示浏览器优化 */
+    will-change: opacity, transform, left; /* 添加will-change提示浏览器优化 */
     content-visibility: auto; /* 添加内容可见性优化 */
     /* 允许键盘焦点 */
     outline: none;
@@ -408,14 +415,7 @@ body::before {
     text-decoration: none;
 }
 
-/* 内容区域 */
-#content .folder,
-#content .bookmark {
-    margin: 1.1rem 0; /* 统一间隔，比侧栏少，比原书签多 */
-    opacity: 0;
-    animation: fadeInUp 0.3s ease forwards;
-    animation-delay: calc(var(--item-index, 0) * 0.05s);
-}
+/* --- 内容区域 --- */
 
 @keyframes fadeInUp {
     from { 
@@ -428,58 +428,76 @@ body::before {
     }
 }
 
-#content .folder {
+/* 合并 .folder 和 .bookmark 的通用样式 */
+#content .folder,
+#content .bookmark {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin: 1.2rem 0;
+    padding: 0.25rem 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease forwards; /* 应用淡入动画 */
+    animation-delay: calc(var(--item-index, 0) * 0.05s); /* 动画延迟 */
+    will-change: transform;
+    outline: none;            /* 移除默认的焦点轮廓 */
+    box-sizing: border-box;
+}
+
+/* 文件夹 (#content .folder) 特有样式 */
+#content .folder {
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    transform: translateZ(0); /* 优化渲染 */
     transition: transform 0.2s ease, background 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
-    /* 允许键盘焦点 */
-    outline: none;
-    width: fit-content;
-    padding: 0.25rem 0.5rem;
-    will-change: transform;
+    width: fit-content;       /* 宽度适应内容 */
 }
 
+/* 文件夹悬停效果 */
 #content .folder:hover {
-    transform: translateY(-1px); /* 与书签链接保持一致，轻微上移 */
+    transform: translateY(-1px);
     cursor: pointer;
 }
 
+/* 文件夹名称样式 */
 #content .folder .folder-name {
-    font-size: 1.1rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 1.0rem;
+    padding: 0.25rem 0.5rem; /* 内边距，增加点击区域 */
     cursor: pointer;
     transition: all 0.2s ease;
     border-radius: 4px;
 }
 
+/* 文件夹名称悬停效果 */
 #content .folder:hover .folder-name {
     color: var(--link-color);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: var(--shadow-sm); /* 添加与书签链接相同的阴影效果 */
+    box-shadow: var(--shadow-sm);
 }
 
+/* 书签 (#content .bookmark) 特有样式 */
 #content .bookmark {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     transition: transform 0.15s ease;
-    will-change: transform;
 }
 
+/* 书签悬停效果 (轻微上移) */
+#content .bookmark:hover {
+    transform: translateY(-1px); /* 与文件夹悬停效果一致 */
+}
+
+/* 书签图标容器 */
 #content .bookmark .bookmark-icon {
-    flex-shrink: 0; /* 防止图标被压缩 */
+    flex-shrink: 0; /* 防止图标在空间不足时被压缩 */
     display: inline-flex;
     align-items: center;
     user-select: none;
     transition: transform 0.2s ease;
+    will-change: transform; /* 优化 transform 动画性能 */
 }
 
+/* 书签图标图片 */
 #content .bookmark .bookmark-icon img {
     width: 16px;
     height: 16px;
@@ -488,32 +506,29 @@ body::before {
     transition: opacity 0.3s ease;
 }
 
+/* 书签链接 */
 #content .bookmark a {
     color: var(--text-color);
     text-decoration: none;
     display: inline-block;
-    padding: 0.25rem 0.5rem;
-    max-width: 63%;
+    padding: 0.25rem 0.5rem; /* 链接文字周围的内边距 */
+    max-width: calc(100% - 16px - 8px); /* 限制最大宽度，减去图标宽度和gap */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     user-select: text;
-    font-size: 1.1rem;
-    transition: color 0.15s ease;
+    font-size: 1.0rem;
+    transition: color 0.15s ease, box-shadow 0.15s ease; /* 添加 box-shadow 过渡 */
     border-radius: 4px;
 }
 
+/* 书签链接悬停效果 */
 #content .bookmark a:hover {
     color: var(--link-color);
+    box-shadow: var(--shadow-sm); 
 }
 
-#content .bookmark:hover {
-    transform: translateY(-1px); /* 轻微上移 */
-}
-
-#content .bookmark:hover a {
-    box-shadow: var(--shadow-sm); /* 轻微阴影 */
-}
+/* --- 内容区域结束 --- */
 
 /* GitHub链接 */
 .github-link {
@@ -542,9 +557,9 @@ body::before {
     z-index: 999;
     white-space: nowrap;
     user-select: none;
-    transition: margin-left 0.3s var(--cubic-bezier);
+    transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
     height: calc(1rem + 16px + 6px); /* 确保与主题切换按钮高度一致 */
-    will-change: transform; /* 提示浏览器优化变换 */
+    will-change: left, transform, opacity; /* 提示浏览器优化变换 */
     contain: layout; /* 包含布局变化 */
     /* 允许键盘焦点 */
     outline: none;
@@ -613,7 +628,7 @@ body::before {
 }
 
 /* 移动设备适配 */
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 768px) {
     /* 优化移动端触摸响应 */
     .mobile-device [onclick],
     .mobile-device button,
@@ -702,11 +717,12 @@ body::before {
     }
 
     .search-container {
-        margin-left: 0;
+        left: 50% !important;
+        transition: opacity 0.3s ease;
     }
 
     #breadcrumbs {
-        padding-top: 40px;
+        padding-top: 45px;
     }
 
     /* 移动端保持 80% */
@@ -717,16 +733,6 @@ body::before {
     /* 隐藏移动端背景GIF */
     body::before {
         display: none;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .search-container {
-        margin-left: 110px;
-    }
-
-    .sidebar.collapsed + .main-content .search-container {
-        margin-left: 10px;
     }
 }
 
@@ -781,6 +787,39 @@ a:focus-visible {
     .home-message {
         left: 50% !important;
         transition: opacity 0.3s ease;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    /* 搜索容器和主页消息在默认状态下的位置 */
+    .search-container {
+        left: calc(50% + 110px);
+        margin-left: 0;
+        transform: translateX(-50%);
+        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+        will-change: left, transform, opacity;
+    }
+    .home-message {
+        left: calc(50% + 110px);
+        transform: translate(-50%, -50%);
+        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+        will-change: left, transform, opacity;
+    }
+    
+    /* 侧边栏收起时的位置调整 - 确保两者行为一致 */
+    .sidebar.collapsed + .main-content .search-container,
+    .sidebar.collapsed + .main-content .home-message {
+        left: 50%;
+        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+    }
+    
+    /* 保持各自的transform属性 - 确保两者在侧边栏收起时的行为一致 */
+    .sidebar.collapsed + .main-content .search-container {
+        transform: translateX(-50%);
+    }
+    
+    .sidebar.collapsed + .main-content .home-message {
+        transform: translate(-50%, -50%);
     }
 }
 
