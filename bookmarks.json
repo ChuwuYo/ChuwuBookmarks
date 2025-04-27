@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745578369692,
+    "addDate": 1745721427923,
     "title": "书签栏",
     "children": [
       {
@@ -1322,6 +1322,13 @@
                 "title": "宝儿的steam资源zy.cn（免费游戏资源分享下载）",
                 "url": "https://steamzy.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=steamzy.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1745648893964,
+                "title": "Windows游戏 - 1212321游戏网 - H5游戏/手机游戏/PC游戏",
+                "url": "https://www.1212321.com/games/platform/WINDOWS.html?lang=zh-cn",
+                "icon": "https://www.google.com/s2/favicons?domain=www.1212321.com"
               }
             ]
           },
@@ -1714,6 +1721,27 @@
                 "title": "Drive Mad 🕹️ Free Online Unblocked Car Games",
                 "url": "https://drive-mad.cc/",
                 "icon": "https://www.google.com/s2/favicons?domain=drive-mad.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1745720904718,
+                "title": "猜盐",
+                "url": "https://xiaoce.fun/daily",
+                "icon": "https://www.google.com/s2/favicons?domain=xiaoce.fun"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1745648775658,
+            "title": "PE",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1745648761117,
+                "title": "八门神器 - 八门神器官网 - 手机游戏免费下载",
+                "url": "https://www.bamenshenqi.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.bamenshenqi.com"
               }
             ]
           },
@@ -1730,6 +1758,13 @@
             "title": "拳头帐号管理",
             "url": "https://account.riotgames.com/",
             "icon": "https://www.google.com/s2/favicons?domain=account.riotgames.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1745648942306,
+            "title": "灰机wiki - 北京嘉闻杰诺网络科技有限公司",
+            "url": "https://www.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5",
+            "icon": "https://www.google.com/s2/favicons?domain=www.huijiwiki.com"
           }
         ]
       },
@@ -2454,13 +2489,6 @@
           },
           {
             "type": "link",
-            "addDate": 1735965835184,
-            "title": "MyFreeMP3",
-            "url": "https://tools.liumingye.cn/music/#/",
-            "icon": "https://www.google.com/s2/favicons?domain=tools.liumingye.cn"
-          },
-          {
-            "type": "link",
             "addDate": 1706603610580,
             "title": "发现 - 好听轻音乐-在线试听-MP3下载-银色乐航",
             "url": "https://imoongo2.com/discover",
@@ -2571,13 +2599,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1712896993538,
-                "title": "轻小说文库 - 轻小说百科",
-                "url": "https://lnovel.org/books",
-                "icon": "https://www.google.com/s2/favicons?domain=lnovel.org"
-              },
-              {
-                "type": "link",
                 "addDate": 1736087552103,
                 "title": "69书吧_更新最快_无弹窗广告_无错小说阅读网",
                 "url": "https://69shuba.cx/index.html",
@@ -2596,6 +2617,20 @@
                 "title": "小說狂人 | 超過120000部免費小說看到飽！PTT網友推薦",
                 "url": "https://czbooks.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=czbooks.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1745648149123,
+                "title": "UU看书_UUkanshu_华人无弹窗全本小说阅读网站_uuks.org",
+                "url": "https://www.uuks.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.uuks.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1745648165150,
+                "title": "和图书",
+                "url": "https://www.hetushu.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hetushu.com"
               }
             ]
           },
@@ -2806,6 +2841,13 @@
                 "title": "哔哩轻小说_日本动漫轻小说在线阅读",
                 "url": "https://www.bilinovel.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.bilinovel.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1712896993538,
+                "title": "轻小说百科",
+                "url": "https://lnovel.org/books",
+                "icon": "https://www.google.com/s2/favicons?domain=lnovel.org"
               }
             ]
           },
@@ -4157,6 +4199,13 @@
                 "title": "Airpano",
                 "url": "https://www.airpano.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.airpano.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745720771364,
+                "title": "OMap–GeoDB九州数据库",
+                "url": "https://his.lreept.space/openqgis/omap-geodb/",
+                "icon": "https://www.google.com/s2/favicons?domain=his.lreept.space"
               }
             ]
           },
@@ -7134,6 +7183,20 @@
             "title": "海豹聪聪 | 专业历史时间线收集整理工具",
             "url": "https://www.wiseal.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.wiseal.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1745596653097,
+            "title": "在线表单创建Free Online Form Builder | Tally",
+            "url": "https://tally.so/",
+            "icon": "https://www.google.com/s2/favicons?domain=tally.so"
+          },
+          {
+            "type": "link",
+            "addDate": 1745671932186,
+            "title": "AIPPT | SlideCraftAI",
+            "url": "https://www.slidescraft.com/zh#pricing",
+            "icon": "https://www.google.com/s2/favicons?domain=www.slidescraft.com"
           }
         ]
       },
@@ -7954,20 +8017,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1720800119292,
-                "title": "vscode.dev/profile/github/567661d570e7760398c2afca03be5b40?vscode-lang=zh-cn",
-                "url": "https://vscode.dev/profile/github/567661d570e7760398c2afca03be5b40?vscode-lang=zh-cn",
-                "icon": "https://www.google.com/s2/favicons?domain=vscode.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1720954068286,
-                "title": "包含设置",
-                "url": "https://vscode.dev/editor/profile/github/9bc6aa327debc7995d04550e76df1c54?vscode-lang=zh-cn",
-                "icon": "https://www.google.com/s2/favicons?domain=vscode.dev"
-              },
-              {
-                "type": "link",
                 "addDate": 1731879076132,
                 "title": "mirai-mamori/Sakurairo: 一个多彩、轻松上手、体验完善，具有强大自定义功能的WordPress主题（基于Sakura主题，支持简繁英日多语言）A Colorful, Easy-to-use, Perfect Experience, and Powerful Customizable WordPress Theme (Based on Theme Sakura. Support Simplified Chinese, Traditional Chinese, English and Japanese languages)",
                 "url": "https://github.com/mirai-mamori/Sakurairo",
@@ -8612,10 +8661,10 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1707380850143,
-                "title": "Apifox - API 文档、调试、Mock、测试一体化协作平台。拥有接口文档管理、接口调试、Mock、自动化测试等功能，接口开发、测试、联调效率，提升 10 倍。最好用的接口文档管理工具，接口自动化测试工具。",
-                "url": "https://apifox.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=apifox.com"
+                "addDate": 1745647573861,
+                "title": "速查表Devhints — TL;DR for developer documentation",
+                "url": "https://devhints.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=devhints.io"
               },
               {
                 "type": "link",
@@ -8623,6 +8672,13 @@
                 "title": "Quick Reference & Quick Reference",
                 "url": "https://wangchujiang.com/reference/",
                 "icon": "https://www.google.com/s2/favicons?domain=wangchujiang.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1707380850143,
+                "title": "Apifox - API 文档、调试、Mock、测试一体化协作平台。拥有接口文档管理、接口调试、Mock、自动化测试等功能，接口开发、测试、联调效率，提升 10 倍。最好用的接口文档管理工具，接口自动化测试工具。",
+                "url": "https://apifox.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=apifox.com"
               },
               {
                 "type": "link",
@@ -8707,6 +8763,13 @@
                 "title": "Astro 文档 | Docs",
                 "url": "https://docs.astro.build/zh-cn/getting-started/",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.astro.build"
+              },
+              {
+                "type": "link",
+                "addDate": 1745720838265,
+                "title": "自动前后端Introduction | Wasp",
+                "url": "https://wasp.sh/docs",
+                "icon": "https://www.google.com/s2/favicons?domain=wasp.sh"
               }
             ]
           },
@@ -9078,13 +9141,6 @@
                 "title": "首页 | Sukka's Blog",
                 "url": "https://blog.skk.moe/",
                 "icon": "https://www.google.com/s2/favicons?domain=blog.skk.moe"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "威仔--------官方博客",
-                "url": "https://wzyyds.blogspot.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=wzyyds.blogspot.com"
               },
               {
                 "type": "link",
@@ -9817,18 +9873,32 @@
             ]
           },
           {
-            "type": "link",
-            "addDate": 1708535336303,
-            "title": "Home | Just Laws",
-            "url": "https://www.justlaws.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.justlaws.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1726067974340,
-            "title": "《数字极权时代生存手记》",
-            "url": "https://reconsidera.github.io/#/",
-            "icon": "https://www.google.com/s2/favicons?domain=reconsidera.github.io"
+            "type": "folder",
+            "addDate": 1745590970995,
+            "title": "各种手册",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1708535336303,
+                "title": "Home | Just Laws",
+                "url": "https://www.justlaws.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.justlaws.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1726067974340,
+                "title": "《数字极权时代生存手记》",
+                "url": "https://reconsidera.github.io/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=reconsidera.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1743089249633,
+                "title": "iFixit：免费修理手册",
+                "url": "https://zh.ifixit.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=zh.ifixit.com"
+              }
+            ]
           },
           {
             "type": "link",
@@ -9850,13 +9920,6 @@
             "title": "探索知名人物的人生高光时刻 - TopTimeline",
             "url": "https://toptimeline.net/zh",
             "icon": "https://www.google.com/s2/favicons?domain=toptimeline.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1743089249633,
-            "title": "iFixit：免费修理手册",
-            "url": "https://zh.ifixit.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=zh.ifixit.com"
           },
           {
             "type": "link",
