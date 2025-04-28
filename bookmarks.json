@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745721427923,
+    "addDate": 1745844778849,
     "title": "书签栏",
     "children": [
       {
@@ -696,13 +696,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "首頁 - Myself 動漫 | 日本在線動畫﹑免費任您收看",
-                "url": "https://myself-bbs.com/portal.php",
-                "icon": "https://www.google.com/s2/favicons?domain=myself-bbs.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Animoe动漫",
                 "url": "https://animoe.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=animoe.org"
@@ -1318,17 +1311,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1741749648164,
-                "title": "宝儿的steam资源zy.cn（免费游戏资源分享下载）",
-                "url": "https://steamzy.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=steamzy.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1745648893964,
                 "title": "Windows游戏 - 1212321游戏网 - H5游戏/手机游戏/PC游戏",
                 "url": "https://www.1212321.com/games/platform/WINDOWS.html?lang=zh-cn",
                 "icon": "https://www.google.com/s2/favicons?domain=www.1212321.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745746863141,
+                "title": "steam宝儿be.com（免费游戏资源分享下载）",
+                "url": "https://steambe.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=steambe.com"
               }
             ]
           },
@@ -5486,6 +5479,13 @@
                 "addDate": 1745402017187,
                 "title": "XLST-Qemu/Winhance-zh_CN: A Chinese version of Winhance. PowerShell GUI application designed to optimize and customize your Windows experience.",
                 "url": "https://github.com/XLST-Qemu/Winhance-zh_CN",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745835845158,
+                "title": "darkmatter2048/WindowsCleaner: Windows Cleaner——专治C盘爆红及各种不服！",
+                "url": "https://github.com/darkmatter2048/WindowsCleaner",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
