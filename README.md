@@ -12,8 +12,6 @@
 
 非中国大陆可访问以下链接进行体验：
 
-[EdgeOne](https://bookmarks.edgeone.app/)
-
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
 [Vercel](https://chuwubookmarks.vercel.app/)
