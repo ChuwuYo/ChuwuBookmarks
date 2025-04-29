@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1745844778849,
+    "addDate": 1745902484052,
     "title": "书签栏",
     "children": [
       {
@@ -1147,6 +1147,13 @@
                 "title": "3DM MOD站 - 最新最全的免费游戏Mod资源下载站",
                 "url": "https://mod.3dmgame.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=mod.3dmgame.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745902304579,
+                "title": "DEG Mods - Liberating Game Mods",
+                "url": "https://degmods.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=degmods.com"
               }
             ]
           },
@@ -3751,13 +3758,6 @@
                 "title": "OfficeTools: 一键自动化 下载、安装、激活 Office 的利器。",
                 "url": "https://github.com/OdysseusYuan/LKY_OfficeTools",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "下载 | Office Tool Plus 官方网站",
-                "url": "https://otp.landian.vip/zh-cn/download.html",
-                "icon": "https://www.google.com/s2/favicons?domain=otp.landian.vip"
               }
             ]
           },
@@ -5309,7 +5309,7 @@
               {
                 "type": "folder",
                 "addDate": 1744900212020,
-                "title": "激活",
+                "title": "激活/部署",
                 "children": [
                   {
                     "type": "link",
@@ -5338,6 +5338,20 @@
                     "title": "KMS一键激活 windows/office",
                     "url": "https://kms.cx/",
                     "icon": "https://www.google.com/s2/favicons?domain=kms.cx"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "下载 | Office Tool Plus 官方网站",
+                    "url": "https://otp.landian.vip/zh-cn/download.html",
+                    "icon": "https://www.google.com/s2/favicons?domain=otp.landian.vip"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745902437603,
+                    "title": "OdysseusYuan/Mocreak: 基于 LKY_OfficeTools 构建的图形化版本。一键自动化下载、安装、激活 Office 正版的办公增强工具。该工具完全免费、无广告、绿色、无毒、简约、高效、安全。",
+                    "url": "https://github.com/OdysseusYuan/Mocreak",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -5998,6 +6012,13 @@
                 "title": "SparkAudio/Spark-TTS: Spark-TTS Inference Code",
                 "url": "https://github.com/SparkAudio/Spark-TTS",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745901487492,
+                "title": "nari-labs/Dia-1.6B ",
+                "url": "https://huggingface.co/nari-labs/Dia-1.6B",
+                "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
               }
             ]
           },
@@ -6908,6 +6929,13 @@
                 "title": "OpenRouter",
                 "url": "https://openrouter.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1745902328490,
+                "title": "GithubDeepWiki(仓库理解)",
+                "url": "https://deepwiki.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=deepwiki.com"
               }
             ]
           },
@@ -8396,7 +8424,7 @@
               {
                 "type": "link",
                 "addDate": 1745253410917,
-                "title": "Scale & Ship Faster with a Composable Web Architecture | Netlify",
+                "title": "netlify | Scale & Ship Faster with a Composable Web Architecture | Netlify",
                 "url": "https://www.netlify.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.netlify.com"
               },
