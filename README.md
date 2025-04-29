@@ -24,7 +24,7 @@
 
 ## Json 格式书签树的导出
 
-Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal) 导出
+Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出
 
 ***
 
