@@ -1,7 +1,10 @@
 /**
  * 图片懒加载工具函数
- * 用于优化图片加载性能，减少初始加载时的资源消耗
+ * 使用 IntersectionObserver API 优化图片加载性能，减少初始加载时的资源消耗。
  */
+
+// 默认错误图片路径，如果加载失败则显示此图片
+const DEFAULT_ERROR_IMAGE = 'assets/images/placeholder.svg'; // 请确保此路径有效或替换为你的错误图片路径
 
 // 初始化懒加载观察者
 const initLazyLoading = () => {
@@ -25,20 +28,34 @@ const initLazyLoading = () => {
                     
                     // 图片加载完成后的处理
                     lazyImage.onload = function() {
-                        // 移除占位符
+                        // 移除可能存在的占位符文本（如果父元素是 .bookmark-icon）
                         if (lazyImage.parentNode && lazyImage.parentNode.classList.contains('bookmark-icon')) {
-                            lazyImage.parentNode.textContent = '';
+                            // 检查并移除文本节点，避免影响其他可能的子元素
+                            Array.from(lazyImage.parentNode.childNodes).forEach(node => {
+                                if (node.nodeType === Node.TEXT_NODE) {
+                                    node.textContent = '';
+                                }
+                            });
+                            // 确保图片在父元素内可见
+                            lazyImage.parentNode.appendChild(lazyImage);
                         }
-                        
-                        // 显示图片
-                        lazyImage.style.display = '';
+
+                        // 标记图片为已加载，并移除懒加载状态类，添加过渡效果类
                         lazyImage.classList.remove('lazy-image');
-                        lazyImage.classList.add('loaded');
+                        lazyImage.classList.add('loaded'); // 添加 'loaded' 类以触发 CSS 过渡
+                        lazyImage.style.display = ''; // 确保图片可见
                     };
                     
                     // 图片加载失败的处理
                     lazyImage.onerror = function() {
-                        this.remove();
+                        console.error(`图片加载失败: ${this.dataset.src}`);
+                        // 设置为默认错误图片
+                        this.src = DEFAULT_ERROR_IMAGE;
+                        // 移除懒加载类，添加错误标记类
+                        this.classList.remove('lazy-image');
+                        this.classList.add('load-error');
+                        // 移除 onerror 处理程序，防止因错误图片也加载失败而无限循环
+                        this.onerror = null; 
                     };
                 }
                 
@@ -47,8 +64,8 @@ const initLazyLoading = () => {
             }
         });
     }, {
-        rootMargin: '200px', // 提前200px开始加载
-        threshold: 0.01 // 当1%的元素可见时触发
+        rootMargin: '200px 0px 200px 0px', // 垂直方向上提前200px开始加载，优化滚动体验
+        threshold: 0.01 // 当元素至少1%可见时触发回调
     });
     
     // 获取所有懒加载图片并开始观察
@@ -61,18 +78,43 @@ const initLazyLoading = () => {
     return lazyImageObserver;
 };
 
-// 降级处理：立即加载所有图片
+// 降级处理：当 IntersectionObserver 不可用时，立即加载所有图片
 const loadAllImages = () => {
+    console.warn('IntersectionObserver not supported, loading all images immediately.');
     const lazyImages = document.querySelectorAll('img.lazy-image');
     lazyImages.forEach(img => {
         if (img.dataset.src) {
             img.src = img.dataset.src;
+            // 移除懒加载类，避免样式冲突
+            img.classList.remove('lazy-image');
+            img.classList.add('loaded'); 
         }
     });
 };
 
-// 动态添加的图片懒加载处理
+/**
+ * 观察动态添加到 DOM 中的新图片。
+ * @param {HTMLImageElement} img - 需要观察的图片元素。
+ * @param {IntersectionObserver} [observer] - 观察者实例。如果未提供，则尝试使用全局实例。
+ */
 const observeNewImage = (img, observer) => {
+    // 如果未传入 observer，尝试使用全局缓存的 observer
+    if (!observer && window.lazyImageObserver) {
+        observer = window.lazyImageObserver;
+    }
+    
+    // 确保 observer 存在且图片具有 lazy-image 类
+    if (observer && img instanceof HTMLImageElement && img.classList.contains('lazy-image')) {
+        observer.observe(img);
+    } else if (!observer) {
+        console.warn('Lazy load observer not available for new image.');
+        // 如果观察者不存在，可以选择立即加载或采取其他措施
+        if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-image');
+        }
+    }
+};
     if (!observer && window.lazyImageObserver) {
         observer = window.lazyImageObserver;
     }
@@ -80,9 +122,8 @@ const observeNewImage = (img, observer) => {
     if (observer && img.classList.contains('lazy-image')) {
         observer.observe(img);
     }
-};
 
-// 导出函数
+// 将主要功能暴露到全局 window.lazyLoad 对象下
 window.lazyLoad = {
     init: initLazyLoading,
     loadAll: loadAllImages,
@@ -91,5 +132,6 @@ window.lazyLoad = {
 
 // 页面加载完成后初始化懒加载
 document.addEventListener('DOMContentLoaded', () => {
+    // 初始化懒加载并将观察者实例存储在全局变量中，以便 observeNewImage 函数使用
     window.lazyImageObserver = initLazyLoading();
 });
