@@ -1,8 +1,8 @@
 [
   {
     "type": "folder",
-    "addDate": 1746113207062,
-    "title": "书签栏",
+    "addDate": 1746242082690,
+    "title": "Bookmarks Bar",
     "children": [
       {
         "type": "folder",
@@ -2211,6 +2211,13 @@
                 "title": "Sound Box - 专业的白噪音生成器 | 免费在线白噪声 | 情境音效助眠放松平台",
                 "url": "https://soundbox.fun/?utm_source=xinquji",
                 "icon": "https://www.google.com/s2/favicons?domain=soundbox.fun"
+              },
+              {
+                "type": "link",
+                "addDate": 1746180715910,
+                "title": "ixHush - Mix & Play White Noise",
+                "url": "https://www.ixhush.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ixhush.app"
               }
             ]
           },
@@ -2799,6 +2806,13 @@
                 "title": "安娜的档案",
                 "url": "https://zh.annas-archive.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=zh.annas-archive.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1746180879411,
+                "title": "SaltyLeo 的书架",
+                "url": "https://book.tstrs.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
               }
             ]
           },
@@ -2983,6 +2997,13 @@
             "title": "中國哲學書電子化計劃",
             "url": "https://ctext.org/zh",
             "icon": "https://www.google.com/s2/favicons?domain=ctext.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1746180911756,
+            "title": "读典籍 - 探索中华经典，体验文白对照、交互式注释及导读工具",
+            "url": "https://dudianji.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=dudianji.com"
           }
         ]
       },
@@ -3388,6 +3409,13 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1746180820452,
+                    "title": "codexu/note-gen: A cross-platform Markdown note-taking application dedicated to using AI to bridge recording and writing, organizing fragmented knowledge into a readable note.",
+                    "url": "https://github.com/codexu/note-gen",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1740403145841,
                     "title": "usememos/memos：一款开源、轻量级的笔记解决方案。轻松创建有意义的笔记。您的笔记，您的方式。",
                     "url": "https://github.com/usememos/memos",
@@ -3440,6 +3468,20 @@
                     "addDate": 1744902005675,
                     "title": "开源白板工具Drawnix",
                     "url": "https://github.com/plait-board/drawnix",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746180965379,
+                    "title": "TriliumNext/Notes: Build your personal knowledge base with TriliumNext Notes",
+                    "url": "https://github.com/TriliumNext/Notes",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746181015198,
+                    "title": "flxzt/rnote: Sketch and take handwritten notes.",
+                    "url": "https://github.com/flxzt/rnote",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -4976,6 +5018,20 @@
                 "title": "Pixelscan",
                 "url": "https://pixelscan.net/fingerprint-check",
                 "icon": "https://www.google.com/s2/favicons?domain=pixelscan.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1746118505939,
+                "title": "浏览器检测大师 - 浏览器指纹、IP网络信息和设备信息检测工具",
+                "url": "https://webcha.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=webcha.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1746118715104,
+                "title": "最佳 BrowserScan 指纹检测工具 - 提高您的在线隐私安全 | BrowserScan",
+                "url": "https://www.browserscan.net/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=www.browserscan.net"
               }
             ]
           },
@@ -5560,6 +5616,13 @@
             "children": [
               {
                 "type": "link",
+                "addDate": 1744282658785,
+                "title": "UU在线工具 - 便捷实用的工具集合站",
+                "url": "https://uutool.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=uutool.cn"
+              },
+              {
+                "type": "link",
                 "addDate": 1704012714000,
                 "title": "MikuTools - 一个轻量的工具集合",
                 "url": "https://tools.miku.ac/",
@@ -5665,13 +5728,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1744282658785,
-                "title": "UU在线工具 - 便捷实用的工具集合站",
-                "url": "https://uutool.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=uutool.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1744284996190,
                 "title": "你的免费工具集 | UFreeTools",
                 "url": "https://www.ufreetools.com/zh",
@@ -5697,6 +5753,13 @@
                 "title": "极速箱 | Jisuxiang - 高效开发工具集成平台 | 程序员必备在线工具箱",
                 "url": "https://jisuxiang.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=jisuxiang.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746181071543,
+                "title": "XTools",
+                "url": "https://www.xxoo.tools/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.xxoo.tools"
               }
             ]
           },
@@ -5872,6 +5935,13 @@
                 "title": "消除或者替换图像背景，无需上传图像 - BgSub",
                 "url": "https://zh.bgsub.com/webapp/",
                 "icon": "https://www.google.com/s2/favicons?domain=zh.bgsub.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746181041815,
+                "title": "【在线PS】PS软件网页版，ps在线图片处理工具photopea-稿定设计PS",
+                "url": "https://www.gaoding.com/editor/ps?hmsr=iui.su-iui.su-ps--ps-ps-bdqd#/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.gaoding.com"
               }
             ]
           },
@@ -6075,6 +6145,13 @@
                 "title": "nari-labs/Dia-1.6B ",
                 "url": "https://huggingface.co/nari-labs/Dia-1.6B",
                 "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
+              },
+              {
+                "type": "link",
+                "addDate": 1746180972795,
+                "title": "分离伴奏Clear - Realtime Audio Filter",
+                "url": "https://clear.youdao.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=clear.youdao.com"
               }
             ]
           },
@@ -6346,6 +6423,13 @@
                     "title": "免费在线视频下载器 - VideoFk",
                     "url": "https://www.videofk.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.videofk.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746120166183,
+                    "title": "Youtube在线解析",
+                    "url": "https://y2b.455556.xyz/",
+                    "icon": "https://www.google.com/s2/favicons?domain=y2b.455556.xyz"
                   }
                 ]
               },
@@ -6586,6 +6670,125 @@
                 "title": "聊天",
                 "children": [
                   {
+                    "type": "folder",
+                    "addDate": 1744783271020,
+                    "title": "第三方",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1744450111875,
+                        "title": "OpenRouter",
+                        "url": "https://openrouter.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "PoeAI",
+                        "url": "https://poe.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=poe.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Sure, I can chat in Chinese. --- 当然，我可以用中文聊天。",
+                        "url": "https://huggingface.co/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1745937371370,
+                        "title": "SambaNova Cloud",
+                        "url": "https://cloud.sambanova.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1745937414944,
+                        "title": "AI Playground | Compare top AI models side-by-side",
+                        "url": "https://sdk.vercel.ai/playground",
+                        "icon": "https://www.google.com/s2/favicons?domain=sdk.vercel.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734800649587,
+                        "title": "Duck Duck Go AI Chat",
+                        "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
+                        "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1717502475880,
+                        "title": "使用开放大型语言模型进行聊天",
+                        "url": "https://lmarena.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=lmarena.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734799149530,
+                        "title": "我的AI / My AI",
+                        "url": "https://www.myai.asia/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.myai.asia"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1739473080814,
+                        "title": "NextChat",
+                        "url": "https://chat.toapis.org/#/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.toapis.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1741230098719,
+                        "title": "EasyChat",
+                        "url": "https://www.easychat.work/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.easychat.work"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1744123329942,
+                        "title": "FreeWbot2(fei)",
+                        "url": "https://w2feichat.wbot.ecylt.top/#/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "Official Index - Free Chat",
+                        "url": "https://i.free-chat.asia/",
+                        "icon": "https://www.google.com/s2/favicons?domain=i.free-chat.asia"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1732185940222,
+                        "title": "在问 | 让知识无界,智能触手可及",
+                        "url": "https://zaiwen.xueban.org.cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=zaiwen.xueban.org.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1715088237654,
+                        "title": "Workers AI LLM Playground",
+                        "url": "https://playground.ai.cloudflare.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1739472714159,
+                        "title": "问小白",
+                        "url": "https://www.wenxiaobai.com/chat/tourist",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.wenxiaobai.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1746115424274,
+                        "title": "当贝AI官网_DeepSeek满血版_全网优质AI大模型",
+                        "url": "https://ai.dangbei.com/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=ai.dangbei.com"
+                      }
+                    ]
+                  },
+                  {
                     "type": "link",
                     "addDate": 1704012714000,
                     "title": "豆包 - 你的智能小助手",
@@ -6696,118 +6899,6 @@
                     "title": "Space",
                     "url": "https://space.reka.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1745937371370,
-                    "title": "SambaNova Cloud",
-                    "url": "https://cloud.sambanova.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1745937414944,
-                    "title": "AI Playground | Compare top AI models side-by-side",
-                    "url": "https://sdk.vercel.ai/playground",
-                    "icon": "https://www.google.com/s2/favicons?domain=sdk.vercel.ai"
-                  },
-                  {
-                    "type": "folder",
-                    "addDate": 1744783271020,
-                    "title": "第三方",
-                    "children": [
-                      {
-                        "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "PoeAI",
-                        "url": "https://poe.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=poe.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "Sure, I can chat in Chinese. --- 当然，我可以用中文聊天。",
-                        "url": "https://huggingface.co/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1717502475880,
-                        "title": "使用开放大型语言模型进行聊天",
-                        "url": "https://lmarena.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=lmarena.ai"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1734799149530,
-                        "title": "我的AI / My AI",
-                        "url": "https://www.myai.asia/",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.myai.asia"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1739473080814,
-                        "title": "NextChat",
-                        "url": "https://chat.toapis.org/#/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.toapis.org"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1741230098719,
-                        "title": "EasyChat",
-                        "url": "https://www.easychat.work/",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.easychat.work"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1744123329942,
-                        "title": "FreeWbot2(fei)",
-                        "url": "https://w2feichat.wbot.ecylt.top/#/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=w2feichat.wbot.ecylt.top"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "Official Index - Free Chat",
-                        "url": "https://i.free-chat.asia/",
-                        "icon": "https://www.google.com/s2/favicons?domain=i.free-chat.asia"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1732185940222,
-                        "title": "在问 | 让知识无界,智能触手可及",
-                        "url": "https://zaiwen.xueban.org.cn/",
-                        "icon": "https://www.google.com/s2/favicons?domain=zaiwen.xueban.org.cn"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1715088237654,
-                        "title": "Workers AI LLM Playground",
-                        "url": "https://playground.ai.cloudflare.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1739472714159,
-                        "title": "问小白",
-                        "url": "https://www.wenxiaobai.com/chat/tourist",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.wenxiaobai.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1745937213881,
-                        "title": "当贝AI官网_DeepSeek满血版_全网优质AI大模型",
-                        "url": "https://ai.dangbei.com/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=ai.dangbei.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1734800649587,
-                        "title": "Duck Duck Go AI Chat",
-                        "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
-                        "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
-                      }
-                    ]
                   }
                 ]
               },
@@ -6890,6 +6981,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1713706605988,
+                "title": "OpenAI",
+                "url": "https://openai.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=openai.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1704012714000,
                 "title": "ChatGPT 学术优化",
                 "url": "https://academic.chatwithpaper.org/",
@@ -6911,20 +7009,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1732352815750,
-                "title": "试用 NVIDIA NIM API",
-                "url": "https://build.nvidia.com/explore/discover?ncid=no-ncid",
-                "icon": "https://www.google.com/s2/favicons?domain=build.nvidia.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1713706605988,
-                "title": "OpenAI",
-                "url": "https://openai.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=openai.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1713843267568,
                 "title": "Ollama",
                 "url": "https://ollama.com/",
@@ -6943,13 +7027,6 @@
                 "title": "LM Studio - Discover, download, and run local LLMs",
                 "url": "https://lmstudio.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=lmstudio.ai"
-              },
-              {
-                "type": "link",
-                "addDate": 1734575817389,
-                "title": "Fuclaude",
-                "url": "https://claude.github.cn.com/login?returnTo=%2F%3F",
-                "icon": "https://www.google.com/s2/favicons?domain=claude.github.cn.com"
               },
               {
                 "type": "link",
@@ -6999,13 +7076,6 @@
                 "title": "Humanize AI—将 AI 文本人性化",
                 "url": "https://www.humanizeai.pro/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.humanizeai.pro"
-              },
-              {
-                "type": "link",
-                "addDate": 1744450111875,
-                "title": "OpenRouter",
-                "url": "https://openrouter.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
               },
               {
                 "type": "link",
@@ -7865,6 +7935,13 @@
                     "title": "光栅效果Tooooools.app",
                     "url": "https://www.tooooools.app/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.tooooools.app"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746181239418,
+                    "title": "图片外框添加Pretty Snap - make your snapshots 🔥 with a pretty background",
+                    "url": "https://prettysnap.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=prettysnap.app"
                   }
                 ]
               },
@@ -8847,6 +8924,13 @@
                 "title": "自动前后端Introduction | Wasp",
                 "url": "https://wasp.sh/docs",
                 "icon": "https://www.google.com/s2/favicons?domain=wasp.sh"
+              },
+              {
+                "type": "link",
+                "addDate": 1746116181653,
+                "title": "uni-app官网",
+                "url": "https://uniapp.dcloud.net.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=uniapp.dcloud.net.cn"
               }
             ]
           },
@@ -8938,6 +9022,13 @@
                 "title": "首页 | 二次元API",
                 "url": "https://docs.api.ecylt.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=docs.api.ecylt.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1746181170623,
+                "title": "免费IP归属地查询API - 免费IP归属地查询",
+                "url": "https://ip9-api.apifox.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=ip9-api.apifox.cn"
               }
             ]
           },
@@ -8992,7 +9083,7 @@
                 "type": "link",
                 "addDate": 1734801044302,
                 "title": "LINUX DO - 新的理想型社区",
-                "url": "https://linux.do/top?period=daily",
+                "url": "https://linux.do/",
                 "icon": "https://www.google.com/s2/favicons?domain=linux.do"
               },
               {
