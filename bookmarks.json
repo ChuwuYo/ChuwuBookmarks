@@ -1,8 +1,8 @@
 [
   {
     "type": "folder",
-    "addDate": 1746242082690,
-    "title": "Bookmarks Bar",
+    "addDate": 1746365247272,
+    "title": "书签栏",
     "children": [
       {
         "type": "folder",
@@ -2057,6 +2057,13 @@
                 "title": "文件闪传",
                 "url": "https://www.xiaolifaa.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xiaolifaa.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746337565851,
+                "title": "weixiansen574/HybridFileXfer: 多轨快传，同时使用USB和5G与2.4GWIFI等通道传输文件到电脑，榨干手机IO！",
+                "url": "https://github.com/weixiansen574/HybridFileXfer",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -2958,9 +2965,9 @@
           },
           {
             "type": "link",
-            "addDate": 1712460976754,
+            "addDate": 1744036819344,
             "title": "中國哲學書電子化計劃",
-            "url": "https://ctext.org/zhs",
+            "url": "https://ctext.org/zh",
             "icon": "https://www.google.com/s2/favicons?domain=ctext.org"
           },
           {
@@ -2990,13 +2997,6 @@
             "title": "搜索- SaltyLeo 的书架",
             "url": "https://book.tstrs.me/search",
             "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
-          },
-          {
-            "type": "link",
-            "addDate": 1744036819344,
-            "title": "中國哲學書電子化計劃",
-            "url": "https://ctext.org/zh",
-            "icon": "https://www.google.com/s2/favicons?domain=ctext.org"
           },
           {
             "type": "link",
@@ -4592,9 +4592,9 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1713177284110,
-                    "title": "barry-far/V2ray-Configs：🛰️✨ 免费的 V2ray 配置，每 10 分钟更新一次。",
-                    "url": "https://github.com/barry-far/V2ray-Configs?tab=readme-ov-file",
+                    "addDate": 1746337514748,
+                    "title": "barry-far/V2ray-Configs: 🛰️✨ Free V2ray Configs , Updating Every 10 minutes.",
+                    "url": "https://github.com/barry-far/V2ray-Configs",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
@@ -4676,16 +4676,16 @@
                 "children": [
                   {
                     "type": "link",
-                    "addDate": 1744977028690,
-                    "title": "DiningFactory/panda-vpn-pro: 🚁🚀 2025机场推荐 | 熊猫VPN（PandaVPNPro）已确定跑路！快连VPN ，小牛加速器（小牛VPN）体验不佳且价格贵。低价机场，便宜机场，平价机场，性价比机场，高速机场，稳定机场，一元机场，翻墙机场，付费机场，收费机场，冷门机场，优质机场，廉价机场。机场评测，中国翻墙，科学上网，梯子。非永久免费梯子，官网，非永久免费VPN，非免费机场！VPN China。机场节点订阅，节点分享，Clash节点，V2ray节点，非免费节点。适用ClashForWindows，V2rayN，singbox，nekobox，小火箭等代理软件🚀🚁",
-                    "url": "https://github.com/DiningFactory/panda-vpn-pro",
+                    "addDate": 1744977196259,
+                    "title": "limbopro/Paolujichang: 科学上网🕸️之跑路机场名单收集（2020-2025），欢迎投稿。Ad🔗🈲🙅❌",
+                    "url": "https://github.com/limbopro/Paolujichang",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
                     "type": "link",
-                    "addDate": 1744977196259,
-                    "title": "limbopro/Paolujichang: 科学上网🕸️之跑路机场名单收集（2020-2025），欢迎投稿。Ad🔗🈲🙅❌",
-                    "url": "https://github.com/limbopro/Paolujichang",
+                    "addDate": 1744977028690,
+                    "title": "DiningFactory/panda-vpn-pro: 🚁🚀 2025机场推荐 | 熊猫VPN（PandaVPNPro）已确定跑路！快连VPN ，小牛加速器（小牛VPN）体验不佳且价格贵。低价机场，便宜机场，平价机场，性价比机场，高速机场，稳定机场，一元机场，翻墙机场，付费机场，收费机场，冷门机场，优质机场，廉价机场。机场评测，中国翻墙，科学上网，梯子。非永久免费梯子，官网，非永久免费VPN，非免费机场！VPN China。机场节点订阅，节点分享，Clash节点，V2ray节点，非免费节点。适用ClashForWindows，V2rayN，singbox，nekobox，小火箭等代理软件🚀🚁",
+                    "url": "https://github.com/DiningFactory/panda-vpn-pro",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -4868,13 +4868,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "MatsuriDayo/nekoray: Qt based cross-platform GUI proxy configuration manager (backend: v2ray / sing-box)",
-                "url": "https://github.com/MatsuriDayo/nekoray",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Surfshark：我的帐户",
                 "url": "https://my.surfshark.com/home/dashboard",
                 "icon": "https://www.google.com/s2/favicons?domain=my.surfshark.com"
@@ -4892,13 +4885,6 @@
                 "title": "Hiddify | Hiddify",
                 "url": "https://hiddify.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=hiddify.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1711788175081,
-                "title": "NekoBox & NekoRay 官网下载 - NekoBox & NekoRay",
-                "url": "https://getnekobox.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=getnekobox.com"
               },
               {
                 "type": "link",
@@ -4951,16 +4937,23 @@
               },
               {
                 "type": "link",
-                "addDate": 1738434487785,
-                "title": "NekoRay-MatsuriDayo",
-                "url": "https://matsuridayo.github.io/",
-                "icon": "https://www.google.com/s2/favicons?domain=matsuridayo.github.io"
-              },
-              {
-                "type": "link",
                 "addDate": 1739951007571,
                 "title": "GUI-for-Cores/GUI.for.SingBox: GUI for SingBox",
                 "url": "https://github.com/GUI-for-Cores/GUI.for.SingBox",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746338126096,
+                "title": "sub-store-org/Sub-Store: Advanced Subscription Manager for QX, Loon, Surge, Stash, Egern and Shadowrocket!",
+                "url": "https://github.com/sub-store-org/Sub-Store",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746338314934,
+                "title": "mihomo-party-org/mihomo-party: :electron: Another Mihomo GUI.",
+                "url": "https://github.com/mihomo-party-org/mihomo-party",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -5044,17 +5037,17 @@
           },
           {
             "type": "link",
-            "addDate": 1704012714000,
-            "title": "BridgeDB",
-            "url": "https://t-browser.sourceforge.net/bridges.html",
-            "icon": "https://www.google.com/s2/favicons?domain=t-browser.sourceforge.net"
-          },
-          {
-            "type": "link",
             "addDate": 1706774434380,
             "title": "在各种订阅格式之间转换的实用程序 --- tindy2013/subconverter: Utility to convert between various subscription format",
             "url": "https://github.com/tindy2013/subconverter",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1704012714000,
+            "title": "BridgeDB",
+            "url": "https://t-browser.sourceforge.net/bridges.html",
+            "icon": "https://www.google.com/s2/favicons?domain=t-browser.sourceforge.net"
           },
           {
             "type": "link",
@@ -5083,6 +5076,34 @@
             "title": "GitHub Host - 加速访问 GitHub | 自动更新的 Hosts 工具",
             "url": "https://github-hosts.tinsfox.com/",
             "icon": "https://www.google.com/s2/favicons?domain=github-hosts.tinsfox.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1746274119641,
+            "title": "找梯子啊",
+            "url": "https://zhaotizi.site/",
+            "icon": "https://www.google.com/s2/favicons?domain=zhaotizi.site"
+          },
+          {
+            "type": "link",
+            "addDate": 1746338177172,
+            "title": "Loyalsoldier/geoip: 🌚 🌍 🌝 GeoIP 规则文件加强版，支持自行定制 V2Ray dat 格式文件 geoip.dat、MaxMind mmdb 格式文件、sing-box SRS 格式文件、mihomo MRS 格式文件、Clash ruleset、Surge ruleset 等。Enhanced edition of GeoIP files for V2Ray, Xray-core, sing-box, Clash, mihomo, Shadowrocket, Quantumult X, Surge, hysteria, Trojan-Go, Leaf, Nginx, etc.",
+            "url": "https://github.com/Loyalsoldier/geoip",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1746338506336,
+            "title": "URenko/Accesser: 🌏一个解决SNI RST导致维基百科、Pixiv等站点无法访问的工具 | A tool for solving SNI RST",
+            "url": "https://github.com/URenko/Accesser",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1746338541035,
+            "title": "SpaceTimee/Sheas-Cealer: Just Ceal It (可用于无代理合法抵御网络监听和开展网络研究)",
+            "url": "https://github.com/SpaceTimee/Sheas-Cealer",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       },
@@ -5216,6 +5237,13 @@
             "title": "整理下一些公共服务镜像 | lm379のBlog",
             "url": "https://lm379.cn/2024/06/14/%E9%83%A8%E5%88%86%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E9%95%9C%E5%83%8F/",
             "icon": "https://www.google.com/s2/favicons?domain=lm379.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1733142670677,
+            "title": "不死鸟 - 分享为王官网",
+            "url": "https://iui.su/",
+            "icon": "https://www.google.com/s2/favicons?domain=iui.su"
           }
         ]
       },
@@ -5605,6 +5633,13 @@
                 "addDate": 1745835845158,
                 "title": "darkmatter2048/WindowsCleaner: Windows Cleaner——专治C盘爆红及各种不服！",
                 "url": "https://github.com/darkmatter2048/WindowsCleaner",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746275039309,
+                "title": "盘内文件压缩(可执行)/CompactGUI: Transparently compress active games and programs using Windows 10/11 APIs",
+                "url": "https://github.com/IridiumIO/CompactGUI",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -6596,17 +6631,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1734791101299,
-                "title": "速链 | 公益站",
-                "url": "https://sl.hvxi.cn/user",
-                "icon": "https://www.google.com/s2/favicons?domain=sl.hvxi.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1744900895129,
                 "title": "文件加速下载",
                 "url": "https://s.iao.su/g/",
                 "icon": "https://www.google.com/s2/favicons?domain=s.iao.su"
+              },
+              {
+                "type": "link",
+                "addDate": 1746360472748,
+                "title": "神速Down·百度网盘不限制下载夸克网盘直连-批量启航（支持整个文件夹下载）",
+                "url": "https://scriptcat.org/zh-CN/script-show-page/2674",
+                "icon": "https://www.google.com/s2/favicons?domain=scriptcat.org"
               }
             ]
           },
@@ -7153,6 +7188,13 @@
                 "title": "Local File Encrypt | 在本地加解密文本、文件或整个文件夹",
                 "url": "https://localfileencrypt.com/#encrypt",
                 "icon": "https://www.google.com/s2/favicons?domain=localfileencrypt.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746272434524,
+                "title": "隐藏字符/hidden-word: A Unicode-based text digital watermarking tool for embedding invisible copyright marks and metadata in text content.",
+                "url": "https://github.com/Ackites/hidden-word",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -8931,6 +8973,13 @@
                 "title": "uni-app官网",
                 "url": "https://uniapp.dcloud.net.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=uniapp.dcloud.net.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1746338749257,
+                "title": "TypeScript: The starting point for learning TypeScript",
+                "url": "https://www.typescriptlang.org/docs/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.typescriptlang.org"
               }
             ]
           },
@@ -9626,13 +9675,6 @@
             "title": "萌娘百科 万物皆可萌的百科全书 - zh.moegirl.org.cn",
             "url": "https://zh.moegirl.org.cn/Mainpage",
             "icon": "https://www.google.com/s2/favicons?domain=zh.moegirl.org.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1733142670677,
-            "title": "不死鸟 - 分享为王官网",
-            "url": "https://iui.su/",
-            "icon": "https://www.google.com/s2/favicons?domain=iui.su"
           }
         ]
       },
@@ -10023,6 +10065,13 @@
                 "title": "《数字极权时代生存手记》",
                 "url": "https://reconsidera.github.io/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=reconsidera.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1746337861726,
+                "title": "reconsidera/awesome-reconsidera-takeaway: 《数字极权时代生存手记》的工具包",
+                "url": "https://github.com/reconsidera/awesome-reconsidera-takeaway",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
