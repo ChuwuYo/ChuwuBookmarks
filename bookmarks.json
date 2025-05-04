@@ -1,8 +1,8 @@
 [
   {
     "type": "folder",
-    "addDate": 1746365247272,
-    "title": "书签栏",
+    "addDate": 1746379184013,
+    "title": "Bookmarks Bar",
     "children": [
       {
         "type": "folder",
@@ -6292,6 +6292,20 @@
                 "title": "opendatalab/MinerU: A high-quality tool for convert PDF to Markdown and JSON.一站式开源高质量数据提取工具，将PDF转换成Markdown和JSON格式。",
                 "url": "https://github.com/opendatalab/mineru",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746377969645,
+                "title": "Paraphrasing Tool (Ad-Free and No Sign-up Required) - QuillBot AI",
+                "url": "https://quillbot.com/paraphrasing-tool",
+                "icon": "https://www.google.com/s2/favicons?domain=quillbot.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746378030599,
+                "title": "Grammarly: Free AI Writing Assistance",
+                "url": "https://www.grammarly.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.grammarly.com"
               }
             ]
           },
@@ -7118,6 +7132,13 @@
                 "title": "GithubDeepWiki(仓库理解)",
                 "url": "https://deepwiki.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=deepwiki.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746377280300,
+                "title": "结构化提示词创建16x Prompt - AI Coding with Advanced Context Management",
+                "url": "https://prompt.16x.engineer/",
+                "icon": "https://www.google.com/s2/favicons?domain=prompt.16x.engineer"
               }
             ]
           },
