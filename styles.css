@@ -76,17 +76,17 @@
 /* 字体定义 */
 @font-face {
     font-family: 'LXGW WenKai';
-    src: url('assets/typeface/LXGWWenKai-Medium.ttf') format('truetype');
+    src: url('assets/typeface/LXGWWenKai-Medium.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'DingTalk JinBuTi';
-    src: url('assets/typeface/DingTalk JinBuTi.ttf') format('truetype');
+    src: url('assets/typeface/DingTalk-JinBuTi.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'OPlusSans3-ExtraLight';
-    src: url('assets/typeface/OPlusSans3-ExtraLight.ttf') format('truetype');
+    src: url('assets/typeface/OPlusSans30-ExtraLight.woff2') format('woff2');
 }
 
 /* 主体样式 */
@@ -118,7 +118,23 @@ body::before {
     will-change: background-color;
 }
 
-/* 背景图片懒加载 */
+/* 图片懒加载 */
+/* 初始状态：透明 */
+img.lazy-image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* 平滑过渡效果 */
+}
+
+/* 加载完成状态：完全不透明 */
+img.loaded {
+    opacity: 1;
+}
+
+/* 加载错误时的样式 */
+img.load-error {
+    border: 2px solid rgb(144, 244, 189);
+}
+
 body.bg-loaded::before {
     background: url('assets/images/moecat.gif') no-repeat center/cover;
 }
@@ -550,7 +566,6 @@ body::before {
 .search-container {
     position: fixed;
     top: 20px;
-    left: 50.5%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
@@ -717,7 +732,7 @@ body::before {
     }
 
     .search-container {
-        left: 50% !important;
+        left: 52% !important;
         transition: opacity 0.2s ease;
     }
 
