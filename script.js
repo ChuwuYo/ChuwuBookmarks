@@ -369,7 +369,7 @@ const createElement = (type, item, onClick) => {
 const renderSidebar = (data) => {
     const sidebar = document.getElementById('sidebar-folders');
     sidebar.innerHTML = '';
-    const rootFolder = data.find(item => item.title === '书签栏');
+    const rootFolder = data.find(item => item.title === '书签栏' || item.title === 'Bookmarks Bar');
     if (!rootFolder) return;
 
     // 使用DocumentFragment减少DOM操作
@@ -452,7 +452,7 @@ const renderMainContent = (folder, fromSidebar = false) => {
         }
 
         breadcrumbPath
-            .filter(crumb => crumb.title !== '书签栏')
+            .filter(crumb => crumb.title !== '书签栏' && crumb.title !== 'Bookmarks Bar')
             .forEach((crumb, index, arr) => {
                 // 添加分隔符
                 breadcrumbFragment.appendChild(Object.assign(document.createElement('span'), {
