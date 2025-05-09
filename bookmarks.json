@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1746600512530,
+    "addDate": 1746799112280,
     "title": "书签栏",
     "children": [
       {
@@ -53,7 +53,7 @@
           },
           {
             "type": "link",
-            "addDate": 1704012714000,
+            "addDate": 1746612539353,
             "title": "吃力网 - 光标网",
             "url": "https://cursor.vip/vip",
             "icon": "https://www.google.com/s2/favicons?domain=cursor.vip"
@@ -85,13 +85,6 @@
             "title": "Tokyo Toshokan :: #tokyotosho @ irc.rizon.net :: Torrent Listing",
             "url": "https://www.tokyotosho.info/",
             "icon": "https://www.google.com/s2/favicons?domain=www.tokyotosho.info"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "洪流搜索引擎 | 1337x.至",
-            "url": "https://1337x.to/",
-            "icon": "https://www.google.com/s2/favicons?domain=1337x.to"
           },
           {
             "type": "link",
@@ -151,13 +144,6 @@
           },
           {
             "type": "link",
-            "addDate": 1744121600023,
-            "title": "WebTorrent - 流媒体 torrent 客户端",
-            "url": "https://webtorrent.io/",
-            "icon": "https://www.google.com/s2/favicons?domain=webtorrent.io"
-          },
-          {
-            "type": "link",
             "addDate": 1744121847757,
             "title": "主页 — Torrents-CSV",
             "url": "https://torrents-csv.com/",
@@ -169,6 +155,20 @@
             "title": "数据生态系统",
             "url": "https://dat-ecosystem.org/",
             "icon": "https://www.google.com/s2/favicons?domain=dat-ecosystem.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1744121600023,
+            "title": "WebTorrent - 流媒体 torrent 客户端",
+            "url": "https://webtorrent.io/",
+            "icon": "https://www.google.com/s2/favicons?domain=webtorrent.io"
+          },
+          {
+            "type": "link",
+            "addDate": 1746613594182,
+            "title": "元数据查询服务What's the link?",
+            "url": "https://whatslink.info/",
+            "icon": "https://www.google.com/s2/favicons?domain=whatslink.info"
           }
         ]
       },
@@ -505,20 +505,13 @@
             "title": "芯幻 – 次元★一个ACG小圈子ovo!",
             "url": "https://xhcys.com/",
             "icon": "https://www.google.com/s2/favicons?domain=xhcys.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1745269032266,
-            "title": "台词Dialogue.moe",
-            "url": "https://dialogue.moe/search",
-            "icon": "https://www.google.com/s2/favicons?domain=dialogue.moe"
           }
         ]
       },
       {
         "type": "folder",
         "addDate": 1704014875956,
-        "title": "看番",
+        "title": "影视",
         "children": [
           {
             "type": "folder",
@@ -5865,6 +5858,13 @@
                 "title": "XTools",
                 "url": "https://www.xxoo.tools/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xxoo.tools"
+              },
+              {
+                "type": "link",
+                "addDate": 1746788042340,
+                "title": "MTools - 免费在线开发工具集",
+                "url": "https://monojson.com/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=monojson.com"
               }
             ]
           },
@@ -6712,6 +6712,13 @@
                 "title": "神速Down·百度网盘不限制下载夸克网盘直连-批量启航（支持整个文件夹下载）",
                 "url": "https://scriptcat.org/zh-CN/script-show-page/2674",
                 "icon": "https://www.google.com/s2/favicons?domain=scriptcat.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1746688244769,
+                "title": "cmy2008/doc88_extractor: 道客巴巴文档无损提取工具（非图片） A tool make you extract the doc88 documents.",
+                "url": "https://github.com/cmy2008/doc88_extractor",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -6939,7 +6946,7 @@
                     "type": "link",
                     "addDate": 1734790878600,
                     "title": "Stream Realtime | Google AI Studio",
-                    "url": "https://aistudio.google.com/live",
+                    "url": "https://aistudio.google.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=aistudio.google.com"
                   },
                   {
@@ -7216,6 +7223,13 @@
                 "title": "AI机器人群聊",
                 "url": "https://botgroup.chat/",
                 "icon": "https://www.google.com/s2/favicons?domain=botgroup.chat"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613004043,
+                "title": "WebDev Arena: AI Battle to build the best website",
+                "url": "https://web.lmarena.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=web.lmarena.ai"
               }
             ]
           },
@@ -7293,6 +7307,13 @@
                 "title": "隐藏字符/hidden-word: A Unicode-based text digital watermarking tool for embedding invisible copyright marks and metadata in text content.",
                 "url": "https://github.com/Ackites/hidden-word",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613535075,
+                "title": "根据真实地址生成虚假身份信息Real Address Generator",
+                "url": "https://realaddress.fuyiran.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=realaddress.fuyiran.com"
               }
             ]
           },
@@ -7519,6 +7540,20 @@
             "title": "AIPPT | SlideCraftAI",
             "url": "https://www.slidescraft.com/zh#pricing",
             "icon": "https://www.google.com/s2/favicons?domain=www.slidescraft.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1746613286563,
+            "title": "屏幕检测EIZO monitors for offices, photos & design, medicine, gaming and industry",
+            "url": "https://www.eizo.be/monitor-test/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.eizo.be"
+          },
+          {
+            "type": "link",
+            "addDate": 1746788739130,
+            "title": "短网址Bitly | Link Dashboard",
+            "url": "https://app.bitly.com/Bp59bUJ5tJv/home",
+            "icon": "https://www.google.com/s2/favicons?domain=app.bitly.com"
           }
         ]
       },
@@ -7729,6 +7764,13 @@
             "title": "Coursera | Degrees, Certificates, & Free Online Courses",
             "url": "https://www.coursera.org/",
             "icon": "https://www.google.com/s2/favicons?domain=www.coursera.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1746622812258,
+            "title": "元知（AI综述）",
+            "url": "https://yuanzhi.zeelin.cn/#/",
+            "icon": "https://www.google.com/s2/favicons?domain=yuanzhi.zeelin.cn"
           }
         ]
       },
@@ -8038,7 +8080,7 @@
                     "type": "link",
                     "addDate": 1742535315087,
                     "title": "21st.dev – The NPM for Design Engineers",
-                    "url": "https://21st.dev/?tab=components&sort=recommended",
+                    "url": "https://21st.dev/",
                     "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
                   },
                   {
@@ -8061,6 +8103,13 @@
                     "title": "Godly — Astronomically good web design inspiration",
                     "url": "https://godly.website/",
                     "icon": "https://www.google.com/s2/favicons?domain=godly.website"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746613077500,
+                    "title": "拟物化按钮Neumorphism CSS shadow generator",
+                    "url": "https://neumorphism.io/#e0e0e0",
+                    "icon": "https://www.google.com/s2/favicons?domain=neumorphism.io"
                   }
                 ]
               },
@@ -8229,6 +8278,13 @@
                     "title": "文字转社交媒体卡片OneIMG",
                     "url": "https://oneimgai.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=oneimgai.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746612908309,
+                    "title": "imgsrc",
+                    "url": "https://imgsrc.io/",
+                    "icon": "https://www.google.com/s2/favicons?domain=imgsrc.io"
                   }
                 ]
               },
@@ -8266,6 +8322,13 @@
                 "title": "AIPPT生成Instant Presentations, Websites, and More with AI | Gamma",
                 "url": "https://gamma.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=gamma.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613261894,
+                "title": "Logo-creator.io – Generate a logo",
+                "url": "https://www.logo-creator.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.logo-creator.io"
               }
             ]
           },
@@ -8350,13 +8413,6 @@
                 "title": "Introduction · d4m1ts 知识库",
                 "url": "https://blog.gm7.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=blog.gm7.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1713856235350,
-                "title": "提示工程指南 | Prompt Engineering Guide",
-                "url": "https://www.promptingguide.ai/zh",
-                "icon": "https://www.google.com/s2/favicons?domain=www.promptingguide.ai"
               },
               {
                 "type": "link",
@@ -9190,6 +9246,13 @@
                 "title": "TypeScript: The starting point for learning TypeScript",
                 "url": "https://www.typescriptlang.org/docs/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.typescriptlang.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1713856235350,
+                "title": "提示工程指南 | Prompt Engineering Guide",
+                "url": "https://www.promptingguide.ai/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=www.promptingguide.ai"
               }
             ]
           },
@@ -10009,6 +10072,34 @@
                 "title": "大盘云图",
                 "url": "https://52etf.site/",
                 "icon": "https://www.google.com/s2/favicons?domain=52etf.site"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613397891,
+                "title": "大佬持仓Stockcircle - Analyse Portfolios of Investment Gurus",
+                "url": "https://stockcircle.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=stockcircle.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613501350,
+                "title": "财报Discounting Cash Flows - Flexible Financial Modelling Platform",
+                "url": "https://discountingcashflows.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=discountingcashflows.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746625621410,
+                "title": "乐咕乐股网_在这里学会股票投资",
+                "url": "https://legulegu.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=legulegu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746625973549,
+                "title": "ARES模拟交易平台",
+                "url": "https://ares.sse.com.cn/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=ares.sse.com.cn"
               }
             ]
           },
@@ -10340,6 +10431,13 @@
             "title": "TempEmail临时邮箱",
             "url": "https://tempmailpro.org/zh",
             "icon": "https://www.google.com/s2/favicons?domain=tempmailpro.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1746613457588,
+            "title": "临时邮箱smail",
+            "url": "https://smail.pw/",
+            "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
           },
           {
             "type": "link",
