@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1746799112280,
+    "addDate": 1746806533731,
     "title": "书签栏",
     "children": [
       {
@@ -7011,6 +7011,13 @@
                     "title": "Space",
                     "url": "https://space.reka.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746806280051,
+                    "title": "Pi, your personal AI",
+                    "url": "https://pi.ai/discover",
+                    "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
                   }
                 ]
               },
@@ -8066,55 +8073,6 @@
               },
               {
                 "type": "folder",
-                "addDate": 1744173964942,
-                "title": "组件/主题设计",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1741960330910,
-                    "title": "CodePen: Online Code Editor and Front End Web Developer Community",
-                    "url": "https://codepen.io/",
-                    "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1742535315087,
-                    "title": "21st.dev – The NPM for Design Engineers",
-                    "url": "https://21st.dev/",
-                    "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1743189375125,
-                    "title": "Code Info | HTML CSS JavaScript - Web Development",
-                    "url": "https://www.codeinfoweb.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.codeinfoweb.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746542808578,
-                    "title": "Dark Themed Web Design Inspiration",
-                    "url": "https://www.dark.design/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.dark.design"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746542848066,
-                    "title": "Godly — Astronomically good web design inspiration",
-                    "url": "https://godly.website/",
-                    "icon": "https://www.google.com/s2/favicons?domain=godly.website"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746613077500,
-                    "title": "拟物化按钮Neumorphism CSS shadow generator",
-                    "url": "https://neumorphism.io/#e0e0e0",
-                    "icon": "https://www.google.com/s2/favicons?domain=neumorphism.io"
-                  }
-                ]
-              },
-              {
-                "type": "folder",
                 "addDate": 1744174306439,
                 "title": "表情与插图",
                 "children": [
@@ -9055,15 +9013,99 @@
           },
           {
             "type": "folder",
-            "addDate": 1737822583582,
-            "title": "UI组件库",
+            "addDate": 1744173964942,
+            "title": "组件与主题",
             "children": [
               {
+                "type": "folder",
+                "addDate": 1737822583582,
+                "title": "框架UI组件库",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1735818582605,
+                    "title": "Material Design 3 - Google's latest open source design system",
+                    "url": "https://m3.material.io/",
+                    "icon": "https://www.google.com/s2/favicons?domain=m3.material.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1737823004911,
+                    "title": "daisyUI — Tailwind CSS Components ( version 4 update is here )",
+                    "url": "https://daisyui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=daisyui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739015902635,
+                    "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
+                    "url": "https://github.com/FortAwesome/Font-Awesome",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740663218048,
+                    "title": "Naive UI: 一个 Vue 3 组件库",
+                    "url": "https://www.naiveui.com/zh-CN/os-theme",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.naiveui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1737822560850,
+                    "title": "React Bits - Animated UI Components For React",
+                    "url": "https://www.reactbits.dev/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.reactbits.dev"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746806230524,
+                    "title": "React 的 C 端组件库，原生支持 tailwindCSS，shadcn/ui",
+                    "url": "https://ui.shadcn.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ui.shadcn.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
-                "addDate": 1737822560850,
-                "title": "React Bits - Animated UI Components For React",
-                "url": "https://www.reactbits.dev/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.reactbits.dev"
+                "addDate": 1742535315087,
+                "title": "21st.dev – The NPM for Design Engineers",
+                "url": "https://21st.dev/",
+                "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1743189375125,
+                "title": "Code Info | HTML CSS JavaScript - Web Development",
+                "url": "https://www.codeinfoweb.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.codeinfoweb.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746542808578,
+                "title": "Dark Themed Web Design Inspiration",
+                "url": "https://www.dark.design/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.dark.design"
+              },
+              {
+                "type": "link",
+                "addDate": 1746542848066,
+                "title": "Godly — Astronomically good web design inspiration",
+                "url": "https://godly.website/",
+                "icon": "https://www.google.com/s2/favicons?domain=godly.website"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613077500,
+                "title": "拟物化按钮Neumorphism CSS shadow generator",
+                "url": "https://neumorphism.io/#e0e0e0",
+                "icon": "https://www.google.com/s2/favicons?domain=neumorphism.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1746805857466,
+                "title": "Pure CSS Loader - Optimized Spinners for Web · Loading.io",
+                "url": "https://loading.io/css/",
+                "icon": "https://www.google.com/s2/favicons?domain=loading.io"
               },
               {
                 "type": "link",
@@ -9081,38 +9123,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1735818582605,
-                "title": "Material Design 3 - Google's latest open source design system",
-                "url": "https://m3.material.io/",
-                "icon": "https://www.google.com/s2/favicons?domain=m3.material.io"
+                "addDate": 1746806079224,
+                "title": "Animate.css | A cross-browser library of CSS animations.",
+                "url": "https://animate.style/",
+                "icon": "https://www.google.com/s2/favicons?domain=animate.style"
               },
               {
                 "type": "link",
-                "addDate": 1737823004911,
-                "title": "daisyUI — Tailwind CSS Components ( version 4 update is here )",
-                "url": "https://daisyui.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=daisyui.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1739015902635,
-                "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
-                "url": "https://github.com/FortAwesome/Font-Awesome",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1740403036301,
-                "title": "wandb/openui: OpenUI let's you describe UI using your imagination, then see it rendered live.",
-                "url": "https://github.com/wandb/openui",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1740663218048,
-                "title": "Naive UI: 一个 Vue 3 组件库",
-                "url": "https://www.naiveui.com/zh-CN/os-theme",
-                "icon": "https://www.google.com/s2/favicons?domain=www.naiveui.com"
+                "addDate": 1746806130586,
+                "title": "手绘风格RoughNotation",
+                "url": "https://roughnotation.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=roughnotation.com"
               }
             ]
           },
@@ -9253,6 +9274,20 @@
                 "title": "提示工程指南 | Prompt Engineering Guide",
                 "url": "https://www.promptingguide.ai/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=www.promptingguide.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1746800227809,
+                "title": "入门 - Go 编程语言",
+                "url": "https://go.dev/learn/",
+                "icon": "https://www.google.com/s2/favicons?domain=go.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1746801663869,
+                "title": "基本语法 | Golang 中文学习文档",
+                "url": "https://golang.halfiisland.com/essential/base/1.grammer.html",
+                "icon": "https://www.google.com/s2/favicons?domain=golang.halfiisland.com"
               }
             ]
           },
@@ -9701,13 +9736,6 @@
                 "title": "幽兰清竹的赛博记录 –",
                 "url": "https://akemirei.site/",
                 "icon": "https://www.google.com/s2/favicons?domain=akemirei.site"
-              },
-              {
-                "type": "link",
-                "addDate": 1705048048154,
-                "title": "前端加油站🧠 | 前端加油站🧠",
-                "url": "https://blog.jimmyxuexue.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=blog.jimmyxuexue.top"
               },
               {
                 "type": "link",
