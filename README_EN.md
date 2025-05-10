@@ -6,6 +6,8 @@
 
 ---
 Project Overview
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ChuwuYo/ChuwuBookmarks)
 ---
 
 This is a browser-based bookmark navigation webpage designed to convert bookmark data (stored in JSON format) into a visually appealing and feature-rich web application. Through this webpage, you can easily access your bookmarks, with support for expanding and collapsing multi-level folders, searching, breadcrumb navigation, and more.
