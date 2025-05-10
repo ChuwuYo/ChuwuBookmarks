@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1746806533731,
+    "addDate": 1746885820487,
     "title": "书签栏",
     "children": [
       {
@@ -6897,6 +6897,13 @@
                         "title": "当贝AI官网_DeepSeek满血版_全网优质AI大模型",
                         "url": "https://ai.dangbei.com/chat",
                         "icon": "https://www.google.com/s2/favicons?domain=ai.dangbei.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1746542510627,
+                        "title": "AI机器人群聊",
+                        "url": "https://botgroup.chat/",
+                        "icon": "https://www.google.com/s2/favicons?domain=botgroup.chat"
                       }
                     ]
                   },
@@ -7223,13 +7230,6 @@
                 "title": "秘塔AI：今天学点啥",
                 "url": "https://metaso.cn/study",
                 "icon": "https://www.google.com/s2/favicons?domain=metaso.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1746542510627,
-                "title": "AI机器人群聊",
-                "url": "https://botgroup.chat/",
-                "icon": "https://www.google.com/s2/favicons?domain=botgroup.chat"
               },
               {
                 "type": "link",
@@ -9062,6 +9062,13 @@
                     "title": "React 的 C 端组件库，原生支持 tailwindCSS，shadcn/ui",
                     "url": "https://ui.shadcn.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=ui.shadcn.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746858292489,
+                    "title": "Pico CSS • Minimal CSS Framework for semantic HTML",
+                    "url": "https://picocss.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=picocss.com"
                   }
                 ]
               },
