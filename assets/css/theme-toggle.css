@@ -13,7 +13,7 @@
 
 /* 主题切换按钮基础样式 */
 .theme-toggle {
-  --speed: 0.25s;
+  --speed: var(--duration-base); /* Use global variable */
   appearance: none;
   padding: 0;
   font-size: 1rem;
@@ -31,7 +31,7 @@
   width: calc(1rem + 15px + 6px);
   position: relative;
   overflow: hidden;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default);
   will-change: background-color, transform;
 }
 
@@ -39,7 +39,7 @@
 .theme-toggle svg {
   width: calc(1rem + 4px);
   height: calc(1rem + 4px);
-  transition: all 0.2s ease;
+  transition: all var(--duration-base) var(--ease-default);
   z-index: 3;
 }
 
@@ -49,7 +49,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default);
   will-change: opacity, transform;
 }
 
@@ -72,7 +72,7 @@
   mask: radial-gradient(farthest-side at 50% calc(100% - 0.3em), #000 85%, #0000);
   opacity: 0;
   transform: translate(0, 100%);
-  transition: transform var(--speed), opacity var(--speed);
+  transition: transform var(--speed) var(--ease-default), opacity var(--speed) var(--ease-default);
 }
 
 /* 月亮/地面效果 - 伪元素 */
@@ -96,7 +96,7 @@
     repeating-conic-gradient(at 50% 0, #fff0 27%, #fff var(--sunray1)),
     radial-gradient(farthest-side, #0128 60%, #0123 70%, #eee 99%);
   transform: translate(0, 65%);
-  transition: transform var(--speed), box-shadow var(--speed), --sunray1 var(--speed), --sunlight var(--speed);
+  transition: transform var(--speed) var(--ease-default), box-shadow var(--speed) var(--ease-default), --sunray1 var(--speed) var(--ease-default), --sunlight var(--speed) var(--ease-default);
 }
 
 /* 亮色主题状态 */
@@ -158,7 +158,7 @@
 
 /* 为按钮添加一个包装器来实现缩放效果，不影响内部元素 */
 .theme-toggle::before, .theme-toggle::after {
-  transition: transform var(--speed), opacity var(--speed), --sunray1 var(--speed), --sunlight var(--speed), box-shadow var(--speed);
+  transition: transform var(--speed) var(--ease-default), opacity var(--speed) var(--ease-default), --sunray1 var(--speed) var(--ease-default), --sunlight var(--speed) var(--ease-default), box-shadow var(--speed) var(--ease-default);
 }
 
 .theme-toggle:hover .sun {

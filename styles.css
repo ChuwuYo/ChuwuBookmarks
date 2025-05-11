@@ -1,8 +1,18 @@
 /* 主题变量定义 */
 :root {
     /* 通用过渡效果 - 优化过渡时间和属性 */
-    --transition-normal: background-color 0.2s ease, color 0.2s ease;
-    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default); /* Keep for theme-specific bg/color */
+    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1); /* Existing ease function */
+
+    /* NEW Transition Variables */
+    --duration-short: 0.15s;
+    --duration-base: 0.2s;
+    --duration-medium: 0.3s;
+    --duration-long: 0.5s;
+
+    --ease-in-out-cubic: var(--cubic-bezier); /* Alias for clarity */
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-default: ease;
 
     /* 浅色主题默认值 */
     --bg-color: #f8faef;
@@ -43,7 +53,7 @@
 
 /* 全局样式 */
 * {
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -70,7 +80,7 @@
 #search-input:focus ~ .shortcut-hint,
 #search-input:not(:placeholder-shown) ~ .shortcut-hint {
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--duration-base) var(--ease-default);
 }
 
 /* 字体定义 */
@@ -102,27 +112,12 @@ body {
     width: 100%;
 }
 
-/* 背景GIF样式 - 懒加载优化 */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 260px;
-    width: calc(100% - 260px);
-    height: 100vh;
-    background-color: var(--bg-color); /* 先显示背景色 */
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.8;
-    transition: left 0.15s var(--cubic-bezier), width 0.15s var(--cubic-bezier), background-image 0.2s ease;
-    will-change: background-color;
-}
 
 /* 图片懒加载 */
 /* 初始状态：透明 */
 img.lazy-image {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* 平滑过渡效果 */
+    transition: opacity var(--duration-long) ease-in-out; /* 平滑过渡效果 */
 }
 
 /* 加载完成状态：完全不透明 */
@@ -181,9 +176,9 @@ html {
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
-    transition: width 0.2s var(--cubic-bezier),
-        padding 0.2s var(--cubic-bezier),
-        background-color 0.2s ease;
+    transition: width var(--duration-base) var(--ease-in-out-cubic),
+        padding var(--duration-base) var(--ease-in-out-cubic),
+        background-color var(--duration-base) var(--ease-default);
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
@@ -248,7 +243,7 @@ html {
     font-size: 1.15rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default);
     border-radius: 4px;
 }
 
@@ -256,7 +251,6 @@ html {
     background: var(--hover-bg);
     box-shadow: 16px 6px 12px rgba(0, 0, 0, 0.3); /* 增加阴影的扩散范围和透明度 */
     transform: translateY(-2px) scale(1.05);
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* 深色主题下的悬停效果 */
@@ -283,8 +277,8 @@ html {
     padding: 20px 20px 20px 40px;
     flex: 1;
     box-sizing: border-box;
-    transition: margin-left 0.2s var(--cubic-bezier), 
-                padding 0.2s var(--cubic-bezier);
+    transition: margin-left var(--duration-base) var(--ease-in-out-cubic), 
+                padding var(--duration-base) var(--ease-in-out-cubic);
     position: relative; /* 添加 position 确保 z-index 生效 */
     z-index: 2; /* 置于 GIF 背景层之上 */
     will-change: margin-left, padding;
@@ -310,7 +304,7 @@ html {
     font-weight: bold;
     text-align: center;
     user-select: none;
-    transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+    transition: left var(--duration-base) var(--ease-in-out-cubic), transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
     opacity: 0;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -326,7 +320,7 @@ html {
     margin-bottom: 20px;
     color: var(--text-color);
     transform: translateZ(0); /* 启用GPU加速 */
-    transition: color 0.2s ease;
+    transition: color var(--duration-base) var(--ease-default);
     will-change: opacity, transform; /* 添加will-change提示浏览器优化 */
 }
 
@@ -358,7 +352,7 @@ body::before {
     z-index: 1;
     pointer-events: none;
     opacity: 0.8;
-    transition: left 0.2s var(--cubic-bezier), width 0.2s var(--cubic-bezier), background-image 0.3s ease;
+    transition: left var(--duration-base) var(--ease-in-out-cubic), width var(--duration-base) var(--ease-in-out-cubic), background-image var(--duration-medium) var(--ease-default);
     will-change: left, width, background-image; /* 添加will-change提示浏览器优化 */
     contain: layout paint; /* 包含布局和绘制变化，提高性能 */
 }
@@ -401,7 +395,7 @@ body::before {
     display: inline-block;
     margin: 0 4px 4px 0;
     user-select: none;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, text-decoration 0.2s ease;
+    transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default), text-decoration var(--duration-base) var(--ease-default);
     /* 允许键盘焦点 */
     outline: none;
     will-change: transform, background;
@@ -467,7 +461,7 @@ body::before {
     -webkit-touch-callout: none;
     backface-visibility: hidden;
     transform: translateZ(0); /* 优化渲染 */
-    transition: transform 0.2s ease, background 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    transition: transform var(--duration-base) var(--ease-default), background var(--duration-base) var(--ease-in-out-cubic), box-shadow var(--duration-base) var(--ease-default);
     width: fit-content;       /* 宽度适应内容 */
 }
 
@@ -482,7 +476,7 @@ body::before {
     font-size: 1.0rem;
     padding: 0.25rem 0.5rem; /* 内边距，增加点击区域 */
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--duration-base) var(--ease-default);
     border-radius: 4px;
 }
 
@@ -495,7 +489,7 @@ body::before {
 
 /* 书签 (#content .bookmark) 特有样式 */
 #content .bookmark {
-    transition: transform 0.15s ease;
+    transition: transform var(--duration-short) var(--ease-default);
 }
 
 /* 书签悬停效果 (轻微上移) */
