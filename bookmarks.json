@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1746885820487,
+    "addDate": 1746954906133,
     "title": "书签栏",
     "children": [
       {
@@ -5095,6 +5095,13 @@
                 "title": "最佳 BrowserScan 指纹检测工具 - 提高您的在线隐私安全 | BrowserScan",
                 "url": "https://www.browserscan.net/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=www.browserscan.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1746889162637,
+                "title": "地址工具",
+                "url": "https://addr.tools/",
+                "icon": "https://www.google.com/s2/favicons?domain=addr.tools"
               }
             ]
           },
