@@ -2,6 +2,20 @@
  * 主题、设备适配、渲染和搜索功能模块
  */
 
+const animationConfig = {
+    duration: {
+        short: 0.15,
+        base: 0.2,
+        medium: 0.3,
+        long: 0.5,
+    },
+    ease: {
+        inOutCubic: "cubic-bezier(0.4, 0, 0.2, 1)",
+        outQuad: "power1.out",
+        default: "ease",
+    }
+};
+
 /** 主题相关 */
 const initTheme = () => {
     const theme = localStorage.getItem('theme') || 'light';
@@ -79,8 +93,8 @@ const updateSidebarState = (sidebar, isCollapsed) => {
                 gsap.to(folder, {
                     opacity: 1,
                     delay: index * 0.05, // 添加延迟以实现顺序动画
-                    duration: 0.3,
-                    ease: "power1.out"
+                    duration: animationConfig.duration.medium, // 0.3s
+                    ease: animationConfig.ease.outQuad       // "power1.out"
                 });
             });
         }
@@ -94,30 +108,29 @@ const handleMobileView = () => {
     updateSidebarState(sidebar, isMobile);
 };
 
-const adjustHomeMessagePosition = (isCollapsed) => {
+const adjustHomeMessagePosition = (isCollapsed) => { // The isCollapsed parameter is kept for signature compatibility with callers,
+                                                      // but its value is not directly used for positioning logic when window.innerWidth >= 768px,
+                                                      // as CSS handles that based on the .collapsed class on the sidebar.
     const homeMessage = document.querySelector('.home-message');
     const searchContainer = document.querySelector('.search-container');
-    
+
     if (homeMessage || searchContainer) {
-        if (!isMobileDevice()) {
-            // 统一主页消息和搜索容器的位置调整逻辑
-            const newPosition = isCollapsed ? '50%' : 'calc(50% + 110px)';
-            
-            if (homeMessage) {
-                homeMessage.style.left = newPosition;
-            }
-            
-            if (searchContainer) {
-                searchContainer.style.left = newPosition;
-            }
-        } else {
-            // 在移动设备上始终居中
+        if (window.innerWidth < 768) {
+            // For screens narrower than 768px, JavaScript sets 'left' to 50% for centering.
             if (homeMessage) {
                 homeMessage.style.left = '50%';
             }
-            
             if (searchContainer) {
                 searchContainer.style.left = '50%';
+            }
+        } else {
+            // For screens 768px and wider, CSS rules will handle the 'left' positioning.
+            // Clear any inline 'left' style set by JavaScript to allow CSS to take precedence.
+            if (homeMessage) {
+                homeMessage.style.left = '';
+            }
+            if (searchContainer) {
+                searchContainer.style.left = '';
             }
         }
     }
@@ -162,8 +175,8 @@ const renderHome = () => {
     // 主容器淡入 - 进一步减少延迟
     masterTimeline.to('.home-message', {
         opacity: 1,
-        duration: 0.3,  // 从0.5减少到0.3
-        ease: "power1.out"  // 使用更简单的缓动函数
+        duration: animationConfig.duration.medium,  // 从0.5减少到0.3
+        ease: animationConfig.ease.outQuad  // 使用更简单的缓动函数
     });
 
     // 简化中文和英文文本动画 - 移除重复的动画
@@ -171,16 +184,16 @@ const renderHome = () => {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: 0.5,  // 从0.8减少到0.5
-        ease: "power1.out"
+        duration: animationConfig.duration.long,  // 从0.8减少到0.5
+        ease: animationConfig.ease.outQuad
     }, "-=0.2");  // 从-0.3改为-0.2
 
     masterTimeline.to('.english-text', {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: 0.5,  // 从0.8减少到0.5
-        ease: "power1.out"
+        duration: animationConfig.duration.long,  // 从0.8减少到0.5
+        ease: animationConfig.ease.outQuad
     }, "-=0.3");  // 从-0.6改为-0.3
 
     // 移除重复的动画部分

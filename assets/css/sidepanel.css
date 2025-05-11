@@ -14,7 +14,10 @@
     user-select: none;
     /* 允许键盘焦点操作 */
     outline: none;
-    transition: left 0.2s var(--cubic-bezier), border-radius 0.3s var(--cubic-bezier), box-shadow 0.3s ease, transform 0.3s ease;
+    transition: left var(--duration-base) var(--ease-in-out-cubic), 
+                border-radius var(--duration-medium) var(--ease-in-out-cubic), 
+                box-shadow var(--duration-medium) var(--ease-default), 
+                transform var(--duration-medium) var(--ease-default);
     will-change: transform, left;
     contain: layout;
     transform: translateZ(0);
@@ -30,7 +33,7 @@
     width: 24px;
     height: 24px;
     color: var(--text-color);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color var(--duration-medium) var(--ease-default), transform var(--duration-medium) var(--ease-default);
     display: none; /* 默认隐藏所有图标 */
     position: relative; /* 添加定位上下文 */
     top: 0; /* 重置垂直位置 */
