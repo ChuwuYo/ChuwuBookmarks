@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1746954906133,
+    "addDate": 1747048702410,
     "title": "书签栏",
     "children": [
       {
@@ -36,6 +36,13 @@
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
+          },
+          {
+            "type": "link",
+            "addDate": 1704012714000,
+            "title": "Browse :: Nyaa(爬墙",
+            "url": "https://nyaa.si/",
+            "icon": "https://www.google.com/s2/favicons?domain=nyaa.si"
           },
           {
             "type": "link",
@@ -1063,6 +1070,13 @@
                 "title": "PCL-Community/PCL2-CE: PCL2 社区版，可体验上游暂未合并的功能",
                 "url": "https://github.com/PCL-Community/PCL2-CE",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747022237851,
+                "title": "Download the Modrinth App!",
+                "url": "https://modrinth.com/app",
+                "icon": "https://www.google.com/s2/favicons?domain=modrinth.com"
               }
             ]
           },
@@ -10194,6 +10208,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1746967753161,
+                "title": "Kuakua 心理学探索 | 发现心理学网站、应用程序和AI工具",
+                "url": "https://kuakua.app/zh-CN/explore",
+                "icon": "https://www.google.com/s2/favicons?domain=kuakua.app"
+              },
+              {
+                "type": "link",
                 "addDate": 1720503216852,
                 "title": "雨日青精神坊",
                 "url": "https://www.mypsychiatry.cn/",
@@ -10494,6 +10515,13 @@
             "title": "这就是VV;表情包",
             "url": "https://vv.cicada000.work/",
             "icon": "https://www.google.com/s2/favicons?domain=vv.cicada000.work"
+          },
+          {
+            "type": "link",
+            "addDate": 1747011520078,
+            "title": "AutoDraw",
+            "url": "https://www.autodraw.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.autodraw.com"
           }
         ]
       }
