@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747048702410,
+    "addDate": 1747150877730,
     "title": "书签栏",
     "children": [
       {
@@ -3472,6 +3472,13 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1742657174064,
+                    "title": "Obsidian - Sharpen your thinking",
+                    "url": "https://obsidian.md/",
+                    "icon": "https://www.google.com/s2/favicons?domain=obsidian.md"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1717330070045,
                     "title": "墨屉 — 终身知识，深入脑海",
                     "url": "https://oflg.github.io/Tidme/manual/zh-Hans",
@@ -3507,13 +3514,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1742657174064,
-                    "title": "Obsidian - Sharpen your thinking",
-                    "url": "https://obsidian.md/",
-                    "icon": "https://www.google.com/s2/favicons?domain=obsidian.md"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1742657196681,
                     "title": "byxiaozhi/Typedown: A markdown editor",
                     "url": "https://github.com/byxiaozhi/Typedown",
@@ -3538,6 +3538,20 @@
                     "addDate": 1746181015198,
                     "title": "flxzt/rnote: Sketch and take handwritten notes.",
                     "url": "https://github.com/flxzt/rnote",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747054385114,
+                    "title": "anyproto/anytype-ts: Official Anytype client for MacOS, Linux, and Windows",
+                    "url": "https://github.com/anyproto/anytype-ts",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747054535741,
+                    "title": "marktext/marktext: 📝A simple and elegant markdown editor, available for Linux, macOS and Windows.",
+                    "url": "https://github.com/marktext/marktext",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -9099,13 +9113,6 @@
                 "title": "21st.dev – The NPM for Design Engineers",
                 "url": "https://21st.dev/",
                 "icon": "https://www.google.com/s2/favicons?domain=21st.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1743189375125,
-                "title": "Code Info | HTML CSS JavaScript - Web Development",
-                "url": "https://www.codeinfoweb.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.codeinfoweb.com"
               },
               {
                 "type": "link",
