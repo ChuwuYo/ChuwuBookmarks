@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747267758031,
+    "addDate": 1747321148056,
     "title": "书签栏",
     "children": [
       {
@@ -3553,6 +3553,20 @@
                     "title": "marktext/marktext: 📝A simple and elegant markdown editor, available for Linux, macOS and Windows.",
                     "url": "https://github.com/marktext/marktext",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747304361307,
+                    "title": "chinayangxiaowei/marktext-chinese-language-pack: Simplified Chinese language pack for marktext",
+                    "url": "https://github.com/chinayangxiaowei/marktext-chinese-language-pack",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747321067323,
+                    "title": "ZDocs - 一款基于 PHP 的开源文档系统",
+                    "url": "https://zdocs.zdr.ac/article-1.html",
+                    "icon": "https://www.google.com/s2/favicons?domain=zdocs.zdr.ac"
                   }
                 ]
               },
@@ -6278,6 +6292,13 @@
                 "title": "分离伴奏Clear - Realtime Audio Filter",
                 "url": "https://clear.youdao.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=clear.youdao.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747321118106,
+                "title": "NovaMSS | 新一代音乐源分离工具",
+                "url": "https://novamss.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=novamss.com"
               }
             ]
           },
@@ -7596,6 +7617,13 @@
             "title": "短网址Bitly | Link Dashboard",
             "url": "https://app.bitly.com/Bp59bUJ5tJv/home",
             "icon": "https://www.google.com/s2/favicons?domain=app.bitly.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1747303941692,
+            "title": "Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files",
+            "url": "https://github.com/Stirling-Tools/Stirling-PDF",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       },
@@ -8322,6 +8350,13 @@
                 "title": "Logo-creator.io – Generate a logo",
                 "url": "https://www.logo-creator.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.logo-creator.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1747321027415,
+                "title": "拖拽生成vue3,UI2VUE",
+                "url": "https://ui2vue.cn/EditerPage",
+                "icon": "https://www.google.com/s2/favicons?domain=ui2vue.cn"
               }
             ]
           },
@@ -9421,6 +9456,13 @@
                 "title": "免费IP归属地查询API - 免费IP归属地查询",
                 "url": "https://ip9-api.apifox.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=ip9-api.apifox.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1747299151185,
+                "title": "public-apis/public-apis: A collective list of free APIs",
+                "url": "https://github.com/public-apis/public-apis",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
