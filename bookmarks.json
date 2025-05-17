@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747371101261,
+    "addDate": 1747492442836,
     "title": "书签栏",
     "children": [
       {
@@ -4312,85 +4312,8 @@
       {
         "type": "folder",
         "addDate": 1704014875984,
-        "title": "欣赏（景,画,地图）",
+        "title": "欣赏",
         "children": [
-          {
-            "type": "folder",
-            "addDate": 1740980512052,
-            "title": "地图",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "卫星地图-Google Earth高清卫星地图-谷歌地图-地球在线",
-                "url": "https://www.earthol.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.earthol.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Google 地图",
-                "url": "https://www.google.com.hk/maps/?hl=zh-CN",
-                "icon": "https://www.google.com/s2/favicons?domain=www.google.com.hk"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Bing 地图 - 路线、旅程规划、交通摄像头等",
-                "url": "https://www.bing.com/maps/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.bing.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1709633572176,
-                "title": "51Earth",
-                "url": "https://51earth.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=51earth.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Google Earth",
-                "url": "https://earth.google.com/web/",
-                "icon": "https://www.google.com/s2/favicons?domain=earth.google.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1726068511922,
-                "title": "openstreetmap.org",
-                "url": "https://www.openstreetmap.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.openstreetmap.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Airpano",
-                "url": "https://www.airpano.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.airpano.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1745720771364,
-                "title": "OMap–GeoDB九州数据库",
-                "url": "https://his.lreept.space/openqgis/omap-geodb/",
-                "icon": "https://www.google.com/s2/favicons?domain=his.lreept.space"
-              },
-              {
-                "type": "link",
-                "addDate": 1746542773029,
-                "title": "3D地图Pathfinder",
-                "url": "https://pathfinder.shadowdev.xyz/",
-                "icon": "https://www.google.com/s2/favicons?domain=pathfinder.shadowdev.xyz"
-              },
-              {
-                "type": "link",
-                "addDate": 1746543195115,
-                "title": "带有山脉信息的地图Map Viewer",
-                "url": "https://www.arcgis.com/apps/mapviewer/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=www.arcgis.com"
-              }
-            ]
-          },
           {
             "type": "folder",
             "addDate": 1740980583602,
@@ -4846,13 +4769,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1720855458639,
-                "title": "首页 - 倾城极速",
-                "url": "https://wcnmdmht.biz/#/home",
-                "icon": "https://www.google.com/s2/favicons?domain=wcnmdmht.biz"
-              },
-              {
-                "type": "link",
                 "addDate": 1724771392720,
                 "title": "Mitce Professional Network - Mitce",
                 "url": "https://mitce.com/index.php",
@@ -4874,13 +4790,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1729050576586,
-                "title": "避风港",
-                "url": "https://a.bfgbfg.com/auth/login",
-                "icon": "https://www.google.com/s2/favicons?domain=a.bfgbfg.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1731421553147,
                 "title": "注册账户 - 魔戒.net",
                 "url": "https://mojie.app/login",
@@ -4899,13 +4808,6 @@
                 "title": "登入 | Mujika Network",
                 "url": "https://www.mujika.cloud/zh/#/auth/login",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mujika.cloud"
-              },
-              {
-                "type": "link",
-                "addDate": 1733045006782,
-                "title": "登录 - XFLTD",
-                "url": "https://xfltd.cc/",
-                "icon": "https://www.google.com/s2/favicons?domain=xfltd.cc"
               },
               {
                 "type": "link",
@@ -4948,6 +4850,13 @@
                 "title": "农夫山泉",
                 "url": "https://www.nfsq.us/#/login",
                 "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
+              },
+              {
+                "type": "link",
+                "addDate": 1747380010333,
+                "title": "倾城极速",
+                "url": "https://www.qcjs.ovh/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.qcjs.ovh"
               }
             ]
           },
@@ -8441,6 +8350,13 @@
                 "title": "计算机视觉实战演练：算法与应用🌱",
                 "url": "https://charmve.github.io/computer-vision-in-action/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=charmve.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1747465502361,
+                "title": "Get started | daily.dev",
+                "url": "https://app.daily.dev/onboarding",
+                "icon": "https://www.google.com/s2/favicons?domain=app.daily.dev"
               }
             ]
           },
@@ -8597,13 +8513,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "Anaconda | The World’s Most Popular Data Science Platform",
-                    "url": "https://www.anaconda.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.anaconda.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "小熊猫C++",
                     "url": "https://royqh.net/redpandacpp/",
                     "icon": "https://www.google.com/s2/favicons?domain=royqh.net"
@@ -8614,13 +8523,6 @@
                     "title": "Cursor - The AI-first Code Editor",
                     "url": "https://cursor.sh/",
                     "icon": "https://www.google.com/s2/favicons?domain=cursor.sh"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1720015635259,
-                    "title": "MDK5.29，5.30，5.31，5.32，5.33, 5.34，5.35, 5.36, 5.37和各种pack软件包镜像下载（2022-05-04）_arm.mbedtls.1.6.0.pack下载-CSDN博客",
-                    "url": "https://blog.csdn.net/Simon223/article/details/105090189/?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-4.nonecase&depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-4.nonecase",
-                    "icon": "https://www.google.com/s2/favicons?domain=blog.csdn.net"
                   },
                   {
                     "type": "link",
@@ -8712,6 +8614,13 @@
                     "title": "Java Download | Java 8, Java 11, Java 17, Java 21, Java 23 - OpenJDK Builds for Linux, Windows & macOS",
                     "url": "https://bell-sw.com/pages/downloads/#jdk-21-lts",
                     "icon": "https://www.google.com/s2/favicons?domain=bell-sw.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Anaconda | The World’s Most Popular Data Science Platform",
+                    "url": "https://www.anaconda.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.anaconda.com"
                   }
                 ]
               },
@@ -9029,6 +8938,27 @@
                 "title": "Firebase Studio",
                 "url": "https://firebase.studio/",
                 "icon": "https://www.google.com/s2/favicons?domain=firebase.studio"
+              },
+              {
+                "type": "link",
+                "addDate": 1747411732279,
+                "title": "Amp - an AI coding agent built by Sourcegraph",
+                "url": "https://sourcegraph.com/amp",
+                "icon": "https://www.google.com/s2/favicons?domain=sourcegraph.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747411835926,
+                "title": "Cline - AI Autonomous Coding Agent for VS Code",
+                "url": "https://cline.bot/",
+                "icon": "https://www.google.com/s2/favicons?domain=cline.bot"
+              },
+              {
+                "type": "link",
+                "addDate": 1747411873542,
+                "title": "Roo Code – Your AI-Powered Dev Team in VS Code",
+                "url": "https://roocode.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=roocode.com"
               }
             ]
           },
@@ -10416,6 +10346,90 @@
             "addDate": 1738681197381,
             "title": "旅行",
             "children": [
+              {
+                "type": "folder",
+                "addDate": 1740980512052,
+                "title": "地图",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "卫星地图-Google Earth高清卫星地图-谷歌地图-地球在线",
+                    "url": "https://www.earthol.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.earthol.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Google 地图",
+                    "url": "https://www.google.com.hk/maps/?hl=zh-CN",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.google.com.hk"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Bing 地图 - 路线、旅程规划、交通摄像头等",
+                    "url": "https://www.bing.com/maps/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.bing.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1709633572176,
+                    "title": "51Earth",
+                    "url": "https://51earth.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=51earth.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Google Earth",
+                    "url": "https://earth.google.com/web/",
+                    "icon": "https://www.google.com/s2/favicons?domain=earth.google.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1726068511922,
+                    "title": "openstreetmap.org",
+                    "url": "https://www.openstreetmap.org/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.openstreetmap.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Airpano",
+                    "url": "https://www.airpano.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.airpano.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745720771364,
+                    "title": "OMap–GeoDB九州数据库",
+                    "url": "https://his.lreept.space/openqgis/omap-geodb/",
+                    "icon": "https://www.google.com/s2/favicons?domain=his.lreept.space"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746542773029,
+                    "title": "3D地图Pathfinder",
+                    "url": "https://pathfinder.shadowdev.xyz/",
+                    "icon": "https://www.google.com/s2/favicons?domain=pathfinder.shadowdev.xyz"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746543195115,
+                    "title": "带有山脉信息的地图Map Viewer",
+                    "url": "https://www.arcgis.com/apps/mapviewer/index.html",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.arcgis.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747470505204,
+                    "title": "OsmAnd Map",
+                    "url": "https://osmand.net/map/#5/50.000/5.000",
+                    "icon": "https://www.google.com/s2/favicons?domain=osmand.net"
+                  }
+                ]
+              },
               {
                 "type": "link",
                 "addDate": 1730714782387,
