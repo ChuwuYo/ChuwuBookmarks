@@ -27,35 +27,11 @@ const initLazyLoading = () => {
                     lazyImage.src = lazyImage.dataset.src;
                     
                     // 图片加载完成后的处理
-                    lazyImage.onload = function() {
-                        // 移除可能存在的占位符文本（如果父元素是 .bookmark-icon）
-                        if (lazyImage.parentNode && lazyImage.parentNode.classList.contains('bookmark-icon')) {
-                            // 检查并移除文本节点，避免影响其他可能的子元素
-                            Array.from(lazyImage.parentNode.childNodes).forEach(node => {
-                                if (node.nodeType === Node.TEXT_NODE) {
-                                    node.textContent = '';
-                                }
-                            });
-                            // 确保图片在父元素内可见
-                            lazyImage.parentNode.appendChild(lazyImage);
-                        }
-
-                        // 标记图片为已加载，并移除懒加载状态类，添加过渡效果类
-                        lazyImage.classList.remove('lazy-image');
-                        lazyImage.classList.add('loaded'); // 添加 'loaded' 类以触发 CSS 过渡
-                        lazyImage.style.display = ''; // 确保图片可见
-                    };
+                    handleImageLoadSuccess(lazyImage);
                     
                     // 图片加载失败的处理
                     lazyImage.onerror = function() {
-                        console.error(`图片加载失败: ${this.dataset.src}`);
-                        // 设置为默认错误图片
-                        this.src = DEFAULT_ERROR_IMAGE;
-                        // 移除懒加载类，添加错误标记类
-                        this.classList.remove('lazy-image');
-                        this.classList.add('load-error');
-                        // 移除 onerror 处理程序，防止因错误图片也加载失败而无限循环
-                        this.onerror = null; 
+                        handleImageLoadError(this);
                     };
                 }
                 
@@ -97,6 +73,49 @@ const loadAllImages = () => {
  * @param {HTMLImageElement} img - 需要观察的图片元素。
  * @param {IntersectionObserver} [observer] - 观察者实例。如果未提供，则尝试使用全局实例。
  */
+/**
+ * 处理图片加载成功。
+ * @param {HTMLImageElement} img - 加载成功的图片元素。
+ */
+const handleImageLoadSuccess = (img) => {
+    // 移除可能存在的占位符文本（如果父元素是 .bookmark-icon）
+    if (img.parentNode && img.parentNode.classList.contains('bookmark-icon')) {
+        // 检查并移除文本节点，避免影响其他可能的子元素
+        Array.from(img.parentNode.childNodes).forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                node.textContent = '';
+            }
+        });
+        // 确保图片在父元素内可见
+        img.parentNode.appendChild(img);
+    }
+
+    // 标记图片为已加载，并移除懒加载状态类，添加过渡效果类
+    img.classList.remove('lazy-image');
+    img.classList.add('loaded'); // 添加 'loaded' 类以触发 CSS 过渡
+    img.style.display = ''; // 确保图片可见
+};
+
+/**
+ * 处理图片加载失败。
+ * @param {HTMLImageElement} img - 加载失败的图片元素。
+ */
+const handleImageLoadError = (img) => {
+    console.error(`图片加载失败: ${img.dataset.src}`);
+    // 设置为默认错误图片
+    img.src = DEFAULT_ERROR_IMAGE;
+    // 移除懒加载类，添加错误标记类
+    img.classList.remove('lazy-image');
+    img.classList.add('load-error');
+    // 移除 onerror 处理程序，防止因错误图片也加载失败而无限循环
+    img.onerror = null; 
+};
+
+/**
+ * 观察动态添加到 DOM 中的新图片。
+ * @param {HTMLImageElement} img - 需要观察的图片元素。
+ * @param {IntersectionObserver} [observer] - 观察者实例。如果未提供，则尝试使用全局实例。
+ */
 const observeNewImage = (img, observer) => {
     // 如果未传入 observer，尝试使用全局缓存的 observer
     if (!observer && window.lazyImageObserver) {
@@ -108,20 +127,15 @@ const observeNewImage = (img, observer) => {
         observer.observe(img);
     } else if (!observer) {
         console.warn('Lazy load observer not available for new image.');
-        // 如果观察者不存在，可以选择立即加载或采取其他措施
+        // 如果观察者不存在，立即加载图片并处理加载结果
         if (img.dataset.src) {
             img.src = img.dataset.src;
-            img.classList.remove('lazy-image');
+            img.onload = () => handleImageLoadSuccess(img);
+            img.onerror = () => handleImageLoadError(img);
         }
     }
 };
-    if (!observer && window.lazyImageObserver) {
-        observer = window.lazyImageObserver;
-    }
-    
-    if (observer && img.classList.contains('lazy-image')) {
-        observer.observe(img);
-    }
+
 
 // 将主要功能暴露到全局 window.lazyLoad 对象下
 window.lazyLoad = {
