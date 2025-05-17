@@ -137,11 +137,6 @@ const adjustHomeMessagePosition = (isCollapsed) => { // The isCollapsed paramete
 };
 
 // 在事件监听中保持调用
-window.addEventListener('resize', () => {
-    handleMobileView();
-    adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
-});
-
 /** 渲染相关 */
 const renderHome = () => {
     const content = document.getElementById('content');
@@ -850,11 +845,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(lazyLoadBackgroundImage, 100);
 });
 
-window.addEventListener('resize', () => {
-    handleMobileView();
-    adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
-});
-
 // 简化 FastClick 初始化，避免嵌套的事件监听器
 document.addEventListener('DOMContentLoaded', function () {
     if (typeof FastClick !== 'undefined') {
@@ -867,6 +857,10 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             document.getElementById('search-input').focus();
         }
+    });
+    window.addEventListener('resize', () => {
+        handleMobileView();
+        adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
     });
 });
 
