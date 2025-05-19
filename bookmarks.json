@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747492442836,
+    "addDate": 1747616826920,
     "title": "书签栏",
     "children": [
       {
@@ -4570,6 +4570,13 @@
                 "title": "pexels免费素材",
                 "url": "https://www.pexels.com/zh-cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.pexels.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747494311567,
+                "title": "Lummi — Free AI Stock Images, Illustrations & 3D",
+                "url": "https://www.lummi.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.lummi.ai"
               }
             ]
           },
@@ -8994,6 +9001,13 @@
                 "title": "半导小芯-芯片查询工具_芯片替代查询_数据手册查询_规格书查询_datasheet查询_IC查询_国产替代",
                 "url": "https://www.semiee.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.semiee.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747616176829,
+                "title": "51黑电子论坛-单片机 电子制作DIY MCU 嵌入式技术学习",
+                "url": "http://www.51hei.com/bbs/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.51hei.com"
               }
             ]
           },
@@ -10130,6 +10144,41 @@
             "title": "医学健康",
             "children": [
               {
+                "type": "folder",
+                "addDate": 1747494190453,
+                "title": "精神心理",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1746967753161,
+                    "title": "Kuakua 心理学探索 | 发现心理学网站、应用程序和AI工具",
+                    "url": "https://kuakua.app/zh-CN/explore",
+                    "icon": "https://www.google.com/s2/favicons?domain=kuakua.app"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747494171064,
+                    "title": "首页 - MindSeed - 心种子，新力量",
+                    "url": "https://www.mindseed.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.mindseed.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1720503216852,
+                    "title": "雨日青精神坊",
+                    "url": "https://www.mypsychiatry.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.mypsychiatry.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1712895367976,
+                    "title": "你是否继承了父母的痛苦？丨家庭代际创伤的识别与应对-心理学文章-壹心理",
+                    "url": "https://www.xinli001.com/info/100493930",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.xinli001.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "《默沙东诊疗手册大众版》",
@@ -10163,27 +10212,6 @@
                 "title": "全美医院，排名第1 - 妙佑医疗国际",
                 "url": "https://www.mayoclinic.org/zh-hans",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mayoclinic.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1712895367976,
-                "title": "你是否继承了父母的痛苦？丨家庭代际创伤的识别与应对-心理学文章-壹心理",
-                "url": "https://www.xinli001.com/info/100493930",
-                "icon": "https://www.google.com/s2/favicons?domain=www.xinli001.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1746967753161,
-                "title": "Kuakua 心理学探索 | 发现心理学网站、应用程序和AI工具",
-                "url": "https://kuakua.app/zh-CN/explore",
-                "icon": "https://www.google.com/s2/favicons?domain=kuakua.app"
-              },
-              {
-                "type": "link",
-                "addDate": 1720503216852,
-                "title": "雨日青精神坊",
-                "url": "https://www.mypsychiatry.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.mypsychiatry.cn"
               },
               {
                 "type": "link",
