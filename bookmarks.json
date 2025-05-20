@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747616826920,
+    "addDate": 1747722512823,
     "title": "书签栏",
     "children": [
       {
@@ -5212,13 +5212,6 @@
           },
           {
             "type": "link",
-            "addDate": 1735404558488,
-            "title": "Trade-Free Directory",
-            "url": "https://www.directory.trade-free.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.directory.trade-free.org"
-          },
-          {
-            "type": "link",
             "addDate": 1736405992355,
             "title": "花猫导航 - 实用网站大全导航，尽在huamao.vip",
             "url": "https://huamao.vip/",
@@ -5272,13 +5265,6 @@
             "title": "1000UserGuide",
             "url": "https://1000userguide.com/#/?id=%f0%9f%8c%90%e5%9b%bd%e5%86%85%e7%bd%91%e7%ab%99",
             "icon": "https://www.google.com/s2/favicons?domain=1000userguide.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1744902432350,
-            "title": "整理下一些公共服务镜像 | lm379のBlog",
-            "url": "https://lm379.cn/2024/06/14/%E9%83%A8%E5%88%86%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E9%95%9C%E5%83%8F/",
-            "icon": "https://www.google.com/s2/favicons?domain=lm379.cn"
           },
           {
             "type": "link",
@@ -9004,10 +8990,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1747616176829,
-                "title": "51黑电子论坛-单片机 电子制作DIY MCU 嵌入式技术学习",
-                "url": "http://www.51hei.com/bbs/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.51hei.com"
+                "addDate": 1747706014469,
+                "title": "冬瓜HAOS",
+                "url": "https://www.wghaos.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wghaos.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747709078089,
+                "title": "HomeAssistant论坛 | HomeKit论坛 | Node-Red论坛 | ESPHome论坛-『瀚思彼岸』» 智能家居技术论坛！ - Powered by Discuz!",
+                "url": "https://bbs.hassbian.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=bbs.hassbian.com"
               }
             ]
           },
@@ -9309,6 +9302,13 @@
                 "title": "Template0 - Explore and Share Free Templates",
                 "url": "https://template0.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=template0.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744902432350,
+                "title": "整理下一些公共服务镜像 | lm379のBlog",
+                "url": "https://lm379.cn/2024/06/14/%E9%83%A8%E5%88%86%E5%85%AC%E5%85%B1%E6%9C%8D%E5%8A%A1%E9%95%9C%E5%83%8F/",
+                "icon": "https://www.google.com/s2/favicons?domain=lm379.cn"
               }
             ]
           },
