@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747722512823,
+    "addDate": 1747789928462,
     "title": "书签栏",
     "children": [
       {
@@ -2157,6 +2157,20 @@
             "title": "Home | AList文档",
             "url": "https://alist.nn.ci/zh/",
             "icon": "https://www.google.com/s2/favicons?domain=alist.nn.ci"
+          },
+          {
+            "type": "link",
+            "addDate": 1747723153975,
+            "title": "OnionShare",
+            "url": "https://onionshare.org/",
+            "icon": "https://www.google.com/s2/favicons?domain=onionshare.org"
+          },
+          {
+            "type": "link",
+            "addDate": 1747723230743,
+            "title": "Telegraph(备用graph.org)",
+            "url": "https://telegra.ph/",
+            "icon": "https://www.google.com/s2/favicons?domain=telegra.ph"
           }
         ]
       },
@@ -4944,6 +4958,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1747722988786,
+                "title": "蓝灯 | 开启完整的互联网",
+                "url": "https://lantern.io/zh-Hans",
+                "icon": "https://www.google.com/s2/favicons?domain=lantern.io"
+              },
+              {
+                "type": "link",
                 "addDate": 1715611603678,
                 "title": "迷雾通",
                 "url": "https://geph.io/zhs",
@@ -4951,17 +4972,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1727076101923,
-                "title": "FlClash: A multi-platform proxy client based on ClashMeta,simple and easy to use, open-source and ad-free.",
-                "url": "https://github.com/chen08209/FlClash",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1729674195748,
                 "title": "小地球仪",
                 "url": "https://www.xiaodiqiuyi.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xiaodiqiuyi.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1727076101923,
+                "title": "FlClash: A multi-platform proxy client based on ClashMeta,simple and easy to use, open-source and ad-free.",
+                "url": "https://github.com/chen08209/FlClash",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
@@ -5028,13 +5049,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1744902752733,
-                "title": "字节跳动网络诊断工具",
-                "url": "https://diting.bytedance.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=diting.bytedance.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1745980306405,
                 "title": "My IP | IP Address Tools | IP Geolocation | Website Traffic Checker",
                 "url": "https://www.ipaddress.com/",
@@ -5067,6 +5081,34 @@
                 "title": "地址工具",
                 "url": "https://addr.tools/",
                 "icon": "https://www.google.com/s2/favicons?domain=addr.tools"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723486415,
+                "title": "浏览器指纹检测Am I Unique ?",
+                "url": "https://amiunique.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=amiunique.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723520898,
+                "title": "DNS leak test",
+                "url": "https://www.dnsleaktest.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.dnsleaktest.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723547341,
+                "title": "Browserleaks - Check your browser for privacy leaks",
+                "url": "https://browserleaks.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=browserleaks.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723585250,
+                "title": "Device Info - Web browser security, privacy, and troubleshooting tool.",
+                "url": "https://www.deviceinfo.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.deviceinfo.me"
               }
             ]
           },
@@ -7272,6 +7314,34 @@
                 "title": "根据真实地址生成虚假身份信息Real Address Generator",
                 "url": "https://realaddress.fuyiran.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=realaddress.fuyiran.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747722868905,
+                "title": "Snowflake",
+                "url": "https://snowflake.torproject.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=snowflake.torproject.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723346982,
+                "title": " NoScript: block scripts and own your browser!",
+                "url": "https://noscript.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=noscript.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723390814,
+                "title": "gorhill/uBlock: uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean.",
+                "url": "https://github.com/gorhill/uBlock#ublock-origin",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723462341,
+                "title": "隐私强化前端重定向LibRedirect",
+                "url": "https://libredirect.github.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=libredirect.github.io"
               }
             ]
           },
@@ -9967,6 +10037,20 @@
                 "title": "Home | Library of Congress",
                 "url": "https://www.loc.gov/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.loc.gov"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723113002,
+                "title": "Webpage archive",
+                "url": "https://archive.md/",
+                "icon": "https://www.google.com/s2/favicons?domain=archive.md"
+              },
+              {
+                "type": "link",
+                "addDate": 1747723128734,
+                "title": "wabarc/wayback: An archiving tool with an IM-style interface that prioritizes privacy and accessibility, integrated with various archival services including Internet Archive, archive.today, Ghostarchive, IPFS, Telegraph, and file systems.",
+                "url": "https://github.com/wabarc/wayback",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
