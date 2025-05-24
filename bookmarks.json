@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1747789928462,
+    "addDate": 1748091474497,
     "title": "书签栏",
     "children": [
       {
@@ -5865,6 +5865,20 @@
                 "title": "MTools - 免费在线开发工具集",
                 "url": "https://monojson.com/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=monojson.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747890975569,
+                "title": "JSON.cn",
+                "url": "https://www.json.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.json.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1747891029927,
+                "title": "工具匠 - 匠心打造的在线工具箱",
+                "url": "https://www.toolkk.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.toolkk.com"
               }
             ]
           },
@@ -6362,6 +6376,20 @@
                 "title": "Grammarly: Free AI Writing Assistance",
                 "url": "https://www.grammarly.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.grammarly.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747818734449,
+                "title": "在线阅读器LITERA Reader",
+                "url": "https://litera-reader.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=litera-reader.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747927351713,
+                "title": "PDF论文在线阅读Moonlight | AI Colleague for Research Papers",
+                "url": "https://www.themoonlight.io/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=www.themoonlight.io"
               }
             ]
           },
@@ -6398,10 +6426,24 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1725877234589,
-                    "title": "GITGPT",
-                    "url": "http://gitgpt.aitop66.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=gitgpt.aitop66.com"
+                    "addDate": 1747790088853,
+                    "title": "GitHub 文件加速代理 - 快速访问 GitHub 文件",
+                    "url": "https://gh-proxy.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=gh-proxy.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747790121806,
+                    "title": "GitHub 文件加速",
+                    "url": "https://ghproxy.net/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ghproxy.net"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747790174977,
+                    "title": "GitHub Proxy 最新地址发布",
+                    "url": "https://ghproxy.link/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ghproxy.link"
                   }
                 ]
               },
@@ -9022,6 +9064,13 @@
                 "title": "Roo Code – Your AI-Powered Dev Team in VS Code",
                 "url": "https://roocode.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=roocode.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747807340571,
+                "title": "Jules",
+                "url": "https://jules.google.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=jules.google.com"
               }
             ]
           },
