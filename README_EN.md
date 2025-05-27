@@ -22,7 +22,7 @@ For users outside mainland China, you can experience the application through the
 
 [Netlify](https://chuwubookmarks.netlify.app/)
 
-[Surge](http://chuwubookmarks.surge.sh/) (version may be ahead or behind)
+[Surge](https://chuwubookmarks.surge.sh/) (version may be ahead or behind)
 
 ***
 
