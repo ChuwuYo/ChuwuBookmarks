@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1748091474497,
+    "addDate": 1748430880494,
     "title": "书签栏",
     "children": [
       {
@@ -790,6 +790,13 @@
                 "title": "NyaFun动漫 - 二次元避风港",
                 "url": "https://www.nyadm.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.nyadm.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1748315351817,
+                "title": "AniCh - 动漫弹幕网",
+                "url": "https://anich.emmmm.eu.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=anich.emmmm.eu.org"
               }
             ]
           },
@@ -2491,20 +2498,6 @@
                 "title": "网易云VIP解析 - 全栈工具 - 免费实用的在线工具网站",
                 "url": "https://tools.qzxdp.cn/wyy_vip",
                 "icon": "https://www.google.com/s2/favicons?domain=tools.qzxdp.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1743503702798,
-                "title": "网易云音乐无损解析工具 · 创空间",
-                "url": "https://www.modelscope.cn/studios/Genius-Society/parser163",
-                "icon": "https://www.google.com/s2/favicons?domain=www.modelscope.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1744781979372,
-                "title": "音乐榜 - 免费无损音乐MP3、FLAC、WAV在线播放下载网站",
-                "url": "https://mp3b.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=mp3b.com"
               },
               {
                 "type": "link",
@@ -5666,9 +5659,9 @@
               {
                 "type": "link",
                 "addDate": 1744900410547,
-                "title": "SpaceSniffer download | SourceForge.net",
-                "url": "https://sourceforge.net/projects/spacesniffer/",
-                "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net"
+                "title": "SpaceSniffer",
+                "url": "https://www.uderzo.it/main_products/space_sniffer/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.uderzo.it"
               },
               {
                 "type": "link",
@@ -7098,20 +7091,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "GPTs Works - Third-party GPTs store --- GPTs Works - 第三方 GPTs 商店",
-                    "url": "https://gpts.works/",
-                    "icon": "https://www.google.com/s2/favicons?domain=gpts.works"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1706613030016,
-                    "title": "GPTsCopilot",
-                    "url": "https://gptscopilot.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=gptscopilot.ai"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1714578572117,
                     "title": "Kaggle: Your Machine Learning and Data Science Community",
                     "url": "https://www.kaggle.com/",
@@ -7119,11 +7098,18 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1706428508526,
-                    "title": "智谱AI开放平台",
-                    "url": "https://open.bigmodel.cn/overview",
-                    "icon": "https://www.google.com/s2/favicons?domain=open.bigmodel.cn"
-                  },
+                    "addDate": 1704012714000,
+                    "title": "FastGPT",
+                    "url": "https://fastgpt.run/",
+                    "icon": "https://www.google.com/s2/favicons?domain=fastgpt.run"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1748185820965,
+                "title": "提示词",
+                "children": [
                   {
                     "type": "link",
                     "addDate": 1717500471578,
@@ -7133,10 +7119,31 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "FastGPT",
-                    "url": "https://fastgpt.run/",
-                    "icon": "https://www.google.com/s2/favicons?domain=fastgpt.run"
+                    "addDate": 1746377280300,
+                    "title": "结构化提示词创建16x Prompt - AI Coding with Advanced Context Management",
+                    "url": "https://prompt.16x.engineer/",
+                    "icon": "https://www.google.com/s2/favicons?domain=prompt.16x.engineer"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1748185865043,
+                    "title": "提示工程指南 |Prompt-Engineering-Guide: 🐙 Guides, papers, lecture, notebooks and resources for prompt engineering",
+                    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1748186198786,
+                    "title": "abilzerian/LLM-Prompt-Library: A playground of highly experimental prompts, tools & scripts for machine intelligence models from Apple, DeepSeek, OpenAI, Anthropic, Meta, Mistral, Google, xAI & others. Created & maintained by Alex Bilzerian.",
+                    "url": "https://github.com/abilzerian/LLM-Prompt-Library",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1748186343260,
+                    "title": "x1xhlol/system-prompts-and-models-of-ai-tools: FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.",
+                    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -7251,13 +7258,6 @@
                 "title": "GithubDeepWiki(仓库理解)",
                 "url": "https://deepwiki.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=deepwiki.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1746377280300,
-                "title": "结构化提示词创建16x Prompt - AI Coding with Advanced Context Management",
-                "url": "https://prompt.16x.engineer/",
-                "icon": "https://www.google.com/s2/favicons?domain=prompt.16x.engineer"
               },
               {
                 "type": "link",
@@ -8322,6 +8322,13 @@
                 "title": "拖拽生成vue3,UI2VUE",
                 "url": "https://ui2vue.cn/EditerPage",
                 "icon": "https://www.google.com/s2/favicons?domain=ui2vue.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1748185724842,
+                "title": "Stitch - Design with AI",
+                "url": "https://stitch.withgoogle.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=stitch.withgoogle.com"
               }
             ]
           },
@@ -8458,10 +8465,31 @@
               },
               {
                 "type": "link",
+                "addDate": 1748245737526,
+                "title": "嵌入式系统 教程 - 菜鸟教程",
+                "url": "https://www.cainiaoya.com/embedded/es-jc.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cainiaoya.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746801663869,
+                "title": "基本语法 | Golang 中文学习文档",
+                "url": "https://golang.halfiisland.com/essential/base/1.grammer.html",
+                "icon": "https://www.google.com/s2/favicons?domain=golang.halfiisland.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1747465502361,
                 "title": "Get started | daily.dev",
                 "url": "https://app.daily.dev/onboarding",
                 "icon": "https://www.google.com/s2/favicons?domain=app.daily.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1748412476577,
+                "title": "单片机C语言入门_单片机教程_单片机编程语言 - C语言网",
+                "url": "https://www.dotcpp.com/course/scm/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.dotcpp.com"
               }
             ]
           },
@@ -9181,6 +9209,13 @@
                     "title": "Pico CSS • Minimal CSS Framework for semantic HTML",
                     "url": "https://picocss.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=picocss.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1748260566087,
+                    "title": "Semi Design",
+                    "url": "https://semi.design/zh-CN/",
+                    "icon": "https://www.google.com/s2/favicons?domain=semi.design"
                   }
                 ]
               },
@@ -9246,6 +9281,13 @@
                 "title": "手绘风格RoughNotation",
                 "url": "https://roughnotation.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=roughnotation.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1748409736277,
+                "title": "Components | CodyHouse",
+                "url": "https://codyhouse.co/ds/components",
+                "icon": "https://www.google.com/s2/favicons?domain=codyhouse.co"
               }
             ]
           },
@@ -9382,24 +9424,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1713856235350,
-                "title": "提示工程指南 | Prompt Engineering Guide",
-                "url": "https://www.promptingguide.ai/zh",
-                "icon": "https://www.google.com/s2/favicons?domain=www.promptingguide.ai"
-              },
-              {
-                "type": "link",
                 "addDate": 1746800227809,
                 "title": "入门 - Go 编程语言",
                 "url": "https://go.dev/learn/",
                 "icon": "https://www.google.com/s2/favicons?domain=go.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1746801663869,
-                "title": "基本语法 | Golang 中文学习文档",
-                "url": "https://golang.halfiisland.com/essential/base/1.grammer.html",
-                "icon": "https://www.google.com/s2/favicons?domain=golang.halfiisland.com"
               }
             ]
           },
@@ -10058,6 +10086,13 @@
                 "title": "首页 - 老胡的周刊",
                 "url": "https://weekly.howie6879.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=weekly.howie6879.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1748359245117,
+                "title": "圆弧派博客",
+                "url": "https://www.iarc.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.iarc.top"
               }
             ]
           },
@@ -10732,6 +10767,13 @@
             "title": "AutoDraw",
             "url": "https://www.autodraw.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.autodraw.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1748336328413,
+            "title": "民用无人驾驶航空器综合管理平台（UOM）",
+            "url": "https://uom.caac.gov.cn/#/login",
+            "icon": "https://www.google.com/s2/favicons?domain=uom.caac.gov.cn"
           }
         ]
       }
