@@ -19,15 +19,26 @@ const generateCacheKey = (keyword, options = {}) => {
 // 监听来自主线程的消息
 self.addEventListener('message', function(e) {
     const { action, data } = e.data;
+    
     // 默认启用缓存，除非显式禁用
-    const useCache = data.useCache !== false;
+    // 修复：确保 data 存在且有 useCache 属性，否则默认为 true
+    const useCache = data && data.useCache !== undefined ? data.useCache : true;
 
     // 根据不同的操作类型执行相应的处理
     switch(action) {
         case 'search':
+            // 确保 data 存在
+            if (!data) {
+                self.postMessage({
+                    action: 'error',
+                    message: '搜索数据不完整'
+                });
+                return;
+            }
+            
             const keyword = data.keyword || ''; // 确保keyword存在
-            const options = data.options || {}; // 确保options存在
             const bookmarks = data.bookmarks || []; // 确保bookmarks存在
+            const options = data.options || {}; // 确保options存在
 
             // 检查缓存
             if (useCache) {
@@ -178,7 +189,7 @@ function searchBookmarks(keyword, data, options = {}) {
         });
     }
 
-    // 当前的实现不支持真正的“增量加载”返回部分结果。要实现增量加载，需要在Worker内部维护状态，并在找到一定数量结果后通过 postMessage 发送部分结果，然后继续搜索。
+    // 当前的实现不支持真正的"增量加载"返回部分结果。要实现增量加载，需要在Worker内部维护状态，并在找到一定数量结果后通过 postMessage 发送部分结果，然后继续搜索。
     // 这需要主线程和Worker之间更复杂的通信协议。目前的 'limit' 选项只是限制最终返回结果的总数。
     
     return results;
