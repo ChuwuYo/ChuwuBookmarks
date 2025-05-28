@@ -9,7 +9,6 @@
     <link rel="preload" href="assets/gsap-public/minified/gsap.min.js" as="script">
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="script.js" as="script">
-    <link rel="preload" href="assets/js/lazy-load.js" as="script">
     <link rel="preload" href="assets/css/theme-toggle.css" as="style">
     <link rel="preload" href="assets/css/sidepanel.css" as="style">
     <link rel="preload" href="assets/css/homebutton.css" as="style">
@@ -18,6 +17,12 @@
     <link rel="preload" href="assets/typeface/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/typeface/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/typeface/OPlusSans30-ExtraLight.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/js/lazysizes.min.js" as="script">
+    <link rel="preload" href="assets/js/Swup.umd.js" as="script">
+    <link rel="preload" href="assets/js/instant.page_v5.2.0.js" as="script">
+    <link rel="preload" href="assets/js/fastclick.min.js" as="script">
+    <link rel="preload" href="assets/js/polyfill.min.js" as="script">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
     <link rel="stylesheet" href="assets/css/sidepanel.css">
@@ -28,11 +33,25 @@
     <script src="assets\js\fastclick.min.js" defer></script>
     <!-- 引入 Intersection Observer Polyfill 用于图片懒加载 -->
     <script src="assets/js/polyfill.min.js" defer></script>
+    <!-- 引入 lazysizes 懒加载库 -->
+    <script src="assets/js/lazysizes.min.js" defer></script>
+    <!-- 引入 Swup 页面过渡库 -->
+    <script src="assets/js/Swup.umd.js" defer></script>
     <script>
         // 简化 FastClick 初始化，避免嵌套的事件监听器
         document.addEventListener('DOMContentLoaded', function() { 
             if (typeof FastClick !== 'undefined') {
                 FastClick.attach(document.body);
+            }
+            
+            // 初始化 Swup 页面过渡
+            if (typeof Swup !== 'undefined') {
+                const swup = new Swup({
+                    animationSelector: '[class*="transition-"]',
+                    containers: ['#content', '#breadcrumbs'],
+                    cache: true,
+                    linkSelector: 'a[href^="/"]:not([data-no-swup]), a[href^="./"], a[href^="../"]',
+                });
             }
         });
     </script>
@@ -86,7 +105,9 @@
         <div id="content"></div>
     </div>
     <!-- 引入脚本 -->
-    <script src="assets/js/lazy-load.js" defer></script>
     <script src="script.js"></script>
+    
+    <!-- 引入 instant.page 预加载 -->
+    <script src="assets/js/instant.page_v5.2.0.js" type="module" defer></script>
 </body>
 </html>

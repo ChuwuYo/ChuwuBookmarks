@@ -112,24 +112,7 @@ body {
     width: 100%;
 }
 
-
-/* 图片懒加载 */
-/* 初始状态：透明 */
-img.lazy-image {
-    opacity: 0;
-    transition: opacity var(--duration-long) ease-in-out; /* 平滑过渡效果 */
-}
-
-/* 加载完成状态：完全不透明 */
-img.loaded {
-    opacity: 1;
-}
-
-/* 加载错误时的样式 */
-img.load-error {
-    border: 2px solid rgb(144, 244, 189);
-}
-
+/* 删除旧的懒加载样式，保留背景图片加载 */
 body.bg-loaded::before {
     background: url('assets/images/moecat.gif') no-repeat center/cover;
 }
@@ -877,4 +860,58 @@ a:focus-visible {
     50% {
         transform: translateY(-5px) scale(1.05);
     }
+}
+
+/* Swup 页面过渡动画样式 */
+.transition-fade {
+    transition: opacity var(--duration-medium) var(--ease-in-out-cubic);
+    opacity: 1;
+}
+
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+
+html.is-changing #content, 
+html.is-changing #breadcrumbs {
+    pointer-events: none;
+}
+
+/* Swup 过渡动画自定义样式 */
+.transition-slide {
+    transition: transform var(--duration-medium) var(--ease-in-out-cubic), 
+                opacity var(--duration-medium) var(--ease-in-out-cubic);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html.is-animating .transition-slide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* lazysizes 懒加载样式 */
+img.lazyload,
+img.lazyloading {
+    opacity: 0;
+}
+
+img.lazyloaded {
+    opacity: 1;
+    transition: opacity var(--duration-medium) var(--ease-default);
+}
+
+/* 为使用 lazysizes 库的元素添加占位符样式 */
+.lazyload-placeholder {
+    background-color: var(--hover-bg);
+    border-radius: 4px;
+}
+
+/* 确保 instant.page 预加载不影响可见性 */
+.instant-page-prefetch {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
 }

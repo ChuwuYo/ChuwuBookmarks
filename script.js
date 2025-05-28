@@ -322,59 +322,24 @@ const createElement = (type, item, onClick) => {
 
         if (item.icon) {
             const img = document.createElement('img');
-            // 实现图片懒加载 - 使用data-src存储实际URL
+            // 使用 lazysizes 库进行懒加载
             img.dataset.src = item.icon;
             img.alt = '🔗';
-            img.style.display = 'none';
-            img.classList.add('lazy-image');
-
-            // 将图片添加到DOM，但不立即加载
+            img.classList.add('lazyload');
+            
+            // 添加加载事件处理
+            img.addEventListener('load', function() {
+                bookmarkIcon.textContent = '';
+                bookmarkIcon.appendChild(img);
+            });
+            
+            // 添加错误处理
+            img.addEventListener('error', function() {
+                this.remove();
+            });
+            
+            // 先将图片添加到DOM，lazysizes会自动处理加载
             bookmarkIcon.appendChild(img);
-
-            // 使用IntersectionObserver实现懒加载
-            if ('IntersectionObserver' in window) {
-                // 延迟执行，确保元素已添加到DOM
-                setTimeout(() => {
-                    if (!window.lazyImageObserver) {
-                        // 创建全局观察者实例
-                        window.lazyImageObserver = new IntersectionObserver((entries, observer) => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    const lazyImage = entry.target;
-                                    lazyImage.src = lazyImage.dataset.src;
-                                    lazyImage.onload = function () {
-                                        lazyImage.parentNode.textContent = '';
-                                        lazyImage.style.display = '';
-                                        lazyImage.parentNode.appendChild(lazyImage);
-                                        lazyImage.classList.remove('lazy-image');
-                                    };
-                                    lazyImage.onerror = function () {
-                                        this.remove();
-                                    };
-                                    observer.unobserve(lazyImage);
-                                }
-                            });
-                        }, {
-                            rootMargin: '200px', // 提前200px开始加载
-                            threshold: 0.01 // 当1%的元素可见时触发
-                        });
-                    }
-
-                    // 观察新添加的图片
-                    window.lazyImageObserver.observe(img);
-                }, 0);
-            } else {
-                // 降级处理：如果不支持IntersectionObserver，则立即加载
-                img.src = img.dataset.src;
-                img.onload = function () {
-                    bookmarkIcon.textContent = '';
-                    this.style.display = '';
-                    bookmarkIcon.appendChild(this);
-                };
-                img.onerror = function () {
-                    this.remove();
-                };
-            }
         }
 
         const link = document.createElement('a');
