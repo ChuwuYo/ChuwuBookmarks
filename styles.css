@@ -87,16 +87,19 @@
 @font-face {
     font-family: 'LXGW WenKai';
     src: url('assets/typeface/LXGWWenKai-Medium.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'DingTalk JinBuTi';
     src: url('assets/typeface/DingTalk-JinBuTi.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'OPlusSans3-ExtraLight';
     src: url('assets/typeface/OPlusSans30-ExtraLight.woff2') format('woff2');
+    font-display: swap;
 }
 
 /* 主体样式 */
