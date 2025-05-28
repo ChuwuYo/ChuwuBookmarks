@@ -108,29 +108,44 @@ const handleMobileView = () => {
     updateSidebarState(sidebar, isMobile);
 };
 
-const adjustHomeMessagePosition = (isCollapsed) => { // The isCollapsed parameter is kept for signature compatibility with callers,
-                                                      // but its value is not directly used for positioning logic when window.innerWidth >= 768px,
-                                                      // as CSS handles that based on the .collapsed class on the sidebar.
+const adjustHomeMessagePosition = (isCollapsed) => { 
     const homeMessage = document.querySelector('.home-message');
     const searchContainer = document.querySelector('.search-container');
 
-    if (homeMessage || searchContainer) {
-        if (window.innerWidth < 768) {
-            // For screens narrower than 768px, JavaScript sets 'left' to 50% for centering.
-            if (homeMessage) {
-                homeMessage.style.left = '50%';
-            }
-            if (searchContainer) {
-                searchContainer.style.left = '50%';
-            }
-        } else {
-            // For screens 768px and wider, CSS rules will handle the 'left' positioning.
-            // Clear any inline 'left' style set by JavaScript to allow CSS to take precedence.
-            if (homeMessage) {
-                homeMessage.style.left = '';
-            }
-            if (searchContainer) {
-                searchContainer.style.left = '';
+    if (window.innerWidth < 768) {
+        // 移动视图
+        if (homeMessage) {
+            homeMessage.style.left = '50%';
+        }
+        if (searchContainer) {
+            searchContainer.style.left = '50%';
+            // 确保在移动视图清除可能存在的偏移量
+            searchContainer.style.removeProperty('--search-container-centering-offset');
+        }
+    } else {
+        // 桌面视图
+        if (homeMessage) {
+            homeMessage.style.left = ''; // 由 CSS 控制
+        }
+        if (searchContainer) {
+            searchContainer.style.left = ''; // 由 CSS 控制 left: 50%
+
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                // 计算使 searchInput 在 searchContainer 内居中所需的偏移量
+                // 这个计算假设任何使 searchInput 偏离 searchContainer 中心的额外宽度都在 searchInput 的右侧
+                const searchInputOffsetLeft = searchInput.offsetLeft; // searchInput 相对于 searchContainer 的左偏移
+                const searchInputWidth = searchInput.offsetWidth;
+                const searchContainerWidth = searchContainer.offsetWidth;
+
+                // shiftInPx > 0 表示 searchInput 的中心在 searchContainer 中心的左侧。
+                // 因此，searchContainer 需要向右移动 shiftInPx 来使 searchInput 居中。
+                const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
+                
+                searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+            } else {
+                 // 如果找不到 searchInput，确保清除偏移量以防意外
+                searchContainer.style.removeProperty('--search-container-centering-offset');
             }
         }
     }
