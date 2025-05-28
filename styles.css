@@ -802,29 +802,50 @@ a:focus-visible {
 @media screen and (min-width: 768px) {
     /* 搜索容器和主页消息在默认状态下的位置 */
     .search-container {
-        left: calc(50% + 110px);
-        margin-left: 0;
-        transform: translateX(-50%);
-        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
-        will-change: left, transform, opacity;
+        left: 50%;
+        transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity; /* 提示浏览器优化变换 */
+        /* height, top, z-index, white-space, user-select, contain from original */
+        position: fixed;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+        white-space: nowrap;
+        user-select: none;
+        contain: layout; /* 包含布局变化 */
+        outline: none; /* 允许键盘焦点 */
     }
     .home-message {
-        left: calc(50% + 110px);
-        transform: translate(-50%, -50%);
-        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
-        will-change: left, transform, opacity;
+        left: 50%;
+        transform: translate(calc(-50% + 110px), -50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity; /* 添加will-change提示浏览器优化 */
+        /* position, top, font-weight, text-align, user-select, opacity, perspective, transform-style, content-visibility, outline from original */
+        position: fixed;
+        top: 50%;
+        /* transform: translate(-50%, -50%); removed this part as it's combined above */
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+        opacity: 0;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        content-visibility: auto; /* 添加内容可见性优化 */
+        outline: none;
     }
     
     /* 侧边栏收起时的位置调整 - 确保两者行为一致 */
     .sidebar.collapsed + .main-content .search-container,
     .sidebar.collapsed + .main-content .home-message {
         left: 50%;
-        transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+        /* transition: left var(--duration-base) var(--ease-in-out-cubic), transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default); Removed */
     }
     
     /* 保持各自的transform属性 - 确保两者在侧边栏收起时的行为一致 */
     .sidebar.collapsed + .main-content .search-container {
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
     }
     
     .sidebar.collapsed + .main-content .home-message {
