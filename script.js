@@ -661,7 +661,8 @@ const debounceSearch = debounce((event) => {
             action: 'search',
             data: {
                 keyword: keyword,
-                bookmarks: data
+                bookmarks: data,
+                useCache: true // 明确指定使用缓存
             }
         });
     } else {
