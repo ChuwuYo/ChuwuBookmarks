@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1748614359178,
+    "addDate": 1748706523664,
     "title": "书签栏",
     "children": [
       {
@@ -4021,13 +4021,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Windows 应用 - Microsoft 应用商店",
-                "url": "https://www.microsoft.com/zh-cn/store/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.microsoft.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "FileHippo.com - 下载免费版软件",
                 "url": "https://filehippo.com/zh/",
                 "icon": "https://www.google.com/s2/favicons?domain=filehippo.com"
@@ -4105,13 +4098,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "大眼仔旭 - 专注开源软件、视频剪辑、免费商用字体、屏幕录像工具、思维导图等办公资源分享",
-                "url": "http://www.dayanzai.me/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.dayanzai.me"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "枫音应用 - 专注分享免费、绿色、无毒无广的实用软件！",
                 "url": "https://www.fy6b.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.fy6b.com"
@@ -4140,13 +4126,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "克隆窝|助互联网玩家寻找每一条道路",
-                "url": "https://www.uy5.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.uy5.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "MemoryStory",
                 "url": "https://cnxiaobai.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=cnxiaobai.com"
@@ -4164,6 +4143,20 @@
                 "title": "Windows 软件商店 / 装机必备 - 小羿",
                 "url": "https://xiaoyi.vc/win-app",
                 "icon": "https://www.google.com/s2/favicons?domain=xiaoyi.vc"
+              },
+              {
+                "type": "link",
+                "addDate": 1748657404785,
+                "title": "大眼仔旭 - 专注开源软件、视频剪辑、免费商用字体、屏幕录像工具、思维导图等办公资源分享",
+                "url": "https://www.dayanzai.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.dayanzai.me"
+              },
+              {
+                "type": "link",
+                "addDate": 1748657482831,
+                "title": "克隆沃",
+                "url": "https://www.uy5.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.uy5.net"
               }
             ]
           },
@@ -4194,13 +4187,6 @@
             "title": "README - Windows Apps That Amaze Us --- 自述文件 - 让我们惊叹的 Windows 应用程序",
             "url": "https://amazing-apps.gitbook.io/windows-apps-that-amaze-us/en",
             "icon": "https://www.google.com/s2/favicons?domain=amazing-apps.gitbook.io"
-          },
-          {
-            "type": "link",
-            "addDate": 1748496187705,
-            "title": "自学365资源站",
-            "url": "https://zx365.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=zx365.top"
           },
           {
             "type": "link",
@@ -8535,20 +8521,6 @@
               },
               {
                 "type": "folder",
-                "addDate": 1708534904514,
-                "title": "SSH",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1708531424790,
-                    "title": "开源SSH客户端electerm",
-                    "url": "https://electerm.github.io/electerm/index-zh_cn.html",
-                    "icon": "https://www.google.com/s2/favicons?domain=electerm.github.io"
-                  }
-                ]
-              },
-              {
-                "type": "folder",
                 "addDate": 1704014876017,
                 "title": "数据库",
                 "children": [
@@ -8735,6 +8707,13 @@
                     "icon": "https://www.google.com/s2/favicons?domain=www.anaconda.com"
                   }
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1708531424790,
+                "title": "开源SSH客户端electerm",
+                "url": "https://electerm.github.io/electerm/index-zh_cn.html",
+                "icon": "https://www.google.com/s2/favicons?domain=electerm.github.io"
               },
               {
                 "type": "link",
