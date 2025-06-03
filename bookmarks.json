@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1748849697917,
+    "addDate": 1748963072301,
     "title": "书签栏",
     "children": [
       {
@@ -1770,6 +1770,13 @@
                 "title": "无限道路驾驶s l o w  r o a d s",
                 "url": "https://slowroads.io/#A2-8e6ee9ea@0",
                 "icon": "https://www.google.com/s2/favicons?domain=slowroads.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1748939308963,
+                "title": "Flash 保存计划",
+                "url": "https://flash.homes/",
+                "icon": "https://www.google.com/s2/favicons?domain=flash.homes"
               }
             ]
           },
@@ -4264,6 +4271,13 @@
             "title": "剑二十七 - 精品软件下载",
             "url": "https://www.jian27.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.jian27.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1748924699975,
+            "title": "dAppCDN - Decentralized Application Content Delivery Network",
+            "url": "https://dappcdn.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=dappcdn.com"
           }
         ]
       },
@@ -5662,6 +5676,20 @@
                 "title": "盘内文件压缩(可执行)/CompactGUI: Transparently compress active games and programs using Windows 10/11 APIs",
                 "url": "https://github.com/IridiumIO/CompactGUI",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1748924177825,
+                "title": "FanControl.Releases: This is the release repository for Fan Control, a highly customizable fan controlling software for Windows.",
+                "url": "https://github.com/Rem0o/FanControl.Releases",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1748924600056,
+                "title": "DDU | display-drivers-uninstaller: Display Driver Uninstaller (DDU) a driver removal utility / cleaner utility",
+                "url": "https://github.com/Wagnard/display-drivers-uninstaller",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -6528,6 +6556,13 @@
                     "title": "Youtube在线解析",
                     "url": "https://y2b.455556.xyz/",
                     "icon": "https://www.google.com/s2/favicons?domain=y2b.455556.xyz"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1748924472703,
+                    "title": "MassTube » Homepage",
+                    "url": "https://www.masstube.cl/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.masstube.cl"
                   }
                 ]
               },
@@ -6897,6 +6932,13 @@
                         "title": "AI机器人群聊",
                         "url": "https://botgroup.chat/",
                         "icon": "https://www.google.com/s2/favicons?domain=botgroup.chat"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1748857575913,
+                        "title": "Open WebUI",
+                        "url": "https://open-webui.jjdouga.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=open-webui.jjdouga.com"
                       }
                     ]
                   },
@@ -7581,6 +7623,13 @@
             "addDate": 1747303941692,
             "title": "Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files",
             "url": "https://github.com/Stirling-Tools/Stirling-PDF",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1748926601043,
+            "title": "护眼/LightBulb: Reduces eye strain by adjusting screen gamma based on the current time",
+            "url": "https://github.com/Tyrrrz/LightBulb",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
@@ -8479,10 +8528,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1731879076132,
-                "title": "mirai-mamori/Sakurairo: 一个多彩、轻松上手、体验完善，具有强大自定义功能的WordPress主题（基于Sakura主题，支持简繁英日多语言）A Colorful, Easy-to-use, Perfect Experience, and Powerful Customizable WordPress Theme (Based on Theme Sakura. Support Simplified Chinese, Traditional Chinese, English and Japanese languages)",
-                "url": "https://github.com/mirai-mamori/Sakurairo",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                "addDate": 1748937263042,
+                "title": "Profiles - Workspace - Visual Studio Code",
+                "url": "https://vscode.dev/editor/profile/github/e9f6cf1ba789b04789ee9b95b556afb8",
+                "icon": "https://www.google.com/s2/favicons?domain=vscode.dev"
               }
             ]
           },
@@ -8938,6 +8987,13 @@
                 "title": "Cloud Studio - 云端开发，化繁为简",
                 "url": "https://cloudstudio.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1748962933041,
+                "title": "StackBlitz | Instant Dev Environments | Click. Code. Done.",
+                "url": "https://stackblitz.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=stackblitz.com"
               }
             ]
           },
