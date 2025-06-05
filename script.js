@@ -155,155 +155,188 @@ const adjustHomeMessagePosition = (isCollapsed) => {
 /** 渲染相关 */
 const renderHome = () => {
     const content = document.getElementById('content');
-    content.innerHTML = `
-        <div class="home-message">
-            <div class="chinese-text">初五的书签</div>
-            <div class="english-text">Chuwu's Bookmarks</div>
-        </div>
-    `;
-    document.getElementById('breadcrumbs').innerHTML = '';
-    adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    
+    if (!content || !breadcrumbs) return;
+    
+    // 使用DocumentFragment减少DOM操作
+    const fragment = document.createDocumentFragment();
+    
+    // 创建主页消息容器
+    const homeMessage = document.createElement('div');
+    homeMessage.className = 'home-message';
+    
+    // 创建中文和英文文本元素
+    const chineseText = document.createElement('div');
+    chineseText.className = 'chinese-text';
+    
+    const englishText = document.createElement('div');
+    englishText.className = 'english-text';
+    
+    // 将元素添加到fragment
+    homeMessage.appendChild(chineseText);
+    homeMessage.appendChild(englishText);
+    fragment.appendChild(homeMessage);
+    
+    // 清空内容区域并添加fragment
+    content.innerHTML = '';
+    content.appendChild(fragment);
+    breadcrumbs.innerHTML = '';
+    
+    // 调整位置
+    adjustHomeMessagePosition(document.querySelector('.sidebar')?.classList.contains('collapsed'));
 
-    // 优化动画性能 - 减少初始动画复杂度
+    // 优化动画性能 - 使用一个主时间线
     const masterTimeline = gsap.timeline();
 
     // 设置初始状态 - 简化初始设置
-    gsap.set('.home-message', { opacity: 0 });
-    gsap.set('.chinese-text', {
+    gsap.set(homeMessage, { opacity: 0 });
+    gsap.set(chineseText, {
         opacity: 0,
-        scale: 0.8,  // 从0.5改为0.8，减少变形量
-        x: -50,      // 从-100改为-50，减少移动距离
-        transformOrigin: "center center"
+        scale: 0.8,
+        x: -50,
+        transformOrigin: "center center",
+        textContent: '初五的书签'
     });
-    gsap.set('.english-text', {
+    gsap.set(englishText, {
         opacity: 0,
-        scale: 0.8,  // 从0.5改为0.8
-        x: -50,      // 从-100改为-50
-        transformOrigin: "center center"
+        scale: 0.8,
+        x: -50,
+        transformOrigin: "center center",
+        textContent: "Chuwu's Bookmarks"
     });
 
-    // 主容器淡入 - 进一步减少延迟
-    masterTimeline.to('.home-message', {
+    // 主容器淡入
+    masterTimeline.to(homeMessage, {
         opacity: 1,
-        duration: animationConfig.duration.medium,  // 从0.5减少到0.3
-        ease: animationConfig.ease.outQuad  // 使用更简单的缓动函数
+        duration: animationConfig.duration.medium,
+        ease: animationConfig.ease.outQuad
     });
 
-    // 简化中文和英文文本动画 - 移除重复的动画
-    masterTimeline.to('.chinese-text', {
+    // 简化中文和英文文本动画
+    masterTimeline.to(chineseText, {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: animationConfig.duration.long,  // 从0.8减少到0.5
+        duration: animationConfig.duration.long,
         ease: animationConfig.ease.outQuad
-    }, "-=0.2");  // 从-0.3改为-0.2
+    }, "-=0.2");
 
-    masterTimeline.to('.english-text', {
+    masterTimeline.to(englishText, {
         opacity: 1,
         scale: 1,
         x: 0,
-        duration: animationConfig.duration.long,  // 从0.8减少到0.5
+        duration: animationConfig.duration.long,
         ease: animationConfig.ease.outQuad
-    }, "-=0.3");  // 从-0.6改为-0.3
+    }, "-=0.3");
 
-    // 移除重复的动画部分
-    // 为中文文本的每个字符添加特殊动画效果 - 优化动画延迟
-    const chineseText = document.querySelector('.chinese-text');
-    const chineseChars = chineseText.textContent.split('');
-    chineseText.innerHTML = '';
-
-    chineseChars.forEach((char, index) => {
-        const charSpan = document.createElement('span');
-        charSpan.textContent = char;
-        charSpan.style.display = 'inline-block';
-        charSpan.style.position = 'relative';
-        chineseText.appendChild(charSpan);
-
-        // 为每个字符添加渐显动画 - 减少延迟和持续时间
-        gsap.set(charSpan, {
-            opacity: 0,
-            x: -10  // 从-20改为-10
+    // 批量创建字符动画元素
+    requestAnimationFrame(() => {
+        // 为中文文本的每个字符添加特殊动画效果
+        const chineseChars = '初五的书签'.split('');
+        const chineseFragment = document.createDocumentFragment();
+        
+        // 预先创建所有字符元素
+        const chineseSpans = chineseChars.map(char => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = char;
+            charSpan.style.display = 'inline-block';
+            charSpan.style.position = 'relative';
+            return charSpan;
+        });
+        
+        // 一次性添加所有字符元素
+        chineseSpans.forEach(span => chineseFragment.appendChild(span));
+        chineseText.textContent = '';
+        chineseText.appendChild(chineseFragment);
+        
+        // 批量设置动画
+        chineseSpans.forEach((charSpan, index) => {
+            const char = charSpan.textContent;
+            
+            if (char === '的') {
+                // 为"的"字符添加从上方掉落的动画
+                gsap.set(charSpan, {
+                    y: -50,
+                    opacity: 0
+                });
+                
+                gsap.to(charSpan, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: 1.2,
+                    ease: "bounce.out"
+                });
+            } else {
+                // 为其他字符添加渐显动画
+                gsap.set(charSpan, {
+                    opacity: 0,
+                    x: -10
+                });
+                
+                gsap.to(charSpan, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.2,
+                    delay: 0.5 + (index * 0.05),
+                    ease: "power1.out"
+                });
+            }
         });
 
-        gsap.to(charSpan, {
-            opacity: 1,
-            x: 0,
-            duration: 0.2,  // 从0.3减少到0.2
-            delay: 0.5 + (index * 0.05),  // 从0.8减少到0.5，从0.08减少到0.05
-            ease: "power1.out"
+        // 为英文文本的每个字符添加特殊动画效果
+        const englishChars = "Chuwu's Bookmarks".split('');
+        const englishFragment = document.createDocumentFragment();
+        
+        // 预先创建所有字符元素
+        const englishSpans = englishChars.map(char => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = char;
+            charSpan.style.display = 'inline-block';
+            charSpan.style.position = 'relative';
+            return charSpan;
         });
-
-        // 为"的"字符添加从上方掉落的动画 - 减少延迟
-        if (char === '的') {
-            gsap.set(charSpan, {
-                y: -50,  // 从-100改为-50
-                opacity: 0
-            });
-
-            gsap.to(charSpan, {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,  // 从1减少到0.8
-                delay: 1.2,     // 从1.8减少到1.2
-                ease: "bounce.out"
-            });
-        }
-    });
-
-    // 为英文文本的每个字符添加特殊动画效果 - 优化动画延迟
-    const englishText = document.querySelector('.english-text');
-    const englishChars = englishText.textContent.split('');
-    englishText.innerHTML = '';
-
-    englishChars.forEach((char, index) => {
-        const charSpan = document.createElement('span');
-        charSpan.textContent = char;
-        charSpan.style.display = 'inline-block';
-        charSpan.style.position = 'relative';
-        englishText.appendChild(charSpan);
-
-        // 为每个字符添加渐显动画 - 减少延迟和持续时间
-        gsap.set(charSpan, {
-            opacity: 0,
-            x: -10  // 从-20改为-10
+        
+        // 一次性添加所有字符元素
+        englishSpans.forEach(span => englishFragment.appendChild(span));
+        englishText.textContent = '';
+        englishText.appendChild(englishFragment);
+        
+        // 批量设置动画
+        englishSpans.forEach((charSpan, index) => {
+            const char = charSpan.textContent;
+            
+            if (char === "'" || char === "s") {
+                // 为"'s"添加从上方掉落的动画
+                gsap.set(charSpan, {
+                    y: -50,
+                    opacity: 0
+                });
+                
+                gsap.to(charSpan, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: char === "'" ? 1.5 : 1.7,
+                    ease: "bounce.out"
+                });
+            } else {
+                // 为其他字符添加渐显动画
+                gsap.set(charSpan, {
+                    opacity: 0,
+                    x: -10
+                });
+                
+                gsap.to(charSpan, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.2,
+                    delay: 0.7 + (index * 0.04),
+                    ease: "power1.out"
+                });
+            }
         });
-
-        gsap.to(charSpan, {
-            opacity: 1,
-            x: 0,
-            duration: 0.2,  // 从0.3减少到0.2
-            delay: 0.7 + (index * 0.04),  // 从1减少到0.7，从0.06减少到0.04
-            ease: "power1.out"
-        });
-
-        // 为"'s"添加从上方掉落的动画 - 减少延迟
-        if (char === "'") {
-            gsap.set(charSpan, {
-                y: -50,  // 从-100改为-50
-                opacity: 0
-            });
-
-            gsap.to(charSpan, {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,  // 从1减少到0.8
-                delay: 1.5,     // 从2.2减少到1.5
-                ease: "bounce.out"
-            });
-        } else if (char === "s") {
-            gsap.set(charSpan, {
-                y: -50,  // 从-100改为-50
-                opacity: 0
-            });
-
-            gsap.to(charSpan, {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,  // 从1减少到0.8
-                delay: 1.7,     // 从2.4减少到1.7
-                ease: "bounce.out"
-            });
-        }
     });
 }
 
@@ -314,7 +347,17 @@ const createElement = (type, item, onClick) => {
     element.className = type;
 
     if (type === 'folder') {
-        element.innerHTML = `<span class="folder-icon">📁</span><span class="folder-name">${item.title}</span>`;
+        // 使用textContent代替innerHTML，减少HTML解析开销
+        const folderIcon = document.createElement('span');
+        folderIcon.className = 'folder-icon';
+        folderIcon.textContent = '📁';
+        
+        const folderName = document.createElement('span');
+        folderName.className = 'folder-name';
+        folderName.textContent = item.title;
+        
+        element.appendChild(folderIcon);
+        element.appendChild(folderName);
     } else {
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
@@ -327,16 +370,19 @@ const createElement = (type, item, onClick) => {
             img.alt = '🔗';
             img.classList.add('lazyload');
             
-            // 添加加载事件处理
-            img.addEventListener('load', function() {
-                bookmarkIcon.textContent = '';
-                bookmarkIcon.appendChild(img);
-            });
+            // 使用一个事件处理函数处理多个事件
+            const imgHandler = function(e) {
+                if (e.type === 'load') {
+                    bookmarkIcon.textContent = '';
+                    bookmarkIcon.appendChild(img);
+                } else if (e.type === 'error') {
+                    this.remove();
+                }
+            };
             
-            // 添加错误处理
-            img.addEventListener('error', function() {
-                this.remove();
-            });
+            // 添加事件处理
+            img.addEventListener('load', imgHandler);
+            img.addEventListener('error', imgHandler);
             
             // 先将图片添加到DOM，lazysizes会自动处理加载
             bookmarkIcon.appendChild(img);
@@ -346,8 +392,9 @@ const createElement = (type, item, onClick) => {
         link.href = item.url;
         link.target = '_blank';
         link.textContent = item.title;
-        element.appendChild(bookmarkIcon);
-        element.appendChild(link);
+        
+        // 一次性添加多个子元素
+        element.append(bookmarkIcon, link);
     }
 
     if (onClick) element.addEventListener('click', onClick);
@@ -356,34 +403,47 @@ const createElement = (type, item, onClick) => {
 
 const renderSidebar = (data) => {
     const sidebar = document.getElementById('sidebar-folders');
+    if (!sidebar) return;
+    
     sidebar.innerHTML = '';
     const rootFolder = data.find(item => item.title === '书签栏' || item.title === 'Bookmarks Bar');
     if (!rootFolder) return;
 
     // 使用DocumentFragment减少DOM操作
     const fragment = document.createDocumentFragment();
+    
+    // 预先过滤所有文件夹，避免在循环中重复过滤
+    const folders = rootFolder.children.filter(item => item.type === 'folder');
+    
+    // 批量设置父引用
+    folders.forEach(item => {
+        item.parent = rootFolder;
+        if (item.children) setParentReferences(item.children, item);
+    });
 
-    rootFolder.children
-        .filter(item => item.type === 'folder')
-        .forEach(item => {
-            item.parent = rootFolder;
-            if (item.children) setParentReferences(item.children, item);
-            const folderElement = createElement('folder', item, (e) => {
-                e.stopPropagation();
-                renderMainContent(item, true);
-            });
-            // 添加键盘可访问性
-            folderElement.setAttribute('tabindex', '0');
-            folderElement.setAttribute('role', 'button');
-            folderElement.setAttribute('aria-label', `文件夹: ${item.title}`);
-            folderElement.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    renderMainContent(item, true);
-                }
-            });
-            fragment.appendChild(folderElement);
+    // 创建所有文件夹元素
+    const folderElements = folders.map(item => {
+        const folderElement = createElement('folder', item, (e) => {
+            e.stopPropagation();
+            renderMainContent(item, true);
         });
+        
+        // 添加键盘可访问性
+        folderElement.setAttribute('tabindex', '0');
+        folderElement.setAttribute('role', 'button');
+        folderElement.setAttribute('aria-label', `文件夹: ${item.title}`);
+        folderElement.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                renderMainContent(item, true);
+            }
+        });
+        
+        return folderElement;
+    });
+    
+    // 一次性将所有元素添加到fragment
+    folderElements.forEach(element => fragment.appendChild(element));
 
     // 一次性将所有元素添加到DOM
     sidebar.appendChild(fragment);
@@ -401,6 +461,8 @@ const setParentReferences = (items, parent) => {
 const renderMainContent = (folder, fromSidebar = false) => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
+    if (!content || !breadcrumbs) return;
+    
     content.innerHTML = breadcrumbs.innerHTML = '';
 
     if (fromSidebar && isMobileDevice()) {
@@ -409,6 +471,19 @@ const renderMainContent = (folder, fromSidebar = false) => {
 
     // 使用requestAnimationFrame优化渲染
     requestAnimationFrame(() => {
+        // 预先构建面包屑路径
+        const breadcrumbPath = [];
+        let current = folder;
+        while (current) {
+            breadcrumbPath.unshift(current);
+            current = current.parent;
+        }
+        
+        // 过滤掉根文件夹
+        const filteredBreadcrumbs = breadcrumbPath.filter(
+            crumb => crumb.title !== '书签栏' && crumb.title !== 'Bookmarks Bar'
+        );
+        
         // 使用DocumentFragment减少DOM操作
         const breadcrumbFragment = document.createDocumentFragment();
 
@@ -416,93 +491,118 @@ const renderMainContent = (folder, fromSidebar = false) => {
         const homeLink = document.createElement('span');
         homeLink.className = 'breadcrumb-item';
         homeLink.textContent = '主页';
-        homeLink.setAttribute('tabindex', '0'); // 添加tabindex使其可以接收键盘焦点
-        homeLink.setAttribute('role', 'button'); // 添加ARIA角色
-        homeLink.setAttribute('aria-label', '返回主页'); // 添加ARIA标签
-        homeLink.addEventListener('click', (e) => {
-            e.stopPropagation();
-            renderHome();
-        });
-        // 添加键盘事件处理
-        homeLink.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+        homeLink.setAttribute('tabindex', '0');
+        homeLink.setAttribute('role', 'button');
+        homeLink.setAttribute('aria-label', '返回主页');
+        
+        // 使用事件委托，减少事件监听器
+        const homeLinkHandler = (e) => {
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
                 e.preventDefault();
+                e.stopPropagation();
                 renderHome();
             }
-        });
+        };
+        
+        homeLink.addEventListener('click', homeLinkHandler);
+        homeLink.addEventListener('keydown', homeLinkHandler);
         breadcrumbFragment.appendChild(homeLink);
 
-        const breadcrumbPath = [];
-        let current = folder;
-        while (current) {
-            breadcrumbPath.unshift(current);
-            current = current.parent;
-        }
-
-        breadcrumbPath
-            .filter(crumb => crumb.title !== '书签栏' && crumb.title !== 'Bookmarks Bar')
-            .forEach((crumb, index, arr) => {
+        // 批量创建面包屑元素
+        if (filteredBreadcrumbs.length > 0) {
+            const breadcrumbElements = filteredBreadcrumbs.map((crumb, index, arr) => {
+                // 创建分隔符和面包屑元素
+                const fragment = document.createDocumentFragment();
+                
                 // 添加分隔符
-                breadcrumbFragment.appendChild(Object.assign(document.createElement('span'), {
-                    textContent: ' > ',
-                    className: 'breadcrumb-separator'
-                }));
-
+                const separator = document.createElement('span');
+                separator.textContent = ' > ';
+                separator.className = 'breadcrumb-separator';
+                fragment.appendChild(separator);
+                
+                // 创建面包屑项
                 const crumbElement = document.createElement('span');
                 crumbElement.textContent = crumb.title;
                 crumbElement.className = 'breadcrumb-item';
+                
                 if (crumb.parent && index < arr.length - 1) {
-                    crumbElement.setAttribute('tabindex', '0'); // 添加tabindex使其可以接收键盘焦点
-                    crumbElement.setAttribute('role', 'button'); // 添加ARIA角色
-                    crumbElement.setAttribute('aria-label', `导航到${crumb.title}`); // 添加ARIA标签
-                    crumbElement.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        renderMainContent(crumb, true);
-                    });
-                    // 添加键盘事件处理
-                    crumbElement.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
+                    crumbElement.setAttribute('tabindex', '0');
+                    crumbElement.setAttribute('role', 'button');
+                    crumbElement.setAttribute('aria-label', `导航到${crumb.title}`);
+                    
+                    // 使用事件委托，减少事件监听器
+                    const crumbHandler = (e) => {
+                        if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
                             e.preventDefault();
+                            e.stopPropagation();
                             renderMainContent(crumb, true);
                         }
-                    });
+                    };
+                    
+                    crumbElement.addEventListener('click', crumbHandler);
+                    crumbElement.addEventListener('keydown', crumbHandler);
                 }
-                breadcrumbFragment.appendChild(crumbElement);
+                
+                fragment.appendChild(crumbElement);
+                return fragment;
             });
+            
+            // 一次性将所有面包屑元素添加到fragment
+            breadcrumbElements.forEach(element => breadcrumbFragment.appendChild(element));
+        }
 
         // 一次性将所有面包屑元素添加到DOM
         breadcrumbs.appendChild(breadcrumbFragment);
 
-        // 使用DocumentFragment减少DOM操作
-        const contentFragment = document.createDocumentFragment();
-
-        folder.children?.forEach((item, index) => {
-            const element = createElement(
-                item.type === 'folder' ? 'folder' : 'bookmark',
-                item,
-                item.type === 'folder' ? () => renderMainContent(item) : null
-            );
-
-            // 添加键盘可访问性
-            if (item.type === 'folder') {
+        // 处理内容区域
+        if (folder.children && folder.children.length > 0) {
+            // 预先分类文件夹和书签，减少条件判断
+            const folderItems = [];
+            const bookmarkItems = [];
+            
+            folder.children.forEach((item, index) => {
+                if (item.type === 'folder') {
+                    folderItems.push({item, index});
+                } else {
+                    bookmarkItems.push({item, index});
+                }
+            });
+            
+            // 使用DocumentFragment减少DOM操作
+            const contentFragment = document.createDocumentFragment();
+            
+            // 批量创建文件夹元素
+            folderItems.forEach(({item, index}) => {
+                const element = createElement('folder', item, () => renderMainContent(item));
+                
+                // 添加键盘可访问性
                 element.setAttribute('tabindex', '0');
                 element.setAttribute('role', 'button');
                 element.setAttribute('aria-label', `文件夹: ${item.title}`);
+                
+                // 使用事件委托，减少事件监听器
                 element.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         renderMainContent(item);
                     }
                 });
-            }
-
-            // 设置动画延迟索引
-            element.style.setProperty('--item-index', index);
-            contentFragment.appendChild(element);
-        });
-
-        // 一次性将所有内容元素添加到DOM
-        content.appendChild(contentFragment);
+                
+                // 设置动画延迟索引
+                element.style.setProperty('--item-index', index);
+                contentFragment.appendChild(element);
+            });
+            
+            // 批量创建书签元素
+            bookmarkItems.forEach(({item, index}) => {
+                const element = createElement('bookmark', item, null);
+                element.style.setProperty('--item-index', index);
+                contentFragment.appendChild(element);
+            });
+            
+            // 一次性将所有内容元素添加到DOM
+            content.appendChild(contentFragment);
+        }
     });
 };
 
@@ -533,35 +633,57 @@ const searchBookmarks = (keyword, data) => {
 
 const renderSearchResults = (results) => {
     const content = document.getElementById('content');
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    
+    if (!content || !breadcrumbs) return;
+    
     content.innerHTML = '';
-    document.getElementById('breadcrumbs').innerHTML = '';
+    breadcrumbs.innerHTML = '';
 
-    if (!results.length) {
-        content.innerHTML = '<div class="no-results">未找到匹配的书签。</div>';
+    if (!results || !results.length) {
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.textContent = '未找到匹配的书签。';
+        content.appendChild(noResults);
         return;
     }
 
     // 使用requestAnimationFrame优化渲染
     requestAnimationFrame(() => {
+        // 预先分类结果，减少循环中的过滤操作
+        const folderResults = results.filter(item => item.type === 'folder');
+        const linkResults = results.filter(item => item.type === 'link' || item.type === 'bookmark');
+        
         // 使用DocumentFragment减少DOM操作
         const fragment = document.createDocumentFragment();
         const container = document.createElement('div');
         container.className = 'results-container';
 
-        let itemIndex = 0;
-        ['folder', 'link'].forEach(type => {
-            results.filter(item => item.type === type)
-                .forEach(item => {
-                    const element = createElement(
-                        type === 'folder' ? 'folder' : 'bookmark',
-                        item,
-                        type === 'folder' ? () => renderMainContent(item) : null
-                    );
-                    // 设置动画延迟索引
-                    element.style.setProperty('--item-index', itemIndex++);
-                    container.appendChild(element);
-                });
+        // 批量创建文件夹元素
+        const folderElements = folderResults.map((item, index) => {
+            const element = createElement(
+                'folder',
+                item,
+                () => renderMainContent(item)
+            );
+            element.style.setProperty('--item-index', index);
+            return element;
         });
+        
+        // 批量创建书签元素
+        const bookmarkElements = linkResults.map((item, index) => {
+            const element = createElement(
+                'bookmark',
+                item,
+                null
+            );
+            element.style.setProperty('--item-index', folderElements.length + index);
+            return element;
+        });
+        
+        // 一次性将所有元素添加到container
+        folderElements.forEach(element => container.appendChild(element));
+        bookmarkElements.forEach(element => container.appendChild(element));
 
         fragment.appendChild(container);
         // 一次性将所有元素添加到DOM
@@ -669,7 +791,7 @@ const debounceSearch = debounce((event) => {
         // 降级处理：如果不支持Web Worker，则在主线程中执行搜索
         renderSearchResults(searchBookmarks(keyword, data));
     }
-}, 500);
+}, 250);
 
 /** 初始化和事件监听 */
 document.addEventListener('DOMContentLoaded', async () => {
@@ -684,12 +806,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 添加加载状态指示器
     const showLoadingIndicator = () => {
         const content = document.getElementById('content');
-        content.innerHTML = `
-            <div class="loading-indicator" style="text-align:center; margin-top:50px; color:var(--text-color)">
-                <h2>正在加载书签数据...</h2>
-                <div class="loading-spinner"></div>
-            </div>
-        `;
+        if (!content) return;
+        
+        // 使用DOM API创建加载指示器，避免innerHTML解析
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.className = 'loading-indicator';
+        loadingIndicator.style.textAlign = 'center';
+        loadingIndicator.style.marginTop = '50px';
+        loadingIndicator.style.color = 'var(--text-color)';
+        
+        const heading = document.createElement('h2');
+        heading.textContent = '正在加载书签数据...';
+        
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        
+        loadingIndicator.appendChild(heading);
+        loadingIndicator.appendChild(spinner);
+        
+        content.innerHTML = '';
+        content.appendChild(loadingIndicator);
     };
     
     // 显示加载指示器
@@ -704,70 +840,96 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let data;
                 
                 if (cachedData) {
-                    // 使用缓存数据进行初始渲染
-                    data = JSON.parse(cachedData);
-                    // 先渲染侧边栏和主页，提高用户体验
-                    renderSidebar(data);
-                    renderHome();
+                    try {
+                        // 使用缓存数据进行初始渲染
+                        data = JSON.parse(cachedData);
+                        // 先渲染侧边栏和主页，提高用户体验
+                        renderSidebar(data);
+                        renderHome();
+                    } catch (parseError) {
+                        console.error('缓存数据解析错误:', parseError);
+                        // 缓存数据无效，继续加载新数据
+                    }
                 }
                 
                 // 无论是否有缓存，都异步加载最新数据
-                const response = await fetch('bookmarks.json');
-                if (!response.ok) {
-                    console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
-                    // 尝试使用备用路径
-                    const backupResponse = await fetch('./bookmarks.json');
-                    if (!backupResponse.ok) {
-                        // 如果已经有缓存数据，则继续使用
-                        if (!cachedData) {
-                            throw new Error(`无法加载书签文件，请确保 bookmarks.json 存在于正确位置`);
-                        }
+                let fetchSuccess = false;
+                let newData;
+                
+                try {
+                    // 尝试主路径
+                    const response = await fetch('bookmarks.json');
+                    if (response.ok) {
+                        newData = await response.json();
+                        fetchSuccess = true;
                     } else {
-                        // 使用备用路径获取的数据
-                        data = await backupResponse.json();
-                        localStorage.setItem('bookmarksData', JSON.stringify(data));
-                        // 如果之前没有缓存数据，则现在渲染
-                        if (!cachedData) {
-                            renderSidebar(data);
-                            renderHome();
-                        } else {
-                            // 清除Worker缓存并使用新数据更新视图
-                            clearWorkerCaches();
-                            // 只在数据有变化时更新视图
-                            if (JSON.stringify(data) !== cachedData) {
-                                renderSidebar(data);
-                                renderHome();
-                            }
-                        }
+                        console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
                     }
-                } else {
-                    // 使用主路径获取的数据
-                    data = await response.json();
-                    localStorage.setItem('bookmarksData', JSON.stringify(data));
-                    // 如果之前没有缓存数据，则现在渲染
-                    if (!cachedData) {
-                        renderSidebar(data);
-                        renderHome();
-                    } else {
-                        // 清除Worker缓存并使用新数据更新视图
-                        clearWorkerCaches();
-                        // 只在数据有变化时更新视图
-                        if (JSON.stringify(data) !== cachedData) {
-                            renderSidebar(data);
-                            renderHome();
+                } catch (fetchError) {
+                    console.error('主路径加载失败:', fetchError);
+                }
+                
+                // 如果主路径失败，尝试备用路径
+                if (!fetchSuccess) {
+                    try {
+                        const backupResponse = await fetch('./bookmarks.json');
+                        if (backupResponse.ok) {
+                            newData = await backupResponse.json();
+                            fetchSuccess = true;
+                        } else {
+                            console.error(`备用路径加载失败: ${backupResponse.status} ${backupResponse.statusText}`);
                         }
+                    } catch (backupError) {
+                        console.error('备用路径加载失败:', backupError);
                     }
                 }
+                
+                // 处理加载结果
+                if (fetchSuccess) {
+                    // 成功获取新数据
+                    const newDataString = JSON.stringify(newData);
+                    
+                    // 只在数据有变化或之前没有缓存时更新存储和视图
+                    if (!cachedData || newDataString !== cachedData) {
+                        localStorage.setItem('bookmarksData', newDataString);
+                        clearWorkerCaches();
+                        renderSidebar(newData);
+                        renderHome();
+                    }
+                } else if (!data) {
+                    // 加载失败且没有缓存数据
+                    throw new Error('无法加载书签文件，请确保 bookmarks.json 存在于正确位置');
+                }
+                // 如果加载失败但有缓存数据，继续使用缓存数据，无需额外操作
+                
             } catch (error) {
                 console.error('书签加载错误:', error);
                 // 显示错误信息给用户
-                document.getElementById('content').innerHTML = `
-                    <div class="error-message" style="text-align:center; margin-top:50px; color:var(--text-color)">
-                        <h2>加载书签数据失败</h2>
-                        <p>请确保 bookmarks.json 文件存在且格式正确</p>
-                        <p>错误详情: ${error.message}</p>
-                    </div>
-                `;
+                const content = document.getElementById('content');
+                if (content) {
+                    // 使用DOM API创建错误消息，避免innerHTML解析
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'error-message';
+                    errorMessage.style.textAlign = 'center';
+                    errorMessage.style.marginTop = '50px';
+                    errorMessage.style.color = 'var(--text-color)';
+                    
+                    const heading = document.createElement('h2');
+                    heading.textContent = '加载书签数据失败';
+                    
+                    const message1 = document.createElement('p');
+                    message1.textContent = '请确保 bookmarks.json 文件存在且格式正确';
+                    
+                    const message2 = document.createElement('p');
+                    message2.textContent = `错误详情: ${error.message}`;
+                    
+                    errorMessage.appendChild(heading);
+                    errorMessage.appendChild(message1);
+                    errorMessage.appendChild(message2);
+                    
+                    content.innerHTML = '';
+                    content.appendChild(errorMessage);
+                }
             }
         });
     } catch (error) {
@@ -777,28 +939,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 使用事件委托减少事件监听器数量
     const sidebar = document.querySelector('.sidebar');
     const toggleSidebar = document.getElementById('toggle-sidebar');
-    toggleSidebar.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
-    });
-    toggleSidebar.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
-        }
-    });
+    
+    if (toggleSidebar) {
+        // 合并点击和键盘事件处理
+        const toggleSidebarHandler = (e) => {
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (sidebar) {
+                    updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
+                }
+            }
+        };
+        
+        toggleSidebar.addEventListener('click', toggleSidebarHandler);
+        toggleSidebar.addEventListener('keydown', toggleSidebarHandler);
+    }
 
     const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggle.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleTheme();
-        }
-    });
+    if (themeToggle) {
+        // 合并点击和键盘事件处理
+        const themeToggleHandler = (e) => {
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
+                e.preventDefault();
+                toggleTheme();
+            }
+        };
+        
+        themeToggle.addEventListener('click', themeToggleHandler);
+        themeToggle.addEventListener('keydown', themeToggleHandler);
+    }
 
-    document.getElementById('search-input').addEventListener('keyup', debounceSearch);
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', debounceSearch);
+    }
 
     // 主页按钮键盘事件
     const homeButton = document.querySelector('.home-button');
