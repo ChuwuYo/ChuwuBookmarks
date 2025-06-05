@@ -570,13 +570,21 @@ body::before {
     background: var(--bg-color);
     color: var(--text-color);
     user-select: text; /* 输入框内文本仍然可选 */
-    font-family: 'OPlusSans3-ExtraLight', sans-serif;
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
 }
 
 #search-input::placeholder {
-    font-family: 'OPlusSans3-ExtraLight', sans-serif;
+    font-family: 'DingTalk JinBuTi', sans-serif;
     color: var(--text-color);
     opacity: 0.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
 }
 
 #search-input:hover {
