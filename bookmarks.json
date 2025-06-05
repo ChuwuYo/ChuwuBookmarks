@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749042102045,
+    "addDate": 1749133916444,
     "title": "书签栏",
     "children": [
       {
@@ -1712,6 +1712,13 @@
                     "title": "猜盐",
                     "url": "https://xiaoce.fun/daily",
                     "icon": "https://www.google.com/s2/favicons?domain=xiaoce.fun"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749113899794,
+                    "title": "截图猜动画",
+                    "url": "https://lab.magiconch.com/ani-trace/",
+                    "icon": "https://www.google.com/s2/favicons?domain=lab.magiconch.com"
                   }
                 ]
               },
@@ -1777,6 +1784,13 @@
                 "title": "Flash 保存计划",
                 "url": "https://flash.homes/",
                 "icon": "https://www.google.com/s2/favicons?domain=flash.homes"
+              },
+              {
+                "type": "link",
+                "addDate": 1749046382208,
+                "title": "Free Online Games on CrazyGames | Play Now!",
+                "url": "https://www.crazygames.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.crazygames.com"
               }
             ]
           },
@@ -2157,6 +2171,13 @@
             "title": "Telegraph(备用graph.org)",
             "url": "https://telegra.ph/",
             "icon": "https://www.google.com/s2/favicons?domain=telegra.ph"
+          },
+          {
+            "type": "link",
+            "addDate": 1749046469777,
+            "title": "TG-Image 云端图床xiyewuqiu/new-lmage",
+            "url": "https://github.com/xiyewuqiu/new-lmage",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       },
@@ -2381,6 +2402,13 @@
             "title": "猫耳FM",
             "url": "https://www.missevan.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.missevan.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1749047175203,
+            "title": "全球电台Radiocast – Explore world radio stations",
+            "url": "https://radiocast.co/",
+            "icon": "https://www.google.com/s2/favicons?domain=radiocast.co"
           }
         ]
       },
@@ -2855,6 +2883,20 @@
                 "title": "SaltyLeo 的书架",
                 "url": "https://book.tstrs.me/",
                 "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
+              },
+              {
+                "type": "link",
+                "addDate": 1749044383580,
+                "title": "HallowLib",
+                "url": "https://bk.hallowlib.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=bk.hallowlib.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1749107321691,
+                "title": "Library Genesis",
+                "url": "https://libgen.is/",
+                "icon": "https://www.google.com/s2/favicons?domain=libgen.is"
               }
             ]
           },
@@ -3174,6 +3216,13 @@
                     "addDate": 1748613776588,
                     "title": "Xmader/aria-ng-gui: 一个 Aria2 图形界面客户端 | An Aria2 GUI for Windows & Linux & MacOS",
                     "url": "https://github.com/Xmader/aria-ng-gui",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749047037413,
+                    "title": "res-downloader: 视频号、小程序、抖音、快手、小红书、直播流、m3u8、酷狗、QQ音乐等常见网络资源下载!",
+                    "url": "https://github.com/putyy/res-downloader",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -3560,6 +3609,13 @@
                     "title": "ZDocs - 一款基于 PHP 的开源文档系统",
                     "url": "https://zdocs.zdr.ac/article-1.html",
                     "icon": "https://www.google.com/s2/favicons?domain=zdocs.zdr.ac"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749046865024,
+                    "title": "ZhiMap - 在线思维导图、电脑与手机微信里都能作图",
+                    "url": "https://zhimap.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zhimap.com"
                   }
                 ]
               },
@@ -6033,6 +6089,13 @@
                 "title": "【在线PS】PS软件网页版，ps在线图片处理工具photopea-稿定设计PS",
                 "url": "https://www.gaoding.com/editor/ps?hmsr=iui.su-iui.su-ps--ps-ps-bdqd#/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.gaoding.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749047163311,
+                "title": "PostSpark - Screenshots and Mockups Editor",
+                "url": "https://postspark.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=postspark.app"
               }
             ]
           },
@@ -6563,6 +6626,13 @@
                     "title": "MassTube » Homepage",
                     "url": "https://www.masstube.cl/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.masstube.cl"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749046758862,
+                    "title": "GreenVideo视频下载",
+                    "url": "https://greenvideo.cc/",
+                    "icon": "https://www.google.com/s2/favicons?domain=greenvideo.cc"
                   }
                 ]
               },
@@ -6946,6 +7016,13 @@
                         "title": "Models · GitHub Marketplace",
                         "url": "https://github.com/marketplace/models/",
                         "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1749088733815,
+                        "title": "Cerebras Cloud",
+                        "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
+                        "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
                       }
                     ]
                   },
@@ -7151,6 +7228,13 @@
                     "title": "x1xhlol/system-prompts-and-models-of-ai-tools: FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.",
                     "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749112405007,
+                    "title": "asgeirtj/system_prompts_leaks: Collection of extracted System Prompts from popular chatbots like ChatGPT, Claude & Gemini",
+                    "url": "https://github.com/asgeirtj/system_prompts_leaks",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -7279,6 +7363,13 @@
                 "title": "WebDev Arena: AI Battle to build the best website",
                 "url": "https://web.lmarena.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=web.lmarena.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1749046140000,
+                "title": "AI-worker: 🌐 A simple Cloudflare Worker - Serverless & Cost-Effective: No need to rent or manage your own server. Cloudflare Workers operate on a serverless model, and the free tier is often sufficient for personal use",
+                "url": "https://github.com/qyjoy/AI-worker",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -7638,6 +7729,13 @@
             "title": "护眼/LightBulb: Reduces eye strain by adjusting screen gamma based on the current time",
             "url": "https://github.com/Tyrrrz/LightBulb",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1749083219695,
+            "title": "JSON For You | 在线JSON工具",
+            "url": "https://json4u.cn/",
+            "icon": "https://www.google.com/s2/favicons?domain=json4u.cn"
           }
         ]
       },
@@ -8349,7 +8447,7 @@
           {
             "type": "folder",
             "addDate": 1704014876017,
-            "title": "教学",
+            "title": "学习",
             "children": [
               {
                 "type": "link",
@@ -8504,6 +8602,13 @@
                 "title": "单片机C语言入门_单片机教程_单片机编程语言 - C语言网",
                 "url": "https://www.dotcpp.com/course/scm/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.dotcpp.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749107330973,
+                "title": "CS自学指南",
+                "url": "https://csdiy.wiki/",
+                "icon": "https://www.google.com/s2/favicons?domain=csdiy.wiki"
               }
             ]
           },
@@ -8677,6 +8782,13 @@
                     "title": "Android Studio 和应用工具 - Android 开发者  |  Android Developers",
                     "url": "https://developer.android.com/studio?hl=zh-cn",
                     "icon": "https://www.google.com/s2/favicons?domain=developer.android.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749046784121,
+                    "title": "voideditor/void",
+                    "url": "https://github.com/voideditor/void",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -9176,6 +9288,13 @@
                 "title": "HomeAssistant论坛 | HomeKit论坛 | Node-Red论坛 | ESPHome论坛-『瀚思彼岸』» 智能家居技术论坛！ - Powered by Discuz!",
                 "url": "https://bbs.hassbian.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=bbs.hassbian.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749047094085,
+                "title": "UinIO.com 电子技术实验室",
+                "url": "http://uinio.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=uinio.com"
               }
             ]
           },
@@ -10142,6 +10261,13 @@
                 "title": "Fomalhaut🥝",
                 "url": "https://www.fomal.cc/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.fomal.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1749107255240,
+                "title": "之一Yo - 博客园",
+                "url": "https://www.cnblogs.com/zhiyiYo",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cnblogs.com"
               }
             ]
           },
@@ -10207,6 +10333,13 @@
             "title": "萌娘百科 万物皆可萌的百科全书 - zh.moegirl.org.cn",
             "url": "https://zh.moegirl.org.cn/Mainpage",
             "icon": "https://www.google.com/s2/favicons?domain=zh.moegirl.org.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1749044578574,
+            "title": "genact 1.4.1",
+            "url": "https://svenstaro.github.io/genact/",
+            "icon": "https://www.google.com/s2/favicons?domain=svenstaro.github.io"
           }
         ]
       },
@@ -10352,6 +10485,34 @@
                 "title": "ARES模拟交易平台",
                 "url": "https://ares.sse.com.cn/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=ares.sse.com.cn"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1749090839674,
+            "title": "临时邮箱",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1744281198400,
+                "title": "TempEmail临时邮箱",
+                "url": "https://tempmailpro.org/zh",
+                "icon": "https://www.google.com/s2/favicons?domain=tempmailpro.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1749044586320,
+                "title": "Moakt Email || Temporary disposable Email Service",
+                "url": "https://moakt.com/en/",
+                "icon": "https://www.google.com/s2/favicons?domain=moakt.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1746613457588,
+                "title": "临时邮箱smail",
+                "url": "https://smail.pw/",
+                "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
               }
             ]
           },
@@ -10541,6 +10702,13 @@
                 "title": "JOYCEQL/magic-resume: free online AI resume editor",
                 "url": "https://github.com/JOYCEQL/magic-resume",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749123772632,
+                "title": "程序员客栈-领先的程序员自由工作平台-程序员兼职",
+                "url": "https://www.proginn.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.proginn.com"
               }
             ]
           },
@@ -10784,20 +10952,6 @@
           },
           {
             "type": "link",
-            "addDate": 1744281198400,
-            "title": "TempEmail临时邮箱",
-            "url": "https://tempmailpro.org/zh",
-            "icon": "https://www.google.com/s2/favicons?domain=tempmailpro.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1746613457588,
-            "title": "临时邮箱smail",
-            "url": "https://smail.pw/",
-            "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
-          },
-          {
-            "type": "link",
             "addDate": 1746542633432,
             "title": "天机阁·AI紫微斗数命理推演系统｜AI精准八字测算",
             "url": "https://tjg.aifeisheng.com/",
@@ -10823,6 +10977,13 @@
             "title": "民用无人驾驶航空器综合管理平台（UOM）",
             "url": "https://uom.caac.gov.cn/#/login",
             "icon": "https://www.google.com/s2/favicons?domain=uom.caac.gov.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1749046654479,
+            "title": "离线访问WIKI：Explore Offline Wikipedia and Educational Content with Kiwix- Kiwix",
+            "url": "https://kiwix.org/en/",
+            "icon": "https://www.google.com/s2/favicons?domain=kiwix.org"
           }
         ]
       }
