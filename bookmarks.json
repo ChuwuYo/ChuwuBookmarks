@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749133916444,
+    "addDate": 1749213736513,
     "title": "书签栏",
     "children": [
       {
@@ -1791,6 +1791,13 @@
                 "title": "Free Online Games on CrazyGames | Play Now!",
                 "url": "https://www.crazygames.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.crazygames.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749175311064,
+                "title": "Poki - Free Online Games - Play Now!",
+                "url": "https://poki.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=poki.com"
               }
             ]
           },
@@ -4806,8 +4813,8 @@
                 "type": "link",
                 "addDate": 1724771392720,
                 "title": "Mitce Professional Network - Mitce",
-                "url": "https://mitce.com/index.php",
-                "icon": "https://www.google.com/s2/favicons?domain=mitce.com"
+                "url": "https://mitce.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=mitce.net"
               },
               {
                 "type": "link",
@@ -9228,20 +9235,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1747411835926,
-                "title": "Cline - AI Autonomous Coding Agent for VS Code",
-                "url": "https://cline.bot/",
-                "icon": "https://www.google.com/s2/favicons?domain=cline.bot"
-              },
-              {
-                "type": "link",
-                "addDate": 1747411873542,
-                "title": "Roo Code – Your AI-Powered Dev Team in VS Code",
-                "url": "https://roocode.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=roocode.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1747807340571,
                 "title": "Jules",
                 "url": "https://jules.google.com/",
@@ -9377,6 +9370,13 @@
                     "title": "Semi Design",
                     "url": "https://semi.design/zh-CN/",
                     "icon": "https://www.google.com/s2/favicons?domain=semi.design"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749213701663,
+                    "title": "Element Plus | 一个 Vue 3 UI 框架",
+                    "url": "https://element-plus.org/zh-CN/",
+                    "icon": "https://www.google.com/s2/favicons?domain=element-plus.org"
                   }
                 ]
               },
@@ -10854,6 +10854,13 @@
                     "title": "OsmAnd Map",
                     "url": "https://osmand.net/map/#5/50.000/5.000",
                     "icon": "https://www.google.com/s2/favicons?domain=osmand.net"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749174111852,
+                    "title": "Mapcarta - The Open Map",
+                    "url": "https://mapcarta.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=mapcarta.com"
                   }
                 ]
               },
