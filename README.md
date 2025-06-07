@@ -120,28 +120,9 @@ Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPort
 
 * * *
 
-### **未来改进方向**
-
-1. **用户自定义**：
-   
-   * 允许用户自定义主题颜色和布局。
-   
-   * 支持用户添加自定义图标和描述。
-
----
-
-### **需修复的问题**
-
-    暂无
-
-    CSS写的太烂算不算？
-
-
----
 
 # <s>这个项目其实已经完工了，今后应该只有日常维护了。</s>
 
----
 
 ## 感谢所有贡献者作出的努力
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
