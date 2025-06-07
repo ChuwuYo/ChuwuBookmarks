@@ -1,0 +1,59 @@
+/* 动画和过渡效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+@keyframes textJump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px) scale(1.05); }
+}
+/* Swup 页面过渡动画样式 */
+.transition-fade {
+    transition: opacity var(--duration-medium) var(--ease-in-out-cubic);
+    opacity: 1;
+}
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+html.is-changing #content,
+html.is-changing #breadcrumbs {
+    pointer-events: none;
+}
+/* Swup 过渡动画自定义样式 */
+.transition-slide {
+    transition: transform var(--duration-medium) var(--ease-in-out-cubic),
+                opacity var(--duration-medium) var(--ease-in-out-cubic);
+    opacity: 1;
+    transform: translateY(0);
+}
+html.is-animating .transition-slide {
+    opacity: 0;
+    transform: translateY(20px);
+}

@@ -1,0 +1,74 @@
+/* 侧栏控制按钮样式 */
+#toggle-sidebar {
+    position: fixed;
+    left: 0;
+    top: 20px;
+    background: var(--button-hover);
+    border: 1.5px solid #a4d1c4;
+    border-radius: 0 15px 15px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 1.3rem;
+    user-select: none;
+    /* 允许键盘焦点操作 */
+    outline: none;
+    transition: left var(--duration-base) var(--ease-in-out-cubic), 
+                border-radius var(--duration-medium) var(--ease-in-out-cubic), 
+                box-shadow var(--duration-medium) var(--ease-default), 
+                transform var(--duration-medium) var(--ease-default);
+    will-change: transform, left;
+    contain: layout;
+    transform: translateZ(0);
+    box-sizing: content-box;
+    transform-origin: center center; /* 固定变换原点 */
+}
+
+
+#toggle-sidebar img {
+    width: 24px;
+    height: 24px;
+    color: var(--text-color);
+    transition: color var(--duration-medium) var(--ease-default), transform var(--duration-medium) var(--ease-default);
+    display: none; /* 默认隐藏所有图标 */
+    position: relative; /* 添加定位上下文 */
+    top: 0; /* 重置垂直位置 */
+    left: 0; /* 重置水平位置 */
+}
+
+/* 根据侧边栏状态显示对应图标 */
+.sidebar.collapsed #toggle-sidebar .show-panel {
+    display: block; /* 侧边栏收起时显示展开图标 */
+}
+
+.sidebar:not(.collapsed) #toggle-sidebar .hide-panel {
+    display: block; /* 侧边栏展开时显示收起图标 */
+}
+
+#toggle-sidebar:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar:not(.collapsed) #toggle-sidebar {
+    left: 200px;
+    border-radius: 15px;
+    /* 保持相同的尺寸，只改变位置和样式 */
+}
+
+/* 移动设备适配 */
+@media screen and (max-width: 1300px) {
+    #toggle-sidebar:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* 聚焦样式 */
+#toggle-sidebar:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
+}
+
+
