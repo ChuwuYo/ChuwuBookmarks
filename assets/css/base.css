@@ -1,0 +1,95 @@
+/* 基础样式：CSS变量、字体、重置样式 */
+:root {
+    --transition-normal: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default);
+    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-short: 0.15s;
+    --duration-base: 0.2s;
+    --duration-medium: 0.3s;
+    --duration-long: 0.5s;
+    --ease-in-out-cubic: var(--cubic-bezier);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-default: ease;
+    --bg-color: #f8faef;
+    --sidebar-bg: #e2f5f5;
+    --text-color: #0e141a;
+    --link-color: #2bc3ce;
+    --hover-bg: #dfe6e9;
+    --button-bg: #a1dcf5;
+    --button-hover: #f6e3ef;
+    --header-bg: #88dcfa;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 0 10px rgba(0, 0, 0, 0.2);
+    --button-shadow: 3px 0 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+    --button-shadow-expanded: 0 2px 8px rgba(0, 0, 0, 0.25), -2px 0 4px rgba(0, 0, 0, 0.15);
+    --button-shadow-hover: 4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+    --theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+:root[data-theme='dark'] {
+    --bg-color: #1a1a1a;
+    --sidebar-bg: #2d3436;
+    --text-color: #ecf0f1;
+    --link-color: #74ceff;
+    --hover-bg: #2d3436;
+    --button-bg: #5d6687;
+    --button-hover: rgba(222, 231, 162, 0.934);
+    --header-bg: #ffffff4b;
+    --shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
+    --shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
+    --shadow-lg: 0 0 10px rgba(255, 255, 255, 0.2);
+    --button-shadow: 3px 0 8px rgba(255, 255, 255, 0.15), 0 2px 4px rgba(255, 255, 255, 0.1);
+    --button-shadow-expanded: 0 2px 8px rgba(255, 255, 255, 0.15), -2px 0 4px rgba(255, 255, 255, 0.1);
+    --button-shadow-hover: 4px 0 12px rgba(255, 255, 255, 0.25), 0 4px 6px rgba(255, 255, 255, 0.2);
+    --theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+/* 字体定义 */
+@font-face {
+    font-family: 'LXGW WenKai';
+    src: url('/assets/typeface/LXGWWenKai-Medium.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DingTalk JinBuTi';
+    src: url('/assets/typeface/DingTalk-JinBuTi.woff2') format('woff2');
+    font-display: swap;
+}
+/* 全局重置 */
+* {
+    transition: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default);
+    -webkit-tap-highlight-color: transparent;
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) var(--bg-color);
+}
+body {
+    font-family: 'LXGW WenKai', Arial, sans-serif;
+    background-color: var(--bg-color);
+    position: relative;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 添加背景GIF */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 1000px;  /* 根据实际GIF尺寸调整 */
+    height: 1000px; /* 根据实际GIF尺寸调整 */
+    background: url('../images/moecat.gif') no-repeat right bottom;
+    background-size: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 确保其他内容在GIF之上 */
+.sidebar, .main-content, .search-container, .github-link, #theme-toggle {
+    position: relative;
+    z-index: 2;
+}
