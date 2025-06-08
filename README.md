@@ -20,6 +20,8 @@
 
 [Netlify](https://chuwubookmarks.netlify.app/)
 
+[Githubpages](https://chuwuyo.github.io/ChuwuBookmarks/)
+
 [Surge](https://chuwubookmarks.surge.sh/) (版本可能提前或落后)
 
 ***
