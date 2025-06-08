@@ -79,6 +79,9 @@
     opacity: 0;
     animation: slideDown 0.3s ease forwards;
     outline: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
 }
 .breadcrumb-item {
     cursor: pointer;
@@ -124,7 +127,39 @@ button.breadcrumb-item {
     background: transparent;
     text-decoration: none;
 }
+/* 滚动提示样式 */
+#breadcrumbs.scrollable:not(.at-end)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(to right, transparent, var(--bg-color));
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+#breadcrumbs.scrollable:not(.at-start)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(to left, transparent, var(--bg-color));
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 1;
+}
+
 /* 内容区 */
+#content {
+    transition: transform var(--duration-base) var(--ease-in-out-cubic);
+}
+
 #content .folder,
 #content .bookmark {
     display: flex;
