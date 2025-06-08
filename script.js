@@ -113,35 +113,30 @@ const adjustHomeMessagePosition = (isCollapsed) => {
 // 调整搜索容器位置和偏移量
 const adjustSearchContainerPosition = () => {
     const searchContainer = document.querySelector('.search-container');
-    if (!searchContainer) return;
-
-    if (window.innerWidth < 768) {
-        // 移动视图
-        searchContainer.style.left = '50%';
-        searchContainer.style.removeProperty('--search-container-centering-offset');
-    } else {
-        // 桌面视图
-        searchContainer.style.left = ''; // 由 CSS 控制 left: 50%
-        adjustSearchInputCentering(searchContainer);
-    }
-};
-
-// 计算并设置搜索输入框的居中偏移量
-const adjustSearchInputCentering = (searchContainer) => {
     const searchInput = document.getElementById('search-input');
-    if (!searchInput) {
-        searchContainer.style.removeProperty('--search-container-centering-offset');
-        return;
-    }
+    if (!searchContainer || !searchInput) return;
 
-    // 计算使 searchInput 在 searchContainer 内居中所需的偏移量
-    const searchInputOffsetLeft = searchInput.offsetLeft;
-    const searchInputWidth = searchInput.offsetWidth;
-    const searchContainerWidth = searchContainer.offsetWidth;
+    // 使用 requestAnimationFrame 确保在下一帧执行位置计算
+    requestAnimationFrame(() => {
+        if (window.innerWidth < 768) {
+            // 移动视图 - 重置所有自定义定位
+            searchContainer.style.removeProperty('--search-container-centering-offset');
+            return;
+        }
 
-    // shiftInPx > 0 表示 searchInput 的中心在 searchContainer 中心的左侧
-    const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
-    searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+        // 桌面视图 - 计算精确偏移
+        const searchInputOffsetLeft = searchInput.offsetLeft;
+        const searchInputWidth = searchInput.offsetWidth;
+        const searchContainerWidth = searchContainer.offsetWidth;
+        
+        // 计算偏移量，考虑搜索框在容器内的实际位置
+        const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
+        
+        // 使用 CSS 变量设置偏移量，确保平滑过渡
+        if (shiftInPx !== 0) {
+            searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+        }
+    });
 };
 
 // 在事件监听中保持调用
@@ -791,6 +786,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始化主题和移动视图
     initTheme();
     handleMobileView();
+    
+    // 立即调整搜索容器位置
+    setTimeout(adjustSearchContainerPosition, 0);
 
     // 初始化FastClick
     if (typeof FastClick !== 'undefined') {
@@ -984,11 +982,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
         
-            // 监听窗口大小变化
-            window.addEventListener('resize', () => {
+            // 监听窗口大小变化，使用防抖优化性能
+            const handleResize = debounce(() => {
                 handleMobileView();
                 adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
-            });
+                adjustSearchContainerPosition();
+            }, 100);
+
+            window.addEventListener('resize', handleResize);
+
+            // 监听主题切换，因为可能影响布局
+            document.addEventListener('themechange', adjustSearchContainerPosition);
+
+            // 监听侧边栏状态变化
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar) {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.attributeName === 'class') {
+                            adjustSearchContainerPosition();
+                        }
+                    });
+                });
+                observer.observe(sidebar, { attributes: true });
+            }
         });
     }
 
