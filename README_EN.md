@@ -14,13 +14,13 @@ This is a browser-based bookmark navigation webpage designed to convert bookmark
 
 For users outside mainland China, you can experience the website through the following links:
 
-[EdgeOne](https://chuwubookmarks.edgeone.app/)
-
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
 [Vercel](https://chuwubookmarks.vercel.app/)
 
 [Netlify](https://chuwubookmarks.netlify.app/)
+
+[Githubpages](https://chuwuyo.github.io/ChuwuBookmarks/)
 
 [Surge](https://chuwubookmarks.surge.sh/) (version may be ahead or behind)
 
