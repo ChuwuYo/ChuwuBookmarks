@@ -12,7 +12,7 @@ Project Overview
 
 This is a browser-based bookmark navigation webpage designed to convert bookmark data (stored in JSON format) into a visually appealing and feature-rich web application. Through this webpage, you can easily access your bookmarks, with support for expanding and collapsing multi-level folders, searching, breadcrumb navigation, and more.
 
-For users outside mainland China, you can experience the application through the following links:
+For users outside mainland China, you can experience the website through the following links:
 
 [EdgeOne](https://chuwubookmarks.edgeone.app/)
 
