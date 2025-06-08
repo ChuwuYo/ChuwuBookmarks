@@ -57,3 +57,11 @@
                     border-radius var(--duration-long) var(--ease-default);
     }
 }
+
+/* 聚焦样式 */
+.home-button:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
+}
