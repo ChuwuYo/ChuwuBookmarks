@@ -121,24 +121,10 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 * * *
 
-### **Future Improvements**
-
-1. **User Customization**:
-
-   * Allow users to customize theme colors and layouts.
-
-   * Support users adding custom icons and descriptions.
-
----
-
-### **Known Issues**
-
-    None
----
 
 # <s>This project is actually completed, and future work will likely only involve routine maintenance.</s>
 
----
+
 
 ## Thanks to all contributors for their efforts
 <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/graphs/contributors" target="_blank">

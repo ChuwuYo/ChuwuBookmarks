@@ -1,0 +1,271 @@
+/* 组件样式：按钮、搜索框、面包屑、内容区等 */
+.shortcut-hint {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 2px;
+    opacity: 0.7;
+    pointer-events: none;
+}
+.shortcut-hint span {
+    background: var(--button-bg);
+    color: var(--text-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+#search-input:not(:placeholder-shown) ~ .shortcut-hint {
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-default);
+}
+.search-container {
+    position: fixed;
+    top: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    white-space: nowrap;
+    user-select: none;
+    transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+    height: calc(1rem + 16px + 6px);
+    will-change: left, transform, opacity;
+    contain: layout;
+    outline: none;
+}
+#search-input {
+    padding: 6px;
+    font-size: 1rem;
+    border: 2px solid #a4d1c4;
+    border-radius: 8px;
+    width: 200px;
+    max-width: calc(100vw - 120px);
+    background: var(--bg-color);
+    color: var(--text-color);
+    user-select: text;
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+}
+#search-input::placeholder {
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    color: var(--text-color);
+    opacity: 0.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+}
+#search-input:hover {
+    border-color: var(--link-color);
+    box-shadow: var(--shadow-sm);
+    transform: scale(1.02);
+}
+/* 面包屑导航 */
+#breadcrumbs {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 60px 0 0 10px;
+    font-size: 1.5rem;
+    white-space: normal;
+    overflow-x: visible;
+    user-select: none;
+    opacity: 0;
+    animation: slideDown 0.3s ease forwards;
+    outline: none;
+}
+.breadcrumb-item {
+    cursor: pointer;
+    color: var(--link-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    user-select: none;
+    transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default), text-decoration var(--duration-base) var(--ease-default);
+    outline: none;
+    will-change: transform, background;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* 重置button默认样式 */
+button.breadcrumb-item {
+    appearance: none;
+    line-height: normal;
+    margin: 0 4px 4px 0;
+}
+.breadcrumb-item:hover {
+    background: var(--hover-bg);
+    box-shadow: var(--shadow-sm);
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+.breadcrumb-separator {
+    color: var(--text-color);
+    margin: 0 4px;
+    user-select: none;
+}
+.breadcrumb-item:last-child {
+    color: var(--text-color);
+    font-weight: bold;
+    cursor: default;
+}
+.breadcrumb-item:last-child:hover {
+    background: transparent;
+    text-decoration: none;
+}
+/* 内容区 */
+#content .folder,
+#content .bookmark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1.2rem 0;
+    padding: 0.25rem 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.05s);
+    will-change: transform;
+    outline: none;
+    box-sizing: border-box;
+}
+#content .folder {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform var(--duration-base) var(--ease-default), background var(--duration-base) var(--ease-in-out-cubic), box-shadow var(--duration-base) var(--ease-default);
+    width: fit-content;
+}
+#content .folder:hover {
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+#content .folder .folder-name {
+    font-size: 1.0rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: all var(--duration-base) var(--ease-default);
+    border-radius: 4px;
+}
+#content .folder:hover .folder-name {
+    color: var(--link-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
+}
+#content .bookmark {
+    transition: transform var(--duration-short) var(--ease-default);
+}
+#content .bookmark:hover {
+    transform: translateY(-1px);
+}
+#content .bookmark .bookmark-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.2s ease;
+    will-change: transform;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+}
+#content .bookmark .bookmark-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: opacity 0.3s ease;
+}
+#content .bookmark a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    max-width: calc(100% - 16px - 8px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+    font-size: 1.0rem;
+    transition: color 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 4px;
+}
+#content .bookmark a:hover {
+    color: var(--link-color);
+    box-shadow: var(--shadow-sm);
+}
+/* GitHub链接按钮样式 */
+.github-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, color 0.2s;
+}
+.github-link:hover {
+    transform: scale(1.1);
+    color: var(--link-color);
+}
+/* 主页消息字体与颜色 */
+.home-message .chinese-text {
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    color: var(--text-color);
+}
+.home-message .english-text {
+    font-family: 'DingTalk JinBuTi', sans-serif;
+    color: var(--link-color);
+}
+.home-message .chinese-text {
+    font-size: 3rem;
+}
+.home-message .english-text {
+    font-size: 2rem;
+}
+/* 主页消息完整显示方式还原 */
+.home-message {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 110px);
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    transition: left var(--duration-base) var(--ease-in-out-cubic), transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+    opacity: 0;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    will-change: opacity, transform, left;
+    content-visibility: auto;
+    outline: none;
+}
+
+/* 内容区文件夹聚焦样式 */
+#content .folder:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
+}
+
+/* 面包屑导航聚焦样式 */
+button.breadcrumb-item:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
+}

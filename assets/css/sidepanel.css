@@ -9,7 +9,6 @@
     padding: 8px 12px;
     cursor: pointer;
     z-index: 999;
-    box-shadow: var(--button-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     font-size: 1.3rem;
     user-select: none;
     /* 允许键盘焦点操作 */
@@ -25,9 +24,6 @@
     transform-origin: center center; /* 固定变换原点 */
 }
 
-#toggle-sidebar:hover {
-    box-shadow: var(--button-shadow-hover), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-}
 
 #toggle-sidebar img {
     width: 24px;
@@ -56,7 +52,6 @@
 .sidebar:not(.collapsed) #toggle-sidebar {
     left: 200px;
     border-radius: 15px;
-    box-shadow: var(--button-shadow-expanded);
     /* 保持相同的尺寸，只改变位置和样式 */
 }
 
@@ -67,4 +62,13 @@
         box-shadow: none;
     }
 }
+
+/* 聚焦样式 */
+#toggle-sidebar:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
+}
+
 
