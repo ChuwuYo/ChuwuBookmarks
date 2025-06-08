@@ -83,10 +83,20 @@ const updateSidebarVisibility = (sidebar, isCollapsed) => {
     }
 };
 
+// 检查面包屑导航是否可滚动
+const checkBreadcrumbsScroll = () => {
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    if (!breadcrumbs) return;
+    
+    const isScrollable = breadcrumbs.scrollWidth > breadcrumbs.clientWidth;
+    breadcrumbs.classList.toggle('scrollable', isScrollable);
+};
+
 // 封装侧边栏状态管理，包括位置调整
 const updateSidebarState = (sidebar, isCollapsed) => {
     updateSidebarVisibility(sidebar, isCollapsed);
     adjustHomeMessagePosition(isCollapsed);
+    checkBreadcrumbsScroll(); // 检查面包屑滚动状态
 };
 
 const handleMobileView = () => {
@@ -289,9 +299,24 @@ const renderHome = () => {
     content.appendChild(fragment);
     breadcrumbs.innerHTML = '';
     
-    // 调整位置
-    const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
-    adjustHomeMessagePosition(isCollapsed);
+    // 重置主页消息的所有可能的样式
+    homeMessage.style.cssText = '';
+    
+    // 根据屏幕尺寸设置位置
+    if (window.innerWidth <= 1300) {
+        Object.assign(homeMessage.style, {
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            top: '45%',
+            width: '90%',
+            maxWidth: '600px'
+        });
+    } else {
+        // 大屏幕模式
+        const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
+        adjustHomeMessagePosition(isCollapsed);
+    }
+    
     adjustSearchContainerPosition();
 
     // 设置和启动动画
@@ -343,23 +368,26 @@ const createElement = (type, item, onClick) => {
             img.dataset.src = item.icon;
             img.alt = '🔗';
             img.classList.add('lazyload');
-            
-            // 使用一个事件处理函数处理多个事件
-            const imgHandler = function(e) {
-                if (e.type === 'load') {
-                    bookmarkIcon.textContent = '';
-                    bookmarkIcon.appendChild(img);
-                } else if (e.type === 'error') {
-                    this.remove();
-                }
-            };
-            
-            // 添加事件处理
-            img.addEventListener('load', imgHandler);
-            img.addEventListener('error', imgHandler);
-            
-            // 先将图片添加到DOM，lazysizes会自动处理加载
-            bookmarkIcon.appendChild(img);
+            img.style.display = 'none'; // 初始隐藏图片
+    
+            // 只在加载成功时显示图片
+            img.addEventListener('load', function() {
+                bookmarkIcon.textContent = '';
+                this.style.display = '';
+                bookmarkIcon.appendChild(img);
+            }, { once: true }); // 使用 once 选项，事件触发后自动移除
+    
+            // 错误处理：静默失败，保持默认图标
+            img.addEventListener('error', function() {
+                this.remove();
+            }, { once: true });
+    
+            // 尝试加载图片
+            try {
+                bookmarkIcon.appendChild(img);
+            } catch (err) {
+                // 静默处理任何 DOM 操作错误
+            }
         }
 
         const link = document.createElement('a');
@@ -445,6 +473,10 @@ const renderMainContent = (folder, fromSidebar = false) => {
 
     // 使用requestAnimationFrame优化渲染
     requestAnimationFrame(() => {
+        // 设置滚动容器
+        breadcrumbs.style.overflowX = 'auto';
+        breadcrumbs.style.webkitOverflowScrolling = 'touch';
+        
         // 预先构建面包屑路径
         const breadcrumbPath = [];
         let current = folder;
@@ -530,6 +562,32 @@ const renderMainContent = (folder, fromSidebar = false) => {
         // 一次性将所有面包屑元素添加到DOM
         breadcrumbs.appendChild(breadcrumbFragment);
 
+        // 检查面包屑是否需要滚动
+        checkBreadcrumbsScroll();
+
+        // 添加面包屑滚动事件监听
+        const handleBreadcrumbScroll = () => {
+            const scrollLeft = breadcrumbs.scrollLeft;
+            const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
+            
+            // 更新渐变遮罩
+            breadcrumbs.style.webkitMaskImage = `linear-gradient(to right,
+                transparent,
+                black ${Math.min(scrollLeft + 15, 15)}px,
+                black calc(100% - ${Math.max(15 - (maxScroll - scrollLeft), 0)}px),
+                transparent
+            )`;
+            breadcrumbs.style.maskImage = breadcrumbs.style.webkitMaskImage;
+            
+            // 控制滚动提示的显示
+            breadcrumbs.classList.toggle('at-end', scrollLeft >= maxScroll - 10);
+            breadcrumbs.classList.toggle('at-start', scrollLeft <= 10);
+        };
+
+        breadcrumbs.addEventListener('scroll', handleBreadcrumbScroll);
+        // 初始化滚动状态
+        handleBreadcrumbScroll();
+
         // 处理内容区域
         if (folder.children && folder.children.length > 0) {
             // 预先分类文件夹和书签，减少条件判断
@@ -576,8 +634,18 @@ const renderMainContent = (folder, fromSidebar = false) => {
                 contentFragment.appendChild(element);
             });
             
-            // 一次性将所有内容元素添加到DOM
+            // 一次性将所有内容元素添加到DOM并检查滚动
             content.appendChild(contentFragment);
+
+            // 确保移动端内容位置正确
+            if (window.innerWidth <= 768) {
+                content.style.transform = 'translateX(-50%)';
+                content.style.marginLeft = '0';
+                content.style.width = '90%';
+                content.style.maxWidth = '800px';
+                content.style.left = '50%';
+                content.style.position = 'relative';
+            }
         }
     });
 };
@@ -983,13 +1051,57 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         
             // 监听窗口大小变化，使用防抖优化性能
+            // 创建一个统一的 resize 处理函数
             const handleResize = debounce(() => {
+                const content = document.getElementById('content');
+                const homeMessage = document.querySelector('.home-message');
+
+                // 重置所有内联样式
+                if (content) {
+                    content.style.cssText = '';
+                }
+                if (homeMessage) {
+                    homeMessage.style.cssText = '';
+                }
+
+                // 根据新的屏幕尺寸应用样式
+                if (window.innerWidth <= 1300) {
+                    if (homeMessage) {
+                        Object.assign(homeMessage.style, {
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            top: '45%',
+                            width: '90%',
+                            maxWidth: '600px'
+                        });
+                    }
+                    if (content) {
+                        Object.assign(content.style, {
+                            transform: 'translateX(-50%)',
+                            marginLeft: '0',
+                            width: '90%',
+                            maxWidth: '800px',
+                            left: '50%',
+                            position: 'relative'
+                        });
+                    }
+                } else {
+                    // 大屏幕模式：让 CSS 接管样式
+                    if (homeMessage) {
+                        const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
+                        adjustHomeMessagePosition(isCollapsed);
+                    }
+                }
+
                 handleMobileView();
-                adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
                 adjustSearchContainerPosition();
             }, 100);
 
+            // 添加 resize 监听
             window.addEventListener('resize', handleResize);
+
+            // 初始化时执行一次
+            handleResize();
 
             // 监听主题切换，因为可能影响布局
             document.addEventListener('themechange', adjustSearchContainerPosition);
@@ -1012,15 +1124,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 主页按钮事件处理
     const homeButton = document.querySelector('.home-button');
     if (homeButton) {
-        // 点击事件
-        homeButton.addEventListener('click', () => {
+        // 统一的主页渲染处理函数
+        const handleHomeNavigation = () => {
+            // 重置所有内容区域的样式
+            const content = document.getElementById('content');
+            if (content) {
+                content.style.cssText = '';
+            }
+            
+            // 重置主页消息的样式并重新渲染
             renderHome();
-        });
+            
+            // 手动触发一次 resize 处理以确保正确的布局
+            if (typeof handleResize === 'function') {
+                handleResize();
+            } else {
+                window.dispatchEvent(new Event('resize'));
+            }
+        };
+
+        // 点击事件
+        homeButton.addEventListener('click', handleHomeNavigation);
+        
         // 键盘事件
         homeButton.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                renderHome();
+                handleHomeNavigation();
             }
         });
     }
