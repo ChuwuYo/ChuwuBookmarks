@@ -10,9 +10,9 @@ Project Overview
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ChuwuYo/ChuwuBookmarks)
 ---
 
-This is a browser-based bookmark navigation webpage designed to convert bookmark data (stored in JSON format) into a visually appealing and feature-rich web application. Through this webpage, you can easily access your bookmarks, with support for expanding and collapsing multi-level folders, searching, breadcrumb navigation, and more.
+This is a browser-based bookmark navigation webpage designed to convert bookmark data (stored in JSON format) into a visually appealing and feature-rich webpage. Through this webpage, you can easily access your bookmarks, with support for expanding and collapsing multi-level folders, searching, breadcrumb navigation, and more.
 
-For users outside mainland China, you can experience the application through the following links:
+For users outside mainland China, you can experience the website through the following links:
 
 [EdgeOne](https://chuwubookmarks.edgeone.app/)
 
@@ -26,9 +26,9 @@ For users outside mainland China, you can experience the application through the
 
 ***
 
-## Exporting JSON Format Bookmark Tree
+## Exporting JSON-Format Bookmark Tree
 
-The JSON format bookmark tree is exported using a browser extension I developed called [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal).
+The JSON-format bookmark tree is exported using a browser extension I developed called [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal).
 
 ***
 
