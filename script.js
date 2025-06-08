@@ -51,14 +51,14 @@ const isMobileDevice = () => {
     return isSmallScreen || isCoarsePointer || isMobileUA || isTablet;
 };
 
-const updateSidebarState = (sidebar, isCollapsed) => {
+// 更新侧边栏状态的函数 - 专注于侧边栏的展开/收起状态管理
+const updateSidebarVisibility = (sidebar, isCollapsed) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
     const toggleButton = document.getElementById('toggle-sidebar');
     const showPanel = toggleButton.querySelector('.show-panel');
     const hidePanel = toggleButton.querySelector('.hide-panel');
     showPanel.style.display = isCollapsed ? 'block' : 'none';
     hidePanel.style.display = isCollapsed ? 'none' : 'block';
-    adjustHomeMessagePosition(isCollapsed);
 
     // 修复文件夹动画状态
     const folderElements = sidebar.querySelectorAll('.folder');
@@ -81,6 +81,12 @@ const updateSidebarState = (sidebar, isCollapsed) => {
             });
         }
     }
+};
+
+// 封装侧边栏状态管理，包括位置调整
+const updateSidebarState = (sidebar, isCollapsed) => {
+    updateSidebarVisibility(sidebar, isCollapsed);
+    adjustHomeMessagePosition(isCollapsed);
 };
 
 const handleMobileView = () => {
@@ -795,6 +801,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
     handleMobileView();
 
+    // 初始化FastClick
+    if (typeof FastClick !== 'undefined') {
+        FastClick.attach(document.body);
+    }
+
     // 初始化搜索Web Worker
     initSearchWorker();
     
@@ -973,6 +984,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (e.key === 'Enter') {
                 debounceSearch(e);
             }
+        
+            // 添加Ctrl+K快捷键聚焦搜索框功能
+            document.addEventListener('keydown', function (e) {
+                if (e.ctrlKey && e.key.toLowerCase() === 'k') {
+                    e.preventDefault();
+                    document.getElementById('search-input').focus();
+                }
+            });
+        
+            // 监听窗口大小变化
+            window.addEventListener('resize', () => {
+                handleMobileView();
+                adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
+            });
         });
     }
 
@@ -994,23 +1019,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // 简化 FastClick 初始化，避免嵌套的事件监听器
-document.addEventListener('DOMContentLoaded', function () {
-    if (typeof FastClick !== 'undefined') {
-        FastClick.attach(document.body);
-    }
-
-    // 添加Ctrl+K快捷键聚焦搜索框功能
-    document.addEventListener('keydown', function (e) {
-        if (e.ctrlKey && e.key.toLowerCase() === 'k') {
-            e.preventDefault();
-            document.getElementById('search-input').focus();
-        }
-    });
-    window.addEventListener('resize', () => {
-        handleMobileView();
-        adjustHomeMessagePosition(document.querySelector('.sidebar').classList.contains('collapsed'));
-    });
-});
 
 // 标题变更功能
 const originalTitle = document.title;
