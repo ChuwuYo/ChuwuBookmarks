@@ -96,88 +96,77 @@ const handleMobileView = () => {
     updateSidebarState(sidebar, isMobile);
 };
 
-const adjustHomeMessagePosition = (isCollapsed) => { 
+// 调整主页消息位置
+const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
-    const searchContainer = document.querySelector('.search-container');
+    if (!homeMessage) return;
 
     if (window.innerWidth < 768) {
         // 移动视图
-        if (homeMessage) {
-            homeMessage.style.left = '50%';
-        }
-        if (searchContainer) {
-            searchContainer.style.left = '50%';
-            // 确保在移动视图清除可能存在的偏移量
-            searchContainer.style.removeProperty('--search-container-centering-offset');
-        }
+        homeMessage.style.left = '50%';
     } else {
         // 桌面视图
-        if (homeMessage) {
-            homeMessage.style.left = ''; // 由 CSS 控制
-        }
-        if (searchContainer) {
-            searchContainer.style.left = ''; // 由 CSS 控制 left: 50%
-
-            const searchInput = document.getElementById('search-input');
-            if (searchInput) {
-                // 计算使 searchInput 在 searchContainer 内居中所需的偏移量
-                // 这个计算假设任何使 searchInput 偏离 searchContainer 中心的额外宽度都在 searchInput 的右侧
-                const searchInputOffsetLeft = searchInput.offsetLeft; // searchInput 相对于 searchContainer 的左偏移
-                const searchInputWidth = searchInput.offsetWidth;
-                const searchContainerWidth = searchContainer.offsetWidth;
-
-                // shiftInPx > 0 表示 searchInput 的中心在 searchContainer 中心的左侧。
-                // 因此，searchContainer 需要向右移动 shiftInPx 来使 searchInput 居中。
-                const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
-                
-                searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
-            } else {
-                 // 如果找不到 searchInput，确保清除偏移量以防意外
-                searchContainer.style.removeProperty('--search-container-centering-offset');
-            }
-        }
+        homeMessage.style.left = ''; // 由 CSS 控制
     }
+};
+
+// 调整搜索容器位置和偏移量
+const adjustSearchContainerPosition = () => {
+    const searchContainer = document.querySelector('.search-container');
+    if (!searchContainer) return;
+
+    if (window.innerWidth < 768) {
+        // 移动视图
+        searchContainer.style.left = '50%';
+        searchContainer.style.removeProperty('--search-container-centering-offset');
+    } else {
+        // 桌面视图
+        searchContainer.style.left = ''; // 由 CSS 控制 left: 50%
+        adjustSearchInputCentering(searchContainer);
+    }
+};
+
+// 计算并设置搜索输入框的居中偏移量
+const adjustSearchInputCentering = (searchContainer) => {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) {
+        searchContainer.style.removeProperty('--search-container-centering-offset');
+        return;
+    }
+
+    // 计算使 searchInput 在 searchContainer 内居中所需的偏移量
+    const searchInputOffsetLeft = searchInput.offsetLeft;
+    const searchInputWidth = searchInput.offsetWidth;
+    const searchContainerWidth = searchContainer.offsetWidth;
+
+    // shiftInPx > 0 表示 searchInput 的中心在 searchContainer 中心的左侧
+    const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
+    searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
 };
 
 // 在事件监听中保持调用
 /** 渲染相关 */
-const renderHome = () => {
-    const content = document.getElementById('content');
-    const breadcrumbs = document.getElementById('breadcrumbs');
-    
-    if (!content || !breadcrumbs) return;
-    
-    // 使用DocumentFragment减少DOM操作
+// 创建主页基础DOM结构
+const createHomeStructure = () => {
     const fragment = document.createDocumentFragment();
-    
-    // 创建主页消息容器
     const homeMessage = document.createElement('div');
     homeMessage.className = 'home-message';
     
-    // 创建中文和英文文本元素
     const chineseText = document.createElement('div');
     chineseText.className = 'chinese-text';
     
     const englishText = document.createElement('div');
     englishText.className = 'english-text';
     
-    // 将元素添加到fragment
     homeMessage.appendChild(chineseText);
     homeMessage.appendChild(englishText);
     fragment.appendChild(homeMessage);
     
-    // 清空内容区域并添加fragment
-    content.innerHTML = '';
-    content.appendChild(fragment);
-    breadcrumbs.innerHTML = '';
-    
-    // 调整位置
-    adjustHomeMessagePosition(document.querySelector('.sidebar')?.classList.contains('collapsed'));
+    return { fragment, homeMessage, chineseText, englishText };
+};
 
-    // 优化动画性能 - 使用一个主时间线
-    const masterTimeline = gsap.timeline();
-
-    // 设置初始状态 - 简化初始设置
+// 设置主页文本的初始动画状态
+const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
     gsap.set(homeMessage, { opacity: 0 });
     gsap.set(chineseText, {
         opacity: 0,
@@ -193,15 +182,18 @@ const renderHome = () => {
         transformOrigin: "center center",
         textContent: "Chuwu's Bookmarks"
     });
+};
 
-    // 主容器淡入
+// 创建文字动画的时间线
+const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
+    const masterTimeline = gsap.timeline();
+
     masterTimeline.to(homeMessage, {
         opacity: 1,
         duration: animationConfig.duration.medium,
         ease: animationConfig.ease.outQuad
     });
 
-    // 简化中文和英文文本动画
     masterTimeline.to(chineseText, {
         opacity: 1,
         scale: 1,
@@ -218,115 +210,114 @@ const renderHome = () => {
         ease: animationConfig.ease.outQuad
     }, "-=0.3");
 
-    // 批量创建字符动画元素
+    return masterTimeline;
+};
+
+// 创建字符元素
+const createCharacterSpans = (chars) => {
+    const fragment = document.createDocumentFragment();
+    const spans = chars.split('').map(char => {
+        const charSpan = document.createElement('span');
+        charSpan.textContent = char;
+        charSpan.style.display = 'inline-block';
+        charSpan.style.position = 'relative';
+        fragment.appendChild(charSpan);
+        return charSpan;
+    });
+    return { fragment, spans };
+};
+
+// 设置中文字符动画
+const setupChineseCharacterAnimation = (spans) => {
+    spans.forEach((charSpan, index) => {
+        const char = charSpan.textContent;
+        if (char === '的') {
+            gsap.set(charSpan, { y: -50, opacity: 0 });
+            gsap.to(charSpan, {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                delay: 1.2,
+                ease: "bounce.out"
+            });
+        } else {
+            gsap.set(charSpan, { opacity: 0, x: -10 });
+            gsap.to(charSpan, {
+                opacity: 1,
+                x: 0,
+                duration: 0.2,
+                delay: 0.5 + (index * 0.05),
+                ease: "power1.out"
+            });
+        }
+    });
+};
+
+// 设置英文字符动画
+const setupEnglishCharacterAnimation = (spans) => {
+    spans.forEach((charSpan, index) => {
+        const char = charSpan.textContent;
+        if (char === "'" || char === "s") {
+            gsap.set(charSpan, { y: -50, opacity: 0 });
+            gsap.to(charSpan, {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                delay: char === "'" ? 1.5 : 1.7,
+                ease: "bounce.out"
+            });
+        } else {
+            gsap.set(charSpan, { opacity: 0, x: -10 });
+            gsap.to(charSpan, {
+                opacity: 1,
+                x: 0,
+                duration: 0.2,
+                delay: 0.7 + (index * 0.04),
+                ease: "power1.out"
+            });
+        }
+    });
+};
+
+// 渲染主页
+const renderHome = () => {
+    const content = document.getElementById('content');
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    
+    if (!content || !breadcrumbs) return;
+    
+    // 创建基础结构
+    const { fragment, homeMessage, chineseText, englishText } = createHomeStructure();
+    
+    // 清空内容区域并添加fragment
+    content.innerHTML = '';
+    content.appendChild(fragment);
+    breadcrumbs.innerHTML = '';
+    
+    // 调整位置
+    const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
+    adjustHomeMessagePosition(isCollapsed);
+    adjustSearchContainerPosition();
+
+    // 设置和启动动画
+    setupHomeTextAnimation(homeMessage, chineseText, englishText);
+    createHomeTextTimeline(homeMessage, chineseText, englishText);
+
+    // 字符动画
     requestAnimationFrame(() => {
-        // 为中文文本的每个字符添加特殊动画效果
-        const chineseChars = '初五的书签'.split('');
-        const chineseFragment = document.createDocumentFragment();
-        
-        // 预先创建所有字符元素
-        const chineseSpans = chineseChars.map(char => {
-            const charSpan = document.createElement('span');
-            charSpan.textContent = char;
-            charSpan.style.display = 'inline-block';
-            charSpan.style.position = 'relative';
-            return charSpan;
-        });
-        
-        // 一次性添加所有字符元素
-        chineseSpans.forEach(span => chineseFragment.appendChild(span));
+        // 中文动画
+        const { fragment: chineseFragment, spans: chineseSpans } = createCharacterSpans('初五的书签');
         chineseText.textContent = '';
         chineseText.appendChild(chineseFragment);
-        
-        // 批量设置动画
-        chineseSpans.forEach((charSpan, index) => {
-            const char = charSpan.textContent;
-            
-            if (char === '的') {
-                // 为"的"字符添加从上方掉落的动画
-                gsap.set(charSpan, {
-                    y: -50,
-                    opacity: 0
-                });
-                
-                gsap.to(charSpan, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    delay: 1.2,
-                    ease: "bounce.out"
-                });
-            } else {
-                // 为其他字符添加渐显动画
-                gsap.set(charSpan, {
-                    opacity: 0,
-                    x: -10
-                });
-                
-                gsap.to(charSpan, {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.2,
-                    delay: 0.5 + (index * 0.05),
-                    ease: "power1.out"
-                });
-            }
-        });
+        setupChineseCharacterAnimation(chineseSpans);
 
-        // 为英文文本的每个字符添加特殊动画效果
-        const englishChars = "Chuwu's Bookmarks".split('');
-        const englishFragment = document.createDocumentFragment();
-        
-        // 预先创建所有字符元素
-        const englishSpans = englishChars.map(char => {
-            const charSpan = document.createElement('span');
-            charSpan.textContent = char;
-            charSpan.style.display = 'inline-block';
-            charSpan.style.position = 'relative';
-            return charSpan;
-        });
-        
-        // 一次性添加所有字符元素
-        englishSpans.forEach(span => englishFragment.appendChild(span));
+        // 英文动画
+        const { fragment: englishFragment, spans: englishSpans } = createCharacterSpans("Chuwu's Bookmarks");
         englishText.textContent = '';
         englishText.appendChild(englishFragment);
-        
-        // 批量设置动画
-        englishSpans.forEach((charSpan, index) => {
-            const char = charSpan.textContent;
-            
-            if (char === "'" || char === "s") {
-                // 为"'s"添加从上方掉落的动画
-                gsap.set(charSpan, {
-                    y: -50,
-                    opacity: 0
-                });
-                
-                gsap.to(charSpan, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    delay: char === "'" ? 1.5 : 1.7,
-                    ease: "bounce.out"
-                });
-            } else {
-                // 为其他字符添加渐显动画
-                gsap.set(charSpan, {
-                    opacity: 0,
-                    x: -10
-                });
-                
-                gsap.to(charSpan, {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.2,
-                    delay: 0.7 + (index * 0.04),
-                    ease: "power1.out"
-                });
-            }
-        });
+        setupEnglishCharacterAnimation(englishSpans);
     });
-}
+};
 
 
 
