@@ -23,17 +23,19 @@
 .search-container {
     position: fixed;
     top: 20px;
-    transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
     display: flex;
     align-items: center;
     z-index: 999;
     white-space: nowrap;
     user-select: none;
-    transition: left 0.2s var(--cubic-bezier), transform 0.2s var(--cubic-bezier), opacity 0.2s ease;
+    transition: transform var(--duration-base) var(--ease-in-out-cubic);
     height: calc(1rem + 16px + 6px);
-    will-change: left, transform, opacity;
+    will-change: transform;
     contain: layout;
     outline: none;
+    backface-visibility: hidden;
 }
 #search-input {
     padding: 6px;
