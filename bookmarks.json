@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749213736513,
+    "addDate": 1749452778309,
     "title": "书签栏",
     "children": [
       {
@@ -1798,20 +1798,6 @@
                 "title": "Poki - Free Online Games - Play Now!",
                 "url": "https://poki.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=poki.com"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1745648775658,
-            "title": "PE",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1745648761117,
-                "title": "八门神器 - 八门神器官网 - 手机游戏免费下载",
-                "url": "https://www.bamenshenqi.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.bamenshenqi.com"
               }
             ]
           },
@@ -3816,13 +3802,6 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "@gmail.com - Gmail",
-                    "url": "https://mail.google.com/mail/u/0/#inbox",
-                    "icon": "https://www.google.com/s2/favicons?domain=mail.google.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "蔷薇花园",
                     "url": "https://iirose.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=iirose.com"
@@ -5752,6 +5731,13 @@
                 "addDate": 1748924600056,
                 "title": "DDU | display-drivers-uninstaller: Display Driver Uninstaller (DDU) a driver removal utility / cleaner utility",
                 "url": "https://github.com/Wagnard/display-drivers-uninstaller",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749383302168,
+                "title": "系统字体修改/noMeiryoUI: No!! MeiryoUI is Windows system font setting tool on Windows 8.1/10/11.",
+                "url": "https://github.com/Tatsu-syo/noMeiryoUI?tab=readme-ov-file",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -8780,8 +8766,8 @@
                     "type": "link",
                     "addDate": 1707811857046,
                     "title": "Cursor - The AI-first Code Editor",
-                    "url": "https://cursor.sh/",
-                    "icon": "https://www.google.com/s2/favicons?domain=cursor.sh"
+                    "url": "https://cursor.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=cursor.com"
                   },
                   {
                     "type": "link",
@@ -9032,6 +9018,27 @@
               },
               {
                 "type": "link",
+                "addDate": 1749450561849,
+                "title": "DevOps_DevOps 解决方案_一站式 DevOps_开发者工具 | 腾讯云 CODING DevOps",
+                "url": "https://coding.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=coding.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1706600065507,
+                "title": "通过可组合的 Web 架构更快地扩展和交付 |网络化 --- Scale & Ship Faster with a Composable Web Architecture | Netlify",
+                "url": "https://netlify.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=netlify.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1706600018112,
+                "title": "Vercel: Build and deploy the best Web experiences with The Frontend Cloud – Vercel",
+                "url": "https://vercel.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=vercel.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1745254565772,
                 "title": "Gitee - 基于 Git 的代码托管和研发协作平台",
                 "url": "https://gitee.com/",
@@ -9046,13 +9053,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1706600018112,
-                "title": "Vercel: Build and deploy the best Web experiences with The Frontend Cloud – Vercel",
-                "url": "https://vercel.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=vercel.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1706600035125,
                 "title": "Free Web Hosting with PHP and MySQL - InfinityFree",
                 "url": "https://www.infinityfree.com/",
@@ -9060,24 +9060,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1706600065507,
-                "title": "通过可组合的 Web 架构更快地扩展和交付 |网络化 --- Scale & Ship Faster with a Composable Web Architecture | Netlify",
-                "url": "https://netlify.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=netlify.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1737914495947,
                 "title": "EdgeOne Pages: 快速构建和部署您的网页应用",
                 "url": "https://edgeone.ai/zh/products/pages",
                 "icon": "https://www.google.com/s2/favicons?domain=edgeone.ai"
-              },
-              {
-                "type": "link",
-                "addDate": 1745253410917,
-                "title": "netlify | Scale & Ship Faster with a Composable Web Architecture | Netlify",
-                "url": "https://www.netlify.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.netlify.com"
               },
               {
                 "type": "link",
@@ -9589,6 +9575,13 @@
                 "title": "入门 - Go 编程语言",
                 "url": "https://go.dev/learn/",
                 "icon": "https://www.google.com/s2/favicons?domain=go.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1749439263837,
+                "title": "Welcome to Wails",
+                "url": "https://v3alpha.wails.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=v3alpha.wails.io"
               }
             ]
           },
@@ -10505,28 +10498,63 @@
           {
             "type": "folder",
             "addDate": 1749090839674,
-            "title": "临时邮箱",
+            "title": "邮箱",
             "children": [
               {
-                "type": "link",
-                "addDate": 1744281198400,
-                "title": "TempEmail临时邮箱",
-                "url": "https://tempmailpro.org/zh",
-                "icon": "https://www.google.com/s2/favicons?domain=tempmailpro.org"
+                "type": "folder",
+                "addDate": 1749288427904,
+                "title": "临时",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1744281198400,
+                    "title": "TempEmail临时邮箱",
+                    "url": "https://tempmailpro.org/zh",
+                    "icon": "https://www.google.com/s2/favicons?domain=tempmailpro.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749044586320,
+                    "title": "Moakt Email || Temporary disposable Email Service",
+                    "url": "https://moakt.com/en/",
+                    "icon": "https://www.google.com/s2/favicons?domain=moakt.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746613457588,
+                    "title": "临时邮箱smail",
+                    "url": "https://smail.pw/",
+                    "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
+                  }
+                ]
               },
               {
                 "type": "link",
-                "addDate": 1749044586320,
-                "title": "Moakt Email || Temporary disposable Email Service",
-                "url": "https://moakt.com/en/",
-                "icon": "https://www.google.com/s2/favicons?domain=moakt.com"
+                "addDate": 1749288454116,
+                "title": "@gmail.com - Gmail",
+                "url": "https://mail.google.com/mail/u/0/#inbox",
+                "icon": "https://www.google.com/s2/favicons?domain=mail.google.com"
               },
               {
                 "type": "link",
-                "addDate": 1746613457588,
-                "title": "临时邮箱smail",
-                "url": "https://smail.pw/",
-                "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
+                "addDate": 1749288474457,
+                "title": "Outlook",
+                "url": "https://outlook.live.com/mail/0/",
+                "icon": "https://www.google.com/s2/favicons?domain=outlook.live.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749288560816,
+                "title": "QQ Mail",
+                "url": "https://wx.mail.qq.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=wx.mail.qq.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749288617520,
+                "title": "网易免费邮箱 - 你的专业电子邮局",
+                "url": "https://email.163.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=email.163.com"
               }
             ]
           },
@@ -10634,6 +10662,41 @@
             "title": "工作",
             "children": [
               {
+                "type": "folder",
+                "addDate": 1749293867184,
+                "title": "简历",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "简历生成器Reactive Resume | A free and open source resume builder",
+                    "url": "https://rxresu.me/",
+                    "icon": "https://www.google.com/s2/favicons?domain=rxresu.me"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746543058236,
+                    "title": "拖拽式简历生成Resume Builder",
+                    "url": "https://dnd-resume.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=dnd-resume.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1719205631731,
+                    "title": "AI驱动的简历制作器 - 现代、专业且免费 - CVRest",
+                    "url": "https://cvrest.com/ch/resume-builder",
+                    "icon": "https://www.google.com/s2/favicons?domain=cvrest.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1744903028831,
+                    "title": "JOYCEQL/magic-resume: free online AI resume editor",
+                    "url": "https://github.com/JOYCEQL/magic-resume",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1714733462808,
                 "title": "向上工作",
@@ -10649,52 +10712,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "简历生成器Reactive Resume | A free and open source resume builder",
-                "url": "https://rxresu.me/",
-                "icon": "https://www.google.com/s2/favicons?domain=rxresu.me"
-              },
-              {
-                "type": "link",
-                "addDate": 1746543058236,
-                "title": "拖拽式简历生成Resume Builder",
-                "url": "https://dnd-resume.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=dnd-resume.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1719752892006,
-                "title": "简历制作器.在线",
-                "url": "https://www.resumemaker.online/editor",
-                "icon": "https://www.google.com/s2/favicons?domain=www.resumemaker.online"
-              },
-              {
-                "type": "link",
-                "addDate": 1719205631731,
-                "title": "AI驱动的简历制作器 - 现代、专业且免费 - CVRest",
-                "url": "https://cvrest.com/ch/resume-builder",
-                "icon": "https://www.google.com/s2/favicons?domain=cvrest.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1719205782303,
-                "title": "创建履历表 ？只需填写并即刻下载 - CVwizard",
-                "url": "https://www.cvwizard.com/zh",
-                "icon": "https://www.google.com/s2/favicons?domain=www.cvwizard.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1725877484209,
                 "title": "Resume Builder | Dashboard",
                 "url": "https://app.rezi.ai/dashboard/resumes",
                 "icon": "https://www.google.com/s2/favicons?domain=app.rezi.ai"
-              },
-              {
-                "type": "link",
-                "addDate": 1735038391025,
-                "title": "markItDown | Free & Open Source Markdown Editor",
-                "url": "https://markitdown.netlify.app/",
-                "icon": "https://www.google.com/s2/favicons?domain=markitdown.netlify.app"
               },
               {
                 "type": "link",
@@ -10709,13 +10730,6 @@
                 "title": "SaDuck上岸鸭",
                 "url": "https://www.saduck.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.saduck.top"
-              },
-              {
-                "type": "link",
-                "addDate": 1744903028831,
-                "title": "JOYCEQL/magic-resume: free online AI resume editor",
-                "url": "https://github.com/JOYCEQL/magic-resume",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
