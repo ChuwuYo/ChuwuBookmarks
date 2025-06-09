@@ -1,4 +1,94 @@
 /* 响应式样式：所有媒体查询集中管理 */
+
+/* 在较小屏幕(<=1300px)上的通用布局样式 */
+@media screen and (max-width: 1300px) {
+    /* 内容区域固定居中布局 */
+    .main-content {
+        margin-left: 0 !important;
+        width: 90% !important;
+        max-width: 800px;
+        padding: 20px;
+        margin: 0 auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic),
+                    width var(--duration-base) var(--ease-in-out-cubic);
+    }
+
+    /* 确保内容区域在所有状态下保持居中 */
+    .sidebar:not(.collapsed) + .main-content {
+        margin-left: 0 !important;
+        width: 90% !important;
+        transform: translateX(-50%);
+    }
+
+    /* 共享布局元素的居中定位逻辑 */
+    .search-container,
+    .home-message {
+        left: 50% !important;
+        transition: transform var(--duration-base) var(--ease-in-out-cubic),
+                    opacity var(--duration-base) var(--ease-in-out-cubic);
+    }
+
+    /* 搜索容器定位 */
+    .search-container {
+        transform: translateX(-50%) !important;
+    }
+
+    /* 主页消息样式仅在小屏幕模式下应用 */
+    @media (max-width: 1300px) {
+        .home-message {
+            transform: translate(-50%, -50%) !important;
+            top: 45% !important;
+            margin: 0 !important;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+    }
+
+    /* 大屏幕模式下移除强制样式 */
+    @media (min-width: 1301px) {
+        .home-message {
+            transform: none;
+            top: auto;
+            margin: auto;
+        }
+    }
+
+    /* 防止内容被侧边栏覆盖 */
+    .main-content #content {
+        min-height: calc(100vh - 120px);
+        position: relative;
+        z-index: 1;
+    }
+
+    /* 重置所有侧边栏状态下的位置 */
+    .sidebar.collapsed + .main-content .search-container,
+    .sidebar:not(.collapsed) + .main-content .search-container {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* 主页消息在所有侧边栏状态下的位置 */
+    .sidebar.collapsed + .main-content .home-message,
+    .sidebar:not(.collapsed) + .main-content .home-message {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    /* 优化动画性能 */
+    .search-container,
+    .home-message {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        contain: layout style paint;
+    }
+}
+
+/* 移动端特定样式(<=768px) */
 @media screen and (max-width: 768px) {
 
     .mobile-device [onclick],
@@ -61,28 +151,155 @@
     .sidebar:not(.collapsed) #sidebar-folders {
         display: block;
     }
+    /* 移动端特有的内容区域样式调整 */
     .main-content {
-        margin-left: 0;
-        width: 100%;
-        padding: 20px;
-    }
-    .sidebar:not(.collapsed) + .main-content {
-        margin-left: 260px;
-        width: calc(100% - 220px);
+        max-width: 600px; /* 移动端更窄的内容区域 */
+        padding: 15px;    /* 更小的内边距 */
     }
     .search-container {
         left: 52%;
         transition: opacity 0.2s ease;
     }
+    /* 面包屑导航移动端优化 */
     #breadcrumbs {
-        padding-top: 45px;
+        padding: 45px 10px 0;
+        font-size: clamp(1rem, 5vw, 1.2rem);
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto 1rem;
+        line-height: 1.4;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    /* 移动端面包屑项样式优化 */
+    .breadcrumb-item {
+        padding: 8px 12px;
+        margin: 0;
+        background: var(--bg-color);
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .breadcrumb-separator {
+        margin: 0;
+        opacity: 0.7;
+        color: var(--text-color);
+        flex-shrink: 0;
+        transform: scale(0.9);
+    }
+
+    /* 改善移动端可点击区域和交互 */
+    button.breadcrumb-item {
+        min-height: 40px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* 移动端点击态优化 */
+    .mobile-device .breadcrumb-item:active {
+        transform: scale(0.95);
+        background-color: var(--button-bg);
+    }
+
+    /* 最后一个面包屑项特殊处理 */
+    .breadcrumb-item:last-child {
+        background-color: var(--button-bg);
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    /* 移动端面包屑导航优化 */
+    #breadcrumbs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 5px;
+        position: relative;
+        width: calc(100% - 30px) !important;  /* 考虑渐变边缘的空间 */
+        margin: 0 auto !important;
+        scroll-padding: 0 20px;
+        scroll-snap-type: x proximity;
+        mask-image: linear-gradient(to right,
+            transparent,
+            black 15px,
+            black calc(100% - 15px),
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black 15px,
+            black calc(100% - 15px),
+            transparent
+        );
+    }
+
+    /* 优化面包屑项的滚动行为 */
+    .breadcrumb-item {
+        scroll-snap-align: start;
+    }
+
+    /* 确保最后一个面包屑项完全可见 */
+    .breadcrumb-item:last-child {
+        scroll-margin-right: 20px;
+    }
+    #breadcrumbs::-webkit-scrollbar {
+        display: none;
+    }
+    /* 添加滚动提示 */
+    #breadcrumbs::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: var(--text-color);
+        opacity: 0.3;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        animation: pulseRight 1.5s infinite;
+    }
+    #breadcrumbs:not(.scrollable)::after {
+        display: none;
+    }
+    @keyframes pulseRight {
+        0% { opacity: 0.3; transform: translate(0, -50%); }
+        50% { opacity: 0.15; transform: translate(5px, -50%); }
+        100% { opacity: 0.3; transform: translate(0, -50%); }
     }
     #content .bookmark a {
         max-width: 80%;
     }
     .home-message {
         left: 50%;
+        width: 90%;  /* 控制移动端宽度 */
+        max-width: 400px;  /* 限制最大宽度 */
         transition: opacity 0.3s ease;
+    }
+    /* 移动端文字大小适配 */
+    .home-message .chinese-text {
+        font-size: clamp(1.5rem, 8vw, 2rem);  /* 响应式字体大小 */
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+        word-break: keep-all;  /* 避免中文断词 */
+    }
+    .home-message .english-text {
+        font-size: clamp(1rem, 6vw, 1.5rem);  /* 响应式字体大小 */
+        line-height: 1.4;
+        word-break: break-word;
     }
 }
 @media screen and (min-width: 769px) {
