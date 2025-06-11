@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749567058721,
+    "addDate": 1749630127215,
     "title": "书签栏",
     "children": [
       {
@@ -1616,6 +1616,13 @@
                 "title": "初音的青葱发布页",
                 "url": "https://www.xygalgame.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xygalgame.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1749574249707,
+                "title": "非loli | loli小站",
+                "url": "https://gal.loli520.cc/%E9%9D%9Eloli",
+                "icon": "https://www.google.com/s2/favicons?domain=gal.loli520.cc"
               }
             ]
           },
@@ -8838,6 +8845,13 @@
                     "title": "voideditor/void",
                     "url": "https://github.com/voideditor/void",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749609903570,
+                    "title": "Windsurf (formerly Codeium) - The most powerful AI Code Editor",
+                    "url": "https://windsurf.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=windsurf.com"
                   }
                 ]
               },
@@ -9207,20 +9221,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1733226416551,
-                "title": "CNB - Cloud Native Build",
-                "url": "https://cnb.cool/",
-                "icon": "https://www.google.com/s2/favicons?domain=cnb.cool"
-              },
-              {
-                "type": "link",
-                "addDate": 1732030870604,
-                "title": "Chat with Codeium | Codeium · Free AI Code Completion & Chat",
-                "url": "https://codeium.com/live/general",
-                "icon": "https://www.google.com/s2/favicons?domain=codeium.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1736611587286,
                 "title": "Replit – Build apps and sites with AI",
                 "url": "https://replit.com/",
@@ -9246,13 +9246,6 @@
                 "title": "Lovable",
                 "url": "https://lovable.dev/",
                 "icon": "https://www.google.com/s2/favicons?domain=lovable.dev"
-              },
-              {
-                "type": "link",
-                "addDate": 1744328323530,
-                "title": "Firebase Studio",
-                "url": "https://firebase.studio/",
-                "icon": "https://www.google.com/s2/favicons?domain=firebase.studio"
               },
               {
                 "type": "link",
