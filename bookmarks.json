@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749630127215,
+    "addDate": 1749726194828,
     "title": "书签栏",
     "children": [
       {
@@ -1623,6 +1623,13 @@
                 "title": "非loli | loli小站",
                 "url": "https://gal.loli520.cc/%E9%9D%9Eloli",
                 "icon": "https://www.google.com/s2/favicons?domain=gal.loli520.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1749635966038,
+                "title": "莉斯坦ACG - 免费galgame资源站|免费ACG资源站",
+                "url": "https://www.limulu.moe/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.limulu.moe"
               }
             ]
           },
@@ -2171,13 +2178,6 @@
             "title": "百度网盘秒传链接转存",
             "url": "https://rapidacg.gmgard.moe/",
             "icon": "https://www.google.com/s2/favicons?domain=rapidacg.gmgard.moe"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "Home | AList文档",
-            "url": "https://alist.nn.ci/zh/",
-            "icon": "https://www.google.com/s2/favicons?domain=alist.nn.ci"
           },
           {
             "type": "link",
@@ -7126,13 +7126,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1744783078475,
-                    "title": "Z.ai",
-                    "url": "https://chat.z.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1737123777317,
                     "title": "Qwen",
                     "url": "https://chat.qwen.ai/",
@@ -7165,6 +7158,13 @@
                     "title": "Pi, your personal AI",
                     "url": "https://pi.ai/discover",
                     "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749713778945,
+                    "title": "Z",
+                    "url": "https://chat.z.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
                   }
                 ]
               },
@@ -9398,6 +9398,13 @@
                     "title": "Element Plus | 一个 Vue 3 UI 框架",
                     "url": "https://element-plus.org/zh-CN/",
                     "icon": "https://www.google.com/s2/favicons?domain=element-plus.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749656378285,
+                    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+                    "url": "https://tailwindcss.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=tailwindcss.com"
                   }
                 ]
               },
@@ -9526,13 +9533,6 @@
                 "title": "DevDocs API Documentation",
                 "url": "https://devdocs.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=devdocs.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1740543953302,
-                "title": "文档-仓颉编程语言官网",
-                "url": "https://cangjie-lang.cn/docs?url=%2F0.53.18%2Fuser_manual%2Fsource_zh_cn%2Ffirst_understanding%2Fbasic.html",
-                "icon": "https://www.google.com/s2/favicons?domain=cangjie-lang.cn"
               },
               {
                 "type": "link",
@@ -10506,6 +10506,13 @@
                 "title": "ARES模拟交易平台",
                 "url": "https://ares.sse.com.cn/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=ares.sse.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1749725989231,
+                "title": "仓位在线-全面揭露主力持仓变动+成本-cangweizaixian.com",
+                "url": "https://cangweizaixian.com/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=cangweizaixian.com"
               }
             ]
           },
