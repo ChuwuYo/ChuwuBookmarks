@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749726194828,
+    "addDate": 1749799123236,
     "title": "书签栏",
     "children": [
       {
@@ -7363,13 +7363,6 @@
                 "title": "Humanize AI—将 AI 文本人性化",
                 "url": "https://www.humanizeai.pro/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.humanizeai.pro"
-              },
-              {
-                "type": "link",
-                "addDate": 1746542211168,
-                "title": "去除AI味",
-                "url": "https://reduceai.pigshorts.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=reduceai.pigshorts.com"
               },
               {
                 "type": "link",
