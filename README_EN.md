@@ -20,7 +20,7 @@ For users outside mainland China, you can experience the website through the fol
 
 [Netlify](https://chuwubookmarks.netlify.app/)
 
-[Githubpages](https://chuwuyo.github.io/ChuwuBookmarks/)
+[GithubPages](https://chuwuyo.github.io/ChuwuBookmarks/)
 
 [Surge](https://chuwubookmarks.surge.sh/) (version may be ahead or behind)
 
