@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749799123236,
+    "addDate": 1749915104197,
     "title": "书签栏",
     "children": [
       {
@@ -1369,8 +1369,8 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "TouchGAL-一站式Galgame文化社区！",
-                "url": "https://www.touchgal.me/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.touchgal.me"
+                "url": "https://gal.red/",
+                "icon": "https://www.google.com/s2/favicons?domain=gal.red"
               },
               {
                 "type": "link",
@@ -6169,13 +6169,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1708536939725,
-                "title": "AI换脸Hillobar/Rope: GUI-focused roop",
-                "url": "https://github.com/Hillobar/Rope",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1715092489007,
                 "title": "xxxily/h5player: This software supports all audio and video websites, such as TikTok, YouTube, Bilibili, TED, Instagram, Twitter, etc. Features include: variable playback speed, screen capture, video download, custom settings, and extensions, etc., providing you with a pleasant online audio and video playback experience.",
                 "url": "https://github.com/xxxily/h5player",
@@ -6246,13 +6239,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "Bark-Voice-Cloning/README_zh.md at main · KevinWang676/Bark-Voice-Cloning",
-                "url": "https://github.com/KevinWang676/Bark-Voice-Cloning/blob/main/README_zh.md",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1709641770992,
                 "title": "Boost Volume and Sound Quality on Your PC - FxSound",
                 "url": "https://www.fxsound.com/",
@@ -6264,13 +6250,6 @@
                 "title": "Fish Audio: Audio Generation For All",
                 "url": "https://fish.audio/zh-CN/",
                 "icon": "https://www.google.com/s2/favicons?domain=fish.audio"
-              },
-              {
-                "type": "link",
-                "addDate": 1736346970048,
-                "title": "idiap/coqui-ai-TTS: 🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production",
-                "url": "https://github.com/idiap/coqui-ai-TTS",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
@@ -6298,13 +6277,6 @@
                 "addDate": 1740466872161,
                 "title": "RVC-Boss/GPT-SoVITS: 1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
                 "url": "https://github.com/RVC-Boss/GPT-SoVITS",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1742354904723,
-                "title": "SparkAudio/Spark-TTS: Spark-TTS Inference Code",
-                "url": "https://github.com/SparkAudio/Spark-TTS",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
