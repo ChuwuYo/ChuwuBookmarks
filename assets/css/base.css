@@ -45,12 +45,12 @@
 /* 字体定义 */
 @font-face {
     font-family: 'LXGW WenKai';
-    src: url('../typeface/LXGWWenKai-Medium.woff2') format('woff2');
+    src: url('../fonts/LXGWWenKai-Medium.woff2') format('woff2');
     font-display: swap;
 }
 @font-face {
     font-family: 'DingTalk JinBuTi';
-    src: url('../typeface/DingTalk-JinBuTi.woff2') format('woff2');
+    src: url('../fonts/DingTalk-JinBuTi.woff2') format('woff2');
     font-display: swap;
 }
 /* 全局重置 */
