@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1750382612394,
+    "addDate": 1749994276735,
     "title": "书签栏",
     "children": [
       {
@@ -144,31 +144,10 @@
           },
           {
             "type": "link",
-            "addDate": 1742656654125,
-            "title": "磁力熊 - 豆瓣高分电影1080P下载",
-            "url": "https://www.cilixiong.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.cilixiong.org"
-          },
-          {
-            "type": "link",
             "addDate": 1744121847757,
             "title": "主页 — Torrents-CSV",
             "url": "https://torrents-csv.com/",
             "icon": "https://www.google.com/s2/favicons?domain=torrents-csv.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1744122065014,
-            "title": "数据生态系统",
-            "url": "https://dat-ecosystem.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=dat-ecosystem.org"
-          },
-          {
-            "type": "link",
-            "addDate": 1744121600023,
-            "title": "WebTorrent - 流媒体 torrent 客户端",
-            "url": "https://webtorrent.io/",
-            "icon": "https://www.google.com/s2/favicons?domain=webtorrent.io"
           },
           {
             "type": "link",
@@ -345,10 +324,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1742919051678,
-                "title": "真紅の資源討論組",
-                "url": "https://bbs.shinnku.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=bbs.shinnku.com"
+                "addDate": 1750504868670,
+                "title": "主页 | 真紅論壇 - galgame 论坛",
+                "url": "https://galgame.dev/",
+                "icon": "https://www.google.com/s2/favicons?domain=galgame.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1748567587103,
+                "title": "二次元论坛ACG Forum - Press F to Escape the World!",
+                "url": "https://www.ecylt.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ecylt.top"
               }
             ]
           },
@@ -542,16 +528,9 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "首頁 - 動漫花園資源網 - 動漫愛好者的自由交流平台",
-                "url": "https://dmhy.b168.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=dmhy.b168.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "漫猫动漫BT下载",
-                "url": "http://www.comicat.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.comicat.org"
+                "url": "https://comicat.org/public/html/start/",
+                "icon": "https://www.google.com/s2/favicons?domain=comicat.org"
               },
               {
                 "type": "link",
@@ -646,13 +625,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1735122589946,
-                "title": "syqpetdog.com",
-                "url": "http://syqpetdog.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=syqpetdog.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1736087919478,
                 "title": "EstrellaXD/Auto_Bangumi: AutoBangumi - 全自动追番工具",
                 "url": "https://github.com/EstrellaXD/Auto_Bangumi",
@@ -689,13 +661,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "AGE动漫",
-                "url": "https://github.com/agefanscom/website",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "异世界动漫官网_ysjdm.com|ysjdm.net - 异世界动漫",
                 "url": "http://ysjdm8.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=ysjdm8.com"
@@ -713,13 +678,6 @@
                 "title": "橘子动漫",
                 "url": "https://www.mgnacg.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mgnacg.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "CliCli动漫 - CliCli(゜-゜)つロ 干杯~",
-                "url": "https://www.clicli.pro/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.clicli.pro"
               },
               {
                 "type": "link",
@@ -769,13 +727,6 @@
                 "title": "异世界动漫",
                 "url": "https://www.dmmiku.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.dmmiku.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1744284973583,
-                "title": "超高清画质的动漫网站 - 二K动漫",
-                "url": "https://www.2rk.cc/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.2rk.cc"
               },
               {
                 "type": "link",
@@ -949,8 +900,8 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "PPSSPP - PPSSPP: 安卓, iOS, PC, Linux, MacOSX, 黑莓, 塞班psp模拟器",
-                "url": "https://ppsspp.org/index-cn.html",
-                "icon": "https://www.google.com/s2/favicons?domain=ppsspp.org"
+                "url": "https://www.ppsspp.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ppsspp.org"
               },
               {
                 "type": "link",
@@ -1263,16 +1214,9 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Switch520",
+                "title": "GAMER520 星际通讯中心",
                 "url": "https://laoquzhang.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=laoquzhang.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "白鲸游戏-switch游戏下载,switch破解",
-                "url": "https://www.999bj.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.999bj.com"
               },
               {
                 "type": "link",
@@ -1287,13 +1231,6 @@
                 "title": "单机游戏 - 淘帖 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn",
                 "url": "https://www.52pojie.cn/forum.php?mod=collection&action=view&ctid=1776",
                 "icon": "https://www.google.com/s2/favicons?domain=www.52pojie.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "游侠NETSHOW论坛 单机游戏|游戏攻略|心得秘籍|游戏补丁|单机游戏下载|游戏汉化|game.ali213.net - Powered by Discuz!",
-                "url": "https://game.ali213.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=game.ali213.net"
               },
               {
                 "type": "link",
@@ -1318,24 +1255,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "CnGame维基网 - 游戏网-百科资讯网",
-                "url": "https://www.cngame.wiki/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.cngame.wiki"
-              },
-              {
-                "type": "link",
                 "addDate": 1706171228853,
                 "title": "奥德彪计划",
                 "url": "https://2468c.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=2468c.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1715085941541,
-                "title": "Koyso防迷路",
-                "url": "https://sway.cloud.microsoft/HHSjaNhSbMuhNpTh",
-                "icon": "https://www.google.com/s2/favicons?domain=sway.cloud.microsoft"
               },
               {
                 "type": "link",
@@ -1350,13 +1273,6 @@
                 "title": "小叽资源 - Free Share",
                 "url": "https://steamzg.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=steamzg.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1720624701053,
-                "title": "小羊论坛",
-                "url": "https://xylt.cc/",
-                "icon": "https://www.google.com/s2/favicons?domain=xylt.cc"
               },
               {
                 "type": "link",
@@ -1399,6 +1315,13 @@
                 "title": "steam宝儿be.com（免费游戏资源分享下载）",
                 "url": "https://steambe.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=steambe.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750505476639,
+                "title": "Koyso",
+                "url": "https://koyso.to/",
+                "icon": "https://www.google.com/s2/favicons?domain=koyso.to"
               }
             ]
           },
@@ -9820,13 +9743,6 @@
                 "title": "穷人论坛",
                 "url": "https://www.taiqiongle.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.taiqiongle.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1748567587103,
-                "title": "二次元论坛ACG Forum - Press F to Escape the World!",
-                "url": "https://www.ecylt.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.ecylt.top"
               }
             ]
           },
