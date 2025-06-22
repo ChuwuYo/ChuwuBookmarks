@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1749994276735,
+    "addDate": 1750563596706,
     "title": "书签栏",
     "children": [
       {
@@ -335,6 +335,13 @@
                 "title": "二次元论坛ACG Forum - Press F to Escape the World!",
                 "url": "https://www.ecylt.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.ecylt.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "KDays 论坛",
+                "url": "https://bbs2.kdays.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=bbs2.kdays.net"
               }
             ]
           },
@@ -923,6 +930,13 @@
                 "title": "介绍 | GameLan 联机助手",
                 "url": "https://gamelan.nkxingxh.top/",
                 "icon": "https://www.google.com/s2/favicons?domain=gamelan.nkxingxh.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1706166361102,
+                "title": "保存编辑器 --- Save Editor",
+                "url": "https://www.saveeditonline.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.saveeditonline.com"
               }
             ]
           },
@@ -1332,17 +1346,10 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1704175337208,
-                "title": "初音的青葱网发布页",
-                "url": "https://xygalgame.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=xygalgame.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1706084748351,
-                "title": "我的Galgame资源发布站 - 初音的青葱",
-                "url": "https://www.fufugal.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.fufugal.com"
+                "addDate": 1737128563124,
+                "title": "初音的青葱发布页",
+                "url": "https://www.xygalgame.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.xygalgame.com"
               },
               {
                 "type": "link",
@@ -1350,6 +1357,13 @@
                 "title": "我的Galgame资源发布站 - 初音的青葱",
                 "url": "https://www.yngal.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.yngal.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1706084748351,
+                "title": "我的Galgame资源发布站 - 初音的青葱",
+                "url": "https://www.fufugal.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.fufugal.com"
               },
               {
                 "type": "link",
@@ -1383,15 +1397,15 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "绅士天堂-galgame-cosplay-无需踏破铁鞋，在此就能寻到你想要的",
-                "url": "https://www.gogalgame.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.gogalgame.com"
+                "url": "https://www.chgal.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.chgal.com"
               },
               {
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "2DFan",
-                "url": "https://galge.fun/",
-                "icon": "https://www.google.com/s2/favicons?domain=galge.fun"
+                "url": "https://github.com/2dfan/domains",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
@@ -1402,24 +1416,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "稻荷ACG · 樱赞繁星 • 一个Galgame的资源网站",
-                "url": "https://www.amoebi.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.amoebi.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1742438682326,
                 "title": "晴空咖啡馆 Galgame资源和补丁站",
                 "url": "https://aozoracafe.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=aozoracafe.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "KDays 论坛",
-                "url": "https://bbs2.kdays.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=bbs2.kdays.net"
               },
               {
                 "type": "link",
@@ -1434,13 +1434,6 @@
                 "title": "天遊二次元-非专业的PC及APP之Galgame情报，专攻汉化文字游戏，原天使二次元",
                 "url": "https://www.tiangal.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.tiangal.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Galgame下载_汉化Galgame_GALXP分享你的XP",
-                "url": "https://www.galxp.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.galxp.com"
               },
               {
                 "type": "link",
@@ -1507,13 +1500,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1722674550104,
-                "title": "全部资源-ACGNGAME",
-                "url": "https://acgngames.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=acgngames.net"
-              },
-              {
-                "type": "link",
                 "addDate": 1722685285948,
                 "title": "Galgamex --一个二次元和galgame游戏资源交流社区 一个二次元交流社区",
                 "url": "https://galgamex.com/",
@@ -1525,13 +1511,6 @@
                 "title": "绮梦ACG - 专注分享次元世界",
                 "url": "https://acgs.one/",
                 "icon": "https://www.google.com/s2/favicons?domain=acgs.one"
-              },
-              {
-                "type": "link",
-                "addDate": 1722685389225,
-                "title": "神隐之乡 - 神隐之处是故乡",
-                "url": "https://syzx.me/",
-                "icon": "https://www.google.com/s2/favicons?domain=syzx.me"
               },
               {
                 "type": "link",
@@ -1556,20 +1535,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1722686430498,
-                "title": "主页 | Puppet Studio",
-                "url": "https://1ov3.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=1ov3.top"
-              },
-              {
-                "type": "link",
-                "addDate": 1722686794032,
-                "title": "主页 | 紫缘社- Galgame资源站",
-                "url": "https://www.galzy.eu.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.galzy.eu.org"
-              },
-              {
-                "type": "link",
                 "addDate": 1734451416734,
                 "title": "鲲 Galgame 补丁 - 开源 Galgame 补丁资源下载站",
                 "url": "https://www.moyu.moe/",
@@ -1584,24 +1549,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1734607011997,
-                "title": "主页 | 烟郁Galgame频道",
-                "url": "https://yanyugal.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=yanyugal.top"
-              },
-              {
-                "type": "link",
                 "addDate": 1734607017534,
                 "title": "主页 | 猫猫网盘",
                 "url": "https://pan.catcat.blog/",
                 "icon": "https://www.google.com/s2/favicons?domain=pan.catcat.blog"
-              },
-              {
-                "type": "link",
-                "addDate": 1737128563124,
-                "title": "初音的青葱发布页",
-                "url": "https://www.xygalgame.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.xygalgame.com"
               },
               {
                 "type": "link",
@@ -1616,6 +1567,20 @@
                 "title": "莉斯坦ACG - 免费galgame资源站|免费ACG资源站",
                 "url": "https://www.limulu.moe/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.limulu.moe"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562081928,
+                "title": "Shrans/GalSites: Ciallo～(∠・ω< )⌒☆",
+                "url": "https://github.com/Shrans/GalSites",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562224435,
+                "title": "Home | 紫缘社- Galgame资源站",
+                "url": "https://www.galzy.eu.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.galzy.eu.org"
               }
             ]
           },
@@ -1641,16 +1606,37 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "宝可饭堂-宝可梦同人游戏下载",
-                "url": "https://game.pokefans.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=game.pokefans.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "口袋社区-Poke The BBS |PTB|Poketb|口袋妖怪|PM|Pokemon|精灵宝可梦",
                 "url": "https://poketb.com/bbs/",
                 "icon": "https://www.google.com/s2/favicons?domain=poketb.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562362740,
+                "title": "首页 - 宝可梦资源站",
+                "url": "https://pokemon-resource.e.cn.vc/",
+                "icon": "https://www.google.com/s2/favicons?domain=pokemon-resource.e.cn.vc"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562399750,
+                "title": "宝可饭堂 - 宝可梦同人游戏互助圈",
+                "url": "https://www.pokefans.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.pokefans.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562434088,
+                "title": "宝可饭堂资源站-宝可梦同人改版游戏下载",
+                "url": "https://game.pokefans.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=game.pokefans.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562445516,
+                "title": "零维E界官网 - 基于Essentials制作的同人游戏",
+                "url": "https://0vej.esplus.club/",
+                "icon": "https://www.google.com/s2/favicons?domain=0vej.esplus.club"
               }
             ]
           },
@@ -1852,20 +1838,6 @@
         "children": [
           {
             "type": "folder",
-            "addDate": 1712479446368,
-            "title": "文本",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "有道云笔记｜亿万用户的选择",
-                "url": "https://note.youdao.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=note.youdao.com"
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1704014875967,
             "title": "云盘",
             "children": [
@@ -1978,7 +1950,7 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "Gofile - Free file sharing and storage platform",
-                "url": "https://gofile.io/welcome",
+                "url": "https://gofile.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=gofile.io"
               },
               {
@@ -2160,6 +2132,13 @@
           },
           {
             "type": "link",
+            "addDate": 1749046469777,
+            "title": "TG-Image 云端图床xiyewuqiu/new-lmage",
+            "url": "https://github.com/xiyewuqiu/new-lmage",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
             "addDate": 1714748296197,
             "title": "百度网盘秒传链接转存",
             "url": "https://rapidacg.gmgard.moe/",
@@ -2178,13 +2157,6 @@
             "title": "Telegraph(备用graph.org)",
             "url": "https://telegra.ph/",
             "icon": "https://www.google.com/s2/favicons?domain=telegra.ph"
-          },
-          {
-            "type": "link",
-            "addDate": 1749046469777,
-            "title": "TG-Image 云端图床xiyewuqiu/new-lmage",
-            "url": "https://github.com/xiyewuqiu/new-lmage",
-            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       },
@@ -2270,13 +2242,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1719753041793,
-                "title": "Ambient rain simulator for pluviophiles. Relaxing sound of rain.",
-                "url": "https://pluvior.com/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=pluvior.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1745229491129,
                 "title": "白噪音播放器 - 高品质白噪音生成器 | 免费在线白噪声 | 情境音效助力深度睡眠与放松",
                 "url": "https://www.whitenoisegenerator.top/",
@@ -2356,7 +2321,7 @@
                 "type": "link",
                 "addDate": 1716725333516,
                 "title": "信息 - ASMR吧-asmr声音分享网",
-                "url": "https://www.asmrfx.win/index.php?a=stream",
+                "url": "https://www.asmrfx.win/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.asmrfx.win"
               },
               {
@@ -2375,17 +2340,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1737129038993,
-                "title": "自由男人网络硬盘|asmr网盘",
-                "url": "https://okfree.men/",
-                "icon": "https://www.google.com/s2/favicons?domain=okfree.men"
-              },
-              {
-                "type": "link",
                 "addDate": 1745936461822,
                 "title": "ASMR第一站 - 分享全球ASMR作者的网址导航",
                 "url": "https://asmr1.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=asmr1.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750562808182,
+                "title": "自由网络硬盘|asmr网盘",
+                "url": "https://ff.dimm.in/",
+                "icon": "https://www.google.com/s2/favicons?domain=ff.dimm.in"
               }
             ]
           },
@@ -2789,13 +2754,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "TheFuture书籍搜索-免费电子书搜索引擎",
-                "url": "https://bks.thefuture.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=bks.thefuture.top"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "Ylibrary · YLibrary Project",
                 "url": "https://ylibrary.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=ylibrary.org"
@@ -2810,30 +2768,9 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Kindle电子书,mobi电子书,epub电子书,azw3电子书,PDF,TXT格式免费下载|Aibooks积微书斋",
-                "url": "https://www.aibooks.cc/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.aibooks.cc"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "首頁- 好讀",
                 "url": "http://haodoo.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=haodoo.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "全本 | 圖書館的無限迴廊",
-                "url": "https://epub.love/wp/subete",
-                "icon": "https://www.google.com/s2/favicons?domain=epub.love"
-              },
-              {
-                "type": "link",
-                "addDate": 1704026268513,
-                "title": "亿趣嗨",
-                "url": "http://www.yiquhai.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.yiquhai.com"
               },
               {
                 "type": "link",
@@ -2886,17 +2823,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1749107321691,
-                "title": "Library Genesis",
-                "url": "https://libgen.is/",
-                "icon": "https://www.google.com/s2/favicons?domain=libgen.is"
-              },
-              {
-                "type": "link",
                 "addDate": 1750055740885,
                 "title": "502book - 免费小说搜索引擎",
                 "url": "https://502book.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=502book.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750563016398,
+                "title": "搜书网站 - 英文书导航",
+                "url": "https://ywebook.com/category/%E6%90%9C%E4%B9%A6%E7%BD%91%E7%AB%99",
+                "icon": "https://www.google.com/s2/favicons?domain=ywebook.com"
               }
             ]
           },
@@ -2981,6 +2918,13 @@
                 "title": "轻小说百科",
                 "url": "https://lnovel.org/books",
                 "icon": "https://www.google.com/s2/favicons?domain=lnovel.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1750563106722,
+                "title": "圖書館的無限迴廊",
+                "url": "https://sakuya.naizi.me/wp/",
+                "icon": "https://www.google.com/s2/favicons?domain=sakuya.naizi.me"
               }
             ]
           },
@@ -3074,13 +3018,6 @@
             "title": "無產階級圖書館 - 解放知識！",
             "url": "https://library.proletarian.me/",
             "icon": "https://www.google.com/s2/favicons?domain=library.proletarian.me"
-          },
-          {
-            "type": "link",
-            "addDate": 1735967539200,
-            "title": "搜索- SaltyLeo 的书架",
-            "url": "https://book.tstrs.me/search",
-            "icon": "https://www.google.com/s2/favicons?domain=book.tstrs.me"
           },
           {
             "type": "link",
@@ -3525,6 +3462,13 @@
                     "title": "Obsidian - Sharpen your thinking",
                     "url": "https://obsidian.md/",
                     "icon": "https://www.google.com/s2/favicons?domain=obsidian.md"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "有道云笔记｜亿万用户的选择",
+                    "url": "https://note.youdao.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=note.youdao.com"
                   },
                   {
                     "type": "link",
@@ -7667,20 +7611,6 @@
         "addDate": 1704014876008,
         "title": "学习",
         "children": [
-          {
-            "type": "folder",
-            "addDate": 1740112797281,
-            "title": "学校",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1749027235504,
-                "title": "我爱竞赛网-全国大学生比赛网，高含金量竞赛平台",
-                "url": "https://www.52jingsai.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.52jingsai.com"
-              }
-            ]
-          },
           {
             "type": "folder",
             "addDate": 1704014876008,
