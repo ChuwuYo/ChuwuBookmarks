@@ -30,6 +30,8 @@
 
 Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出
 
+注意书签文件名要更改为：`bookmarks.json`
+
 ***
 
 ## 其他参考项目

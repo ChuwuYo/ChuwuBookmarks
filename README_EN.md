@@ -30,6 +30,8 @@ For users outside mainland China, you can experience the website through the fol
 
 The JSON-format bookmark tree is exported using a browser extension I developed called [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal).
 
+Note that the bookmark file name should be changed to: `bookmarks.json`
+
 ***
 
 ## Other Reference Projects
