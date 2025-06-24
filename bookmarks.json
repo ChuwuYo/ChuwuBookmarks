@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1750690114733,
+    "addDate": 1750746144214,
     "title": "书签栏",
     "children": [
       {
@@ -2163,7 +2163,7 @@
       {
         "type": "folder",
         "addDate": 1704014875969,
-        "title": "ASMR/放松",
+        "title": "放松",
         "children": [
           {
             "type": "folder",
@@ -10350,6 +10350,27 @@
                     "title": "临时邮箱smail",
                     "url": "https://smail.pw/",
                     "icon": "https://www.google.com/s2/favicons?domain=smail.pw"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1750731034020,
+                    "title": "Temp Mail-10 Minute Mail-Temporary Free .edu Email Address - SecureTempMail",
+                    "url": "https://tempmail.edu.kg/en/",
+                    "icon": "https://www.google.com/s2/favicons?domain=tempmail.edu.kg"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1750731109991,
+                    "title": "Temp Mail - Free Temporary Edu / .Com Email Address | Temp Mail - Temporary Disposable Edu/Com Email Address",
+                    "url": "https://tempmaili.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=tempmaili.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1750731121686,
+                    "title": "Temp Mail - Free Edu / .COM Temporary Mails",
+                    "url": "https://etempmail.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=etempmail.com"
                   }
                 ]
               },
@@ -10380,6 +10401,13 @@
                 "title": "网易免费邮箱 - 你的专业电子邮局",
                 "url": "https://email.163.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=email.163.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1750731093468,
+                "title": "Proton Mail",
+                "url": "https://mail.proton.me/u/0/inbox",
+                "icon": "https://www.google.com/s2/favicons?domain=mail.proton.me"
               }
             ]
           },
