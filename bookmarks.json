@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751214218930,
+    "addDate": 1751299751053,
     "title": "书签栏",
     "children": [
       {
@@ -2477,13 +2477,6 @@
                 "title": "极光无损音乐免费下载-无损音乐下载mp3歌曲免费下载-jgwav.com",
                 "url": "https://www.jgwav.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.jgwav.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1735038287667,
-                "title": "母带吧音乐 - 192kHz/24bit",
-                "url": "https://www.mudaiba.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.mudaiba.com"
               },
               {
                 "type": "link",
@@ -8545,7 +8538,7 @@
           {
             "type": "folder",
             "addDate": 1706600031346,
-            "title": "代码/网站托管",
+            "title": "代码审查/网站托管",
             "children": [
               {
                 "type": "folder",
@@ -8637,6 +8630,13 @@
                 "title": "Surge",
                 "url": "https://surge.sh/",
                 "icon": "https://www.google.com/s2/favicons?domain=surge.sh"
+              },
+              {
+                "type": "link",
+                "addDate": 1751299411891,
+                "title": "CircleCI - Home",
+                "url": "https://app.circleci.com/home",
+                "icon": "https://www.google.com/s2/favicons?domain=app.circleci.com"
               }
             ]
           },
@@ -9981,13 +9981,6 @@
                 "title": "ARES模拟交易平台",
                 "url": "https://ares.sse.com.cn/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=ares.sse.com.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1749725989231,
-                "title": "仓位在线-全面揭露主力持仓变动+成本-cangweizaixian.com",
-                "url": "https://cangweizaixian.com/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=cangweizaixian.com"
               }
             ]
           },
