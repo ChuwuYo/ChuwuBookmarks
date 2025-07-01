@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751299751053,
+    "addDate": 1751388283457,
     "title": "书签栏",
     "children": [
       {
@@ -4572,6 +4572,41 @@
                 ]
               },
               {
+                "type": "folder",
+                "addDate": 1751382221962,
+                "title": "使用过",
+                "children": [
+                  {
+                    "type": "folder",
+                    "addDate": 1751382255590,
+                    "title": "好用",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1732274989102,
+                        "title": "SakuraCat_DokiDokiWeb",
+                        "url": "https://dokidokiweb.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=dokidokiweb.com"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "folder",
+                    "addDate": 1751382272369,
+                    "title": "不太好用（大概率便宜）",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1744977141800,
+                        "title": "农夫山泉",
+                        "url": "https://www.nfsq.us/#/login",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1715584511367,
                 "title": "Sailing·风帆加速器",
@@ -4636,13 +4671,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1732274989102,
-                "title": "SakuraCat_DokiDokiWeb",
-                "url": "https://dokidokiweb.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=dokidokiweb.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1733044983650,
                 "title": "登入 | Mujika Network",
                 "url": "https://www.mujika.cloud/zh/#/auth/login",
@@ -4685,13 +4713,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1744977141800,
-                "title": "农夫山泉",
-                "url": "https://www.nfsq.us/#/login",
-                "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
-              },
-              {
-                "type": "link",
                 "addDate": 1747380010333,
                 "title": "倾城极速",
                 "url": "https://www.qcjs.ovh/",
@@ -4703,6 +4724,27 @@
                 "title": "XXAI",
                 "url": "https://panel.xx-ai.uk/auth/register",
                 "icon": "https://www.google.com/s2/favicons?domain=panel.xx-ai.uk"
+              },
+              {
+                "type": "link",
+                "addDate": 1751382189150,
+                "title": "探索全球网络无限可能 - CyberGuard",
+                "url": "https://www.cyberguard.best/#/landing",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cyberguard.best"
+              },
+              {
+                "type": "link",
+                "addDate": 1751382206192,
+                "title": "Home - 呆鹅云",
+                "url": "https://fws.trysillygoose.xyz/#/home",
+                "icon": "https://www.google.com/s2/favicons?domain=fws.trysillygoose.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1751382374834,
+                "title": "纸巾云",
+                "url": "https://okt.getpapercloud.xyz/#/login",
+                "icon": "https://www.google.com/s2/favicons?domain=okt.getpapercloud.xyz"
               }
             ]
           },
@@ -6599,13 +6641,6 @@
                     "children": [
                       {
                         "type": "link",
-                        "addDate": 1744450111875,
-                        "title": "OpenRouter",
-                        "url": "https://openrouter.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1704012714000,
                         "title": "PoeAI",
                         "url": "https://poe.com/",
@@ -6624,6 +6659,13 @@
                         "title": "SambaNova Cloud",
                         "url": "https://cloud.sambanova.ai/",
                         "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1749088733815,
+                        "title": "Cerebras Cloud",
+                        "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
+                        "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
                       },
                       {
                         "type": "link",
@@ -6729,13 +6771,6 @@
                         "title": "Models · GitHub Marketplace",
                         "url": "https://github.com/marketplace/models/",
                         "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1749088733815,
-                        "title": "Cerebras Cloud",
-                        "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
-                        "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
                       }
                     ]
                   },
@@ -6938,6 +6973,76 @@
                 ]
               },
               {
+                "type": "folder",
+                "addDate": 1751384290417,
+                "title": "第三方API",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1744450111875,
+                    "title": "OpenRouter",
+                    "url": "https://openrouter.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=openrouter.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751384095383,
+                    "title": "Novita AI",
+                    "url": "https://novita.ai/console",
+                    "icon": "https://www.google.com/s2/favicons?domain=novita.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751388271728,
+                    "title": "橘鸦Juya整理的大模型免费API",
+                    "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
+                    "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1751384337700,
+                "title": "客户端",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1713843267568,
+                    "title": "Ollama",
+                    "url": "https://ollama.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ollama.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742657321120,
+                    "title": "Cherry Studio 官方网站 - 全能的AI助手",
+                    "url": "https://cherry-ai.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=cherry-ai.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1733210440279,
+                    "title": "LM Studio - Discover, download, and run local LLMs",
+                    "url": "https://lmstudio.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=lmstudio.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1734579410486,
+                    "title": "Bin-Huang/chatbox: User-friendly Desktop Client App for AI Models/LLMs (GPT, Claude, Gemini, Ollama...)",
+                    "url": "https://github.com/Bin-Huang/chatbox",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739016081175,
+                    "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
+                    "url": "https://github.com/lobehub/lobe-chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1745902328490,
                 "title": "GithubDeepWiki(仓库理解)",
@@ -6974,37 +7079,9 @@
               },
               {
                 "type": "link",
-                "addDate": 1713843267568,
-                "title": "Ollama",
-                "url": "https://ollama.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=ollama.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1732458081051,
                 "title": "Harry-zklcdc/go-proxy-bingai: 用 Vue3 和 Go 搭建的微软 New Bing 演示站点，拥有一致的 UI 体验，支持 ChatGPT 提示词，支持 API 调用，国内可用。",
                 "url": "https://github.com/Harry-zklcdc/go-proxy-bingai",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1733210440279,
-                "title": "LM Studio - Discover, download, and run local LLMs",
-                "url": "https://lmstudio.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=lmstudio.ai"
-              },
-              {
-                "type": "link",
-                "addDate": 1734579410486,
-                "title": "Bin-Huang/chatbox: User-friendly Desktop Client App for AI Models/LLMs (GPT, Claude, Gemini, Ollama...)",
-                "url": "https://github.com/Bin-Huang/chatbox",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1739016081175,
-                "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
-                "url": "https://github.com/lobehub/lobe-chat",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
@@ -7013,13 +7090,6 @@
                 "title": "GPT Mirror",
                 "url": "https://www.mfc972.com/?label=8",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mfc972.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1742657321120,
-                "title": "Cherry Studio 官方网站 - 全能的AI助手",
-                "url": "https://cherry-ai.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=cherry-ai.com"
               },
               {
                 "type": "link",
