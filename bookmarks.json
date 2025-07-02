@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751388283457,
+    "addDate": 1751472936887,
     "title": "书签栏",
     "children": [
       {
@@ -8916,7 +8916,7 @@
           {
             "type": "folder",
             "addDate": 1744173964942,
-            "title": "组件与主题",
+            "title": "组件/模板/主题",
             "children": [
               {
                 "type": "folder",
@@ -9064,6 +9064,13 @@
                 "title": "Components | CodyHouse",
                 "url": "https://codyhouse.co/ds/components",
                 "icon": "https://www.google.com/s2/favicons?domain=codyhouse.co"
+              },
+              {
+                "type": "link",
+                "addDate": 1751435817900,
+                "title": " HTMLrev",
+                "url": "https://htmlrev.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=htmlrev.com"
               }
             ]
           },
