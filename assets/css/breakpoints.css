@@ -1,0 +1,14 @@
+/* 统一断点系统 */
+:root {
+    /* 断点定义 */
+    --breakpoint-mobile: 768px;   /* 手机 */
+    --breakpoint-tablet: 1024px;  /* 平板 */
+    --breakpoint-desktop: 1300px; /* PC */
+    
+    /* 断点媒体查询变量 */
+    --mobile-query: (max-width: 767px);
+    --tablet-query: (min-width: 768px) and (max-width: 1023px);
+    --desktop-query: (min-width: 1024px);
+    --tablet-and-up: (min-width: 768px);
+    --mobile-and-tablet: (max-width: 1023px);
+}
