@@ -23,11 +23,14 @@
     position: relative;
 }
 
-.home-button:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-    border-radius: 18px;
-    transform: translateY(-2px);
-    transition: var(--duration-medium) var(--ease-default);
+/* 主页按钮悬停效果 - 仅在PC端生效 */
+@media (hover: hover) and (pointer: fine) {
+    .home-button:hover {
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+        border-radius: 18px;
+        transform: translateY(-2px);
+        transition: var(--duration-medium) var(--ease-default);
+    }
 }
 
 /* SVG图标样式 */
@@ -44,19 +47,7 @@
     stroke: #ffefc4;
 }
 
-/* 移动设备适配 */
-@media screen and (max-width: 1300px) {
-    /* 禁用移动端主页按钮的悬停效果 */
-    .mobile-device .home-button:hover {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-        border-radius: 12px;
-        transform: translateY(0);
-        transition: background var(--duration-long) var(--ease-default), 
-                    box-shadow var(--duration-long) var(--ease-default), 
-                    transform var(--duration-long) var(--ease-default), 
-                    border-radius var(--duration-long) var(--ease-default);
-    }
-}
+
 
 /* 聚焦样式 */
 .home-button:focus-visible {
@@ -64,4 +55,14 @@
     outline-offset: 2px;
     box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
     border-radius: 4px;
+}
+
+/* 移动端焦点状态处理 */
+@media (hover: none) and (pointer: coarse) {
+  .home-button:focus,
+  .home-button:active {
+    background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
 }

@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="Bocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
-    <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README.md">简体中文</a> | <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/blob/main/README_EN.md">English</a>
+    <a href="../../README.md">简体中文</a> | <a href="README_EN.md">English</a>
 </div>
 
 ---
