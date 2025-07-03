@@ -8,7 +8,7 @@
 :root {
     --breakpoint-mobile: 768px;   /* 手机 */
     --breakpoint-tablet: 1024px;  /* 平板 */
-    --breakpoint-desktop: 1300px; /* PC */
+    --breakpoint-desktop: 1024px; /* PC */
 }
 ```
 
@@ -19,14 +19,14 @@
 const BREAKPOINTS = {
     MOBILE: 768,
     TABLET: 1024,
-    DESKTOP: 1300
+    DESKTOP: 1024
 };
 
 const getDeviceType = () => {
     const width = window.innerWidth;
-    if (width < BREAKPOINTS.MOBILE) return 'mobile';
-    if (width < BREAKPOINTS.TABLET) return 'tablet';
-    return 'desktop';
+    if (width < BREAKPOINTS.MOBILE) return 'mobile';  // < 768px
+    if (width < BREAKPOINTS.DESKTOP) return 'tablet';  // 768px - 1023px  
+    return 'desktop';  // >= 1024
 };
 ```
 
@@ -37,6 +37,11 @@ const getDeviceType = () => {
 | 手机 | < 768px | 关闭 | 侧栏不影响右侧元素位置 |
 | 平板 | 768px - 1023px | 打开 | 侧栏影响右侧元素位置 |
 | PC | ≥ 1024px | 打开 | 侧栏影响右侧元素位置 |
+
+**最佳实践：**
+- 手机：< 768px
+- 平板：768px - 1023px  
+- PC：≥ 1024px
 
 
 ## 使用方法
