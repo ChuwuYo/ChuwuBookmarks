@@ -77,8 +77,8 @@
 @media (hover: none) and (pointer: coarse) {
   #toggle-sidebar:focus,
   #toggle-sidebar:active {
-    background: var(--button-hover) !important;
-    border: 1.5px solid #a4d1c4 !important;
+    background: var(--button-hover);
+    border: 1.5px solid #a4d1c4;
     outline: none;
   }
 }

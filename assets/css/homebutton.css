@@ -61,8 +61,8 @@
 @media (hover: none) and (pointer: coarse) {
   .home-button:focus,
   .home-button:active {
-    background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5) !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+    background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     outline: none;
   }
 }
