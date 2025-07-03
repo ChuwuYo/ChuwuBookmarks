@@ -185,8 +185,8 @@
 @media (hover: none) and (pointer: coarse) {
   .theme-toggle:focus,
   .theme-toggle:active {
-    background: var(--button-bg) !important;
-    border: 2px solid #a4d1c4 !important;
+    background: var(--button-bg);
+    border: 2px solid #a4d1c4;
     outline: none;
   }
 }
