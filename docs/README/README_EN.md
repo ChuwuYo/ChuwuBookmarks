@@ -103,13 +103,15 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
    * Supports switching between dark and light modes.
 
-   * Most buttons support hover effects.
+   * PC supports hover effects, mobile optimized for touch interaction.
 
-6. **Mobile Support**:
+6. **Responsive Design**:
 
-   * Supports responsive layout for mobile devices.
+   * Supports responsive layout for mobile, tablet, and PC devices.
 
-   * Automatically hides the sidebar on mobile devices.
+   * Automatically hides sidebar on mobile, keeps it open on tablet and PC.
+   
+   * Unified breakpoint system ensures optimal experience across different devices.
 
 7. **GSAP Animation Support**:
 
@@ -124,7 +126,14 @@ If you don't mind closed-source or paid options, you can refer to the following 
 * * *
 
 
-# <s>This project is actually completed, and future work will likely only involve routine maintenance.</s>
+## Technical Features
+
+* **Unified Breakpoint System**: Mobile (<768px), Tablet (768-1023px), PC (≥1024px)
+* **Optimized Interaction**: PC hover effects, mobile touch optimization
+* **Performance Optimization**: Web Worker search, lazy image loading, animation optimization
+* **Accessibility Support**: Keyboard navigation, focus management, semantic markup
+
+---
 
 
 
