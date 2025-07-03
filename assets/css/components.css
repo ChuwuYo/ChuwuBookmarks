@@ -71,9 +71,9 @@
     }
 }
 
-/* 非PC端搜索框悬停效果 - 仅保留边框变色 */
+/* 非PC端搜索框点击效果 - 使用:active替代:hover */
 @media not all and (hover: hover) and (pointer: fine) {
-    #search-input:hover {
+    #search-input:active {
         border-color: var(--link-color);
         box-shadow: var(--shadow-sm);
     }
