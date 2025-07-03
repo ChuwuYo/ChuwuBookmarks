@@ -1,7 +1,8 @@
 /* 响应式样式：所有媒体查询集中管理 */
 
-/* 在较小屏幕(<=1300px)上的通用布局样式 */
-@media screen and (max-width: 1300px) {
+/* 平板和手机通用样式 (<=1023px) */
+@media screen and (max-width: 1023px) {
+
     /* 内容区域固定居中布局 */
     .main-content {
         margin-left: 0 !important;
@@ -37,7 +38,7 @@
     }
 
     /* 主页消息样式仅在小屏幕模式下应用 */
-    @media (max-width: 1300px) {
+    @media (max-width: 1023px) {
         .home-message {
             transform: translate(-50%, -50%) !important;
             top: 45% !important;
@@ -47,8 +48,8 @@
         }
     }
 
-    /* 大屏幕模式下移除强制样式 */
-    @media (min-width: 1301px) {
+    /* PC模式下移除强制样式 */
+    @media (min-width: 1024px) {
         .home-message {
             transform: none;
             top: auto;
@@ -88,8 +89,24 @@
     }
 }
 
-/* 移动端特定样式(<=768px) */
-@media screen and (max-width: 768px) {
+/* 平板特定样式 (768px-1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .tablet-device .main-content {
+        max-width: 900px;
+        padding: 25px;
+    }
+    
+    .tablet-device .home-message {
+        max-width: 700px;
+    }
+    
+    .tablet-device .search-container {
+        left: 51%;
+    }
+}
+
+/* 手机端特定样式 (<=767px) */
+@media screen and (max-width: 767px) {
 
     .mobile-device [onclick],
     .mobile-device button,
@@ -110,22 +127,7 @@
     .mobile-device #toggle-sidebar:hover img {
         transform: none;
     }
-    .mobile-device [onclick]:active,
-    .mobile-device button:active,
-    .mobile-device .folder:active,
-    .mobile-device .breadcrumb-item:active,
-    .mobile-device .home-button:active,
-    .mobile-device a:active {
-        background-color: inherit;
-        transition: background-color 0s;
-    }
-    .mobile-device #toggle-sidebar:active {
-        background-color: var(--button-hover);
-        transition: background-color 0s;
-    }
-    .theme-toggle:active {
-        background-color: var(--button-bg);
-    }
+
     .sidebar {
         transition: width 0.2s var(--cubic-bezier),
                     padding 0.2s var(--cubic-bezier);
@@ -227,8 +229,8 @@
         -ms-overflow-style: none;
         padding-bottom: 5px;
         position: relative;
-        width: calc(100% - 30px) !important;  /* 考虑渐变边缘的空间 */
-        margin: 0 auto !important;
+        width: calc(100% - 30px);  /* 考虑渐变边缘的空间 */
+        margin: 0 auto;
         scroll-padding: 0 20px;
         scroll-snap-type: x proximity;
         mask-image: linear-gradient(to right,
@@ -302,7 +304,8 @@
         word-break: break-word;
     }
 }
-@media screen and (min-width: 769px) {
+/* 平板和PC样式 (>=768px) */
+@media screen and (min-width: 768px) {
     .search-container {
         left: 50%;
         transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));

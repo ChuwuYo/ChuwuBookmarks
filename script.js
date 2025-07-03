@@ -35,21 +35,24 @@ const toggleTheme = () => {
 };
 
 /** 设备和视图适配 */
-const isMobileDevice = () => {
-    // 像素检测（原有逻辑）
-    const isSmallScreen = window.innerWidth <= 1300;
-    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-
-    // UA检测（新增逻辑）
-    const ua = navigator.userAgent.toLowerCase();
-    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(ua);
-
-    // 特殊情况处理：iPad等平板设备可能有较大屏幕但仍是移动设备
-    const isTablet = /ipad|android(?!.*mobile)/i.test(ua);
-
-    // 综合判断：像素检测 或 UA检测为移动设备
-    return isSmallScreen || isCoarsePointer || isMobileUA || isTablet;
+// 统一断点系统
+const BREAKPOINTS = {
+    MOBILE: 768,
+    TABLET: 1024,
+    DESKTOP: 1024
 };
+
+const getDeviceType = () => {
+    const width = window.innerWidth;
+    if (width < BREAKPOINTS.MOBILE) return 'mobile';
+    if (width < BREAKPOINTS.TABLET) return 'tablet';
+    return 'desktop';
+};
+
+const isMobileDevice = () => getDeviceType() === 'mobile';
+const isTabletDevice = () => getDeviceType() === 'tablet';
+const isDesktopDevice = () => getDeviceType() === 'desktop';
+const shouldCollapseSidebar = () => getDeviceType() === 'mobile';
 
 // 更新侧边栏状态的函数 - 专注于侧边栏的展开/收起状态管理
 const updateSidebarVisibility = (sidebar, isCollapsed) => {
@@ -99,11 +102,16 @@ const updateSidebarState = (sidebar, isCollapsed) => {
     checkBreadcrumbsScroll(); // 检查面包屑滚动状态
 };
 
-const handleMobileView = () => {
+const handleDeviceView = () => {
     const sidebar = document.querySelector('.sidebar');
-    const isMobile = isMobileDevice();
-    document.body.classList.toggle('mobile-device', isMobile);
-    updateSidebarState(sidebar, isMobile);
+    const deviceType = getDeviceType();
+    const shouldCollapse = shouldCollapseSidebar();
+    
+    document.body.classList.toggle('mobile-device', deviceType === 'mobile');
+    document.body.classList.toggle('tablet-device', deviceType === 'tablet');
+    document.body.classList.toggle('desktop-device', deviceType === 'desktop');
+    
+    updateSidebarState(sidebar, shouldCollapse);
 };
 
 // 调整主页消息位置
@@ -111,11 +119,10 @@ const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
     if (!homeMessage) return;
 
-    if (window.innerWidth < 768) {
-        // 移动视图
+    const deviceType = getDeviceType();
+    if (deviceType === 'mobile') {
         homeMessage.style.left = '50%';
     } else {
-        // 桌面视图
         homeMessage.style.left = ''; // 由 CSS 控制
     }
 };
@@ -126,23 +133,20 @@ const adjustSearchContainerPosition = () => {
     const searchInput = document.getElementById('search-input');
     if (!searchContainer || !searchInput) return;
 
-    // 使用 requestAnimationFrame 确保在下一帧执行位置计算
     requestAnimationFrame(() => {
-        if (window.innerWidth < 768) {
-            // 移动视图 - 重置所有自定义定位
+        const deviceType = getDeviceType();
+        if (deviceType === 'mobile') {
             searchContainer.style.removeProperty('--search-container-centering-offset');
             return;
         }
 
-        // 桌面视图 - 计算精确偏移
+        // 平板和PC计算精确偏移
         const searchInputOffsetLeft = searchInput.offsetLeft;
         const searchInputWidth = searchInput.offsetWidth;
         const searchContainerWidth = searchContainer.offsetWidth;
         
-        // 计算偏移量，考虑搜索框在容器内的实际位置
         const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
         
-        // 使用 CSS 变量设置偏移量，确保平滑过渡
         if (shiftInPx !== 0) {
             searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
         }
@@ -302,17 +306,18 @@ const renderHome = () => {
     // 重置主页消息的所有可能的样式
     homeMessage.style.cssText = '';
     
-    // 根据屏幕尺寸设置位置
-    if (window.innerWidth <= 1300) {
+    // 根据设备类型设置位置
+    const deviceType = getDeviceType();
+    if (deviceType === 'mobile' || deviceType === 'tablet') {
         Object.assign(homeMessage.style, {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             top: '45%',
             width: '90%',
-            maxWidth: '600px'
+            maxWidth: deviceType === 'mobile' ? '400px' : '600px'
         });
     } else {
-        // 大屏幕模式
+        // PC模式
         const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
         adjustHomeMessagePosition(isCollapsed);
     }
@@ -638,11 +643,12 @@ const renderMainContent = (folder, fromSidebar = false) => {
             content.appendChild(contentFragment);
 
             // 确保移动端内容位置正确
-            if (window.innerWidth <= 768) {
+            const deviceType = getDeviceType();
+            if (deviceType === 'mobile') {
                 content.style.transform = 'translateX(-50%)';
                 content.style.marginLeft = '0';
                 content.style.width = '90%';
-                content.style.maxWidth = '800px';
+                content.style.maxWidth = '600px';
                 content.style.left = '50%';
                 content.style.position = 'relative';
             }
@@ -851,9 +857,9 @@ const debounceSearch = debounce((event) => {
 
 /** 初始化和事件监听 */
 document.addEventListener('DOMContentLoaded', async () => {
-    // 初始化主题和移动视图
+    // 初始化主题和设备视图
     initTheme();
-    handleMobileView();
+    handleDeviceView();
     
     // 立即调整搜索容器位置
     setTimeout(adjustSearchContainerPosition, 0);
@@ -1055,6 +1061,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const handleResize = debounce(() => {
                 const content = document.getElementById('content');
                 const homeMessage = document.querySelector('.home-message');
+                const deviceType = getDeviceType();
 
                 // 重置所有内联样式
                 if (content) {
@@ -1064,15 +1071,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     homeMessage.style.cssText = '';
                 }
 
-                // 根据新的屏幕尺寸应用样式
-                if (window.innerWidth <= 1300) {
+                // 根据设备类型应用样式
+                if (deviceType === 'mobile' || deviceType === 'tablet') {
                     if (homeMessage) {
                         Object.assign(homeMessage.style, {
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             top: '45%',
                             width: '90%',
-                            maxWidth: '600px'
+                            maxWidth: deviceType === 'mobile' ? '400px' : '600px'
                         });
                     }
                     if (content) {
@@ -1080,20 +1087,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                             transform: 'translateX(-50%)',
                             marginLeft: '0',
                             width: '90%',
-                            maxWidth: '800px',
+                            maxWidth: deviceType === 'mobile' ? '600px' : '800px',
                             left: '50%',
                             position: 'relative'
                         });
                     }
                 } else {
-                    // 大屏幕模式：让 CSS 接管样式
+                    // PC模式：让 CSS 接管样式
                     if (homeMessage) {
                         const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
                         adjustHomeMessagePosition(isCollapsed);
                     }
                 }
 
-                handleMobileView();
+                handleDeviceView();
                 adjustSearchContainerPosition();
             }, 100);
 
