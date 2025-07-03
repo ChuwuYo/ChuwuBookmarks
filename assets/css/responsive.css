@@ -229,8 +229,8 @@
         -ms-overflow-style: none;
         padding-bottom: 5px;
         position: relative;
-        width: calc(100% - 30px) !important;  /* 考虑渐变边缘的空间 */
-        margin: 0 auto !important;
+        width: calc(100% - 30px);  /* 考虑渐变边缘的空间 */
+        margin: 0 auto;
         scroll-padding: 0 20px;
         scroll-snap-type: x proximity;
         mask-image: linear-gradient(to right,
