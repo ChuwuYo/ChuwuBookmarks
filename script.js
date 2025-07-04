@@ -403,13 +403,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        // 监听搜索框清空事件
-        searchInput.addEventListener('input', (e) => {
-            if (!e.target.value.trim()) {
-                renderHome();
-            }
-        });
-
         // 添加Ctrl+K快捷键聚焦搜索框功能
         document.addEventListener('keydown', function (e) {
             if (e.ctrlKey && e.key.toLowerCase() === 'k') {
