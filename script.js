@@ -1,5 +1,5 @@
 import { initTheme, toggleTheme } from './assets/js/modules/render/theme.js';
-import { getDeviceType, handleDeviceView, updateSidebarState, adjustSearchContainerPosition, adjustHomeMessagePosition } from './assets/js/modules/render/device.js';
+import { getDeviceType, isMobileDevice, handleDeviceView, updateSidebarState, adjustSearchContainerPosition, adjustHomeMessagePosition } from './assets/js/modules/render/device.js';
 import { renderHome } from './assets/js/modules/render/home.js';
 import { renderSidebar, createElement } from './assets/js/modules/render/sidebar.js';
 import { renderMainContent as _renderMainContent } from './assets/js/modules/render/content.js';
@@ -418,50 +418,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        // 监听窗口大小变化，使用防抖优化性能
-        // 创建一个统一的 resize 处理函数
+        // 优化的resize处理 - 不重新渲染，只调整布局
         const handleResize = debounce(() => {
-            const content = document.getElementById('content');
-            const homeMessage = document.querySelector('.home-message');
-            const deviceType = getDeviceType();
-
-            // 重置所有内联样式
-            if (content) {
-                content.style.cssText = '';
-            }
-            if (homeMessage) {
-                homeMessage.style.cssText = '';
-            }
-
-            // 根据设备类型应用样式
-            if (deviceType === 'mobile' || deviceType === 'tablet') {
-                if (homeMessage) {
-                    Object.assign(homeMessage.style, {
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        top: '45%',
-                        width: '90%',
-                        maxWidth: deviceType === 'mobile' ? '400px' : '600px'
-                    });
-                }
-                if (content) {
-                    Object.assign(content.style, {
-                        transform: 'translateX(-50%)',
-                        marginLeft: '0',
-                        width: '90%',
-                        maxWidth: deviceType === 'mobile' ? '600px' : '800px',
-                        left: '50%',
-                        position: 'relative'
-                    });
-                }
-            } else {
-                // PC模式：让 CSS 接管样式
-                if (homeMessage) {
-                    const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
-                    adjustHomeMessagePosition(isCollapsed);
-                }
-            }
-
             handleDeviceView();
             adjustSearchContainerPosition();
         }, 100);
@@ -492,8 +450,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 主页按钮事件处理
     const homeButton = document.querySelector('.home-button');
     if (homeButton) {
-        // 统一的主页渲染处理函数 - 不重新渲染侧栏
         const handleHomeNavigation = () => {
+            // 手机端点击主页按钮时自动收起侧栏
+            if (isMobileDevice()) {
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar && !sidebar.classList.contains('collapsed')) {
+                    updateSidebarState(sidebar, true);
+                }
+            }
             renderHome();
         };
 

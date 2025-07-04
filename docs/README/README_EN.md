@@ -107,11 +107,11 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 6. **Responsive Design**:
 
-   * Supports responsive layout for mobile, tablet, and PC devices.
+   * Supports responsive layout for mobile and desktop devices.
 
-   * Automatically hides sidebar on mobile, keeps it open on tablet and PC.
+   * Automatically hides sidebar on mobile (including landscape), keeps it open on desktop.
    
-   * Unified breakpoint system ensures optimal experience across different devices.
+   * Smart device detection ensures touch devices use mobile experience.
 
 7. **GSAP Animation Support**:
 
@@ -128,7 +128,7 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 ## Technical Features
 
-* **Unified Breakpoint System**: Mobile (<768px), Tablet (768-1023px), PC (≥1024px)
+* **Unified Breakpoint System**: Mobile (<1024px), Desktop (≥1024px)
 * **Optimized Interaction**: PC hover effects, mobile touch optimization
 * **Performance Optimization**: Web Worker search, lazy image loading, animation optimization
 * **Accessibility Support**: Keyboard navigation, focus management, semantic markup

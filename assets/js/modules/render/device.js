@@ -4,27 +4,23 @@
 
 import { animationConfig } from './theme.js';
 
-// 统一断点系统
+// 统一断点系统 - 删除平板端，只区分移动端和桌面端
 const BREAKPOINTS = {
-    MOBILE: 768,
-    TABLET: 1024,
+    MOBILE: 1024,
     DESKTOP: 1024
 };
 
 const getDeviceType = () => {
     const width = window.innerWidth;
-    if (width < BREAKPOINTS.MOBILE) return 'mobile';
-    if (width < BREAKPOINTS.TABLET) return 'tablet';
-    return 'desktop';
+    return width < BREAKPOINTS.MOBILE ? 'mobile' : 'desktop';
 };
 
 const isMobileDevice = () => getDeviceType() === 'mobile';
-const isTabletDevice = () => getDeviceType() === 'tablet';
 const isDesktopDevice = () => getDeviceType() === 'desktop';
 const shouldCollapseSidebar = () => getDeviceType() === 'mobile';
 
 // 更新侧边栏状态的函数
-const updateSidebarVisibility = (sidebar, isCollapsed) => {
+const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
     const toggleButton = document.getElementById('toggle-sidebar');
     const showPanel = toggleButton.querySelector('.show-panel');
@@ -36,7 +32,7 @@ const updateSidebarVisibility = (sidebar, isCollapsed) => {
     if (folderElements && folderElements.length > 0) {
         if (isCollapsed) {
             gsap.set(folderElements, { opacity: 0, visibility: 'hidden' });
-        } else {
+        } else if (!skipAnimation) {
             gsap.set(folderElements, { opacity: 0, visibility: 'visible' });
             folderElements.forEach((folder, index) => {
                 gsap.to(folder, {
@@ -46,6 +42,8 @@ const updateSidebarVisibility = (sidebar, isCollapsed) => {
                     ease: animationConfig.ease.outQuad
                 });
             });
+        } else {
+            gsap.set(folderElements, { opacity: 1, visibility: 'visible' });
         }
     }
 };
@@ -98,8 +96,8 @@ const adjustSearchContainerPosition = () => {
 };
 
 // 封装侧边栏状态管理
-const updateSidebarState = (sidebar, isCollapsed) => {
-    updateSidebarVisibility(sidebar, isCollapsed);
+const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
+    updateSidebarVisibility(sidebar, isCollapsed, skipAnimation);
     adjustHomeMessagePosition(isCollapsed);
     checkBreadcrumbsScroll();
 };
@@ -110,17 +108,16 @@ const handleDeviceView = () => {
     const shouldCollapse = shouldCollapseSidebar();
     
     document.body.classList.toggle('mobile-device', deviceType === 'mobile');
-    document.body.classList.toggle('tablet-device', deviceType === 'tablet');
     document.body.classList.toggle('desktop-device', deviceType === 'desktop');
     
-    updateSidebarState(sidebar, shouldCollapse);
+    // 视口变化时跳过动画，避免重新渲染
+    updateSidebarState(sidebar, shouldCollapse, true);
 };
 
 export {
     BREAKPOINTS,
     getDeviceType,
     isMobileDevice,
-    isTabletDevice,
     isDesktopDevice,
     shouldCollapseSidebar,
     updateSidebarVisibility,
