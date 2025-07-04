@@ -1,5 +1,4 @@
 /* 统一断点系统 - 移动端和桌面端 */
 :root {
-    --breakpoint-mobile: 1024px;   /* 移动端 */
-    --breakpoint-desktop: 1024px;  /* 桌面端 */
+    --breakpoint: 1024px;   /* 移动端和桌面端统一断点 */
 }
