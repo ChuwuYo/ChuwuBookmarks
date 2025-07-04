@@ -63,7 +63,7 @@ const checkBreadcrumbsScroll = () => {
 };
 
 // 调整主页消息位置
-const adjustHomeMessagePosition = (isCollapsed) => {
+const adjustHomeMessagePosition = () => {
     const homeMessage = document.querySelector('.home-message');
     if (!homeMessage) return;
 
