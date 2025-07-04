@@ -52,6 +52,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-synthesis: none;
+    outline: none;
 }
 #search-input::placeholder {
     font-family: 'DingTalk JinBuTi', sans-serif;
