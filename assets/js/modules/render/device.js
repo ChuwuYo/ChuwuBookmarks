@@ -4,15 +4,20 @@
 
 import { animationConfig } from './theme.js';
 
-// 统一断点系统 - 删除平板端，只区分移动端和桌面端
-const BREAKPOINTS = {
-    MOBILE: 1024,
-    DESKTOP: 1024
-};
+// 统一断点系统 - 单一断点值
+const BREAKPOINT = 1024;
 
 const getDeviceType = () => {
     const width = window.innerWidth;
-    return width < BREAKPOINTS.MOBILE ? 'mobile' : 'desktop';
+    const height = window.innerHeight;
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // 手机设备（包括横屏）优先使用移动端样式
+    if (isTouchDevice && (width < BREAKPOINT || height < 600)) {
+        return 'mobile';
+    }
+    
+    return width < BREAKPOINT ? 'mobile' : 'desktop';
 };
 
 const isMobileDevice = () => getDeviceType() === 'mobile';
@@ -115,7 +120,7 @@ const handleDeviceView = () => {
 };
 
 export {
-    BREAKPOINTS,
+    BREAKPOINT,
     getDeviceType,
     isMobileDevice,
     isDesktopDevice,

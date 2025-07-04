@@ -100,13 +100,13 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
             const scrollLeft = breadcrumbs.scrollLeft;
             const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
             
-            breadcrumbs.style.webkitMaskImage = `linear-gradient(to right,
+            const maskValue = `linear-gradient(to right,
                 transparent,
                 black ${Math.min(scrollLeft + 15, 15)}px,
                 black calc(100% - ${Math.max(15 - (maxScroll - scrollLeft), 0)}px),
                 transparent
             )`;
-            breadcrumbs.style.maskImage = breadcrumbs.style.webkitMaskImage;
+            breadcrumbs.style.maskImage = maskValue;
             
             breadcrumbs.classList.toggle('at-end', scrollLeft >= maxScroll - 10);
             breadcrumbs.classList.toggle('at-start', scrollLeft <= 10);
@@ -157,12 +157,9 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
 
             const deviceType = getDeviceType();
             if (deviceType === 'mobile') {
-                content.style.transform = 'translateX(-50%)';
-                content.style.marginLeft = '0';
-                content.style.width = '90%';
-                content.style.maxWidth = '600px';
-                content.style.left = '50%';
-                content.style.position = 'relative';
+                content.classList.add('mobile-content-layout');
+            } else {
+                content.classList.remove('mobile-content-layout');
             }
         }
     });
