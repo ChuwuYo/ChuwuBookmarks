@@ -1,112 +1,7 @@
 /* 响应式样式：所有媒体查询集中管理 */
 
-/* 平板和手机通用样式 (<=1023px) */
+/* 移动端特定样式 (<=1023px) */
 @media screen and (max-width: 1023px) {
-
-    /* 内容区域固定居中布局 */
-    .main-content {
-        margin-left: 0 !important;
-        width: 90% !important;
-        max-width: 800px;
-        padding: 20px;
-        margin: 0 auto;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: transform var(--duration-base) var(--ease-in-out-cubic),
-                    width var(--duration-base) var(--ease-in-out-cubic);
-    }
-
-    /* 确保内容区域在所有状态下保持居中 */
-    .sidebar:not(.collapsed) + .main-content {
-        margin-left: 0 !important;
-        width: 90% !important;
-        transform: translateX(-50%);
-    }
-
-    /* 共享布局元素的居中定位逻辑 */
-    .search-container,
-    .home-message {
-        left: 50% !important;
-        transition: transform var(--duration-base) var(--ease-in-out-cubic),
-                    opacity var(--duration-base) var(--ease-in-out-cubic);
-    }
-
-    /* 搜索容器定位 */
-    .search-container {
-        transform: translateX(-50%) !important;
-    }
-
-    /* 主页消息样式仅在小屏幕模式下应用 */
-    @media (max-width: 1023px) {
-        .home-message {
-            transform: translate(-50%, -50%) !important;
-            top: 45% !important;
-            margin: 0 !important;
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-        }
-    }
-
-    /* PC模式下移除强制样式 */
-    @media (min-width: 1024px) {
-        .home-message {
-            transform: none;
-            top: auto;
-            margin: auto;
-        }
-    }
-
-    /* 防止内容被侧边栏覆盖 */
-    .main-content #content {
-        min-height: calc(100vh - 120px);
-        position: relative;
-        z-index: 1;
-    }
-
-    /* 重置所有侧边栏状态下的位置 */
-    .sidebar.collapsed + .main-content .search-container,
-    .sidebar:not(.collapsed) + .main-content .search-container {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-    }
-
-    /* 主页消息在所有侧边栏状态下的位置 */
-    .sidebar.collapsed + .main-content .home-message,
-    .sidebar:not(.collapsed) + .main-content .home-message {
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        width: 90%;
-        max-width: 600px;
-    }
-
-    /* 优化动画性能 */
-    .search-container,
-    .home-message {
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        contain: layout style paint;
-    }
-}
-
-/* 平板特定样式 (768px-1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    .tablet-device .main-content {
-        max-width: 900px;
-        padding: 25px;
-    }
-    
-    .tablet-device .home-message {
-        max-width: 700px;
-    }
-    
-    .tablet-device .search-container {
-        left: 51%;
-    }
-}
-
-/* 手机端特定样式 (<=767px) */
-@media screen and (max-width: 767px) {
 
     .mobile-device [onclick],
     .mobile-device button,
@@ -304,8 +199,8 @@
         word-break: break-word;
     }
 }
-/* 平板和PC样式 (>=768px) */
-@media screen and (min-width: 768px) {
+/* 桌面端样式 (>=1024px) */
+@media screen and (min-width: 1024px) {
     .search-container {
         left: 50%;
         transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));
