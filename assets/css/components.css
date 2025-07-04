@@ -36,6 +36,7 @@
     contain: layout;
     outline: none;
     backface-visibility: hidden;
+    overflow: visible;
 }
 #search-input {
     padding: 6px;
