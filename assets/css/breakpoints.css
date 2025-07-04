@@ -1,7 +1,5 @@
-/* 统一断点系统 */
+/* 统一断点系统 - 移动端和桌面端 */
 :root {
-    /* 断点定义 */
-    --breakpoint-mobile: 768px;   /* 手机 */
-    --breakpoint-tablet: 1024px;  /* 平板 */
-    --breakpoint-desktop: 1024px; /* PC */
+    --breakpoint-mobile: 1024px;   /* 移动端 */
+    --breakpoint-desktop: 1024px;  /* 桌面端 */
 }

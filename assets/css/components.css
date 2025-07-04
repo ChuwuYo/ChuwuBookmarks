@@ -36,6 +36,7 @@
     contain: layout;
     outline: none;
     backface-visibility: hidden;
+    overflow: visible;
 }
 #search-input {
     padding: 6px;
@@ -52,6 +53,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-synthesis: none;
+    outline: none;
 }
 #search-input::placeholder {
     font-family: 'DingTalk JinBuTi', sans-serif;
@@ -77,6 +79,13 @@
         border-color: var(--link-color);
         box-shadow: var(--shadow-sm);
     }
+}
+
+/* 搜索框键盘聚焦样式 */
+#search-input:focus-visible {
+    border-color: var(--link-color);
+    box-shadow: var(--shadow-sm);
+    transform: scale(1.02);
 }
 /* 面包屑导航 */
 #breadcrumbs {
@@ -172,6 +181,16 @@ button.breadcrumb-item {
 /* 内容区 */
 #content {
     transition: transform var(--duration-base) var(--ease-in-out-cubic);
+}
+
+/* 移动端内容布局 */
+#content.mobile-content-layout {
+    transform: translateX(-50%);
+    margin-left: 0;
+    width: 90%;
+    max-width: 600px;
+    left: 50%;
+    position: relative;
 }
 
 #content .folder,

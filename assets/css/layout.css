@@ -17,6 +17,7 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
     will-change: background-color;
+    box-sizing: border-box;
 }
 .sidebar.collapsed {
     width: 0;
@@ -57,14 +58,17 @@
     transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default);
     border-radius: 4px;
 }
-.sidebar .folder-name:hover {
-    background: var(--hover-bg);
-    box-shadow: 16px 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px) scale(1.05);
-}
-[data-theme='dark'] .sidebar .folder-name:hover {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+/* 侧边栏悬停效果 - 仅在PC端生效 */
+@media (hover: hover) and (pointer: fine) {
+    .sidebar .folder-name:hover {
+        background: var(--hover-bg);
+        box-shadow: 16px 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px) scale(1.05);
+    }
+    [data-theme='dark'] .sidebar .folder-name:hover {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+    }
 }
 .sidebar-header {
     display: flex;
