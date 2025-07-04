@@ -58,9 +58,8 @@
 }
 
 .sidebar:not(.collapsed) #toggle-sidebar {
-    left: 200px;
+    left: 160px;
     border-radius: 15px;
-    /* 保持相同的尺寸，只改变位置和样式 */
 }
 
 
