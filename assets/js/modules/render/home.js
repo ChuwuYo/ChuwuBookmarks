@@ -154,13 +154,13 @@ const renderHome = () => {
     homeMessage.style.cssText = '';
     
     const deviceType = getDeviceType();
-    if (deviceType === 'mobile' || deviceType === 'tablet') {
+    if (deviceType === 'mobile') {
         Object.assign(homeMessage.style, {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             top: '45%',
             width: '90%',
-            maxWidth: deviceType === 'mobile' ? '400px' : '600px'
+            maxWidth: '400px'
         });
     } else {
         const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
