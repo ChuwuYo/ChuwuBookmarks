@@ -111,7 +111,7 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
    * Automatically hides sidebar on mobile (including landscape), keeps it open on desktop.
    
-   * Smart device detection ensures touch devices use mobile experience.
+   * Unified breakpoint system ensures touch devices use mobile experience.
 
 7. **GSAP Animation Support**:
 
