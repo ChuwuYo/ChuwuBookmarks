@@ -37,14 +37,9 @@
 .home-icon {
     width: 22px;
     height: 22px;
-    stroke: #333;
+    color: var(--text-color);
     fill: none;
-    transition: transform var(--duration-medium) var(--ease-default), stroke var(--duration-medium) var(--ease-default);
-}
-
-/* 深色主题适配 */
-[data-theme='dark'] .home-icon {
-    stroke: #ffefc4;
+    transition: transform var(--duration-medium) var(--ease-default), color var(--duration-medium) var(--ease-default);
 }
 
 
