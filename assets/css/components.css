@@ -363,6 +363,9 @@ button.breadcrumb-item:focus-visible {
     align-items: center;
     gap: 1rem;
     padding: 2rem;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-color);
 }
 
 .no-results {
