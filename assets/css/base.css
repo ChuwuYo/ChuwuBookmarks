@@ -26,8 +26,8 @@
     --theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 :root[data-theme='dark'] {
-    --bg-color: #1a1a1a;
-    --sidebar-bg: #2d3436;
+    --bg-color: #1c1c1c;
+    --sidebar-bg: #161515;
     --text-color: #ecf0f1;
     --link-color: #74ceff;
     --hover-bg: #2d3436;
