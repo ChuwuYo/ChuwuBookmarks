@@ -8,6 +8,12 @@ import { createElement } from './sidebar.js';
 
 // 渲染主内容区
 const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => {
+    // 无论.home-message在哪里，渲染新内容前都必须移除它
+    const existingHomeMessage = document.querySelector('.home-message');
+    if (existingHomeMessage) {
+        existingHomeMessage.remove();
+    }
+
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
     if (!content || !breadcrumbs) return;

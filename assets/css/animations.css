@@ -1,22 +1,18 @@
 /* 动画和过渡效果 */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideDown {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-@keyframes fadeInUp {
+@keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
@@ -33,6 +29,11 @@
 @keyframes textJump {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px) scale(1.05); }
+}
+@keyframes pulseRight {
+    0% { opacity: 0.3; transform: translate(0, -50%); }
+    50% { opacity: 0.15; transform: translate(5px, -50%); }
+    100% { opacity: 0.3; transform: translate(0, -50%); }
 }
 /* Swup 页面过渡动画样式 */
 .transition-fade {
