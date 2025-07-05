@@ -201,9 +201,6 @@ const debounceSearch = debounce((event) => {
         const content = document.getElementById('content');
         const errorMessage = document.createElement('div');
         errorMessage.className = 'error-message';
-        errorMessage.style.textAlign = 'center';
-        errorMessage.style.marginTop = '50px';
-        errorMessage.style.color = 'var(--text-color)';
         errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
         content.innerHTML = '';
         content.appendChild(errorMessage);
@@ -331,9 +328,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     // 使用DOM API创建错误消息，避免innerHTML解析
                     const errorMessage = document.createElement('div');
                     errorMessage.className = 'error-message';
-                    errorMessage.style.textAlign = 'center';
-                    errorMessage.style.marginTop = '50px';
-                    errorMessage.style.color = 'var(--text-color)';
 
                     const heading = document.createElement('h2');
                     heading.textContent = '加载书签数据失败';

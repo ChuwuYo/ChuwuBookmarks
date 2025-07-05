@@ -163,12 +163,12 @@ const renderHome = () => {
         document.body.appendChild(fragment);
         homeMessage.classList.add('mobile-home-message');
         homeMessage.style.cssText = `
-            position: fixed !important;
-            top: 45% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            width: 90% !important;
-            max-width: 400px !important;
+            position: fixed;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
         `;
         chineseText.style.fontSize = 'clamp(1.5rem, 8vw, 2rem)';
         englishText.style.fontSize = 'clamp(1rem, 6vw, 1.5rem)';
