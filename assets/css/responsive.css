@@ -23,52 +23,87 @@
         transform: none;
     }
 
+    /* 移动端侧边栏覆盖在内容之上 */
     .sidebar {
-        transition: width 0.2s var(--cubic-bezier),
-                    padding 0.2s var(--cubic-bezier);
-    }
-    .sidebar.collapsed {
-        width: 0;
-        padding: 0;
-    }
-    .sidebar.collapsed h1,
-    .sidebar.collapsed .folder-name,
-    .sidebar.collapsed #sidebar-folders {
-        display: none;
-        transition: opacity 0s linear, visibility 0s linear;
+        z-index: 1001;
+        left: -220px;
+        transition: left var(--duration-base) var(--ease-in-out-cubic);
     }
     .sidebar:not(.collapsed) {
-        width: 220px;
-        padding: 20px;
-        pointer-events: auto;
-        touch-action: pan-y;
+        left: 0;
     }
-    .sidebar:not(.collapsed) h1,
-    .sidebar:not(.collapsed) .folder-name,
-    .sidebar:not(.collapsed) #sidebar-folders {
-        display: block;
-    }
-    /* 移动端特有的内容区域样式调整 */
+    
+    /* 移动端内容区不受侧边栏影响 */
     .main-content {
-        max-width: 600px; /* 移动端更窄的内容区域 */
-        padding: 15px;    /* 更小的内边距 */
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 600px;
+        padding: 15px;
+        margin: 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        /* 确保内容区稳定居中 */
+        will-change: auto;
+        backface-visibility: hidden;
+        transform: translateZ(0);
     }
-    .search-container {
-        left: 52%;
+    
+
+    
+    /* 移动端禁用所有transform动画防止扩散 */
+    #content,
+    #content .folder,
+    #content .bookmark,
+    #breadcrumbs,
+    .breadcrumb-item {
+        transform: none;
         transition: opacity 0.2s ease;
+        will-change: auto;
+    }
+    
+
+    .search-container {
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.2s ease;
+        position: fixed;
+        top: 20px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* 移动端隐藏搜索框快捷键提示 */
+    .shortcut-hint {
+        display: none;
+    }
+    
+    /* 移动端搜索框宽度优化 */
+    #search-input {
+        width: 200px;
+        max-width: calc(100vw - 40px);
+        margin: 0;
+    }
+    
+    /* 移动端主题切换按钮位置优化 */
+    #theme-toggle {
+        margin-left: 10px;
+        flex-shrink: 0;
     }
     /* 面包屑导航移动端优化 */
     #breadcrumbs {
-        padding: 45px 10px 0;
+        padding: 50px 15px 0;
         font-size: clamp(1rem, 5vw, 1.2rem);
-        width: 90%;
-        max-width: 400px;
+        width: 100%;
+        max-width: 600px;
         margin: 0 auto 1rem;
         line-height: 1.4;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         gap: 6px;
+        box-sizing: border-box;
     }
     
     /* 移动端面包屑项样式优化 */
@@ -116,7 +151,7 @@
         pointer-events: none;
     }
 
-    /* 移动端面包屑导航优化 */
+    /* 移动端面包屑滚动优化 */
     #breadcrumbs {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -124,31 +159,13 @@
         -ms-overflow-style: none;
         padding-bottom: 5px;
         position: relative;
-        width: calc(100% - 30px);  /* 考虑渐变边缘的空间 */
-        margin: 0 auto;
         scroll-padding: 0 20px;
         scroll-snap-type: x proximity;
-        mask-image: linear-gradient(to right,
-            transparent,
-            black 15px,
-            black calc(100% - 15px),
-            transparent
-        );
-        -webkit-mask-image: linear-gradient(to right,
-            transparent,
-            black 15px,
-            black calc(100% - 15px),
-            transparent
-        );
     }
 
     /* 优化面包屑项的滚动行为 */
     .breadcrumb-item {
         scroll-snap-align: start;
-    }
-
-    /* 确保最后一个面包屑项完全可见 */
-    .breadcrumb-item:last-child {
         scroll-margin-right: 20px;
     }
     #breadcrumbs::-webkit-scrollbar {
@@ -172,18 +189,18 @@
     #breadcrumbs:not(.scrollable)::after {
         display: none;
     }
-    @keyframes pulseRight {
-        0% { opacity: 0.3; transform: translate(0, -50%); }
-        50% { opacity: 0.15; transform: translate(5px, -50%); }
-        100% { opacity: 0.3; transform: translate(0, -50%); }
-    }
+
     #content .bookmark a {
         max-width: 80%;
     }
+    /* 移动端主页消息样式 */
     .home-message {
+        position: fixed;
         left: 50%;
-        width: 90%;  /* 控制移动端宽度 */
-        max-width: 400px;  /* 限制最大宽度 */
+        top: 45%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
         transition: opacity 0.3s ease;
     }
     /* 移动端文字大小适配 */

@@ -63,15 +63,21 @@ const checkBreadcrumbsScroll = () => {
 };
 
 // 调整主页消息位置
-const adjustHomeMessagePosition = () => {
+const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
     if (!homeMessage) return;
 
     const deviceType = getDeviceType();
     if (deviceType === 'mobile') {
+        // 移动端始终居中
         homeMessage.style.left = '50%';
+        homeMessage.style.transform = 'translate(-50%, -50%)';
+        homeMessage.style.top = '45%';
     } else {
+        // PC端根据侧边栏状态调整
         homeMessage.style.left = '';
+        homeMessage.style.transform = '';
+        homeMessage.style.top = '';
     }
 };
 

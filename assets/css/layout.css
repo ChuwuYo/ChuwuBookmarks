@@ -93,19 +93,4 @@
     margin-left: 20px;
     padding: 20px;
 }
-/* 优化滚动条 */
-::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-color);
-    border-radius: 6px;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
-}
+
