@@ -360,7 +360,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 使用事件委托减少事件监听器数量
     const toggleSidebar = document.getElementById('toggle-sidebar');
 
-    if (toggleSidebar) {
+const toggleSidebarHandler = (e) => {
+                const sidebar = document.querySelector('.sidebar');
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
         // 合并点击和键盘事件处理
         const toggleSidebarHandler = (e) => {
             if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
