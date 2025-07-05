@@ -25,7 +25,7 @@ const createElement = (type, item, onClick) => {
 
         if (item.icon) {
             const img = document.createElement('img');
-            img.dataset.src = item.icon;
+            img.setAttribute('data-src', item.icon);
             img.alt = '🔗';
             img.classList.add('lazyload');
             img.style.display = 'none';

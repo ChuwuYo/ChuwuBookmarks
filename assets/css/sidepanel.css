@@ -8,7 +8,7 @@
     border-radius: 0 15px 15px 0;
     padding: 8px 12px;
     cursor: pointer;
-    z-index: 999;
+    z-index: 1002;
     font-size: 1.3rem;
     user-select: none;
     /* 允许键盘焦点操作 */
@@ -60,6 +60,13 @@
 .sidebar:not(.collapsed) #toggle-sidebar {
     left: 160px;
     border-radius: 15px;
+}
+
+/* 移动端侧边栏按钮始终可见 */
+@media screen and (max-width: 1023px) {
+    #toggle-sidebar {
+        z-index: 1002;
+    }
 }
 
 
