@@ -44,6 +44,7 @@
     align-items: center;
     gap: 8px;
     margin: 1.0rem 0;
+    margin-left: 10px;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
@@ -78,7 +79,8 @@
     padding: 0 5px;
 }
 .main-content {
-    margin-left: 260px;
+    margin-left: 250px;
+    margin-right: 120px;
     min-height: 100vh;
     padding: 20px 20px 20px 40px;
     flex: 1;
@@ -90,7 +92,8 @@
     will-change: margin-left, padding;
 }
 .sidebar.collapsed + .main-content {
-    margin-left: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
     padding: 20px;
 }
 
