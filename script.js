@@ -18,27 +18,19 @@ const debounce = (fn, delay) => {
     };
 };
 
-const searchBookmarks = (keyword, data) => {
-    const results = [];
-    keyword = keyword.toLowerCase();
-    const searchItems = (items) => {
-        items.forEach(item => {
-            if (item.title.toLowerCase().includes(keyword) ||
-                (item.url && item.url.toLowerCase().includes(keyword))) {
-                results.push(item);
-            }
-            if (item.children) searchItems(item.children);
-        });
-    };
-    searchItems(data);
-    return results;
-};
+
 
 const renderSearchResults = (results) => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
 
     if (!content || !breadcrumbs) return;
+
+    // 清除主页消息（无论它在哪里）
+    const existingHomeMessage = document.querySelector('.home-message');
+    if (existingHomeMessage) {
+        existingHomeMessage.remove();
+    }
 
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
@@ -205,7 +197,13 @@ const debounceSearch = debounce((event) => {
             }
         });
     } else {
-        renderSearchResults(searchBookmarks(keyword, data));
+        // 如果不支持Web Worker，显示错误信息
+        const content = document.getElementById('content');
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
+        content.innerHTML = '';
+        content.appendChild(errorMessage);
     }
 }, 250);
 
@@ -218,10 +216,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 立即调整搜索容器位置
     setTimeout(adjustSearchContainerPosition, 0);
 
-    // 初始化FastClick
-    if (typeof FastClick !== 'undefined') {
-        FastClick.attach(document.body);
-    }
+
 
     // 初始化搜索Web Worker
     initSearchWorker();
@@ -333,9 +328,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     // 使用DOM API创建错误消息，避免innerHTML解析
                     const errorMessage = document.createElement('div');
                     errorMessage.className = 'error-message';
-                    errorMessage.style.textAlign = 'center';
-                    errorMessage.style.marginTop = '50px';
-                    errorMessage.style.color = 'var(--text-color)';
 
                     const heading = document.createElement('h2');
                     heading.textContent = '加载书签数据失败';
@@ -360,15 +352,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 使用事件委托减少事件监听器数量
-    const sidebar = document.querySelector('.sidebar');
     const toggleSidebar = document.getElementById('toggle-sidebar');
 
-    if (toggleSidebar) {
+const toggleSidebarHandler = (e) => {
+                const sidebar = document.querySelector('.sidebar');
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
         // 合并点击和键盘事件处理
         const toggleSidebarHandler = (e) => {
             if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
                 e.preventDefault();
                 e.stopPropagation();
+                const sidebar = document.querySelector('.sidebar');
                 if (sidebar) {
                     updateSidebarState(sidebar, !sidebar.classList.contains('collapsed'));
                 }
@@ -462,8 +456,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
-
-    // 简化 FastClick 初始化，避免嵌套的事件监听器
 
     // 标题变更功能
     const originalTitle = document.title;

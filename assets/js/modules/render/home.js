@@ -144,25 +144,37 @@ const renderHome = () => {
     const breadcrumbs = document.getElementById('breadcrumbs');
     
     if (!content || !breadcrumbs) return;
+
+    // 彻底清除旧的主页消息，无论它在哪里
+    const oldHomeMessage = document.querySelector('.home-message');
+    if (oldHomeMessage) {
+        oldHomeMessage.remove();
+    }
     
     const { fragment, homeMessage, chineseText, englishText } = createHomeStructure();
     
     content.innerHTML = '';
-    content.appendChild(fragment);
     breadcrumbs.innerHTML = '';
     
-    homeMessage.style.cssText = '';
-    
     const deviceType = getDeviceType();
+
     if (deviceType === 'mobile') {
-        Object.assign(homeMessage.style, {
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            top: '45%',
-            width: '90%',
-            maxWidth: '400px'
-        });
+        // 移动端：强制应用样式并附加到body
+        document.body.appendChild(fragment);
+        homeMessage.classList.add('mobile-home-message');
+        homeMessage.style.cssText = `
+            position: fixed;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+        `;
+        chineseText.style.fontSize = 'clamp(1.5rem, 8vw, 2rem)';
+        englishText.style.fontSize = 'clamp(1rem, 6vw, 1.5rem)';
     } else {
+        // 桌面端：逻辑保持不变
+        content.appendChild(fragment);
         const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
         adjustHomeMessagePosition(isCollapsed);
     }
