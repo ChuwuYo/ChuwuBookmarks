@@ -12,10 +12,10 @@
     --bg-color: #f8faef;
     --sidebar-bg: #e2f5f5;
     --text-color: #0e141a;
-    --link-color: #2bc3ce;
+    --link-color: #23d6e3;
     --hover-bg: #dfe6e9;
     --button-bg: #a1dcf5;
-    --button-hover: #f6e3ef;
+    --button-hover: #faeaf4;
     --header-bg: #88dcfa;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
@@ -32,7 +32,7 @@
     --link-color: #74ceff;
     --hover-bg: #2d3436;
     --button-bg: #5d6687;
-    --button-hover: rgba(222, 231, 162, 0.934);
+    --button-hover: rgb(201, 207, 159);
     --header-bg: #ffffff4b;
     --shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
     --shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
