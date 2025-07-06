@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751729495085,
+    "addDate": 1751822822605,
     "title": "书签栏",
     "children": [
       {
@@ -2505,6 +2505,13 @@
                 "title": "无损音乐免费下载_mp3歌曲免费下载",
                 "url": "https://www.isflac.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.isflac.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1751822135776,
+                "title": "Beadd/Creamplayer: 网易云音乐下载器(mp3友好)",
+                "url": "https://github.com/Beadd/Creamplayer",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -6750,6 +6757,13 @@
                         "title": "Models · GitHub Marketplace",
                         "url": "https://github.com/marketplace/models/",
                         "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751822795486,
+                        "title": "TokenSpark",
+                        "url": "https://chat.tokenspark.net/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.tokenspark.net"
                       }
                     ]
                   },
