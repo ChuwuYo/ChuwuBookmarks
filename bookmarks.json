@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751822822605,
+    "addDate": 1751994344928,
     "title": "书签栏",
     "children": [
       {
@@ -6670,7 +6670,7 @@
                       {
                         "type": "link",
                         "addDate": 1717502475880,
-                        "title": "使用开放大型语言模型进行聊天",
+                        "title": "lmarena模型竞技场",
                         "url": "https://lmarena.ai/",
                         "icon": "https://www.google.com/s2/favicons?domain=lmarena.ai"
                       },
@@ -6764,6 +6764,69 @@
                         "title": "TokenSpark",
                         "url": "https://chat.tokenspark.net/",
                         "icon": "https://www.google.com/s2/favicons?domain=chat.tokenspark.net"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1746806280051,
+                        "title": "Pi, your personal AI",
+                        "url": "https://pi.ai/discover",
+                        "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "folder",
+                    "addDate": 1751994267292,
+                    "title": "不常用",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1741757615317,
+                        "title": "Nexus - reka.ai",
+                        "url": "https://space.reka.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1740497711705,
+                        "title": "百小应-懂搜索的AI助手",
+                        "url": "https://ying.baichuan-ai.com/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=ying.baichuan-ai.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751992133344,
+                        "title": "书生 - 上海",
+                        "url": "https://intern-ai.org.cn/home",
+                        "icon": "https://www.google.com/s2/favicons?domain=intern-ai.org.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751992481451,
+                        "title": "紫东太初",
+                        "url": "https://taichu-web.ia.ac.cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=taichu-web.ia.ac.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751992809246,
+                        "title": "商汤 - 商量",
+                        "url": "https://chat.sensetime.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.sensetime.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751993701532,
+                        "title": "AI21 Studio",
+                        "url": "https://studio.ai21.com/v2",
+                        "icon": "https://www.google.com/s2/favicons?domain=studio.ai21.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1751994180710,
+                        "title": "Dashboard | Cohere - CommandR",
+                        "url": "https://dashboard.cohere.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=dashboard.cohere.com"
                       }
                     ]
                   },
@@ -6773,6 +6836,27 @@
                     "title": "OpenAI",
                     "url": "https://openai.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=openai.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1713853816390,
+                    "title": "Gemini",
+                    "url": "https://gemini.google.com/app",
+                    "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1734790878600,
+                    "title": "Stream Realtime | Google AI Studio",
+                    "url": "https://aistudio.google.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=aistudio.google.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1739879673541,
+                    "title": "Grok",
+                    "url": "https://grok.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=grok.com"
                   },
                   {
                     "type": "link",
@@ -6811,20 +6895,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1713853816390,
-                    "title": "Gemini",
-                    "url": "https://gemini.google.com/app",
-                    "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1734790878600,
-                    "title": "Stream Realtime | Google AI Studio",
-                    "url": "https://aistudio.google.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=aistudio.google.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1717499188488,
                     "title": "Le Chat - Mistral AI",
                     "url": "https://chat.mistral.ai/chat",
@@ -6853,38 +6923,17 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1739879673541,
-                    "title": "Grok",
-                    "url": "https://grok.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=grok.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1740497711705,
-                    "title": "百小应-懂搜索的AI助手",
-                    "url": "https://ying.baichuan-ai.com/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=ying.baichuan-ai.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1741757615317,
-                    "title": "Space",
-                    "url": "https://space.reka.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746806280051,
-                    "title": "Pi, your personal AI",
-                    "url": "https://pi.ai/discover",
-                    "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1749713778945,
-                    "title": "Z",
+                    "title": "Z.ai",
                     "url": "https://chat.z.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751992708475,
+                    "title": "Ernie",
+                    "url": "https://yiyan.baidu.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=yiyan.baidu.com"
                   }
                 ]
               },
@@ -6969,6 +7018,13 @@
                     "title": "asgeirtj/system_prompts_leaks: Collection of extracted System Prompts from popular chatbots like ChatGPT, Claude & Gemini",
                     "url": "https://github.com/asgeirtj/system_prompts_leaks",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751911308254,
+                    "title": "Learn Prompting: Your Guide to Communicating with AI",
+                    "url": "https://learnprompting.org/",
+                    "icon": "https://www.google.com/s2/favicons?domain=learnprompting.org"
                   }
                 ]
               },
