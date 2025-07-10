@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1751994344928,
+    "addDate": 1752157851298,
     "title": "书签栏",
     "children": [
       {
@@ -1691,6 +1691,13 @@
                     "title": "太鼓ウェブ - Taiko Web",
                     "url": "https://cjdgrevival.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=cjdgrevival.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752146200834,
+                    "title": "Viola the Bird — Google Arts & Culture",
+                    "url": "https://artsandculture.google.com/experiment/viola-the-bird/nAEJVwNkp-FnrQ?cp&hl=en-sg",
+                    "icon": "https://www.google.com/s2/favicons?domain=artsandculture.google.com"
                   }
                 ]
               },
@@ -3160,6 +3167,13 @@
                     "addDate": 1749047037413,
                     "title": "res-downloader: 视频号、小程序、抖音、快手、小红书、直播流、m3u8、酷狗、QQ音乐等常见网络资源下载!",
                     "url": "https://github.com/putyy/res-downloader",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752079033867,
+                    "title": "qBittorrent-Enhanced-Edition: [Unofficial] qBittorrent Enhanced, based on qBittorrent",
+                    "url": "https://github.com/c0re100/qBittorrent-Enhanced-Edition",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -6718,6 +6732,13 @@
                       },
                       {
                         "type": "link",
+                        "addDate": 1752083541043,
+                        "title": "高效问答 | 在问",
+                        "url": "https://www.zaiwenai.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.zaiwenai.com"
+                      },
+                      {
+                        "type": "link",
                         "addDate": 1715088237654,
                         "title": "Workers AI LLM Playground",
                         "url": "https://playground.ai.cloudflare.com/",
@@ -7763,6 +7784,20 @@
                 "children": [
                   {
                     "type": "link",
+                    "addDate": 1739015902635,
+                    "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
+                    "url": "https://github.com/FortAwesome/Font-Awesome",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752045194069,
+                    "title": "loading.io - Your SVG + GIF + PNG Ajax Loading Icons and Animation Generator",
+                    "url": "https://loading.io/",
+                    "icon": "https://www.google.com/s2/favicons?domain=loading.io"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1746613261894,
                     "title": "Logo-creator.io – Generate a logo",
                     "url": "https://www.logo-creator.io/",
@@ -8175,13 +8210,6 @@
                     "icon": "https://www.google.com/s2/favicons?domain=chalk.ist"
                   }
                 ]
-              },
-              {
-                "type": "link",
-                "addDate": 1739809411892,
-                "title": "Template0 - Explore and Share Free Templates",
-                "url": "https://template0.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=template0.com"
               },
               {
                 "type": "link",
@@ -8988,13 +9016,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1739015902635,
-                    "title": "FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit",
-                    "url": "https://github.com/FortAwesome/Font-Awesome",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1740663218048,
                     "title": "Naive UI: 一个 Vue 3 组件库",
                     "url": "https://www.naiveui.com/zh-CN/os-theme",
@@ -9041,6 +9062,62 @@
                     "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
                     "url": "https://tailwindcss.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=tailwindcss.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752044778748,
+                    "title": "HeroUI (Previously NextUI) - Beautiful, fast and modern React UI Library",
+                    "url": "https://www.heroui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.heroui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752044848698,
+                    "title": "Magic UI",
+                    "url": "https://magicui.design/",
+                    "icon": "https://www.google.com/s2/favicons?domain=magicui.design"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752044876169,
+                    "title": "Aceternity UI",
+                    "url": "https://ui.aceternity.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ui.aceternity.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1752044971371,
+                "title": "网站示例",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1739809411892,
+                    "title": "Template0 - Explore and Share Free Templates",
+                    "url": "https://template0.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=template0.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752045012820,
+                    "title": "Awwwards - Website Awards - Best Web Design Trends",
+                    "url": "https://www.awwwards.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.awwwards.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751435817900,
+                    "title": " HTMLrev",
+                    "url": "https://htmlrev.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=htmlrev.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746542848066,
+                    "title": "Godly — Astronomically good web design inspiration",
+                    "url": "https://godly.website/",
+                    "icon": "https://www.google.com/s2/favicons?domain=godly.website"
                   }
                 ]
               },
@@ -9053,31 +9130,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1746542808578,
-                "title": "Dark Themed Web Design Inspiration",
-                "url": "https://www.dark.design/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.dark.design"
-              },
-              {
-                "type": "link",
-                "addDate": 1746542848066,
-                "title": "Godly — Astronomically good web design inspiration",
-                "url": "https://godly.website/",
-                "icon": "https://www.google.com/s2/favicons?domain=godly.website"
-              },
-              {
-                "type": "link",
                 "addDate": 1746613077500,
                 "title": "拟物化按钮Neumorphism CSS shadow generator",
                 "url": "https://neumorphism.io/#e0e0e0",
                 "icon": "https://www.google.com/s2/favicons?domain=neumorphism.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1746805857466,
-                "title": "Pure CSS Loader - Optimized Spinners for Web · Loading.io",
-                "url": "https://loading.io/css/",
-                "icon": "https://www.google.com/s2/favicons?domain=loading.io"
               },
               {
                 "type": "link",
@@ -9116,10 +9172,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1751435817900,
-                "title": " HTMLrev",
-                "url": "https://htmlrev.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=htmlrev.com"
+                "addDate": 1752045144497,
+                "title": "CSS Buttons",
+                "url": "https://cssbuttons.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=cssbuttons.io"
               }
             ]
           },
