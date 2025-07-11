@@ -57,20 +57,46 @@ const showErrorMessage = (error) => {
     content.appendChild(errorMessage);
 };
 
-// 加载书签数据
+// 加载书签数据 - 实现分片加载和初始渲染优化
 const loadBookmarksData = async (renderMainContent) => {
     try {
-        // 首先尝试从localStorage获取缓存数据进行快速渲染
+        // 尝试从localStorage获取缓存数据进行快速渲染
         const cachedData = localStorage.getItem('bookmarksData');
         let data;
 
+        // 仅加载顶层数据用于初始渲染
+        const loadTopLevelData = (fullData) => {
+            // 创建只包含顶层文件夹结构的数据副本，不包含子书签
+            return fullData.map(item => {
+                if (item.type === 'folder' && item.children) {
+                    return {
+                        ...item,
+                        children: item.children.map(child => {
+                            if (child.type === 'folder') {
+                                return { ...child, children: [] };
+                            }
+                            return child;
+                        })
+                    };
+                }
+                return item;
+            });
+        };
+
         if (cachedData) {
             try {
-                // 使用缓存数据进行初始渲染
-                data = JSON.parse(cachedData);
-                // 先渲染侧边栏和主页，提高用户体验
+                // 用缓存数据进行初始渲染
+                const fullData = JSON.parse(cachedData);
+                // 只加载顶层数据
+                data = loadTopLevelData(fullData);
+                // 先渲染侧边栏和主页
                 renderSidebar(data, renderMainContent);
                 renderHome();
+
+                // 异步加载完整数据
+                setTimeout(() => {
+                    renderSidebar(fullData, renderMainContent);
+                }, 0);
             } catch (parseError) {
                 console.error('缓存数据解析错误:', parseError);
                 // 缓存数据无效，继续加载新数据
@@ -82,10 +108,27 @@ const loadBookmarksData = async (renderMainContent) => {
         let newData;
 
         try {
-            // 尝试主路径
+            // 实现流式加载大型JSON文件
             const response = await fetch('bookmarks.json');
             if (response.ok) {
-                newData = await response.json();
+                // 对于大型JSON采用流式解析
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let result = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    result += decoder.decode(value, { stream: true });
+                }
+
+                // 在整个文件接收完毕后解析 JSON 数据
+                try {
+                    newData = JSON.parse(result);
+                } catch (e) {
+                    console.error('解析 JSON 数据失败:', e);
+                    throw new Error('无法解析书签文件，请确保 bookmarks.json 格式正确');
+                }
                 fetchSuccess = true;
             } else {
                 console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
