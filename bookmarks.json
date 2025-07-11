@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752249226609,
+    "addDate": 1752250132113,
     "title": "书签栏",
     "children": [
       {
@@ -1215,6 +1215,20 @@
           },
           {
             "type": "folder",
+            "addDate": 1704014875962,
+            "title": "辅助",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1752249604822,
+                "title": "dyang886/Game-Cheats-Manager: Easily download and manage game cheats for your convenience",
+                "url": "https://github.com/dyang886/Game-Cheats-Manager",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              }
+            ]
+          },
+          {
+            "type": "folder",
             "addDate": 1704014875963,
             "title": "第三方",
             "children": [
@@ -1516,8 +1530,8 @@
                 "type": "link",
                 "addDate": 1716013890419,
                 "title": "Hikarinagi - 一个ACGN文化社区",
-                "url": "https://www.hikarinagi.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.hikarinagi.com"
+                "url": "https://www.hikarinagi.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hikarinagi.net"
               },
               {
                 "type": "link",
@@ -2911,6 +2925,13 @@
                 "title": "「阅读」APP 精品书源 — 每日更新",
                 "url": "https://yuedu.xiu2.xyz/",
                 "icon": "https://www.google.com/s2/favicons?domain=yuedu.xiu2.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1752249820570,
+                "title": "阅读 - 源仓库",
+                "url": "https://www.yckgo.top/yuedu/shuyuans/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.yckgo.top"
               }
             ]
           },
@@ -2944,8 +2965,8 @@
                 "type": "link",
                 "addDate": 1744448600433,
                 "title": "哔哩轻小说_日本动漫轻小说在线阅读",
-                "url": "https://www.bilinovel.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.bilinovel.com"
+                "url": "https://www.linovelib.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.linovelib.com"
               },
               {
                 "type": "link",
@@ -2960,6 +2981,13 @@
                 "title": "圖書館的無限迴廊",
                 "url": "https://sakuya.naizi.me/wp/",
                 "icon": "https://www.google.com/s2/favicons?domain=sakuya.naizi.me"
+              },
+              {
+                "type": "link",
+                "addDate": 1752250026421,
+                "title": "轻之文库轻小说-懂阅读更懂创作的轻小说平台-发现和创造有趣的故事-日本动漫轻小说在线阅读",
+                "url": "https://www.wenkuchina.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wenkuchina.com"
               }
             ]
           },
@@ -4159,6 +4187,13 @@
             "title": "dAppCDN - Decentralized Application Content Delivery Network",
             "url": "https://dappcdn.com/",
             "icon": "https://www.google.com/s2/favicons?domain=dappcdn.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1752249567316,
+            "title": "玄夜の资源小站 - 这是玄夜的资源小站",
+            "url": "https://www.sakuraxy.top/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.sakuraxy.top"
           }
         ]
       },
@@ -6264,6 +6299,13 @@
                 "title": "AI 自动将 GitHub 项目翻译成 20 种语言",
                 "url": "https://openaitx.github.io/index.html?userOrOrg=OpenAiTx&project=OpenAiTx",
                 "icon": "https://www.google.com/s2/favicons?domain=openaitx.github.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1752249529312,
+                "title": "OpenAiTx 为您的 GitHub 项目自述文件和 Wiki 提供 20 种语言的自动翻译工具",
+                "url": "https://github.com/OpenAiTx/OpenAiTx",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -10618,6 +10660,13 @@
                 "title": "旅游攻略,自由行,自助游攻略,旅游社交分享网站 - 马蜂窝",
                 "url": "https://www.mafengwo.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.mafengwo.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1752249457406,
+                "title": "爱彼迎 | 度假屋、小木屋、海滨住宅等",
+                "url": "https://www.airbnb.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.airbnb.cn"
               }
             ]
           },
