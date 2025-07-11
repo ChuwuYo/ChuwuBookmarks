@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752157851298,
+    "addDate": 1752249226609,
     "title": "书签栏",
     "children": [
       {
@@ -6039,6 +6039,13 @@
                 "addDate": 1745228522237,
                 "title": "bilive: 极快的B站直播录制、自动切片、自动渲染弹幕以及字幕并投稿至B站，综合多种模态模型，兼容超低配置机器。",
                 "url": "https://github.com/timerring/bilive?utm_source=xinquji",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1752244806902,
+                "title": "OpenCut-app/OpenCut：开源 CapCut 替代品",
+                "url": "https://github.com/OpenCut-app/OpenCut",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
