@@ -96,7 +96,7 @@ const loadBookmarksData = async (renderMainContent) => {
                 // 异步加载完整数据
                 setTimeout(() => {
                     renderSidebar(fullData, renderMainContent);
-                }, 500);
+                }, 0);
             } catch (parseError) {
                 console.error('缓存数据解析错误:', parseError);
                 // 缓存数据无效，继续加载新数据
@@ -115,31 +115,20 @@ const loadBookmarksData = async (renderMainContent) => {
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder();
                 let result = '';
-                let receivedLength = 0;
 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
                     result += decoder.decode(value, { stream: true });
-                    receivedLength += value.length;
-
-                    // 每接收64KB数据就尝试解析一次
-                    if (receivedLength > 65536) {
-                        try {
-                            // 尝试解析部分数据用于早期渲染
-                            const partialData = JSON.parse(result);
-                            if (!data) {
-                                data = loadTopLevelData(partialData);
-                                renderSidebar(data, renderMainContent);
-                                renderHome();
-                            }
-                        } catch (e) {
-                            // 部分数据解析失败是正常的，继续接收完整数据
-                        }
-                    }
                 }
 
-                newData = JSON.parse(result);
+                // 在整个文件接收完毕后解析 JSON 数据
+                try {
+                    newData = JSON.parse(result);
+                } catch (e) {
+                    console.error('解析 JSON 数据失败:', e);
+                    throw new Error('无法解析书签文件，请确保 bookmarks.json 格式正确');
+                }
                 fetchSuccess = true;
             } else {
                 console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
