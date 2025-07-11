@@ -57,123 +57,62 @@ const showErrorMessage = (error) => {
     content.appendChild(errorMessage);
 };
 
-// 加载书签数据 - 实现分片加载和初始渲染优化
+// 加载书签数据 - 使用Web Worker优化
+
 const loadBookmarksData = async (renderMainContent) => {
+    // 尝试从localStorage获取缓存数据进行即时渲染
     try {
-        // 尝试从localStorage获取缓存数据进行快速渲染
-        const cachedData = localStorage.getItem('bookmarksData');
-        let data;
+        const cachedDataString = localStorage.getItem('bookmarksData');
+        if (cachedDataString) {
+            const cachedData = JSON.parse(cachedDataString);
+            renderSidebar(cachedData, renderMainContent);
+            renderHome();
+            console.log("Rendered initial view from cache.");
+        }
+    } catch (e) {
+        console.error("Failed to parse cached data:", e);
+        localStorage.removeItem('bookmarksData'); // 清除损坏的缓存
+    }
 
-        // 仅加载顶层数据用于初始渲染
-        const loadTopLevelData = (fullData) => {
-            // 创建只包含顶层文件夹结构的数据副本，不包含子书签
-            return fullData.map(item => {
-                if (item.type === 'folder' && item.children) {
-                    return {
-                        ...item,
-                        children: item.children.map(child => {
-                            if (child.type === 'folder') {
-                                return { ...child, children: [] };
-                            }
-                            return child;
-                        })
-                    };
-                }
-                return item;
-            });
-        };
+    // 初始化Worker
+    const dataWorker = new Worker('./assets/js/data-worker.js');
+    dataWorker.postMessage({ action: 'loadData' });
 
-        if (cachedData) {
-            try {
-                // 用缓存数据进行初始渲染
-                const fullData = JSON.parse(cachedData);
-                // 只加载顶层数据
-                data = loadTopLevelData(fullData);
-                // 先渲染侧边栏和主页
+    dataWorker.onmessage = (event) => {
+        const { status, data, error } = event.data;
+
+        if (status === 'success') {
+            const newDataString = JSON.stringify(data);
+            const cachedDataString = localStorage.getItem('bookmarksData');
+
+            // 仅当新数据与缓存数据不同时才更新视图和缓存。
+            if (newDataString !== cachedDataString) {
+                console.log("New data received. Updating view and cache.");
+                localStorage.setItem('bookmarksData', newDataString);
+                clearWorkerCaches(); // 假设这会清除其他相关缓存
                 renderSidebar(data, renderMainContent);
                 renderHome();
-
-                // 异步加载完整数据
-                setTimeout(() => {
-                    renderSidebar(fullData, renderMainContent);
-                }, 0);
-            } catch (parseError) {
-                console.error('缓存数据解析错误:', parseError);
-                // 缓存数据无效，继续加载新数据
-            }
-        }
-
-        // 无论是否有缓存，都异步加载最新数据
-        let fetchSuccess = false;
-        let newData;
-
-        try {
-            // 实现流式加载大型JSON文件
-            const response = await fetch('bookmarks.json');
-            if (response.ok) {
-                // 对于大型JSON采用流式解析
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                let result = '';
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    result += decoder.decode(value, { stream: true });
-                }
-
-                // 在整个文件接收完毕后解析 JSON 数据
-                try {
-                    newData = JSON.parse(result);
-                } catch (e) {
-                    console.error('解析 JSON 数据失败:', e);
-                    throw new Error('无法解析书签文件，请确保 bookmarks.json 格式正确');
-                }
-                fetchSuccess = true;
             } else {
-                console.error(`加载书签文件失败: ${response.status} ${response.statusText}`);
+                console.log("Data is already up-to-date.");
             }
-        } catch (fetchError) {
-            console.error('主路径加载失败:', fetchError);
-        }
-
-        // 如果主路径失败，尝试备用路径
-        if (!fetchSuccess) {
-            try {
-                const backupResponse = await fetch('./bookmarks.json');
-                if (backupResponse.ok) {
-                    newData = await backupResponse.json();
-                    fetchSuccess = true;
-                } else {
-                    console.error(`备用路径加载失败: ${backupResponse.status} ${backupResponse.statusText}`);
-                }
-            } catch (backupError) {
-                console.error('备用路径加载失败:', backupError);
+        } else if (status === 'error') {
+            console.error('Worker failed to load data:', error);
+            // 只有在没有缓存数据可显示时才显示错误信息
+            if (!localStorage.getItem('bookmarksData')) {
+                showErrorMessage(new Error(error));
             }
         }
 
-        // 处理加载结果
-        if (fetchSuccess) {
-            // 成功获取新数据
-            const newDataString = JSON.stringify(newData);
+        dataWorker.terminate(); // 清理Worker
+    };
 
-            // 只在数据有变化或之前没有缓存时更新存储和视图
-            if (!cachedData || newDataString !== cachedData) {
-                localStorage.setItem('bookmarksData', newDataString);
-                clearWorkerCaches();
-                renderSidebar(newData, renderMainContent);
-                renderHome();
-            }
-        } else if (!data) {
-            // 加载失败且没有缓存数据
-            throw new Error('无法加载书签文件，请确保 bookmarks.json 存在于正确位置');
+    dataWorker.onerror = (error) => {
+        console.error('Data Worker encountered an error:', error);
+        if (!localStorage.getItem('bookmarksData')) {
+            showErrorMessage(error);
         }
-        // 如果加载失败但有缓存数据，继续使用缓存数据，无需额外操作
-
-    } catch (error) {
-        console.error('书签加载错误:', error);
-        showErrorMessage(error);
-    }
+        dataWorker.terminate();
+    };
 };
 
 export { showLoadingIndicator, showErrorMessage, loadBookmarksData };
