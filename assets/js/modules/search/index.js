@@ -17,12 +17,6 @@ const clearWorkerCaches = () => {
             action: 'clearCache'
         });
     }
-
-    if (dataWorker) {
-        dataWorker.postMessage({
-            action: 'clearCache'
-        });
-    }
 };
 
 // 检查浏览器是否支持Web Worker
@@ -65,9 +59,6 @@ const initSearchWorker = (renderMainContent) => {
                     if (fromCache) {
                         console.log(`使用缓存的${action}结果`);
                     }
-                    break;
-                case 'cacheCleared':
-                    console.log('数据处理缓存已清除');
                     break;
                 case 'error':
                     console.error('数据处理Worker错误:', message);
