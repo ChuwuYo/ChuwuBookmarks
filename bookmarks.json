@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752250132113,
+    "addDate": 1752336558319,
     "title": "书签栏",
     "children": [
       {
@@ -6697,31 +6697,10 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "Sure, I can chat in Chinese. --- 当然，我可以用中文聊天。",
-                        "url": "https://huggingface.co/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1745937371370,
-                        "title": "SambaNova Cloud",
-                        "url": "https://cloud.sambanova.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1749088733815,
-                        "title": "Cerebras Cloud",
-                        "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
-                        "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1745937414944,
-                        "title": "AI Playground | Compare top AI models side-by-side",
-                        "url": "https://sdk.vercel.ai/playground",
-                        "icon": "https://www.google.com/s2/favicons?domain=sdk.vercel.ai"
+                        "addDate": 1749008277864,
+                        "title": "Models · GitHub Marketplace",
+                        "url": "https://github.com/marketplace/models/",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
                       },
                       {
                         "type": "link",
@@ -6817,23 +6796,9 @@
                       {
                         "type": "link",
                         "addDate": 1748857575913,
-                        "title": "Open WebUI",
+                        "title": "jjdouga Open WebUI",
                         "url": "https://open-webui.jjdouga.com/",
                         "icon": "https://www.google.com/s2/favicons?domain=open-webui.jjdouga.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1749008277864,
-                        "title": "Models · GitHub Marketplace",
-                        "url": "https://github.com/marketplace/models/",
-                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1751822795486,
-                        "title": "TokenSpark",
-                        "url": "https://chat.tokenspark.net/",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.tokenspark.net"
                       },
                       {
                         "type": "link",
@@ -6851,10 +6816,10 @@
                     "children": [
                       {
                         "type": "link",
-                        "addDate": 1741757615317,
-                        "title": "Nexus - reka.ai",
-                        "url": "https://space.reka.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=space.reka.ai"
+                        "addDate": 1752334450574,
+                        "title": "RekaPlayground",
+                        "url": "https://app.reka.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=app.reka.ai"
                       },
                       {
                         "type": "link",
@@ -6897,6 +6862,20 @@
                         "title": "Dashboard | Cohere - CommandR",
                         "url": "https://dashboard.cohere.com/",
                         "icon": "https://www.google.com/s2/favicons?domain=dashboard.cohere.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1752334591662,
+                        "title": "讯飞星火",
+                        "url": "https://xinghuo.xfyun.cn/desk",
+                        "icon": "https://www.google.com/s2/favicons?domain=xinghuo.xfyun.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1720535146369,
+                        "title": "跃问",
+                        "url": "https://yuewen.cn/chats/new",
+                        "icon": "https://www.google.com/s2/favicons?domain=yuewen.cn"
                       }
                     ]
                   },
@@ -6931,9 +6910,30 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "豆包 - 你的智能小助手",
-                    "url": "https://www.doubao.com/chat/2801708802",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.doubao.com"
+                    "title": "Kimi Chat - 帮你看更大的世界",
+                    "url": "https://kimi.moonshot.cn/user/login",
+                    "icon": "https://www.google.com/s2/favicons?domain=kimi.moonshot.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1751992708475,
+                    "title": "Ernie",
+                    "url": "https://yiyan.baidu.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=yiyan.baidu.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749713778945,
+                    "title": "Z.ai",
+                    "url": "https://chat.z.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1737123777317,
+                    "title": "Qwen",
+                    "url": "https://chat.qwen.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.qwen.ai"
                   },
                   {
                     "type": "link",
@@ -6941,6 +6941,13 @@
                     "title": "通义",
                     "url": "https://tongyi.aliyun.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=tongyi.aliyun.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "豆包 - 你的智能小助手",
+                    "url": "https://www.doubao.com/chat/2801708802",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.doubao.com"
                   },
                   {
                     "type": "link",
@@ -6958,13 +6965,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Kimi Chat - 帮你看更大的世界",
-                    "url": "https://kimi.moonshot.cn/user/login",
-                    "icon": "https://www.google.com/s2/favicons?domain=kimi.moonshot.cn"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1717499188488,
                     "title": "Le Chat - Mistral AI",
                     "url": "https://chat.mistral.ai/chat",
@@ -6972,38 +6972,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1720535146369,
-                    "title": "跃问",
-                    "url": "https://yuewen.cn/chats/new",
-                    "icon": "https://www.google.com/s2/favicons?domain=yuewen.cn"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1728988403320,
                     "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
                     "url": "https://chat.minimaxi.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1737123777317,
-                    "title": "Qwen",
-                    "url": "https://chat.qwen.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.qwen.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1749713778945,
-                    "title": "Z.ai",
-                    "url": "https://chat.z.ai/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1751992708475,
-                    "title": "Ernie",
-                    "url": "https://yiyan.baidu.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=yiyan.baidu.com"
                   }
                 ]
               },
@@ -7119,10 +7091,38 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1751822795486,
+                    "title": "TokenSpark",
+                    "url": "https://chat.tokenspark.net/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.tokenspark.net"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1751388271728,
                     "title": "橘鸦Juya整理的大模型免费API",
                     "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
                     "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745937371370,
+                    "title": "SambaNova Cloud",
+                    "url": "https://cloud.sambanova.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749088733815,
+                    "title": "Cerebras Cloud",
+                    "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
+                    "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1745937414944,
+                    "title": "AI Playground | Compare top AI models side-by-side",
+                    "url": "https://sdk.vercel.ai/playground",
+                    "icon": "https://www.google.com/s2/favicons?domain=sdk.vercel.ai"
                   }
                 ]
               },
