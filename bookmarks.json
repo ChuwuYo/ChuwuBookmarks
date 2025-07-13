@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752336558319,
+    "addDate": 1752424435050,
     "title": "书签栏",
     "children": [
       {
@@ -6806,6 +6806,13 @@
                         "title": "Pi, your personal AI",
                         "url": "https://pi.ai/discover",
                         "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1752423133077,
+                        "title": "LibreChat",
+                        "url": "https://librechat-librechat.hf.space/c/new",
+                        "icon": "https://www.google.com/s2/favicons?domain=librechat-librechat.hf.space"
                       }
                     ]
                   },
@@ -7164,6 +7171,13 @@
                     "addDate": 1739016081175,
                     "title": "lobehub/lobe-chat: 🤯 Lobe Chat - an open-source, modern-design AI chat framework. Supports Multi AI Providers( OpenAI / Claude 3 / Gemini / Ollama / Qwen / DeepSeek), Knowledge Base (file upload / knowledge management / RAG ), Multi-Modals (Vision/TTS/Plugins/Artifacts). One-click FREE deployment of your private ChatGPT/ Claude application.",
                     "url": "https://github.com/lobehub/lobe-chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752387572038,
+                    "title": "All-Hands-AI/OpenHands: 🙌 OpenHands: Code Less, Make More",
+                    "url": "https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -10110,7 +10124,7 @@
                     "type": "link",
                     "addDate": 1704012714000,
                     "title": "Paytend",
-                    "url": "https://www.paytend.com/zh/home",
+                    "url": "https://www.paytend.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.paytend.com"
                   },
                   {
