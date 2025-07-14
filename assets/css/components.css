@@ -386,16 +386,16 @@ button.breadcrumb-item:focus-visible {
 /* 优化虚拟滚动项目的性能 */
 .virtual-item {
     contain: content;
-    will-change: transform;
+    will-change: transform, opacity;
     backface-visibility: hidden;
     opacity: 0;
-    animation: fadeInUp 0.2s ease forwards;
+    animation: fadeInUp 0.15s ease-out forwards;
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(8px);
     }
     to {
         opacity: 1;
