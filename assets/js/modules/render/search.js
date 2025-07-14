@@ -14,9 +14,6 @@ class VirtualScroller {
         this.items = items;
         this.renderItem = renderItem;
         this.visibleItems = new Map();
-        this.contentHeight = items.length * ITEM_HEIGHT;
-        this.lastScrollTop = 0;
-        this.isScrolling = false;
         this.scrollTimeout = null;
         this.intersectionObserver = null;
         
@@ -26,8 +23,6 @@ class VirtualScroller {
     init() {
         // 创建内容容器
         this.container.style.position = 'relative';
-        // 添加与侧栏一样高度的底部弹性空白
-        this.container.style.minHeight = 'calc(100vh - 60px)';
         
         // 初始化 Intersection Observer
         this.setupIntersectionObserver();
@@ -45,6 +40,7 @@ class VirtualScroller {
                 entries.forEach(entry => {
                     const itemId = entry.target.dataset.itemId;
                     if (!entry.isIntersecting && this.visibleItems.has(itemId)) {
+                        this.intersectionObserver.unobserve(entry.target);
                         entry.target.remove();
                         this.visibleItems.delete(itemId);
                     }
@@ -79,18 +75,14 @@ class VirtualScroller {
             Math.ceil((scrollTop + viewportHeight) / ITEM_HEIGHT) + BUFFER_SIZE
         );
 
-        // 记录需要显示的项目ID
-        const visibleIds = new Set();
-
-        // 渲染可见项目
+        // 渲染新的可见项目
         for (let i = startIndex; i < endIndex; i++) {
             const itemId = `item-${i}`;
-            visibleIds.add(itemId);
-
             if (!this.visibleItems.has(itemId)) {
                 const item = this.items[i];
                 const element = this.renderItem(item, i);
                 element.dataset.itemId = itemId;
+                element.classList.add('virtual-item');  // 添加特定的类名
                 element.style.position = 'absolute';
                 element.style.top = `${i * ITEM_HEIGHT}px`;
                 element.style.width = '100%';
@@ -101,15 +93,7 @@ class VirtualScroller {
                 this.intersectionObserver.observe(element);
             }
         }
-
-        // 移除不可见的项目
-        for (const [itemId, element] of this.visibleItems.entries()) {
-            if (!visibleIds.has(itemId)) {
-                this.intersectionObserver.unobserve(element);
-                element.remove();
-                this.visibleItems.delete(itemId);
-            }
-        }
+        // IntersectionObserver 会自动处理不可见元素的移除
     }
 
     cleanup() {
