@@ -379,19 +379,15 @@ button.breadcrumb-item:focus-visible {
 /* 虚拟滚动相关样式 */
 .results-container {
     position: relative;
-    min-height: calc(100vh - 60px); /* 与侧栏一样的最小高度 */
+    min-height: calc(100vh - 50px);
     padding-bottom: 2rem; /* 底部留些空间 */
 }
 
 /* 优化虚拟滚动项目的性能 */
-.results-container > div > * {
+.virtual-item {
     contain: content;
     will-change: transform;
     backface-visibility: hidden;
-}
-
-/* 虚拟滚动项目的过渡效果 */
-.results-container > div > *:not(.loading-indicator):not(.no-results) {
     opacity: 0;
     animation: fadeInUp 0.2s ease forwards;
 }
