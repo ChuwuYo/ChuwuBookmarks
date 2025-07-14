@@ -1,14 +1,14 @@
 /* 基础样式：CSS变量、字体、重置样式 */
 :root {
-    --transition-normal: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default);
+    --transition-normal: background-color var(--duration-short) ease-out, color var(--duration-short) ease-out;
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
-    --duration-short: 0.15s;
-    --duration-base: 0.2s;
-    --duration-medium: 0.3s;
-    --duration-long: 0.5s;
+    --duration-short: 0.12s;
+    --duration-base: 0.15s;
+    --duration-medium: 0.2s;
+    --duration-long: 0.3s;
     --ease-in-out-cubic: var(--cubic-bezier);
     --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --ease-default: ease;
+    --ease-default: ease-out;
     --bg-color: #f8faef;
     --sidebar-bg: #e2f5f5;
     --text-color: #0e141a;
@@ -55,8 +55,9 @@
 }
 /* 全局重置 */
 * {
-    transition: background-color var(--duration-base) var(--ease-default), color var(--duration-base) var(--ease-default);
     -webkit-tap-highlight-color: transparent;
+    transition: background-color var(--duration-short) var(--ease-default),
+                color var(--duration-short) var(--ease-default);
 }
 html {
     scrollbar-width: thin;

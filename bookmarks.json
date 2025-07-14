@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752424435050,
+    "addDate": 1752511560448,
     "title": "书签栏",
     "children": [
       {
@@ -6627,6 +6627,13 @@
                 "addDate": 1746688244769,
                 "title": "cmy2008/doc88_extractor: 道客巴巴文档无损提取工具（非图片） A tool make you extract the doc88 documents.",
                 "url": "https://github.com/cmy2008/doc88_extractor",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1752424740415,
+                "title": "城通网盘破解限速-绕过线程限制",
+                "url": "https://github.com/nekohy/ctfile-downloader",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]

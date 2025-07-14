@@ -375,3 +375,30 @@ button.breadcrumb-item:focus-visible {
     font-size: 1.1rem;
     opacity: 0.8;
 }
+
+/* 虚拟滚动相关样式 */
+.results-container {
+    position: relative;
+    min-height: calc(100vh - 50px);
+    padding-bottom: 2rem; /* 底部留些空间 */
+}
+
+/* 优化虚拟滚动项目的性能 */
+.virtual-item {
+    contain: content;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.15s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
