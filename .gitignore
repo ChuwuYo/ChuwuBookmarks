@@ -1,0 +1,16 @@
+# IDE and Editor specific files
+# -------------------------------
+.vscode/
+.idea/
+*.swp
+.amazonq
+.kiro
+*~
+
+# OS-specific files
+# -------------------------------
+.DS_Store
+
+# Log files
+# -------------------------------
+*.log
