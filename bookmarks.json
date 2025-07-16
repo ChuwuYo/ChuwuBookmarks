@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752598417112,
+    "addDate": 1752685444325,
     "title": "书签栏",
     "children": [
       {
@@ -1870,6 +1870,13 @@
             "title": "game1024/OpenSpeedy: 开源游戏变速器",
             "url": "https://github.com/game1024/OpenSpeedy",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1752678965139,
+            "title": "免费加速器排行榜-游戏/网游/手游加速器排行榜「加速器排行榜」",
+            "url": "https://www.kayuwang.com/rank/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.kayuwang.com"
           }
         ]
       },
