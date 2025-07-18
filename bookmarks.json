@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752685444325,
+    "addDate": 1752859528953,
     "title": "书签栏",
     "children": [
       {
@@ -834,13 +834,6 @@
             "title": "Cmbok，一款免费开源的漫画、图书下载软件",
             "url": "https://github.com/hlning/cmbok",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "搜片.com - 搜你想看的影片",
-            "url": "https://soupian.one/",
-            "icon": "https://www.google.com/s2/favicons?domain=soupian.one"
           },
           {
             "type": "link",
@@ -2771,6 +2764,13 @@
                 "title": "和图书",
                 "url": "https://www.hetushu.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.hetushu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1717499897179,
+                "title": "mianfei22.com",
+                "url": "https://mianfei22.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=mianfei22.com"
               }
             ]
           },
@@ -3046,13 +3046,6 @@
             "title": "owllook - 网络小说搜索引擎 - 最简洁清新的搜索阅读体验",
             "url": "https://www.owlook.com.cn/",
             "icon": "https://www.google.com/s2/favicons?domain=www.owlook.com.cn"
-          },
-          {
-            "type": "link",
-            "addDate": 1717499897179,
-            "title": "mianfei22.com",
-            "url": "https://mianfei22.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=mianfei22.com"
           },
           {
             "type": "link",
@@ -7564,13 +7557,6 @@
           },
           {
             "type": "link",
-            "addDate": 1704012714000,
-            "title": "源仓库",
-            "url": "https://www.yckceo.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.yckceo.com"
-          },
-          {
-            "type": "link",
             "addDate": 1717586623441,
             "title": "使用 Chrome、Safari 或 Firefox 的在线二维码扫描器",
             "url": "https://online-qr-scanner.net/zh-cn/index.html",
@@ -7600,7 +7586,7 @@
           {
             "type": "link",
             "addDate": 1746594857066,
-            "title": "AIPPT生成Instant Presentations, Websites, and More with AI | Gamma",
+            "title": "AIPPT生成 | Gamma",
             "url": "https://gamma.app/",
             "icon": "https://www.google.com/s2/favicons?domain=gamma.app"
           },
@@ -7631,13 +7617,6 @@
             "title": "护眼/LightBulb: Reduces eye strain by adjusting screen gamma based on the current time",
             "url": "https://github.com/Tyrrrz/LightBulb",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1749083219695,
-            "title": "JSON For You | 在线JSON工具",
-            "url": "https://json4u.cn/",
-            "icon": "https://www.google.com/s2/favicons?domain=json4u.cn"
           }
         ]
       },
@@ -8606,6 +8585,13 @@
                     "addDate": 1749046784121,
                     "title": "voideditor/void",
                     "url": "https://github.com/voideditor/void",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1752685712655,
+                    "title": "kirodotdev/Kiro: Kiro is an agentic IDE that works alongside you from prototype to production.",
+                    "url": "https://github.com/kirodotdev/Kiro",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
