@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752859528953,
+    "addDate": 1752946465952,
     "title": "书签栏",
     "children": [
       {
@@ -3088,6 +3088,20 @@
             "title": "读典籍 - 探索中华经典，体验文白对照、交互式注释及导读工具",
             "url": "https://dudianji.com/",
             "icon": "https://www.google.com/s2/favicons?domain=dudianji.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1752903157496,
+            "title": "The Wanderers' Library",
+            "url": "https://wanderers-library.wikidot.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=wanderers-library.wikidot.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1752903175741,
+            "title": "SCP基金会",
+            "url": "https://scp-wiki-cn.wikidot.com/main",
+            "icon": "https://www.google.com/s2/favicons?domain=scp-wiki-cn.wikidot.com"
           }
         ]
       },
@@ -10093,6 +10107,13 @@
                 "title": "民用无人驾驶航空器综合管理平台（UOM）",
                 "url": "https://uom.caac.gov.cn/#/login",
                 "icon": "https://www.google.com/s2/favicons?domain=uom.caac.gov.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1752946455888,
+                "title": "公安部“互联网+政务服务”平台",
+                "url": "https://ywtb.mps.gov.cn/newhome/home",
+                "icon": "https://www.google.com/s2/favicons?domain=ywtb.mps.gov.cn"
               }
             ]
           },
