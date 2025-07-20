@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1752946465952,
+    "addDate": 1753027794741,
     "title": "书签栏",
     "children": [
       {
@@ -7570,6 +7570,34 @@
             ]
           },
           {
+            "type": "folder",
+            "addDate": 1753027766771,
+            "title": "PPT",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1746594857066,
+                "title": "AIPPT生成 | Gamma",
+                "url": "https://gamma.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=gamma.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1712573392630,
+                "title": "Slidev为开发者打造的演示文稿工具",
+                "url": "https://cn.sli.dev/",
+                "icon": "https://www.google.com/s2/favicons?domain=cn.sli.dev"
+              },
+              {
+                "type": "link",
+                "addDate": 1745671932186,
+                "title": "AIPPT | SlideCraftAI",
+                "url": "https://www.slidescraft.com/zh#pricing",
+                "icon": "https://www.google.com/s2/favicons?domain=www.slidescraft.com"
+              }
+            ]
+          },
+          {
             "type": "link",
             "addDate": 1717586623441,
             "title": "使用 Chrome、Safari 或 Firefox 的在线二维码扫描器",
@@ -7596,20 +7624,6 @@
             "title": "在线表单创建Free Online Form Builder | Tally",
             "url": "https://tally.so/",
             "icon": "https://www.google.com/s2/favicons?domain=tally.so"
-          },
-          {
-            "type": "link",
-            "addDate": 1746594857066,
-            "title": "AIPPT生成 | Gamma",
-            "url": "https://gamma.app/",
-            "icon": "https://www.google.com/s2/favicons?domain=gamma.app"
-          },
-          {
-            "type": "link",
-            "addDate": 1745671932186,
-            "title": "AIPPT | SlideCraftAI",
-            "url": "https://www.slidescraft.com/zh#pricing",
-            "icon": "https://www.google.com/s2/favicons?domain=www.slidescraft.com"
           },
           {
             "type": "link",
@@ -8625,6 +8639,20 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
+                    "title": "MSYS2",
+                    "url": "https://www.msys2.org/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.msys2.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1746800227809,
+                    "title": "入门 - Go 编程语言",
+                    "url": "https://go.dev/learn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=go.dev"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
                     "title": "MinGW-w64 - for 32 and 64 bit Windows download | SourceForge.net",
                     "url": "https://sourceforge.net/projects/mingw-w64/",
                     "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net"
@@ -8696,13 +8724,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1719758562052,
-                "title": "ATerminal - 你的SSH捷径工具，快速连接无需等待",
-                "url": "https://aterminal.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=aterminal.net"
-              },
-              {
-                "type": "link",
                 "addDate": 1704012714000,
                 "title": "Wireshark · Download",
                 "url": "https://www.wireshark.org/download.html",
@@ -8721,13 +8742,6 @@
                 "title": "DataEase - 人人可用的开源数据可视化分析工具 - 官网",
                 "url": "https://dataease.io/index.html",
                 "icon": "https://www.google.com/s2/favicons?domain=dataease.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1712573392630,
-                "title": "Slidev为开发者打造的演示文稿工具",
-                "url": "https://cn.sli.dev/",
-                "icon": "https://www.google.com/s2/favicons?domain=cn.sli.dev"
               },
               {
                 "type": "link",
@@ -9160,6 +9174,13 @@
                     "title": "Aceternity UI",
                     "url": "https://ui.aceternity.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=ui.aceternity.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749997893798,
+                    "title": "UnoCSS 中文文档",
+                    "url": "https://unocss.nodejs.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=unocss.nodejs.cn"
                   }
                 ]
               },
@@ -9291,13 +9312,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1738344223909,
-                "title": "CSS 和界面  |  CSS and UI  |  Chrome for Developers",
-                "url": "https://developer.chrome.com/docs/css-ui?hl=zh-cn",
-                "icon": "https://www.google.com/s2/favicons?domain=developer.chrome.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1738344311045,
                 "title": "MDN Web 文档 - MDN 文档",
                 "url": "https://mdn.org.cn/en-US/",
@@ -9309,13 +9323,6 @@
                 "title": "DevDocs API Documentation",
                 "url": "https://devdocs.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=devdocs.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "MSYS2",
-                "url": "https://www.msys2.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.msys2.org"
               },
               {
                 "type": "link",
@@ -9375,24 +9382,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1746800227809,
-                "title": "入门 - Go 编程语言",
-                "url": "https://go.dev/learn/",
-                "icon": "https://www.google.com/s2/favicons?domain=go.dev"
-              },
-              {
-                "type": "link",
                 "addDate": 1749439263837,
                 "title": "Welcome to Wails",
                 "url": "https://v3alpha.wails.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=v3alpha.wails.io"
-              },
-              {
-                "type": "link",
-                "addDate": 1749997893798,
-                "title": "UnoCSS 中文文档",
-                "url": "https://unocss.nodejs.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=unocss.nodejs.cn"
               },
               {
                 "type": "link",
