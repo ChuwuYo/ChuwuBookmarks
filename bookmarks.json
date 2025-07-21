@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753027794741,
+    "addDate": 1753116541116,
     "title": "书签栏",
     "children": [
       {
@@ -7594,6 +7594,13 @@
                 "title": "AIPPT | SlideCraftAI",
                 "url": "https://www.slidescraft.com/zh#pricing",
                 "icon": "https://www.google.com/s2/favicons?domain=www.slidescraft.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753031415781,
+                "title": "Agnes",
+                "url": "https://app.agnes-ai.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=app.agnes-ai.com"
               }
             ]
           },
@@ -10482,6 +10489,13 @@
                     "addDate": 1744903028831,
                     "title": "JOYCEQL/magic-resume: free online AI resume editor",
                     "url": "https://github.com/JOYCEQL/magic-resume",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753028479584,
+                    "title": "Resume-Matcher：使用简历匹配器改进你的简历。获取洞察、关键词建议，并根据职位描述调整你的简历。",
+                    "url": "https://github.com/srbhr/Resume-Matcher",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
