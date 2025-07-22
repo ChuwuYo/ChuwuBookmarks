@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753116541116,
+    "addDate": 1753201325808,
     "title": "书签栏",
     "children": [
       {
@@ -2939,6 +2939,13 @@
                 "title": "阅读 - 源仓库",
                 "url": "https://www.yckgo.top/yuedu/shuyuans/index.html",
                 "icon": "https://www.google.com/s2/favicons?domain=www.yckgo.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1753199988772,
+                "title": "源仓库最新地址发布页",
+                "url": "https://yckceo.vip/",
+                "icon": "https://www.google.com/s2/favicons?domain=yckceo.vip"
               }
             ]
           },
@@ -5910,13 +5917,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "图片压缩meowtec/Imagine: 🖼️ PNG/JPEG optimization app for macOS, Windows and Linux.",
-                "url": "https://github.com/meowtec/Imagine",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1712572809077,
                 "title": "AnimeTrace-以图识番-在线AI识番引擎|日漫识别|动漫查询|动漫基因库",
                 "url": "https://ai.animedb.cn/",
@@ -6012,6 +6012,20 @@
                 "title": "Mermaid 在线编辑器",
                 "url": "https://mermaid-live.nodejs.cn/edit",
                 "icon": "https://www.google.com/s2/favicons?domain=mermaid-live.nodejs.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1753188050694,
+                "title": "在线Chrome插件图标生成器 - UU在线工具",
+                "url": "https://uutool.cn/chrome-icon/",
+                "icon": "https://www.google.com/s2/favicons?domain=uutool.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1753191060512,
+                "title": "TinyPNG – 智能压缩您的WebP、JPEG和PNG图片",
+                "url": "https://tinify.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=tinify.cn"
               }
             ]
           },
@@ -7212,6 +7226,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1753200078124,
+                "title": "Zread.ai",
+                "url": "https://zread.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=zread.ai"
+              },
+              {
+                "type": "link",
                 "addDate": 1750168571778,
                 "title": "ReadmeX",
                 "url": "https://readmex.com/",
@@ -7531,6 +7552,13 @@
                 "title": "图像转换压缩Squish - Batch Browser-based Image Compression",
                 "url": "https://squish.addy.ie/",
                 "icon": "https://www.google.com/s2/favicons?domain=squish.addy.ie"
+              },
+              {
+                "type": "link",
+                "addDate": 1753189716339,
+                "title": "CDKM在线文件转换器",
+                "url": "https://cdkm.com/cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=cdkm.com"
               }
             ]
           },
@@ -8303,6 +8331,34 @@
                 ]
               },
               {
+                "type": "folder",
+                "addDate": 1753201153202,
+                "title": "绘图",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1753201119907,
+                    "title": "WPaint - 在线绘画平台",
+                    "url": "https://wpaint.fun/",
+                    "icon": "https://www.google.com/s2/favicons?domain=wpaint.fun"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1747011520078,
+                    "title": "AutoDraw",
+                    "url": "https://www.autodraw.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.autodraw.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753201301862,
+                    "title": "Pixel Art Maker",
+                    "url": "https://pixelartmaker.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=pixelartmaker.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1731683971341,
                 "title": "Dribbble - Discover the World’s Top Designers & Creative Professionals",
@@ -8448,6 +8504,13 @@
                 "title": "CS自学指南",
                 "url": "https://csdiy.wiki/",
                 "icon": "https://www.google.com/s2/favicons?domain=csdiy.wiki"
+              },
+              {
+                "type": "link",
+                "addDate": 1753200047591,
+                "title": "欢迎来到小狮子前端 | ChoDocs",
+                "url": "https://chodocs.cn/guide.html",
+                "icon": "https://www.google.com/s2/favicons?domain=chodocs.cn"
               }
             ]
           },
@@ -10039,13 +10102,6 @@
             "title": "genact 1.4.1",
             "url": "https://svenstaro.github.io/genact/",
             "icon": "https://www.google.com/s2/favicons?domain=svenstaro.github.io"
-          },
-          {
-            "type": "link",
-            "addDate": 1747011520078,
-            "title": "AutoDraw",
-            "url": "https://www.autodraw.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.autodraw.com"
           }
         ]
       },
@@ -10744,6 +10800,13 @@
                 "title": "中国居民膳食指南",
                 "url": "http://dg.cnsoc.org/index.html",
                 "icon": "https://www.google.com/s2/favicons?domain=dg.cnsoc.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1753176265023,
+                "title": "下厨房",
+                "url": "https://www.xiachufang.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.xiachufang.com"
               }
             ]
           },
