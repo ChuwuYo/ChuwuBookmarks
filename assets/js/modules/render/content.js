@@ -35,9 +35,8 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
             current = current.parent;
         }
         
-        const filteredBreadcrumbs = breadcrumbPath.filter(
-            crumb => crumb.title !== '书签栏' && crumb.title !== 'Bookmarks Bar'
-        );
+        // 在新的多根文件夹模式下，不过滤根文件夹，让它们显示在面包屑中
+        const filteredBreadcrumbs = breadcrumbPath;
         
         const breadcrumbFragment = document.createDocumentFragment();
 
@@ -75,7 +74,7 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
                 crumbElement.className = 'breadcrumb-item';
                 crumbElement.type = 'button';
                 
-                if (crumb.parent && index < arr.length - 1) {
+                if (index < arr.length - 1) {
                     crumbElement.setAttribute('tabindex', '0');
                     crumbElement.setAttribute('role', 'button');
                     crumbElement.setAttribute('aria-label', `导航到${crumb.title}`);
