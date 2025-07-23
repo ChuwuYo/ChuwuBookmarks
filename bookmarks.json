@@ -10373,6 +10373,13 @@
                 "title": "ARES模拟交易平台",
                 "url": "https://ares.sse.com.cn/#/",
                 "icon": "https://www.google.com/s2/favicons?domain=ares.sse.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1753281335847,
+                "title": "maybe-finance/maybe: The personal finance app for everyone",
+                "url": "https://github.com/maybe-finance/maybe",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
