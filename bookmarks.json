@@ -4589,13 +4589,6 @@
                     "title": "peasoft/NoMoreWalls: 自动抓取合并互联网上的公开节点。",
                     "url": "https://github.com/peasoft/NoMoreWalls",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1730626932439,
-                    "title": "soroushmirzaei/telegram-configs-collector：该脚本从 Telegram 频道和订阅链接收集 Juicity、Hysteria、Tuic、Vless、Vmess、Trojan 和 Shadowsocks 配置",
-                    "url": "https://github.com/soroushmirzaei/telegram-configs-collector",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -4626,32 +4619,18 @@
                 "title": "使用过",
                 "children": [
                   {
-                    "type": "folder",
-                    "addDate": 1751382255590,
-                    "title": "好用",
-                    "children": [
-                      {
-                        "type": "link",
-                        "addDate": 1732274989102,
-                        "title": "SakuraCat_DokiDokiWeb",
-                        "url": "https://dokidokiweb.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=dokidokiweb.com"
-                      }
-                    ]
+                    "type": "link",
+                    "addDate": 1732274989102,
+                    "title": "SakuraCat_DokiDokiWeb",
+                    "url": "https://dokidokiweb.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=dokidokiweb.com"
                   },
                   {
-                    "type": "folder",
-                    "addDate": 1751382272369,
-                    "title": "不太好用（大概率便宜）",
-                    "children": [
-                      {
-                        "type": "link",
-                        "addDate": 1744977141800,
-                        "title": "农夫山泉",
-                        "url": "https://www.nfsq.us/#/login",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
-                      }
-                    ]
+                    "type": "link",
+                    "addDate": 1744977141800,
+                    "title": "农夫山泉",
+                    "url": "https://www.nfsq.us/#/login",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.nfsq.us"
                   }
                 ]
               },
@@ -4659,8 +4638,8 @@
                 "type": "link",
                 "addDate": 1715584511367,
                 "title": "Sailing·风帆加速器",
-                "url": "https://www.sailingnet.pro/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.sailingnet.pro"
+                "url": "https://www.sailing.ink/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.sailing.ink"
               },
               {
                 "type": "link",
@@ -4867,6 +4846,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1753361121051,
+                "title": "TunnelBear: Secure VPN Service",
+                "url": "https://www.tunnelbear.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.tunnelbear.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1715578749993,
                 "title": "安全 VPN 服务，隐藏 IP，绕过被阻止的网站 | BullVPN VPN 为每个人提供互联网自由",
                 "url": "https://www.bullvpn.com/",
@@ -4941,6 +4927,20 @@
                 "title": "bepass-org/oblivion-desktop: Oblivion Desktop - Unofficial Warp Client for Windows/Mac/Linux",
                 "url": "https://github.com/bepass-org/oblivion-desktop",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753345072340,
+                "title": "OpenClash: A Clash Client For OpenWrt",
+                "url": "https://github.com/vernesong/OpenClash",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753361717693,
+                "title": "UrbanVPN",
+                "url": "https://www.urban-vpn.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.urban-vpn.com"
               }
             ]
           },
@@ -5300,6 +5300,13 @@
             "title": "freemediaheckyeah",
             "url": "https://fmhy.net/",
             "icon": "https://www.google.com/s2/favicons?domain=fmhy.net"
+          },
+          {
+            "type": "link",
+            "addDate": 1741958606934,
+            "title": "INDIE HACKERS TOOLS独立开发者导航站，发掘最优秀的工具，助力你快速发布下一个网页",
+            "url": "https://free.mkdirs.com/zh/group/new",
+            "icon": "https://www.google.com/s2/favicons?domain=free.mkdirs.com"
           }
         ]
       },
@@ -8600,6 +8607,13 @@
                     "title": "1Panel - 现代化、开源的 Linux 服务器运维管理面板",
                     "url": "https://1panel.cn/",
                     "icon": "https://www.google.com/s2/favicons?domain=1panel.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753353339743,
+                    "title": "Plasma - KDE Community",
+                    "url": "https://kde.org/plasma-desktop/",
+                    "icon": "https://www.google.com/s2/favicons?domain=kde.org"
                   }
                 ]
               },
@@ -8740,6 +8754,13 @@
                     "title": "DCloud - HBuilder、HBuilderX、uni-app、uniapp、5+、5plus、mui、wap2app、流应用、HTML5、小程序开发、跨平台App、多端框架",
                     "url": "https://dcloud.io/",
                     "icon": "https://www.google.com/s2/favicons?domain=dcloud.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753353002388,
+                    "title": "phcode-dev/phoenix: The text editor designed to make coding as simple and fun as playing a video game",
+                    "url": "https://github.com/phcode-dev/phoenix",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -8835,6 +8856,34 @@
                 ]
               },
               {
+                "type": "folder",
+                "addDate": 1753352898114,
+                "title": "数据分析统计",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1748488923181,
+                    "title": "网站数据统计Umami",
+                    "url": "https://umami.is/",
+                    "icon": "https://www.google.com/s2/favicons?domain=umami.is"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1706612839428,
+                    "title": "DataEase - 人人可用的开源数据可视化分析工具 - 官网",
+                    "url": "https://dataease.io/index.html",
+                    "icon": "https://www.google.com/s2/favicons?domain=dataease.io"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753352919473,
+                    "title": "rybbit-io/rybbit: 🐸 Rybbit - open-source and privacy-friendly alternative to Google Analytics that is 10x more intuitive.",
+                    "url": "https://github.com/rybbit-io/rybbit",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  }
+                ]
+              },
+              {
                 "type": "link",
                 "addDate": 1708531424790,
                 "title": "开源SSH客户端electerm",
@@ -8850,13 +8899,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1706612839428,
-                "title": "DataEase - 人人可用的开源数据可视化分析工具 - 官网",
-                "url": "https://dataease.io/index.html",
-                "icon": "https://www.google.com/s2/favicons?domain=dataease.io"
-              },
-              {
-                "type": "link",
                 "addDate": 1740543873577,
                 "title": "开发-HarmonyOS NEXT鸿蒙应用开发平台-华为开发者联盟",
                 "url": "https://developer.huawei.com/consumer/cn/develop/",
@@ -8868,13 +8910,6 @@
                 "title": "Docker Hub Container Image Library | App Containerization",
                 "url": "https://hub.docker.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=hub.docker.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1748488923181,
-                "title": "网站数据统计Umami",
-                "url": "https://umami.is/",
-                "icon": "https://www.google.com/s2/favicons?domain=umami.is"
               }
             ]
           },
@@ -9001,6 +9036,13 @@
                 "title": "AWS 云服务-专业的大数据和云计算服务以及云解决方案提供商",
                 "url": "https://aws.amazon.com/cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=aws.amazon.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753354901295,
+                "title": "DigitalPlat Domain Dashboard",
+                "url": "https://dash.domain.digitalplat.org/auth/login",
+                "icon": "https://www.google.com/s2/favicons?domain=dash.domain.digitalplat.org"
               }
             ]
           },
@@ -9549,13 +9591,6 @@
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
-          },
-          {
-            "type": "link",
-            "addDate": 1741958606934,
-            "title": "INDIE HACKERS TOOLS独立开发者导航站，发掘最优秀的工具，助力你快速发布下一个网页",
-            "url": "https://free.mkdirs.com/zh/group/new",
-            "icon": "https://www.google.com/s2/favicons?domain=free.mkdirs.com"
           },
           {
             "type": "link",
@@ -10133,6 +10168,13 @@
           },
           {
             "type": "link",
+            "addDate": 1753353223488,
+            "title": "daedalOS-类云电脑",
+            "url": "https://dustinbrett.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=dustinbrett.com"
+          },
+          {
+            "type": "link",
             "addDate": 1704012714000,
             "title": "一个缓解无聊的网站Bored? Press the Bored Button!",
             "url": "https://www.boredbutton.com/",
@@ -10439,6 +10481,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1753353086524,
+                "title": "多合一邮件客户端-Thunderbird — 解放收件箱",
+                "url": "https://www.thunderbird.net/zh-CN/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.thunderbird.net"
+              },
+              {
+                "type": "link",
                 "addDate": 1749288454116,
                 "title": "@gmail.com - Gmail",
                 "url": "https://mail.google.com/mail/u/0/#inbox",
@@ -10471,6 +10520,13 @@
                 "title": "Proton Mail",
                 "url": "https://mail.proton.me/u/0/inbox",
                 "icon": "https://www.google.com/s2/favicons?domain=mail.proton.me"
+              },
+              {
+                "type": "link",
+                "addDate": 1753355582465,
+                "title": "自动邮件发送 Resend",
+                "url": "https://resend.com/onboarding",
+                "icon": "https://www.google.com/s2/favicons?domain=resend.com"
               }
             ]
           },
@@ -10949,6 +11005,20 @@
             "title": "这就是VV;表情包",
             "url": "https://vv.cicada000.work/",
             "icon": "https://www.google.com/s2/favicons?domain=vv.cicada000.work"
+          },
+          {
+            "type": "link",
+            "addDate": 1753359883471,
+            "title": "工作台 | 码达(NotifyX) 消息推送平台",
+            "url": "https://www.notifyx.cn/console/dashboard",
+            "icon": "https://www.google.com/s2/favicons?domain=www.notifyx.cn"
+          },
+          {
+            "type": "link",
+            "addDate": 1753365027586,
+            "title": "订阅管理系统（自用）",
+            "url": "https://domain-sub-tracker.s1805948721.workers.dev/",
+            "icon": "https://www.google.com/s2/favicons?domain=domain-sub-tracker.s1805948721.workers.dev"
           }
         ]
       }
