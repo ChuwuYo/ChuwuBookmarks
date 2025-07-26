@@ -1,7 +1,21 @@
-# 项目迁移指南：SvelteKit + TypeScript + SCSS
+# 项目迁移指南：Vue 3 + Vite + TypeScript + SCSS
 
 ## 1. 迁移概述
-本文档详细说明将当前书签导航项目迁移到SvelteKit + TypeScript + SCSS技术栈的完整步骤。
+本文档详细说明将当前书签导航项目迁移到Vue 3 + Vite + TypeScript + SCSS技术栈的完整步骤。
+
+### 1.1 技术栈选择理由
+- **Vue 3**: 提供优秀的响应式系统和组合式API，简化状态管理和组件逻辑
+- **Vite**: 提供极快的开发体验和构建性能，支持热重载和模块化开发
+- **TypeScript**: 提供类型安全和更好的开发体验，减少运行时错误
+- **SCSS**: 提供强大的样式预处理功能，保持现有设计系统
+- **Pinia**: Vue 3官方推荐的状态管理库，替代手动状态管理
+- **Vue Router**: 官方路由库，实现SPA导航功能
+
+### 1.2 框架化迁移原则
+- **组件化**: 将现有功能模块转换为Vue组件
+- **响应式**: 利用Vue的响应式系统替代手动DOM操作
+- **声明式**: 使用模板语法替代命令式DOM操作
+- **类型安全**: 全面使用TypeScript提供类型保护
 
 ## 2. 迁移准备
 ### 2.1 环境要求
@@ -14,7 +28,7 @@
 ```bash
 git add .
 git commit -m "备份：迁移前的完整项目状态"
-git checkout -b migration-sveltekit
+git checkout -b migration-vue3
 ```
 
 2. 分析当前项目结构
@@ -26,18 +40,23 @@ ls assets/js/
 ```
 
 ## 3. 项目初始化
-### 3.1 创建新的SvelteKit项目
+### 3.1 创建新的Vue 3项目
 ```bash
 # 在项目根目录外创建新项目
 cd ..
-npm create svelte@latest chuwu-bookmarks-sveltekit
-cd chuwu-bookmarks-sveltekit
+npm create vue@latest chuwu-bookmarks-vue3
+cd chuwu-bookmarks-vue3
 ```
 
 在创建过程中，选择以下选项：
-- Which Svelte app template? → **Skeleton project**
-- Add type checking with TypeScript? → **Yes, using TypeScript syntax**
-- Select additional options: → **Add ESLint for code linting, Add Prettier for code formatting, Add Vitest for unit testing**
+- Add TypeScript? → **Yes**
+- Add JSX Support? → **No**
+- Add Vue Router for Single Page Application development? → **Yes**
+- Add Pinia for state management? → **Yes**
+- Add Vitest for Unit Testing? → **Yes**
+- Add an End-to-End Testing Solution? → **No**
+- Add ESLint for code quality? → **Yes**
+- Add Prettier for code formatting? → **Yes**
 
 ### 3.2 安装必要依赖
 ```bash
@@ -52,6 +71,10 @@ npm install gsap
 
 # 安装其他可能需要的依赖
 npm install --save-dev @types/node
+npm install --save-dev @vitejs/plugin-vue
+
+# 安装Vue 3相关类型定义
+npm install --save-dev @vue/tsconfig
 ```
 
 ## 4. 文件结构调整
@@ -107,63 +130,58 @@ ChuwuBookmarks/
 └── bookmarks.json            # 书签数据文件
 ```
 
-### 4.2 目标SvelteKit文件结构
+### 4.2 目标Vue 3文件结构
 ```
-chuwu-bookmarks-sveltekit/
+chuwu-bookmarks-vue3/
 ├── src/
-│   ├── lib/
-│   │   ├── components/        # Svelte组件
-│   │   │   ├── Sidebar.svelte
-│   │   │   ├── MainContent.svelte
-│   │   │   ├── SearchBox.svelte
-│   │   │   ├── ThemeToggle.svelte
-│   │   │   ├── Breadcrumbs.svelte
-│   │   │   ├── BookmarkItem.svelte
-│   │   │   ├── FolderItem.svelte
-│   │   │   └── HomePage.svelte
-│   │   ├── stores/            # Svelte stores
-│   │   │   ├── bookmarks.ts
-│   │   │   ├── theme.ts
-│   │   │   ├── search.ts
-│   │   │   └── device.ts
-│   │   ├── styles/            # SCSS样式文件
-│   │   │   ├── _variables.scss
-│   │   │   ├── _mixins.scss
-│   │   │   ├── _breakpoints.scss
-│   │   │   ├── _animations.scss
-│   │   │   ├── _components.scss
-│   │   │   ├── _layout.scss
-│   │   │   └── global.scss
-│   │   ├── utils/             # 工具函数
-│   │   │   ├── device.ts
-│   │   │   ├── animation.ts
-│   │   │   ├── search.ts
-│   │   │   └── index.ts
-│   │   ├── workers/           # Web Workers
-│   │   │   ├── data-worker.ts
-│   │   │   └── search-worker.ts
-│   │   └── types/             # TypeScript类型定义
-│   │       ├── bookmark.ts
-│   │       └── index.ts
-│   ├── routes/
-│   │   ├── +layout.svelte     # 全局布局
-│   │   ├── +layout.ts         # 布局数据加载
-│   │   ├── +page.svelte       # 主页
-│   │   ├── +page.ts           # 主页数据加载
-│   │   └── folder/
-│   │       └── [id]/
-│   │           ├── +page.svelte
-│   │           └── +page.ts
-│   ├── app.d.ts               # 全局类型声明
-│   └── app.html               # HTML模板
-├── static/                    # 静态资源
+│   ├── components/            # Vue组件
+│   │   ├── Sidebar.vue
+│   │   ├── MainContent.vue
+│   │   ├── SearchBox.vue
+│   │   ├── ThemeToggle.vue
+│   │   ├── Breadcrumbs.vue
+│   │   ├── BookmarkItem.vue
+│   │   ├── FolderItem.vue
+│   │   └── HomePage.vue
+│   ├── stores/                # Pinia stores
+│   │   ├── bookmarks.ts
+│   │   ├── theme.ts
+│   │   ├── search.ts
+│   │   └── device.ts
+│   ├── styles/                # SCSS样式文件
+│   │   ├── _variables.scss
+│   │   ├── _mixins.scss
+│   │   ├── _breakpoints.scss
+│   │   ├── _animations.scss
+│   │   ├── _components.scss
+│   │   ├── _layout.scss
+│   │   └── main.scss
+│   ├── utils/                 # 工具函数
+│   │   ├── device.ts
+│   │   ├── animation.ts
+│   │   ├── search.ts
+│   │   └── index.ts
+│   ├── workers/               # Web Workers
+│   │   ├── data-worker.ts
+│   │   └── search-worker.ts
+│   ├── types/                 # TypeScript类型定义
+│   │   ├── bookmark.ts
+│   │   └── index.ts
+│   ├── router/                # Vue Router配置
+│   │   └── index.ts
+│   ├── views/                 # 页面视图
+│   │   ├── HomeView.vue
+│   │   └── FolderView.vue
+│   ├── App.vue                # 根组件
+│   └── main.ts                # 应用入口
+├── public/                    # 静态资源
 │   ├── assets/
 │   │   ├── fonts/
 │   │   ├── images/
 │   │   └── icons/
 │   ├── bookmarks.json
-│   └── favicon.png
-├── svelte.config.js           # SvelteKit配置
+│   └── favicon.ico
+├── index.html                 # HTML模板
 ├── vite.config.ts             # Vite配置
 ├── tsconfig.json              # TypeScript配置
 ├── package.json
@@ -173,98 +191,147 @@ chuwu-bookmarks-sveltekit/
 ## 5. 具体迁移步骤
 
 ### 5.1 配置文件设置
-首先配置SvelteKit项目的基础设置：
+首先配置Vue 3项目的基础设置：
 
-#### 5.1.1 更新 `svelte.config.js`
-```javascript
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: vitePreprocess(),
-	kit: {
-		adapter: adapter(),
-		alias: {
-			$lib: 'src/lib'
-		}
-	}
-};
-
-export default config;
-```
-
-#### 5.1.2 更新 `vite.config.ts`
+#### 5.1.1 更新 `vite.config.ts`
 ```typescript
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: `@import '$lib/styles/_variables.scss';`
-			}
-		}
-	},
-	optimizeDeps: {
-		include: ['gsap']
-	}
-});
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/_variables.scss";`
+      }
+    }
+  },
+  optimizeDeps: {
+    include: ['gsap']
+  },
+  server: {
+    port: 3000,
+    open: true
+  },
+  build: {
+    target: 'esnext',
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['vue', 'vue-router', 'pinia'],
+          gsap: ['gsap']
+        }
+      }
+    }
+  }
+})
+```
+
+#### 5.1.2 更新 `tsconfig.json`
+```json
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
 ```
 
 ### 5.2 HTML结构迁移
 
-#### 5.2.1 创建 `src/app.html`
+#### 5.2.1 更新 `index.html`
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="light" dir="ltr" class="no-js" itemscope itemtype="http://schema.org/WebPage">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="%sveltekit.assets%/assets/icons/bocchi.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: wss:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss:" />
-	
-	<!-- 预加载关键资源 -->
-	<link rel="preload" href="%sveltekit.assets%/assets/images/show_sidepanel.svg" as="image">
-	<link rel="preload" href="%sveltekit.assets%/assets/images/hide_sidepanel.svg" as="image">
-	<link rel="preload" href="%sveltekit.assets%/assets/images/moecat.gif" as="image">
-	<link rel="preload" href="%sveltekit.assets%/assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="%sveltekit.assets%/assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
-	
-	%sveltekit.head%
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/assets/icons/bocchi.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: wss:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss:" />
+  
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="/assets/images/show_sidepanel.svg" as="image">
+  <link rel="preload" href="/assets/images/hide_sidepanel.svg" as="image">
+  <link rel="preload" href="/assets/images/moecat.gif" as="image">
+  <link rel="preload" href="/assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <title>楚吴书签导航</title>
 </head>
-<body data-sveltekit-preload-data="hover">
-	<div style="display: contents">%sveltekit.body%</div>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
 ```
 
-#### 5.2.2 创建全局布局 `src/routes/+layout.svelte`
-```svelte
-<script lang="ts">
-	import { onMount } from 'svelte';
-	import { themeStore } from '$lib/stores/theme';
-	import { deviceStore } from '$lib/stores/device';
-	import '$lib/styles/global.scss';
+#### 5.2.2 创建应用入口 `src/main.ts`
+```typescript
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './router'
+import App from './App.vue'
+import '@/styles/main.scss'
 
-	onMount(() => {
-		// 初始化主题
-		themeStore.init();
-		// 初始化设备检测
-		deviceStore.init();
-	});
+const app = createApp(App)
+const pinia = createPinia()
+
+app.use(pinia)
+app.use(router)
+
+app.mount('#app')
+```
+
+#### 5.2.3 创建根组件 `src/App.vue`
+```vue
+<template>
+  <div id="app">
+    <RouterView />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useThemeStore } from '@/stores/theme'
+import { useDeviceStore } from '@/stores/device'
+
+const themeStore = useThemeStore()
+const deviceStore = useDeviceStore()
+
+onMounted(() => {
+  // 初始化主题
+  themeStore.init()
+  // 初始化设备检测
+  deviceStore.init()
+})
 </script>
 
-<main>
-	<slot />
-</main>
+<style lang="scss">
+// 全局样式已在 main.ts 中导入
+</style>
 ```
 
 ### 5.3 CSS/SCSS迁移
 
-#### 5.3.1 创建SCSS变量文件 `src/lib/styles/_variables.scss`
+#### 5.3.1 创建SCSS变量文件 `src/styles/_variables.scss`
 ```scss
 // 从 assets/css/base.css 迁移CSS变量
 :root {
@@ -321,7 +388,7 @@ export default defineConfig({
 }
 ```
 
-#### 5.3.2 创建断点系统 `src/lib/styles/_breakpoints.scss`
+#### 5.3.2 创建断点系统 `src/styles/_breakpoints.scss`
 ```scss
 // 从 assets/css/breakpoints.css 迁移
 $breakpoint: 1024px;
@@ -351,7 +418,7 @@ $breakpoint: 1024px;
 }
 ```
 
-#### 5.3.3 创建全局样式 `src/lib/styles/global.scss`
+#### 5.3.3 创建全局样式 `src/styles/main.scss`
 ```scss
 @import '_variables';
 @import '_breakpoints';
@@ -437,7 +504,7 @@ body::after {
 
 ### 5.4 TypeScript类型定义
 
-#### 5.4.1 创建书签类型 `src/lib/types/bookmark.ts`
+#### 5.4.1 创建书签类型 `src/types/bookmark.ts`
 ```typescript
 export interface BookmarkItem {
   type: 'link';
@@ -474,7 +541,7 @@ export type DeviceType = 'mobile' | 'desktop';
 export type Theme = 'light' | 'dark';
 ```
 
-#### 5.4.2 创建全局类型 `src/lib/types/index.ts`
+#### 5.4.2 创建全局类型 `src/types/index.ts`
 ```typescript
 export * from './bookmark';
 
@@ -493,155 +560,122 @@ export interface AnimationConfig {
 }
 ```
 
-### 5.5 Svelte Stores 创建
+### 5.5 Pinia Stores 创建
 
-#### 5.5.1 主题管理 Store `src/lib/stores/theme.ts`
+#### 5.5.1 主题管理 Store `src/stores/theme.ts`
 ```typescript
-import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
-import type { Theme } from '$lib/types';
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import type { Theme } from '@/types'
 
-function createThemeStore() {
-  const { subscribe, set, update } = writable<Theme>('light');
+export const useThemeStore = defineStore('theme', () => {
+  const currentTheme = ref<Theme>('light')
+
+  const init = () => {
+    if (typeof window === 'undefined') return
+    
+    const savedTheme = localStorage.getItem('theme') as Theme || 'light'
+    currentTheme.value = savedTheme
+    document.documentElement.setAttribute('data-theme', savedTheme)
+  }
+
+  const toggle = () => {
+    const newTheme: Theme = currentTheme.value === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+  }
+
+  const setTheme = (theme: Theme) => {
+    currentTheme.value = theme
+    
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme)
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+  }
 
   return {
-    subscribe,
-    init: () => {
-      if (!browser) return;
-      
-      const savedTheme = localStorage.getItem('theme') as Theme || 'light';
-      set(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    },
-    toggle: () => {
-      update(currentTheme => {
-        const newTheme: Theme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        if (browser) {
-          localStorage.setItem('theme', newTheme);
-          document.documentElement.setAttribute('data-theme', newTheme);
-        }
-        
-        return newTheme;
-      });
-    },
-    set: (theme: Theme) => {
-      set(theme);
-      if (browser) {
-        localStorage.setItem('theme', theme);
-        document.documentElement.setAttribute('data-theme', theme);
-      }
-    }
-  };
-}
-
-export const themeStore = createThemeStore();
+    currentTheme,
+    init,
+    toggle,
+    setTheme
+  }
+})
 ```
 
-#### 5.5.2 设备检测 Store `src/lib/stores/device.ts`
+#### 5.5.2 设备检测 Store `src/stores/device.ts`
 ```typescript
-import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
-import type { DeviceType } from '$lib/types';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import type { DeviceType } from '@/types'
 
-const BREAKPOINT = 1024;
+const BREAKPOINT = 1024
 
-function createDeviceStore() {
-  const { subscribe, set } = writable<DeviceType>('desktop');
+export const useDeviceStore = defineStore('device', () => {
+  const currentDevice = ref<DeviceType>('desktop')
 
   const getDeviceType = (): DeviceType => {
-    if (!browser) return 'desktop';
+    if (typeof window === 'undefined') return 'desktop'
     
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const width = window.innerWidth
+    const height = window.innerHeight
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     
     // 手机设备（包括横屏）优先使用移动端样式
     if (isTouchDevice && (width < BREAKPOINT || height < 600)) {
-      return 'mobile';
+      return 'mobile'
     }
     
-    return width < BREAKPOINT ? 'mobile' : 'desktop';
-  };
+    return width < BREAKPOINT ? 'mobile' : 'desktop'
+  }
 
   const updateDeviceType = () => {
-    const deviceType = getDeviceType();
-    set(deviceType);
+    const deviceType = getDeviceType()
+    currentDevice.value = deviceType
     
-    if (browser) {
-      document.body.classList.toggle('mobile-device', deviceType === 'mobile');
-      document.body.classList.toggle('desktop-device', deviceType === 'desktop');
+    if (typeof window !== 'undefined') {
+      document.body.classList.toggle('mobile-device', deviceType === 'mobile')
+      document.body.classList.toggle('desktop-device', deviceType === 'desktop')
     }
-  };
+  }
+
+  const init = () => {
+    if (typeof window === 'undefined') return
+    
+    updateDeviceType()
+    window.addEventListener('resize', updateDeviceType)
+    
+    return () => {
+      window.removeEventListener('resize', updateDeviceType)
+    }
+  }
+
+  const isMobile = computed(() => currentDevice.value === 'mobile')
+  const isDesktop = computed(() => currentDevice.value === 'desktop')
 
   return {
-    subscribe,
-    init: () => {
-      if (!browser) return;
-      
-      updateDeviceType();
-      window.addEventListener('resize', updateDeviceType);
-      
-      return () => {
-        window.removeEventListener('resize', updateDeviceType);
-      };
-    },
+    currentDevice,
+    init,
     getDeviceType,
-    isMobile: () => getDeviceType() === 'mobile',
-    isDesktop: () => getDeviceType() === 'desktop'
-  };
-}
-
-export const deviceStore = createDeviceStore();
+    isMobile,
+    isDesktop
+  }
+})
 ```
 
-#### 5.5.3 书签数据 Store `src/lib/stores/bookmarks.ts`
+#### 5.5.3 书签数据 Store `src/stores/bookmarks.ts`
 ```typescript
-import { writable, derived } from 'svelte/store';
-import { browser } from '$app/environment';
-import type { BookmarkData, FolderItem, BookmarkItem } from '$lib/types';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import type { BookmarkData, FolderItem, BookmarkItem } from '@/types'
 
-function createBookmarksStore() {
-  const { subscribe, set, update } = writable<BookmarkData>({
+export const useBookmarksStore = defineStore('bookmarks', () => {
+  const bookmarkData = ref<BookmarkData>({
     folders: [],
     allBookmarks: []
-  });
-
-  const loadBookmarksData = async (): Promise<BookmarkData> => {
-    try {
-      // 尝试从缓存获取数据
-      if (browser) {
-        const cachedData = localStorage.getItem('bookmarksData');
-        if (cachedData) {
-          const parsed = JSON.parse(cachedData);
-          set(parsed);
-        }
-      }
-
-      // 加载新数据
-      const response = await fetch('/bookmarks.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const rawData = await response.json();
-      const processedData = processBookmarkData(rawData);
-      
-      // 更新缓存和store
-      if (browser) {
-        localStorage.setItem('bookmarksData', JSON.stringify(processedData));
-      }
-      set(processedData);
-      
-      return processedData;
-    } catch (error) {
-      console.error('Failed to load bookmarks:', error);
-      throw error;
-    }
-  };
+  })
 
   const processBookmarkData = (rawData: any[]): BookmarkData => {
-    const allBookmarks: BookmarkItem[] = [];
+    const allBookmarks: BookmarkItem[] = []
     
     const processNode = (node: any): FolderItem | BookmarkItem => {
       if (node.type === 'folder') {
@@ -650,7 +684,7 @@ function createBookmarksStore() {
           addDate: node.addDate,
           title: node.title,
           children: node.children?.map(processNode) || []
-        };
+        }
       } else {
         const bookmark: BookmarkItem = {
           type: 'link',
@@ -658,64 +692,97 @@ function createBookmarksStore() {
           title: node.title,
           url: node.url,
           icon: node.icon
-        };
-        allBookmarks.push(bookmark);
-        return bookmark;
+        }
+        allBookmarks.push(bookmark)
+        return bookmark
       }
-    };
+    }
 
-    const folders = rawData.map(processNode).filter(node => node.type === 'folder') as FolderItem[];
+    const folders = rawData.map(processNode).filter(node => node.type === 'folder') as FolderItem[]
     
     return {
       folders,
       allBookmarks
-    };
-  };
+    }
+  }
+
+  const loadBookmarksData = async (): Promise<BookmarkData> => {
+    try {
+      // 尝试从缓存获取数据
+      if (typeof window !== 'undefined') {
+        const cachedData = localStorage.getItem('bookmarksData')
+        if (cachedData) {
+          const parsed = JSON.parse(cachedData)
+          bookmarkData.value = parsed
+        }
+      }
+
+      // 加载新数据
+      const response = await fetch('/bookmarks.json')
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const rawData = await response.json()
+      const processedData = processBookmarkData(rawData)
+      
+      // 更新缓存和store
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bookmarksData', JSON.stringify(processedData))
+      }
+      bookmarkData.value = processedData
+      
+      return processedData
+    } catch (error) {
+      console.error('Failed to load bookmarks:', error)
+      throw error
+    }
+  }
+
+  const reload = async () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('bookmarksData')
+    }
+    return loadBookmarksData()
+  }
+
+  // 计算属性用于搜索
+  const searchableBookmarks = computed(() => bookmarkData.value.allBookmarks)
 
   return {
-    subscribe,
-    load: loadBookmarksData,
-    reload: async () => {
-      if (browser) {
-        localStorage.removeItem('bookmarksData');
-      }
-      return loadBookmarksData();
-    }
-  };
-}
-
-export const bookmarksStore = createBookmarksStore();
-
-// 派生store用于搜索
-export const searchableBookmarks = derived(
-  bookmarksStore,
-  ($bookmarks) => $bookmarks.allBookmarks
-);
+    bookmarkData,
+    searchableBookmarks,
+    loadBookmarksData,
+    reload
+  }
+})
 ```
 
-#### 5.5.4 搜索功能 Store `src/lib/stores/search.ts`
+#### 5.5.4 搜索功能 Store `src/stores/search.ts`
 ```typescript
-import { writable, derived } from 'svelte/store';
-import { searchableBookmarks } from './bookmarks';
-import type { BookmarkItem, SearchResult } from '$lib/types';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import { useBookmarksStore } from './bookmarks'
+import type { BookmarkItem, SearchResult } from '@/types'
 
-function createSearchStore() {
-  const { subscribe, set } = writable<string>('');
+export const useSearchStore = defineStore('search', () => {
+  const searchQuery = ref<string>('')
+  const bookmarksStore = useBookmarksStore()
 
   const performSearch = (query: string, bookmarks: BookmarkItem[]): SearchResult[] => {
-    if (!query.trim()) return [];
+    if (!query.trim()) return []
     
-    const searchTerm = query.toLowerCase();
-    const results: SearchResult[] = [];
+    const searchTerm = query.toLowerCase()
+    const results: SearchResult[] = []
     
     bookmarks.forEach(bookmark => {
-      const titleMatch = bookmark.title.toLowerCase().includes(searchTerm);
-      const urlMatch = bookmark.url.toLowerCase().includes(searchTerm);
+      const titleMatch = bookmark.title.toLowerCase().includes(searchTerm)
+      const urlMatch = bookmark.url.toLowerCase().includes(searchTerm)
       
       if (titleMatch || urlMatch) {
-        let score = 0;
-        if (titleMatch) score += 2;
-        if (urlMatch) score += 1;
+        let score = 0
+        if (titleMatch) score += 2
+        if (urlMatch) score += 1
         
         results.push({
           item: bookmark,
@@ -724,278 +791,272 @@ function createSearchStore() {
             title: titleMatch,
             url: urlMatch
           }
-        });
+        })
       }
-    });
+    })
     
-    return results.sort((a, b) => b.score - a.score);
-  };
+    return results.sort((a, b) => b.score - a.score)
+  }
+
+  // 计算属性用于搜索结果
+  const searchResults = computed(() => {
+    if (!searchQuery.value.trim()) return []
+    
+    return performSearch(searchQuery.value, bookmarksStore.searchableBookmarks)
+  })
+
+  const setQuery = (query: string) => {
+    searchQuery.value = query
+  }
+
+  const clearQuery = () => {
+    searchQuery.value = ''
+  }
 
   return {
-    subscribe,
-    set,
-    clear: () => set('')
-  };
-}
-
-export const searchStore = createSearchStore();
-
-// 派生store用于搜索结果
-export const searchResults = derived(
-  [searchStore, searchableBookmarks],
-  ([$searchQuery, $bookmarks]) => {
-    if (!$searchQuery.trim()) return [];
-    
-    const results: SearchResult[] = [];
-    const searchTerm = $searchQuery.toLowerCase();
-    
-    $bookmarks.forEach(bookmark => {
-      const titleMatch = bookmark.title.toLowerCase().includes(searchTerm);
-      const urlMatch = bookmark.url.toLowerCase().includes(searchTerm);
-      
-      if (titleMatch || urlMatch) {
-        let score = 0;
-        if (titleMatch) score += 2;
-        if (urlMatch) score += 1;
-        
-        results.push({
-          item: bookmark,
-          score,
-          matches: {
-            title: titleMatch,
-            url: urlMatch
-          }
-        });
-      }
-    });
-    
-    return results.sort((a, b) => b.score - a.score);
+    searchQuery,
+    searchResults,
+    setQuery,
+    clearQuery
   }
-);
+})
 ```
 
 ### 5.6 核心组件创建
 
-#### 5.6.1 主题切换组件 `src/lib/components/ThemeToggle.svelte`
-```svelte
-<script lang="ts">
-  import { themeStore } from '$lib/stores/theme';
-  
-  const handleToggle = () => {
-    themeStore.toggle();
-  };
+#### 5.6.1 主题切换组件 `src/components/ThemeToggle.vue`
+```vue
+<template>
+  <button 
+    id="theme-toggle" 
+    class="theme-toggle" 
+    aria-label="切换主题"
+    @click="handleToggle"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+</template>
+
+<script setup lang="ts">
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
+
+const handleToggle = () => {
+  themeStore.toggle()
+}
 </script>
 
-<button 
-  id="theme-toggle" 
-  class="theme-toggle" 
-  aria-label="切换主题"
-  on:click={handleToggle}
->
-  <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle>
-    <line x1="12" y1="1" x2="12" y2="3"></line>
-    <line x1="12" y1="21" x2="12" y2="23"></line>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-    <line x1="1" y1="12" x2="3" y2="12"></line>
-    <line x1="21" y1="12" x2="23" y2="12"></line>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-  </svg>
-  <svg xmlns="http://www.w3.org/2000/svg" class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-  </svg>
-</button>
-
-<style lang="scss">
-  .theme-toggle {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 50%;
-    background: var(--button-bg);
-    color: var(--text-color);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--duration-base) var(--ease-default);
-    box-shadow: var(--shadow-sm);
-    
-    &:hover {
-      background: var(--button-hover);
-      box-shadow: var(--theme-shadow-hover);
-      transform: scale(1.05);
-    }
-    
-    svg {
-      width: 20px;
-      height: 20px;
-      transition: opacity var(--duration-base) var(--ease-default);
-    }
-    
-    .sun {
-      opacity: 1;
-    }
-    
-    .moon {
-      position: absolute;
-      opacity: 0;
-    }
+<style lang="scss" scoped>
+.theme-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--button-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-base) var(--ease-default);
+  box-shadow: var(--shadow-sm);
+  
+  &:hover {
+    background: var(--button-hover);
+    box-shadow: var(--theme-shadow-hover);
+    transform: scale(1.05);
   }
-
-  :global([data-theme='dark']) .theme-toggle {
-    .sun {
-      opacity: 0;
-    }
-    
-    .moon {
-      opacity: 1;
-    }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: opacity var(--duration-base) var(--ease-default);
   }
+  
+  .sun {
+    opacity: 1;
+  }
+  
+  .moon {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+:global([data-theme='dark']) .theme-toggle {
+  .sun {
+    opacity: 0;
+  }
+  
+  .moon {
+    opacity: 1;
+  }
+}
 </style>
 ```
 
-#### 5.6.2 搜索框组件 `src/lib/components/SearchBox.svelte`
-```svelte
-<script lang="ts">
-  import { onMount } from 'svelte';
-  import { searchStore } from '$lib/stores/search';
-  import { deviceStore } from '$lib/stores/device';
-  
-  let searchInput: HTMLInputElement;
-  let searchQuery = '';
-  
-  // 响应式订阅搜索查询
-  $: searchStore.set(searchQuery);
-  
-  const handleKeydown = (event: KeyboardEvent) => {
-    // Ctrl+K 快捷键聚焦搜索框
-    if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
-      event.preventDefault();
-      searchInput?.focus();
-    }
+#### 5.6.2 搜索框组件 `src/components/SearchBox.vue`
+```vue
+<template>
+  <nav class="search-container" role="search">
+    <input 
+      ref="searchInput"
+      v-model="searchQuery"
+      type="text" 
+      id="search-input"
+      name="query" 
+      placeholder="🔍 搜索 ( title / url )" 
+      aria-label="搜索书签"
+      aria-describedby="search-hint"
+    />
     
-    // ESC 清空搜索
-    if (event.key === 'Escape') {
-      searchQuery = '';
-      searchInput?.blur();
-    }
-  };
-  
-  onMount(() => {
-    document.addEventListener('keydown', handleKeydown);
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeydown);
-    };
-  });
-</script>
-
-<nav class="search-container" role="search">
-  <input 
-    bind:this={searchInput}
-    bind:value={searchQuery}
-    type="text" 
-    id="search-input"
-    name="query" 
-    placeholder="🔍 搜索 ( title / url )" 
-    aria-label="搜索书签"
-    aria-describedby="search-hint"
-  />
-  
-  {#if $deviceStore === 'desktop'}
-    <div id="search-hint" class="shortcut-hint" aria-label="键盘快捷键">
+    <div 
+      v-if="deviceStore.isDesktop" 
+      id="search-hint" 
+      class="shortcut-hint" 
+      aria-label="键盘快捷键"
+    >
       <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
     </div>
-  {/if}
-  
-  <slot name="theme-toggle" />
-</nav>
+    
+    <slot name="theme-toggle" />
+  </nav>
+</template>
 
-<style lang="scss">
-  .search-container {
-    position: fixed;
-    top: 20px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    user-select: none;
-    contain: layout;
-    outline: none;
-    
-    @include desktop {
-      left: 50%;
-      transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));
-      transition: transform var(--duration-base) var(--ease-in-out-cubic), 
-                  opacity var(--duration-base) var(--ease-default);
-      will-change: transform, opacity;
-    }
-    
-    @include mobile {
-      left: 50%;
-      transform: translateX(-50%);
-      transition: opacity 0.2s ease;
-      justify-content: center;
-    }
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useSearchStore } from '@/stores/search'
+import { useDeviceStore } from '@/stores/device'
+
+const searchInput = ref<HTMLInputElement>()
+const searchQuery = ref('')
+const searchStore = useSearchStore()
+const deviceStore = useDeviceStore()
+
+// 监听搜索查询变化
+watch(searchQuery, (newQuery) => {
+  searchStore.setQuery(newQuery)
+})
+
+const handleKeydown = (event: KeyboardEvent) => {
+  // Ctrl+K 快捷键聚焦搜索框
+  if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+    event.preventDefault()
+    searchInput.value?.focus()
   }
   
-  #search-input {
-    padding: 10px 15px;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    background: var(--bg-color);
+  // ESC 清空搜索
+  if (event.key === 'Escape') {
+    searchQuery.value = ''
+    searchInput.value?.blur()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown)
+})
+</script>
+
+<style lang="scss" scoped>
+.search-container {
+  position: fixed;
+  top: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  user-select: none;
+  contain: layout;
+  outline: none;
+  
+  @include desktop {
+    left: 50%;
+    transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));
+    transition: transform var(--duration-base) var(--ease-in-out-cubic), 
+                opacity var(--duration-base) var(--ease-default);
+    will-change: transform, opacity;
+  }
+  
+  @include mobile {
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease;
+    justify-content: center;
+  }
+}
+
+#search-input {
+  padding: 10px 15px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-family: inherit;
+  box-shadow: var(--shadow-md);
+  transition: all var(--duration-base) var(--ease-default);
+  outline: none;
+  
+  @include desktop {
+    width: 300px;
+  }
+  
+  @include mobile {
+    width: 200px;
+    max-width: calc(100vw - 40px);
+    margin: 0;
+  }
+  
+  &:focus {
+    border-color: var(--link-color);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
+  }
+  
+  &::placeholder {
     color: var(--text-color);
-    font-size: 16px;
-    font-family: inherit;
-    box-shadow: var(--shadow-md);
-    transition: all var(--duration-base) var(--ease-default);
-    outline: none;
-    
-    @include desktop {
-      width: 300px;
-    }
-    
-    @include mobile {
-      width: 200px;
-      max-width: calc(100vw - 40px);
-      margin: 0;
-    }
-    
-    &:focus {
-      border-color: var(--link-color);
-      box-shadow: var(--shadow-lg);
-      transform: scale(1.02);
-    }
-    
-    &::placeholder {
-      color: var(--text-color);
-      opacity: 0.7;
-    }
+    opacity: 0.7;
+  }
+}
+
+.shortcut-hint {
+  margin-left: 10px;
+  display: flex;
+  gap: 2px;
+  
+  @include mobile {
+    display: none;
   }
   
-  .shortcut-hint {
-    margin-left: 10px;
-    display: flex;
-    gap: 2px;
-    
-    @include mobile {
-      display: none;
-    }
-    
-    span {
-      padding: 4px 8px;
-      background: var(--button-bg);
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: bold;
-      color: var(--text-color);
-      box-shadow: var(--shadow-sm);
-    }
+  span {
+    padding: 4px 8px;
+    background: var(--button-bg);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-color);
+    box-shadow: var(--shadow-sm);
   }
+}
 </style>
 ```
 
@@ -1013,13 +1074,13 @@ const getDeviceType = () => {
 };
 ```
 
-#### SvelteKit 迁移版本：
+#### Vue 3 迁移版本：
 ```typescript
-// src/lib/utils/breakpoints.ts
+// src/utils/breakpoints.ts
 export const BREAKPOINT = 1024;
 
 export function getDeviceType(): 'mobile' | 'desktop' {
-    // ⚠️ 在 onMount 中使用，避免 SSR 报错
+    // ⚠️ 在客户端使用，避免 SSR 报错
     if (typeof window === 'undefined') return 'desktop';
     return window.innerWidth < BREAKPOINT ? 'mobile' : 'desktop';
 }
@@ -1029,7 +1090,7 @@ export const isMobileDevice = () => getDeviceType() === 'mobile';
 
 #### 对应的 SCSS 变量：
 ```scss
-// src/lib/styles/_breakpoints.scss
+// src/styles/_breakpoints.scss
 $breakpoint: 1024px;
 
 @mixin mobile {
@@ -1050,108 +1111,319 @@ $breakpoint: 1024px;
 |--------|----------------|------|
 | 原生JavaScript | TypeScript | 提供类型安全 |
 | CSS | SCSS | 提供更强大的样式功能 |
-| 无构建工具 | SvelteKit(Vite) | 提供构建、路由、服务端渲染等功能 |
-| swup | sveltekit-page-transitions | SvelteKit专用页面过渡库 |
+| 无构建工具 | Vue 3 + Vite | 提供构建、开发服务器、热重载等功能 |
+| 无状态管理 | Pinia | Vue 3官方推荐的状态管理库 |
+| 无路由 | Vue Router | Vue 3官方路由库 |
+| swup | Vue Transition | Vue 3内置页面过渡功能 |
 
-## 7. 兼容性问题及解决方案
-### 7.1 全局变量
-问题：原代码可能依赖全局变量
-解决方案：使用SvelteKit的stores或context API
+## 7. 框架化迁移策略
 
-### 7.2 DOM操作
-问题：原代码可能直接操作DOM
-解决方案：使用Svelte的响应式声明和绑定
+### 7.1 从命令式到声明式
+**原有方式**: 手动DOM操作和事件绑定
+```javascript
+// 原有的命令式代码
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  document.documentElement.setAttribute('data-theme', newTheme)
+})
+```
 
-### 7.3 第三方库集成
-- 所有DOM操作请改用绑定/onMount
-- 客户端库必须在onMount动态import
-- 如需CommonJS库支持，请配置：
-```ts
-// vite.config.ts
-optimizeDeps: {
-  include: ['某个库'],
-}```
-问题：某些库可能需要特殊配置才能在SvelteKit中使用
-解决方案：
-- 对于客户端专用库，使用`onMount`导入
-- 配置`vite.config.ts`中的`optimizeDeps`
+**Vue 3方式**: 响应式数据和模板绑定
+```vue
+<template>
+  <button @click="themeStore.toggle()">切换主题</button>
+</template>
+<script setup>
+const themeStore = useThemeStore()
+</script>
+```
 
-## 8. 测试与验证
-1. 运行开发服务器
+### 7.2 状态管理现代化
+**原有方式**: 全局变量和手动状态同步
+**Vue 3方式**: Pinia stores统一管理状态
+
+### 7.3 组件化重构原则
+- **单一职责**: 每个组件只负责一个功能模块
+- **响应式优先**: 使用Vue的响应式系统替代手动更新
+- **类型安全**: 全面使用TypeScript类型定义
+- **组合式API**: 使用Composition API提高代码复用性
+
+## 8. Vue 3框架特性应用
+
+### 8.1 响应式系统应用
+- **数据驱动**: 所有UI更新通过响应式数据变化自动触发
+- **计算属性**: 使用computed处理派生数据，如搜索结果
+- **侦听器**: 使用watch监听数据变化，执行副作用
+
+### 8.2 组合式API优势
+- **逻辑复用**: 通过composables提取可复用逻辑
+- **类型推导**: 更好的TypeScript支持
+- **性能优化**: 更精确的依赖追踪
+
+### 8.3 Vue Router集成
+- **声明式导航**: 使用router-link和router-view
+- **路由守卫**: 实现导航控制和权限验证
+- **动态路由**: 支持文件夹ID参数路由
+
+## 9. 开发与构建
 ```bash
+# 开发服务器
 npm run dev
-```
 
-2. 运行测试
-```bash
-npm run test
-```
+# 类型检查
+npm run type-check
 
-3. 构建生产版本
-```bash
+# 构建生产版本
 npm run build
+
+# 预览构建结果
 npm run preview
 ```
 
-## 9. 当前模块化架构优势
-当前项目已经实现了良好的模块化架构，为 SvelteKit 迁移提供了以下优势：
+## 10. Vue 3框架化重构要点
 
-### 9.1 清晰的模块分离
-- **渲染模块**: 每个渲染功能都有独立的文件，易于转换为 Svelte 组件
-- **事件监听模块**: 所有事件处理逻辑集中管理，易于集成到 Svelte 组件
-- **数据加载模块**: 数据获取逻辑独立，可直接转换为 SvelteKit 的 load 函数
-- **搜索模块**: 搜索功能独立，可转换为搜索组件
-- **工具模块**: 通用工具函数，可直接迁移
+### 10.1 组件化架构设计
+**原有模块** → **Vue 3组件**
+- `sidebar.js` → `Sidebar.vue` (侧边栏组件)
+- `content.js` → `MainContent.vue` (主内容区组件)
+- `search.js` → `SearchBox.vue` + `SearchResults.vue` (搜索相关组件)
+- `theme.js` → `ThemeToggle.vue` (主题切换组件)
+- `breadcrumbs` → `Breadcrumbs.vue` (面包屑导航组件)
 
-### 9.2 统一的断点系统
-- 已实现 CSS 和 JavaScript 的断点统一
-- 单一断点值 (1024px) 简化了响应式设计
-- 设备类型检测函数已模块化
+### 10.2 状态管理现代化
+**原有全局状态** → **Pinia Stores**
+- 主题状态 → `useThemeStore()`
+- 设备检测 → `useDeviceStore()`
+- 书签数据 → `useBookmarksStore()`
+- 搜索状态 → `useSearchStore()`
 
-### 9.3 Web Workers 支持
-- 搜索和数据处理已使用 Web Workers
-- 在 SvelteKit 中可继续使用或转换为服务端处理
+### 10.3 路由系统建立
+**原有URL管理** → **Vue Router**
+```typescript
+// src/router/index.ts
+const routes = [
+  { path: '/', component: HomeView },
+  { path: '/folder/:id', component: FolderView }
+]
+```
+
+### 10.4 响应式数据流
+**原有手动更新** → **Vue响应式系统**
+- DOM操作 → 模板绑定
+- 事件监听 → `@click`、`@input`等指令
+- 状态同步 → 响应式数据自动更新
 
 ## 10. 迁移后优化
-1. 利用SvelteKit的路由系统重构页面导航
-2. 使用Svelte的响应式系统优化状态管理
-3. 实现服务端渲染提升性能和SEO
-4. 使用代码分割减小初始加载体积
+1. 利用Vue Router的路由系统重构页面导航
+2. 使用Vue 3的响应式系统和Pinia优化状态管理
+3. 利用Vite的构建优化提升性能和开发体验
+4. 使用代码分割和懒加载减小初始加载体积
+5. 利用Vue 3的Composition API提升代码复用性
 
-## 11. 迁移清单
+## 11. Vue 3框架化迁移清单
 
-### 模块迁移清单
-- [ ] **渲染模块迁移**
-  - [ ] sidebar.js → Sidebar.svelte
-  - [ ] content.js → MainContent.svelte  
-  - [ ] home.js → HomePage.svelte
-  - [ ] search.js → SearchResults.svelte
-  - [ ] theme.js → ThemeToggle.svelte
-  - [ ] device.js → utils/device.ts
+### 11.1 组件化重构清单
+- [ ] **核心组件创建**
+  - [ ] `Sidebar.vue` - 侧边栏组件，使用响应式数据管理展开/收起状态
+  - [ ] `MainContent.vue` - 主内容区组件，通过props接收数据
+  - [ ] `SearchBox.vue` - 搜索框组件，使用v-model双向绑定
+  - [ ] `SearchResults.vue` - 搜索结果组件，使用计算属性实时更新
+  - [ ] `ThemeToggle.vue` - 主题切换组件，集成Pinia store
+  - [ ] `Breadcrumbs.vue` - 面包屑导航组件，使用Vue Router
+  - [ ] `BookmarkItem.vue` - 书签项组件，可复用的列表项
+  - [ ] `FolderItem.vue` - 文件夹项组件，支持嵌套结构
 
-- [ ] **数据加载模块迁移**
-  - [ ] loader/index.js → stores/bookmarks.ts
-  - [ ] 实现 SvelteKit load 函数
+### 11.2 状态管理现代化清单
+- [ ] **Pinia Stores实现**
+  - [ ] `useThemeStore()` - 主题状态管理，替代手动DOM操作
+  - [ ] `useDeviceStore()` - 设备检测，使用响应式数据和计算属性
+  - [ ] `useBookmarksStore()` - 书签数据管理，异步数据加载
+  - [ ] `useSearchStore()` - 搜索状态管理，实时搜索结果计算
+
+### 11.3 路由系统建立清单
+- [ ] **Vue Router配置**
+  - [ ] 创建路由配置文件 `src/router/index.ts`
+  - [ ] 实现首页路由 `/`
+  - [ ] 实现文件夹路由 `/folder/:id`
+  - [ ] 配置路由守卫和导航控制
+
+### 11.4 样式系统迁移清单
+- [ ] **SCSS模块化**
+  - [ ] `_variables.scss` - 保持完整的CSS变量系统
+  - [ ] `_breakpoints.scss` - 保持统一断点系统
+  - [ ] `_animations.scss` - 保持所有动画定义
+  - [ ] `main.scss` - 全局样式入口
+  - [ ] 组件级scoped样式 - 每个Vue组件的独立样式
+
+### 11.5 框架特性应用清单
+- [ ] **响应式系统**
+  - [ ] 使用`ref()`和`reactive()`管理组件状态
+  - [ ] 使用`computed()`处理派生数据
+  - [ ] 使用`watch()`监听数据变化
+  - [ ] 消除所有手动DOM操作
+
+- [ ] **组合式API**
+  - [ ] 创建可复用的composables函数
+  - [ ] 使用`<script setup>`语法糖
+  - [ ] 实现逻辑复用和代码组织
+
+- [ ] **模板系统**
+  - [ ] 使用`v-model`实现双向绑定
+  - [ ] 使用`@click`等事件指令
+  - [ ] 使用`v-if`、`v-for`等条件渲染
+  - [ ] 使用插槽(slots)实现组件组合
+
+## 12. 框架化验证标准
+
+### 12.1 技术实现验证
+- [ ] **零手动DOM操作**: 完全使用Vue的声明式语法
+- [ ] **类型安全**: 所有组件和store都有TypeScript类型
+- [ ] **响应式数据流**: 所有状态变化自动触发UI更新
+- [ ] **组件化程度**: 功能模块完全组件化，职责单一
+
+### 12.2 开发体验验证
+- [ ] **热重载**: 代码修改后毫秒级更新
+- [ ] **类型检查**: 开发时实时类型错误提示
+- [ ] **代码提示**: IDE完整的自动补全支持
+- [ ] **调试工具**: Vue DevTools完整支持
+
+### 12.3 性能优化验证
+- [ ] **构建优化**: Vite提供的现代化构建
+- [ ] **代码分割**: 路由级别的懒加载
+- [ ] **Tree Shaking**: 自动移除未使用代码
+- [ ] **响应式优化**: Vue 3的Proxy-based响应式系统
+
+### 12.4 设计一致性验证
+- [ ] **视觉效果**: 与原项目完全一致的外观
+- [ ] **交互体验**: 保持所有原有的交互逻辑
+- [ ] **动画效果**: 所有动画在Vue组件中正常工作
+- [ ] **主题切换**: 完整的双主题支持
+
+## 13. 迁移成功的技术优势
+
+### 13.1 开发效率提升
+- **声明式编程**: Vue模板语法比命令式DOM操作更直观
+- **组件复用**: 可复用的Vue组件减少重复代码
+- **类型安全**: TypeScript在开发时捕获错误，减少调试时间
+- **热重载**: Vite提供毫秒级的开发反馈
+
+### 13.2 代码质量改善
+- **状态管理**: Pinia提供集中式、类型安全的状态管理
+- **组件隔离**: 每个组件职责单一，便于测试和维护
+- **逻辑复用**: Composition API和composables提高代码复用性
+- **类型推导**: 更好的IDE支持和代码智能提示
+
+### 13.3 性能优化收益
+- **响应式系统**: Vue 3的Proxy-based响应式系统性能更优
+- **编译优化**: Vite的现代化构建工具链
+- **按需加载**: 路由级别的代码分割
+- **Tree Shaking**: 自动移除未使用的代码
+
+### 13.4 维护性提升
+- **框架生态**: 丰富的Vue 3生态系统支持
+- **长期支持**: Vue 3的长期维护保证
+- **社区支持**: 活跃的开发者社区
+- **文档完善**: 完整的官方文档和最佳实践
+
+这个Vue 3迁移指南确保了项目能够充分利用现代前端框架的优势，实现从传统JavaScript到现代化Vue 3应用的完整转换，同时完美保持原有的设计和功能体验。rks.ts
+  - [ ] 实现 Pinia stores 和异步数据加载
 
 - [ ] **搜索模块迁移**
-  - [ ] search/index.js → SearchBox.svelte
-  - [ ] Web Workers 适配或转为服务端处理
+  - [ ] search/index.js → SearchBox.vue + stores/search.ts
+  - [ ] 使用Vue的计算属性实现实时搜索
+
+- [ ] **工具模块迁移**
+  - [ ] utils/index.js → utils/index.ts + composables/
+  - [ ] 创建Vue组合式函数(composables)提取可复用逻辑
+
+- [ ] **路由系统建立**
+  - [ ] 创建 Vue Router 配置
+  - [ ] 实现页面视图组件和路由守卫
+
+### 样式迁移清单
+- [ ] **SCSS模块化迁移**
+  - [ ] base.css → _variables.scss (保持CSS变量系统)
+  - [ ] breakpoints.css → _breakpoints.scss (保持断点系统)
+  - [ ] components.css → 分散到各Vue组件的scoped样式
+  - [ ] layout.css → _layout.scss (全局布局样式)
+  - [ ] animations.css → _animations.scss (保持动画系统)
+
+### Vue 3框架特性应用清单
+- [ ] **组件化重构**
+  - [ ] 所有功能模块转换为Vue单文件组件
+  - [ ] 使用Composition API组织组件逻辑
+  - [ ] 实现组件间的props和事件通信
+
+- [ ] **响应式系统应用**
+  - [ ] 使用ref/reactive管理组件状态
+  - [ ] 使用computed处理派生数据
+  - [ ] 使用watch监听数据变化
+
+- [ ] **状态管理现代化**
+  - [ ] 全局状态迁移到Pinia stores
+  - [ ] 实现store之间的数据共享
+  - [ ] 使用TypeScript为store提供类型安全
+
+### 功能验证清单
+- [ ] 侧边栏切换功能通过Vue响应式实现
+- [ ] 主题切换功能通过Pinia store管理
+- [ ] 搜索功能通过计算属性实时响应
+- [ ] 响应式布局通过Vue指令和CSS媒体查询实现
+- [ ] 书签数据加载通过异步组合式函数实现
+- [ ] 面包屑导航通过Vue Router实现
+- [ ] 键盘快捷键通过Vue事件监听实现
+- [ ] 动画效果在Vue组件中正常工作
+
+### Vue 3迁移成功标准
+- [ ] **框架化程度**: 完全消除手动DOM操作，全部使用Vue声明式语法
+- [ ] **类型安全**: 所有组件和store都有完整的TypeScript类型定义
+- [ ] **性能优化**: 利用Vue 3的响应式系统和Vite构建优化
+- [ ] **开发体验**: 支持热重载、类型检查、代码提示等现代开发特性
+- [ ] **设计一致性**: 完美保持原有的视觉效果和用户体验
+
+## 12. 迁移后的技术优势
+
+### 12.1 开发效率提升
+- **热重载**: Vite提供毫秒级的热更新
+- **类型安全**: TypeScript在开发时捕获错误
+- **组件化**: 可复用的Vue组件提高开发效率
+- **声明式**: Vue模板语法比命令式DOM操作更直观
+
+### 12.2 维护性改善
+- **状态管理**: Pinia提供集中式、类型安全的状态管理
+- **组件隔离**: 每个组件职责单一，便于维护
+- **代码复用**: Composition API和composables提高代码复用性
+
+### 12.3 性能优化
+- **响应式系统**: Vue 3的Proxy-based响应式系统性能更优
+- **Tree-shaking**: Vite构建时自动移除未使用代码
+- **代码分割**: 路由级别的懒加载减少初始包大小
+
+这个Vue 3迁移指南确保了项目能够充分利用现代前端框架的优势，同时完美保持原有的设计和功能。rks.ts
+  - [ ] 实现 Pinia stores 和异步数据加载
+
+- [ ] **搜索模块迁移**
+  - [ ] search/index.js → SearchBox.vue + stores/search.ts
+  - [ ] Web Workers 适配或优化为客户端处理
 
 - [ ] **工具模块迁移**
   - [ ] utils/index.js → utils/index.ts
   - [ ] 添加 TypeScript 类型定义
 
 - [ ] **事件监听模块迁移**
-  - [ ] 将事件处理逻辑集成到对应组件
+  - [ ] 将事件处理逻辑集成到对应Vue组件
+
+- [ ] **路由系统建立**
+  - [ ] 创建 Vue Router 配置
+  - [ ] 实现页面视图组件
 
 ### 样式迁移清单
 - [ ] **CSS 模块化迁移**
-  - [ ] base.css → _base.scss
+  - [ ] base.css → _variables.scss
   - [ ] breakpoints.css → _breakpoints.scss
   - [ ] components.css → _components.scss
   - [ ] layout.css → _layout.scss
   - [ ] animations.css → _animations.scss
-  - [ ] theme-toggle.css → 集成到 ThemeToggle.svelte
+  - [ ] theme-toggle.css → 集成到 ThemeToggle.vue
 
 ### 功能验证清单
 - [ ] 侧边栏切换功能正常
