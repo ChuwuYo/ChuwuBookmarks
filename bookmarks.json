@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753634124440,
+    "addDate": 1753807455928,
     "title": "书签栏",
     "children": [
       {
@@ -4589,6 +4589,13 @@
                     "title": "peasoft/NoMoreWalls: 自动抓取合并互联网上的公开节点。",
                     "url": "https://github.com/peasoft/NoMoreWalls",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753635921672,
+                    "title": "11firefly11/fir-proxy: 一个轮换代理的图形化代理池程序",
+                    "url": "https://github.com/11firefly11/fir-proxy",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -5749,6 +5756,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1753634634286,
+                "title": "LZL在线工具——LZL TOOL",
+                "url": "https://lzltool.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=lzltool.cn"
+              },
+              {
+                "type": "link",
                 "addDate": 1704012714000,
                 "title": "MikuTools - 一个轻量的工具集合",
                 "url": "https://tools.miku.ac/",
@@ -5886,6 +5900,90 @@
                 "title": "海拥工具 - 不止于工具",
                 "url": "https://tools.haiyong.site/",
                 "icon": "https://www.google.com/s2/favicons?domain=tools.haiyong.site"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1738151225254,
+            "title": "格式转换",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1730695241367,
+                "title": "rippod/apate: 简洁、快速地对文件进行格式伪装",
+                "url": "https://github.com/rippod/apate",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1722620014110,
+                "title": "Convertr.org",
+                "url": "https://convertr.org/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=convertr.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1738151197431,
+                "title": "Convert document, image, video and audio files online",
+                "url": "https://www.aconvert.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.aconvert.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Web Apps by 123apps - 编辑、转换、创建",
+                "url": "https://123apps.com/cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=123apps.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "CloudConvert",
+                "url": "https://cloudconvert.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=cloudconvert.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "在线超级转换工具 - 免费转换",
+                "url": "https://www.wdku.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.wdku.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1746537186946,
+                "title": "Convert2 - 免费在线各类格式文件相互转换工具集合站",
+                "url": "https://convert2.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=convert2.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1746536847174,
+                "title": "字体格式转换Online @font-face generator — Transfonter",
+                "url": "https://transfonter.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=transfonter.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1746542180108,
+                "title": "图像转换压缩Squish - Batch Browser-based Image Compression",
+                "url": "https://squish.addy.ie/",
+                "icon": "https://www.google.com/s2/favicons?domain=squish.addy.ie"
+              },
+              {
+                "type": "link",
+                "addDate": 1753189716339,
+                "title": "CDKM在线文件转换器",
+                "url": "https://cdkm.com/cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=cdkm.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753634405408,
+                "title": "Convertio — 文件转换器",
+                "url": "https://convertio.co/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=convertio.co"
               }
             ]
           },
@@ -6061,6 +6159,13 @@
                 "title": "TinyPNG – 智能压缩您的WebP、JPEG和PNG图片",
                 "url": "https://tinify.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=tinify.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1753634551005,
+                "title": "JPG转SVG – 在线将JPG文档转换成至SVG",
+                "url": "https://jpg2svg.com/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=jpg2svg.com"
               }
             ]
           },
@@ -7522,83 +7627,6 @@
           },
           {
             "type": "folder",
-            "addDate": 1738151225254,
-            "title": "格式转换",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1730695241367,
-                "title": "rippod/apate: 简洁、快速地对文件进行格式伪装",
-                "url": "https://github.com/rippod/apate",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1722620014110,
-                "title": "Convertr.org",
-                "url": "https://convertr.org/zh/",
-                "icon": "https://www.google.com/s2/favicons?domain=convertr.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1738151197431,
-                "title": "Convert document, image, video and audio files online",
-                "url": "https://www.aconvert.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.aconvert.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Web Apps by 123apps - 编辑、转换、创建",
-                "url": "https://123apps.com/cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=123apps.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "CloudConvert",
-                "url": "https://cloudconvert.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=cloudconvert.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "在线超级转换工具 - 免费转换",
-                "url": "https://www.wdku.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.wdku.net"
-              },
-              {
-                "type": "link",
-                "addDate": 1746537186946,
-                "title": "Convert2 - 免费在线各类格式文件相互转换工具集合站",
-                "url": "https://convert2.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=convert2.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1746536847174,
-                "title": "字体格式转换Online @font-face generator — Transfonter",
-                "url": "https://transfonter.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=transfonter.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1746542180108,
-                "title": "图像转换压缩Squish - Batch Browser-based Image Compression",
-                "url": "https://squish.addy.ie/",
-                "icon": "https://www.google.com/s2/favicons?domain=squish.addy.ie"
-              },
-              {
-                "type": "link",
-                "addDate": 1753189716339,
-                "title": "CDKM在线文件转换器",
-                "url": "https://cdkm.com/cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=cdkm.com"
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1738151264483,
             "title": "文件/病毒检测",
             "children": [
@@ -8959,6 +8987,13 @@
                 "title": "Gitee - 基于 Git 的代码托管和研发协作平台",
                 "url": "https://gitee.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=gitee.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753697955589,
+                "title": "sourcehut hub",
+                "url": "https://sr.ht/",
+                "icon": "https://www.google.com/s2/favicons?domain=sr.ht"
               }
             ]
           },
