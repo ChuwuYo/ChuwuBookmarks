@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753807455928,
+    "addDate": 1753892999958,
     "title": "书签栏",
     "children": [
       {
@@ -6994,7 +6994,7 @@
                   {
                     "type": "folder",
                     "addDate": 1751994267292,
-                    "title": "不常用",
+                    "title": "官方-不常用",
                     "children": [
                       {
                         "type": "link",
@@ -7058,6 +7058,34 @@
                         "title": "跃问",
                         "url": "https://yuewen.cn/chats/new",
                         "icon": "https://www.google.com/s2/favicons?domain=yuewen.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1728988403320,
+                        "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
+                        "url": "https://chat.minimaxi.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "通义",
+                        "url": "https://tongyi.aliyun.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=tongyi.aliyun.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1732031143920,
+                        "title": "DeepSeek - 探索未至之境",
+                        "url": "https://chat.deepseek.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.deepseek.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1717499188488,
+                        "title": "Le Chat - Mistral AI",
+                        "url": "https://chat.mistral.ai/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
                       }
                     ]
                   },
@@ -7120,23 +7148,16 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "通义",
-                    "url": "https://tongyi.aliyun.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=tongyi.aliyun.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
                     "title": "豆包 - 你的智能小助手",
                     "url": "https://www.doubao.com/chat/2801708802",
                     "icon": "https://www.google.com/s2/favicons?domain=www.doubao.com"
                   },
                   {
                     "type": "link",
-                    "addDate": 1732031143920,
-                    "title": "DeepSeek - 探索未至之境",
-                    "url": "https://chat.deepseek.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.deepseek.com"
+                    "addDate": 1753852059840,
+                    "title": "Stepfun国际站",
+                    "url": "https://www.stepfun.com/chats/new",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.stepfun.com"
                   },
                   {
                     "type": "link",
@@ -7144,20 +7165,6 @@
                     "title": "腾讯混元",
                     "url": "https://hunyuan.tencent.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=hunyuan.tencent.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1717499188488,
-                    "title": "Le Chat - Mistral AI",
-                    "url": "https://chat.mistral.ai/chat",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1728988403320,
-                    "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
-                    "url": "https://chat.minimaxi.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
                   }
                 ]
               },
