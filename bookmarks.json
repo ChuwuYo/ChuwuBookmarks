@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753892999958,
+    "addDate": 1753979272322,
     "title": "书签栏",
     "children": [
       {
@@ -1740,6 +1740,13 @@
                     "title": "截图猜动画",
                     "url": "https://lab.magiconch.com/ani-trace/",
                     "icon": "https://www.google.com/s2/favicons?domain=lab.magiconch.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753978907719,
+                    "title": "绘谜 - enazo - 绘谜画猜 - 你画我猜 - 神奇海螺试验场",
+                    "url": "https://enazo.cn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=enazo.cn"
                   }
                 ]
               },
@@ -2160,6 +2167,13 @@
           },
           {
             "type": "link",
+            "addDate": 1753978637784,
+            "title": "秒搜-强大的网盘搜索引擎|百度|阿里|夸克",
+            "url": "https://miaosou.fun/",
+            "icon": "https://www.google.com/s2/favicons?domain=miaosou.fun"
+          },
+          {
+            "type": "link",
             "addDate": 1704012714000,
             "title": "图床Postimages — 免费图片托管 / 图片上传",
             "url": "https://postimages.org/",
@@ -2302,6 +2316,13 @@
                 "title": "Moodist: Ambient Sounds for Focus and Calm",
                 "url": "https://moodist.mvze.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=moodist.mvze.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978730936,
+                "title": "tree.fm – Tune Into Forests From Around The World 🌳🔈",
+                "url": "https://www.tree.fm/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.tree.fm"
               }
             ]
           },
@@ -2323,6 +2344,13 @@
                 "title": "梅洛菲",
                 "url": "https://melofi.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=melofi.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978721036,
+                "title": "Lofi",
+                "url": "https://lofi.co/",
+                "icon": "https://www.google.com/s2/favicons?domain=lofi.co"
               }
             ]
           },
@@ -3030,6 +3058,20 @@
                 "title": "古诗句网_诗词名句大全",
                 "url": "https://www.gushiju.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.gushiju.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978535349,
+                "title": "AsPoem | 现代化诗词学习网站",
+                "url": "https://aspoem.com/zh-Hans",
+                "icon": "https://www.google.com/s2/favicons?domain=aspoem.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978928247,
+                "title": "海棠诗社 - 古诗词的数字桃源",
+                "url": "https://haitang.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=haitang.app"
               }
             ]
           },
@@ -3467,6 +3509,13 @@
                         "title": "DGM | An online sketchnotes for professionals",
                         "url": "https://dgm.sh/",
                         "icon": "https://www.google.com/s2/favicons?domain=dgm.sh"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1753978592384,
+                        "title": "tldraw • very good free whiteboard",
+                        "url": "https://www.tldraw.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.tldraw.com"
                       }
                     ]
                   },
@@ -3650,7 +3699,7 @@
               {
                 "type": "folder",
                 "addDate": 1704014875978,
-                "title": "交流",
+                "title": "社交",
                 "children": [
                   {
                     "type": "link",
@@ -3752,31 +3801,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1730375472884,
-                    "title": "泡泡社区",
-                    "url": "https://liumingye.cn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=liumingye.cn"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1733572504780,
                     "title": " X",
                     "url": "https://x.com/home",
                     "icon": "https://www.google.com/s2/favicons?domain=x.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1735038728411,
-                    "title": "Tuta：免费开启电子邮件、日历和联系人隐私保护功能 | Tuta",
-                    "url": "https://tuta.com/zh-hans",
-                    "icon": "https://www.google.com/s2/favicons?domain=tuta.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "蔷薇花园",
-                    "url": "https://iirose.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=iirose.com"
                   },
                   {
                     "type": "link",
@@ -4106,6 +4134,13 @@
           },
           {
             "type": "link",
+            "addDate": 1748924699975,
+            "title": "dAppCDN - Decentralized Application Content Delivery Network",
+            "url": "https://dappcdn.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=dappcdn.com"
+          },
+          {
+            "type": "link",
             "addDate": 1704012714000,
             "title": "软仓丨RuanCang.Net",
             "url": "https://www.ruancang.net/#/sim",
@@ -4187,13 +4222,6 @@
             "title": "剑二十七 - 精品软件下载",
             "url": "https://www.jian27.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.jian27.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1748924699975,
-            "title": "dAppCDN - Decentralized Application Content Delivery Network",
-            "url": "https://dappcdn.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=dappcdn.com"
           },
           {
             "type": "link",
@@ -4430,6 +4458,27 @@
                 "title": "颜色代码表 - 专业的在线颜色代码转换配色工具网站",
                 "url": "https://www.ysdaima.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.ysdaima.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978292822,
+                "title": "Picular",
+                "url": "https://picular.co/",
+                "icon": "https://www.google.com/s2/favicons?domain=picular.co"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978306874,
+                "title": "Happy Hues - Curated colors in context.",
+                "url": "https://www.happyhues.co/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.happyhues.co"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978308940,
+                "title": "Color Hunt - Color Palettes for Designers and Artists",
+                "url": "https://colorhunt.co/",
+                "icon": "https://www.google.com/s2/favicons?domain=colorhunt.co"
               }
             ]
           },
@@ -4472,6 +4521,13 @@
                 "title": "Lummi — Free AI Stock Images, Illustrations & 3D",
                 "url": "https://www.lummi.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.lummi.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978268886,
+                "title": "NegativeSpace",
+                "url": "https://negativespace.co/",
+                "icon": "https://www.google.com/s2/favicons?domain=negativespace.co"
               }
             ]
           },
@@ -5139,13 +5195,6 @@
             "title": "I2P 匿名网络",
             "url": "https://geti2p.net/zh/",
             "icon": "https://www.google.com/s2/favicons?domain=geti2p.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1746274119641,
-            "title": "找梯子啊",
-            "url": "https://zhaotizi.site/",
-            "icon": "https://www.google.com/s2/favicons?domain=zhaotizi.site"
           },
           {
             "type": "link",
@@ -7256,6 +7305,13 @@
                     "title": "Learn Prompting: Your Guide to Communicating with AI",
                     "url": "https://learnprompting.org/",
                     "icon": "https://www.google.com/s2/favicons?domain=learnprompting.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753978795105,
+                    "title": "Hello from Learning Prompt | Learning Prompt",
+                    "url": "https://learningprompt.wiki/",
+                    "icon": "https://www.google.com/s2/favicons?domain=learningprompt.wiki"
                   }
                 ]
               },
@@ -7440,6 +7496,13 @@
                 "title": "AI-worker: 🌐 A simple Cloudflare Worker - Serverless & Cost-Effective: No need to rent or manage your own server. Cloudflare Workers operate on a serverless model, and the free tier is often sufficient for personal use",
                 "url": "https://github.com/qyjoy/AI-worker",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753979074831,
+                "title": "Visualize what matters with AI | MyLens",
+                "url": "https://mylens.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=mylens.ai"
               }
             ]
           },
@@ -7629,6 +7692,13 @@
                 "title": "Scira AI",
                 "url": "https://scira.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=scira.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978563300,
+                "title": "Devv AI",
+                "url": "https://devv.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=devv.ai"
               }
             ]
           },
@@ -8001,24 +8071,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1715431857268,
-                    "title": "矢量图标和贴纸 - PNG、SVG、EPS、PSD 和 CSS",
-                    "url": "https://www.flaticon.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.flaticon.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1742969893386,
                     "title": "SVG Repo - Free SVG Vectors and Icons",
                     "url": "https://www.svgrepo.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.svgrepo.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1715432025919,
-                    "title": "下载免费矢量、图像和背景|维克特兹",
-                    "url": "https://www.vecteezy.com/free-vector",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.vecteezy.com"
                   },
                   {
                     "type": "link",
@@ -8054,6 +8110,20 @@
                     "title": "开源图标库Lucide",
                     "url": "https://lucide.dev/icons/",
                     "icon": "https://www.google.com/s2/favicons?domain=lucide.dev"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753978375349,
+                    "title": "Free SVG Icons - Laravel",
+                    "url": "https://tablericons.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=tablericons.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753978433558,
+                    "title": "Free icons by first-class designers | Iconstore",
+                    "url": "https://iconstore.co/",
+                    "icon": "https://www.google.com/s2/favicons?domain=iconstore.co"
                   }
                 ]
               },
@@ -9760,6 +9830,34 @@
               },
               {
                 "type": "link",
+                "addDate": 1753979044972,
+                "title": "Memoriam APP 官方网站 - 瞬间即永恒",
+                "url": "https://www.memoriam.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.memoriam.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "蔷薇花园",
+                "url": "https://iirose.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=iirose.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753979153906,
+                "title": "时光邮局 - 给未来的自己写一封信",
+                "url": "https://www.hi2future.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hi2future.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1730375472884,
+                "title": "泡泡社区",
+                "url": "https://liumingye.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=liumingye.cn"
+              },
+              {
+                "type": "link",
                 "addDate": 1704012714000,
                 "title": "时间线 - BOG匿名版 [　^ω^]つロ 干杯~-B岛",
                 "url": "http://bog.ac/f/%E6%97%B6%E9%97%B4%E7%BA%BF",
@@ -10544,6 +10642,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1735038728411,
+                "title": "Tuta：免费开启电子邮件、日历和联系人隐私保护功能 | Tuta",
+                "url": "https://tuta.com/zh-hans",
+                "icon": "https://www.google.com/s2/favicons?domain=tuta.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1753353086524,
                 "title": "多合一邮件客户端-Thunderbird — 解放收件箱",
                 "url": "https://www.thunderbird.net/zh-CN/",
@@ -10785,8 +10890,15 @@
           {
             "type": "folder",
             "addDate": 1720523474122,
-            "title": "日报杂志新闻",
+            "title": "日报杂志新闻热搜快讯",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "首页 | 联合早报网",
+                "url": "https://www.zaobao.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.zaobao.com"
+              },
               {
                 "type": "link",
                 "addDate": 1714118357660,
@@ -10800,13 +10912,6 @@
                 "title": "Niood 杂志",
                 "url": "https://niood.com/zh-CN/",
                 "icon": "https://www.google.com/s2/favicons?domain=niood.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "首页 | 联合早报网",
-                "url": "https://www.zaobao.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.zaobao.com"
               },
               {
                 "type": "link",
@@ -10828,6 +10933,27 @@
                 "title": "量子位 | 追踪人工智能新趋势，报道科技行业新突破",
                 "url": "https://www.qbitai.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.qbitai.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978875064,
+                "title": "多摸鱼 - 全网资讯一站式浏览",
+                "url": "https://duomoyu.com/hot-list",
+                "icon": "https://www.google.com/s2/favicons?domain=duomoyu.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978878050,
+                "title": "什么值得看 - 现在正在发生什么",
+                "url": "https://smzdk.top/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=smzdk.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978885925,
+                "title": "速知吧",
+                "url": "https://suzhi.fun/#/",
+                "icon": "https://www.google.com/s2/favicons?domain=suzhi.fun"
               }
             ]
           },
