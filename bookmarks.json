@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1753979272322,
+    "addDate": 1754151741491,
     "title": "书签栏",
     "children": [
       {
@@ -762,13 +762,6 @@
                 "title": "NyaFun动漫 - 二次元避风港",
                 "url": "https://www.nyadm.org/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.nyadm.org"
-              },
-              {
-                "type": "link",
-                "addDate": 1748315351817,
-                "title": "AniCh - 动漫弹幕网",
-                "url": "https://anich.emmmm.eu.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=anich.emmmm.eu.org"
               }
             ]
           },
@@ -2581,6 +2574,13 @@
                 "addDate": 1713525688140,
                 "title": "coriander_player: Windows端本地音乐播放器，使用Material You配色。Dart (Flutter) + Rust (lofty) + C (bass lib) 多语言项目。绝赞开发中。",
                 "url": "https://github.com/Ferry-200/coriander_player",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754040621795,
+                "title": "jmshrv/finamp：一款 Jellyfin 移动音乐客户端",
+                "url": "https://github.com/jmshrv/finamp",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -4947,13 +4947,6 @@
                 "addDate": 1727076101923,
                 "title": "FlClash: A multi-platform proxy client based on ClashMeta,simple and easy to use, open-source and ad-free.",
                 "url": "https://github.com/chen08209/FlClash",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1738255051532,
-                "title": "SagerNet/sing-box: The universal proxy platform",
-                "url": "https://github.com/SagerNet/sing-box",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
@@ -7368,6 +7361,20 @@
                     "title": "AI Playground | Compare top AI models side-by-side",
                     "url": "https://sdk.vercel.ai/playground",
                     "icon": "https://www.google.com/s2/favicons?domain=sdk.vercel.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754041058949,
+                    "title": "Fireworks AI - Fastest Inference for Generative AI",
+                    "url": "https://fireworks.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=fireworks.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754041071302,
+                    "title": "Together AI – The AI Acceleration Cloud - Fast Inference, Fine-Tuning & Training",
+                    "url": "https://www.together.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.together.ai"
                   }
                 ]
               },
@@ -9101,7 +9108,7 @@
                   {
                     "type": "link",
                     "addDate": 1753202766705,
-                    "title": "主页 | 1805948721@qq.com's Account | Cloudflare",
+                    "title": "主页 Dashboard | Cloudflare",
                     "url": "https://dash.cloudflare.com/109e26dbfe4185a378c3927a1c2ae892",
                     "icon": "https://www.google.com/s2/favicons?domain=dash.cloudflare.com"
                   }
@@ -9454,6 +9461,13 @@
                     "title": "UnoCSS 中文文档",
                     "url": "https://unocss.nodejs.cn/",
                     "icon": "https://www.google.com/s2/favicons?domain=unocss.nodejs.cn"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754040255247,
+                    "title": "Lew Design - For VUE3",
+                    "url": "https://app.tngeek.com/web/lew_ui/#/",
+                    "icon": "https://www.google.com/s2/favicons?domain=app.tngeek.com"
                   }
                 ]
               },
