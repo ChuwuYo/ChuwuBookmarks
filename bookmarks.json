@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1754151741491,
+    "addDate": 1754238964512,
     "title": "书签栏",
     "children": [
       {
@@ -6692,13 +6692,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1746120166183,
-                    "title": "Youtube在线解析",
-                    "url": "https://y2b.455556.xyz/",
-                    "icon": "https://www.google.com/s2/favicons?domain=y2b.455556.xyz"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1748924472703,
                     "title": "MassTube » Homepage",
                     "url": "https://www.masstube.cl/",
@@ -9169,6 +9162,13 @@
                 "title": "DigitalPlat Domain Dashboard",
                 "url": "https://dash.domain.digitalplat.org/auth/login",
                 "icon": "https://www.google.com/s2/favicons?domain=dash.domain.digitalplat.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1754153205689,
+                "title": "Google Firebase",
+                "url": "https://console.firebase.google.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=console.firebase.google.com"
               }
             ]
           },
@@ -10597,6 +10597,13 @@
                 "title": "指数浏览器-中证指数有限公司",
                 "url": "https://www.csindex.com.cn/#/indices/family/list",
                 "icon": "https://www.google.com/s2/favicons?domain=www.csindex.com.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1754151879313,
+                "title": "小财神",
+                "url": "https://cashcat.cn/?studio_code=cashcat&studio_id=114083409957015552&studio_type=2",
+                "icon": "https://www.google.com/s2/favicons?domain=cashcat.cn"
               }
             ]
           },
