@@ -100,7 +100,14 @@ const setupSearchEvents = (debounceSearch) => {
 const setupHomeButton = () => {
     const homeButton = document.querySelector('.home-button');
     if (homeButton) {
+        let isProcessing = false;
+        
         const handleHomeNavigation = () => {
+            // 防止重复点击导致的卡顿
+            if (isProcessing) return;
+            
+            isProcessing = true;
+            
             // 手机端点击主页按钮时自动收起侧栏
             if (isMobileDevice()) {
                 const sidebar = document.querySelector('.sidebar');
@@ -108,7 +115,15 @@ const setupHomeButton = () => {
                     updateSidebarState(sidebar, true);
                 }
             }
-            renderHome();
+            
+            // 使用 requestAnimationFrame 延迟执行渲染，避免阻塞
+            requestAnimationFrame(() => {
+                renderHome();
+                // 确保在下一帧重置状态
+                requestAnimationFrame(() => {
+                    isProcessing = false;
+                });
+            });
         };
 
         homeButton.addEventListener('click', handleHomeNavigation);
