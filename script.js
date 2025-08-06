@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     } catch (error) {
         console.error('初始化错误:', error);
+        setTimeout(() => showErrorMessage(error), 10);
     }
 
     // 初始化所有事件监听器

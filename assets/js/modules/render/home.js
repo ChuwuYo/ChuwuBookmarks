@@ -148,6 +148,10 @@ const renderHome = () => {
     // 彻底清除旧的主页消息，无论它在哪里
     const oldHomeMessage = document.querySelector('.home-message');
     if (oldHomeMessage) {
+        // 清理观察器（如果存在）
+        if (oldHomeMessage.observer) {
+            oldHomeMessage.observer.disconnect();
+        }
         oldHomeMessage.remove();
     }
     
@@ -177,6 +181,27 @@ const renderHome = () => {
         content.appendChild(fragment);
         const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
         adjustHomeMessagePosition(isCollapsed);
+        
+        // 监听侧边栏状态变化，确保主页消息能跟随侧边栏一起移动
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'class') {
+                        // 使用防抖动确保不会过于频繁地调整位置
+                        clearTimeout(homeMessage.adjustPositionTimer);
+                        homeMessage.adjustPositionTimer = setTimeout(() => {
+                            const isCollapsed = sidebar.classList.contains('collapsed');
+                            adjustHomeMessagePosition(isCollapsed);
+                        }, 50);
+                    }
+                });
+            });
+            observer.observe(sidebar, { attributes: true });
+            
+            // 保存观察器引用，以便在元素移除时断开连接
+            homeMessage.observer = observer;
+        }
     }
     
     adjustSearchContainerPosition();
