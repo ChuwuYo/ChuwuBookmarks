@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1754323244941,
+    "addDate": 1754497731550,
     "title": "书签栏",
     "children": [
       {
@@ -526,6 +526,20 @@
             "title": "芯幻 – 次元★一个ACG小圈子ovo!",
             "url": "https://xhcys.com/",
             "icon": "https://www.google.com/s2/favicons?domain=xhcys.com"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "addDate": 1704014875955,
+        "title": "杂货",
+        "children": [
+          {
+            "type": "link",
+            "addDate": 1754459902880,
+            "title": "Home | Iwara",
+            "url": "https://www.iwara.tv/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.iwara.tv"
           }
         ]
       },
@@ -7023,6 +7037,27 @@
                         "title": "LibreChat",
                         "url": "https://librechat-librechat.hf.space/c/new",
                         "icon": "https://www.google.com/s2/favicons?domain=librechat-librechat.hf.space"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754448916138,
+                        "title": "T3 Chat",
+                        "url": "https://t3.chat/",
+                        "icon": "https://www.google.com/s2/favicons?domain=t3.chat"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754496728469,
+                        "title": "Lambda Chat",
+                        "url": "https://lambda.chat/",
+                        "icon": "https://www.google.com/s2/favicons?domain=lambda.chat"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754496816089,
+                        "title": "flowith 2.0 - Your AI Creation Workspace, with Knowledge",
+                        "url": "https://flowith.io/blank",
+                        "icon": "https://www.google.com/s2/favicons?domain=flowith.io"
                       }
                     ]
                   },
@@ -7031,6 +7066,20 @@
                     "addDate": 1751994267292,
                     "title": "官方-不常用",
                     "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1753852059840,
+                        "title": "Stepfun国际站",
+                        "url": "https://www.stepfun.com/chats/new",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.stepfun.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1720535146369,
+                        "title": "跃问",
+                        "url": "https://yuewen.cn/chats/new",
+                        "icon": "https://www.google.com/s2/favicons?domain=yuewen.cn"
+                      },
                       {
                         "type": "link",
                         "addDate": 1752334450574,
@@ -7068,6 +7117,13 @@
                       },
                       {
                         "type": "link",
+                        "addDate": 1754497226810,
+                        "title": "Sensechat - AI生活好幫手",
+                        "url": "https://chat.sensetime.hk/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.sensetime.hk"
+                      },
+                      {
+                        "type": "link",
                         "addDate": 1751993701532,
                         "title": "AI21 Studio",
                         "url": "https://studio.ai21.com/v2",
@@ -7079,20 +7135,6 @@
                         "title": "Dashboard | Cohere - CommandR",
                         "url": "https://dashboard.cohere.com/",
                         "icon": "https://www.google.com/s2/favicons?domain=dashboard.cohere.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1752334591662,
-                        "title": "讯飞星火",
-                        "url": "https://xinghuo.xfyun.cn/desk",
-                        "icon": "https://www.google.com/s2/favicons?domain=xinghuo.xfyun.cn"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1720535146369,
-                        "title": "跃问",
-                        "url": "https://yuewen.cn/chats/new",
-                        "icon": "https://www.google.com/s2/favicons?domain=yuewen.cn"
                       },
                       {
                         "type": "link",
@@ -7121,6 +7163,20 @@
                         "title": "Le Chat - Mistral AI",
                         "url": "https://chat.mistral.ai/chat",
                         "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754497147718,
+                        "title": "01.ai | 万知 I 提问、搜索、想写什么通通问万知",
+                        "url": "https://www.wanzhi.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.wanzhi.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1752334591662,
+                        "title": "讯飞星火",
+                        "url": "https://xinghuo.xfyun.cn/desk",
+                        "icon": "https://www.google.com/s2/favicons?domain=xinghuo.xfyun.cn"
                       }
                     ]
                   },
@@ -7186,13 +7242,6 @@
                     "title": "豆包 - 你的智能小助手",
                     "url": "https://www.doubao.com/chat/2801708802",
                     "icon": "https://www.google.com/s2/favicons?domain=www.doubao.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1753852059840,
-                    "title": "Stepfun国际站",
-                    "url": "https://www.stepfun.com/chats/new",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.stepfun.com"
                   },
                   {
                     "type": "link",
@@ -7308,6 +7357,13 @@
                 "children": [
                   {
                     "type": "link",
+                    "addDate": 1751388271728,
+                    "title": "橘鸦Juya整理的大模型免费API",
+                    "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
+                    "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1744450111875,
                     "title": "OpenRouter",
                     "url": "https://openrouter.ai/",
@@ -7315,10 +7371,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1751384095383,
-                    "title": "Novita AI",
-                    "url": "https://novita.ai/console",
-                    "icon": "https://www.google.com/s2/favicons?domain=novita.ai"
+                    "addDate": 1749088733815,
+                    "title": "Cerebras Cloud",
+                    "url": "https://cloud.cerebras.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
                   },
                   {
                     "type": "link",
@@ -7329,10 +7385,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1751388271728,
-                    "title": "橘鸦Juya整理的大模型免费API",
-                    "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
-                    "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                    "addDate": 1751384095383,
+                    "title": "Novita AI",
+                    "url": "https://novita.ai/console",
+                    "icon": "https://www.google.com/s2/favicons?domain=novita.ai"
                   },
                   {
                     "type": "link",
@@ -7340,13 +7396,6 @@
                     "title": "SambaNova Cloud",
                     "url": "https://cloud.sambanova.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=cloud.sambanova.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1749088733815,
-                    "title": "Cerebras Cloud",
-                    "url": "https://cloud.cerebras.ai/platform/org_djf43m6j39kymnrerktn6mrt/playground?onboarding=false",
-                    "icon": "https://www.google.com/s2/favicons?domain=cloud.cerebras.ai"
                   },
                   {
                     "type": "link",
@@ -7368,6 +7417,27 @@
                     "title": "Together AI – The AI Acceleration Cloud - Fast Inference, Fine-Tuning & Training",
                     "url": "https://www.together.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.together.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754403654822,
+                    "title": "TokenFlux",
+                    "url": "https://tokenflux.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=tokenflux.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754409352590,
+                    "title": "AiHubMix",
+                    "url": "https://aihubmix.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=aihubmix.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754409436256,
+                    "title": "New API",
+                    "url": "https://www.newapi.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.newapi.ai"
                   }
                 ]
               },
@@ -7454,13 +7524,6 @@
                 "title": "OfficeAI助手",
                 "url": "https://office-ai.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=office-ai.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1732458081051,
-                "title": "Harry-zklcdc/go-proxy-bingai: 用 Vue3 和 Go 搭建的微软 New Bing 演示站点，拥有一致的 UI 体验，支持 ChatGPT 提示词，支持 API 调用，国内可用。",
-                "url": "https://github.com/Harry-zklcdc/go-proxy-bingai",
-                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
@@ -9022,6 +9085,20 @@
                 "title": "Docker Hub Container Image Library | App Containerization",
                 "url": "https://hub.docker.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=hub.docker.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754327435035,
+                "title": "Google for Developers - 从 AI 和云到移动和 Web",
+                "url": "https://developers.google.com/?hl=zh-cn",
+                "icon": "https://www.google.com/s2/favicons?domain=developers.google.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754402758364,
+                "title": "n8n - AI Workflow Automation Platform & Tools",
+                "url": "https://n8n.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=n8n.io"
               }
             ]
           },
@@ -11208,13 +11285,6 @@
             "title": "天机阁·AI紫微斗数命理推演系统｜AI精准八字测算",
             "url": "https://tjg.aifeisheng.com/",
             "icon": "https://www.google.com/s2/favicons?domain=tjg.aifeisheng.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1746594290632,
-            "title": "这就是VV;表情包",
-            "url": "https://vv.cicada000.work/",
-            "icon": "https://www.google.com/s2/favicons?domain=vv.cicada000.work"
           },
           {
             "type": "link",
