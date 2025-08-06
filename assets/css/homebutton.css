@@ -21,6 +21,10 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    /* 添加硬件加速优化 */
+    will-change: transform, box-shadow, border-radius;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 /* 主页按钮悬停效果 - 仅在PC端生效 */
@@ -30,6 +34,8 @@
         border-radius: 18px;
         transform: translateY(-2px);
         transition: var(--duration-medium) var(--ease-default);
+        /* 添加硬件加速优化 */
+        will-change: transform, box-shadow, border-radius;
     }
 }
 
@@ -40,6 +46,10 @@
     color: var(--text-color);
     fill: none;
     transition: transform var(--duration-medium) var(--ease-default), color var(--duration-medium) var(--ease-default);
+    /* 添加硬件加速优化 */
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 
@@ -59,5 +69,7 @@
     background: linear-gradient(to bottom, #9ee9f4d8, #d1d1f3a5);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     outline: none;
+    /* 添加硬件加速优化 */
+    will-change: auto;
   }
 }
