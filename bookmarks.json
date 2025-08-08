@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1754497731550,
+    "addDate": 1754674786686,
     "title": "书签栏",
     "children": [
       {
@@ -1870,6 +1870,27 @@
             "title": "免费加速器排行榜-游戏/网游/手游加速器排行榜「加速器排行榜」",
             "url": "https://www.kayuwang.com/rank/",
             "icon": "https://www.google.com/s2/favicons?domain=www.kayuwang.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1754646097937,
+            "title": "欢迎来到 GOG.com | 最好的 DRM-free 游戏",
+            "url": "https://www.gog.com/zh/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.gog.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1754646127630,
+            "title": "Steam",
+            "url": "https://store.steampowered.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=store.steampowered.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1754646145429,
+            "title": "Epic Games Store | Download & Play PC Games, Mods, DLC & More – Epic Games",
+            "url": "https://store.epicgames.com/en-US",
+            "icon": "https://www.google.com/s2/favicons?domain=store.epicgames.com"
           }
         ]
       },
@@ -4839,13 +4860,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1751382206192,
-                "title": "Home - 呆鹅云",
-                "url": "https://fws.trysillygoose.xyz/#/home",
-                "icon": "https://www.google.com/s2/favicons?domain=fws.trysillygoose.xyz"
-              },
-              {
-                "type": "link",
                 "addDate": 1751382374834,
                 "title": "纸巾云",
                 "url": "https://okt.getpapercloud.xyz/#/login",
@@ -5123,6 +5137,13 @@
                 "title": "Homepage - WebBrowserTools",
                 "url": "https://webbrowsertools.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=webbrowsertools.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754635527860,
+                "title": "ping0.cc(无法直连)",
+                "url": "https://www.ping0.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ping0.cc"
               }
             ]
           },
@@ -7124,13 +7145,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1751993701532,
-                        "title": "AI21 Studio",
-                        "url": "https://studio.ai21.com/v2",
-                        "icon": "https://www.google.com/s2/favicons?domain=studio.ai21.com"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1751994180710,
                         "title": "Dashboard | Cohere - CommandR",
                         "url": "https://dashboard.cohere.com/",
@@ -7438,6 +7452,27 @@
                     "title": "New API",
                     "url": "https://www.newapi.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.newapi.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754636030627,
+                    "title": "New API - aliyahzombie(无水硫酸铜)",
+                    "url": "https://newapi.aliyahzombie.top/console",
+                    "icon": "https://www.google.com/s2/favicons?domain=newapi.aliyahzombie.top"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754636770861,
+                    "title": "New API波波公益站",
+                    "url": "https://for.shuo.bar/pricing",
+                    "icon": "https://www.google.com/s2/favicons?domain=for.shuo.bar"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754637905732,
+                    "title": "23公益站",
+                    "url": "https://sdwfger.edu.kg/console",
+                    "icon": "https://www.google.com/s2/favicons?domain=sdwfger.edu.kg"
                   }
                 ]
               },
@@ -8904,10 +8939,24 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1752685712655,
+                    "title": "kirodotdev/Kiro: Kiro is an agentic IDE that works alongside you from prototype to production.",
+                    "url": "https://github.com/kirodotdev/Kiro",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1743082557432,
                     "title": "Android Studio 和应用工具 - Android 开发者  |  Android Developers",
                     "url": "https://developer.android.com/studio?hl=zh-cn",
                     "icon": "https://www.google.com/s2/favicons?domain=developer.android.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1753353002388,
+                    "title": "phcode-dev/phoenix: The text editor designed to make coding as simple and fun as playing a video game",
+                    "url": "https://github.com/phcode-dev/phoenix",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
                     "type": "link",
@@ -8918,24 +8967,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1752685712655,
-                    "title": "kirodotdev/Kiro: Kiro is an agentic IDE that works alongside you from prototype to production.",
-                    "url": "https://github.com/kirodotdev/Kiro",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1704012714000,
                     "title": "DCloud - HBuilder、HBuilderX、uni-app、uniapp、5+、5plus、mui、wap2app、流应用、HTML5、小程序开发、跨平台App、多端框架",
                     "url": "https://dcloud.io/",
                     "icon": "https://www.google.com/s2/favicons?domain=dcloud.io"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1753353002388,
-                    "title": "phcode-dev/phoenix: The text editor designed to make coding as simple and fun as playing a video game",
-                    "url": "https://github.com/phcode-dev/phoenix",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
