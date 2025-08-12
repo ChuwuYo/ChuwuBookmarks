@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1754842388232,
+    "addDate": 1755013879217,
     "title": "书签栏",
     "children": [
       {
@@ -9594,6 +9594,34 @@
                     "title": "Lew Design - For VUE3",
                     "url": "https://app.tngeek.com/web/lew_ui/#/",
                     "icon": "https://www.google.com/s2/favicons?domain=app.tngeek.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754989344714,
+                    "title": "MUI: The React component library you always wanted",
+                    "url": "https://mui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=mui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754989390907,
+                    "title": "Float UI - Free open source Tailwind UI components & Templates",
+                    "url": "https://floatui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=floatui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754989392959,
+                    "title": "Floating UI - Create tooltips, popovers, dropdowns, and more",
+                    "url": "https://floating-ui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=floating-ui.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1754989452550,
+                    "title": "Chakra UI",
+                    "url": "https://chakra-ui.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=chakra-ui.com"
                   }
                 ]
               },
@@ -10789,6 +10817,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1753355582465,
+                "title": "自动邮件发送 Resend",
+                "url": "https://resend.com/onboarding",
+                "icon": "https://www.google.com/s2/favicons?domain=resend.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1735038728411,
                 "title": "Tuta：免费开启电子邮件、日历和联系人隐私保护功能 | Tuta",
                 "url": "https://tuta.com/zh-hans",
@@ -10835,13 +10870,6 @@
                 "title": "Proton Mail",
                 "url": "https://mail.proton.me/u/0/inbox",
                 "icon": "https://www.google.com/s2/favicons?domain=mail.proton.me"
-              },
-              {
-                "type": "link",
-                "addDate": 1753355582465,
-                "title": "自动邮件发送 Resend",
-                "url": "https://resend.com/onboarding",
-                "icon": "https://www.google.com/s2/favicons?domain=resend.com"
               }
             ]
           },
