@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1755198603061,
+    "addDate": 1755274891405,
     "title": "书签栏",
     "children": [
       {
@@ -945,6 +945,20 @@
             "addDate": 1704014875979,
             "title": "游戏工具",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1752249604822,
+                "title": "dyang886/Game-Cheats-Manager: Easily download and manage game cheats for your convenience",
+                "url": "https://github.com/dyang886/Game-Cheats-Manager",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "FLiNG Trainer - PC Game Cheats and Mods",
+                "url": "https://flingtrainer.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=flingtrainer.com"
+              },
               {
                 "type": "link",
                 "addDate": 1704012714000,
@@ -1893,18 +1907,46 @@
             ]
           },
           {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "EA 協助中心：官方支援",
-            "url": "https://myaccount.ea.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=myaccount.ea.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "拳头帐号管理",
-            "url": "https://account.riotgames.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=account.riotgames.com"
+            "type": "folder",
+            "addDate": 1755274801354,
+            "title": "正版平台",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1754646127630,
+                "title": "Steam",
+                "url": "https://store.steampowered.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=store.steampowered.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754646145429,
+                "title": "Epic Games Store | Download & Play PC Games, Mods, DLC & More – Epic Games",
+                "url": "https://store.epicgames.com/en-US",
+                "icon": "https://www.google.com/s2/favicons?domain=store.epicgames.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1754646097937,
+                "title": "欢迎来到 GOG.com | 最好的 DRM-free 游戏",
+                "url": "https://www.gog.com/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.gog.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "EA 協助中心：官方支援",
+                "url": "https://myaccount.ea.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=myaccount.ea.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "拳头帐号管理",
+                "url": "https://account.riotgames.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=account.riotgames.com"
+              }
+            ]
           },
           {
             "type": "link",
@@ -1926,27 +1968,6 @@
             "title": "免费加速器排行榜-游戏/网游/手游加速器排行榜「加速器排行榜」",
             "url": "https://www.kayuwang.com/rank/",
             "icon": "https://www.google.com/s2/favicons?domain=www.kayuwang.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1754646097937,
-            "title": "欢迎来到 GOG.com | 最好的 DRM-free 游戏",
-            "url": "https://www.gog.com/zh/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.gog.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1754646127630,
-            "title": "Steam",
-            "url": "https://store.steampowered.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=store.steampowered.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1754646145429,
-            "title": "Epic Games Store | Download & Play PC Games, Mods, DLC & More – Epic Games",
-            "url": "https://store.epicgames.com/en-US",
-            "icon": "https://www.google.com/s2/favicons?domain=store.epicgames.com"
           }
         ]
       },
@@ -3287,6 +3308,20 @@
                     "title": "FileConverter: File Converter is a very simple tool which allows you to convert and compress files using the context menu in windows explorer.",
                     "url": "https://github.com/Tichau/FileConverter",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1755250672240,
+                    "title": "Sonar | SteelSeries",
+                    "url": "https://cn.steelseries.com/gg/sonar",
+                    "icon": "https://www.google.com/s2/favicons?domain=cn.steelseries.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1709641770992,
+                    "title": "Boost Volume and Sound Quality on Your PC - FxSound",
+                    "url": "https://www.fxsound.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.fxsound.com"
                   }
                 ]
               },
@@ -6411,13 +6446,6 @@
                 "title": "ACE Studio | 先进的AI歌声合成软件",
                 "url": "https://ace-studio.timedomain.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=ace-studio.timedomain.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1709641770992,
-                "title": "Boost Volume and Sound Quality on Your PC - FxSound",
-                "url": "https://www.fxsound.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.fxsound.com"
               },
               {
                 "type": "link",
