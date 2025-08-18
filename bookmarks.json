@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1755274891405,
+    "addDate": 1755538484393,
     "title": "书签栏",
     "children": [
       {
@@ -1564,16 +1564,16 @@
               {
                 "type": "link",
                 "addDate": 1713423809265,
-                "title": "青桔网引导页",
-                "url": "https://acgus.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=acgus.top"
+                "title": "青桔网",
+                "url": "https://www.qingju.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.qingju.org"
               },
               {
                 "type": "link",
                 "addDate": 1713423859157,
                 "title": "宅方社 – 专注于ACG领域的资源交流社区(　ﾟ∀ﾟ) ﾉ♡",
-                "url": "https://www.zfsya.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.zfsya.com"
+                "url": "https://www.zfsya1.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.zfsya1.com"
               },
               {
                 "type": "link",
@@ -1586,15 +1586,15 @@
                 "type": "link",
                 "addDate": 1716013890419,
                 "title": "Hikarinagi - 一个ACGN文化社区",
-                "url": "https://www.hikarinagi.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.hikarinagi.net"
+                "url": "https://www.hikarinagi.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.hikarinagi.cc"
               },
               {
                 "type": "link",
                 "addDate": 1722685285948,
                 "title": "Galgamex --一个二次元和galgame游戏资源交流社区 一个二次元交流社区",
-                "url": "https://galgamex.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=galgamex.com"
+                "url": "https://www.galgamex.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.galgamex.net"
               },
               {
                 "type": "link",
@@ -1607,8 +1607,8 @@
                 "type": "link",
                 "addDate": 1722685543522,
                 "title": "Galgame月谣",
-                "url": "https://www.sayafx.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.sayafx.top"
+                "url": "https://www.sayafx.vip/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.sayafx.vip"
               },
               {
                 "type": "link",
@@ -7340,6 +7340,20 @@
                     "title": "腾讯混元",
                     "url": "https://hunyuan.tencent.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=hunyuan.tencent.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1755538211521,
+                    "title": "Microsoft Copilot: Your AI companion",
+                    "url": "https://copilot.microsoft.com/chats/F1C2WSwhSGC3eyerFCDSb",
+                    "icon": "https://www.google.com/s2/favicons?domain=copilot.microsoft.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1755538237851,
+                    "title": "GitHub Copilot",
+                    "url": "https://github.com/copilot",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -11363,10 +11377,24 @@
               },
               {
                 "type": "link",
+                "addDate": 1755538357257,
+                "title": "Skyscanner天巡",
+                "url": "https://www.tianxun.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.tianxun.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1730714787991,
                 "title": "Trip.com官方網站：全球機票、酒店，高鐵網上預訂",
                 "url": "https://hk.trip.com/?locale=zh_hk&curr=CNY",
                 "icon": "https://www.google.com/s2/favicons?domain=hk.trip.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1752249457406,
+                "title": "爱彼迎 | 度假屋、小木屋、海滨住宅等",
+                "url": "https://www.airbnb.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.airbnb.cn"
               },
               {
                 "type": "link",
@@ -11377,10 +11405,24 @@
               },
               {
                 "type": "link",
-                "addDate": 1752249457406,
-                "title": "爱彼迎 | 度假屋、小木屋、海滨住宅等",
-                "url": "https://www.airbnb.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.airbnb.cn"
+                "addDate": 1755538392054,
+                "title": "Booking.com | 官网 | 优质酒店，机票，租车和住宿",
+                "url": "https://www.booking.com/index.zh-cn.html?label=gen173bo-10CAEoggI46AdIK1gDaHWIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGYAgKoAgG4AsrJjcUGwAIB0gIkZWY4MmMwNDctNjI0OC00MmQ0LWIxYWItYmU4NWE2MTk2YzVl2AIB4AIB&sid=093fd216b09e82b9e51d4bfa47226549&lang_changed=1&sb_price_type=total&selected_currency=CNY",
+                "icon": "https://www.google.com/s2/favicons?domain=www.booking.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1755538428925,
+                "title": "Tripadvisor： 十亿多条关于酒店、景点、餐厅等类型的点评和分享",
+                "url": "https://cn.tripadvisor.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=cn.tripadvisor.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1755538477572,
+                "title": "Klook 客路 - 景点门票、交通安排、一日游、酒店住宿、租车及精彩旅游体验",
+                "url": "https://www.klook.com/zh-CN/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.klook.com"
               }
             ]
           },
