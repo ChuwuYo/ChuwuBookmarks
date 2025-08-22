@@ -27,7 +27,7 @@
     .sidebar {
         z-index: 1001;
         left: -220px;
-        transition: left var(--duration-base) var(--ease-in-out-cubic);
+        transition: left var(--duration-short) var(--ease-in-out-cubic);
     }
     .sidebar:not(.collapsed) {
         left: 0;

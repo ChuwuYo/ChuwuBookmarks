@@ -43,8 +43,8 @@ const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) =>
             folderElements.forEach((folder, index) => {
                 gsap.to(folder, {
                     opacity: 1,
-                    delay: index * 0.05,
-                    duration: animationConfig.duration.medium,
+                    delay: index * 0.02, // 减少延迟时间
+                    duration: 0.1, // 直接使用更短的时长
                     ease: animationConfig.ease.outQuad
                 });
             });
@@ -88,23 +88,22 @@ const adjustSearchContainerPosition = () => {
     const searchInput = document.getElementById('search-input');
     if (!searchContainer || !searchInput) return;
 
-    requestAnimationFrame(() => {
-        const deviceType = getDeviceType();
-        if (deviceType === 'mobile') {
-            searchContainer.style.removeProperty('--search-container-centering-offset');
-            return;
-        }
+    // 移除requestAnimationFrame延迟，直接执行
+    const deviceType = getDeviceType();
+    if (deviceType === 'mobile') {
+        searchContainer.style.removeProperty('--search-container-centering-offset');
+        return;
+    }
 
-        const searchInputOffsetLeft = searchInput.offsetLeft;
-        const searchInputWidth = searchInput.offsetWidth;
-        const searchContainerWidth = searchContainer.offsetWidth;
-        
-        const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
-        
-        if (shiftInPx !== 0) {
-            searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
-        }
-    });
+    const searchInputOffsetLeft = searchInput.offsetLeft;
+    const searchInputWidth = searchInput.offsetWidth;
+    const searchContainerWidth = searchContainer.offsetWidth;
+
+    const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
+
+    if (shiftInPx !== 0) {
+        searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+    }
 };
 
 // 封装侧边栏状态管理
