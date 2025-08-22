@@ -44,7 +44,7 @@ const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) =>
                 gsap.to(folder, {
                     opacity: 1,
                     delay: index * 0.05, // 减少延迟时间
-                    duration: 0.5,
+                    duration: animationConfig.duration.medium,
                     ease: animationConfig.ease.outQuad
                 });
             });
