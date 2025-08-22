@@ -284,6 +284,9 @@
         user-select: none;
         contain: layout;
         outline: none;
+        /* 优化动画性能 */
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
     }
     .home-message {
         left: 50%;
@@ -300,21 +303,11 @@
         transform-style: preserve-3d;
         content-visibility: auto;
         outline: none;
-    }
-}
-
-/* 侧栏状态切换时的平滑过渡 */
-@media screen and (min-width: 1024px) {
-    /* 优化过渡动画，减少抖动 */
-    .search-container,
-    .home-message {
-        will-change: transform;
+        /* 优化动画性能 */
         backface-visibility: hidden;
-        transform-style: preserve-3d;
-        transition: transform var(--duration-base) var(--ease-in-out-cubic);
     }
 
-    /* 侧栏折叠时的居中逻辑 */
+    /* 侧栏折叠时的居中逻辑 - 直接覆盖默认样式 */
     .sidebar.collapsed + .main-content .search-container {
         transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
     }
