@@ -115,6 +115,7 @@ const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 
 const handleDeviceView = () => {
     const sidebar = document.querySelector('.sidebar');
+    const toggleButton = document.getElementById('toggle-sidebar');
     const deviceType = getDeviceType();
     const shouldCollapse = shouldCollapseSidebar();
     
@@ -123,6 +124,7 @@ const handleDeviceView = () => {
     
     // 标记JavaScript已初始化，禁用CSS默认状态
     sidebar.classList.add('js-initialized');
+    toggleButton.classList.add('js-initialized');
     
     // 设置初始状态
     updateSidebarState(sidebar, shouldCollapse, true);
