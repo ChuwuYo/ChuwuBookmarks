@@ -21,6 +21,7 @@
 }
 
 /* 小于1024px时默认收起侧边栏 */
+/* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
     .sidebar:not(.js-initialized) {
         width: 0;
