@@ -12,12 +12,17 @@
     font-size: 1.3rem;
     user-select: none;
     outline: none;
-    transition: all var(--duration-medium) var(--ease-out-quad);
-    will-change: transform, background-color, box-shadow;
-    contain: layout;
+    transition: transform var(--duration-short) var(--ease-out-quad), background-color var(--duration-short) var(--ease-out-quad), box-shadow var(--duration-short) var(--ease-out-quad);
+    will-change: transform;
+    contain: layout size;
     transform: translateZ(0);
-    box-sizing: content-box;
-    transform-origin: center center;
+    box-sizing: border-box;
+    transform-origin: left center;
+    width: 48px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -25,15 +30,11 @@
     width: 24px;
     height: 24px;
     color: var(--text-color);
-    transition: color var(--duration-medium) var(--ease-default), transform var(--duration-medium) var(--ease-default);
+    transition: color var(--duration-short) var(--ease-default), transform var(--duration-short) var(--ease-default);
     display: none;
     /* 默认隐藏所有图标 */
-    position: relative;
-    /* 添加定位上下文 */
-    top: 0;
-    /* 重置垂直位置 */
-    left: 0;
-    /* 重置水平位置 */
+    flex-shrink: 0;
+    will-change: transform;
 }
 
 /* 根据侧边栏状态显示对应图标 */
@@ -52,18 +53,37 @@
     #toggle-sidebar:hover {
         background-color: var(--button-hover);
         box-shadow: var(--theme-shadow-hover);
-        transform: translateZ(0) scale(1.05);
     }
 
     #toggle-sidebar:hover img {
         transform: scale(1.1);
-        transition: transform var(--duration-medium) var(--ease-out-quad);
+        transition: transform var(--duration-short) var(--ease-out-quad);
+    }
+    
+    .sidebar:not(.collapsed) #toggle-sidebar:hover {
+        transform: translateX(160px) translateZ(0);
     }
 }
 
+
+
 .sidebar:not(.collapsed) #toggle-sidebar {
-    left: 160px;
+    transform: translateX(160px) translateZ(0);
     border-radius: 15px;
+}
+
+.sidebar.collapsed #toggle-sidebar {
+    transform: translateZ(0);
+    border-radius: 0 15px 15px 0;
+}
+
+/* 小于1024px时，侧栏收起状态下按钮保持在左边 */
+/* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
+@media screen and (max-width: 1023px) {
+    .sidebar.collapsed #toggle-sidebar {
+        transform: translateZ(0);
+        border-radius: 0 15px 15px 0;
+    }
 }
 
 /* 聚焦样式 */

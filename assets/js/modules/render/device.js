@@ -4,25 +4,26 @@
 
 import { animationConfig } from './theme.js';
 
-// 统一断点系统 - 单一断点值
-const BREAKPOINT = 1024;
+// 断点系统 - 移动端样式断点和侧栏收起断点分离
+const BREAKPOINT_MOBILE = 480;  // 移动端样式断点
+const BREAKPOINT_SIDEBAR = 1024; // 侧栏收起断点
 
 const getDeviceType = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     // 手机设备（包括横屏）优先使用移动端样式
-    if (isTouchDevice && (width < BREAKPOINT || height < 600)) {
+    if (isTouchDevice && (width < BREAKPOINT_MOBILE || height < 600)) {
         return 'mobile';
     }
-    
-    return width < BREAKPOINT ? 'mobile' : 'desktop';
+
+    return width < BREAKPOINT_MOBILE ? 'mobile' : 'desktop';
 };
 
 const isMobileDevice = () => getDeviceType() === 'mobile';
 const isDesktopDevice = () => getDeviceType() === 'desktop';
-const shouldCollapseSidebar = () => getDeviceType() === 'mobile';
+const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 
 // 更新侧边栏状态的函数
 const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) => {
@@ -42,7 +43,7 @@ const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) =>
             folderElements.forEach((folder, index) => {
                 gsap.to(folder, {
                     opacity: 1,
-                    delay: index * 0.05,
+                    delay: index * 0.05, // 减少延迟时间
                     duration: animationConfig.duration.medium,
                     ease: animationConfig.ease.outQuad
                 });
@@ -62,22 +63,22 @@ const checkBreadcrumbsScroll = () => {
     breadcrumbs.classList.toggle('scrollable', isScrollable);
 };
 
-// 调整主页消息位置
+// 调整主页消息位置 - 简化逻辑，避免与CSS过渡冲突
 const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
     if (!homeMessage) return;
 
     const deviceType = getDeviceType();
     if (deviceType === 'mobile') {
-        // 移动端始终居中
+        // 移动端：设置固定位置
         homeMessage.style.left = '50%';
         homeMessage.style.transform = 'translate(-50%, -50%)';
         homeMessage.style.top = '45%';
     } else {
-        // PC端根据侧边栏状态调整
-        homeMessage.style.left = '';
-        homeMessage.style.transform = '';
-        homeMessage.style.top = '';
+        // PC端：完全由CSS控制，清除所有内联样式
+        homeMessage.style.removeProperty('left');
+        homeMessage.style.removeProperty('transform');
+        homeMessage.style.removeProperty('top');
     }
 };
 
@@ -87,23 +88,22 @@ const adjustSearchContainerPosition = () => {
     const searchInput = document.getElementById('search-input');
     if (!searchContainer || !searchInput) return;
 
-    requestAnimationFrame(() => {
-        const deviceType = getDeviceType();
-        if (deviceType === 'mobile') {
-            searchContainer.style.removeProperty('--search-container-centering-offset');
-            return;
-        }
+    // 移除requestAnimationFrame延迟，直接执行
+    const deviceType = getDeviceType();
+    if (deviceType === 'mobile') {
+        searchContainer.style.removeProperty('--search-container-centering-offset');
+        return;
+    }
 
-        const searchInputOffsetLeft = searchInput.offsetLeft;
-        const searchInputWidth = searchInput.offsetWidth;
-        const searchContainerWidth = searchContainer.offsetWidth;
-        
-        const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
-        
-        if (shiftInPx !== 0) {
-            searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
-        }
-    });
+    const searchInputOffsetLeft = searchInput.offsetLeft;
+    const searchInputWidth = searchInput.offsetWidth;
+    const searchContainerWidth = searchContainer.offsetWidth;
+
+    const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
+
+    if (shiftInPx !== 0) {
+        searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+    }
 };
 
 // 封装侧边栏状态管理
@@ -115,18 +115,24 @@ const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 
 const handleDeviceView = () => {
     const sidebar = document.querySelector('.sidebar');
+    const toggleButton = document.getElementById('toggle-sidebar');
     const deviceType = getDeviceType();
     const shouldCollapse = shouldCollapseSidebar();
     
     document.body.classList.toggle('mobile-device', deviceType === 'mobile');
     document.body.classList.toggle('desktop-device', deviceType === 'desktop');
     
-    // 视口变化时跳过动画，避免重新渲染
+    // 标记JavaScript已初始化，禁用CSS默认状态
+    sidebar.classList.add('js-initialized');
+    toggleButton.classList.add('js-initialized');
+    
+    // 设置初始状态
     updateSidebarState(sidebar, shouldCollapse, true);
 };
 
 export {
-    BREAKPOINT,
+    BREAKPOINT_MOBILE,
+    BREAKPOINT_SIDEBAR,
     getDeviceType,
     isMobileDevice,
     isDesktopDevice,

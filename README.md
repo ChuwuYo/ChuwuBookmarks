@@ -22,8 +22,6 @@
 
 [GithubPages](https://chuwuyo.github.io/ChuwuBookmarks/)
 
-[Surge](https://chuwubookmarks.surge.sh/) (版本可能提前或落后)
-
 ***
 
 ## Json 格式书签树的导出
