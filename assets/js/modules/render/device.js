@@ -43,8 +43,8 @@ const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) =>
             folderElements.forEach((folder, index) => {
                 gsap.to(folder, {
                     opacity: 1,
-                    delay: index * 0.02, // 减少延迟时间
-                    duration: 0.1, // 直接使用更短的时长
+                    delay: index * 0.05, // 减少延迟时间
+                    duration: 0.5,
                     ease: animationConfig.ease.outQuad
                 });
             });
