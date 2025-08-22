@@ -89,6 +89,16 @@
     margin-bottom: 20px;
     padding: 0 5px;
 }
+
+.home-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .main-content {
     margin-left: 250px;
     margin-right: 120px;
