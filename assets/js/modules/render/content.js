@@ -20,7 +20,7 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
     
     content.innerHTML = breadcrumbs.innerHTML = '';
 
-    if (fromSidebar && isMobileDevice()) {
+    if (fromSidebar && (isMobileDevice() || window.innerWidth < 1024)) {
         updateSidebarState(document.querySelector('.sidebar'), true);
     }
 
