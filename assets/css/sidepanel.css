@@ -12,7 +12,7 @@
     font-size: 1.3rem;
     user-select: none;
     outline: none;
-    transition: transform var(--duration-medium) var(--ease-out-quad), background-color var(--duration-medium) var(--ease-out-quad), box-shadow var(--duration-medium) var(--ease-out-quad);
+    transition: transform var(--duration-short) var(--ease-out-quad), background-color var(--duration-short) var(--ease-out-quad), box-shadow var(--duration-short) var(--ease-out-quad);
     will-change: transform;
     contain: layout size;
     transform: translateZ(0);
@@ -30,7 +30,7 @@
     width: 24px;
     height: 24px;
     color: var(--text-color);
-    transition: color var(--duration-medium) var(--ease-default), transform var(--duration-medium) var(--ease-default);
+    transition: color var(--duration-short) var(--ease-default), transform var(--duration-short) var(--ease-default);
     display: none;
     /* 默认隐藏所有图标 */
     flex-shrink: 0;
@@ -57,7 +57,7 @@
 
     #toggle-sidebar:hover img {
         transform: scale(1.1);
-        transition: transform var(--duration-medium) var(--ease-out-quad);
+        transition: transform var(--duration-short) var(--ease-out-quad);
     }
     
     .sidebar:not(.collapsed) #toggle-sidebar:hover {
@@ -65,9 +65,16 @@
     }
 }
 
+
+
 .sidebar:not(.collapsed) #toggle-sidebar {
     transform: translateX(160px) translateZ(0);
     border-radius: 15px;
+}
+
+.sidebar.collapsed #toggle-sidebar {
+    transform: translateZ(0);
+    border-radius: 0 15px 15px 0;
 }
 
 /* 聚焦样式 */

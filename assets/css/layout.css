@@ -19,6 +19,16 @@
     will-change: background-color;
     box-sizing: border-box;
 }
+
+/* 小于1024px时默认收起侧边栏 */
+@media screen and (max-width: 1023px) {
+    .sidebar:not(.js-initialized) {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
 .sidebar.collapsed {
     width: 0;
     padding: 0;
@@ -91,6 +101,16 @@
     z-index: 2;
     will-change: margin-left, padding;
 }
+
+/* 小于1024px时默认调整主内容区 */
+@media screen and (max-width: 1023px) {
+    .main-content {
+        margin-left: 120px;
+        margin-right: 120px;
+        padding: 20px;
+    }
+}
+
 .sidebar.collapsed + .main-content {
     margin-left: 120px;
     margin-right: 120px;

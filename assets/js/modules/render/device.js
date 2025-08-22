@@ -121,7 +121,10 @@ const handleDeviceView = () => {
     document.body.classList.toggle('mobile-device', deviceType === 'mobile');
     document.body.classList.toggle('desktop-device', deviceType === 'desktop');
     
-    // 视口变化时跳过动画，避免重新渲染
+    // 标记JavaScript已初始化，禁用CSS默认状态
+    sidebar.classList.add('js-initialized');
+    
+    // 设置初始状态
     updateSidebarState(sidebar, shouldCollapse, true);
 };
 
