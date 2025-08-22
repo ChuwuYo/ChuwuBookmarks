@@ -63,19 +63,19 @@ const checkBreadcrumbsScroll = () => {
     breadcrumbs.classList.toggle('scrollable', isScrollable);
 };
 
-// 调整主页消息位置
+// 调整主页消息位置 - 简化逻辑，避免与CSS过渡冲突
 const adjustHomeMessagePosition = (isCollapsed) => {
     const homeMessage = document.querySelector('.home-message');
     if (!homeMessage) return;
 
     const deviceType = getDeviceType();
     if (deviceType === 'mobile') {
-        // 移动端始终居中
+        // 移动端：设置固定位置
         homeMessage.style.left = '50%';
         homeMessage.style.transform = 'translate(-50%, -50%)';
         homeMessage.style.top = '45%';
     } else {
-        // PC端：让CSS规则处理定位，清除内联样式以避免冲突
+        // PC端：完全由CSS控制，清除所有内联样式
         homeMessage.style.removeProperty('left');
         homeMessage.style.removeProperty('transform');
         homeMessage.style.removeProperty('top');
