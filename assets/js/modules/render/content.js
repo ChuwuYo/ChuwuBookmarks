@@ -2,7 +2,7 @@
  * 主内容区渲染模块
  */
 
-import { isMobileDevice, getDeviceType, updateSidebarState, checkBreadcrumbsScroll } from './device.js';
+import { isMobileDevice, getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
 import { createElement } from './sidebar.js';
 // 避免循环依赖，renderHome 将通过参数传递
 
@@ -20,7 +20,7 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
     
     content.innerHTML = breadcrumbs.innerHTML = '';
 
-    if (fromSidebar && (isMobileDevice() || window.innerWidth < 1024)) {
+    if (fromSidebar && shouldCollapseSidebar()) {
         updateSidebarState(document.querySelector('.sidebar'), true);
     }
 
