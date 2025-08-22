@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light" dir="ltr" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+<html lang="zh-CN" data-theme="light" class="no-js">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="基于浏览器的书签导航网页，支持多级文件夹、搜索、面包屑导航等功能">
+    <meta name="keywords" content="书签导航,书签管理,网页书签,书签整理">
+    <meta name="author" content="ChuwuYo">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' ws: wss:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss:">
-    <link rel="icon" type="image/png" href="assets/icon/bocchi.png">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'">
+    
     <title>我的书签导航</title>
-    <!-- 预加载 -->
-    <link rel="preload" href="assets/images/show_sidepanel.svg" as="image">
-    <link rel="preload" href="assets/images/hide_sidepanel.svg" as="image">
-    <link rel="preload" href="assets/images/moecat.gif" as="image">
+    <link rel="icon" type="image/png" href="assets/icon/bocchi.png">
+    
+    <!-- 预加载关键资源 -->
     <link rel="preload" href="assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="assets/js/vendor.js" as="script">
-
-    <!-- 引入CSS -->
+    
+    <!-- 样式表 -->
     <link rel="stylesheet" href="styles.css">
-    <!-- 引入合并后的库 -->
+    
+    <!-- 脚本 -->
     <script src="assets/js/vendor.js" defer></script>
     <script src="assets/js/init.js" defer></script>
 </head>
 
 <body>
     <a href="https://github.com/ChuwuYo/ChuwuBookmarks" class="github-link" target="_blank" rel="noopener noreferrer"
-        tabindex="0" aria-label="访问 GitHub 仓库">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="transparent"
+        aria-label="访问 GitHub 仓库">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-github">
+            aria-hidden="true">
             <path
                 d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
             </path>
@@ -37,8 +41,8 @@
     </a>
     <aside class="sidebar" role="complementary" aria-label="导航侧边栏">
         <header class="sidebar-header">
-            <div class="home-button" role="button" tabindex="0" aria-label="返回首页">
-                <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <button class="home-button" type="button" aria-label="返回首页">
+                <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M22 22L2 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                     <path
                         d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486"
@@ -54,12 +58,12 @@
                         d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z"
                         stroke="currentColor" stroke-width="1.5" />
                 </svg>
-            </div>
-            <button id="toggle-sidebar" aria-label="切换侧边栏" aria-expanded="true">
-                <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="显示侧边栏" loading="lazy" width="24"
-                    height="24">
-                <img src="assets/images/hide_sidepanel.svg" class="hide-panel" alt="隐藏侧边栏" loading="lazy" width="24"
-                    height="24">
+            </button>
+            <button id="toggle-sidebar" type="button" aria-label="切换侧边栏" aria-expanded="true">
+                <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="" width="24"
+                    height="24" aria-hidden="true">
+                <img src="assets/images/hide_sidepanel.svg" class="hide-panel" alt="" width="24"
+                    height="24" aria-hidden="true">
             </button>
         </header>
         <nav id="sidebar-folders" role="navigation" aria-label="书签导航"></nav>
@@ -71,9 +75,9 @@
             <div id="search-hint" class="shortcut-hint" aria-label="键盘快捷键">
                 <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
             </div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
+            <button id="theme-toggle" type="button" class="theme-toggle" aria-label="切换主题">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -85,7 +89,7 @@
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="moon" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
