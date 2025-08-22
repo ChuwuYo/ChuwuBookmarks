@@ -1,7 +1,7 @@
 /* 响应式样式：所有媒体查询集中管理 */
 
-/* 移动端特定样式 (<=1023px) */
-@media screen and (max-width: 1023px) {
+/* 移动端特定样式 (<=479px) */
+@media screen and (max-width: 479px) {
 
     .mobile-device [onclick],
     .mobile-device button,
@@ -27,22 +27,24 @@
     .sidebar {
         z-index: 1001;
         left: -220px;
-        transition: left var(--duration-base) var(--ease-in-out-cubic);
+        transition: left var(--duration-short) var(--ease-in-out-cubic);
     }
     .sidebar:not(.collapsed) {
         left: 0;
     }
     
     /* 移动端内容区不受侧边栏影响 */
-    .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
+    .mobile-device .main-content,
+    .mobile-device .sidebar.collapsed + .main-content,
+    .mobile-device .sidebar:not(.collapsed) + .main-content {
+        margin-left: 0;
+        width: 100%;
         max-width: 600px;
         padding: 15px;
         margin: 0 auto;
         position: relative;
         box-sizing: border-box;
-        /* 确保内容区稳定居中 */
+        /* 确保内容区稳定居中，强制硬件加速避免布局偏移 */
         will-change: auto;
         backface-visibility: hidden;
         transform: translateZ(0);
@@ -216,7 +218,65 @@
         word-break: break-word;
     }
 }
+
+/* 480px以上通用样式：侧栏收起时元素居中 */
+/* 注意: 480px 对应 BREAKPOINT_MOBILE */
+@media screen and (min-width: 480px) {
+    /* 确保侧栏收起时元素正确居中 */
+    .sidebar.collapsed + .main-content .search-container,
+    .sidebar.collapsed + .main-content .home-message {
+        left: 50%;
+    }
+
+    .sidebar.collapsed + .main-content .search-container {
+        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+    }
+
+    .sidebar.collapsed + .main-content .home-message {
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 中间范围样式：桌面端样式但侧栏收起 (480px-1024px) */
+/* 注意: 480px 对应 BREAKPOINT_MOBILE, 1023px 对应 BREAKPOINT_SIDEBAR - 1 */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    /* 在这个范围内使用桌面端样式，但侧栏会自动收起 */
+    .search-container {
+        left: 50%;
+        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
+        position: fixed;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+        white-space: nowrap;
+        user-select: none;
+        contain: layout;
+        outline: none;
+    }
+
+    .home-message {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
+        position: fixed;
+        top: 50%;
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+        opacity: 0;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        content-visibility: auto;
+        outline: none;
+    }
+}
+
 /* 桌面端样式 (>=1024px) */
+/* 注意: 1024px 对应 BREAKPOINT_SIDEBAR */
 @media screen and (min-width: 1024px) {
     .search-container {
         left: 50%;
@@ -232,6 +292,9 @@
         user-select: none;
         contain: layout;
         outline: none;
+        /* 优化动画性能 */
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
     }
     .home-message {
         left: 50%;
@@ -248,15 +311,9 @@
         transform-style: preserve-3d;
         content-visibility: auto;
         outline: none;
+        /* 优化动画性能 */
+        backface-visibility: hidden;
     }
-    .sidebar.collapsed + .main-content .search-container,
-    .sidebar.collapsed + .main-content .home-message {
-        left: 50%;
-    }
-    .sidebar.collapsed + .main-content .search-container {
-        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
-    }
-    .sidebar.collapsed + .main-content .home-message {
-        transform: translate(-50%, -50%);
-    }
+
+
 }

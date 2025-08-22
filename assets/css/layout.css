@@ -7,9 +7,9 @@
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
-    transition: width var(--duration-base) var(--ease-in-out-cubic),
-        padding var(--duration-base) var(--ease-in-out-cubic),
-        background-color var(--duration-base) var(--ease-default);
+    transition: width var(--duration-short) var(--ease-in-out-cubic),
+        padding var(--duration-short) var(--ease-in-out-cubic),
+        background-color var(--duration-short) var(--ease-default);
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
@@ -19,6 +19,17 @@
     will-change: background-color;
     box-sizing: border-box;
 }
+
+/* 小于1024px时默认收起侧边栏 */
+/* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
+@media screen and (max-width: 1023px) {
+    .sidebar:not(.js-initialized) {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
 .sidebar.collapsed {
     width: 0;
     padding: 0;
@@ -85,12 +96,22 @@
     padding: 20px 20px 20px 40px;
     flex: 1;
     box-sizing: border-box;
-    transition: margin-left var(--duration-base) var(--ease-in-out-cubic),
-                padding var(--duration-base) var(--ease-in-out-cubic);
+    transition: margin-left var(--duration-short) var(--ease-in-out-cubic),
+                padding var(--duration-short) var(--ease-in-out-cubic);
     position: relative;
     z-index: 2;
     will-change: margin-left, padding;
 }
+
+/* 小于1024px时默认调整主内容区 */
+@media screen and (max-width: 1023px) {
+    .main-content {
+        margin-left: 120px;
+        margin-right: 120px;
+        padding: 20px;
+    }
+}
+
 .sidebar.collapsed + .main-content {
     margin-left: 120px;
     margin-right: 120px;
