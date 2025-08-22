@@ -34,22 +34,20 @@
     }
     
     /* 移动端内容区不受侧边栏影响 */
-    .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
+    .mobile-device .main-content,
+    .mobile-device .sidebar.collapsed + .main-content,
+    .mobile-device .sidebar:not(.collapsed) + .main-content {
+        margin-left: 0;
+        width: 100%;
         max-width: 600px;
         padding: 15px;
         margin: 0 auto;
         position: relative;
         box-sizing: border-box;
-        /* 确保内容区稳定居中 */
+        /* 确保内容区稳定居中，强制硬件加速避免布局偏移 */
         will-change: auto;
         backface-visibility: hidden;
-        transform: translateZ(0) !important;
-    }
-    
-    .sidebar.collapsed + .main-content {
-        transform: translateZ(0) !important;
+        transform: translateZ(0);
     }
     
 
