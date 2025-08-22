@@ -1,7 +1,7 @@
 /* 响应式样式：所有媒体查询集中管理 */
 
-/* 移动端特定样式 (<=1023px) */
-@media screen and (max-width: 1023px) {
+/* 移动端特定样式 (<=479px) */
+@media screen and (max-width: 479px) {
 
     .mobile-device [onclick],
     .mobile-device button,
@@ -216,6 +216,58 @@
         word-break: break-word;
     }
 }
+
+/* 中间范围样式：桌面端样式但侧栏收起 (480px-1024px) */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    /* 在这个范围内使用桌面端样式，但侧栏会自动收起 */
+    .search-container {
+        left: 50%;
+        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
+        position: fixed;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+        white-space: nowrap;
+        user-select: none;
+        contain: layout;
+        outline: none;
+    }
+
+    .home-message {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
+        position: fixed;
+        top: 50%;
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+        opacity: 0;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        content-visibility: auto;
+        outline: none;
+    }
+
+    /* 确保侧栏收起时元素正确居中 */
+    .sidebar.collapsed + .main-content .search-container,
+    .sidebar.collapsed + .main-content .home-message {
+        left: 50%;
+    }
+
+    .sidebar.collapsed + .main-content .search-container {
+        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+    }
+
+    .sidebar.collapsed + .main-content .home-message {
+        transform: translate(-50%, -50%);
+    }
+}
+
 /* 桌面端样式 (>=1024px) */
 @media screen and (min-width: 1024px) {
     .search-container {
@@ -249,13 +301,24 @@
         content-visibility: auto;
         outline: none;
     }
-    .sidebar.collapsed + .main-content .search-container,
-    .sidebar.collapsed + .main-content .home-message {
-        left: 50%;
+}
+
+/* 侧栏状态切换时的平滑过渡 */
+@media screen and (min-width: 1024px) {
+    /* 优化过渡动画，减少抖动 */
+    .search-container,
+    .home-message {
+        will-change: transform;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        transition: transform var(--duration-base) var(--ease-in-out-cubic);
     }
+
+    /* 侧栏折叠时的居中逻辑 */
     .sidebar.collapsed + .main-content .search-container {
         transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
     }
+
     .sidebar.collapsed + .main-content .home-message {
         transform: translate(-50%, -50%);
     }

@@ -4,25 +4,26 @@
 
 import { animationConfig } from './theme.js';
 
-// 统一断点系统 - 单一断点值
-const BREAKPOINT = 1024;
+// 断点系统 - 移动端样式断点和侧栏收起断点分离
+const BREAKPOINT_MOBILE = 480;  // 移动端样式断点
+const BREAKPOINT_SIDEBAR = 1024; // 侧栏收起断点
 
 const getDeviceType = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     // 手机设备（包括横屏）优先使用移动端样式
-    if (isTouchDevice && (width < BREAKPOINT || height < 600)) {
+    if (isTouchDevice && (width < BREAKPOINT_MOBILE || height < 600)) {
         return 'mobile';
     }
-    
-    return width < BREAKPOINT ? 'mobile' : 'desktop';
+
+    return width < BREAKPOINT_MOBILE ? 'mobile' : 'desktop';
 };
 
 const isMobileDevice = () => getDeviceType() === 'mobile';
 const isDesktopDevice = () => getDeviceType() === 'desktop';
-const shouldCollapseSidebar = () => getDeviceType() === 'mobile';
+const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 
 // 更新侧边栏状态的函数
 const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) => {
@@ -74,10 +75,10 @@ const adjustHomeMessagePosition = (isCollapsed) => {
         homeMessage.style.transform = 'translate(-50%, -50%)';
         homeMessage.style.top = '45%';
     } else {
-        // PC端根据侧边栏状态调整
-        homeMessage.style.left = '';
-        homeMessage.style.transform = '';
-        homeMessage.style.top = '';
+        // PC端：让CSS规则处理定位，清除内联样式以避免冲突
+        homeMessage.style.removeProperty('left');
+        homeMessage.style.removeProperty('transform');
+        homeMessage.style.removeProperty('top');
     }
 };
 
@@ -126,7 +127,8 @@ const handleDeviceView = () => {
 };
 
 export {
-    BREAKPOINT,
+    BREAKPOINT_MOBILE,
+    BREAKPOINT_SIDEBAR,
     getDeviceType,
     isMobileDevice,
     isDesktopDevice,
