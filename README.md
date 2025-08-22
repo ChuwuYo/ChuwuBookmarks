@@ -24,21 +24,18 @@
 
 ***
 
-## Json 格式书签树的导出
+## 快速开始
 
-Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出
+1. **获取项目**：Fork 或克隆本仓库到本地
+   ```bash
+   git clone https://github.com/ChuwuYo/ChuwuBookmarks.git
+   ```
 
-注意书签文件名要更改为：`bookmarks.json`
+2. **导出书签**：使用 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出您的书签数据JSON文件
 
-***
+3. **替换文件**：将导出的书签文件重命名为 `bookmarks.json`，替换项目根目录下的同名文件
 
-## 其他参考项目
-
-若不介意闭源或付费，可参考以下项目：
-
-[Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式）
-
-[TabMark](https://www.ainewtab.app)（闭源）
+4. **部署使用**：将项目部署到您喜欢的静态网站托管服务（如 GitHub Pages、Vercel、Netlify、Cloudflare、Edgeone 等）
 
 ***
 
@@ -62,7 +59,6 @@ Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPort
         </td>
     </tr>
 </table>
-
 
 ---
 
@@ -106,11 +102,13 @@ Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPort
 
 6. **响应式设计**：
    
-   * 支持手机、平板、PC三种设备的响应式布局。
+   * 支持移动端和PC端的响应式布局。
   
-   * 手机端自动收起侧边栏，平板和PC端默认展开。
+   * 小于1024px屏幕自动收起侧边栏，大于等于1024px屏幕默认展开。
    
    * 统一的断点系统确保在不同设备上的最佳体验。
+
+   * 移动端进行了一些样式优化，便于使用。
 
 7. **GSAP动画支持**：
 
@@ -139,3 +137,13 @@ Json 格式的书签树由我开发的这个 browser 拓展程序 [BookmarksPort
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
   <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
 </a>
+
+***
+
+## 其他参考项目
+
+若不介意闭源或付费，可参考以下项目：
+
+[Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式 + 广告）
+
+[TabMark](https://www.ainewtab.app)（闭源）

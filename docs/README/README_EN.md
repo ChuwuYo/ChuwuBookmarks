@@ -22,25 +22,20 @@ For users outside mainland China, you can experience the website through the fol
 
 [GithubPages](https://chuwuyo.github.io/ChuwuBookmarks/)
 
-[Surge](https://chuwubookmarks.surge.sh/) (version may be ahead or behind)
-
 ***
 
-## Exporting JSON-Format Bookmark Tree
+## Quick Start
 
-The JSON-format bookmark tree is exported using a browser extension I developed called [BookmarksPortal](https://github.com/HatsuChuwu/BookmarksPortal).
+1. **Get the Project**: Fork or clone this repository locally
+   ```bash
+   git clone https://github.com/ChuwuYo/ChuwuBookmarks.git
+   ```
 
-Note that the bookmark file name should be changed to: `bookmarks.json`
+2. **Export Bookmarks**: Use [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) to export your bookmark data as a JSON file
 
-***
+3. **Replace File**: Rename the exported bookmark file to `bookmarks.json` and replace the file with the same name in the project root directory
 
-## Other Reference Projects
-
-If you don't mind closed-source or paid options, you can refer to the following projects:
-
-[Pintree](https://github.com/Pintree-io/pintree) (open-source + paid model)
-
-[TabMark](https://www.ainewtab.app) (closed-source)
+4. **Deploy and Use**: Deploy the project to your preferred static website hosting service (such as GitHub Pages, Vercel, Netlify, Cloudflare, Edgeone, etc.)
 
 ***
 
@@ -107,11 +102,13 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 6. **Responsive Design**:
 
-   * Supports responsive layout for mobile and desktop devices.
+   * Supports responsive layout for mobile and PC devices.
 
-   * Automatically hides sidebar on mobile (including landscape), keeps it open on desktop.
+   * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above.
    
-   * Unified breakpoint system ensures touch devices use mobile experience.
+   * Unified breakpoint system ensures optimal experience across different devices.
+
+   * Some style optimizations have been made on the mobile end for better usability.
 
 7. **GSAP Animation Support**:
 
@@ -141,3 +138,13 @@ If you don't mind closed-source or paid options, you can refer to the following 
 <a href="https://github.com/HatsuChuwu/ChuwuBookmarks/graphs/contributors" target="_blank">
   <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
 </a>
+
+***
+
+## Other Reference Projects
+
+If you don't mind closed-source or paid options, you can refer to the following projects:
+
+[Pintree](https://github.com/Pintree-io/pintree) (open-source + paid model + advertisments)
+
+[TabMark](https://www.ainewtab.app) (closed-source)
