@@ -45,7 +45,11 @@
         /* 确保内容区稳定居中 */
         will-change: auto;
         backface-visibility: hidden;
-        transform: translateZ(0);
+        transform: translateZ(0) !important;
+    }
+    
+    .sidebar.collapsed + .main-content {
+        transform: translateZ(0) !important;
     }
     
 
