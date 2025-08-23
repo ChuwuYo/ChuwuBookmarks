@@ -50,7 +50,7 @@ self.addEventListener('message', function(e) {
                         results: searchCache.get(cacheKey),
                         fromCache: true
                     });
-                    console.log('Search results returned from cache for keyword:', keyword);
+
                     return;
                 }
             }
@@ -62,7 +62,7 @@ self.addEventListener('message', function(e) {
             if (useCache) {
                 const cacheKey = generateCacheKey(keyword, options);
                 searchCache.set(cacheKey, results);
-                console.log('Search results cached for keyword:', keyword);
+
             }
 
             // 将搜索结果发送回主线程
@@ -75,14 +75,14 @@ self.addEventListener('message', function(e) {
 
         case 'clearCache':
             searchCache.clear();
-            console.log('Search cache cleared.');
+
             self.postMessage({
                 action: 'cacheCleared'
             });
             break;
 
         default:
-            console.error('Unknown action received in search worker:', action);
+
             self.postMessage({
                 action: 'error',
                 message: `未知操作类型: ${action}`
