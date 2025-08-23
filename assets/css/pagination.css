@@ -12,15 +12,12 @@
     --pagination-disabled-text: rgba(14, 20, 26, 0.4);
     /* 亮色主题禁用文本 */
 
-    /* 分页控件尺寸和间距变量 */
-    --pagination-spacing: 6px;
-    /* 减小间距 */
-    --pagination-button-size: 36px;
-    /* 稍微减小桌面端按钮 */
+    /* 分页控件尺寸和间距变量 - 默认桌面端配置 */
+    --pagination-spacing: 8px;
+    --pagination-button-size: 40px;
     --pagination-border-radius: 6px;
     /* 减小圆角 */
-    --pagination-font-size: 13px;
-    /* 稍稍微减小字体 */
+    --pagination-font-size: 14px;
 
     /* 分页控件阴影变量 */
     --pagination-shadow: var(--shadow-sm);
@@ -37,6 +34,24 @@
     --pagination-transition-colors: background-color var(--duration-short) var(--ease-default),
         color var(--duration-short) var(--ease-default),
         border-color var(--duration-short) var(--ease-default);
+}
+
+/* 移动端配置 (≤479px) */
+@media screen and (max-width: 479px) {
+    :root {
+        --pagination-spacing: 4px;
+        --pagination-button-size: 32px;
+        --pagination-font-size: 12px;
+    }
+}
+
+/* 平板端配置 (480px-1023px) */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    :root {
+        --pagination-spacing: 8px;
+        --pagination-button-size: 40px;
+        --pagination-font-size: 14px;
+    }
 }
 
 /* 暗色主题下的分页变量调整 */
@@ -381,7 +396,7 @@
 
 /* 响应式分页控件类型样式 - 由 responsive.js 管理 */
 .pagination-container.mobile-pagination {
-    gap: 3px;
+    gap: var(--pagination-spacing);
     margin: 0.1rem 0;
     padding: 0.1rem;
     transform: none !important;
@@ -394,13 +409,13 @@
 }
 
 .pagination-container.tablet-pagination {
-    gap: 6px;
+    gap: var(--pagination-spacing);
     margin: 0.4rem 0;
     padding: 0.2rem;
 }
 
 .pagination-container.desktop-pagination {
-    gap: 6px;
+    gap: var(--pagination-spacing);
     margin: 0.5rem 0;
     padding: 0.3rem;
 }
@@ -654,13 +669,10 @@
     background: rgba(var(--text-color), 0.02);
 }
 
-/* 主题切换动画的性能优化 - 针对所有需要过渡的元素 */
-.pagination-container .pagination-button,
-.pagination-container .pagination-ellipsis,
-.pagination-container .pagination-icon,
-.pagination-container .pagination-text {
-    /* 确保所有分页相关元素都能平滑过渡主题变化 */
-    transition-property: background-color, color, border-color, box-shadow, opacity, fill;
+/* 主题切换动画的性能优化 */
+.pagination-container * {
+    /* 确保所有子元素都能平滑过渡主题变化 */
+    transition-property: background-color, color, border-color, box-shadow, opacity;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
 }
@@ -746,18 +758,6 @@
     /* 确保容器在两种主题下都正确显示 */
     opacity: 1;
     visibility: visible;
-}
-
-/* 分页容器居中样式类 - 替代内联样式 */
-.pagination-wrapper-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 5px auto;
-    padding: 0;
-    box-sizing: border-box;
-    transform: none;
 }
 
 /* 主题切换时的微妙动画效果 */
