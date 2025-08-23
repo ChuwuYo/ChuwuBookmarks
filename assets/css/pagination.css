@@ -121,7 +121,7 @@
     .pagination-button:hover:not(:disabled):not(.active) {
         background: var(--pagination-hover-bg);
         box-shadow: var(--pagination-shadow-hover);
-        transform: translateZ(0) scale(1.02);
+        transform: translateZ(0) scale(1.05);
         border-color: var(--link-color);
         /* 添加微妙的文本阴影效果，与面包屑导航保持一致 */
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -148,6 +148,9 @@
     font-weight: 600;
     /* 激活状态的微妙发光效果 */
     position: relative;
+    
+    /* 保持按钮大小一致，避免点击后变大 */
+    transform: translateZ(0) scale(1);
 }
 
 .pagination-button.active::before {
@@ -167,7 +170,7 @@
 /* 激活按钮的悬停效果 - 保持稳定但增加微妙的亮度变化 */
 @media (hover: hover) and (pointer: fine) {
     .pagination-button.active:hover {
-        transform: translateZ(0);
+        transform: translateZ(0) scale(1.05);
         box-shadow: var(--pagination-shadow-active);
         /* 微妙的亮度提升 */
         filter: brightness(1.05);
@@ -186,10 +189,13 @@
     border-color: var(--pagination-disabled-text);
     /* 禁用状态的过渡效果 */
     transition: var(--pagination-transition-colors);
+    
+    /* 确保禁用按钮不会被缩放 */
+    transform: translateZ(0) scale(1);
 }
 
 .pagination-button:disabled:hover {
-    transform: translateZ(0);
+    transform: translateZ(0) scale(1);
     box-shadow: none;
     background: var(--pagination-bg);
     text-shadow: none;
@@ -373,119 +379,36 @@
     transform: scale(1.05);
 }
 
-/* 响应式分页控件类型样式 */
+/* 响应式分页控件类型样式 - 由 responsive.js 管理 */
 .pagination-container.mobile-pagination {
     gap: 3px;
-    /* 进一步减小间距 */
     margin: 0.1rem 0;
-    /* 大幅减少上下边距 */
     padding: 0.1rem;
-    /* 大幅减少内边距 */
-    /* 移动端不需要偏移，直接居中 */
     transform: none !important;
-    /* 支持水平滚动 */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
     justify-content: center;
-    /* 保持居中 */
     scroll-snap-type: x proximity;
 }
 
 .pagination-container.tablet-pagination {
     gap: 6px;
-    /* 减小间距 */
     margin: 0.4rem 0;
-    /* 进一步减少上下边距 */
     padding: 0.2rem;
-    /* 进一步减少内边距 */
 }
 
 .pagination-container.desktop-pagination {
     gap: 6px;
-    /* 减小间距 */
     margin: 0.5rem 0;
-    /* 进一步减少上下边距 */
     padding: 0.3rem;
-    /* 进一步减少内边距 */
 }
 
-/* 移动端分页样式适配 (<=479px) */
-@media screen and (max-width: 479px) {
-    .pagination-container {
-        gap: 3px;
-        /* 进一步减小按钮间距 */
-        margin: 0.1rem 0;
-        /* 大幅减少上下边距 */
-        padding: 0.1rem;
-        /* 大幅减少内边距 */
-        /* 移动端不需要偏移，直接居中 */
-        transform: none;
-        /* 当按钮过多时允许水平滚动 */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        justify-content: center;
-        /* 保持居中，即使可滚动 */
-        scroll-snap-type: x proximity;
-    }
-
-    .pagination-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .pagination-button {
-        min-width: 32px;
-        /* 进一步减小按钮尺寸 */
-        /* 符合移动端触摸目标最小尺寸 */
-        height: 32px;
-        /* 进一步减小按钮高度 */
-        /* 与项目中其他移动端按钮保持一致 */
-        font-size: 13px;
-        /* 进一步减小字体大小 */
-        /* 移动端友好的字体大小 */
-        border-radius: 5px;
-        /* 进一步减小圆角 */
-        border-width: 1px;
-        /* 减小边框宽度 */
-        flex-shrink: 0;
-        /* 防止按钮被压缩 */
-        scroll-snap-align: center;
-
-        /* 移动端触摸优化 */
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    /* 移动端点击态效果 - 替代悬停效果 */
-    .pagination-button:active:not(:disabled) {
-        background: var(--pagination-hover-bg);
-        transform: scale(0.95);
-        border-color: var(--link-color);
-    }
-
-    /* 移动端省略号样式调整 */
-    .pagination-ellipsis {
-        min-width: 32px;
-        /* 与按钮尺寸保持一致 */
-        height: 32px;
-        font-size: 14px;
-        /* 进一步减小字体大小 */
-    }
-
-    /* 移动端图标和文本大小调整 */
-    .pagination-button .pagination-icon {
-        font-size: 18px;
-    }
-
-    .pagination-button .pagination-text {
-        font-size: 16px;
-    }
+/* 移动端分页容器滚动条隐藏 */
+.mobile-pagination::-webkit-scrollbar {
+    display: none;
 }
-
-/* 移动端特定的分页控件样式 - 已移至独立的类选择器定义 */
 
 /* 移动端滑动手势提示 - 仅在可滚动时显示 */
 .mobile-pagination.scrollable::after {
@@ -511,77 +434,6 @@
 
     50% {
         opacity: 0.8;
-    }
-}
-
-/* 移动端分页容器滚动条隐藏 */
-.mobile-pagination::-webkit-scrollbar {
-    display: none;
-}
-
-/* 移动端分页控件居中优化 */
-@media screen and (max-width: 479px) {
-    .pagination-container {
-        /* 确保在移动端始终居中 */
-        justify-content: center !important;
-        /* 当内容超出时，允许滚动但保持视觉居中 */
-        text-align: center;
-    }
-
-    /* 当分页控件可滚动时的特殊处理 */
-    .pagination-container.scrollable {
-        /* 可滚动时仍然保持居中的视觉效果 */
-        justify-content: center;
-        /* 添加左右内边距确保居中 */
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-/* 移动端分页样式 - 独立于媒体查询，确保类选择器优先级 */
-.mobile-pagination .pagination-button {
-    min-width: 32px !important;
-    height: 32px !important;
-    font-size: 13px !important;
-    border-radius: 5px;
-    border-width: 1px;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.mobile-pagination .pagination-ellipsis {
-    min-width: 32px !important;
-    height: 32px !important;
-    font-size: 14px !important;
-}
-
-/* 平板端分页样式 */
-.tablet-pagination .pagination-button {
-    min-width: 40px;
-    height: 40px;
-    font-size: 14px;
-}
-
-/* 桌面端分页样式 */
-.desktop-pagination .pagination-button {
-    min-width: 40px;
-    height: 40px;
-    font-size: 14px;
-}
-
-/* 中等屏幕适配 (480px-1023px) */
-@media screen and (min-width: 480px) and (max-width: 1023px) {
-    .pagination-container {
-        /* 保持居中 */
-        justify-content: center;
-    }
-}
-
-/* 桌面端适配 (>=1024px) */
-@media screen and (min-width: 1024px) {
-    .pagination-container {
-        /* 保持居中 */
-        justify-content: center;
     }
 }
 
@@ -792,8 +644,7 @@
     }
 }
 
-/* =
-==== 主题适配测试和优化区域 ===== */
+/* 主题适配测试和优化区域 */
 
 /* 确保分页控件在主题切换时的完整适配 */
 .pagination-container.theme-test {
@@ -804,8 +655,7 @@
 }
 
 /* 主题切换动画的性能优化 */
-.pagination-container .pagination-button,
-.pagination-container .pagination-ellipsis {
+.pagination-container * {
     /* 确保所有子元素都能平滑过渡主题变化 */
     transition-property: background-color, color, border-color, box-shadow, opacity;
     transition-duration: var(--duration-short);
@@ -876,6 +726,9 @@
     background: var(--pagination-disabled-text);
     color: var(--pagination-bg);
     opacity: 0.4;
+    
+    /* 确保禁用的激活按钮不会被缩放 */
+    transform: translateZ(0) scale(1);
 }
 
 .pagination-button.processing.active {
