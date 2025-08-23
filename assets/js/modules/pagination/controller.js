@@ -246,10 +246,13 @@ export class PaginationController {
         const { responsiveManager } = initializeResponsiveSystem();
         this.responsiveManager = responsiveManager;
         
-        // 监听响应式配置变化
-        this.responsiveManager.addListener((responsiveConfig) => {
+        // 保存监听器函数引用以便清理
+        this.responsiveConfigListener = (responsiveConfig) => {
             this.handleResponsiveConfigChange(responsiveConfig);
-        });
+        };
+        
+        // 监听响应式配置变化
+        this.responsiveManager.addListener(this.responsiveConfigListener);
         
         // 应用初始响应式配置
         const currentResponsiveConfig = this.responsiveManager.getCurrentConfig();
@@ -317,13 +320,14 @@ export class PaginationController {
      * 销毁分页控制器
      */
     destroy() {
-        if (this.responsiveManager) {
-            // 注意：不要销毁全局响应式管理器，只移除监听器
-            // 响应式管理器由全局管理，可能被其他实例使用
+        if (this.responsiveManager && this.responsiveConfigListener) {
+            // 移除响应式配置监听器
+            this.responsiveManager.removeListener(this.responsiveConfigListener);
         }
         
         // 清理所有引用，帮助垃圾回收
         this.responsiveManager = null;
+        this.responsiveConfigListener = null;
         this.events = {};
         this.state = this.initializeState();
         this.config = null;
