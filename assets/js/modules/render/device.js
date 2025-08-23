@@ -113,27 +113,17 @@ const adjustSearchContainerPosition = () => {
 
 // 辅助函数：如果分页控件存在则更新其位置
 const updatePaginationPositionIfExists = () => {
-    // 动态导入以避免循环依赖
-    import('./search.js').then(({ updatePaginationPosition }) => {
-        updatePaginationPosition();
-    }).catch(() => {
-        // 忽略导入错误，可能是分页模块未加载
+    // 派发布局变化事件，让监听器处理更新
+    const layoutChangeEvent = new CustomEvent('layoutChange', {
+        detail: {
+            type: 'deviceLayoutUpdate',
+            timestamp: Date.now(),
+            deviceType: getDeviceType(),
+            sidebarCollapsed: shouldCollapseSidebar()
+        }
     });
-    
-    // 同时通知响应式系统更新
-    try {
-        import('../pagination/responsive.js').then(({ getSidebarMonitor }) => {
-            const sidebarMonitor = getSidebarMonitor();
-            if (sidebarMonitor) {
-                // 触发侧栏状态更新，这会自动更新分页控件位置
-                sidebarMonitor.handleResize();
-            }
-        }).catch(() => {
-            // 忽略导入错误
-        });
-    } catch (error) {
-        // 忽略错误
-    }
+
+    document.dispatchEvent(layoutChangeEvent);
 };
 
 // 封装侧边栏状态管理

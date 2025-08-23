@@ -160,37 +160,34 @@ const resetPaginationState = () => {
 const restoreSearchStateFromURL = () => {
     const url = new URL(window.location);
     const keyword = url.searchParams.get('q');
-    const page = parseInt(url.searchParams.get('page'), 10) || 1;
-    
+
     if (keyword) {
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
             searchInput.value = keyword;
-            // 触发搜索，但不重置分页状态
-            triggerSearchWithPage(keyword, page);
+            // 触发搜索，分页状态由URL参数处理
+            triggerSearch(keyword);
         }
     }
 };
 
 /**
- * 触发搜索并跳转到指定页码
+ * 触发搜索
  * @param {string} keyword - 搜索关键词
- * @param {number} targetPage - 目标页码
  */
-const triggerSearchWithPage = (keyword, targetPage = 1) => {
+const triggerSearch = (keyword) => {
     const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-    
+
     if (searchWorker) {
         searchWorker.postMessage({
             action: 'search',
             data: {
                 keyword: keyword,
                 bookmarks: data,
-                useCache: true,
-                targetPage: targetPage
+                useCache: true
             }
         });
     }
 };
 
-export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL };
+export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL, triggerSearch };
