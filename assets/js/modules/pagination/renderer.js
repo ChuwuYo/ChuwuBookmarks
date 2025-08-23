@@ -24,6 +24,7 @@
 
 import {
     getSidebarMonitor,
+    getResponsiveManager,
     PaginationCenteringCalculator,
     TouchOptimizer
 } from './responsive.js';

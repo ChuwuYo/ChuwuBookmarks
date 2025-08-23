@@ -19,7 +19,7 @@
  */
 
 import { renderHome } from '../render/home.js';
-import { renderSearchResults } from '../render/search.js';
+import { renderSearchResults, resetSearchPagination } from '../render/search.js';
 import { debounce } from '../utils/index.js';
 import { initializeResponsiveSystem } from '../pagination/responsive.js';
 
@@ -140,39 +140,17 @@ const createSearchHandler = () => {
 
 /**
  * 重置分页状态 - 新搜索时调用
- * 
- * 此函数在用户进行新搜索时被调用，确保分页状态正确重置：
- * 1. 通知搜索渲染模块清理现有分页控件
- * 2. 清除URL中的分页参数，避免状态不一致
- * 3. 提供降级处理，确保在异常情况下也能基本工作
- * 
- * 错误处理策略：
- * - 主要重置失败时，尝试降级重置
- * - 记录详细错误信息，便于调试
- * - 确保不会因为分页重置失败而影响搜索功能
  */
 const resetPaginationState = () => {
     try {
-        // 通知搜索渲染模块重置分页状态
-        if (window.resetSearchPagination) {
-            window.resetSearchPagination();
-        }
+        resetSearchPagination();
         
-        // 清除URL中的分页参数，保持状态一致性
+        // 清除URL中的分页参数
         const url = new URL(window.location);
         url.searchParams.delete('page');
         window.history.replaceState({}, document.title, url.toString());
     } catch (error) {
         console.error('重置分页状态失败:', error);
-        
-        // 降级处理：至少尝试清除全局分页状态
-        if (window.resetSearchPagination) {
-            try {
-                window.resetSearchPagination();
-            } catch (fallbackError) {
-                console.error('降级重置分页状态也失败:', fallbackError);
-            }
-        }
     }
 };
 
