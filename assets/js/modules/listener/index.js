@@ -108,6 +108,18 @@ const setupHomeButton = () => {
             
             isProcessing = true;
             
+            // 清空搜索框内容和URL参数
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            
+            // 清除URL中的搜索参数
+            const url = new URL(window.location);
+            url.searchParams.delete('q');
+            url.searchParams.delete('page');
+            window.history.replaceState({}, document.title, url.toString());
+            
             // 手机端点击主页按钮时自动收起侧栏
             if (isMobileDevice()) {
                 const sidebar = document.querySelector('.sidebar');
