@@ -134,10 +134,347 @@ class VirtualScroller {
     }
 }
 
-// 全局分页控制器和渲染器实例
-let globalPaginationController = null;
-let globalPaginationRenderer = null;
-let currentVirtualScroller = null;
+/**
+ * 搜索结果管理器 - 封装分页和虚拟滚动状态
+ * 替代全局变量，提供更好的模块化和可测试性
+ */
+class SearchResultsManager {
+    constructor() {
+        this.paginationController = null;
+        this.paginationRenderer = null;
+        this.virtualScroller = null;
+        this.currentResults = [];
+        this.currentContainer = null;
+    }
+
+    /**
+     * 初始化搜索结果管理器
+     * @param {Array} results - 搜索结果
+     * @param {HTMLElement} container - 结果容器
+     * @param {Function} renderMainContent - 主内容渲染函数
+     */
+    initialize(results, container, renderMainContent) {
+        this.cleanup();
+
+        this.currentResults = results;
+        this.currentContainer = container;
+
+        // 预先分类结果
+        const sortedResults = [...results].sort((a, b) => {
+            const aIsFolder = a.type === 'folder';
+            const bIsFolder = b.type === 'folder';
+            if (aIsFolder && !bIsFolder) return -1;
+            if (!aIsFolder && bIsFolder) return 1;
+            return 0;
+        });
+
+        // 初始化分页控制器
+        this.paginationController = new PaginationController(
+            {
+                itemsPerPage: 20,
+                maxVisiblePages: 3,
+                showFirstLast: true,
+                showPrevNext: true,
+                responsive: true
+            },
+            {
+                onPageChange: (newPage) => this.handlePageChange(newPage, sortedResults, container, renderMainContent),
+                onConfigChange: (config, responsiveConfig) => {
+                    // 响应式配置变化时的回调
+                }
+            }
+        );
+
+        return sortedResults;
+    }
+
+    /**
+     * 处理页码变更
+     * @param {number} newPage - 新页码
+     * @param {Array} allResults - 所有搜索结果
+     * @param {HTMLElement} container - 结果容器
+     * @param {Function} renderMainContent - 主内容渲染函数
+     */
+    handlePageChange(newPage, allResults, container, renderMainContent) {
+        if (!this.paginationController) {
+            return;
+        }
+
+        // 验证页码有效性
+        const totalPages = Math.ceil(allResults.length / 20);
+        if (newPage < 1 || newPage > totalPages) {
+            return;
+        }
+
+        // 添加页面切换的视觉反馈
+        this.addPageChangeVisualFeedback(newPage);
+
+        // 重新计算分页状态
+        const paginationState = this.paginationController.calculatePagination(allResults.length, newPage);
+
+        // 渲染新页面的结果
+        this.renderCurrentPageResults(allResults, paginationState, container, renderMainContent);
+
+        // 更新分页控件状态
+        if (this.paginationRenderer) {
+            this.paginationRenderer.updatePageState(paginationState);
+        }
+
+        // 滚动到搜索结果区域顶部
+        this.scrollToSearchResults();
+
+        // 更新浏览器历史状态
+        this.updateBrowserHistory(newPage);
+    }
+
+    /**
+     * 渲染当前页的搜索结果
+     * @param {Array} allResults - 所有搜索结果
+     * @param {Object} paginationState - 分页状态
+     * @param {HTMLElement} container - 结果容器
+     * @param {Function} renderMainContent - 主内容渲染函数
+     */
+    renderCurrentPageResults(allResults, paginationState, container, renderMainContent) {
+        // 清理现有的虚拟滚动实例
+        if (this.virtualScroller) {
+            this.virtualScroller.cleanup();
+            this.virtualScroller = null;
+        }
+
+        // 清空容器内容
+        container.innerHTML = '';
+
+        // 获取当前页数据
+        const currentPageData = this.paginationController.getCurrentPageData(allResults);
+
+        // 创建高度占位容器
+        const heightContainer = document.createElement('div');
+        heightContainer.style.height = `${currentPageData.length * ITEM_HEIGHT}px`;
+        heightContainer.style.position = 'relative';
+        container.appendChild(heightContainer);
+
+        // 创建虚拟滚动实例
+        this.virtualScroller = new VirtualScroller(
+            heightContainer,
+            currentPageData,
+            (item, index) => {
+                const element = createElement(
+                    item.type === 'folder' ? 'folder' : 'bookmark',
+                    item,
+                    item.type === 'folder' ? () => renderMainContent(item) : null
+                );
+                element.style.setProperty('--item-index', index);
+                return element;
+            }
+        );
+    }
+
+    /**
+     * 滚动到搜索结果区域顶部
+     */
+    scrollToSearchResults() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        const content = document.getElementById('content');
+        if (content) {
+            content.style.transition = 'opacity 0.3s ease';
+            content.style.opacity = '0.8';
+
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 150);
+
+            setTimeout(() => {
+                content.style.transition = '';
+            }, 300);
+
+            const firstResult = content.querySelector('.virtual-item');
+            if (firstResult) {
+                setTimeout(() => {
+                    firstResult.focus();
+                }, 500);
+            }
+        }
+    }
+
+    /**
+     * 添加页面切换的视觉反馈
+     * @param {number} newPage - 新页码
+     */
+    addPageChangeVisualFeedback(newPage) {
+        const content = document.getElementById('content');
+        if (content) {
+            content.classList.add('page-changing');
+            setTimeout(() => {
+                content.classList.remove('page-changing');
+            }, 200);
+        }
+
+        const currentPageIndicator = document.querySelector('.current-page-indicator');
+        if (currentPageIndicator) {
+            currentPageIndicator.textContent = `第 ${newPage} 页`;
+        }
+    }
+
+    /**
+     * 更新浏览器历史状态
+     * @param {number} page - 当前页码
+     */
+    updateBrowserHistory(page) {
+        const searchInput = document.getElementById('search-input');
+        const keyword = searchInput ? searchInput.value.trim() : '';
+
+        if (keyword && page > 1) {
+            const url = new URL(window.location);
+            url.searchParams.set('page', page);
+            url.searchParams.set('q', keyword);
+
+            window.history.replaceState(
+                { page, keyword },
+                `搜索: ${keyword} - 第${page}页`,
+                url.toString()
+            );
+        }
+    }
+
+    /**
+     * 设置事件监听器
+     */
+    setupEventListeners() {
+        // 监听布局变化事件
+        this.layoutChangeHandler = (event) => {
+            if (event.detail && event.detail.type === 'deviceLayoutUpdate') {
+                this.handleLayoutChange(event.detail);
+            }
+        };
+
+        document.addEventListener('layoutChange', this.layoutChangeHandler);
+    }
+
+    /**
+     * 处理布局变化
+     * @param {Object} layoutData - 布局变化数据
+     */
+    handleLayoutChange(layoutData) {
+        if (this.paginationRenderer && this.paginationRenderer.paginationElement) {
+            // 应用响应式样式
+            PaginationRenderUtils.applyResponsiveStyles(this.paginationRenderer.paginationElement);
+
+            // 如果需要，可以根据设备类型和侧栏状态进行额外调整
+            this.adjustPaginationForLayout(layoutData);
+        }
+    }
+
+    /**
+     * 根据布局调整分页控件
+     * @param {Object} layoutData - 布局数据
+     */
+    adjustPaginationForLayout(layoutData) {
+        const { deviceType, sidebarCollapsed } = layoutData;
+
+        if (this.paginationRenderer && this.paginationRenderer.paginationElement) {
+            const paginationElement = this.paginationRenderer.paginationElement;
+
+            // 根据设备类型调整样式类
+            paginationElement.classList.toggle('mobile-layout', deviceType === 'mobile');
+            paginationElement.classList.toggle('desktop-layout', deviceType === 'desktop');
+            paginationElement.classList.toggle('sidebar-collapsed', sidebarCollapsed);
+        }
+    }
+
+    /**
+     * 清理事件监听器
+     */
+    cleanupEventListeners() {
+        if (this.layoutChangeHandler) {
+            document.removeEventListener('layoutChange', this.layoutChangeHandler);
+            this.layoutChangeHandler = null;
+        }
+    }
+
+    /**
+     * 清理所有资源
+     */
+    cleanup() {
+        if (this.virtualScroller) {
+            this.virtualScroller.cleanup();
+            this.virtualScroller = null;
+        }
+
+        if (this.paginationRenderer) {
+            this.paginationRenderer.cleanup();
+            this.paginationRenderer = null;
+        }
+
+        if (this.paginationController) {
+            this.paginationController.reset();
+            this.paginationController = null;
+        }
+
+        this.currentResults = [];
+        this.currentContainer = null;
+
+        // 清理事件监听器
+        this.cleanupEventListeners();
+    }
+
+    /**
+     * 重置搜索分页状态
+     */
+    reset() {
+        this.cleanup();
+
+        const content = document.getElementById('content');
+        if (content) {
+            content.classList.remove('page-changing');
+        }
+
+        const currentPageIndicator = document.querySelector('.current-page-indicator');
+        if (currentPageIndicator) {
+            currentPageIndicator.remove();
+        }
+    }
+
+    /**
+     * 获取分页状态
+     * @param {number} targetPage - 目标页码
+     * @returns {Object} 分页状态
+     */
+    getPaginationState(targetPage = 1) {
+        if (!this.paginationController || !this.currentResults) {
+            return null;
+        }
+        return this.paginationController.calculatePagination(this.currentResults.length, targetPage);
+    }
+
+    /**
+     * 创建并渲染分页控件
+     * @param {HTMLElement} content - 内容容器
+     * @param {Object} paginationState - 分页状态
+     */
+    createPaginationControls(content, paginationState) {
+        if (paginationState.totalPages > 1) {
+            const paginationContainer = PaginationRenderUtils.createContainer(content, 'pagination-wrapper');
+
+            this.paginationRenderer = new PaginationRenderer(paginationContainer, this.paginationController);
+            this.paginationRenderer.render(paginationState);
+
+            const paginationElement = paginationContainer.querySelector('.pagination-container');
+            if (paginationElement) {
+                PaginationRenderUtils.initializeResponsiveSupport(paginationElement, this.paginationController);
+            }
+        }
+    }
+}
+
+// 创建全局搜索结果管理器实例
+const searchResultsManager = new SearchResultsManager();
+
+// 初始化事件监听器
+searchResultsManager.setupEventListeners();
 
 const renderSearchResults = (results, renderMainContent) => {
     const content = document.getElementById('content');
@@ -152,7 +489,7 @@ const renderSearchResults = (results, renderMainContent) => {
     }
 
     // 清理现有的分页控制器和虚拟滚动
-    cleanupPagination();
+    searchResultsManager.reset();
 
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
@@ -165,278 +502,42 @@ const renderSearchResults = (results, renderMainContent) => {
         return;
     }
 
-    // 预先分类结果
-    const sortedResults = [...results].sort((a, b) => {
-        const aIsFolder = a.type === 'folder';
-        const bIsFolder = b.type === 'folder';
-        if (aIsFolder && !bIsFolder) return -1;
-        if (!aIsFolder && bIsFolder) return 1;
-        return 0;
-    });
-
     // 创建结果容器
     const container = document.createElement('div');
     container.className = 'results-container';
     content.appendChild(container);
 
-    // 初始化分页控制器
-    globalPaginationController = new PaginationController(
-        {
-            itemsPerPage: 20,
-            maxVisiblePages: 3,
-            showFirstLast: true,
-            showPrevNext: true,
-            responsive: true
-        },
-        {
-            onPageChange: (newPage) => handlePageChange(newPage, sortedResults, container, renderMainContent),
-            onConfigChange: (config, responsiveConfig) => {
-                // 响应式配置变化时的回调
-            }
-        }
-    );
+    // 使用搜索结果管理器初始化
+    const sortedResults = searchResultsManager.initialize(results, container, renderMainContent);
 
     // 默认从第一页开始
     const targetPage = 1;
 
     // 计算分页状态
-    const paginationState = globalPaginationController.calculatePagination(sortedResults.length, targetPage);
+    const paginationState = searchResultsManager.getPaginationState(targetPage);
 
-    // 渲染当前页结果
-    renderCurrentPageResults(sortedResults, paginationState, container, renderMainContent);
+    if (paginationState) {
+        // 渲染当前页结果
+        searchResultsManager.renderCurrentPageResults(sortedResults, paginationState, container, renderMainContent);
 
-    // 创建分页控件容器并渲染分页控件
-    if (paginationState.totalPages > 1) {
-        const paginationContainer = PaginationRenderUtils.createContainer(content, 'pagination-wrapper');
-
-        globalPaginationRenderer = new PaginationRenderer(paginationContainer, globalPaginationController);
-        globalPaginationRenderer.render(paginationState);
-
-        // 初始化响应式支持
-        const paginationElement = paginationContainer.querySelector('.pagination-container');
-        if (paginationElement) {
-            PaginationRenderUtils.initializeResponsiveSupport(paginationElement, globalPaginationController);
-        }
-    }
-
-};
-
-/**
- * 处理页码变更 - 增强版本，包含完整的交互逻辑
- * @param {number} newPage - 新页码
- * @param {Array} allResults - 所有搜索结果
- * @param {HTMLElement} container - 结果容器
- * @param {Function} renderMainContent - 主内容渲染函数
- */
-const handlePageChange = (newPage, allResults, container, renderMainContent) => {
-    if (!globalPaginationController) {
-        return;
-    }
-
-    // 验证页码有效性
-    const totalPages = Math.ceil(allResults.length / 20);
-    if (newPage < 1 || newPage > totalPages) {
-        return;
-    }
-
-    // 添加页面切换的视觉反馈
-    addPageChangeVisualFeedback(newPage);
-
-    // 重新计算分页状态
-    const paginationState = globalPaginationController.calculatePagination(allResults.length, newPage);
-
-    // 渲染新页面的结果
-    renderCurrentPageResults(allResults, paginationState, container, renderMainContent);
-
-    // 更新分页控件状态
-    if (globalPaginationRenderer) {
-        globalPaginationRenderer.updatePageState(paginationState);
-    }
-
-    // 滚动到搜索结果区域顶部，确保用户体验流畅
-    scrollToSearchResults();
-
-    // 更新浏览器历史状态
-    updateBrowserHistory(newPage);
-};
-
-/**
- * 渲染当前页的搜索结果
- * @param {Array} allResults - 所有搜索结果
- * @param {Object} paginationState - 分页状态
- * @param {HTMLElement} container - 结果容器
- * @param {Function} renderMainContent - 主内容渲染函数
- */
-const renderCurrentPageResults = (allResults, paginationState, container, renderMainContent) => {
-    // 清理现有的虚拟滚动实例
-    if (currentVirtualScroller) {
-        currentVirtualScroller.cleanup();
-        currentVirtualScroller = null;
-    }
-
-    // 清空容器内容
-    container.innerHTML = '';
-
-    // 获取当前页数据
-    const currentPageData = globalPaginationController.getCurrentPageData(allResults);
-
-    // 创建高度占位容器，只为当前页数据计算高度
-    const heightContainer = document.createElement('div');
-    heightContainer.style.height = `${currentPageData.length * ITEM_HEIGHT}px`;
-    heightContainer.style.position = 'relative';
-    container.appendChild(heightContainer);
-
-    // 创建虚拟滚动实例，使用当前页数据
-    currentVirtualScroller = new VirtualScroller(
-        heightContainer,
-        currentPageData,
-        (item, index) => {
-            const element = createElement(
-                item.type === 'folder' ? 'folder' : 'bookmark',
-                item,
-                item.type === 'folder' ? () => renderMainContent(item) : null
-            );
-            // 使用相对于当前页的索引
-            element.style.setProperty('--item-index', index);
-            return element;
-        }
-    );
-};
-
-/**
- * 滚动到页面顶部 - 增强版本，支持流畅动画
- */
-const scrollToSearchResults = () => {
-    // 直接滚动到页面顶部
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-
-    // 添加视觉反馈效果到搜索结果区域
-    const content = document.getElementById('content');
-    if (content) {
-        content.style.transition = 'opacity 0.3s ease';
-        content.style.opacity = '0.8';
-
-        setTimeout(() => {
-            content.style.opacity = '1';
-        }, 150);
-
-        // 清理过渡效果
-        setTimeout(() => {
-            content.style.transition = '';
-        }, 300);
-
-        // 确保焦点管理 - 将焦点移到内容区域，便于键盘导航
-        const firstResult = content.querySelector('.virtual-item');
-        if (firstResult) {
-            // 短暂延迟确保滚动完成后再设置焦点
-            setTimeout(() => {
-                firstResult.focus();
-            }, 500);
-        }
+        // 创建分页控件容器并渲染分页控件
+        searchResultsManager.createPaginationControls(content, paginationState);
     }
 };
 
-/**
- * 添加页面切换的视觉反馈
- * @param {number} newPage - 新页码
- */
-const addPageChangeVisualFeedback = (newPage) => {
-    // 添加页面切换的加载状态
-    const content = document.getElementById('content');
-    if (content) {
-        content.classList.add('page-changing');
-
-        // 短暂延迟后移除加载状态
-        setTimeout(() => {
-            content.classList.remove('page-changing');
-        }, 200);
-    }
-
-    // 更新页面标题显示当前页码
-    const currentPageIndicator = document.querySelector('.current-page-indicator');
-    if (currentPageIndicator) {
-        currentPageIndicator.textContent = `第 ${newPage} 页`;
-    }
-};
-
-/**
- * 更新浏览器历史状态
- * @param {number} page - 当前页码
- */
-const updateBrowserHistory = (page) => {
-    // 获取当前搜索关键词
-    const searchInput = document.getElementById('search-input');
-    const keyword = searchInput ? searchInput.value.trim() : '';
-
-    if (keyword && page > 1) {
-        // 更新URL参数，但不触发页面刷新
-        const url = new URL(window.location);
-        url.searchParams.set('page', page);
-        url.searchParams.set('q', keyword);
-
-        // 使用replaceState避免在浏览器历史中创建过多条目
-        window.history.replaceState(
-            { page, keyword },
-            `搜索: ${keyword} - 第${page}页`,
-            url.toString()
-        );
-    }
-};
 
 /**
  * 更新分页控件位置（响应式布局）
  */
 const updatePaginationPosition = () => {
-    if (globalPaginationRenderer && globalPaginationRenderer.paginationElement) {
-        // 新的响应式系统会自动处理位置更新
-        // 这里保留兼容性调用
-        PaginationRenderUtils.applyResponsiveStyles(globalPaginationRenderer.paginationElement);
-    }
-};
-
-/**
- * 清理分页相关资源
- */
-const cleanupPagination = () => {
-    // 清理虚拟滚动实例
-    if (currentVirtualScroller) {
-        currentVirtualScroller.cleanup();
-        currentVirtualScroller = null;
-    }
-
-    // 清理分页渲染器
-    if (globalPaginationRenderer) {
-        globalPaginationRenderer.cleanup();
-        globalPaginationRenderer = null;
-    }
-
-    // 重置分页控制器
-    if (globalPaginationController) {
-        globalPaginationController.reset();
-        globalPaginationController = null;
-    }
+    searchResultsManager.updatePaginationPosition();
 };
 
 /**
  * 重置搜索分页状态 - 供外部调用
  */
 const resetSearchPagination = () => {
-    cleanupPagination();
-
-    // 清除页面切换的视觉状态
-    const content = document.getElementById('content');
-    if (content) {
-        content.classList.remove('page-changing');
-    }
-
-    // 清除当前页指示器
-    const currentPageIndicator = document.querySelector('.current-page-indicator');
-    if (currentPageIndicator) {
-        currentPageIndicator.remove();
-    }
+    searchResultsManager.reset();
 };
 
-export { renderSearchResults, updatePaginationPosition, resetSearchPagination };
+export { renderSearchResults, resetSearchPagination };

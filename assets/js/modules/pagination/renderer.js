@@ -1009,17 +1009,11 @@ export class PaginationRenderer {
         if (!this.paginationElement) return;
 
         try {
-            // 简化居中逻辑，确保分页控件始终居中
+            // 使用CSS类替代内联样式，实现关注点分离
             const container = this.paginationElement.closest('.pagination-wrapper');
             if (container) {
-                // 确保容器居中显示
-                container.style.display = 'flex';
-                container.style.justifyContent = 'center';
-                container.style.alignItems = 'center';
-                container.style.width = '100%';
-                container.style.margin = '5px auto'; /* 进一步减少上下边距 */
-                container.style.transform = 'none';
-                container.style.boxSizing = 'border-box'; /* 确保盒模型正确 */
+                // 确保容器有居中样式类
+                container.classList.add('pagination-wrapper-centered');
             }
         } catch (error) {
             console.error('居中设置失败:', error);
@@ -1160,16 +1154,8 @@ export const PaginationRenderUtils = {
      */
     createContainer(parent, className = 'pagination-wrapper') {
         const container = document.createElement('div');
-        container.className = className;
-
-        // 直接设置居中样式，简化复杂的CSS逻辑
-        container.style.display = 'flex';
-        container.style.justifyContent = 'center';
-        container.style.alignItems = 'center';
-        container.style.width = '100%';
-        container.style.margin = '5px auto'; /* 进一步减少上下边距 */
-        container.style.padding = '0';
-        container.style.boxSizing = 'border-box'; /* 确保盒模型正确 */
+        // 使用CSS类替代内联样式，实现关注点分离
+        container.className = `${className} pagination-wrapper-centered`;
 
         parent.appendChild(container);
         return container;

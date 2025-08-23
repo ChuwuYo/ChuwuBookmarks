@@ -654,10 +654,13 @@
     background: rgba(var(--text-color), 0.02);
 }
 
-/* 主题切换动画的性能优化 */
-.pagination-container * {
-    /* 确保所有子元素都能平滑过渡主题变化 */
-    transition-property: background-color, color, border-color, box-shadow, opacity;
+/* 主题切换动画的性能优化 - 针对所有需要过渡的元素 */
+.pagination-container .pagination-button,
+.pagination-container .pagination-ellipsis,
+.pagination-container .pagination-icon,
+.pagination-container .pagination-text {
+    /* 确保所有分页相关元素都能平滑过渡主题变化 */
+    transition-property: background-color, color, border-color, box-shadow, opacity, fill;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
 }
@@ -743,6 +746,18 @@
     /* 确保容器在两种主题下都正确显示 */
     opacity: 1;
     visibility: visible;
+}
+
+/* 分页容器居中样式类 - 替代内联样式 */
+.pagination-wrapper-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px auto;
+    padding: 0;
+    box-sizing: border-box;
+    transform: none;
 }
 
 /* 主题切换时的微妙动画效果 */
