@@ -24,7 +24,6 @@
 
 import {
     getSidebarMonitor,
-    getResponsiveManager,
     PaginationCenteringCalculator,
     TouchOptimizer
 } from './responsive.js';
@@ -61,10 +60,8 @@ export class PaginationRenderer {
         this.debounceTimeout = null;
         this.debounceDelay = 150;
 
-        // 响应式支持
-        this.responsiveManager = getResponsiveManager();
+        // 侧栏监听器（用于居中偏移计算）
         this.sidebarMonitor = getSidebarMonitor();
-        this.currentResponsiveConfig = null;
         this.currentSidebarState = null;
 
         // 性能优化：DOM元素复用池
@@ -85,25 +82,17 @@ export class PaginationRenderer {
         this.buttonStates = new WeakMap();
         this.elementMetadata = new WeakMap();
 
-        // 初始化响应式监听
-        this.initializeResponsiveListeners();
+        // 初始化侧栏状态监听（用于居中偏移）
+        this.initializeSidebarListener();
     }
 
+
+
     /**
-     * 初始化响应式监听器
+     * 初始化侧栏状态监听器
      */
-    initializeResponsiveListeners() {
-        // 监听响应式配置变化
-        if (this.responsiveManager) {
-            this.responsiveManager.addListener((config) => {
-                this.handleResponsiveConfigChange(config);
-            });
-
-            // 获取初始配置
-            this.currentResponsiveConfig = this.responsiveManager.getCurrentConfig();
-        }
-
-        // 监听侧栏状态变化
+    initializeSidebarListener() {
+        // 监听侧栏状态变化（用于居中偏移计算）
         if (this.sidebarMonitor) {
             this.sidebarMonitor.addListener((state) => {
                 this.handleSidebarStateChange(state);
@@ -114,24 +103,7 @@ export class PaginationRenderer {
         }
     }
 
-    /**
-     * 处理响应式配置变化
-     * @param {Object} config - 新的响应式配置
-     */
-    handleResponsiveConfigChange(config) {
-        this.currentResponsiveConfig = config;
 
-        if (this.paginationElement) {
-            // 应用新的响应式样式
-            this.applyResponsiveStyles();
-
-            // 重新优化触摸友好性
-            TouchOptimizer.optimizeForTouch(this.paginationElement, config);
-
-            // 更新居中偏移
-            this.updateCenteringOffset();
-        }
-    }
 
     /**
      * 处理侧栏状态变化
@@ -165,10 +137,12 @@ export class PaginationRenderer {
                 this.createPaginationElement();
             }
 
+            // 在更新内容之前先应用响应式样式，确保正确的初始显示
+            this.applyResponsiveStyles();
+            
             // 直接执行更新，不使用批量调度器
             this.updatePaginationContentOptimized(state);
             this.bindEventsOptimized();
-            this.applyResponsiveStyles();
             this.show();
 
             // 记录渲染时间
@@ -196,6 +170,16 @@ export class PaginationRenderer {
 
         // 确保分页控件可以通过键盘导航访问
         this.paginationElement.setAttribute('tabindex', '-1');
+
+        // 直接根据屏幕宽度应用响应式类，就像侧栏自动隐藏一样
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 479) {
+            this.paginationElement.classList.add('mobile-pagination');
+        } else if (screenWidth <= 1023) {
+            this.paginationElement.classList.add('tablet-pagination');
+        } else {
+            this.paginationElement.classList.add('desktop-pagination');
+        }
 
         this.container.appendChild(this.paginationElement);
     }
@@ -969,12 +953,15 @@ export class PaginationRenderer {
             return;
         }
 
-        // 如果没有响应式配置，使用默认配置
-        if (!this.currentResponsiveConfig) {
-            this.currentResponsiveConfig = { type: 'desktop' };
+        // 直接根据屏幕宽度检测，就像侧栏自动隐藏一样
+        const screenWidth = window.innerWidth;
+        let type = 'desktop';
+        
+        if (screenWidth <= 479) {
+            type = 'mobile';
+        } else if (screenWidth <= 1023) {
+            type = 'tablet';
         }
-
-        const { type } = this.currentResponsiveConfig;
 
         // 移除所有响应式类
         this.paginationElement.classList.remove('mobile-pagination', 'tablet-pagination', 'desktop-pagination');

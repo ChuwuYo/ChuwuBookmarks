@@ -28,11 +28,10 @@
  */
 
 import { createElement } from './sidebar.js';
-import { 
-    PaginationController, 
-    PaginationRenderer, 
-    PaginationRenderUtils,
-    initializeResponsiveSystem
+import {
+    PaginationController,
+    PaginationRenderer,
+    PaginationRenderUtils
 } from '../pagination/index.js';
 
 // 虚拟滚动配置
@@ -47,20 +46,20 @@ class VirtualScroller {
         this.visibleItems = new Map();
         this.scrollTimeout = null;
         this.intersectionObserver = null;
-        
+
         this.init();
     }
 
     init() {
         // 创建内容容器
         this.container.style.position = 'relative';
-        
+
         // 初始化 Intersection Observer
         this.setupIntersectionObserver();
 
         // 绑定滚动事件到主内容区
         document.getElementById('content').addEventListener('scroll', this.handleScroll.bind(this));
-        
+
         // 首次渲染
         this.updateVisibleItems();
     }
@@ -118,7 +117,7 @@ class VirtualScroller {
                 element.style.top = `${i * ITEM_HEIGHT}px`;
                 element.style.width = '100%';
                 element.style.height = `${ITEM_HEIGHT}px`;
-                
+
                 this.container.appendChild(element);
                 this.visibleItems.set(itemId, element);
                 this.intersectionObserver.observe(element);
@@ -180,19 +179,16 @@ const renderSearchResults = (results, renderMainContent) => {
     container.className = 'results-container';
     content.appendChild(container);
 
-    // 确保响应式系统已初始化
-    initializeResponsiveSystem();
-
-    // 初始化分页控制器
+    // 初始化分页控制器 - 简化配置，直接使用固定值
     globalPaginationController = new PaginationController(
-        { 
-            itemsPerPage: 20, 
-            maxVisiblePages: 5,
+        {
+            itemsPerPage: 20,
+            maxVisiblePages: 3, // 统一使用3个可见页面
             showFirstLast: true,
             showPrevNext: true,
             responsive: true
         },
-        { 
+        {
             onPageChange: (newPage) => handlePageChange(newPage, sortedResults, container, renderMainContent),
             onConfigChange: (config, responsiveConfig) => {
                 // 响应式配置变化时的回调
@@ -206,17 +202,17 @@ const renderSearchResults = (results, renderMainContent) => {
 
     // 计算分页状态
     const paginationState = globalPaginationController.calculatePagination(sortedResults.length, targetPage);
-    
+
     // 渲染当前页结果
     renderCurrentPageResults(sortedResults, paginationState, container, renderMainContent);
 
     // 创建分页控件容器并渲染分页控件
     if (paginationState.totalPages > 1) {
         const paginationContainer = PaginationRenderUtils.createContainer(content, 'pagination-wrapper');
-        
+
         globalPaginationRenderer = new PaginationRenderer(paginationContainer, globalPaginationController);
         globalPaginationRenderer.render(paginationState);
-        
+
         // 初始化响应式支持
         const paginationElement = paginationContainer.querySelector('.pagination-container');
         if (paginationElement) {
@@ -251,15 +247,15 @@ const handlePageChange = (newPage, allResults, container, renderMainContent) => 
 
     // 重新计算分页状态
     const paginationState = globalPaginationController.calculatePagination(allResults.length, newPage);
-    
+
     // 渲染新页面的结果
     renderCurrentPageResults(allResults, paginationState, container, renderMainContent);
-    
+
     // 更新分页控件状态
     if (globalPaginationRenderer) {
         globalPaginationRenderer.updatePageState(paginationState);
     }
-    
+
     // 滚动到搜索结果区域顶部，确保用户体验流畅
     scrollToSearchResults();
 
@@ -319,22 +315,22 @@ const scrollToSearchResults = () => {
         top: 0,
         behavior: 'smooth'
     });
-    
+
     // 添加视觉反馈效果到搜索结果区域
     const content = document.getElementById('content');
     if (content) {
         content.style.transition = 'opacity 0.3s ease';
         content.style.opacity = '0.8';
-        
+
         setTimeout(() => {
             content.style.opacity = '1';
         }, 150);
-        
+
         // 清理过渡效果
         setTimeout(() => {
             content.style.transition = '';
         }, 300);
-        
+
         // 确保焦点管理 - 将焦点移到内容区域，便于键盘导航
         const firstResult = content.querySelector('.virtual-item');
         if (firstResult) {
@@ -355,7 +351,7 @@ const addPageChangeVisualFeedback = (newPage) => {
     const content = document.getElementById('content');
     if (content) {
         content.classList.add('page-changing');
-        
+
         // 短暂延迟后移除加载状态
         setTimeout(() => {
             content.classList.remove('page-changing');
@@ -377,17 +373,17 @@ const updateBrowserHistory = (page) => {
     // 获取当前搜索关键词
     const searchInput = document.getElementById('search-input');
     const keyword = searchInput ? searchInput.value.trim() : '';
-    
+
     if (keyword && page > 1) {
         // 更新URL参数，但不触发页面刷新
         const url = new URL(window.location);
         url.searchParams.set('page', page);
         url.searchParams.set('q', keyword);
-        
+
         // 使用replaceState避免在浏览器历史中创建过多条目
         window.history.replaceState(
-            { page, keyword }, 
-            `搜索: ${keyword} - 第${page}页`, 
+            { page, keyword },
+            `搜索: ${keyword} - 第${page}页`,
             url.toString()
         );
     }
@@ -413,13 +409,13 @@ const cleanupPagination = () => {
         currentVirtualScroller.cleanup();
         currentVirtualScroller = null;
     }
-    
+
     // 清理分页渲染器
     if (globalPaginationRenderer) {
         globalPaginationRenderer.cleanup();
         globalPaginationRenderer = null;
     }
-    
+
     // 重置分页控制器
     if (globalPaginationController) {
         globalPaginationController.reset();
@@ -432,13 +428,13 @@ const cleanupPagination = () => {
  */
 const resetSearchPagination = () => {
     cleanupPagination();
-    
+
     // 清除页面切换的视觉状态
     const content = document.getElementById('content');
     if (content) {
         content.classList.remove('page-changing');
     }
-    
+
     // 清除当前页指示器
     const currentPageIndicator = document.querySelector('.current-page-indicator');
     if (currentPageIndicator) {
