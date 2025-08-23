@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // 初始化搜索Web Worker（包含分页功能集成）
+    let searchWorkerReady = false;
     try {
         initSearchWorker(renderMainContent);
+        searchWorkerReady = true;
     } catch (error) {
         console.error('搜索和分页功能初始化失败:', error);
-        // 提供降级处理，确保基本功能可用
     }
 
     // 创建搜索处理函数
@@ -49,8 +50,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始化所有事件监听器
     initEventListeners(debounceSearch);
 
-    // 从URL恢复搜索状态（如果有）
-    setTimeout(() => {
+    // 从URL恢复搜索状态（在搜索Worker准备就绪后）
+    if (searchWorkerReady) {
         restoreSearchStateFromURL();
-    }, 100);
+    }
 })

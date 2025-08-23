@@ -181,15 +181,13 @@ const triggerSearchWithPage = (keyword, targetPage = 1) => {
     const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
     
     if (searchWorker) {
-        // 设置目标页码到全局变量，供搜索结果渲染时使用
-        window.targetPaginationPage = targetPage;
-        
         searchWorker.postMessage({
             action: 'search',
             data: {
                 keyword: keyword,
                 bookmarks: data,
-                useCache: true
+                useCache: true,
+                targetPage: targetPage
             }
         });
     }
