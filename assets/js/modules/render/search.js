@@ -196,9 +196,8 @@ const renderSearchResults = (results, renderMainContent) => {
         }
     );
 
-    // 检查是否有目标页码（从URL恢复状态时使用）
-    const targetPage = window.targetPaginationPage || 1;
-    window.targetPaginationPage = null; // 清除目标页码
+    // 默认从第一页开始
+    const targetPage = 1;
 
     // 计算分页状态
     const paginationState = globalPaginationController.calculatePagination(sortedResults.length, targetPage);
@@ -220,8 +219,6 @@ const renderSearchResults = (results, renderMainContent) => {
         }
     }
 
-    // 返回清理函数
-    return () => cleanupPagination();
 };
 
 /**
