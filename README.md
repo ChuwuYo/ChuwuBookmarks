@@ -149,3 +149,7 @@
 [Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式 + 广告）
 
 [TabMark](https://www.ainewtab.app)（闭源）
+
+---
+
+~虽然代码屎山堆积，但好在性能还是不错的~
