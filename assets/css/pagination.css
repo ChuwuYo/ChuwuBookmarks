@@ -804,7 +804,8 @@
 }
 
 /* 主题切换动画的性能优化 */
-.pagination-container * {
+.pagination-container .pagination-button,
+.pagination-container .pagination-ellipsis {
     /* 确保所有子元素都能平滑过渡主题变化 */
     transition-property: background-color, color, border-color, box-shadow, opacity;
     transition-duration: var(--duration-short);
