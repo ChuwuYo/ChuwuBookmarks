@@ -13,9 +13,9 @@ export const RESPONSIVE_BREAKPOINTS = {
         itemsPerPage: 20,
         maxVisiblePages: 3,
         showLabels: false,
-        buttonSize: 44,
-        spacing: 6,
-        fontSize: 16
+        buttonSize: 32,
+        spacing: 4,
+        fontSize: 12
     },
     tablet: {
         maxWidth: 1023,
