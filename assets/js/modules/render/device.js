@@ -92,6 +92,8 @@ const adjustSearchContainerPosition = () => {
     const deviceType = getDeviceType();
     if (deviceType === 'mobile') {
         searchContainer.style.removeProperty('--search-container-centering-offset');
+        // 更新分页控件位置
+        updatePaginationPositionIfExists();
         return;
     }
 
@@ -103,6 +105,34 @@ const adjustSearchContainerPosition = () => {
 
     if (shiftInPx !== 0) {
         searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+    }
+    
+    // 更新分页控件位置
+    updatePaginationPositionIfExists();
+};
+
+// 辅助函数：如果分页控件存在则更新其位置
+const updatePaginationPositionIfExists = () => {
+    // 动态导入以避免循环依赖
+    import('./search.js').then(({ updatePaginationPosition }) => {
+        updatePaginationPosition();
+    }).catch(() => {
+        // 忽略导入错误，可能是分页模块未加载
+    });
+    
+    // 同时通知响应式系统更新
+    try {
+        import('../pagination/responsive.js').then(({ getSidebarMonitor }) => {
+            const sidebarMonitor = getSidebarMonitor();
+            if (sidebarMonitor) {
+                // 触发侧栏状态更新，这会自动更新分页控件位置
+                sidebarMonitor.handleResize();
+            }
+        }).catch(() => {
+            // 忽略导入错误
+        });
+    } catch (error) {
+        // 忽略错误
     }
 };
 

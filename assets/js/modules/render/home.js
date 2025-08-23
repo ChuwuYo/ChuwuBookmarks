@@ -145,6 +145,12 @@ const renderHome = () => {
     
     if (!content || !breadcrumbs) return;
 
+    // 清理分页控件（如果存在）
+    if (window.resetSearchPagination) {
+        window.resetSearchPagination();
+
+    }
+
     // 彻底清除旧的主页消息，无论它在哪里
     const oldHomeMessage = document.querySelector('.home-message');
     if (oldHomeMessage) {
