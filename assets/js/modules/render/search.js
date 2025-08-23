@@ -179,11 +179,11 @@ const renderSearchResults = (results, renderMainContent) => {
     container.className = 'results-container';
     content.appendChild(container);
 
-    // 初始化分页控制器 - 简化配置，直接使用固定值
+    // 初始化分页控制器
     globalPaginationController = new PaginationController(
         {
             itemsPerPage: 20,
-            maxVisiblePages: 3, // 统一使用3个可见页面
+            maxVisiblePages: 3,
             showFirstLast: true,
             showPrevNext: true,
             responsive: true
@@ -441,8 +441,5 @@ const resetSearchPagination = () => {
         currentPageIndicator.remove();
     }
 };
-
-// 将重置函数暴露到全局，供搜索模块调用
-window.resetSearchPagination = resetSearchPagination;
 
 export { renderSearchResults, updatePaginationPosition, resetSearchPagination };
