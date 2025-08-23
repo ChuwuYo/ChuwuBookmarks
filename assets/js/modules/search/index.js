@@ -1,10 +1,27 @@
 /**
  * 搜索功能模块
+ * 
+ * 本模块负责处理搜索功能的核心逻辑，包括：
+ * - Web Worker搜索处理
+ * - 分页状态管理
+ * - URL状态保持
+ * - 响应式系统初始化
+ * 
+ * 分页集成说明：
+ * - 新搜索时自动重置分页状态到第一页
+ * - 支持从URL恢复搜索和分页状态
+ * - 与分页控件的响应式系统完全集成
+ * 
+ * 性能优化：
+ * - 使用Web Worker进行搜索，避免阻塞主线程
+ * - 搜索结果缓存，提升重复搜索的响应速度
+ * - 防抖处理，避免频繁搜索请求
  */
 
 import { renderHome } from '../render/home.js';
-import { renderSearchResults } from '../render/search.js';
+import { renderSearchResults, resetSearchPagination } from '../render/search.js';
 import { debounce } from '../utils/index.js';
+import { initializeResponsiveSystem } from '../pagination/responsive.js';
 
 // 初始化Web Worker
 let searchWorker;
@@ -21,6 +38,9 @@ const clearWorkerCaches = () => {
 
 // 检查浏览器是否支持Web Worker
 const initSearchWorker = (renderMainContent) => {
+    // 初始化响应式系统
+    initializeResponsiveSystem();
+    
     if (window.Worker) {
         // 初始化搜索Worker
         searchWorker = new Worker('assets/js/search-worker.js');
@@ -32,12 +52,8 @@ const initSearchWorker = (renderMainContent) => {
             switch (action) {
                 case 'searchResults':
                     renderSearchResults(results, renderMainContent);
-                    if (fromCache) {
-                        console.log('使用缓存的搜索结果');
-                    }
                     break;
                 case 'cacheCleared':
-                    console.log('搜索缓存已清除');
                     break;
                 case 'error':
                     console.error('搜索Worker错误:', message);
@@ -56,9 +72,6 @@ const initSearchWorker = (renderMainContent) => {
                 case 'processResult':
                 case 'sortResult':
                 case 'filterResult':
-                    if (fromCache) {
-                        console.log(`使用缓存的${action}结果`);
-                    }
                     break;
                 case 'error':
                     console.error('数据处理Worker错误:', message);
@@ -74,8 +87,13 @@ const createSearchHandler = () => {
         if (!keyword) {
             // 搜索框为空时返回主页，不重新渲染侧边栏
             renderHome();
+            // 重置分页状态
+            resetPaginationState();
             return;
         }
+
+        // 新搜索时重置分页状态到第一页
+        resetPaginationState();
 
         // 显示加载指示器
         const content = document.getElementById('content');
@@ -120,4 +138,56 @@ const createSearchHandler = () => {
     }, 250);
 };
 
-export { clearWorkerCaches, initSearchWorker, createSearchHandler };
+/**
+ * 重置分页状态 - 新搜索时调用
+ */
+const resetPaginationState = () => {
+    try {
+        resetSearchPagination();
+        
+        // 清除URL中的分页参数
+        const url = new URL(window.location);
+        url.searchParams.delete('page');
+        window.history.replaceState({}, document.title, url.toString());
+    } catch (error) {
+        console.error('重置分页状态失败:', error);
+    }
+};
+
+/**
+ * 从URL参数恢复搜索状态
+ */
+const restoreSearchStateFromURL = () => {
+    const url = new URL(window.location);
+    const keyword = url.searchParams.get('q');
+
+    if (keyword) {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = keyword;
+            // 触发搜索，分页状态由URL参数处理
+            triggerSearch(keyword);
+        }
+    }
+};
+
+/**
+ * 触发搜索
+ * @param {string} keyword - 搜索关键词
+ */
+const triggerSearch = (keyword) => {
+    const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
+
+    if (searchWorker) {
+        searchWorker.postMessage({
+            action: 'search',
+            data: {
+                keyword: keyword,
+                bookmarks: data,
+                useCache: true
+            }
+        });
+    }
+};
+
+export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL, triggerSearch };

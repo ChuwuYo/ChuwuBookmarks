@@ -1,0 +1,780 @@
+/* 分页控件样式系统 */
+
+/* 分页控件专用CSS变量 - 与项目主题系统集成 */
+:root {
+    /* 分页控件颜色变量 */
+    --pagination-bg: var(--bg-color);
+    --pagination-border: var(--hover-bg);
+    --pagination-text: var(--text-color);
+    --pagination-active-bg: var(--link-color);
+    --pagination-active-text: var(--bg-color);
+    --pagination-hover-bg: var(--hover-bg);
+    --pagination-disabled-text: rgba(14, 20, 26, 0.4);
+    /* 亮色主题禁用文本 */
+
+    /* 分页控件尺寸和间距变量 - 默认桌面端配置 */
+    --pagination-spacing: 8px;
+    --pagination-button-size: 40px;
+    --pagination-border-radius: 6px;
+    /* 减小圆角 */
+    --pagination-font-size: 14px;
+
+    /* 分页控件阴影变量 */
+    --pagination-shadow: var(--shadow-sm);
+    --pagination-shadow-hover: var(--shadow-md);
+    --pagination-shadow-active: var(--button-shadow);
+    --pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
+
+    /* 分页控件居中偏移变量 */
+    --pagination-centering-offset: var(--search-container-centering-offset, 0px);
+
+    /* 分页控件过渡动画变量 */
+    --pagination-transition-base: all var(--duration-base) var(--ease-default);
+    --pagination-transition-transform: transform var(--duration-base) var(--ease-out-quad);
+    --pagination-transition-colors: background-color var(--duration-short) var(--ease-default),
+        color var(--duration-short) var(--ease-default),
+        border-color var(--duration-short) var(--ease-default);
+}
+
+/* 移动端配置 (≤479px) */
+@media screen and (max-width: 479px) {
+    :root {
+        --pagination-spacing: 4px;
+        --pagination-button-size: 32px;
+        --pagination-font-size: 12px;
+    }
+}
+
+/* 平板端配置 (480px-1023px) */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    :root {
+        --pagination-spacing: 8px;
+        --pagination-button-size: 40px;
+        --pagination-font-size: 14px;
+    }
+}
+
+/* 暗色主题下的分页变量调整 */
+:root[data-theme='dark'] {
+    --pagination-disabled-text: rgba(249, 241, 213, 0.4);
+    /* 暗色主题禁用文本 */
+    --pagination-shadow-focus: 0 0 0 4px rgba(116, 206, 255, 0.2);
+    /* 暗色主题焦点阴影 */
+}
+
+/* 分页容器基础样式 - 简化居中逻辑 */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--pagination-spacing);
+    margin: 0;
+    padding: 0.5rem;
+    /* 减少内边距 */
+    user-select: none;
+    outline: none;
+    width: 100%;
+
+    /* 简化过渡效果 */
+    transition: opacity var(--duration-base) var(--ease-default);
+    will-change: opacity;
+
+    /* 性能优化 */
+    contain: layout;
+    backface-visibility: hidden;
+
+    /* 主题切换时的平滑过渡 */
+    transition-property: opacity, background-color;
+}
+
+/* 分页按钮基础样式 */
+.pagination-button {
+    min-width: var(--pagination-button-size);
+    height: var(--pagination-button-size);
+    border: 2px solid var(--pagination-border);
+    border-radius: var(--pagination-border-radius);
+    background: var(--pagination-bg);
+    color: var(--pagination-text);
+    font-size: var(--pagination-font-size);
+    font-weight: 500;
+
+    /* 继承项目字体 */
+    font-family: 'DingTalk JinBuTi', sans-serif;
+
+    /* 按钮重置 */
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+
+    /* 布局和对齐 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    /* 优化的过渡效果 - 分离颜色和变形动画以提升性能 */
+    transition: var(--pagination-transition-colors), var(--pagination-transition-transform);
+
+    /* 性能优化 */
+    will-change: transform, background-color, box-shadow, border-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    /* 强制硬件加速 */
+
+    /* 触摸优化 */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    /* 确保在主题切换时平滑过渡 */
+    transition-property: background-color, color, border-color, transform, box-shadow, opacity;
+}
+
+/* 分页按钮悬停状态 - 仅在PC端生效，与项目其他元素保持一致 */
+@media (hover: hover) and (pointer: fine) {
+    .pagination-button:hover:not(:disabled):not(.active) {
+        background: var(--pagination-hover-bg);
+        box-shadow: var(--pagination-shadow-hover);
+        transform: translateZ(0) scale(1.05);
+        border-color: var(--link-color);
+        /* 添加微妙的文本阴影效果，与面包屑导航保持一致 */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 暗色主题下的悬停文本阴影调整 */
+    :root[data-theme='dark'] .pagination-button:hover:not(:disabled):not(.active) {
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    /* 悬停时的图标动画效果 */
+    .pagination-button:hover:not(:disabled) .pagination-icon {
+        transform: scale(1.1);
+        transition: transform var(--duration-base) var(--ease-out-quad);
+    }
+}
+
+/* 分页按钮激活状态 - 与项目链接色保持一致 */
+.pagination-button.active {
+    background: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+    border-color: var(--pagination-active-bg);
+    box-shadow: var(--pagination-shadow-active);
+    font-weight: 600;
+    /* 激活状态的微妙发光效果 */
+    position: relative;
+    
+    /* 保持按钮大小一致，避免点击后变大 */
+    transform: translateZ(0) scale(1);
+}
+
+.pagination-button.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--pagination-active-bg);
+    border-radius: calc(var(--pagination-border-radius) + 2px);
+    opacity: 0.2;
+    z-index: -1;
+    transition: opacity var(--duration-base) var(--ease-default);
+}
+
+/* 激活按钮的悬停效果 - 保持稳定但增加微妙的亮度变化 */
+@media (hover: hover) and (pointer: fine) {
+    .pagination-button.active:hover {
+        transform: translateZ(0) scale(1.05);
+        box-shadow: var(--pagination-shadow-active);
+        /* 微妙的亮度提升 */
+        filter: brightness(1.05);
+    }
+
+    .pagination-button.active:hover::before {
+        opacity: 0.3;
+    }
+}
+
+/* 分页按钮禁用状态 - 确保在主题切换时正确显示 */
+.pagination-button:disabled {
+    color: var(--pagination-disabled-text);
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: var(--pagination-disabled-text);
+    /* 禁用状态的过渡效果 */
+    transition: var(--pagination-transition-colors);
+    
+    /* 确保禁用按钮不会被缩放 */
+    transform: translateZ(0) scale(1);
+}
+
+.pagination-button:disabled:hover {
+    transform: translateZ(0) scale(1);
+    box-shadow: none;
+    background: var(--pagination-bg);
+    text-shadow: none;
+    filter: none;
+}
+
+/* 禁用按钮不应该获得焦点样式 */
+.pagination-button:disabled:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 禁用状态下的图标样式 */
+.pagination-button:disabled .pagination-icon {
+    opacity: 0.5;
+    transition: opacity var(--duration-short) var(--ease-default);
+}
+
+/* 分页按钮焦点样式 - 与项目其他元素保持一致的无障碍支持 */
+.pagination-button:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: var(--pagination-shadow-focus);
+    border-radius: var(--pagination-border-radius);
+    /* 确保焦点状态在主题切换时正确显示 */
+    transition: outline-color var(--duration-short) var(--ease-default),
+        box-shadow var(--duration-short) var(--ease-default);
+}
+
+/* 暗色主题下的焦点样式调整 */
+:root[data-theme='dark'] .pagination-button:focus-visible {
+    outline-color: var(--link-color);
+}
+
+/* 分页容器焦点样式 - 支持键盘导航到整个分页区域 */
+.pagination-container:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: var(--pagination-border-radius);
+}
+
+/* 键盘导航时的额外视觉提示 */
+.pagination-button:focus {
+    position: relative;
+    z-index: 1;
+}
+
+/* 为键盘用户提供更好的视觉反馈 */
+@media (prefers-reduced-motion: no-preference) {
+    .pagination-button:focus-visible {
+        animation: focusPulse 2s ease-in-out infinite;
+    }
+}
+
+@keyframes focusPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.4);
+    }
+}
+
+/* 分页按钮点击反馈样式 - 使用transform和opacity优化性能 */
+.pagination-button.clicked {
+    transform: translateZ(0) scale(0.95);
+    opacity: 0.8;
+    transition: transform var(--duration-short) var(--ease-default),
+        opacity var(--duration-short) var(--ease-default);
+}
+
+/* 暗色主题下的点击反馈调整 */
+:root[data-theme='dark'] .pagination-button.clicked {
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='light'] .pagination-button.clicked {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 分页按钮处理中状态 - 优化动画性能 */
+.pagination-button.processing {
+    opacity: 0.7;
+    cursor: wait;
+    pointer-events: none;
+    transition: opacity var(--duration-base) var(--ease-default);
+}
+
+.pagination-button.processing::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border: 2px solid transparent;
+    border-top-color: var(--pagination-text);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    will-change: transform;
+}
+
+/* 优化的旋转动画 - 使用transform提升性能 */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 省略号样式 - 增强主题适配 */
+.pagination-ellipsis {
+    min-width: var(--pagination-button-size);
+    height: var(--pagination-button-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pagination-text);
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+    cursor: default;
+    opacity: 0.7;
+    transition: color var(--duration-short) var(--ease-default),
+        opacity var(--duration-short) var(--ease-default);
+}
+
+/* 主题特定的省略号样式 */
+:root[data-theme='light'] .pagination-ellipsis {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme='dark'] .pagination-ellipsis {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* 上一页/下一页按钮图标样式 - 增强主题适配和动画 */
+.pagination-button .pagination-icon {
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--duration-base) var(--ease-out-quad),
+        opacity var(--duration-short) var(--ease-default);
+    will-change: transform;
+}
+
+/* 分页按钮文本样式 - 增强可读性 */
+.pagination-button .pagination-text {
+    font-size: var(--pagination-font-size);
+    line-height: 1;
+    white-space: nowrap;
+    transition: color var(--duration-short) var(--ease-default);
+}
+
+/* 主题特定的图标和文本样式 */
+:root[data-theme='light'] .pagination-button .pagination-text {
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+:root[data-theme='dark'] .pagination-button .pagination-text {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* 激活状态下的图标和文本样式 */
+.pagination-button.active .pagination-text {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.pagination-button.active .pagination-icon {
+    transform: scale(1.05);
+}
+
+/* 响应式分页控件类型样式 - 由 responsive.js 管理 */
+.pagination-container.mobile-pagination {
+    gap: var(--pagination-spacing);
+    margin: 0.1rem 0;
+    padding: 0.1rem;
+    transform: none !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
+    scroll-snap-type: x proximity;
+}
+
+.pagination-container.tablet-pagination {
+    gap: var(--pagination-spacing);
+    margin: 0.4rem 0;
+    padding: 0.2rem;
+}
+
+.pagination-container.desktop-pagination {
+    gap: var(--pagination-spacing);
+    margin: 0.5rem 0;
+    padding: 0.3rem;
+}
+
+/* 移动端分页容器滚动条隐藏 */
+.mobile-pagination::-webkit-scrollbar {
+    display: none;
+}
+
+/* 移动端滑动手势提示 - 仅在可滚动时显示 */
+.mobile-pagination.scrollable::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--pagination-border);
+    border-radius: 1px;
+    opacity: 0.4;
+    animation: slideHint 2s ease-in-out infinite;
+}
+
+@keyframes slideHint {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* 分页容器隐藏状态 */
+.pagination-container.hidden {
+    display: none;
+}
+
+/* 分页容器加载状态 */
+.pagination-container.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* 分页容器动画进入效果 - 简化动画 */
+.pagination-container.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.3s var(--ease-out-quad) forwards;
+    will-change: opacity;
+}
+
+/* 简化的淡入动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 主题切换时的平滑过渡动画 */
+.pagination-container.theme-transitioning {
+    transition: all var(--duration-medium) var(--ease-in-out-cubic);
+}
+
+.pagination-container.theme-transitioning .pagination-button {
+    transition: all var(--duration-medium) var(--ease-in-out-cubic);
+}
+
+/* 高对比度模式支持 - 合并所有高对比度样式 */
+@media (prefers-contrast: high) {
+    .pagination-button {
+        border-width: 3px;
+        font-weight: 600;
+    }
+
+    .pagination-button.active {
+        border-width: 4px;
+        font-weight: 700;
+        /* 高对比度下的更强烈视觉反馈 */
+        box-shadow: var(--pagination-shadow-active),
+            0 0 0 2px var(--pagination-active-bg);
+    }
+
+    /* 高对比度模式下的焦点样式增强 */
+    .pagination-button:focus-visible {
+        outline-width: 4px;
+        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
+    }
+
+    .pagination-container:focus-visible {
+        outline-width: 4px;
+        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
+    }
+
+    /* 高对比度下的省略号增强 */
+    .pagination-ellipsis {
+        font-weight: 900;
+        opacity: 1;
+    }
+}
+
+/* 页面切换状态样式 */
+.page-changing {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.page-changing .results-container {
+    pointer-events: none;
+}
+
+/* 当前页指示器样式 */
+.current-page-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+/* 主题特定的视觉增强 */
+
+/* 亮色主题下的额外视觉效果 */
+:root[data-theme='light'] .pagination-button:not(:disabled):not(.active) {
+    /* 微妙的内阴影，增加深度感 */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), var(--pagination-shadow);
+}
+
+:root[data-theme='light'] .pagination-button.active {
+    /* 激活状态的增强阴影 */
+    box-shadow: var(--pagination-shadow-active),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 暗色主题下的额外视觉效果 */
+:root[data-theme='dark'] .pagination-button:not(:disabled):not(.active) {
+    /* 暗色主题的边框高光 */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), var(--pagination-shadow);
+}
+
+:root[data-theme='dark'] .pagination-button.active {
+    /* 暗色主题激活状态的发光效果 */
+    box-shadow: var(--pagination-shadow-active),
+        0 0 8px rgba(116, 206, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 主题切换时的特殊过渡效果 */
+.pagination-container[data-theme-transitioning] {
+    transition: all var(--duration-long) var(--ease-in-out-cubic);
+}
+
+.pagination-container[data-theme-transitioning] .pagination-button {
+    transition: all var(--duration-long) var(--ease-in-out-cubic);
+}
+
+/* 高级悬停效果 - 仅在支持的设备上启用 */
+@media (hover: hover) and (pointer: fine) {
+
+    /* 亮色主题悬停时的光晕效果 */
+    :root[data-theme='light'] .pagination-button:hover:not(:disabled):not(.active) {
+        box-shadow: var(--pagination-shadow-hover),
+            0 0 12px rgba(35, 214, 227, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* 暗色主题悬停时的光晕效果 */
+    :root[data-theme='dark'] .pagination-button:hover:not(:disabled):not(.active) {
+        box-shadow: var(--pagination-shadow-hover),
+            0 0 12px rgba(116, 206, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* 页码切换时的视觉反馈 */
+.pagination-button.page-changing {
+    transform: translateZ(0) scale(0.98);
+    opacity: 0.7;
+    transition: transform var(--duration-short) var(--ease-default),
+        opacity var(--duration-short) var(--ease-default);
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+
+    .pagination-container,
+    .pagination-button {
+        transition: color var(--duration-short) var(--ease-default),
+            background-color var(--duration-short) var(--ease-default),
+            border-color var(--duration-short) var(--ease-default);
+        animation: none;
+    }
+
+    .pagination-button:hover:not(:disabled) {
+        transform: translateZ(0);
+    }
+
+    .pagination-container.fade-in {
+        animation: none;
+        opacity: 1;
+    }
+
+    .pagination-button.clicked {
+        transform: translateZ(0);
+    }
+
+    .pagination-button.page-changing {
+        transform: translateZ(0);
+    }
+
+    .page-changing {
+        transition: none;
+    }
+
+    .current-page-indicator {
+        transition: none;
+    }
+
+    /* 保持主题切换的颜色过渡 */
+    .pagination-container[data-theme-transitioning],
+    .pagination-container[data-theme-transitioning] .pagination-button {
+        transition: color var(--duration-medium) var(--ease-default),
+            background-color var(--duration-medium) var(--ease-default),
+            border-color var(--duration-medium) var(--ease-default),
+            box-shadow var(--duration-medium) var(--ease-default);
+    }
+}
+
+/* 主题适配测试和优化区域 */
+
+/* 确保分页控件在主题切换时的完整适配 */
+.pagination-container.theme-test {
+    /* 测试用类，用于验证主题切换效果 */
+    border: 1px dashed var(--pagination-border);
+    border-radius: var(--pagination-border-radius);
+    background: rgba(var(--text-color), 0.02);
+}
+
+/* 主题切换动画的性能优化 */
+.pagination-container * {
+    /* 确保所有子元素都能平滑过渡主题变化 */
+    transition-property: background-color, color, border-color, box-shadow, opacity;
+    transition-duration: var(--duration-short);
+    transition-timing-function: var(--ease-default);
+}
+
+/* 强制颜色模式支持 */
+@media (forced-colors: active) {
+    .pagination-button {
+        border: 2px solid ButtonBorder;
+        background: ButtonFace;
+        color: ButtonText;
+    }
+
+    .pagination-button.active {
+        background: Highlight;
+        color: HighlightText;
+        border-color: Highlight;
+    }
+
+    .pagination-button:disabled {
+        color: GrayText;
+        border-color: GrayText;
+    }
+
+    .pagination-button:focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    .pagination-container {
+        display: none !important;
+    }
+}
+
+/* 主题切换完成后的清理 */
+.pagination-container.theme-transition-complete {
+    transition: none;
+}
+
+.pagination-container.theme-transition-complete .pagination-button {
+    transition: var(--pagination-transition-base);
+}
+
+/* 调试用样式 - 仅在开发环境使用 */
+.pagination-debug .pagination-button {
+    position: relative;
+}
+
+.pagination-debug .pagination-button::after {
+    content: attr(data-page);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--text-color);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* 确保所有状态组合都有正确的样式 */
+.pagination-button:disabled.active {
+    /* 禁用的激活按钮（理论上不应该存在，但确保样式正确） */
+    background: var(--pagination-disabled-text);
+    color: var(--pagination-bg);
+    opacity: 0.4;
+    
+    /* 确保禁用的激活按钮不会被缩放 */
+    transform: translateZ(0) scale(1);
+}
+
+.pagination-button.processing.active {
+    /* 处理中的激活按钮 */
+    background: var(--pagination-active-bg);
+    opacity: 0.7;
+}
+
+/* 最终的主题适配验证 */
+:root[data-theme='light'] .pagination-container,
+:root[data-theme='dark'] .pagination-container {
+    /* 确保容器在两种主题下都正确显示 */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 主题切换时的微妙动画效果 */
+@keyframes themeSwitch {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.1);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.pagination-container.theme-switching {
+    animation: themeSwitch 0.3s ease-in-out;
+}
