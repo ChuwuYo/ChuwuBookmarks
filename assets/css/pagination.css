@@ -20,7 +20,7 @@
     --pagination-border-radius: 6px;
     /* 减小圆角 */
     --pagination-font-size: 13px;
-    /* 稍微减小字体 */
+    /* 稍稍微减小字体 */
 
     /* 分页控件阴影变量 */
     --pagination-shadow: var(--shadow-sm);
@@ -485,30 +485,7 @@
     }
 }
 
-/* 移动端特定的分页控件样式 */
-.mobile-pagination .pagination-button {
-    min-width: 32px !important;
-    /* 进一步减小尺寸 */
-    height: 32px !important;
-    font-size: 13px !important;
-    /* 进一步减小字体 */
-
-    /* 确保触摸目标足够大 */
-    padding: 0 !important;
-
-    /* 移动端触摸优化 */
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-}
-
-.mobile-pagination .pagination-ellipsis {
-    min-width: 32px !important;
-    /* 与按钮尺寸保持一致 */
-    height: 32px !important;
-    font-size: 14px !important;
-    /* 进一步减小字体 */
-}
+/* 移动端特定的分页控件样式 - 已移至独立的类选择器定义 */
 
 /* 移动端滑动手势提示 - 仅在可滚动时显示 */
 .mobile-pagination.scrollable::after {
@@ -559,6 +536,23 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+}
+
+/* 移动端分页样式 - 独立于媒体查询，确保类选择器优先级 */
+.mobile-pagination .pagination-button {
+    min-width: 32px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+    border-radius: 5px;
+    border-width: 1px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-pagination .pagination-ellipsis {
+    min-width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
 }
 
 /* 平板端分页样式 */
