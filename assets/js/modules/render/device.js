@@ -92,6 +92,8 @@ const adjustSearchContainerPosition = () => {
     const deviceType = getDeviceType();
     if (deviceType === 'mobile') {
         searchContainer.style.removeProperty('--search-container-centering-offset');
+        // 更新分页控件位置
+        updatePaginationPositionIfExists();
         return;
     }
 
@@ -104,6 +106,24 @@ const adjustSearchContainerPosition = () => {
     if (shiftInPx !== 0) {
         searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
     }
+    
+    // 更新分页控件位置
+    updatePaginationPositionIfExists();
+};
+
+// 辅助函数：如果分页控件存在则更新其位置
+const updatePaginationPositionIfExists = () => {
+    // 派发布局变化事件，让监听器处理更新
+    const layoutChangeEvent = new CustomEvent('layoutChange', {
+        detail: {
+            type: 'deviceLayoutUpdate',
+            timestamp: Date.now(),
+            deviceType: getDeviceType(),
+            sidebarCollapsed: shouldCollapseSidebar()
+        }
+    });
+
+    document.dispatchEvent(layoutChangeEvent);
 };
 
 // 封装侧边栏状态管理

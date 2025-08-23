@@ -184,6 +184,7 @@ button.breadcrumb-item {
     width: 100%;
     max-width: 600px;
     position: relative;
+    padding-left: 5px; /* 增加一点左侧内边距 */
     /* 移除导致元素扩散的transform和left */
 }
 
@@ -381,6 +382,13 @@ button.breadcrumb-item:focus-visible {
     position: relative;
     min-height: calc(100vh - 50px);
     padding-bottom: 2rem; /* 底部留些空间 */
+}
+
+/* 移动端减少底部间距 */
+@media screen and (max-width: 479px) {
+    .results-container {
+        padding-bottom: 0.5rem; /* 移动端大幅减少底部间距 */
+    }
 }
 
 /* 优化虚拟滚动项目的性能 */

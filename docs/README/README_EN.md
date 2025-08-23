@@ -94,6 +94,8 @@ For users outside mainland China, you can experience the website through the fol
 
    * Supports real-time rendering.
 
+   * Pagination of search results. 
+
 5. **Theme Switching**:
 
    * Supports switching between dark and light modes.

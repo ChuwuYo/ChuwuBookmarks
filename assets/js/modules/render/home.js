@@ -4,6 +4,7 @@
 
 import { animationConfig } from './theme.js';
 import { getDeviceType, adjustSearchContainerPosition, adjustHomeMessagePosition } from './device.js';
+import { resetSearchPagination } from './search.js';
 
 // 创建主页基础DOM结构
 const createHomeStructure = () => {
@@ -144,6 +145,13 @@ const renderHome = () => {
     const breadcrumbs = document.getElementById('breadcrumbs');
     
     if (!content || !breadcrumbs) return;
+
+    // 清理分页控件
+    try {
+        resetSearchPagination();
+    } catch (error) {
+        console.error('清理分页控件失败:', error);
+    }
 
     // 彻底清除旧的主页消息，无论它在哪里
     const oldHomeMessage = document.querySelector('.home-message');

@@ -38,9 +38,10 @@
     .mobile-device .sidebar.collapsed + .main-content,
     .mobile-device .sidebar:not(.collapsed) + .main-content {
         margin-left: 0;
+        margin-right: 0;
         width: 100%;
         max-width: 600px;
-        padding: 15px;
+        padding: 15px 25px; /* 增加左右内边距，特别是左侧 */
         margin: 0 auto;
         position: relative;
         box-sizing: border-box;
@@ -95,7 +96,7 @@
     }
     /* 面包屑导航移动端优化 */
     #breadcrumbs {
-        padding: 50px 15px 0;
+        padding: 50px 25px 0; /* 增加左右内边距，与内容区保持一致 */
         font-size: clamp(1rem, 5vw, 1.2rem);
         width: 100%;
         max-width: 600px;
