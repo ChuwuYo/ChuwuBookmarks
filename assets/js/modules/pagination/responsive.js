@@ -130,7 +130,7 @@ export class ResponsiveConfigManager {
      * 绑定窗口大小变化事件
      */
     bindResizeEvent() {
-        const handleResize = () => {
+        this.handleResize = () => {
             // 防抖处理，避免频繁触发
             if (this.resizeTimeout) {
                 clearTimeout(this.resizeTimeout);
@@ -147,15 +147,17 @@ export class ResponsiveConfigManager {
             }, 150);
         };
 
-        window.addEventListener('resize', handleResize, { passive: true });
+        this.handleOrientationChange = () => {
+            setTimeout(() => {
+                this.updateConfig();
+            }, 100);
+        };
+
+        window.addEventListener('resize', this.handleResize, { passive: true });
         
         // 监听设备方向变化
         if (window.screen && window.screen.orientation) {
-            window.screen.orientation.addEventListener('change', () => {
-                setTimeout(() => {
-                    this.updateConfig();
-                }, 100);
-            });
+            window.screen.orientation.addEventListener('change', this.handleOrientationChange);
         }
     }
 
@@ -178,7 +180,19 @@ export class ResponsiveConfigManager {
         if (this.resizeTimeout) {
             clearTimeout(this.resizeTimeout);
         }
+        
+        // 移除事件监听器
+        if (this.handleResize) {
+            window.removeEventListener('resize', this.handleResize);
+        }
+        
+        if (this.handleOrientationChange && window.screen && window.screen.orientation) {
+            window.screen.orientation.removeEventListener('change', this.handleOrientationChange);
+        }
+        
         this.listeners.clear();
+        this.handleResize = null;
+        this.handleOrientationChange = null;
     }
 }
 
@@ -201,8 +215,11 @@ export class SidebarStateMonitor {
      * 初始化监听
      */
     initializeMonitoring() {
+        // 保存监听器函数引用
+        this.boundHandleResize = this.handleResize.bind(this);
+        
         // 监听窗口大小变化
-        window.addEventListener('resize', this.handleResize.bind(this), { passive: true });
+        window.addEventListener('resize', this.boundHandleResize, { passive: true });
         
         // 监听侧栏切换事件
         this.observeSidebarChanges();
@@ -302,6 +319,12 @@ export class SidebarStateMonitor {
      */
     destroy() {
         this.listeners.clear();
+        
+        // 移除窗口事件监听器
+        if (this.boundHandleResize) {
+            window.removeEventListener('resize', this.boundHandleResize);
+            this.boundHandleResize = null;
+        }
         
         if (this.sidebarObserver) {
             this.sidebarObserver.disconnect();

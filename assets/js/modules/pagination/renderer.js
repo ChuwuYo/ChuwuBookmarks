@@ -92,12 +92,14 @@ export class PaginationRenderer {
      * 初始化侧栏状态监听器
      */
     initializeSidebarListener() {
+        // 保存监听器函数引用以便清理
+        this.sidebarStateListener = (state) => {
+            this.handleSidebarStateChange(state);
+        };
+        
         // 监听侧栏状态变化（用于居中偏移计算）
         if (this.sidebarMonitor) {
-            this.sidebarMonitor.addListener((state) => {
-                this.handleSidebarStateChange(state);
-            });
-
+            this.sidebarMonitor.addListener(this.sidebarStateListener);
             // 获取初始状态
             this.currentSidebarState = this.sidebarMonitor.getCurrentState();
         }
@@ -1083,6 +1085,11 @@ export class PaginationRenderer {
     destroy() {
         this.cleanup();
 
+        // 移除侧栏监听器
+        if (this.sidebarMonitor && this.sidebarStateListener) {
+            this.sidebarMonitor.removeListener(this.sidebarStateListener);
+        }
+
         // 移除DOM元素
         if (this.paginationElement && this.paginationElement.parentNode) {
             this.paginationElement.parentNode.removeChild(this.paginationElement);
@@ -1094,6 +1101,7 @@ export class PaginationRenderer {
         this.paginationElement = null;
         this.responsiveManager = null;
         this.sidebarMonitor = null;
+        this.sidebarStateListener = null;
         this.currentResponsiveConfig = null;
         this.currentSidebarState = null;
     }

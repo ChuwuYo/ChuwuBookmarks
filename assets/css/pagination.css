@@ -625,26 +625,36 @@
     transition: all var(--duration-medium) var(--ease-in-out-cubic);
 }
 
-/* 高对比度模式支持 */
+/* 高对比度模式支持 - 合并所有高对比度样式 */
 @media (prefers-contrast: high) {
     .pagination-button {
         border-width: 3px;
+        font-weight: 600;
     }
 
     .pagination-button.active {
-        border-width: 3px;
+        border-width: 4px;
         font-weight: 700;
+        /* 高对比度下的更强烈视觉反馈 */
+        box-shadow: var(--pagination-shadow-active),
+            0 0 0 2px var(--pagination-active-bg);
     }
 
     /* 高对比度模式下的焦点样式增强 */
     .pagination-button:focus-visible {
-        outline-width: 3px;
-        box-shadow: 0 0 0 6px rgba(43, 195, 206, 0.3);
+        outline-width: 4px;
+        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
     }
 
     .pagination-container:focus-visible {
-        outline-width: 3px;
-        box-shadow: 0 0 0 6px rgba(43, 195, 206, 0.3);
+        outline-width: 4px;
+        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
+    }
+
+    /* 高对比度下的省略号增强 */
+    .pagination-ellipsis {
+        font-weight: 900;
+        opacity: 1;
     }
 }
 
@@ -799,39 +809,6 @@
     transition-property: background-color, color, border-color, box-shadow, opacity;
     transition-duration: var(--duration-short);
     transition-timing-function: var(--ease-default);
-}
-
-/* 高对比度模式下的额外增强 */
-@media (prefers-contrast: high) {
-    .pagination-button {
-        border-width: 3px;
-        font-weight: 600;
-    }
-
-    .pagination-button.active {
-        border-width: 4px;
-        font-weight: 700;
-        /* 高对比度下的更强烈视觉反馈 */
-        box-shadow: var(--pagination-shadow-active),
-            0 0 0 2px var(--pagination-active-bg);
-    }
-
-    /* 高对比度模式下的焦点样式增强 */
-    .pagination-button:focus-visible {
-        outline-width: 4px;
-        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
-    }
-
-    .pagination-container:focus-visible {
-        outline-width: 4px;
-        box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
-    }
-
-    /* 高对比度下的省略号增强 */
-    .pagination-ellipsis {
-        font-weight: 900;
-        opacity: 1;
-    }
 }
 
 /* 强制颜色模式支持 */
