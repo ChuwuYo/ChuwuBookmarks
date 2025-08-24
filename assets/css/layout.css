@@ -36,6 +36,14 @@
     padding: 0;
     overflow: hidden;
 }
+
+/* 侧栏收起时立即隐藏主页按钮和文件夹，但保持切换按钮可见 */
+.sidebar.collapsed .home-button,
+.sidebar.collapsed .folder {
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+}
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
