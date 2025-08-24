@@ -370,11 +370,19 @@ button.breadcrumb-item:focus-visible {
 }
 
 .no-results {
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
     text-align: center;
-    padding: 2rem;
     color: var(--text-color);
     font-size: 1.1rem;
     opacity: 0.8;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+    z-index: 10;
 }
 
 /* 搜索结果相关样式 */
