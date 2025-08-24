@@ -10,8 +10,7 @@
                 box-shadow var(--duration-long) var(--ease-default), 
                 transform var(--duration-long) var(--ease-default), 
                 border-radius var(--duration-long) var(--ease-default), 
-                opacity var(--duration-medium) var(--ease-in-out-cubic), 
-                left var(--duration-medium) var(--ease-in-out-cubic);
+                opacity var(--duration-medium) var(--ease-in-out-cubic);
     user-select: none;
     /* 允许键盘焦点操作 */
     outline: none;
@@ -25,6 +24,9 @@
     will-change: transform, box-shadow, border-radius;
     backface-visibility: hidden;
     transform: translateZ(0);
+    /* 确保位置稳定 */
+    position: static;
+    vertical-align: top;
 }
 
 /* 主页按钮悬停效果 - 仅在PC端生效 */
