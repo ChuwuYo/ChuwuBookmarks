@@ -301,7 +301,10 @@ export class PaginationRenderer {
 
         // 使用优化的DOM更新方法
         DOMOptimizer.optimizedUpdate(this.paginationElement, (container) => {
-            container.innerHTML = '';
+            // 直接操作子元素而不是使用 innerHTML，以保留可复用的DOM节点
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
             container.appendChild(fragment);
         });
 
@@ -631,12 +634,14 @@ export class PaginationRenderer {
     recycleUnusedElements() {
         if (!this.paginationElement) return;
 
-        // 收集当前DOM中的所有可复用元素
-        const currentElements = this.paginationElement.querySelectorAll('[data-reusable]');
+        // 收集当前DOM中的所有子元素
+        const currentElements = Array.from(this.paginationElement.children);
 
         currentElements.forEach(element => {
-            // 如果元素不在新的fragment中，回收它
-            if (!element.parentNode || element.parentNode === this.paginationElement) {
+            // 检查元素是否具有可复用的元数据
+            const metadata = this.elementMetadata.get(element);
+            if (metadata && metadata.reusable) {
+                // 将可复用的元素放回池中
                 this.returnToPool(element);
             }
         });

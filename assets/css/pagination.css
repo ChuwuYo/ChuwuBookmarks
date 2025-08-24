@@ -395,11 +395,11 @@
 }
 
 /* 响应式分页控件类型样式 - 由 responsive.js 管理 */
-.pagination-container.mobile-pagination {
+body .pagination-container.mobile-pagination {
     gap: var(--pagination-spacing);
     margin: 0.1rem 0;
     padding: 0.1rem;
-    transform: none !important;
+    transform: translateZ(0);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -670,7 +670,8 @@
 }
 
 /* 主题切换动画的性能优化 */
-.pagination-container * {
+.pagination-container .pagination-button,
+.pagination-container .pagination-ellipsis {
     /* 确保所有子元素都能平滑过渡主题变化 */
     transition-property: background-color, color, border-color, box-shadow, opacity;
     transition-duration: var(--duration-short);
@@ -704,8 +705,10 @@
 
 /* 打印样式优化 */
 @media print {
-    .pagination-container {
-        display: none !important;
+    body .pagination-container,
+    html .pagination-container {
+        display: none;
+        visibility: hidden;
     }
 }
 

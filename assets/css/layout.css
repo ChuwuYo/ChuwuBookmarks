@@ -36,6 +36,14 @@
     padding: 0;
     overflow: hidden;
 }
+
+/* 侧栏收起时立即隐藏主页按钮和文件夹，但保持切换按钮可见 */
+.sidebar.collapsed .home-button,
+.sidebar.collapsed .folder {
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+}
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
@@ -89,6 +97,9 @@
     gap: 20px;
     margin-bottom: 20px;
     padding: 0 5px;
+    /* 确保布局稳定性 */
+    flex-wrap: nowrap;
+    min-height: 40px;
 }
 
 .home-button {
@@ -99,6 +110,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* 确保位置稳定 */
+    flex-shrink: 0;
+    align-self: flex-start;
 }
 .main-content {
     margin-left: 250px;
