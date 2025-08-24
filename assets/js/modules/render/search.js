@@ -9,7 +9,7 @@
  * - 页面切换时的用户体验优化
  * 
  * 性能优化：
- * - 分页机制：每页仅渲染20条记录，减少DOM负担
+ * - 分页机制：每页仅渲染配置数量的记录，减少DOM负担
  * - DOM复用：复用分页控件的DOM元素
  * - 批量更新：使用DocumentFragment进行批量DOM操作
  * - 内存管理：及时清理不再使用的资源
@@ -99,7 +99,7 @@ class SearchResultsManager {
         }
 
         // 验证页码有效性
-        const totalPages = Math.ceil(allResults.length / 20);
+        const totalPages = Math.ceil(allResults.length / this.paginationController.config.itemsPerPage);
         if (newPage < 1 || newPage > totalPages) {
             return;
         }
