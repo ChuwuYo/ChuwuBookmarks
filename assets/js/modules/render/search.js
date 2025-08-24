@@ -157,7 +157,7 @@ class SearchResultsManager {
                 
                 // 批量设置属性，减少DOM操作
                 element.style.cssText = `--item-index: ${i}`;
-                element.className += ' search-result-item';
+                element.classList.add('search-result-item');
                 
                 fragment.appendChild(element);
             }
