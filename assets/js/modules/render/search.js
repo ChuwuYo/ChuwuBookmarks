@@ -133,69 +133,88 @@ class SearchResultsManager {
      * @param {Function} renderMainContent - 主内容渲染函数
      */
     renderCurrentPageResults(allResults, paginationState, container, renderMainContent) {
-        // 清空容器内容
-        container.innerHTML = '';
+        // 使用requestAnimationFrame优化渲染时机
+        requestAnimationFrame(() => {
+            // 清空容器内容
+            container.innerHTML = '';
 
-        // 获取当前页数据
-        const currentPageData = this.paginationController.getCurrentPageData(allResults);
+            // 获取当前页数据
+            const currentPageData = this.paginationController.getCurrentPageData(allResults);
+            
+            if (!currentPageData.length) return;
 
-        // 使用DocumentFragment进行批量DOM操作，提高性能
-        const fragment = document.createDocumentFragment();
-        
-        currentPageData.forEach((item, index) => {
-            const element = createElement(
-                item.type === 'folder' ? 'folder' : 'bookmark',
-                item,
-                item.type === 'folder' ? () => renderMainContent(item) : null
-            );
+            // DocumentFragment创建
+            const fragment = document.createDocumentFragment();
             
-            // 添加索引属性以便维护原有功能
-            element.style.setProperty('--item-index', index);
-            element.classList.add('search-result-item');
+            // 批量创建元素，避免单个循环中的DOM查询
+            for (let i = 0; i < currentPageData.length; i++) {
+                const item = currentPageData[i];
+                const element = createElement(
+                    item.type === 'folder' ? 'folder' : 'bookmark',
+                    item,
+                    item.type === 'folder' ? () => renderMainContent(item) : null
+                );
+                
+                // 批量设置属性，减少DOM操作
+                element.style.cssText = `--item-index: ${i}`;
+                element.className += ' search-result-item';
+                
+                fragment.appendChild(element);
+            }
+
+            // 一次性添加所有元素
+            container.appendChild(fragment);
             
-            fragment.appendChild(element);
+            // 优化焦点设置，使用已缓存的首个元素
+            if (currentPageData.length > 0) {
+                const firstResult = fragment.firstElementChild;
+                if (firstResult) {
+                    firstResult.setAttribute('tabindex', '0');
+                }
+            }
         });
-
-        // 一次性添加所有元素
-        container.appendChild(fragment);
-        
-        // 为首个结果添加焦点支持
-        const firstResult = container.querySelector('.search-result-item');
-        if (firstResult) {
-            firstResult.setAttribute('tabindex', '0');
-        }
     }
 
     /**
      * 滚动到搜索结果区域顶部
      */
     scrollToSearchResults() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-
-        const content = document.getElementById('content');
-        if (content) {
-            content.style.transition = 'opacity 0.3s ease';
-            content.style.opacity = '0.8';
-
-            setTimeout(() => {
-                content.style.opacity = '1';
-            }, 150);
-
-            setTimeout(() => {
-                content.style.transition = '';
-            }, 300);
-
-            // 找到首个搜索结果并设置焦点
-            const firstResult = content.querySelector('.search-result-item');
-            if (firstResult) {
-                setTimeout(() => {
-                    firstResult.focus();
-                }, 500);
-            }
+        // 优化滚动，使用节流
+        if (this.scrollTimeout) {
+            clearTimeout(this.scrollTimeout);
         }
+        
+        this.scrollTimeout = setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // 缓存DOM查询
+            if (!this.contentElement) {
+                this.contentElement = document.getElementById('content');
+            }
+            
+            const content = this.contentElement;
+            if (content) {
+                // 使用CSS变量优化过渡
+                content.style.cssText = 'transition: opacity 0.3s ease; opacity: 0.8;';
+
+                setTimeout(() => {
+                    content.style.opacity = '1';
+                }, 150);
+
+                setTimeout(() => {
+                    content.style.cssText = '';
+                    
+                    // 优化焦点设置
+                    const firstResult = content.querySelector('.search-result-item[tabindex="0"]');
+                    if (firstResult) {
+                        firstResult.focus();
+                    }
+                }, 300);
+            }
+        }, 16); // ~60fps
     }
 
     /**
@@ -203,17 +222,31 @@ class SearchResultsManager {
      * @param {number} newPage - 新页码
      */
     addPageChangeVisualFeedback(newPage) {
-        const content = document.getElementById('content');
+        // 缓存DOM查询
+        if (!this.contentElement) {
+            this.contentElement = document.getElementById('content');
+        }
+        
+        const content = this.contentElement;
         if (content) {
+            // 使用CSS类名更高效
             content.classList.add('page-changing');
-            setTimeout(() => {
-                content.classList.remove('page-changing');
-            }, 200);
+            
+            // 使用requestAnimationFrame优化
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    content.classList.remove('page-changing');
+                }, 200);
+            });
         }
 
-        const currentPageIndicator = document.querySelector('.current-page-indicator');
-        if (currentPageIndicator) {
-            currentPageIndicator.textContent = `第 ${newPage} 页`;
+        // 优化页面指示器更新
+        if (!this.pageIndicator) {
+            this.pageIndicator = document.querySelector('.current-page-indicator');
+        }
+        
+        if (this.pageIndicator) {
+            this.pageIndicator.textContent = `第 ${newPage} 页`;
         }
     }
 
@@ -297,6 +330,13 @@ class SearchResultsManager {
      * 清理所有资源
      */
     cleanup() {
+        // 清理定时器
+        if (this.scrollTimeout) {
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = null;
+        }
+        
+        // 清理分页相关资源
         if (this.paginationRenderer) {
             this.paginationRenderer.cleanup();
             this.paginationRenderer = null;
@@ -307,8 +347,13 @@ class SearchResultsManager {
             this.paginationController = null;
         }
 
+        // 清理数据引用
         this.currentResults = [];
         this.currentContainer = null;
+        
+        // 清理缓存的DOM引用，防止内存泄漏
+        this.contentElement = null;
+        this.pageIndicator = null;
 
         // 清理事件监听器
         this.cleanupEventListeners();
@@ -375,6 +420,9 @@ const renderSearchResults = (results, renderMainContent) => {
 
     if (!content || !breadcrumbs) return;
 
+    // 添加搜索状态标记，防止位置调整干扰
+    content.classList.add('search-rendering');
+
     // 清除主页消息和现有内容
     const existingHomeMessage = document.querySelector('.home-message');
     if (existingHomeMessage) {
@@ -392,6 +440,9 @@ const renderSearchResults = (results, renderMainContent) => {
         noResults.className = 'no-results';
         noResults.textContent = '未找到匹配的书签。';
         content.appendChild(noResults);
+        
+        // 移除搜索状态标记
+        content.classList.remove('search-rendering');
         return;
     }
 
@@ -416,6 +467,11 @@ const renderSearchResults = (results, renderMainContent) => {
         // 创建分页控件容器并渲染分页控件
         searchResultsManager.createPaginationControls(content, paginationState);
     }
+    
+    // 渲染完成后移除标记
+    requestAnimationFrame(() => {
+        content.classList.remove('search-rendering');
+    });
 };
 
 
