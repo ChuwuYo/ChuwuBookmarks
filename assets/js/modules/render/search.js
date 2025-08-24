@@ -438,7 +438,7 @@ const renderSearchResults = (results, renderMainContent) => {
     if (!results || !results.length) {
         const noResults = document.createElement('div');
         noResults.className = 'no-results';
-        noResults.textContent = '未找到匹配的书签。';
+        noResults.textContent = '未找到匹配的书签';
         content.appendChild(noResults);
         
         // 移除搜索状态标记
