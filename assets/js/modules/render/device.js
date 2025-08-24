@@ -90,33 +90,58 @@ const adjustHomeMessagePosition = (isCollapsed) => {
     }
 };
 
+// 防抖定时器
+let adjustPositionTimeout = null;
+
 // 调整搜索容器位置和偏移量
 const adjustSearchContainerPosition = () => {
-    const searchContainer = document.querySelector('.search-container');
-    const searchInput = document.getElementById('search-input');
-    if (!searchContainer || !searchInput) return;
+    // 清除之前的定时器
+    if (adjustPositionTimeout) {
+        clearTimeout(adjustPositionTimeout);
+    }
 
-    // 移除requestAnimationFrame延迟，直接执行
-    const deviceType = getDeviceType();
-    if (deviceType === 'mobile') {
-        searchContainer.style.removeProperty('--search-container-centering-offset');
+    // 使用防抖延迟执行，确保DOM完全稳定
+    adjustPositionTimeout = setTimeout(() => {
+        const searchContainer = document.querySelector('.search-container');
+        const searchInput = document.getElementById('search-input');
+        const content = document.getElementById('content');
+
+        if (!searchContainer || !searchInput) return;
+
+        // 如果正在搜索渲染中，跳过位置调整
+        if (content && content.classList.contains('search-rendering')) {
+            adjustPositionTimeout = null;
+            return;
+        }
+
+        const deviceType = getDeviceType();
+        if (deviceType === 'mobile') {
+            searchContainer.style.removeProperty('--search-container-centering-offset');
+            updatePaginationPositionIfExists();
+            return;
+        }
+
+        // 使用getBoundingClientRect获取更稳定的位置信息
+        const searchInputRect = searchInput.getBoundingClientRect();
+        const searchContainerRect = searchContainer.getBoundingClientRect();
+
+        // 计算搜索输入框在搜索容器中的相对位置
+        const searchInputCenter = searchInputRect.left + searchInputRect.width / 2;
+        const searchContainerCenter = searchContainerRect.left + searchContainerRect.width / 2;
+
+        // 计算需要的偏移量
+        const shiftInPx = searchContainerCenter - searchInputCenter;
+
+        // 只有当偏移量超过阈值时才应用，避免微小抖动
+        if (Math.abs(shiftInPx) > 0.5) {
+            searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
+        }
+
         // 更新分页控件位置
         updatePaginationPositionIfExists();
-        return;
-    }
 
-    const searchInputOffsetLeft = searchInput.offsetLeft;
-    const searchInputWidth = searchInput.offsetWidth;
-    const searchContainerWidth = searchContainer.offsetWidth;
-
-    const shiftInPx = (searchContainerWidth / 2) - (searchInputOffsetLeft + searchInputWidth / 2);
-
-    if (shiftInPx !== 0) {
-        searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
-    }
-    
-    // 更新分页控件位置
-    updatePaginationPositionIfExists();
+        adjustPositionTimeout = null;
+    }, 16); // 约60fps的延迟，确保DOM稳定
 };
 
 // 辅助函数：如果分页控件存在则更新其位置
