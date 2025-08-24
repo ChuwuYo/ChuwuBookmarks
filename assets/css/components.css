@@ -377,7 +377,7 @@ button.breadcrumb-item:focus-visible {
     opacity: 0.8;
 }
 
-/* 虚拟滚动相关样式 */
+/* 搜索结果相关样式 */
 .results-container {
     position: relative;
     min-height: calc(100vh - 50px);
@@ -391,13 +391,18 @@ button.breadcrumb-item:focus-visible {
     }
 }
 
-/* 优化虚拟滚动项目的性能 */
-.virtual-item {
-    contain: content;
-    will-change: transform, opacity;
-    backface-visibility: hidden;
+/* 搜索结果项目样式 */
+.search-result-item {
     opacity: 0;
     animation: fadeInUp 0.15s ease-out forwards;
+    margin-bottom: 0.5rem;
+}
+
+.search-result-item:focus {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+    border-radius: 4px;
 }
 
 @keyframes fadeInUp {
