@@ -137,7 +137,7 @@
 
 ## 感谢所有贡献者作出的努力
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
+  <img src="https://contrib.rocks/image?repo=ChuwuYo/ChuwuBookmarks" />
 </a>
 
 ***
@@ -148,7 +148,7 @@
 
 [Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式 + 广告）
 
-[TabMark](https://www.ainewtab.app)（闭源）
+[TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab)（开源）
 
 ---
 
