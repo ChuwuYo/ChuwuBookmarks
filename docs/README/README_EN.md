@@ -149,4 +149,4 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 [Pintree](https://github.com/Pintree-io/pintree) (open-source + paid model + advertisments)
 
-[TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab) (open-source)
+[TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab) (open-source browser extension)
