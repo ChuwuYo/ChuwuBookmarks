@@ -28,11 +28,6 @@ const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 // 更新侧边栏状态的函数
 const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
-    const toggleButton = document.getElementById('toggle-sidebar');
-    const showPanel = toggleButton.querySelector('.show-panel');
-    const hidePanel = toggleButton.querySelector('.hide-panel');
-    showPanel.style.display = isCollapsed ? 'block' : 'none';
-    hidePanel.style.display = isCollapsed ? 'none' : 'block';
 
     // 处理文件夹的动画，但主页按钮的可见性完全由CSS控制
 
