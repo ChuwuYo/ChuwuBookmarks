@@ -28,19 +28,8 @@ const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 // 更新侧边栏状态的函数
 const updateSidebarVisibility = (sidebar, isCollapsed, skipAnimation = false) => {
     sidebar.classList.toggle('collapsed', isCollapsed);
-    const toggleButton = document.getElementById('toggle-sidebar');
-    const showPanel = toggleButton.querySelector('.show-panel');
-    const hidePanel = toggleButton.querySelector('.hide-panel');
-    showPanel.style.display = isCollapsed ? 'block' : 'none';
-    hidePanel.style.display = isCollapsed ? 'none' : 'block';
 
-    // 处理主页按钮的立即隐藏，但保持切换按钮可见
-    const homeButton = sidebar.querySelector('.home-button');
-    if (isCollapsed) {
-        if (homeButton) gsap.set(homeButton, { opacity: 0, visibility: 'hidden' });
-    } else {
-        if (homeButton) gsap.set(homeButton, { opacity: 1, visibility: 'visible' });
-    }
+    // 处理文件夹的动画，但主页按钮的可见性完全由CSS控制
 
     const folderElements = sidebar.querySelectorAll('.folder');
     if (folderElements && folderElements.length > 0) {

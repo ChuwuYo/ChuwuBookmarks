@@ -137,8 +137,8 @@ For users outside mainland China, you can experience the website through the fol
 
 
 ## Thanks to all contributors for their efforts
-<a href="https://github.com/HatsuChuwu/ChuwuBookmarks/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=HatsuChuwu/ChuwuBookmarks" />
+<a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=ChuwuYo/ChuwuBookmarks" />
 </a>
 
 ***
@@ -149,4 +149,4 @@ If you don't mind closed-source or paid options, you can refer to the following 
 
 [Pintree](https://github.com/Pintree-io/pintree) (open-source + paid model + advertisments)
 
-[TabMark](https://www.ainewtab.app) (closed-source)
+[TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab) (open-source browser extension)
