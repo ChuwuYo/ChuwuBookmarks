@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ChuwuBookmarks",
+  "alternateName": "书签导航",
+  "description": "功能强大的个人书签导航网页，支持多级分类、智能搜索、响应式设计。让您的网页收藏井然有序。",
+  "url": "https://chuwuyo.github.io/ChuwuBookmarks/",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web Browser",
+  "author": {
+    "@type": "Person",
+    "name": "ChuwuYo",
+    "url": "https://github.com/ChuwuYo"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "ChuwuYo",
+    "url": "https://github.com/ChuwuYo"
+  },
+  "dateCreated": "2024",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "license": "https://github.com/ChuwuYo/ChuwuBookmarks/blob/main/LICENSE",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CNY"
+  },
+  "featureList": [
+    "多级文件夹分类",
+    "智能搜索功能",
+    "面包屑导航",
+    "响应式设计",
+    "主题切换",
+    "键盘快捷键支持"
+  ],
+  "screenshot": "https://chuwuyo.github.io/ChuwuBookmarks/assets/icon/bocchi.png",
+  "softwareVersion": "1.0",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "1"
+  }
+}

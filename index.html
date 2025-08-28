@@ -4,14 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="基于浏览器的书签导航网页，支持多级文件夹、搜索、面包屑导航等功能">
-    <meta name="keywords" content="书签导航,书签管理,网页书签,书签整理">
+    <meta name="description" content="ChuwuBookmarks - 基于浏览器的书签导航网页，将JSON书签数据转换为美观且功能丰富的网页应用。支持多级文件夹、智能搜索、面包屑导航、主题切换和响应式设计。">
+    <meta name="keywords" content="书签导航,书签管理,JSON书签,网页书签,书签整理,浏览器书签,多级文件夹,响应式设计,ChuwuBookmarks">
     <meta name="author" content="ChuwuYo">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#007bff">
+    <meta name="application-name" content="ChuwuBookmarks">
+    
+    <!-- 移动端优化 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ChuwuBookmarks">
+    
+    <!-- 搜索引擎优化 -->
+    <link rel="canonical" href="https://chuwuyo.github.io/ChuwuBookmarks/">
+    <meta name="google-site-verification" content="">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'">
     
     <title>我的书签导航</title>
     <link rel="icon" type="image/png" href="assets/icon/bocchi.png">
+    <link rel="manifest" href="manifest.json">
     
     <!-- 预加载关键资源 -->
     <link rel="preload" href="assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,6 +36,34 @@
     <!-- 样式表 -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/pagination.css">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ChuwuBookmarks",
+      "alternateName": "书签导航网页",
+      "description": "基于浏览器的书签导航网页，将JSON书签数据转换为美观且功能丰富的网页应用。支持多级文件夹、智能搜索、面包屑导航、主题切换和响应式设计。",
+      "url": "https://chuwuyo.github.io/ChuwuBookmarks/",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web Browser",
+      "author": {
+        "@type": "Person",
+        "name": "ChuwuYo",
+        "url": "https://github.com/ChuwuYo"
+      },
+      "inLanguage": "zh-CN",
+      "isAccessibleForFree": true,
+      "featureList": [
+        "多级文件夹分类",
+        "智能搜索功能", 
+        "面包屑导航",
+        "响应式设计",
+        "主题切换"
+      ]
+    }
+    </script>
     
     <!-- 脚本 -->
     <script src="assets/js/vendor.js" defer></script>

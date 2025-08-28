@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /assets/js/modules/
+Disallow: /.git/
+Disallow: /docs/
+
+# 指向sitemap
+Sitemap: https://chuwuyo.github.io/ChuwuBookmarks/sitemap.xml
+
+# 爬取延迟（可选）
+Crawl-delay: 1
