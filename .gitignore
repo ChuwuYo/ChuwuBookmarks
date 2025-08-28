@@ -5,6 +5,7 @@
 *.swp
 .amazonq
 .kiro
+.codebuddy
 *~
 
 # OS-specific files
