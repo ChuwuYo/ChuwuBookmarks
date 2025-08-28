@@ -12,7 +12,7 @@
 
 这是一个基于浏览器的书签导航网页，旨在将JSON书签数据转换为一个美观且功能丰富的网页应用，支持多级文件夹、搜索、面包屑导航等。
 
-中国大陆请访问：[Edgeone]( https://chuwubookmarks.edgeone.run/)
+中国大陆请访问：[Edgeone]( https://chuwubookmarks.edgeone.run/) (未添加自定义域名，不一定可用，请尝试Netlify)
 
 非中国大陆可访问以下链接进行体验：
 
