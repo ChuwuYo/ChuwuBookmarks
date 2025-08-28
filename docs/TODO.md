@@ -9,7 +9,6 @@
     #search-hint.shortcut-hint（position: absolute; right: 6px; top: 50%; translateY(-50%); pointer-events: none；当输入非空时透明）
     #theme-toggle（flex: none；与输入区域同级，移动端 margin-left: 10px）
 
-2. 提取主页消息横向剧中逻辑作为通用逻辑，并替换至搜索框和分页控件
 
 ## 建议
 1. 是否要结合UA判断来做响应式处理
