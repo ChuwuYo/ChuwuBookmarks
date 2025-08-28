@@ -17,9 +17,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ChuwuBookmarks">
     
-    <!-- 搜索引擎优化 -->
-    <link rel="canonical" href="https://chuwuyo.github.io/ChuwuBookmarks/">
-    <meta name="google-site-verification" content="">
+    <!-- 搜索引擎优化 - 部署时请修改以下内容 -->
+    <link rel="canonical" href="https://chuwuyo.github.io/ChuwuBookmarks/"><!-- 部署时请替换为你的实际网站URL -->
+    <meta name="google-site-verification" content=""><!-- 部署时请替换为你的Google验证码 -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'">
     
@@ -37,9 +37,13 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/pagination.css">
     
-    <!-- 结构化数据 -->
+    <!-- 结构化数据 - 部署时请修改以下内容 -->
     <script type="application/ld+json">
     {
+      "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
+      "required_fields": ["name", "url", "author"],
+      "optional_fields": ["description", "alternateName", "inLanguage"],
+      
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "ChuwuBookmarks",
@@ -50,10 +54,10 @@
       "operatingSystem": "Web Browser",
       "author": {
         "@type": "Person",
-        "name": "ChuwuYo",
-        "url": "https://github.com/ChuwuYo"
+        "name": "ChuwuYo", <!-- 部署时请替换为你的名称 -->
+        "url": "https://github.com/ChuwuYo" <!-- 部署时请替换为你的URL -->
       },
-      "inLanguage": "zh-CN",
+      "inLanguage": "zh-CN", <!-- 部署时请替换为你的语言代码 -->
       "isAccessibleForFree": true,
       "featureList": [
         "多级文件夹分类",
