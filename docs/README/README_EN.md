@@ -39,6 +39,14 @@ For users outside mainland China, you can experience the website through the fol
 
 4. **Deploy and Use**: Deploy the project to your preferred static website hosting service (such as GitHub Pages, Vercel, Netlify, Cloudflare, Edgeone, etc.)
 
+5. **SEO Configuration** (Optional): The project includes complete SEO optimization files. When deploying, you can modify the following files according to your needs:
+   - `index.html`: Modify meta tags, canonical links, and structured data
+   - `sitemap.xml`: Update website URL and last modified date
+   - `robots.txt`: Adjust crawler rules and sitemap links
+   - `manifest.json`: Customize PWA application information
+   - `structured-data.json`: Structured Data
+   - All configuration files contain clear comment prompts indicating required and optional fields
+
 ***
 
 ## Screenshots
@@ -106,7 +114,7 @@ For users outside mainland China, you can experience the website through the fol
 
 6. **Responsive Design**:
 
-   * Supports responsive layout for mobile and PC devices.
+   * Supports responsive layout for mobile(<480px) and PC devices.
 
    * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above.
    

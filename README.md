@@ -39,6 +39,14 @@
 
 4. **部署使用**：将项目部署到您喜欢的静态网站托管服务（如 GitHub Pages、Vercel、Netlify、Cloudflare、Edgeone 等）
 
+5. **SEO配置**（可选）：项目包含完整的SEO优化文件，部署时可根据需要修改以下文件中的配置：
+   - `index.html`：修改meta标签、canonical链接和结构化数据
+   - `sitemap.xml`：更新网站URL和最后修改日期
+   - `robots.txt`：调整爬虫规则和sitemap链接
+   - `manifest.json`：自定义PWA应用信息
+   - `structured-data.json`：结构化数据
+   - 所有配置文件都包含清晰的注释提示，标明了必填和可选字段
+
 ***
 
 ## 界面截图
@@ -106,7 +114,7 @@
 
 6. **响应式设计**：
    
-   * 支持移动端和PC端的响应式布局。
+   * 支持移动端(<480px)和PC端的响应式布局。
   
    * 小于1024px屏幕自动收起侧边栏，大于等于1024px屏幕默认展开。
    
