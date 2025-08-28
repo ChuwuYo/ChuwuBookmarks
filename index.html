@@ -71,10 +71,12 @@
     </aside>
     <main class="main-content" id="main-content" role="main">
         <nav class="search-container" role="search">
-            <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
-                aria-describedby="search-hint" />
-            <div id="search-hint" class="shortcut-hint" aria-label="键盘快捷键">
-                <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
+                    aria-describedby="search-hint" />
+                <div id="search-hint" class="shortcut-hint" aria-label="键盘快捷键">
+                    <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
+                </div>
             </div>
             <button id="theme-toggle" type="button" class="theme-toggle" aria-label="切换主题">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none"
