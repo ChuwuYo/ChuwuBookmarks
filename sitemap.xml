@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  📦 模板配置说明：请根据你的部署环境修改以下字段。
+  required_fields: ["loc"]
+  optional_fields: ["lastmod", "changefreq", "priority"]
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://chuwuyo.github.io/ChuwuBookmarks/</loc>
-        <lastmod>2025-01-28</lastmod>
+        <lastmod>2025-08-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>

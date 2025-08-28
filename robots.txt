@@ -1,3 +1,7 @@
+# 📦 模板配置说明：请根据你的部署环境修改以下字段。
+# required_fields: ["Sitemap"]
+# optional_fields: ["Disallow", "Crawl-delay"]
+
 User-agent: *
 Allow: /
 Disallow: /assets/js/modules/
