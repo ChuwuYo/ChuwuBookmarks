@@ -1,7 +1,7 @@
 {
-  "name": "ChuwuBookmarks - 专业书签管理器",
+  "name": "ChuwuBookmarks - 我的书签导航",
   "short_name": "ChuwuBookmarks",
-  "description": "功能强大的个人书签管理工具，支持多级分类、智能搜索、响应式设计",
+  "description": "功能强大的个人书签导航，支持多级分类、智能搜索、响应式设计",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
