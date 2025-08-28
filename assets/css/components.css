@@ -1,7 +1,7 @@
 /* 组件样式：按钮、搜索框、面包屑、内容区等 */
 .shortcut-hint {
     position: absolute;
-    right: 50px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -33,13 +33,20 @@
     backface-visibility: hidden;
     overflow: visible;
 }
+.search-input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 #search-input {
     padding: 6px;
+    padding-right: 56px;
     font-size: 1rem;
     border: 2px solid #a4d1c4;
     border-radius: 8px;
     width: 200px;
     max-width: calc(100vw - 120px);
+    box-sizing: border-box;
     background: var(--bg-color);
     color: var(--text-color);
     user-select: text;
