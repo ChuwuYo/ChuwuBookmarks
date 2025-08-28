@@ -2,6 +2,13 @@
 
 ## 待修复
 1. 将主题按钮拆分出搜索容器，位置不变
+    布局关系：
+    .search-container（flex 行，居中，固定在顶部）
+    .search-input-wrapper（flex: none; position: relative; display: inline-block）
+    #search-input（box-sizing: border-box; width: 200px; padding: 6px 56px 6px 6px）
+    #search-hint.shortcut-hint（position: absolute; right: 6px; top: 50%; translateY(-50%); pointer-events: none；当输入非空时透明）
+    #theme-toggle（flex: none；与输入区域同级，移动端 margin-left: 10px）
+
 2. 提取主页消息横向剧中逻辑作为通用逻辑，并替换至搜索框和分页控件
 
 ## 建议
