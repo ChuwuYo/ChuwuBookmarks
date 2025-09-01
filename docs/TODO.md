@@ -8,7 +8,7 @@
     #search-input（box-sizing: border-box; width: 200px; padding: 6px 56px 6px 6px）
     #search-hint.shortcut-hint（position: absolute; right: 6px; top: 50%; translateY(-50%); pointer-events: none；当输入非空时透明）
     #theme-toggle（flex: none；与输入区域同级，移动端 margin-left: 10px）
-
+2. 更新docs\base.md
 
 ## 建议
 1. 是否要结合UA判断来做响应式处理
