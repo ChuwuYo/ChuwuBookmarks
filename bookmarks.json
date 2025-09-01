@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1756734262042,
+    "addDate": 1756754426872,
     "title": "书签栏",
     "children": [
       {
@@ -216,6 +216,13 @@
                 "title": "ACG盒子 - 专注ACG的导航盒子_ACG导航网站",
                 "url": "https://www.acgbox.link/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.acgbox.link"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753448253,
+                "title": "绅士导航",
+                "url": "https://www.gal123.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.gal123.com"
               }
             ]
           },
@@ -265,6 +272,13 @@
                 "title": "动漫新番表 byHazx. 2025年4月新番表 | 2025年1月新番表 | Hazx新番表 | 追番表 | 番剧表 | H萌",
                 "url": "https://xf.hmacg.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=xf.hmacg.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753893760,
+                "title": "Bangumi | 番組維基",
+                "url": "https://bgm.wiki/",
+                "icon": "https://www.google.com/s2/favicons?domain=bgm.wiki"
               }
             ]
           },
@@ -349,6 +363,20 @@
                 "title": "KDays 论坛",
                 "url": "https://bbs2.kdays.net/",
                 "icon": "https://www.google.com/s2/favicons?domain=bbs2.kdays.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1756754103005,
+                "title": "ACG里世界",
+                "url": "https://acgn.zone/",
+                "icon": "https://www.google.com/s2/favicons?domain=acgn.zone"
+              },
+              {
+                "type": "link",
+                "addDate": 1756754167392,
+                "title": "SS同盟首页",
+                "url": "https://sstm.moe/",
+                "icon": "https://www.google.com/s2/favicons?domain=sstm.moe"
               }
             ]
           },
@@ -487,13 +515,6 @@
           },
           {
             "type": "link",
-            "addDate": 1738153452602,
-            "title": "扶她404 – 动画追番与漫画推荐",
-            "url": "http://www.futa404.org/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.futa404.org"
-          },
-          {
-            "type": "link",
             "addDate": 1739298954282,
             "title": "cangku.moe",
             "url": "https://cangku.moe/",
@@ -532,7 +553,7 @@
       {
         "type": "folder",
         "addDate": 1704014875956,
-        "title": "影视",
+        "title": "影视番剧",
         "children": [
           {
             "type": "folder",
@@ -650,14 +671,28 @@
                 "title": "EstrellaXD/Auto_Bangumi: AutoBangumi - 全自动追番工具",
                 "url": "https://github.com/EstrellaXD/Auto_Bangumi",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756754065620,
+                "title": "Anime Garden 動漫花園資源網第三方镜像站",
+                "url": "https://animes.garden/",
+                "icon": "https://www.google.com/s2/favicons?domain=animes.garden"
               }
             ]
           },
           {
             "type": "folder",
             "addDate": 1704014875958,
-            "title": "仅在线",
+            "title": "在线",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1756753279655,
+                "title": "樱空学园 - 樱花之空中起舞吧！❀ skrso.com",
+                "url": "https://www.sakuramau.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.sakuramau.com"
+              },
               {
                 "type": "link",
                 "addDate": 1704012714000,
@@ -755,6 +790,48 @@
                 "title": "OmoFun动漫视频网 - (￣﹃￣)~omO",
                 "url": "https://omofun.in/",
                 "icon": "https://www.google.com/s2/favicons?domain=omofun.in"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753406469,
+                "title": "米麓星",
+                "url": "https://www.miluxing.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.miluxing.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753515778,
+                "title": "MX动漫",
+                "url": "https://www.mxdm.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.mxdm.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753555108,
+                "title": "MuteFun动漫网站-无声乐趣-(゜-゜)つロ 干杯~",
+                "url": "https://www.mutedm.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.mutedm.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753616837,
+                "title": "peko.love - 佩可爱动漫 - 佩可爱动漫",
+                "url": "https://acg.pekolove.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=acg.pekolove.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753740276,
+                "title": "稀饭动漫 - 官方导航页",
+                "url": "https://xifan.moe/",
+                "icon": "https://www.google.com/s2/favicons?domain=xifan.moe"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753802663,
+                "title": "D1DM 第一動漫 線上看動畫 ‣ 免費線上觀看高畫質最新最熱動漫盡在此地",
+                "url": "https://d1-dm.online/",
+                "icon": "https://www.google.com/s2/favicons?domain=d1-dm.online"
               }
             ]
           },
@@ -811,6 +888,34 @@
                 "title": "vomic漫画官网",
                 "url": "https://vomicmh.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=vomicmh.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753916076,
+                "title": "漫画柜",
+                "url": "https://www.manhuagui.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.manhuagui.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753949423,
+                "title": "日本漫畫_在線漫畫閱讀第一站_mangabz",
+                "url": "https://www.mangabz.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.mangabz.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753964427,
+                "title": "Kmoe [Kindle|epub漫畫]",
+                "url": "https://kox.moe/",
+                "icon": "https://www.google.com/s2/favicons?domain=kox.moe"
+              },
+              {
+                "type": "link",
+                "addDate": 1756753991104,
+                "title": "漫画补档冰室论坛manhuabd? - Powered by phpwind",
+                "url": "https://www.manhuabudangbbs.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.manhuabudangbbs.com"
               }
             ]
           },
@@ -7303,6 +7408,20 @@
                         "title": "Free YouTube to MP3 Converter – 320 kbps, No Ads | EsMP3 (TikTok, Instagram & More)",
                         "url": "https://en.esmp3.cc/",
                         "icon": "https://www.google.com/s2/favicons?domain=en.esmp3.cc"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1756751909853,
+                        "title": "美团LongCat AI",
+                        "url": "https://longcat.chat/",
+                        "icon": "https://www.google.com/s2/favicons?domain=longcat.chat"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1756752160159,
+                        "title": "Nous Portal",
+                        "url": "https://portal.nousresearch.com/models",
+                        "icon": "https://www.google.com/s2/favicons?domain=portal.nousresearch.com"
                       }
                     ]
                   },
@@ -7496,11 +7615,53 @@
                 "title": "第三方API",
                 "children": [
                   {
-                    "type": "link",
-                    "addDate": 1751388271728,
-                    "title": "橘鸦Juya整理的大模型免费API",
-                    "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
-                    "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                    "type": "folder",
+                    "addDate": 1756752700658,
+                    "title": "个人",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1751388271728,
+                        "title": "橘鸦Juya整理的大模型免费API",
+                        "url": "https://docs.qq.com/smartsheet/DSFlBSWJpUElsbWxt?tab=BB08J2&viewId=vUQPXH",
+                        "icon": "https://www.google.com/s2/favicons?domain=docs.qq.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754636030627,
+                        "title": "New API - aliyahzombie(无水硫酸铜)",
+                        "url": "https://newapi.aliyahzombie.top/console",
+                        "icon": "https://www.google.com/s2/favicons?domain=newapi.aliyahzombie.top"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754636770861,
+                        "title": "New API波波公益站",
+                        "url": "https://for.shuo.bar/pricing",
+                        "icon": "https://www.google.com/s2/favicons?domain=for.shuo.bar"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754637905732,
+                        "title": "23公益站",
+                        "url": "https://sdwfger.edu.kg/console",
+                        "icon": "https://www.google.com/s2/favicons?domain=sdwfger.edu.kg"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1754754232241,
+                        "title": "AI Tools API - 免费大语言模型API服务",
+                        "url": "https://platform.aitools.cfd/",
+                        "icon": "https://www.google.com/s2/favicons?domain=platform.aitools.cfd"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1755086216247,
+                        "title": "Kyx公益站",
+                        "url": "https://api.kkyyxx.xyz/",
+                        "icon": "https://www.google.com/s2/favicons?domain=api.kkyyxx.xyz"
+                      }
+                    ]
                   },
                   {
                     "type": "link",
@@ -7581,45 +7742,10 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1754636030627,
-                    "title": "New API - aliyahzombie(无水硫酸铜)",
-                    "url": "https://newapi.aliyahzombie.top/console",
-                    "icon": "https://www.google.com/s2/favicons?domain=newapi.aliyahzombie.top"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1754636770861,
-                    "title": "New API波波公益站",
-                    "url": "https://for.shuo.bar/pricing",
-                    "icon": "https://www.google.com/s2/favicons?domain=for.shuo.bar"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1754637905732,
-                    "title": "23公益站",
-                    "url": "https://sdwfger.edu.kg/console",
-                    "icon": "https://www.google.com/s2/favicons?domain=sdwfger.edu.kg"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1754754232241,
-                    "title": "AI Tools API - 免费大语言模型API服务",
-                    "url": "https://platform.aitools.cfd/",
-                    "icon": "https://www.google.com/s2/favicons?domain=platform.aitools.cfd"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1754754433818,
-                    "title": "fxaxg/one-api-hub: One API Hub - 中转站管理器，一个开源的浏览器插件，聚合管理AI中转站账号的余额、模型和密钥，告别繁琐登录。",
-                    "url": "https://github.com/fxaxg/one-api-hub",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1755086216247,
-                    "title": "Kyx公益站",
-                    "url": "https://api.kkyyxx.xyz/",
-                    "icon": "https://www.google.com/s2/favicons?domain=api.kkyyxx.xyz"
+                    "addDate": 1756752072153,
+                    "title": "Chutes | Run Anything, Decentralised.",
+                    "url": "https://chutes.ai/app",
+                    "icon": "https://www.google.com/s2/favicons?domain=chutes.ai"
                   }
                 ]
               },
@@ -10268,6 +10394,13 @@
                 "title": "穷人论坛",
                 "url": "https://www.taiqiongle.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.taiqiongle.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1756752956157,
+                "title": "雨中小町-听说下雨天音声和耳机更配哦 - Powered by Discuz!",
+                "url": "https://rainkmc.com/forum.php",
+                "icon": "https://www.google.com/s2/favicons?domain=rainkmc.com"
               }
             ]
           },
@@ -10826,6 +10959,13 @@
                     "title": "MyGuava | The Ultimate Payments App",
                     "url": "https://myguava.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=myguava.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756744344277,
+                    "title": "Fiat24 - Tokenised Payments",
+                    "url": "https://www.fiat24.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.fiat24.com"
                   }
                 ]
               },
