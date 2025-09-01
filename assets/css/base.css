@@ -24,6 +24,10 @@
     --button-shadow-expanded: 0 2px 8px rgba(0, 0, 0, 0.25), -2px 0 4px rgba(0, 0, 0, 0.15);
     --button-shadow-hover: 4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
     --theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+    /* 统一居中系统变量 */
+    --universal-centering-offset: 0px;
+    --desktop-base-offset: 110px;
 }
 :root[data-theme='dark'] {
     --bg-color: #1c1c1c;

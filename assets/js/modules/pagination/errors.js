@@ -164,7 +164,7 @@ export const ErrorHandler = {
             try {
                 return primaryFn(...args);
             } catch (error) {
-                console.warn(`${context}失败，使用降级方案:`, error);
+                // 静默降级，不输出警告
 
                 try {
                     return fallbackFn(...args);

@@ -3,9 +3,10 @@
  */
 
 import { toggleTheme } from '../render/theme.js';
-import { isMobileDevice, handleDeviceView, updateSidebarState, adjustSearchContainerPosition } from '../render/device.js';
+import { isMobileDevice, handleDeviceView, updateSidebarState } from '../render/device.js';
 import { renderHome } from '../render/home.js';
 import { debounce } from '../utils/index.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 // 设置侧边栏切换事件
 const setupSidebarToggle = () => {
@@ -66,11 +67,14 @@ const setupSearchEvents = (debounceSearch) => {
             }
         });
 
-        // 优化的resize处理 - 不重新渲染，只调整布局
+        // 优化的resize处理 - 使用批量更新机制
         const handleResize = debounce(() => {
-            handleDeviceView();
-            adjustSearchContainerPosition();
-        }, 100);
+            // 批量处理DOM更新，减少重排重绘
+            requestAnimationFrame(() => {
+                handleDeviceView();
+                // 统一居中系统会自动处理resize事件，无需手动调用
+            });
+        }, 150); // 增加防抖延迟以减少频繁更新
 
         // 添加 resize 监听
         window.addEventListener('resize', handleResize);
@@ -78,21 +82,13 @@ const setupSearchEvents = (debounceSearch) => {
         // 初始化时执行一次
         handleResize();
 
-        // 监听主题切换，因为可能影响布局
-        document.addEventListener('themechange', adjustSearchContainerPosition);
-
-        // 监听侧边栏状态变化
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebar) {
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.attributeName === 'class') {
-                        adjustSearchContainerPosition();
-                    }
-                });
-            });
-            observer.observe(sidebar, { attributes: true });
+        // 注册搜索容器到统一居中系统
+        const centeringManager = getCenteringManager();
+        if (!centeringManager.isInitialized) {
+            centeringManager.initialize();
         }
+
+        // 确保搜索容器已注册（配置在ELEMENT_CONFIGS中预定义）
     }
 };
 

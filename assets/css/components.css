@@ -374,13 +374,17 @@ button.breadcrumb-item:focus-visible {
     text-align: center;
     margin-top: 50px;
     color: var(--text-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 
 .no-results {
-    position: fixed;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
     width: 90%;
     max-width: 400px;
     text-align: center;
@@ -388,8 +392,14 @@ button.breadcrumb-item:focus-visible {
     font-size: 1.1rem;
     opacity: 0.8;
     font-weight: bold;
-    transition: opacity 0.3s ease;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10;
+    transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 
 /* 搜索结果相关样式 */
