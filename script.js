@@ -1,5 +1,5 @@
 import { initTheme } from './assets/js/modules/render/theme.js';
-import { handleDeviceView, adjustSearchContainerPosition } from './assets/js/modules/render/device.js';
+import { handleDeviceView } from './assets/js/modules/render/device.js';
 import { renderHome } from './assets/js/modules/render/home.js';
 import { renderMainContent as _renderMainContent } from './assets/js/modules/render/content.js';
 import { initSearchWorker, createSearchHandler, restoreSearchStateFromURL } from './assets/js/modules/search/index.js';
@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始化主题和设备视图
     initTheme();
     handleDeviceView();
-
-    // 立即调整搜索容器位置
-    setTimeout(adjustSearchContainerPosition, 0);
 
 
 

@@ -8,7 +8,6 @@ export { PaginationError, ERROR_CODES, ErrorHandler } from './errors.js';
 export { 
     ResponsiveConfigManager, 
     SidebarStateMonitor, 
-    PaginationCenteringCalculator, 
     TouchOptimizer,
     initializeResponsiveSystem,
     getResponsiveManager,

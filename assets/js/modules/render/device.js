@@ -60,98 +60,32 @@ const checkBreadcrumbsScroll = () => {
     breadcrumbs.classList.toggle('scrollable', isScrollable);
 };
 
-// 调整主页消息位置 - 简化逻辑，避免与CSS过渡冲突
-const adjustHomeMessagePosition = (isCollapsed) => {
-    const homeMessage = document.querySelector('.home-message');
-    if (!homeMessage) return;
 
-    const deviceType = getDeviceType();
-    if (deviceType === 'mobile') {
-        // 移动端：设置固定位置
-        homeMessage.style.left = '50%';
-        homeMessage.style.transform = 'translate(-50%, -50%)';
-        homeMessage.style.top = '45%';
-    } else {
-        // PC端：完全由CSS控制，清除所有内联样式
-        homeMessage.style.removeProperty('left');
-        homeMessage.style.removeProperty('transform');
-        homeMessage.style.removeProperty('top');
+
+// 辅助函数：触发布局变化事件 - 减少不必要的事件派发
+const updatePaginationPositionIfExists = () => { 
+    // 使用防抖机制避免频繁派发事件
+    if (updatePaginationPositionIfExists._debounceTimer) {
+        clearTimeout(updatePaginationPositionIfExists._debounceTimer);
     }
-};
+    
+    updatePaginationPositionIfExists._debounceTimer = setTimeout(() => {
+        const layoutChangeEvent = new CustomEvent('layoutChange', {
+            detail: {
+                type: 'deviceLayoutUpdate',
+                timestamp: Date.now(),
+                deviceType: getDeviceType(),
+                sidebarCollapsed: shouldCollapseSidebar()
+            }
+        });
 
-// 防抖定时器
-let adjustPositionTimeout = null;
-
-// 调整搜索容器位置和偏移量
-const adjustSearchContainerPosition = () => {
-    // 清除之前的定时器
-    if (adjustPositionTimeout) {
-        clearTimeout(adjustPositionTimeout);
-    }
-
-    // 使用防抖延迟执行，确保DOM完全稳定
-    adjustPositionTimeout = setTimeout(() => {
-        const searchContainer = document.querySelector('.search-container');
-        const searchInput = document.getElementById('search-input');
-        const content = document.getElementById('content');
-
-        if (!searchContainer || !searchInput) return;
-
-        // 如果正在搜索渲染中，跳过位置调整
-        if (content && content.classList.contains('search-rendering')) {
-            adjustPositionTimeout = null;
-            return;
-        }
-
-        const deviceType = getDeviceType();
-        if (deviceType === 'mobile') {
-            searchContainer.style.removeProperty('--search-container-centering-offset');
-            updatePaginationPositionIfExists();
-            return;
-        }
-
-        // 使用getBoundingClientRect获取更稳定的位置信息
-        const searchInputRect = searchInput.getBoundingClientRect();
-        const searchContainerRect = searchContainer.getBoundingClientRect();
-
-        // 计算搜索输入框在搜索容器中的相对位置
-        const searchInputCenter = searchInputRect.left + searchInputRect.width / 2;
-        const searchContainerCenter = searchContainerRect.left + searchContainerRect.width / 2;
-
-        // 计算需要的偏移量
-        const shiftInPx = searchContainerCenter - searchInputCenter;
-
-        // 只有当偏移量超过阈值时才应用，避免微小抖动
-        if (Math.abs(shiftInPx) > 0.5) {
-            searchContainer.style.setProperty('--search-container-centering-offset', `${shiftInPx}px`);
-        }
-
-        // 更新分页控件位置
-        updatePaginationPositionIfExists();
-
-        adjustPositionTimeout = null;
-    }, 16); // 约60fps的延迟，确保DOM稳定
-};
-
-// 辅助函数：如果分页控件存在则更新其位置
-const updatePaginationPositionIfExists = () => {
-    // 派发布局变化事件，让监听器处理更新
-    const layoutChangeEvent = new CustomEvent('layoutChange', {
-        detail: {
-            type: 'deviceLayoutUpdate',
-            timestamp: Date.now(),
-            deviceType: getDeviceType(),
-            sidebarCollapsed: shouldCollapseSidebar()
-        }
-    });
-
-    document.dispatchEvent(layoutChangeEvent);
+        document.dispatchEvent(layoutChangeEvent);
+    }, 50); // 50ms防抖延迟
 };
 
 // 封装侧边栏状态管理
 const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
     updateSidebarVisibility(sidebar, isCollapsed, skipAnimation);
-    adjustHomeMessagePosition(isCollapsed);
     checkBreadcrumbsScroll();
 };
 
@@ -181,8 +115,6 @@ export {
     shouldCollapseSidebar,
     updateSidebarVisibility,
     checkBreadcrumbsScroll,
-    adjustHomeMessagePosition,
-    adjustSearchContainerPosition,
     updateSidebarState,
     handleDeviceView
 };

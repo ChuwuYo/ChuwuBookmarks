@@ -25,8 +25,8 @@
     --pagination-shadow-active: var(--button-shadow);
     --pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
 
-    /* 分页控件居中偏移变量 */
-    --pagination-centering-offset: var(--search-container-centering-offset, 0px);
+    /* 分页控件居中偏移变量 - 使用统一居中系统 */
+    --pagination-centering-offset: var(--universal-centering-offset);
 
     /* 分页控件过渡动画变量 */
     --pagination-transition-base: all var(--duration-base) var(--ease-default);

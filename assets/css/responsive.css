@@ -1,5 +1,43 @@
 /* 响应式样式：所有媒体查询集中管理 */
 
+/* 统一居中系统通用样式类 */
+.centered-element {
+    position: fixed;
+    left: 50%;
+    transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* 移动端居中元素样式 */
+@media screen and (max-width: 479px) {
+    .centered-element {
+        transform: translateX(-50%);
+    }
+}
+
+/* 中间范围居中元素样式 (480px-1023px) */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    .centered-element {
+        transform: translateX(-50%);
+    }
+    
+    .sidebar.collapsed + .main-content .centered-element {
+        transform: translateX(-50%);
+    }
+}
+
+/* 桌面端居中元素样式 (>=1024px) */
+@media screen and (min-width: 1024px) {
+    .centered-element {
+        transform: translateX(calc(-50% + var(--desktop-base-offset) + var(--universal-centering-offset)));
+    }
+    
+    .sidebar.collapsed + .main-content .centered-element {
+        transform: translateX(-50%);
+    }
+}
+
 /* 移动端特定样式 (<=479px) */
 @media screen and (max-width: 479px) {
 
@@ -221,13 +259,17 @@
     
     /* 移动端未找到结果消息样式 */
     .no-results {
-        position: fixed;
-        left: 50%;
-        top: 45%;
+        width: 90%;
+        max-width: 400px;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+    }
+    
+    /* 移动端错误消息样式 */
+    .error-message {
         transform: translate(-50%, -50%);
         width: 90%;
         max-width: 400px;
-        transition: opacity 0.3s ease;
     }
 }
 
@@ -237,16 +279,18 @@
     /* 确保侧栏收起时元素正确居中 */
     .sidebar.collapsed + .main-content .search-container,
     .sidebar.collapsed + .main-content .home-message,
-    .sidebar.collapsed + .main-content .no-results {
+    .sidebar.collapsed + .main-content .no-results,
+    .sidebar.collapsed + .main-content .error-message {
         left: 50%;
     }
 
     .sidebar.collapsed + .main-content .search-container {
-        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+        transform: translateX(-50%);
     }
 
     .sidebar.collapsed + .main-content .home-message,
-    .sidebar.collapsed + .main-content .no-results {
+    .sidebar.collapsed + .main-content .no-results,
+    .sidebar.collapsed + .main-content .error-message {
         transform: translate(-50%, -50%);
     }
 }
@@ -257,7 +301,7 @@
     /* 在这个范围内使用桌面端样式，但侧栏会自动收起 */
     .search-container {
         left: 50%;
-        transform: translateX(calc(-50% + var(--search-container-centering-offset, 0px)));
+        transform: translateX(-50%);
         transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
         will-change: transform, opacity;
         position: fixed;
@@ -289,12 +333,15 @@
     }
 
     .no-results {
-        left: 50%;
         transform: translate(-50%, -50%);
         transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
         will-change: transform, opacity;
-        position: fixed;
-        top: 45%;
+    }
+    
+    .error-message {
+        transform: translate(-50%, -50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
     }
 }
 
@@ -303,7 +350,7 @@
 @media screen and (min-width: 1024px) {
     .search-container {
         left: 50%;
-        transform: translateX(calc(-50% + 110px + var(--search-container-centering-offset, 0px)));
+        transform: translateX(calc(-50% + var(--desktop-base-offset) + var(--universal-centering-offset)));
         transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
         will-change: transform, opacity;
         position: fixed;
@@ -321,7 +368,7 @@
     }
     .home-message {
         left: 50%;
-        transform: translate(calc(-50% + 110px), -50%);
+        transform: translate(calc(-50% + var(--desktop-base-offset) + var(--universal-centering-offset)), -50%);
         transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
         will-change: transform, opacity;
         position: fixed;
@@ -339,12 +386,17 @@
     }
 
     .no-results {
-        left: 50%;
-        transform: translate(calc(-50% + 110px), -50%);
+        transform: translate(calc(-50% + var(--desktop-base-offset) + var(--universal-centering-offset)), -50%);
         transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
         will-change: transform, opacity;
-        position: fixed;
-        top: 45%;
+        /* 优化动画性能 */
+        backface-visibility: hidden;
+    }
+    
+    .error-message {
+        transform: translate(calc(-50% + var(--desktop-base-offset) + var(--universal-centering-offset)), -50%);
+        transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+        will-change: transform, opacity;
         /* 优化动画性能 */
         backface-visibility: hidden;
     }
