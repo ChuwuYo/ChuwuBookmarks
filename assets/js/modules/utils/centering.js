@@ -366,6 +366,7 @@ class PositionCalculator {
             return styles;
 
         } catch (error) {
+            console.error('Position calculation failed:', error);
 
             // 返回基础居中样式作为回退
             const fallbackStyles = this.getBasicCenteringStyles();
