@@ -750,33 +750,28 @@ class StyleApplicator {
      * 执行批量更新 - 优化版本，减少重排重绘
      */
     executeBatchUpdate() {
-        if (this.updateQueue.length === 0) {
+        if (this.updateQueue.size === 0) {
             this.isUpdateScheduled = false;
             return;
         }
 
-        // 批量执行DOM读取操作
-        const readOperations = [];
-        const writeOperations = [];
-        
-        // 分离读写操作以避免强制同步布局
+        // 批量执行DOM操作
         const operations = [...this.updateQueue.values()];
         this.updateQueue.clear();
 
-        // 先执行所有读取操作
+        // 执行所有操作
         operations.forEach(operation => {
             try {
                 operation();
             } catch (error) {
-                this.stats.errorCount++;
+                // 静默处理错误
             }
         });
 
-        this.stats.batchCount++;
         this.isUpdateScheduled = false;
 
         // 如果还有新的操作排队，继续处理
-        if (this.updateQueue.length > 0) {
+        if (this.updateQueue.size > 0) {
             this.scheduleBatchUpdate();
         }
     }
@@ -785,7 +780,7 @@ class StyleApplicator {
      * 立即执行所有排队的更新
      */
     flushUpdates() {
-        if (this.updateQueue.length > 0) {
+        if (this.updateQueue.size > 0) {
             this.executeBatchUpdate();
         }
     }
