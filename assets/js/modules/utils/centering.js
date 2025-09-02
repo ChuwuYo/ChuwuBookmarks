@@ -542,8 +542,8 @@ class PositionCalculator {
  */
 class StyleApplicator {
     constructor() {
-        // 批量更新队列
-        this.updateQueue = [];
+        // 批量更新队列 - 使用Map去重
+        this.updateQueue = new Map();
         this.isUpdateScheduled = false;
     }
 
@@ -570,8 +570,8 @@ class StyleApplicator {
         if (immediate) {
             applyOperation();
         } else {
-            // 添加到批量更新队列
-            this.updateQueue.push(applyOperation);
+            // 使用元素作为key去重，自动防止队列无限增长
+            this.updateQueue.set(element, applyOperation);
             this.scheduleBatchUpdate();
         }
     }
@@ -740,8 +740,8 @@ class StyleApplicator {
         const writeOperations = [];
         
         // 分离读写操作以避免强制同步布局
-        const operations = [...this.updateQueue];
-        this.updateQueue = [];
+        const operations = [...this.updateQueue.values()];
+        this.updateQueue.clear();
 
         // 先执行所有读取操作
         operations.forEach(operation => {
@@ -1383,6 +1383,8 @@ let centeringManagerInstance = null;
 function getCenteringManager() {
     if (!centeringManagerInstance || centeringManagerInstance.isDestroyed) {
         centeringManagerInstance = new UniversalCenteringManager();
+        // 自动初始化新实例
+        centeringManagerInstance.initialize();
     }
     return centeringManagerInstance;
 }
