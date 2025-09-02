@@ -32,6 +32,9 @@
     outline: none;
     backface-visibility: hidden;
     overflow: visible;
+    
+    /* 添加左侧空白补偿，与主页按钮宽度匹配 */
+    padding-left: calc(1rem + 15px + 6px + 5px);
 }
 .search-input-wrapper {
     position: relative;
@@ -365,31 +368,28 @@ button.breadcrumb-item:focus-visible {
     animation: spin 1s linear infinite;
 }
 
+/* 居中消息基类 - 使用统一居中系统 */
+.centered-message {
+    z-index: 10;
+    text-align: center;
+    color: var(--text-color);
+}
+
 .error-message {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding: 2rem;
-    text-align: center;
-    margin-top: 50px;
-    color: var(--text-color);
 }
 
 .no-results {
-    position: fixed;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
     width: 90%;
     max-width: 400px;
-    text-align: center;
-    color: var(--text-color);
     font-size: 1.1rem;
     opacity: 0.8;
     font-weight: bold;
-    transition: opacity 0.3s ease;
-    z-index: 10;
+    top: 45%;
 }
 
 /* 搜索结果相关样式 */

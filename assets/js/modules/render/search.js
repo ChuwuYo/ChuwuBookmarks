@@ -32,6 +32,7 @@ import {
     PaginationRenderer,
     PaginationRenderUtils
 } from '../pagination/index.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 /**
  * 搜索结果管理器 - 封装分页状态管理
@@ -437,9 +438,13 @@ const renderSearchResults = (results, renderMainContent) => {
 
     if (!results || !results.length) {
         const noResults = document.createElement('div');
-        noResults.className = 'no-results';
+        noResults.className = 'centered-message no-results centered-element vertical-center';
         noResults.textContent = '未找到匹配的书签';
-        content.appendChild(noResults);
+        document.body.appendChild(noResults);
+        
+        // 注册到统一居中系统
+        const centeringManager = getCenteringManager();
+        centeringManager.updateSingleElement('no-results');
         
         // 移除搜索状态标记
         content.classList.remove('search-rendering');

@@ -164,7 +164,7 @@ export const ErrorHandler = {
             try {
                 return primaryFn(...args);
             } catch (error) {
-                console.warn(`${context}失败，使用降级方案:`, error);
+                console.warn(`${context}主函数执行失败，尝试降级方案:`, error);
 
                 try {
                     return fallbackFn(...args);

@@ -3,25 +3,26 @@
  */
 
 import { animationConfig } from './theme.js';
-import { getDeviceType, adjustSearchContainerPosition, adjustHomeMessagePosition } from './device.js';
+import { getDeviceType } from './device.js';
 import { resetSearchPagination } from './search.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 // 创建主页基础DOM结构
 const createHomeStructure = () => {
     const fragment = document.createDocumentFragment();
     const homeMessage = document.createElement('div');
-    homeMessage.className = 'home-message';
-    
+    homeMessage.className = 'home-message centered-element vertical-center';
+
     const chineseText = document.createElement('div');
     chineseText.className = 'chinese-text';
-    
+
     const englishText = document.createElement('div');
     englishText.className = 'english-text';
-    
+
     homeMessage.appendChild(chineseText);
     homeMessage.appendChild(englishText);
     fragment.appendChild(homeMessage);
-    
+
     return { fragment, homeMessage, chineseText, englishText };
 };
 
@@ -143,7 +144,7 @@ const setupEnglishCharacterAnimation = (spans) => {
 const renderHome = () => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
-    
+
     if (!content || !breadcrumbs) return;
 
     // 清理分页控件
@@ -162,57 +163,40 @@ const renderHome = () => {
         }
         oldHomeMessage.remove();
     }
-    
+
     const { fragment, homeMessage, chineseText, englishText } = createHomeStructure();
-    
+
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
-    
+
     const deviceType = getDeviceType();
 
+    // 统一将主页消息添加到body以使用统一居中系统
+    document.body.appendChild(fragment);
+    
     if (deviceType === 'mobile') {
-        // 移动端：强制应用样式并附加到body
-        document.body.appendChild(fragment);
         homeMessage.classList.add('mobile-home-message');
-        homeMessage.style.cssText = `
-            position: fixed;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-        `;
+        // 设置移动端特定样式（非定位相关）
+        homeMessage.style.width = '90%';
+        homeMessage.style.maxWidth = '400px';
         chineseText.style.fontSize = 'clamp(1.5rem, 8vw, 2rem)';
         englishText.style.fontSize = 'clamp(1rem, 6vw, 1.5rem)';
-    } else {
-        // 桌面端：逻辑保持不变
-        content.appendChild(fragment);
-        const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
-        adjustHomeMessagePosition(isCollapsed);
-        
-        // 监听侧边栏状态变化，确保主页消息能跟随侧边栏一起移动
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebar) {
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.attributeName === 'class') {
-                        // 使用防抖动确保不会过于频繁地调整位置
-                        clearTimeout(homeMessage.adjustPositionTimer);
-                        homeMessage.adjustPositionTimer = setTimeout(() => {
-                            const isCollapsed = sidebar.classList.contains('collapsed');
-                            adjustHomeMessagePosition(isCollapsed);
-                        }, 50);
-                    }
-                });
-            });
-            observer.observe(sidebar, { attributes: true });
-            
-            // 保存观察器引用，以便在元素移除时断开连接
-            homeMessage.observer = observer;
-        }
     }
-    
-    adjustSearchContainerPosition();
+
+    // 获取统一居中管理器并注册主页消息
+    const centeringManager = getCenteringManager();
+
+    // 确保管理器已初始化
+    if (!centeringManager.isInitialized) {
+        centeringManager.initialize();
+    }
+
+    // 注册主页消息到统一居中系统（使用预定义配置）
+    // 主页消息配置已在ELEMENT_CONFIGS中预定义，这里只需要确保元素存在
+    requestAnimationFrame(() => {
+        // 强制更新主页消息位置
+        centeringManager.updateSingleElement('home-message');
+    });
 
     setupHomeTextAnimation(homeMessage, chineseText, englishText);
     createHomeTextTimeline(homeMessage, chineseText, englishText);

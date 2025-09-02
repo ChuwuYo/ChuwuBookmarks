@@ -5,7 +5,8 @@
 import { renderSidebar } from '../render/sidebar.js';
 import { renderHome } from '../render/home.js';
 import { clearWorkerCaches } from '../search/index.js';
-import { getDeviceType, adjustHomeMessagePosition } from '../render/device.js';
+import { getDeviceType } from '../render/device.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 // 显示加载指示器
 const showLoadingIndicator = () => {
@@ -55,9 +56,6 @@ const showLoadingIndicator = () => {
     } else {
         // 桌面端：添加到内容区域
         content.appendChild(loadingMessage);
-        // 调整位置与主页消息保持一致
-        const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
-        adjustHomeMessagePosition(isCollapsed);
     }
 };
 
@@ -77,9 +75,9 @@ const showErrorMessage = (error) => {
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
 
-    // 创建错误消息元素，使用与主页消息相同的类名和结构
+    // 创建错误消息元素
     const errorMessage = document.createElement('div');
-    errorMessage.className = 'home-message'; // 使用与主页相同的类名
+    errorMessage.className = 'centered-message error-message centered-element vertical-center';
     errorMessage.setAttribute('role', 'alert');
     errorMessage.setAttribute('aria-live', 'assertive');
     
@@ -104,29 +102,12 @@ const showErrorMessage = (error) => {
     errorMessage.appendChild(message1);
     errorMessage.appendChild(message2);
     
-    const deviceType = getDeviceType();
-    if (deviceType === 'mobile') {
-        // 移动端：附加到body并居中
-        document.body.appendChild(errorMessage);
-        errorMessage.classList.add('mobile-home-message');
-        errorMessage.style.cssText = `
-            position: fixed;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        `;
-    } else {
-        // 桌面端：添加到内容区域
-        content.appendChild(errorMessage);
-        // 确保在DOM更新后调整位置
-        setTimeout(() => {
-            const isCollapsed = document.querySelector('.sidebar')?.classList.contains('collapsed');
-            adjustHomeMessagePosition(isCollapsed);
-        }, 0);
-    }
+    // 添加到body以使用统一居中系统
+    document.body.appendChild(errorMessage);
+    
+    // 注册到统一居中系统
+    const centeringManager = getCenteringManager();
+    centeringManager.updateSingleElement('error-message');
     
     // 为错误消息添加淡入动画效果
     setTimeout(() => {
@@ -134,27 +115,6 @@ const showErrorMessage = (error) => {
             errorMessage.style.opacity = '1';
         }
     }, 10);
-    
-    // 监听侧边栏状态变化，确保错误消息能跟随侧边栏一起移动
-    const sidebar = document.querySelector('.sidebar');
-    if (sidebar && deviceType !== 'mobile') {
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'class') {
-                    // 使用防抖动确保不会过于频繁地调整位置
-                    clearTimeout(errorMessage.adjustPositionTimer);
-                    errorMessage.adjustPositionTimer = setTimeout(() => {
-                        const isCollapsed = sidebar.classList.contains('collapsed');
-                        adjustHomeMessagePosition(isCollapsed);
-                    }, 50);
-                }
-            });
-        });
-        observer.observe(sidebar, { attributes: true });
-        
-        // 保存观察器引用，以便在元素移除时断开连接
-        errorMessage.observer = observer;
-    }
 };
 
 // 加载书签数据 - 使用Web Worker优化
@@ -167,7 +127,7 @@ const loadBookmarksData = async (renderMainContent) => {
             const cachedData = JSON.parse(cachedDataString);
             renderSidebar(cachedData, renderMainContent);
             renderHome();
-            console.log("Rendered initial view from cache.");
+
         }
     } catch (e) {
         console.error("Failed to parse cached data:", e);
@@ -187,13 +147,13 @@ const loadBookmarksData = async (renderMainContent) => {
 
             // 仅当新数据与缓存数据不同时才更新视图和缓存。
             if (newDataString !== cachedDataString) {
-                console.log("New data received. Updating view and cache.");
+
                 localStorage.setItem('bookmarksData', newDataString);
                 clearWorkerCaches(); // 假设这会清除其他相关缓存
                 renderSidebar(data, renderMainContent);
                 renderHome();
             } else {
-                console.log("Data is already up-to-date.");
+
             }
         } else if (status === 'error') {
             console.error('Worker failed to load data:', error);

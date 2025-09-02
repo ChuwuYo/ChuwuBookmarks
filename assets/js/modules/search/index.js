@@ -22,6 +22,7 @@ import { renderHome } from '../render/home.js';
 import { renderSearchResults, resetSearchPagination } from '../render/search.js';
 import { debounce } from '../utils/index.js';
 import { initializeResponsiveSystem } from '../pagination/responsive.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 // 初始化Web Worker
 let searchWorker;
@@ -40,6 +41,12 @@ const clearWorkerCaches = () => {
 const initSearchWorker = (renderMainContent) => {
     // 初始化响应式系统
     initializeResponsiveSystem();
+    
+    // 确保统一居中系统已初始化并注册搜索容器
+    const centeringManager = getCenteringManager();
+    if (!centeringManager.isInitialized) {
+        centeringManager.initialize();
+    }
     
     if (window.Worker) {
         // 初始化搜索Worker
@@ -130,10 +137,14 @@ const createSearchHandler = () => {
             // 如果不支持Web Worker，显示错误信息
             const content = document.getElementById('content');
             const errorMessage = document.createElement('div');
-            errorMessage.className = 'error-message';
+            errorMessage.className = 'centered-message error-message centered-element vertical-center';
             errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
             content.innerHTML = '';
-            content.appendChild(errorMessage);
+            document.body.appendChild(errorMessage);
+            
+            // 注册到统一居中系统
+            const centeringManager = getCenteringManager();
+            centeringManager.updateSingleElement('error-message');
         }
     }, 250);
 };
