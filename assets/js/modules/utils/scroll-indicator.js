@@ -266,16 +266,20 @@ class CustomScrollIndicator {
 // 创建全局实例
 const customScrollIndicator = new CustomScrollIndicator();
 
-// 导出模块
-export { CustomScrollIndicator, customScrollIndicator };
-
-// 自动初始化（仅在非移动端）
-if (window.innerWidth >= 480) {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
+/**
+ * 初始化滚动指示器（需要手动调用）
+ */
+function initScrollIndicator() {
+    if (window.innerWidth >= 480) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                customScrollIndicator.init();
+            });
+        } else {
             customScrollIndicator.init();
-        });
-    } else {
-        customScrollIndicator.init();
+        }
     }
 }
+
+// 导出模块
+export { CustomScrollIndicator, customScrollIndicator, initScrollIndicator };
