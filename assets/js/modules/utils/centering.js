@@ -291,8 +291,9 @@ class ElementRegistry {
  */
 class PositionCalculator {
     constructor() {
-        // 缓存计算结果以提高性能
+        // 缓存计算结果以提高性能 - 使用LRU缓存
         this.calculationCache = new Map();
+        this.maxCacheSize = 50;
         this.lastContext = null;
     }
 
@@ -359,8 +360,8 @@ class PositionCalculator {
                 styles.zIndex = config.zIndex;
             }
 
-            // 缓存结果
-            this.calculationCache.set(cacheKey, styles);
+            // 缓存结果 - LRU策略
+            this.setCacheWithLRU(cacheKey, styles);
 
             return styles;
 
@@ -372,7 +373,7 @@ class PositionCalculator {
             // 尝试缓存回退样式以避免重复计算
             try {
                 const cacheKey = this.generateCacheKey(config, context);
-                this.calculationCache.set(cacheKey, fallbackStyles);
+                this.setCacheWithLRU(cacheKey, fallbackStyles);
             } catch (cacheError) {
                 // 缓存失败，继续执行
             }
@@ -525,6 +526,25 @@ class PositionCalculator {
             left: '50%',
             transform: 'translateX(-50%)'
         };
+    }
+
+    /**
+     * LRU缓存设置
+     * @param {string} key - 缓存键
+     * @param {Object} value - 缓存值
+     */
+    setCacheWithLRU(key, value) {
+        // 如果已存在，先删除再重新添加（移到最新）
+        if (this.calculationCache.has(key)) {
+            this.calculationCache.delete(key);
+        }
+        // 检查缓存大小限制
+        else if (this.calculationCache.size >= this.maxCacheSize) {
+            // 删除最旧的项（Map的第一个项）
+            const firstKey = this.calculationCache.keys().next().value;
+            this.calculationCache.delete(firstKey);
+        }
+        this.calculationCache.set(key, value);
     }
 
     /**
