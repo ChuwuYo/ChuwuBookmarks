@@ -116,7 +116,7 @@
         <nav id="sidebar-folders" role="navigation" aria-label="书签导航"></nav>
     </aside>
     <main class="main-content" id="main-content" role="main">
-        <nav class="search-container" role="search">
+        <nav class="search-container centered-element" role="search">
             <div class="search-input-wrapper">
                 <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
                     aria-describedby="search-hint" />
@@ -145,6 +145,7 @@
         </nav>
         <nav id="breadcrumbs" role="navigation" aria-label="面包屑导航"></nav>
         <section id="content" role="region" aria-label="书签内容区域"></section>
+        <!-- 居中消息元素将通过JS动态添加centered-element类 -->
     </main>
     <!-- 引入脚本 -->
     <script type="module" src="script.js"></script>

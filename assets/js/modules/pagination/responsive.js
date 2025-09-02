@@ -3,6 +3,7 @@
  */
 
 import { BREAKPOINT_MOBILE, BREAKPOINT_SIDEBAR, getDeviceType, shouldCollapseSidebar } from '../render/device.js';
+import { getCenteringManager } from '../utils/centering.js';
 
 /**
  * 响应式断点配置
@@ -332,46 +333,7 @@ export class SidebarStateMonitor {
     }
 }
 
-/**
- * 分页控件居中偏移计算器
- */
-export class PaginationCenteringCalculator {
-    /**
-     * 计算分页控件居中偏移
-     * @param {Object} sidebarState - 侧栏状态
-     * @param {Object} responsiveConfig - 响应式配置
-     * @returns {string} CSS transform 值
-     */
-    static calculateCenteringOffset(sidebarState, responsiveConfig) {
-        const { isCollapsed, screenWidth } = sidebarState;
-        const { type } = responsiveConfig;
 
-        // 移动端不需要偏移
-        if (type === 'mobile' || screenWidth < BREAKPOINT_MOBILE) {
-            return '0px';
-        }
-
-        // 平板端使用基础偏移
-        if (type === 'tablet' || screenWidth < BREAKPOINT_SIDEBAR) {
-            return 'var(--search-container-centering-offset, 0px)';
-        }
-
-        // 桌面端需要考虑侧栏状态
-        const baseOffset = isCollapsed ? '0px' : '110px';
-        return `calc(${baseOffset} + var(--search-container-centering-offset, 0px))`;
-    }
-
-    /**
-     * 应用居中偏移到元素
-     * @param {HTMLElement} element - 分页控件元素
-     * @param {string} offset - 偏移值
-     */
-    static applyCenteringOffset(element, offset) {
-        if (!element) return;
-        
-        element.style.transform = `translateX(${offset})`;
-    }
-}
 
 /**
  * 触摸友好性优化器

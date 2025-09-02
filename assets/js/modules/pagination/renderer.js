@@ -25,9 +25,9 @@
 import {
     getSidebarMonitor,
     getResponsiveManager,
-    PaginationCenteringCalculator,
     TouchOptimizer
 } from './responsive.js';
+import { getCenteringManager } from '../utils/centering.js';
 import {
     globalPerformanceMonitor,
     MemoryOptimizer,
@@ -61,7 +61,10 @@ export class PaginationRenderer {
         this.debounceTimeout = null;
         this.debounceDelay = 150;
 
-        // 侧栏监听器（用于居中偏移计算）
+        // 统一居中系统管理器
+        this.centeringManager = getCenteringManager();
+        
+        // 侧栏监听器（保留以维持兼容性，但实际居中由统一系统处理）
         this.sidebarMonitor = getSidebarMonitor();
         this.currentSidebarState = null;
 
@@ -85,9 +88,21 @@ export class PaginationRenderer {
 
         // 初始化侧栏状态监听（用于居中偏移）
         this.initializeSidebarListener();
+        
+        // 注册到统一居中系统
+        this.registerWithCenteringSystem();
     }
 
 
+
+    /**
+     * 注册到统一居中系统
+     */
+    registerWithCenteringSystem() {
+        if (this.centeringManager && !this.centeringManager.isDestroyed) {
+            this.centeringManager.initialize();
+        }
+    }
 
     /**
      * 初始化侧栏状态监听器
@@ -98,7 +113,7 @@ export class PaginationRenderer {
             this.handleSidebarStateChange(state);
         };
         
-        // 监听侧栏状态变化（用于居中偏移计算）
+        // 监听侧栏状态变化（保留以维持兼容性）
         if (this.sidebarMonitor) {
             this.sidebarMonitor.addListener(this.sidebarStateListener);
             // 获取初始状态
@@ -115,10 +130,7 @@ export class PaginationRenderer {
     handleSidebarStateChange(state) {
         this.currentSidebarState = state;
 
-        if (this.paginationElement) {
-            // 更新居中偏移
-            this.updateCenteringOffset();
-        }
+        // 统一居中系统会自动处理侧栏状态变化，这里不需要手动更新偏移
     }
 
     /**
@@ -167,7 +179,7 @@ export class PaginationRenderer {
      */
     createPaginationElement() {
         this.paginationElement = document.createElement('nav');
-        this.paginationElement.className = 'pagination-container';
+        this.paginationElement.className = 'pagination-container centered-element';
         this.paginationElement.setAttribute('role', 'navigation');
         this.paginationElement.setAttribute('aria-label', '搜索结果分页导航');
 
@@ -982,7 +994,7 @@ export class PaginationRenderer {
             this.checkMobileScrollable();
         }
 
-        // 更新居中偏移
+        // 更新居中偏移（统一居中系统会自动处理）
         this.updateCenteringOffset();
     }
 
@@ -1008,20 +1020,19 @@ export class PaginationRenderer {
     }
 
     /**
-     * 更新居中偏移
+     * 更新居中偏移 - 已重构为使用统一居中系统
      */
     updateCenteringOffset() {
         if (!this.paginationElement) return;
 
-        try {
-            // 使用CSS类替代内联样式，实现关注点分离
-            const container = this.paginationElement.closest('.pagination-wrapper');
-            if (container) {
-                // 确保容器有居中样式类
-                container.classList.add('pagination-wrapper-centered');
-            }
-        } catch (error) {
-            console.error('居中设置失败:', error);
+        // 统一居中系统会自动处理分页控件的居中，这里不需要手动设置
+        
+        // 确保分页控件有正确的类名以便统一居中系统识别
+        if (!this.paginationElement.classList.contains('pagination-container')) {
+            this.paginationElement.classList.add('pagination-container');
+        }
+        if (!this.paginationElement.classList.contains('centered-element')) {
+            this.paginationElement.classList.add('centered-element');
         }
     }
 
@@ -1046,6 +1057,12 @@ export class PaginationRenderer {
      * 清理资源
      */
     cleanup() {
+        // 清理侧栏状态监听器
+        if (this.sidebarMonitor && this.sidebarStateListener) {
+            this.sidebarMonitor.removeListener(this.sidebarStateListener);
+            this.sidebarStateListener = null;
+        }
+
         // 清理事件监听器
         this.eventListeners.forEach((handler, eventType) => {
             if (this.paginationElement) {
@@ -1077,6 +1094,9 @@ export class PaginationRenderer {
         // 清理待处理的更新
         this.pendingUpdates = [];
         this.batchUpdateScheduled = false;
+
+        // 清理统一居中系统引用
+        this.centeringManager = null;
     }
 
     /**
@@ -1084,11 +1104,6 @@ export class PaginationRenderer {
      */
     destroy() {
         this.cleanup();
-
-        // 移除侧栏监听器
-        if (this.sidebarMonitor && this.sidebarStateListener) {
-            this.sidebarMonitor.removeListener(this.sidebarStateListener);
-        }
 
         // 移除DOM元素
         if (this.paginationElement && this.paginationElement.parentNode) {
@@ -1104,6 +1119,7 @@ export class PaginationRenderer {
         this.sidebarStateListener = null;
         this.currentResponsiveConfig = null;
         this.currentSidebarState = null;
+        this.centeringManager = null;
     }
 
     /**
@@ -1167,23 +1183,33 @@ export const PaginationRenderUtils = {
     },
 
     /**
-     * 初始化响应式支持
+     * 初始化响应式支持 - 已更新为使用统一居中系统
      * @param {HTMLElement} paginationElement - 分页控件元素
      * @param {import('./controller.js').PaginationController} controller - 分页控制器
      */
     initializeResponsiveSupport(paginationElement, controller) {
         if (!paginationElement || !controller) return;
 
-        // 获取响应式管理器
+        // 确保分页控件有正确的类名以便统一居中系统识别
+        if (!paginationElement.classList.contains('pagination-container')) {
+            paginationElement.classList.add('pagination-container');
+        }
+        if (!paginationElement.classList.contains('centered-element')) {
+            paginationElement.classList.add('centered-element');
+        }
+
+        // 获取响应式管理器进行触摸优化
         const responsiveManager = getResponsiveManager();
         if (responsiveManager) {
             const currentConfig = responsiveManager.getCurrentConfig();
             TouchOptimizer.optimizeForTouch(paginationElement, currentConfig);
         }
+
+        // 统一居中系统会自动处理位置管理
     },
 
     /**
-     * 应用响应式样式
+     * 应用响应式样式 - 已更新为使用统一居中系统
      * @param {HTMLElement} paginationElement - 分页控件元素
      */
     applyResponsiveStyles(paginationElement) {
@@ -1199,6 +1225,16 @@ export const PaginationRenderUtils = {
 
             // 添加当前类型的响应式类
             paginationElement.classList.add(`${type}-pagination`);
+
+            // 确保分页控件有正确的类名以便统一居中系统识别
+            if (!paginationElement.classList.contains('pagination-container')) {
+                paginationElement.classList.add('pagination-container');
+            }
+            if (!paginationElement.classList.contains('centered-element')) {
+                paginationElement.classList.add('centered-element');
+            }
         }
+
+        // 统一居中系统会自动处理居中位置
     }
 };
