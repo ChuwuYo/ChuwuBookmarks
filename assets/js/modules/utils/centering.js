@@ -9,12 +9,8 @@
 import { getDeviceType } from '../render/device.js';
 import {
     LAYOUT_CONSTANTS,
-    PERFORMANCE_CONSTANTS,
     DEBOUNCE_THROTTLE_CONSTANTS,
-    Z_INDEX_CONSTANTS,
-    MEMORY_MONITORING_CONSTANTS,
-    getMemoryWarningThresholdBytes,
-    isMemoryUsageExcessive
+    Z_INDEX_CONSTANTS
 } from './constants.js';
 
 
@@ -531,17 +527,6 @@ class PositionCalculator {
     clearCache() {
         this.calculationCache.clear();
     }
-
-    /**
-     * 获取缓存统计信息
-     * @returns {Object} 缓存统计
-     */
-    getCacheStats() {
-        return {
-            size: this.calculationCache.size,
-            keys: Array.from(this.calculationCache.keys())
-        };
-    }
 }
 
 // PositionCalculator类定义完成
@@ -554,13 +539,6 @@ class StyleApplicator {
         // 批量更新队列
         this.updateQueue = [];
         this.isUpdateScheduled = false;
-
-        // 样式应用统计
-        this.stats = {
-            appliedCount: 0,
-            errorCount: 0,
-            batchCount: 0
-        };
     }
 
     /**
@@ -577,9 +555,7 @@ class StyleApplicator {
         const applyOperation = () => {
             try {
                 this.doApplyStyles(element, styles);
-                this.stats.appliedCount++;
             } catch (error) {
-                this.stats.errorCount++;
                 // 尝试应用基础样式作为回退
                 this.applyFallbackStyles(element);
             }
@@ -732,17 +708,12 @@ class StyleApplicator {
     }
 
     /**
-     * 调度批量更新 - 优化版本，支持优先级和防抖
+     * 调度批量更新
      */
     scheduleBatchUpdate() {
         if (this.isUpdateScheduled) return;
 
         this.isUpdateScheduled = true;
-        
-        // 使用requestAnimationFrame更高效地处理批量更新，避免不必要的定时器延迟
-        if (this.batchUpdateTimer) {
-            cancelAnimationFrame(this.batchUpdateTimer);
-        }
         
         this.batchUpdateTimer = requestAnimationFrame(() => {
             this.executeBatchUpdate();
@@ -827,25 +798,6 @@ class StyleApplicator {
     }
 
     /**
-     * 获取应用统计信息
-     * @returns {Object} 统计信息
-     */
-    getStats() {
-        return { ...this.stats };
-    }
-
-    /**
-     * 重置统计信息
-     */
-    resetStats() {
-        this.stats = {
-            appliedCount: 0,
-            errorCount: 0,
-            batchCount: 0
-        };
-    }
-
-    /**
      * 检查元素是否存在于DOM中
      * @param {HTMLElement} element - 要检查的元素
      * @returns {boolean} 元素是否存在于DOM中
@@ -885,9 +837,9 @@ class EventCoordinator {
             centeringOffsetChange: null
         };
 
-        // 防抖和节流配置 - 优化延迟时间
-        this.debounceDelay = DEBOUNCE_THROTTLE_CONSTANTS.WINDOW_RESIZE_DEBOUNCE_MS; // resize事件防抖延迟，增加以减少频繁更新
-        this.throttleDelay = DEBOUNCE_THROTTLE_CONSTANTS.SIDEBAR_CHANGE_DEBOUNCE_MS;  // 其他事件节流延迟，增加以提高性能
+        // 防抖和节流配置
+        this.debounceDelay = DEBOUNCE_THROTTLE_CONSTANTS.WINDOW_RESIZE_DEBOUNCE_MS;
+        this.throttleDelay = DEBOUNCE_THROTTLE_CONSTANTS.SIDEBAR_CHANGE_DEBOUNCE_MS;
 
         // 防抖和节流定时器
         this.timers = {
@@ -895,28 +847,8 @@ class EventCoordinator {
             sidebarChange: null
         };
 
-        // 事件统计
-        this.eventStats = {
-            resizeCount: 0,
-            sidebarChangeCount: 0,
-            layoutChangeCount: 0,
-            offsetChangeCount: 0,
-            memoryLeakChecks: 0
-        };
-
-        // 内存泄漏检测
-        this.memoryLeakDetection = {
-            maxListenerCount: MEMORY_MONITORING_CONSTANTS.MAX_LISTENER_COUNT,
-            checkInterval: MEMORY_MONITORING_CONSTANTS.MEMORY_LEAK_CHECK_INTERVAL_MS, // 30秒检查一次
-            lastCheck: Date.now(),
-            timer: null
-        };
-
         // 初始化状态
         this.isDestroyed = false;
-        
-        // 启动内存泄漏检测
-        this.startMemoryLeakDetection();
     }
 
     /**
@@ -944,8 +876,6 @@ class EventCoordinator {
     setupResizeListener() {
         this.listeners.resize = this.debounce((event) => {
             if (this.isDestroyed) return;
-
-            this.eventStats.resizeCount++;
 
             // 触发更新回调
             if (this.updateCallback) {
@@ -983,8 +913,6 @@ class EventCoordinator {
                 });
 
                 if (sidebarStateChanged) {
-                    this.eventStats.sidebarChangeCount++;
-
                     const isCollapsed = sidebar.classList.contains('collapsed') ||
                         sidebar.getAttribute('data-collapsed') === 'true';
 
@@ -1012,8 +940,6 @@ class EventCoordinator {
         this.listeners.layoutChange = (event) => {
             if (this.isDestroyed) return;
 
-            this.eventStats.layoutChangeCount++;
-
             if (this.updateCallback) {
                 this.updateCallback('layoutChange', event.detail || {});
             }
@@ -1028,8 +954,6 @@ class EventCoordinator {
     setupCenteringOffsetListener() {
         this.listeners.centeringOffsetChange = (event) => {
             if (this.isDestroyed) return;
-
-            this.eventStats.offsetChangeCount++;
 
             if (this.updateCallback) {
                 this.updateCallback('centeringOffsetChange', event.detail || {});
@@ -1083,100 +1007,12 @@ class EventCoordinator {
     }
 
     /**
-     * 暂停所有事件监听
-     */
-    pause() {
-        // 这里可以添加暂停逻辑，比如设置标志位
-        // 在实际的事件处理函数中检查这个标志位
-    }
-
-    /**
-     * 恢复所有事件监听
-     */
-    resume() {
-        // 这里可以添加恢复逻辑
-    }
-
-    /**
-     * 获取事件统计信息
-     * @returns {Object} 事件统计
-     */
-    getEventStats() {
-        return { ...this.eventStats };
-    }
-
-    /**
-     * 重置事件统计
-     */
-    resetEventStats() {
-        this.eventStats = {
-            resizeCount: 0,
-            sidebarChangeCount: 0,
-            layoutChangeCount: 0,
-            offsetChangeCount: 0
-        };
-    }
-
-    /**
-     * 启动内存泄漏检测
-     */
-    startMemoryLeakDetection() {
-        this.memoryLeakDetection.timer = setInterval(() => {
-            this.checkForMemoryLeaks();
-        }, this.memoryLeakDetection.checkInterval);
-    }
-
-    /**
-     * 检测内存泄漏
-     */
-    checkForMemoryLeaks() {
-        if (this.isDestroyed) return;
-
-        this.eventStats.memoryLeakChecks++;
-        
-        try {
-            // 检查事件监听器数量
-            const activeListeners = Object.values(this.listeners).filter(listener => listener !== null).length;
-            
-            if (activeListeners > this.memoryLeakDetection.maxListenerCount) {
-                // 检测到可能的内存泄漏
-            }
-
-            // 检查定时器数量
-            const activeTimers = Object.values(this.timers).filter(timer => timer !== null).length;
-            
-            if (activeTimers > 10) {
-                // 检测到可能的定时器泄漏
-            }
-
-            // 检查内存使用情况（如果支持）
-            if (performance.memory) {
-                const memoryInfo = performance.memory;
-                const memoryUsage = memoryInfo.usedJSHeapSize / memoryInfo.totalJSHeapSize;
-                
-                if (memoryUsage > 0.9) {
-                    // 内存使用率过高
-                }
-            }
-
-        } catch (error) {
-            // 内存泄漏检测失败
-        }
-    }
-
-    /**
-     * 销毁事件协调器，清理所有监听器 - 增强版本，包含内存泄漏预防
+     * 销毁事件协调器，清理所有监听器
      */
     destroy() {
         if (this.isDestroyed) return;
 
         try {
-            // 停止内存泄漏检测
-            if (this.memoryLeakDetection.timer) {
-                clearInterval(this.memoryLeakDetection.timer);
-                this.memoryLeakDetection.timer = null;
-            }
-
             // 清理resize监听器
             if (this.listeners.resize) {
                 window.removeEventListener('resize', this.listeners.resize);
@@ -1209,9 +1045,6 @@ class EventCoordinator {
             // 清理回调引用，防止内存泄漏
             this.updateCallback = null;
 
-            // 清理内存泄漏检测对象
-            this.memoryLeakDetection = null;
-
             // 标记为已销毁
             this.isDestroyed = true;
 
@@ -1223,8 +1056,7 @@ class EventCoordinator {
 
 // EventCoordinator类定义完成
 /**
- *
- UniversalCenteringManager - 统一居中管理器
+ * UniversalCenteringManager - 统一居中管理器
  * 整合所有子组件，提供统一的居中管理API
  */
 class UniversalCenteringManager {
@@ -1248,26 +1080,6 @@ class UniversalCenteringManager {
         // 管理器状态
         this.isInitialized = false;
         this.isDestroyed = false;
-
-        // 性能统计 - 增强版本
-        this.performanceStats = {
-            updateCount: 0,
-            batchUpdateCount: 0,
-            errorCount: 0,
-            lastUpdateTime: null,
-            averageUpdateTime: 0,
-            maxUpdateTime: 0,
-            memoryUsage: 0,
-            cacheHitRate: 0
-        };
-
-        // 性能监控配置
-        this.performanceMonitoring = {
-            enabled: true,
-            sampleRate: 0.1, // 10%的操作进行性能监控
-            maxHistorySize: 100,
-            updateTimeHistory: []
-        };
     }
 
     /**
@@ -1292,7 +1104,7 @@ class UniversalCenteringManager {
 
             this.isInitialized = true;
         } catch (error) {
-            this.performanceStats.errorCount++;
+            // 初始化失败
         }
     }
 
@@ -1372,73 +1184,22 @@ class UniversalCenteringManager {
     forceUpdateAll() {
         if (this.isDestroyed) return;
 
-        const startTime = performance.now();
-
         try {
             const allElements = this.elementRegistry.getAllElements();
-            const updateOperations = [];
 
             allElements.forEach((config, key) => {
                 const element = this.styleApplicator.safeQuerySelector(config.selector);
                 if (element && this.styleApplicator.isElementInDOM(element)) {
                     const styles = this.positionCalculator.calculatePosition(config, this.currentContext);
-                    updateOperations.push(() => {
-                        this.styleApplicator.applyStyles(element, styles, false);
-                    });
+                    this.styleApplicator.applyStyles(element, styles, false);
                 }
             });
-
-            // 批量执行更新
-            updateOperations.forEach(operation => operation());
 
             // 确保立即应用所有更新
             this.styleApplicator.flushUpdates();
 
-            this.performanceStats.updateCount++;
-            this.performanceStats.batchUpdateCount++;
-            this.performanceStats.lastUpdateTime = Date.now();
-
-            const endTime = performance.now();
-            const updateTime = endTime - startTime;
-            
-            // 记录性能指标
-            this.recordPerformanceMetrics(updateTime, allElements.size);
-            
-            if (this.performanceMonitoring.enabled) {
-                // 批量更新完成
-            }
-
         } catch (error) {
-            this.performanceStats.errorCount++;
-        }
-    }
-
-    /**
-     * 记录性能指标
-     * @param {number} updateTime - 更新耗时
-     * @param {number} elementCount - 元素数量
-     */
-    recordPerformanceMetrics(updateTime, elementCount) {
-        // 更新平均时间
-        const history = this.performanceMonitoring.updateTimeHistory;
-        history.push(updateTime);
-        
-        if (history.length > this.performanceMonitoring.maxHistorySize) {
-            history.shift();
-        }
-
-        this.performanceStats.averageUpdateTime = history.reduce((sum, time) => sum + time, 0) / history.length;
-        this.performanceStats.maxUpdateTime = Math.max(this.performanceStats.maxUpdateTime, updateTime);
-
-        // 记录内存使用情况（如果支持）
-        if (performance.memory) {
-            this.performanceStats.memoryUsage = performance.memory.usedJSHeapSize;
-        }
-
-        // 计算缓存命中率
-        const cacheStats = this.positionCalculator.getCacheStats();
-        if (cacheStats.size > 0) {
-            this.performanceStats.cacheHitRate = (cacheStats.size / (this.performanceStats.updateCount + 1)) * 100;
+            // 更新失败
         }
     }
 
@@ -1459,11 +1220,9 @@ class UniversalCenteringManager {
             if (element && this.styleApplicator.isElementInDOM(element)) {
                 const styles = this.positionCalculator.calculatePosition(config, this.currentContext);
                 this.styleApplicator.applyStyles(element, styles, true);
-
-                this.performanceStats.updateCount++;
             }
         } catch (error) {
-            this.performanceStats.errorCount++;
+            // 更新失败
         }
     }
 
@@ -1477,17 +1236,12 @@ class UniversalCenteringManager {
             return;
         }
 
-        const startTime = performance.now();
-
         try {
             // 验证事件类型
             const validEventTypes = ['resize', 'sidebarChange', 'layoutChange', 'centeringOffsetChange'];
             if (!validEventTypes.includes(eventType)) {
                 return;
             }
-
-            // 保存之前的上下文以检查变化
-            const previousContext = { ...this.currentContext };
 
             switch (eventType) {
                 case 'resize':
@@ -1508,14 +1262,7 @@ class UniversalCenteringManager {
                     break;
             }
 
-            // 检查上下文是否真的发生了变化
-            if (this.isContextChanged(this.currentContext, previousContext)) {
-                // 上下文发生变化，触发更新
-            }
-
         } catch (error) {
-            this.performanceStats.errorCount++;
-
             // 尝试恢复：重置到安全状态
             this.recoverFromContextError(eventType, data);
         }
@@ -1551,9 +1298,7 @@ class UniversalCenteringManager {
             this.forceUpdateAll();
 
         } catch (recoveryError) {
-
             // 最后的手段：禁用自动更新，等待手动干预
-            this.performanceStats.errorCount++;
         }
     }
 
@@ -1582,201 +1327,6 @@ class UniversalCenteringManager {
 
         return sidebar.classList.contains('collapsed') ||
             sidebar.getAttribute('data-collapsed') === 'true';
-    }
-
-    /**
-     * 获取管理器状态信息
-     * @returns {Object} 状态信息
-     */
-    getStatus() {
-        return {
-            isInitialized: this.isInitialized,
-            isDestroyed: this.isDestroyed,
-            currentContext: { ...this.currentContext },
-            registeredElementCount: this.elementRegistry.getElementCount(),
-            performanceStats: { ...this.performanceStats },
-            styleApplicatorStats: this.styleApplicator.getStats(),
-            eventStats: this.eventCoordinator ? this.eventCoordinator.getEventStats() : null,
-            cacheStats: this.positionCalculator.getCacheStats()
-        };
-    }
-
-    /**
-     * 获取性能统计信息
-     * @returns {Object} 性能统计数据
-     */
-    getPerformanceStats() {
-        return {
-            ...this.performanceStats,
-            styleApplicatorStats: this.styleApplicator.getStats(),
-            eventCoordinatorStats: this.eventCoordinator ? this.eventCoordinator.getEventStats() : {},
-            positionCalculatorStats: this.positionCalculator.getCacheStats(),
-            elementRegistryStats: {
-                registeredCount: this.elementRegistry.getElementCount()
-            }
-        };
-    }
-
-    /**
-     * 重置性能统计 - 增强版本
-     */
-    resetStats() {
-        this.performanceStats = {
-            updateCount: 0,
-            batchUpdateCount: 0,
-            errorCount: 0,
-            lastUpdateTime: null,
-            averageUpdateTime: 0,
-            maxUpdateTime: 0,
-            memoryUsage: 0,
-            cacheHitRate: 0
-        };
-
-        // 重置性能监控历史
-        this.performanceMonitoring.updateTimeHistory = [];
-
-        this.styleApplicator.resetStats();
-        if (this.eventCoordinator) {
-            this.eventCoordinator.resetEventStats();
-        }
-        this.positionCalculator.clearCache();
-    }
-
-    /**
-     * 优化内存使用
-     */
-    optimizeMemory() {
-        if (this.isDestroyed) return;
-
-        try {
-            // 清理位置计算缓存
-            this.positionCalculator.clearCache();
-
-            // 清理样式应用器的更新队列
-            this.styleApplicator.flushUpdates();
-
-            // 清理性能监控历史（保留最近的数据）
-            const history = this.performanceMonitoring.updateTimeHistory;
-            if (history.length > PERFORMANCE_CONSTANTS.CACHE_HISTORY_RETENTION_COUNT) {
-                this.performanceMonitoring.updateTimeHistory = history.slice(-PERFORMANCE_CONSTANTS.CACHE_HISTORY_RETENTION_COUNT);
-            }
-
-        } catch (error) {
-        }
-    }
-
-    /**
-     * 导出诊断信息
-     * @returns {Object} 诊断信息对象
-     */
-    exportDiagnostics() {
-        try {
-            return {
-                timestamp: new Date().toISOString(),
-                version: '1.0.0',
-                status: {
-                    isInitialized: this.isInitialized,
-                    isDestroyed: this.isDestroyed
-                },
-                context: { ...this.currentContext },
-                performance: this.getPerformanceStats(),
-
-                elements: {
-                    registered: this.elementRegistry.getElementCount(),
-                    configs: Array.from(this.elementRegistry.getAllElements().keys())
-                },
-                cache: this.positionCalculator.getCacheStats(),
-                memory: performance.memory ? {
-                    used: performance.memory.usedJSHeapSize,
-                    total: performance.memory.totalJSHeapSize,
-                    limit: performance.memory.jsHeapSizeLimit
-                } : null
-            };
-        } catch (error) {
-            return {
-                error: '诊断信息导出失败',
-                message: error.message,
-                timestamp: new Date().toISOString()
-            };
-        }
-    }
-
-    /**
-     * 生成性能报告
-     * @returns {Object} 性能报告
-     */
-    generatePerformanceReport() {
-        try {
-            const stats = this.getPerformanceStats();
-            const history = this.performanceMonitoring.updateTimeHistory;
-            
-            return {
-                summary: {
-                    totalUpdates: stats.updateCount,
-                    totalBatchUpdates: stats.batchUpdateCount,
-                    totalErrors: stats.errorCount,
-                    averageUpdateTime: stats.averageUpdateTime,
-                    maxUpdateTime: stats.maxUpdateTime,
-                    cacheHitRate: stats.cacheHitRate
-                },
-                performance: {
-                    updateTimeHistory: [...history],
-                    memoryUsage: stats.memoryUsage,
-                    recommendations: this.generatePerformanceRecommendations(stats)
-                },
-                timestamp: new Date().toISOString()
-            };
-        } catch (error) {
-            return { error: '性能报告生成失败', message: error.message };
-        }
-    }
-
-    /**
-     * 生成性能优化建议
-     * @param {Object} stats - 性能统计数据
-     * @returns {Array} 优化建议列表
-     */
-    generatePerformanceRecommendations(stats) {
-        const recommendations = [];
-
-        if (stats.averageUpdateTime > 50) {
-            recommendations.push({
-                type: 'performance',
-                severity: 'high',
-                message: '平均更新时间过长，建议优化DOM操作或减少更新频率',
-                value: `${stats.averageUpdateTime.toFixed(2)}ms`
-            });
-        }
-
-        if (stats.errorCount > stats.updateCount * 0.1) {
-            recommendations.push({
-                type: 'reliability',
-                severity: 'high',
-                message: '错误率过高，建议检查元素配置和DOM结构',
-                value: `${((stats.errorCount / stats.updateCount) * 100).toFixed(2)}%`
-            });
-        }
-
-        if (stats.cacheHitRate < 50) {
-            recommendations.push({
-                type: 'efficiency',
-                severity: 'medium',
-                message: '缓存命中率较低，建议检查缓存策略',
-                value: `${stats.cacheHitRate.toFixed(2)}%`
-            });
-        }
-
-        if (stats.memoryUsage && isMemoryUsageExcessive(stats.memoryUsage)) {
-            recommendations.push({
-                type: 'memory',
-                severity: 'medium',
-                message: '内存使用量较高，建议定期清理缓存',
-                value: `${(stats.memoryUsage / 1024 / 1024).toFixed(2)}MB`,
-                threshold: `${PERFORMANCE_CONSTANTS.MEMORY_USAGE_WARNING_THRESHOLD_MB}MB`
-            });
-        }
-
-        return recommendations;
     }
 
     /**
@@ -1833,12 +1383,5 @@ function getCenteringManager() {
 
 // 最终导出
 export {
-    UniversalCenteringManager,
-    getCenteringManager,
-    ElementRegistry,
-    PositionCalculator,
-    StyleApplicator,
-    EventCoordinator,
-    ELEMENT_CONFIGS,
-    DEFAULT_CONFIG
+    getCenteringManager
 };
