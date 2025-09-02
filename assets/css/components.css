@@ -32,6 +32,9 @@
     outline: none;
     backface-visibility: hidden;
     overflow: visible;
+    
+    /* 添加左侧空白补偿，与主页按钮宽度匹配 */
+    padding-left: calc(1rem + 15px + 6px + 5px);
 }
 .search-input-wrapper {
     position: relative;
