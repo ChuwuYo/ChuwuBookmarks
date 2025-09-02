@@ -96,6 +96,15 @@ export class PaginationRenderer {
 
 
     /**
+     * 注册到统一居中系统
+     */
+    registerWithCenteringSystem() {
+        if (this.centeringManager && !this.centeringManager.isDestroyed) {
+            this.centeringManager.initialize();
+        }
+    }
+
+    /**
      * 初始化侧栏状态监听器
      */
     initializeSidebarListener() {

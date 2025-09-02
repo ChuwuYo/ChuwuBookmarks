@@ -43,6 +43,11 @@
         --pagination-button-size: 32px;
         --pagination-font-size: 12px;
     }
+
+    .pagination-container {
+        bottom: 10px;
+        /* 移动端transform由JS直接设置 */
+    }
 }
 
 /* 平板端配置 (480px-1023px) */
@@ -51,6 +56,11 @@
         --pagination-spacing: 8px;
         --pagination-button-size: 40px;
         --pagination-font-size: 14px;
+    }
+
+    .pagination-container {
+        bottom: 20px;
+        /* 平板端transform由JS直接设置 */
     }
 }
 
@@ -62,7 +72,7 @@
     /* 暗色主题焦点阴影 */
 }
 
-/* 分页容器基础样式 - 简化居中逻辑 */
+/* 分页容器基础样式 - 统一居中系统 */
 .pagination-container {
     display: flex;
     justify-content: center;
@@ -70,21 +80,27 @@
     gap: var(--pagination-spacing);
     margin: 0;
     padding: 0.5rem;
-    /* 减少内边距 */
     user-select: none;
     outline: none;
     width: 100%;
+    max-width: 500px;
 
-    /* 简化过渡效果 */
-    transition: opacity var(--duration-base) var(--ease-default);
-    will-change: opacity;
+    /* 统一居中系统定位 */
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    z-index: 999;
 
-    /* 性能优化 */
-    contain: layout;
+    /* 桌面端transform，使用CSS变量 */
+    transform: translateX(calc(-50% + var(--desktop-base-offset) + var(--centering-offset, 0px)));
+
+    /* 过渡效果 */
+    transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
+    will-change: transform, opacity;
     backface-visibility: hidden;
 
     /* 主题切换时的平滑过渡 */
-    transition-property: opacity, background-color;
+    transition-property: transform, opacity, background-color;
 }
 
 /* 分页按钮基础样式 */
@@ -394,12 +410,15 @@
     transform: scale(1.05);
 }
 
+/* 侧边栏收起时桌面端分页控件调整 (>= 1024px) */
+.sidebar.collapsed + .main-content .pagination-container {
+    transform: translateX(calc(-50% + var(--centering-offset, 0px)));
+}
+
 /* 响应式分页控件类型样式 - 由 responsive.js 管理 */
 body .pagination-container.mobile-pagination {
     gap: var(--pagination-spacing);
-    margin: 0.1rem 0;
     padding: 0.1rem;
-    transform: translateZ(0);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
