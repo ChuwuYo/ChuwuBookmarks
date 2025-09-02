@@ -7,6 +7,15 @@
 
 // 导入依赖模块
 import { getDeviceType } from '../render/device.js';
+import {
+    LAYOUT_CONSTANTS,
+    PERFORMANCE_CONSTANTS,
+    DEBOUNCE_THROTTLE_CONSTANTS,
+    Z_INDEX_CONSTANTS,
+    MEMORY_MONITORING_CONSTANTS,
+    getMemoryWarningThresholdBytes,
+    isMemoryUsageExcessive
+} from './constants.js';
 
 
 /**
@@ -16,46 +25,46 @@ const ELEMENT_CONFIGS = {
     'home-message': {
         selector: '.home-message',
         positioning: {
-            mobile: { strategy: 'fixed-center', top: '45%' },
-            desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+            mobile: { strategy: 'fixed-center', top: LAYOUT_CONSTANTS.HOME_MESSAGE_TOP },
+            desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
-        zIndex: 'auto',
+        zIndex: Z_INDEX_CONSTANTS.AUTO,
         useCenteringOffset: false
     },
     'search-container': {
         selector: '.search-container',
         positioning: {
-            mobile: { strategy: 'fixed-top', top: '20px' },
-            desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+            mobile: { strategy: 'fixed-top', top: LAYOUT_CONSTANTS.SEARCH_CONTAINER_TOP_MOBILE },
+            desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
-        zIndex: 999,
+        zIndex: Z_INDEX_CONSTANTS.SEARCH_CONTAINER,
         useCenteringOffset: true
     },
     'pagination': {
         selector: '.pagination-container',
         positioning: {
             mobile: { strategy: 'fixed-center' },
-            desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+            desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
-        zIndex: 'auto',
+        zIndex: Z_INDEX_CONSTANTS.AUTO,
         useCenteringOffset: true
     },
     'no-results': {
         selector: '.no-results',
         positioning: {
-            mobile: { strategy: 'fixed-center', top: '45%' },
-            desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+            mobile: { strategy: 'fixed-center', top: LAYOUT_CONSTANTS.HOME_MESSAGE_TOP },
+            desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
-        zIndex: 10,
+        zIndex: Z_INDEX_CONSTANTS.MESSAGE_OVERLAY,
         useCenteringOffset: false
     },
     'error-message': {
         selector: '.error-message',
         positioning: {
-            mobile: { strategy: 'fixed-center', top: '50%' },
-            desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+            mobile: { strategy: 'fixed-center', top: LAYOUT_CONSTANTS.ERROR_MESSAGE_TOP },
+            desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
-        zIndex: 10,
+        zIndex: Z_INDEX_CONSTANTS.MESSAGE_OVERLAY,
         useCenteringOffset: false
     }
 };
@@ -66,9 +75,9 @@ const ELEMENT_CONFIGS = {
 const DEFAULT_CONFIG = {
     positioning: {
         mobile: { strategy: 'fixed-center' },
-        desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+        desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
     },
-    zIndex: 'auto',
+    zIndex: Z_INDEX_CONSTANTS.AUTO,
     useCenteringOffset: false
 };
 
@@ -151,9 +160,9 @@ class ElementRegistry {
                 selector,
                 positioning: {
                     mobile: { strategy: 'fixed-center' },
-                    desktop: { strategy: 'css-controlled', baseOffset: '110px' }
+                    desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
                 },
-                zIndex: 'auto',
+                zIndex: Z_INDEX_CONSTANTS.AUTO,
                 useCenteringOffset: false
             };
 
@@ -730,16 +739,14 @@ class StyleApplicator {
 
         this.isUpdateScheduled = true;
         
-        // 使用防抖机制避免频繁更新
+        // 使用requestAnimationFrame更高效地处理批量更新，避免不必要的定时器延迟
         if (this.batchUpdateTimer) {
-            clearTimeout(this.batchUpdateTimer);
+            cancelAnimationFrame(this.batchUpdateTimer);
         }
         
-        this.batchUpdateTimer = setTimeout(() => {
-            requestAnimationFrame(() => {
-                this.executeBatchUpdate();
-            });
-        }, 16); // 约1帧的延迟
+        this.batchUpdateTimer = requestAnimationFrame(() => {
+            this.executeBatchUpdate();
+        });
     }
 
     /**
@@ -879,8 +886,8 @@ class EventCoordinator {
         };
 
         // 防抖和节流配置 - 优化延迟时间
-        this.debounceDelay = 150; // resize事件防抖延迟，增加以减少频繁更新
-        this.throttleDelay = 100;  // 其他事件节流延迟，增加以提高性能
+        this.debounceDelay = DEBOUNCE_THROTTLE_CONSTANTS.WINDOW_RESIZE_DEBOUNCE_MS; // resize事件防抖延迟，增加以减少频繁更新
+        this.throttleDelay = DEBOUNCE_THROTTLE_CONSTANTS.SIDEBAR_CHANGE_DEBOUNCE_MS;  // 其他事件节流延迟，增加以提高性能
 
         // 防抖和节流定时器
         this.timers = {
@@ -899,8 +906,8 @@ class EventCoordinator {
 
         // 内存泄漏检测
         this.memoryLeakDetection = {
-            maxListenerCount: 50,
-            checkInterval: 30000, // 30秒检查一次
+            maxListenerCount: MEMORY_MONITORING_CONSTANTS.MAX_LISTENER_COUNT,
+            checkInterval: MEMORY_MONITORING_CONSTANTS.MEMORY_LEAK_CHECK_INTERVAL_MS, // 30秒检查一次
             lastCheck: Date.now(),
             timer: null
         };
@@ -1650,8 +1657,8 @@ class UniversalCenteringManager {
 
             // 清理性能监控历史（保留最近的数据）
             const history = this.performanceMonitoring.updateTimeHistory;
-            if (history.length > 50) {
-                this.performanceMonitoring.updateTimeHistory = history.slice(-50);
+            if (history.length > PERFORMANCE_CONSTANTS.CACHE_HISTORY_RETENTION_COUNT) {
+                this.performanceMonitoring.updateTimeHistory = history.slice(-PERFORMANCE_CONSTANTS.CACHE_HISTORY_RETENTION_COUNT);
             }
 
         } catch (error) {
@@ -1759,12 +1766,13 @@ class UniversalCenteringManager {
             });
         }
 
-        if (stats.memoryUsage && stats.memoryUsage > 50 * 1024 * 1024) { // 50MB
+        if (stats.memoryUsage && isMemoryUsageExcessive(stats.memoryUsage)) {
             recommendations.push({
                 type: 'memory',
                 severity: 'medium',
                 message: '内存使用量较高，建议定期清理缓存',
-                value: `${(stats.memoryUsage / 1024 / 1024).toFixed(2)}MB`
+                value: `${(stats.memoryUsage / 1024 / 1024).toFixed(2)}MB`,
+                threshold: `${PERFORMANCE_CONSTANTS.MEMORY_USAGE_WARNING_THRESHOLD_MB}MB`
             });
         }
 

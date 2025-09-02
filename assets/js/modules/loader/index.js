@@ -77,7 +77,7 @@ const showErrorMessage = (error) => {
 
     // 创建错误消息元素
     const errorMessage = document.createElement('div');
-    errorMessage.className = 'error-message';
+    errorMessage.className = 'centered-message error-message';
     errorMessage.setAttribute('role', 'alert');
     errorMessage.setAttribute('aria-live', 'assertive');
     

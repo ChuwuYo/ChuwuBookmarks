@@ -3,6 +3,7 @@
  */
 
 import { animationConfig } from './theme.js';
+import { DEBOUNCE_THROTTLE_CONSTANTS } from '../utils/constants.js';
 
 // 断点系统 - 移动端样式断点和侧栏收起断点分离
 const BREAKPOINT_MOBILE = 480;  // 移动端样式断点
@@ -80,7 +81,7 @@ const updatePaginationPositionIfExists = () => {
         });
 
         document.dispatchEvent(layoutChangeEvent);
-    }, 50); // 50ms防抖延迟
+    }, DEBOUNCE_THROTTLE_CONSTANTS.LAYOUT_CHANGE_DEBOUNCE_MS); // 布局变化事件防抖延迟
 };
 
 // 封装侧边栏状态管理
