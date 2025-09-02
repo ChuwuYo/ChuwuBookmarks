@@ -59,6 +59,11 @@
     .main-content::-webkit-scrollbar {
         display: none;
     }
+    
+    /* 移动端隐藏自定义滚动条指示器 */
+    .custom-scroll-indicator {
+        display: none !important;
+    }
 
     .mobile-device [onclick],
     .mobile-device button,
