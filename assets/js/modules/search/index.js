@@ -137,14 +137,14 @@ const createSearchHandler = () => {
             // 如果不支持Web Worker，显示错误信息
             const content = document.getElementById('content');
             const errorMessage = document.createElement('div');
-            errorMessage.className = 'centered-message error-message';
+            errorMessage.className = 'centered-message error-message centered-element vertical-center';
             errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
             content.innerHTML = '';
-            content.appendChild(errorMessage);
+            document.body.appendChild(errorMessage);
             
             // 注册到统一居中系统
             const centeringManager = getCenteringManager();
-            centeringManager.registerElement('error-message', '.error-message');
+            centeringManager.updateSingleElement('error-message');
         }
     }, 250);
 };

@@ -11,7 +11,7 @@ import { getCenteringManager } from '../utils/centering.js';
 const createHomeStructure = () => {
     const fragment = document.createDocumentFragment();
     const homeMessage = document.createElement('div');
-    homeMessage.className = 'home-message';
+    homeMessage.className = 'home-message centered-element vertical-center';
 
     const chineseText = document.createElement('div');
     chineseText.className = 'chinese-text';
@@ -171,19 +171,16 @@ const renderHome = () => {
 
     const deviceType = getDeviceType();
 
-    // 统一将主页消息添加到合适的容器
+    // 统一将主页消息添加到body以使用统一居中系统
+    document.body.appendChild(fragment);
+    
     if (deviceType === 'mobile') {
-        // 移动端：附加到body以实现固定定位
-        document.body.appendChild(fragment);
         homeMessage.classList.add('mobile-home-message');
         // 设置移动端特定样式（非定位相关）
         homeMessage.style.width = '90%';
         homeMessage.style.maxWidth = '400px';
         chineseText.style.fontSize = 'clamp(1.5rem, 8vw, 2rem)';
         englishText.style.fontSize = 'clamp(1rem, 6vw, 1.5rem)';
-    } else {
-        // 桌面端：附加到content容器
-        content.appendChild(fragment);
     }
 
     // 获取统一居中管理器并注册主页消息
