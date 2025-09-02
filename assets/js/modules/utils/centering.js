@@ -39,7 +39,7 @@ const ELEMENT_CONFIGS = {
     'pagination': {
         selector: '.pagination-container',
         positioning: {
-            mobile: { strategy: 'fixed-center' },
+            mobile: { strategy: 'fixed-center', bottom: '20px' },
             desktop: { strategy: 'css-controlled', baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET }
         },
         zIndex: Z_INDEX_CONSTANTS.AUTO,
@@ -394,11 +394,17 @@ class PositionCalculator {
             transform: 'translate(-50%, -50%)'
         };
 
-        // 设置top值
+        // 处理top或bottom属性
         if (positioning.top) {
             styles.top = positioning.top;
+            styles.bottom = '';
+        } else if (positioning.bottom) {
+            styles.bottom = positioning.bottom;
+            styles.top = '';
+            styles.transform = 'translateX(-50%)';
         } else {
             styles.top = '50%';
+            styles.bottom = '';
         }
 
         return styles;
