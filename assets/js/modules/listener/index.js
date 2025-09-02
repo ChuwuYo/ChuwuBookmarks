@@ -7,6 +7,7 @@ import { isMobileDevice, handleDeviceView, updateSidebarState } from '../render/
 import { renderHome } from '../render/home.js';
 import { debounce } from '../utils/index.js';
 import { getCenteringManager } from '../utils/centering.js';
+import { DEBOUNCE_THROTTLE_CONSTANTS } from '../utils/constants.js';
 
 // 设置侧边栏切换事件
 const setupSidebarToggle = () => {
@@ -74,7 +75,7 @@ const setupSearchEvents = (debounceSearch) => {
                 handleDeviceView();
                 // 统一居中系统会自动处理resize事件，无需手动调用
             });
-        }, 150); // 增加防抖延迟以减少频繁更新
+        }, DEBOUNCE_THROTTLE_CONSTANTS.WINDOW_RESIZE_DEBOUNCE_MS); // 窗口大小改变事件防抖延迟，减少频繁更新
 
         // 添加 resize 监听
         window.addEventListener('resize', handleResize);

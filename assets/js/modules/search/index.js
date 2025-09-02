@@ -137,7 +137,7 @@ const createSearchHandler = () => {
             // 如果不支持Web Worker，显示错误信息
             const content = document.getElementById('content');
             const errorMessage = document.createElement('div');
-            errorMessage.className = 'error-message';
+            errorMessage.className = 'centered-message error-message';
             errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
             content.innerHTML = '';
             content.appendChild(errorMessage);
