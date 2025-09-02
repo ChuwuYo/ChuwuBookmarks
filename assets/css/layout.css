@@ -14,11 +14,17 @@
     overflow-x: hidden;
     height: 100vh;
     z-index: 1000;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    /* 侧边栏始终隐藏滚动条 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     will-change: background-color;
     box-sizing: border-box;
     border-radius: 0 15px 15px 0;
+}
+
+/* 隐藏侧边栏滚动条 */
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 /* 小于1024px时默认收起侧边栏 */
@@ -43,21 +49,6 @@
     opacity: 0;
     visibility: hidden;
     transition: none;
-}
-.sidebar::-webkit-scrollbar {
-    width: 8px;
-}
-.sidebar::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 4px;
-}
-.sidebar::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    border: 2px solid var(--sidebar-bg);
-}
-.sidebar::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
 }
 .sidebar .folder {
     display: flex;
@@ -126,6 +117,15 @@
     position: relative;
     z-index: 2;
     will-change: margin-left, padding;
+    overflow-y: auto;
+    /* 完全隐藏滚动条 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* 隐藏主内容区滚动条 */
+.main-content::-webkit-scrollbar {
+    display: none;
 }
 
 /* 小于1024px时默认调整主内容区 */
