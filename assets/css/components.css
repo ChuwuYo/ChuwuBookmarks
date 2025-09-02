@@ -368,16 +368,9 @@ button.breadcrumb-item:focus-visible {
     animation: spin 1s linear infinite;
 }
 
-/* 居中消息基类 - 提取公共样式避免重复 */
+/* 居中消息基类 - 使用统一居中系统 */
 .centered-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 10;
-    transition: transform var(--duration-base) var(--ease-in-out-cubic), opacity var(--duration-base) var(--ease-default);
-    will-change: transform, opacity;
-    backface-visibility: hidden;
     text-align: center;
     color: var(--text-color);
 }
@@ -396,7 +389,7 @@ button.breadcrumb-item:focus-visible {
     font-size: 1.1rem;
     opacity: 0.8;
     font-weight: bold;
-    top: 45%; /* 覆盖基类的50% */
+    top: 45%;
 }
 
 /* 搜索结果相关样式 */

@@ -77,7 +77,7 @@ const showErrorMessage = (error) => {
 
     // 创建错误消息元素
     const errorMessage = document.createElement('div');
-    errorMessage.className = 'centered-message error-message';
+    errorMessage.className = 'centered-message error-message centered-element vertical-center';
     errorMessage.setAttribute('role', 'alert');
     errorMessage.setAttribute('aria-live', 'assertive');
     
@@ -102,12 +102,12 @@ const showErrorMessage = (error) => {
     errorMessage.appendChild(message1);
     errorMessage.appendChild(message2);
     
-    // 添加到内容区域
-    content.appendChild(errorMessage);
+    // 添加到body以使用统一居中系统
+    document.body.appendChild(errorMessage);
     
     // 注册到统一居中系统
     const centeringManager = getCenteringManager();
-    centeringManager.registerElement('error-message', '.error-message');
+    centeringManager.updateSingleElement('error-message');
     
     // 为错误消息添加淡入动画效果
     setTimeout(() => {

@@ -1191,7 +1191,7 @@ class UniversalCenteringManager {
         };
 
         // 检查上下文是否真的发生了变化
-        if (this.isContextChanged(newContext)) {
+        if (this.isContextChanged(newContext, this.currentContext)) {
             this.currentContext = newContext;
             this.positionCalculator.updateContext(newContext);
 

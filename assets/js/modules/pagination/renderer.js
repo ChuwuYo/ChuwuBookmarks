@@ -179,7 +179,7 @@ export class PaginationRenderer {
      */
     createPaginationElement() {
         this.paginationElement = document.createElement('nav');
-        this.paginationElement.className = 'pagination-container';
+        this.paginationElement.className = 'pagination-container centered-element';
         this.paginationElement.setAttribute('role', 'navigation');
         this.paginationElement.setAttribute('aria-label', '搜索结果分页导航');
 
@@ -1031,6 +1031,9 @@ export class PaginationRenderer {
         if (!this.paginationElement.classList.contains('pagination-container')) {
             this.paginationElement.classList.add('pagination-container');
         }
+        if (!this.paginationElement.classList.contains('centered-element')) {
+            this.paginationElement.classList.add('centered-element');
+        }
     }
 
     /**
@@ -1191,6 +1194,9 @@ export const PaginationRenderUtils = {
         if (!paginationElement.classList.contains('pagination-container')) {
             paginationElement.classList.add('pagination-container');
         }
+        if (!paginationElement.classList.contains('centered-element')) {
+            paginationElement.classList.add('centered-element');
+        }
 
         // 获取响应式管理器进行触摸优化
         const responsiveManager = getResponsiveManager();
@@ -1223,6 +1229,9 @@ export const PaginationRenderUtils = {
             // 确保分页控件有正确的类名以便统一居中系统识别
             if (!paginationElement.classList.contains('pagination-container')) {
                 paginationElement.classList.add('pagination-container');
+            }
+            if (!paginationElement.classList.contains('centered-element')) {
+                paginationElement.classList.add('centered-element');
             }
         }
 
