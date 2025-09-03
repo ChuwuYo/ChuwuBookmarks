@@ -7,7 +7,7 @@
   "@type": "WebApplication",
   "name": "ChuwuBookmarks",
   "alternateName": "我的书签导航",
-  "description": "功能强大的个人书签导航网页，支持多级分类、智能搜索、响应式设计。",
+  "description": "功能强大的个人书签导航站",
   "url": "https://chuwuyo.github.io/ChuwuBookmarks/",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "Web Browser",
@@ -21,7 +21,7 @@
     "name": "ChuwuYo",
     "url": "https://github.com/ChuwuYo"
   },
-  "dateCreated": "2024",
+  "dateCreated": "2025",
   "inLanguage": "zh-CN",
   "isAccessibleForFree": true,
   "license": "https://github.com/ChuwuYo/ChuwuBookmarks/blob/main/LICENSE",
