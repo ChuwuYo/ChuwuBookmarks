@@ -77,6 +77,9 @@
     .main-content {
         -ms-overflow-style: none;
         scrollbar-width: none;
+        /* 防止布局偏移 */
+        min-height: 100vh;
+        contain: layout;
     }
     
     .main-content::-webkit-scrollbar {
@@ -122,23 +125,24 @@
     .mobile-device .main-content,
     .mobile-device .sidebar.collapsed + .main-content,
     .mobile-device .sidebar:not(.collapsed) + .main-content {
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0 auto;
         width: 100%;
         max-width: 600px;
-        padding: 15px 25px; /* 增加左右内边距，特别是左侧 */
-        margin: 0 auto;
+        padding: 15px 25px;
         position: relative;
         box-sizing: border-box;
-        /* 确保内容区稳定居中，强制硬件加速避免布局偏移 */
+        /* 防止布局偏移的关键样式 */
+        contain: layout style;
         will-change: auto;
         backface-visibility: hidden;
         transform: translateZ(0);
+        /* 预分配空间防止偏移 */
+        min-height: calc(100vh - 30px);
     }
     
 
     
-    /* 移动端禁用所有transform动画防止扩散 */
+    /* 移动端优化动画防止布局偏移 */
     #content,
     #content .folder,
     #content .bookmark,
@@ -147,6 +151,14 @@
         transform: none;
         transition: opacity 0.2s ease;
         will-change: auto;
+        /* 防止布局偏移 */
+        contain: layout;
+    }
+    
+    /* 移动端内容区域稳定化 */
+    #content {
+        min-height: 200px;
+        contain: layout style;
     }
     
 
@@ -177,7 +189,7 @@
     }
     /* 面包屑导航移动端优化 */
     #breadcrumbs {
-        padding: 50px 25px 0; /* 增加左右内边距，与内容区保持一致 */
+        padding: 50px 25px 0;
         font-size: clamp(1rem, 5vw, 1.2rem);
         width: 100%;
         max-width: 600px;
@@ -188,6 +200,9 @@
         align-items: center;
         gap: 6px;
         box-sizing: border-box;
+        /* 防止布局偏移 */
+        contain: layout;
+        min-height: 40px;
     }
     
     /* 移动端面包屑项样式优化 */

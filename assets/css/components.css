@@ -211,6 +211,9 @@ button.breadcrumb-item {
     will-change: transform;
     outline: none;
     box-sizing: border-box;
+    /* 防止布局偏移 */
+    contain: layout;
+    min-height: 44px;
 }
 #content .folder {
     user-select: none;
