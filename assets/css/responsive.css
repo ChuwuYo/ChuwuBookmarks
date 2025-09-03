@@ -103,9 +103,16 @@
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
     }
+    /* 移动端侧栏按钮稳定化 */
+    .mobile-device #toggle-sidebar {
+        contain: layout size style;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+    
     .mobile-device #toggle-sidebar:hover {
         box-shadow: var(--button-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-        transform: none;
+        transform: translateZ(0);
     }
     .mobile-device #toggle-sidebar:hover img {
         transform: none;
