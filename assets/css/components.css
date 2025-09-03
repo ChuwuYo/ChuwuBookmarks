@@ -131,6 +131,7 @@ button.breadcrumb-item {
     appearance: none;
     line-height: normal;
     margin: 0 4px 4px 0;
+    min-height: 24px;
 }
 /* 面包屑悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
