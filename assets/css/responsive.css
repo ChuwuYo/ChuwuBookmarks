@@ -77,9 +77,6 @@
     .main-content {
         -ms-overflow-style: none;
         scrollbar-width: none;
-        /* 防止布局偏移 */
-        min-height: 100vh;
-        contain: layout;
     }
     
     .main-content::-webkit-scrollbar {
@@ -144,7 +141,6 @@
 
     
     /* 移动端优化动画防止布局偏移 */
-    #content,
     #content .folder,
     #content .bookmark,
     #breadcrumbs,
