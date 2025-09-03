@@ -14,7 +14,7 @@
     outline: none;
     transition: transform var(--duration-short) var(--ease-out-quad), background-color var(--duration-short) var(--ease-out-quad), box-shadow var(--duration-short) var(--ease-out-quad);
     will-change: transform;
-    contain: layout size;
+    contain: layout size style;
     transform: translateZ(0);
     box-sizing: border-box;
     transform-origin: left center;
@@ -23,6 +23,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* 防止布局偏移 */
+    backface-visibility: hidden;
 }
 
 
