@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1756928790018,
+    "addDate": 1757067480114,
     "title": "书签栏",
     "children": [
       {
@@ -412,7 +412,7 @@
             "type": "link",
             "addDate": 1704012714000,
             "title": "Animex动漫社 - 二次元及日本文化最速报",
-            "url": "http://www.animetox.com/",
+            "url": "https://www.animetox.com/",
             "icon": "https://www.google.com/s2/favicons?domain=www.animetox.com"
           },
           {
@@ -832,6 +832,13 @@
                 "title": "D1DM 第一動漫 線上看動畫 ‣ 免費線上觀看高畫質最新最熱動漫盡在此地",
                 "url": "https://d1-dm.online/",
                 "icon": "https://www.google.com/s2/favicons?domain=d1-dm.online"
+              },
+              {
+                "type": "link",
+                "addDate": 1756983686193,
+                "title": "超高清画质的动漫网站 - 二矿动漫",
+                "url": "https://www.2rk.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.2rk.cc"
               }
             ]
           },
@@ -2239,6 +2246,13 @@
                 "title": "Qiwi - The Best Mediafire Alternative for File Sharing --- Qiwi - 文件共享的最佳媒体火替代方案",
                 "url": "https://qiwi.gg/",
                 "icon": "https://www.google.com/s2/favicons?domain=qiwi.gg"
+              },
+              {
+                "type": "link",
+                "addDate": 1756974244062,
+                "title": "Proton Drive",
+                "url": "https://drive.proton.me/",
+                "icon": "https://www.google.com/s2/favicons?domain=drive.proton.me"
               }
             ]
           },
@@ -9018,10 +9032,31 @@
               },
               {
                 "type": "link",
+                "addDate": 1756970707202,
+                "title": "Sigle - Web3 writing platform secured on Bitcoin",
+                "url": "https://www.sigle.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.sigle.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1756970457831,
+                "title": "Mirror Web3X",
+                "url": "https://mirror.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=mirror.xyz"
+              },
+              {
+                "type": "link",
                 "addDate": 1736320089898,
                 "title": "Hexo",
                 "url": "https://hexo.io/zh-cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=hexo.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1756982450987,
+                "title": "WordPress.com: Everything You Need to Build Your Website",
+                "url": "https://wordpress.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=wordpress.com"
               }
             ]
           },
@@ -10901,50 +10936,8 @@
             "children": [
               {
                 "type": "folder",
-                "addDate": 1704014876011,
-                "title": "虚拟信用卡",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "DePay: Web3 Payments platform for blockchains. Directly into your wallet. Fast and secure. --- DePay：区块链的 Web3 支付平台。直接放入您的钱包。快速且安全。",
-                    "url": "https://depay.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=depay.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Wise，前称为 TransferWise：在线汇款 | 国际银行业务功能",
-                    "url": "https://wise.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=wise.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Paytend",
-                    "url": "https://www.paytend.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.paytend.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1727117776474,
-                    "title": "MyGuava | The Ultimate Payments App",
-                    "url": "https://myguava.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=myguava.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1756744344277,
-                    "title": "Fiat24 - Tokenised Payments",
-                    "url": "https://www.fiat24.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.fiat24.com"
-                  }
-                ]
-              },
-              {
-                "type": "folder",
                 "addDate": 1751212955209,
-                "title": "网上银行",
+                "title": "网上银行/传统支付",
                 "children": [
                   {
                     "type": "link",
@@ -10970,11 +10963,74 @@
                 ]
               },
               {
-                "type": "link",
-                "addDate": 1713950335838,
-                "title": "以太坊ethereum.org",
-                "url": "https://ethereum.org/zh/",
-                "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
+                "type": "folder",
+                "addDate": 1704014876011,
+                "title": "Web3银行/国际虚拟卡",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "DePay: Web3 Payments platform for blockchains. Directly into your wallet. Fast and secure. --- DePay：区块链的 Web3 支付平台。直接放入您的钱包。快速且安全。",
+                    "url": "https://depay.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=depay.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756744344277,
+                    "title": "Fiat24 - Tokenised Payments",
+                    "url": "https://www.fiat24.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.fiat24.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "Wise，前称为 TransferWise：在线汇款 | 国际银行业务功能",
+                    "url": "https://wise.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=wise.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756966000932,
+                    "title": "Global Payment Solutions & Online Payment Services | Payoneer",
+                    "url": "https://www.payoneer.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.payoneer.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1756965581481,
+                "title": "Web3钱包/加密货币",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1713950335838,
+                    "title": "以太坊ethereum.org",
+                    "url": "https://ethereum.org/zh/",
+                    "icon": "https://www.google.com/s2/favicons?domain=ethereum.org"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756965551864,
+                    "title": "JoyID - Web3 大规模采用的通用帐户协议",
+                    "url": "https://joy.id/en",
+                    "icon": "https://www.google.com/s2/favicons?domain=joy.id"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756966162270,
+                    "title": "OKX全球领先的比特币交易平台 | 比特币行情价格 | 欧易",
+                    "url": "https://www.okx.com/zh-hans",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.okx.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1756969379882,
+                    "title": "Mezo：使用比特币进行日常金融",
+                    "url": "https://mezo.org/overview",
+                    "icon": "https://www.google.com/s2/favicons?domain=mezo.org"
+                  }
+                ]
               },
               {
                 "type": "link",
