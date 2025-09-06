@@ -4,11 +4,13 @@
 
 User-agent: *
 Allow: /
-Disallow: /assets/js/modules/
+
+# 禁止爬取目录
+Disallow: /assets/js/
 Disallow: /.git/
 Disallow: /docs/
 
-# 指向sitemap
+# Sitemap
 Sitemap: https://chuwuyo.github.io/ChuwuBookmarks/sitemap.xml
 
 # 爬取延迟（可选）
