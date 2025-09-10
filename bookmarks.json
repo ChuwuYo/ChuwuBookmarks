@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1757300750573,
+    "addDate": 1757470796136,
     "title": "书签栏",
     "children": [
       {
@@ -7355,13 +7355,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1717499188488,
-                        "title": "Le Chat - Mistral AI",
-                        "url": "https://chat.mistral.ai/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1754497147718,
                         "title": "01.ai | 万知 I 提问、搜索、想写什么通通问万知",
                         "url": "https://www.wanzhi.com/",
@@ -7487,6 +7480,13 @@
                     "title": "腾讯混元",
                     "url": "https://hunyuan.tencent.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=hunyuan.tencent.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1717499188488,
+                    "title": "Le Chat - Mistral AI",
+                    "url": "https://chat.mistral.ai/chat",
+                    "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
                   }
                 ]
               },
@@ -9169,27 +9169,6 @@
                 "title": "编辑器",
                 "children": [
                   {
-                    "type": "folder",
-                    "addDate": 1753203518023,
-                    "title": "在线开发",
-                    "children": [
-                      {
-                        "type": "link",
-                        "addDate": 1712829092350,
-                        "title": "Cloud Studio - 云端开发，化繁为简",
-                        "url": "https://cloudstudio.net/",
-                        "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1748962933041,
-                        "title": "StackBlitz | Instant Dev Environments | Click. Code. Done.",
-                        "url": "https://stackblitz.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=stackblitz.com"
-                      }
-                    ]
-                  },
-                  {
                     "type": "link",
                     "addDate": 1704012714000,
                     "title": "Visual Studio Tools - 免费安装 Windows、Mac、Linux",
@@ -9414,6 +9393,34 @@
                 "title": "Google for Developers - 从 AI 和云到移动和 Web",
                 "url": "https://developers.google.com/?hl=zh-cn",
                 "icon": "https://www.google.com/s2/favicons?domain=developers.google.com"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1753203518023,
+            "title": "在线开发",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1712829092350,
+                "title": "Cloud Studio - 云端开发，化繁为简",
+                "url": "https://cloudstudio.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1748962933041,
+                "title": "StackBlitz | Instant Dev Environments | Click. Code. Done.",
+                "url": "https://stackblitz.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=stackblitz.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1757379628134,
+                "title": "帆软在线数据分析平台",
+                "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
+                "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
               }
             ]
           },
@@ -10198,6 +10205,34 @@
                 "title": "lvluoyue/api-doc: 落月API文档",
                 "url": "https://github.com/lvluoyue/api-doc",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1757385860380,
+            "title": "网络安全",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1757385864797,
+                "title": "Shodan Search Engine",
+                "url": "https://www.shodan.io/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.shodan.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1757385914087,
+                "title": "国家信息安全漏洞库",
+                "url": "https://www.cnnvd.org.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cnnvd.org.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1757385956531,
+                "title": "国家信息安全漏洞共享平台",
+                "url": "https://www.cnvd.org.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cnvd.org.cn"
               }
             ]
           },
