@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1757470796136,
+    "addDate": 1757909081326,
     "title": "书签栏",
     "children": [
       {
@@ -2869,6 +2869,13 @@
                 "title": "xcdoge/NCMDownloader: 利用Pyncm及落月api实现歌单歌曲批量下载",
                 "url": "https://github.com/xcdoge/NCMDownloader",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1757829046279,
+                "title": "Empty-57/ZeroBit-Player: 基于 flutter(dart) + dart + bass 开发的本地音乐播放器",
+                "url": "https://github.com/Empty-57/ZeroBit-Player",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -4289,15 +4296,8 @@
           {
             "type": "folder",
             "addDate": 1704014875982,
-            "title": "windows",
+            "title": "分官方分发",
             "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "FOSSHUB应用市场",
-                "url": "https://www.fosshub.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.fosshub.com"
-              },
               {
                 "type": "link",
                 "addDate": 1704012714000,
@@ -4416,6 +4416,62 @@
                 "title": "首页_懒得勤快的博客_互联网分享精神",
                 "url": "https://ldqk.gitbook.io/masuit/",
                 "icon": "https://www.google.com/s2/favicons?domain=ldqk.gitbook.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "软仓丨RuanCang.Net",
+                "url": "https://www.ruancang.net/#/sim",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ruancang.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "MJJ工作室",
+                "url": "https://www.naiz.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.naiz.cc"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "入梦资源社区",
+                "url": "https://rmsys.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=rmsys.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "设计毒资源站",
+                "url": "https://shejidu.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=shejidu.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Nite07的小窝 - 优质软件资源站",
+                "url": "https://www.nite07.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.nite07.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1730885168649,
+                "title": "OSSSR.COM",
+                "url": "https://www.osssr.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.osssr.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1744900428467,
+                "title": "剑二十七 - 精品软件下载",
+                "url": "https://www.jian27.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.jian27.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1752249567316,
+                "title": "玄夜の资源小站 - 这是玄夜的资源小站",
+                "url": "https://www.sakuraxy.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.sakuraxy.top"
               }
             ]
           },
@@ -4429,23 +4485,9 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "软仓丨RuanCang.Net",
-            "url": "https://www.ruancang.net/#/sim",
-            "icon": "https://www.google.com/s2/favicons?domain=www.ruancang.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "MJJ工作室",
-            "url": "https://www.naiz.cc/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.naiz.cc"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "入梦资源社区",
-            "url": "https://rmsys.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=rmsys.top"
+            "title": "FOSSHUB应用市场",
+            "url": "https://www.fosshub.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.fosshub.com"
           },
           {
             "type": "link",
@@ -4457,37 +4499,9 @@
           {
             "type": "link",
             "addDate": 1704012714000,
-            "title": "设计毒资源站",
-            "url": "https://shejidu.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=shejidu.top"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
             "title": "Compare, Download & Develop Open Source & Business Software - SourceForge",
             "url": "https://sourceforge.net/",
             "icon": "https://www.google.com/s2/favicons?domain=sourceforge.net"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "Nite07的小窝 - 优质软件资源站",
-            "url": "https://www.nite07.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.nite07.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1704012714000,
-            "title": "极核GetShell - 打破网安资源分享边界",
-            "url": "https://get-shell.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=get-shell.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1730885168649,
-            "title": "OSSSR.COM",
-            "url": "https://www.osssr.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.osssr.com"
           },
           {
             "type": "link",
@@ -4502,20 +4516,6 @@
             "title": "WebCatalog",
             "url": "https://webcatalog.io/zh-CN/apps",
             "icon": "https://www.google.com/s2/favicons?domain=webcatalog.io"
-          },
-          {
-            "type": "link",
-            "addDate": 1744900428467,
-            "title": "剑二十七 - 精品软件下载",
-            "url": "https://www.jian27.com/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.jian27.com"
-          },
-          {
-            "type": "link",
-            "addDate": 1752249567316,
-            "title": "玄夜の资源小站 - 这是玄夜的资源小站",
-            "url": "https://www.sakuraxy.top/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.sakuraxy.top"
           }
         ]
       },
@@ -7243,13 +7243,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1746806280051,
-                        "title": "Pi, your personal AI",
-                        "url": "https://pi.ai/discover",
-                        "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1754496816089,
                         "title": "flowith 2.0 - Your AI Creation Workspace, with Knowledge",
                         "url": "https://flowith.io/blank",
@@ -7394,6 +7387,20 @@
                         "title": "Nous Portal",
                         "url": "https://portal.nousresearch.com/models",
                         "icon": "https://www.google.com/s2/favicons?domain=portal.nousresearch.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1746806280051,
+                        "title": "Pi, your personal AI",
+                        "url": "https://pi.ai/discover",
+                        "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1757510106666,
+                        "title": "K2 Think - MBZUAI",
+                        "url": "https://www.k2think.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.k2think.ai"
                       }
                     ]
                   },
@@ -8369,13 +8376,6 @@
           },
           {
             "type": "link",
-            "addDate": 1713177803749,
-            "title": "探索区块链学习路径 | MetaMask Learn课程概述",
-            "url": "https://learn.metamask.io/zh-CN/overview",
-            "icon": "https://www.google.com/s2/favicons?domain=learn.metamask.io"
-          },
-          {
-            "type": "link",
             "addDate": 1719753047715,
             "title": "Coursera | Degrees, Certificates, & Free Online Courses",
             "url": "https://www.coursera.org/",
@@ -8983,13 +8983,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1713250945761,
-                "title": "信息安全 · d4m1ts 知识库",
-                "url": "https://blog.gm7.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=blog.gm7.org"
-              },
-              {
-                "type": "link",
                 "addDate": 1737270501992,
                 "title": "计算机视觉实战演练：算法与应用🌱",
                 "url": "https://charmve.github.io/computer-vision-in-action/#/",
@@ -9328,6 +9321,13 @@
                     "title": "Anaconda | The World’s Most Popular Data Science Platform",
                     "url": "https://www.anaconda.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.anaconda.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1757472408075,
+                    "title": "MoonBit",
+                    "url": "https://www.moonbitlang.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.moonbitlang.com"
                   }
                 ]
               },
@@ -9338,10 +9338,24 @@
                 "children": [
                   {
                     "type": "link",
+                    "addDate": 1757379628134,
+                    "title": "帆软在线数据分析平台",
+                    "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
+                    "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1748488923181,
                     "title": "网站数据统计Umami",
                     "url": "https://umami.is/",
                     "icon": "https://www.google.com/s2/favicons?domain=umami.is"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1757645900785,
+                    "title": "不蒜子 - 极简网页计数器",
+                    "url": "https://busuanzi.ibruce.info/",
+                    "icon": "https://www.google.com/s2/favicons?domain=busuanzi.ibruce.info"
                   },
                   {
                     "type": "link",
@@ -9414,13 +9428,6 @@
                 "title": "StackBlitz | Instant Dev Environments | Click. Code. Done.",
                 "url": "https://stackblitz.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=stackblitz.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1757379628134,
-                "title": "帆软在线数据分析平台",
-                "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
-                "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
               }
             ]
           },
@@ -10211,8 +10218,22 @@
           {
             "type": "folder",
             "addDate": 1757385860380,
-            "title": "网络安全",
+            "title": "信息安全",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1713250945761,
+                "title": "信息安全 · d4m1ts 知识库",
+                "url": "https://blog.gm7.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=blog.gm7.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "极核GetShell - 打破网安资源分享边界",
+                "url": "https://get-shell.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=get-shell.com"
+              },
               {
                 "type": "link",
                 "addDate": 1757385864797,
@@ -10814,6 +10835,13 @@
                 "title": "锦木祈杰のblog - 因你而在的故事",
                 "url": "https://qijieya.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=qijieya.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1757646147435,
+                "title": "小林的小窝",
+                "url": "https://www.xiaorin.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.xiaorin.com"
               }
             ]
           },
@@ -11073,6 +11101,13 @@
                     "icon": "https://www.google.com/s2/favicons?domain=mezo.org"
                   }
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1757902580370,
+                "title": "microsoft/qlib: AI量化框架",
+                "url": "https://github.com/microsoft/qlib",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               },
               {
                 "type": "link",
@@ -11473,6 +11508,13 @@
             "addDate": 1720523474122,
             "title": "日报杂志新闻热搜快讯",
             "children": [
+              {
+                "type": "link",
+                "addDate": 1757678693584,
+                "title": "www.ftchinese.org",
+                "url": "http://www.ftchinese.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ftchinese.org"
+              },
               {
                 "type": "link",
                 "addDate": 1704012714000,
