@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="assets\icon\bocchi.png" alt="Bocchi" width="150" height="150">
+    <img src="assets\icon\bocchi.png" alt="CWBocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
     <a href="README.md">简体中文</a> | <a href="docs/README/README_EN.md">English</a>
 </div>
@@ -143,7 +143,6 @@
 * **无障碍支持**：键盘导航、焦点管理、语义化标签
 
 ---
-
 
 ## 感谢所有贡献者作出的努力
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">

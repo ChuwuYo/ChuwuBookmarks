@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="Bocchi" width="150" height="150">
+    <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="CWBocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
     <a href="../../README.md">简体中文</a> | <a href="README_EN.md">English</a>
 </div>
@@ -142,12 +142,12 @@ For users outside mainland China, you can experience the website through the fol
 
 ---
 
-
-
 ## Thanks to all contributors for their efforts
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
   <img src="https://contrib.rocks/image?repo=ChuwuYo/ChuwuBookmarks" />
 </a>
+
+### Whoever can become a "Creator"
 
 ***
 
