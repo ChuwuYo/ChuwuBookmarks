@@ -27,6 +27,10 @@
     backface-visibility: hidden;
 }
 
+/* 添加初始状态，防止按钮位置跳动 */
+.sidebar:not(.js-initialized) #toggle-sidebar {
+    transform: translateZ(0);
+}
 
 #toggle-sidebar img {
     width: 24px;
@@ -98,7 +102,6 @@
 
 /* 移动端焦点状态处理 */
 @media (hover: none) and (pointer: coarse) {
-
     #toggle-sidebar:focus,
     #toggle-sidebar:active {
         background: var(--button-hover);
