@@ -28,8 +28,10 @@
 }
 
 /* 添加初始状态，防止按钮位置跳动 */
-.sidebar:not(.js-initialized) #toggle-sidebar {
+.sidebar:not(.js-initialized) #toggle-sidebar,
+.sidebar:not(.js-initialized).collapsed #toggle-sidebar {
     transform: translateZ(0);
+    border-radius: 0 15px 15px 0;
 }
 
 #toggle-sidebar img {
@@ -86,7 +88,8 @@
 /* 小于1024px时，侧栏收起状态下按钮保持在左边 */
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
-    .sidebar.collapsed #toggle-sidebar {
+    .sidebar.collapsed #toggle-sidebar,
+    .sidebar:not(.js-initialized) #toggle-sidebar {
         transform: translateZ(0);
         border-radius: 0 15px 15px 0;
     }
