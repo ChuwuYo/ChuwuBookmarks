@@ -1,13 +1,12 @@
 /**
  * 数据加载模块
  */
- 
 import { renderSidebar } from '../render/sidebar.js';
 import { renderHome } from '../render/home.js';
 import { clearWorkerCaches } from '../search/index.js';
 import { getDeviceType } from '../render/device.js';
 import { getCenteringManager } from '../utils/centering.js';
- 
+
 // 显示加载指示器
 const showLoadingIndicator = () => {
     // 移除旧的主页消息（如果存在）
@@ -23,11 +22,11 @@ const showLoadingIndicator = () => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
     if (!content || !breadcrumbs) return;
- 
+
     // 清空内容和面包屑
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
- 
+
     // 创建加载消息元素，使用与主页消息相同的类名和结构
     const loadingMessage = document.createElement('div');
     loadingMessage.className = 'home-message'; // 使用与主页相同的类名
@@ -58,7 +57,7 @@ const showLoadingIndicator = () => {
         content.appendChild(loadingMessage);
     }
 };
- 
+
 // 显示错误信息
 const showErrorMessage = (error) => {
     // 移除旧的主页消息（如果存在）
@@ -70,11 +69,11 @@ const showErrorMessage = (error) => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
     if (!content || !breadcrumbs) return;
- 
+
     // 清空内容和面包屑
     content.innerHTML = '';
     breadcrumbs.innerHTML = '';
- 
+
     // 创建错误消息元素
     const errorMessage = document.createElement('div');
     errorMessage.className = 'centered-message error-message centered-element vertical-center';
@@ -116,9 +115,9 @@ const showErrorMessage = (error) => {
         }
     }, 10);
 };
- 
+
 // 加载书签数据 - 使用Web Worker优化
- 
+
 const loadBookmarksData = async (renderMainContent) => {
     // 尝试从localStorage获取缓存数据进行即时渲染
     try {
@@ -127,17 +126,17 @@ const loadBookmarksData = async (renderMainContent) => {
             const cachedData = JSON.parse(cachedDataString);
             renderSidebar(cachedData, renderMainContent);
             renderHome();
- 
+
         }
     } catch (e) {
         console.error("Failed to parse cached data:", e);
         localStorage.removeItem('bookmarksData'); // 清除损坏的缓存
     }
- 
+
     // 初始化Worker
     const dataWorker = new Worker('./assets/js/data-worker.js');
     dataWorker.postMessage({ action: 'loadData' });
- 
+
     dataWorker.onmessage = (event) => {
         const { status, data, index, error } = event.data;
  
@@ -150,9 +149,8 @@ const loadBookmarksData = async (renderMainContent) => {
             const cachedHash = localStorage.getItem('bookmarksHash');
  
             // 仅当新数据、索引或数据哈希与缓存不同时才更新视图和缓存。
-            if (newDataString !== cachedDataString ||
-                (newIndexString && newIndexString !== cachedIndexString) ||
-                (newHash && newHash !== cachedHash)) {
+            if ((newHash && newHash !== cachedHash) ||
+                (newIndexString && newIndexString !== cachedIndexString)) {
  
                 localStorage.setItem('bookmarksData', newDataString);
                 if (newIndexString) {
@@ -185,10 +183,10 @@ const loadBookmarksData = async (renderMainContent) => {
                 renderHome();
             }
         }
- 
+
         dataWorker.terminate(); // 清理Worker
     };
- 
+
     dataWorker.onerror = (error) => {
         console.error('Data Worker encountered an error:', error);
         if (!localStorage.getItem('bookmarksData')) {
@@ -201,5 +199,5 @@ const loadBookmarksData = async (renderMainContent) => {
         dataWorker.terminate();
     };
 };
- 
+
 export { showLoadingIndicator, showErrorMessage, loadBookmarksData };
