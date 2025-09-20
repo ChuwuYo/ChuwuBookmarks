@@ -23,7 +23,8 @@ import { renderSearchResults, resetSearchPagination } from '../render/search.js'
 import { debounce } from '../utils/index.js';
 import { initializeResponsiveSystem } from '../pagination/responsive.js';
 import { getCenteringManager } from '../utils/centering.js';
- 
+import { getDeviceType } from '../render/device.js';
+
 // 初始化Web Worker
 let searchWorker;
 let dataWorker;
@@ -167,7 +168,13 @@ const createSearchHandler = () => {
             errorMessage.className = 'centered-message error-message centered-element vertical-center';
             errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
             content.innerHTML = '';
-            content.appendChild(errorMessage);
+
+            const deviceType = getDeviceType();
+            if (deviceType === 'mobile') {
+                document.body.appendChild(errorMessage);
+            } else {
+                content.appendChild(errorMessage);
+            }
             
             // 注册到统一居中系统
             const centeringManager = getCenteringManager();

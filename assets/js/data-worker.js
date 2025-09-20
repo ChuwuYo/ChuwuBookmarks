@@ -43,7 +43,7 @@ function buildPreprocessedIndex(tree) {
 
         if (isFolder) {
             for (let i = 0; i < node.children.length; i++) {
-                walk(node.children[i], nodeId, path.concat(title || []));
+                walk(node.children[i], nodeId, path.concat(title ? [title] : []));
             }
         }
     }
