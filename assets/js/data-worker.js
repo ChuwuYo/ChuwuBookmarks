@@ -66,9 +66,21 @@ self.onmessage = async (event) => {
                 console.error('Failed to build bookmarks index in data-worker:', idxErr);
             }
 
-            // 返回原始树结构（保持向后兼容），同时附带预处理索引
+            // 生成书签数据哈希，用于在主线程及搜索Worker中更可靠地判断数据是否变化
+            const dataString = JSON.stringify(bookmarks);
+            function fnv1aHash(str) {
+                let h = 2166136261 >>> 0;
+                for (let i = 0; i < str.length; i++) {
+                    h ^= str.charCodeAt(i);
+                    h = Math.imul(h, 16777619) >>> 0;
+                }
+                return ('00000000' + (h >>> 0).toString(16)).slice(-8);
+            }
+            const hash = fnv1aHash(dataString);
+
+            // 返回原始树结构（保持向后兼容），同时附带预处理索引与数据哈希
             // 主线程可选择将 index 存入 localStorage('bookmarksIndex') 以便搜索使用
-            self.postMessage({ status: 'success', data: bookmarks, index: index });
+            self.postMessage({ status: 'success', data: bookmarks, index: index, hash: hash });
         } catch (error) {
             self.postMessage({
                 status: 'error',

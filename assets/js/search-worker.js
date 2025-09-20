@@ -55,11 +55,11 @@ function stableStringify(obj) {
     return '{' + keys.map(k => JSON.stringify(k) + ':' + stableStringify(obj[k])).join(',') + '}';
 }
 
-const generateCacheKey = (keyword, options = {}, indexLength = 0) => {
+const generateCacheKey = (keyword, options = {}, indexKey = '') => {
     const matchCase = !!options.matchCase;
     const keyWordPart = matchCase ? String(keyword) : String(keyword).toLowerCase();
-    // include indexLength to differentiate cache when index content changes
-    return stableStringify({ keyword: keyWordPart, options, indexLength });
+    // include indexKey (可以是 index.length 或 data hash) 以便在数据变更时使缓存失效
+    return stableStringify({ keyword: keyWordPart, options, indexKey });
 };
 
 // 监听来自主线程的消息
@@ -96,12 +96,12 @@ self.addEventListener('message', function(e) {
                 return;
             }
 
-            // 计算 index 长度用于区分缓存（当 index 内容变动时使缓存失效）
-            const indexLength = index ? index.length : bookmarks.length;
-
+            // 优先使用传入的 indexHash 作为缓存区分键；若不存在则回退到 index 长度（兼容旧逻辑）
+            const indexKey = data.indexHash || (index ? index.length : bookmarks.length);
+ 
             // 检查缓存（缓存内已存入深拷贝，直接使用；postMessage 会进行结构化克隆，主线程收到的是独立副本）
             if (useCache) {
-                const cacheKey = generateCacheKey(keyword, options, indexLength);
+                const cacheKey = generateCacheKey(keyword, options, indexKey);
                 if (searchCache.has(cacheKey)) {
                     const cachedResult = searchCache.get(cacheKey);
                     self.postMessage({
@@ -119,7 +119,7 @@ self.addEventListener('message', function(e) {
 
             // 缓存结果 (仅在启用缓存时)，存入深拷贝以避免引用外部可变对象
             if (useCache) {
-                const cacheKey = generateCacheKey(keyword, options, indexLength);
+                const cacheKey = generateCacheKey(keyword, options, indexKey);
                 searchCache.set(cacheKey, JSON.parse(JSON.stringify(results)));
             }
 
