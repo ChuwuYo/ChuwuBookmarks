@@ -146,9 +146,13 @@ const loadBookmarksData = async (renderMainContent) => {
             const cachedDataString = localStorage.getItem('bookmarksData');
             const newIndexString = index ? JSON.stringify(index) : null;
             const cachedIndexString = localStorage.getItem('bookmarksIndex');
+            const newHash = event.data.hash || null;
+            const cachedHash = localStorage.getItem('bookmarksHash');
  
-            // 仅当新数据或索引与缓存不同时才更新视图和缓存。
-            if (newDataString !== cachedDataString || (newIndexString && newIndexString !== cachedIndexString)) {
+            // 仅当新数据、索引或数据哈希与缓存不同时才更新视图和缓存。
+            if (newDataString !== cachedDataString ||
+                (newIndexString && newIndexString !== cachedIndexString) ||
+                (newHash && newHash !== cachedHash)) {
  
                 localStorage.setItem('bookmarksData', newDataString);
                 if (newIndexString) {
@@ -159,11 +163,16 @@ const loadBookmarksData = async (renderMainContent) => {
                         console.warn('Failed to cache bookmarksIndex:', e);
                     }
                 }
+                if (newHash) {
+                    try {
+                        localStorage.setItem('bookmarksHash', newHash);
+                    } catch (e) {
+                        console.warn('Failed to cache bookmarksHash:', e);
+                    }
+                }
                 clearWorkerCaches(); // 假设这会清除其他相关缓存
                 renderSidebar(data, renderMainContent);
                 renderHome();
-            } else {
- 
             }
         } else if (status === 'error') {
             console.error('Worker failed to load data:', error);

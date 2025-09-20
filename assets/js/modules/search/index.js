@@ -88,6 +88,36 @@ const initSearchWorker = (renderMainContent) => {
     }
 };
  
+const getCachedSearchPayload = () => {
+    const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
+    let index = null;
+    try {
+        index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
+    } catch (e) {
+        index = null;
+    }
+    const indexHash = localStorage.getItem('bookmarksHash') || null;
+    return { bookmarks: data, index, indexHash };
+};
+
+const postSearchToWorker = (keyword, useCache = true) => {
+    const payload = getCachedSearchPayload();
+    if (searchWorker) {
+        searchWorker.postMessage({
+            action: 'search',
+            data: {
+                keyword,
+                bookmarks: payload.bookmarks,
+                index: payload.index,
+                indexHash: payload.indexHash,
+                useCache
+            }
+        });
+        return true;
+    }
+    return false;
+};
+
 const createSearchHandler = () => {
     return debounce((event) => {
         const keyword = event.target.value.trim();
@@ -122,24 +152,9 @@ const createSearchHandler = () => {
         content.innerHTML = '';
         content.appendChild(loadingIndicator);
  
-        const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-        let index = null;
-        try {
-            index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
-        } catch (e) {
-            index = null;
-        }
- 
-        if (searchWorker) {
-            searchWorker.postMessage({
-                action: 'search',
-                data: {
-                    keyword: keyword,
-                    bookmarks: data,
-                    index: index,
-                    useCache: true
-                }
-            });
+        // 从缓存读取数据并发送给搜索Worker（如果存在）
+        if (postSearchToWorker(keyword)) {
+            // 已发送到worker
         } else {
             // 如果不支持Web Worker，显示错误信息
             const content = document.getElementById('content');
@@ -194,25 +209,7 @@ const restoreSearchStateFromURL = () => {
  * @param {string} keyword - 搜索关键词
  */
 const triggerSearch = (keyword) => {
-    const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-    let index = null;
-    try {
-        index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
-    } catch (e) {
-        index = null;
-    }
- 
-    if (searchWorker) {
-        searchWorker.postMessage({
-            action: 'search',
-            data: {
-                keyword: keyword,
-                bookmarks: data,
-                index: index,
-                useCache: true
-            }
-        });
-    }
+    postSearchToWorker(keyword);
 };
  
 export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL, triggerSearch };
