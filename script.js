@@ -12,6 +12,11 @@ const renderMainContent = (folder, fromSidebar = false) => {
     return _renderMainContent(folder, fromSidebar, renderHome);
 };
 
+// 立即开始加载书签数据并显示加载指示器，确保一旦读取到书签数据就能立即渲染主页
+showLoadingIndicator();
+loadBookmarksData(renderMainContent).catch((error) => {
+    console.error('加载书签数据失败:', error);
+});
 /** 初始化和事件监听 */
 document.addEventListener('DOMContentLoaded', async () => {
     // 初始化主题和设备视图
@@ -36,19 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 创建搜索处理函数
     const debounceSearch = createSearchHandler();
-
-    // 显示加载指示器
-    showLoadingIndicator();
-
-    try {
-        // 使用requestAnimationFrame优化初始化流程
-        requestAnimationFrame(async () => {
-            await loadBookmarksData(renderMainContent);
-        });
-    } catch (error) {
-        console.error('初始化错误:', error);
-        setTimeout(() => showErrorMessage(error), 10);
-    }
+    
+    // 加载已在脚本入口立即开始，避免等待 DOMContentLoaded 完成
+    // loadBookmarksData 在脚本最开始处已被调用并处理错误
 
     // 初始化所有事件监听器
     initEventListeners(debounceSearch);
