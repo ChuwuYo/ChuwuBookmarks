@@ -36,9 +36,7 @@ function buildPreprocessedIndex(tree) {
             childrenCount: isFolder ? node.children.length : 0,
             path: path.join(' / '), // 可用于展示或进一步过滤
             __lcTitle: title.toLowerCase(),
-            __lcUrl: url.toLowerCase(),
-            // 预构建用于全文匹配的合并字段（可在 search-worker 中直接使用）
-            __searchable: (title + ' ' + url).toLowerCase()
+            __lcUrl: url.toLowerCase()
         });
 
         if (isFolder) {
