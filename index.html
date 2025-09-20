@@ -28,10 +28,21 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- 预加载关键资源 -->
+    <!-- 预连接外部 font 服务以加速字体请求 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="preload" href="assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- 预加载关键样式 -->
     <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="assets/css/layout.css" as="style">
+    <link rel="preload" href="assets/css/components.css" as="style">
+
+    <!-- 预加载关键脚本 -->
     <link rel="preload" href="assets/js/vendor.js" as="script">
+    <link rel="preload" href="assets/js/init.js" as="script">
     
     <!-- 样式表 -->
     <link rel="stylesheet" href="styles.css">
@@ -61,7 +72,7 @@
       "isAccessibleForFree": true,
       "featureList": [
         "多级文件夹分类",
-        "智能搜索功能", 
+        "智能搜索功能",
         "面包屑导航",
         "响应式设计",
         "主题切换"

@@ -3,17 +3,62 @@
  * 用于在后台线程处理搜索操作，避免阻塞主UI线程
  */
 
-// 搜索结果缓存系统
-const searchCache = new Map();
+// LRU缓存类
+class LRUCache {
+    constructor(maxSize) {
+        this.maxSize = maxSize;
+        this.cache = new Map();
+    }
 
-// 缓存键生成函数 - 确保选项顺序一致性
+    get(key) {
+        const value = this.cache.get(key);
+        if (value !== undefined) {
+            // 将最近访问的项移到末尾（最近使用）
+            this.cache.delete(key);
+            this.cache.set(key, value);
+        }
+        return value;
+    }
+
+    set(key, value) {
+        // 如果键已存在，先删除它
+        if (this.cache.has(key)) {
+            this.cache.delete(key);
+        } else if (this.cache.size >= this.maxSize) {
+            // 如果缓存已满，删除最久未使用的项（第一个项）
+            const firstKey = this.cache.keys().next().value;
+            this.cache.delete(firstKey);
+        }
+        
+        // 将新项添加到末尾（最近使用）
+        this.cache.set(key, value);
+    }
+
+    clear() {
+        this.cache.clear();
+    }
+
+    has(key) {
+        // 独立检查键是否存在，不改变LRU顺序
+        return this.cache.has(key);
+    }
+}
+
+// 搜索结果缓存系统 - 使用LRU缓存，最大容量100项
+const searchCache = new LRUCache(100);
+
+// 缓存键生成函数 - 确保选项顺序一致性且尊重 matchCase
+function stableStringify(obj) {
+    if (obj === null || typeof obj !== 'object') return JSON.stringify(obj);
+    if (Array.isArray(obj)) return '[' + obj.map(stableStringify).join(',') + ']';
+    const keys = Object.keys(obj).sort();
+    return '{' + keys.map(k => JSON.stringify(k) + ':' + stableStringify(obj[k])).join(',') + '}';
+}
+
 const generateCacheKey = (keyword, options = {}) => {
-    // 对options的键进行排序，确保不同顺序的相同选项生成相同的key
-    const sortedOptions = {};
-    Object.keys(options).sort().forEach(key => {
-        sortedOptions[key] = options[key];
-    });
-    return JSON.stringify({ keyword: keyword.toLowerCase(), options: sortedOptions });
+    const matchCase = !!options.matchCase;
+    const keyWordPart = matchCase ? String(keyword) : String(keyword).toLowerCase();
+    return stableStringify({ keyword: keyWordPart, options });
 };
 
 // 监听来自主线程的消息
@@ -39,14 +84,24 @@ self.addEventListener('message', function(e) {
             const bookmarks = data.bookmarks || []; // 确保bookmarks存在
             const options = data.options || {}; // 确保options存在
 
-            // 检查缓存
+            // 如果关键词为空，直接返回空结果，不使用缓存
+            if (!keyword) {
+                self.postMessage({
+                    action: 'searchResults',
+                    results: [],
+                    fromCache: false
+                });
+                return;
+            }
+
+            // 检查缓存（缓存内已存入深拷贝，直接使用；postMessage 会进行结构化克隆，主线程收到的是独立副本）
             if (useCache) {
                 const cacheKey = generateCacheKey(keyword, options);
                 if (searchCache.has(cacheKey)) {
-                    // 返回缓存结果
+                    const cachedResult = searchCache.get(cacheKey);
                     self.postMessage({
                         action: 'searchResults',
-                        results: searchCache.get(cacheKey),
+                        results: cachedResult,
                         fromCache: true
                     });
                     return;
@@ -56,10 +111,10 @@ self.addEventListener('message', function(e) {
             // 执行搜索
             const results = searchBookmarks(keyword, bookmarks, options);
 
-            // 缓存结果 (仅在启用缓存时)
+            // 缓存结果 (仅在启用缓存时)，存入深拷贝以避免引用外部可变对象
             if (useCache) {
                 const cacheKey = generateCacheKey(keyword, options);
-                searchCache.set(cacheKey, results);
+                searchCache.set(cacheKey, JSON.parse(JSON.stringify(results)));
             }
 
             // 将搜索结果发送回主线程
@@ -104,9 +159,6 @@ function searchBookmarks(keyword, data, options = {}) {
         return results;
     }
 
-    // 统一在函数入口处理大小写，避免在循环中重复转换
-    const lowerKeyword = options.matchCase ? keyword : keyword.toLowerCase();
-
     // 设置默认选项，并进行解构赋值以提高可读性
     const {
         limit = 0,
@@ -114,6 +166,9 @@ function searchBookmarks(keyword, data, options = {}) {
         matchCase = false, // 默认不区分大小写
         searchFields = 'title,url' // 默认搜索标题和URL
     } = options;
+    
+    // 统一在函数入口处理大小写，避免在循环中重复转换
+    const lowerKeyword = matchCase ? keyword : keyword.toLowerCase();
 
     const searchInTitle = searchFields.includes('title') || searchFields.includes('all');
     const searchInUrl = searchFields.includes('url') || searchFields.includes('all');
