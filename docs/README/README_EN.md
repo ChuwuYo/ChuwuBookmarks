@@ -74,61 +74,63 @@ For users outside mainland China, you can experience the website through the fol
 
 1. **Sidebar Navigation**:
 
-   * Displays first-level folders.
+   * Displays first-level folders
 
-   * Clicking a first-level folder displays subfolders and bookmarks in the main content area.
+   * Clicking a first-level folder displays subfolders and bookmarks in the main content area
 
-   * Supports expanding and collapsing nested multi-level folders.
+   * Supports expanding and collapsing nested multi-level folders
 
 2. **Main Content Area**:
 
-   * Displays subfolders and bookmarks of the current folder.
+   * Displays subfolders and bookmarks of the current folder
 
-   * Bookmarks are displayed as cards, supporting click-to-navigate.
+   * Bookmarks are displayed as cards, supporting click-to-navigate
 
-   * Folders are displayed as icons, supporting click-to-enter subfolders.
+   * Folders are displayed as icons, supporting click-to-enter subfolders
 
 3. **Breadcrumb Navigation**:
 
-   * Displays the current path (level of clicked folders).
+   * Displays the current path (level of clicked folders)
 
-   * Supports returning to the previous level via breadcrumb navigation.
+   * Supports returning to the previous level via breadcrumb navigation
 
 4. **Search Functionality**:
 
-   * Supports searching bookmarks by title.
+   * Supports searching bookmarks by title
 
-   * Search results replace the content in the main content area.
+   * Search results replace the content in the main content area
 
-   * Supports real-time rendering.
+   * Supports real-time rendering
 
-   * Pagination of search results. 
+   * Pagination of search results
+   
+   * Folder-type results display the full path
 
 5. **Theme Switching**:
 
-   * Supports switching between dark and light modes.
+   * Supports switching between dark and light modes
 
-   * PC supports hover effects, mobile optimized for touch interaction.
+   * PC supports hover effects, mobile optimized for touch interaction
 
 6. **Responsive Design**:
 
-   * Supports responsive layout for mobile(<480px) and PC devices.
+   * Supports responsive layout for mobile(<480px) and PC devices
 
-   * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above.
+   * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
    
-   * Unified breakpoint system ensures optimal experience across different devices.
+   * Unified breakpoint system ensures optimal experience across different devices
 
-   * Some style optimizations have been made on the mobile end for better usability.
+   * Some style optimizations have been made on the mobile end for better usability
 
 7. **GSAP Animation Support**:
 
-   * Homepage messages include GSAP animations.
+   * Homepage messages include GSAP animations
 
 8. **Keyboard Focus Support**:
 
-   * Supports focusing on webpage content using the `Tab` key.
+   * Supports focusing on webpage content using the `Tab` key
 
-   * Supports focusing on the search box using the `Ctrl + K` shortcut.
+   * Supports focusing on the search box using the `Ctrl + K` shortcut
 
 * * *
 
