@@ -180,26 +180,38 @@ function searchBookmarks(keyword, data, options = {}) {
     const searchInUrl = searchFields.includes('url') || searchFields.includes('all');
  
     // 检测是否为扁平索引（预处理索引）
-    const isFlatIndex = Array.isArray(data) && data.length > 0 && (data[0].__searchable !== undefined || data[0].__lcTitle !== undefined);
+    const isFlatIndex = Array.isArray(data) && data.length > 0 && (data[0].__lcTitle !== undefined);
+    
+    // 提取公共的匹配逻辑到独立函数中
+    const itemMatches = (item) => {
+        let isMatch = false;
+        const lcTitle = isFlatIndex ? (item.__lcTitle || item.title.toLowerCase()) : item.title?.toLowerCase();
+        const lcUrl = isFlatIndex ? (item.__lcUrl || item.url.toLowerCase()) : item.url?.toLowerCase();
+
+        if (searchInTitle && item.title) {
+            const title = matchCase ? item.title : lcTitle;
+            if (title.includes(lowerKeyword)) {
+                isMatch = true;
+            }
+        }
+
+        if (!isMatch && searchInUrl && item.url) {
+            const url = matchCase ? item.url : lcUrl;
+            if (url.includes(lowerKeyword)) {
+                isMatch = true;
+            }
+        }
+        return isMatch;
+    };
  
     if (isFlatIndex) {
         // 扁平索引搜索：直接迭代数组，利用预计算的小写字段提升性能
         for (let i = 0; i < data.length; i++) {
             if (limit > 0 && results.length >= limit) break;
             const item = data[i];
-            let isMatch = false;
- 
-            if (searchInTitle && item.title) {
-                const title = matchCase ? item.title : (item.__lcTitle || item.title.toLowerCase());
-                if (title.includes(lowerKeyword)) isMatch = true;
+            if (itemMatches(item)) {
+                results.push(item);
             }
- 
-            if (!isMatch && searchInUrl && item.url) {
-                const url = matchCase ? item.url : (item.__lcUrl || item.url.toLowerCase());
-                if (url.includes(lowerKeyword)) isMatch = true;
-            }
- 
-            if (isMatch) results.push(item);
         }
     } else {
         // 回退到原始的树形结构搜索（深度优先）
@@ -207,19 +219,10 @@ function searchBookmarks(keyword, data, options = {}) {
         while (stack.length > 0) {
             if (limit > 0 && results.length >= limit) break;
             const item = stack.pop();
-            let isMatch = false;
- 
-            if (searchInTitle && item.title) {
-                const title = matchCase ? item.title : item.title.toLowerCase();
-                if (title.includes(lowerKeyword)) isMatch = true;
+            
+            if (itemMatches(item)) {
+                results.push(item);
             }
- 
-            if (!isMatch && searchInUrl && item.url) {
-                const url = matchCase ? item.url : item.url.toLowerCase();
-                if (url.includes(lowerKeyword)) isMatch = true;
-            }
- 
-            if (isMatch) results.push(item);
  
             if (item.children?.length > 0) {
                 for (let i = item.children.length - 1; i >= 0; i--) {
