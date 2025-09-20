@@ -2,6 +2,15 @@
 const ACTIONS = {
     LOAD_DATA: 'loadData',
 };
+// fnv1aHash - FNV-1a 32-bit hash
+function fnv1aHash(str) {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619) >>> 0;
+    }
+    return ('00000000' + (h >>> 0).toString(16)).slice(-8);
+}
 
 /**
  * 将书签树扁平化并构建预处理索引以加速搜索
@@ -15,7 +24,7 @@ function buildPreprocessedIndex(tree) {
         const nodeId = idCounter++;
         const isFolder = Array.isArray(node.children);
 
-        const title = node.title || '';
+        const title = (node.title || '').trim();
         const url = node.url || '';
 
         flat.push({
@@ -34,7 +43,7 @@ function buildPreprocessedIndex(tree) {
 
         if (isFolder) {
             for (let i = 0; i < node.children.length; i++) {
-                walk(node.children[i], nodeId, path.concat(title));
+                walk(node.children[i], nodeId, path.concat(title || []));
             }
         }
     }
@@ -68,18 +77,9 @@ self.onmessage = async (event) => {
 
             // 生成书签数据哈希，用于在主线程及搜索Worker中更可靠地判断数据是否变化
             const dataString = JSON.stringify(bookmarks);
-            function fnv1aHash(str) {
-                let h = 2166136261 >>> 0;
-                for (let i = 0; i < str.length; i++) {
-                    h ^= str.charCodeAt(i);
-                    h = Math.imul(h, 16777619) >>> 0;
-                }
-                return ('00000000' + (h >>> 0).toString(16)).slice(-8);
-            }
             const hash = fnv1aHash(dataString);
 
             // 返回原始树结构（保持向后兼容），同时附带预处理索引与数据哈希
-            // 主线程可选择将 index 存入 localStorage('bookmarksIndex') 以便搜索使用
             self.postMessage({ status: 'success', data: bookmarks, index: index, hash: hash });
         } catch (error) {
             self.postMessage({
