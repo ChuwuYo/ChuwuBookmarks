@@ -430,6 +430,12 @@ const renderSearchResults = (results, renderMainContent) => {
         existingHomeMessage.remove();
     }
 
+    // 清除之前可能残留的 no-results 元素
+    const existingNoResults = document.querySelector('.no-results');
+    if (existingNoResults) {
+        existingNoResults.remove();
+    }
+
     // 清理现有的分页控制器和虚拟滚动
     searchResultsManager.reset();
 
@@ -440,7 +446,7 @@ const renderSearchResults = (results, renderMainContent) => {
         const noResults = document.createElement('div');
         noResults.className = 'centered-message no-results centered-element vertical-center';
         noResults.textContent = '未找到匹配的书签';
-        document.body.appendChild(noResults);
+        content.appendChild(noResults);
         
         // 注册到统一居中系统
         const centeringManager = getCenteringManager();
