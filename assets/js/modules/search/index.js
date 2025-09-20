@@ -89,7 +89,13 @@ const initSearchWorker = (renderMainContent) => {
 };
  
 const getCachedSearchPayload = () => {
-    const data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
+    let data = [];
+    try {
+        data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
+    } catch (e) {
+        console.error("Failed to parse cached bookmarksData:", e);
+        data = [];
+    }
     let index = null;
     try {
         index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
@@ -157,12 +163,11 @@ const createSearchHandler = () => {
             // 已发送到worker
         } else {
             // 如果不支持Web Worker，显示错误信息
-            const content = document.getElementById('content');
             const errorMessage = document.createElement('div');
             errorMessage.className = 'centered-message error-message centered-element vertical-center';
             errorMessage.textContent = '浏览器不支持Web Worker，无法进行搜索';
             content.innerHTML = '';
-            document.body.appendChild(errorMessage);
+            content.appendChild(errorMessage);
             
             // 注册到统一居中系统
             const centeringManager = getCenteringManager();
