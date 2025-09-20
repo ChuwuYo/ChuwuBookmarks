@@ -94,15 +94,14 @@ self.addEventListener('message', function(e) {
                 return;
             }
 
-            // 检查缓存（先判断存在性以避免误判 undefined）
+            // 检查缓存（缓存内已存入深拷贝，直接使用；postMessage 会进行结构化克隆，主线程收到的是独立副本）
             if (useCache) {
                 const cacheKey = generateCacheKey(keyword, options);
                 if (searchCache.has(cacheKey)) {
                     const cachedResult = searchCache.get(cacheKey);
-                    // 深拷贝缓存结果以避免外部对原始对象的修改影响缓存内容
                     self.postMessage({
                         action: 'searchResults',
-                        results: JSON.parse(JSON.stringify(cachedResult)),
+                        results: cachedResult,
                         fromCache: true
                     });
                     return;
