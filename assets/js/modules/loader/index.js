@@ -149,8 +149,7 @@ const loadBookmarksData = async (renderMainContent) => {
             const cachedHash = localStorage.getItem('bookmarksHash');
  
             // 仅当新数据、索引或数据哈希与缓存不同时才更新视图和缓存。
-            if ((newHash && newHash !== cachedHash) ||
-                (newIndexString && newIndexString !== cachedIndexString)) {
+            if (newHash !== cachedHash || newIndexString !== cachedIndexString) {
  
                 localStorage.setItem('bookmarksData', newDataString);
                 if (newIndexString) {
