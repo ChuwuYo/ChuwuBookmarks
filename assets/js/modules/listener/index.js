@@ -88,8 +88,6 @@ const setupSearchEvents = (debounceSearch) => {
         if (!centeringManager.isInitialized) {
             centeringManager.initialize();
         }
-
-        // 确保搜索容器已注册（配置在ELEMENT_CONFIGS中预定义）
     }
 };
 

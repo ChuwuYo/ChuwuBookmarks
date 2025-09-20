@@ -47,7 +47,7 @@ class LRUCache {
 // 搜索结果缓存系统 - 使用LRU缓存，最大容量100项
 const searchCache = new LRUCache(100);
 
-// 缓存键生成函数 - 确保选项顺序一致性且尊重 matchCase
+// 缓存键生成函数 - 确保选项顺序一致性
 function stableStringify(obj) {
     if (obj === null || typeof obj !== 'object') return JSON.stringify(obj);
     if (Array.isArray(obj)) return '[' + obj.map(stableStringify).join(',') + ']';
@@ -182,7 +182,7 @@ function searchBookmarks(keyword, data, options = {}) {
     // 检测是否为扁平索引（预处理索引）
     const isFlatIndex = Array.isArray(data) && data.length > 0 && (data[0].__lcTitle !== undefined);
     
-    // 提取公共的匹配逻辑到独立函数中
+    // 公共匹配逻辑
     const itemMatches = (item) => {
         let isMatch = false;
         const lcTitle = isFlatIndex ? (item.__lcTitle || item.title.toLowerCase()) : item.title?.toLowerCase();
