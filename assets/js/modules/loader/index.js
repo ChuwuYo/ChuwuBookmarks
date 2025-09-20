@@ -1,7 +1,6 @@
 /**
  * 数据加载模块
  */
-
 import { renderSidebar } from '../render/sidebar.js';
 import { renderHome } from '../render/home.js';
 import { clearWorkerCaches } from '../search/index.js';
@@ -139,21 +138,38 @@ const loadBookmarksData = async (renderMainContent) => {
     dataWorker.postMessage({ action: 'loadData' });
 
     dataWorker.onmessage = (event) => {
-        const { status, data, error } = event.data;
-
+        const { status, data, index, error } = event.data;
+ 
         if (status === 'success') {
             const newDataString = JSON.stringify(data);
             const cachedDataString = localStorage.getItem('bookmarksData');
-
-            // 仅当新数据与缓存数据不同时才更新视图和缓存。
-            if (newDataString !== cachedDataString) {
-
+            const newIndexString = index ? JSON.stringify(index) : null;
+            const cachedIndexString = localStorage.getItem('bookmarksIndex');
+            const newHash = event.data.hash || null;
+            const cachedHash = localStorage.getItem('bookmarksHash');
+ 
+            // 仅当新数据、索引或数据哈希与缓存不同时才更新视图和缓存
+            if (newHash !== cachedHash || newIndexString !== cachedIndexString) {
+ 
                 localStorage.setItem('bookmarksData', newDataString);
+                if (newIndexString) {
+                    try {
+                        localStorage.setItem('bookmarksIndex', newIndexString);
+                    } catch (e) {
+                        // 如果 localStorage 写入失败，不阻塞渲染
+                        console.warn('Failed to cache bookmarksIndex:', e);
+                    }
+                }
+                if (newHash) {
+                    try {
+                        localStorage.setItem('bookmarksHash', newHash);
+                    } catch (e) {
+                        console.warn('Failed to cache bookmarksHash:', e);
+                    }
+                }
                 clearWorkerCaches(); // 假设这会清除其他相关缓存
                 renderSidebar(data, renderMainContent);
                 renderHome();
-            } else {
-
             }
         } else if (status === 'error') {
             console.error('Worker failed to load data:', error);

@@ -47,7 +47,7 @@ class LRUCache {
 // 搜索结果缓存系统 - 使用LRU缓存，最大容量100项
 const searchCache = new LRUCache(100);
 
-// 缓存键生成函数 - 确保选项顺序一致性且尊重 matchCase
+// 缓存键生成函数 - 确保选项顺序一致性
 function stableStringify(obj) {
     if (obj === null || typeof obj !== 'object') return JSON.stringify(obj);
     if (Array.isArray(obj)) return '[' + obj.map(stableStringify).join(',') + ']';
@@ -55,15 +55,16 @@ function stableStringify(obj) {
     return '{' + keys.map(k => JSON.stringify(k) + ':' + stableStringify(obj[k])).join(',') + '}';
 }
 
-const generateCacheKey = (keyword, options = {}) => {
+const generateCacheKey = (keyword, options = {}, indexKey = '') => {
     const matchCase = !!options.matchCase;
     const keyWordPart = matchCase ? String(keyword) : String(keyword).toLowerCase();
-    return stableStringify({ keyword: keyWordPart, options });
+    // include indexKey (可以是 index.length 或 data hash) 以便在数据变更时使缓存失效
+    return stableStringify({ keyword: keyWordPart, options, indexKey });
 };
 
 // 监听来自主线程的消息
 self.addEventListener('message', function(e) {
-    const { action, data } = e.data;
+    const { action, data } = e.data ?? {};
     
     // 默认启用缓存，除非显式禁用
     const useCache = data?.useCache ?? true;
@@ -81,7 +82,8 @@ self.addEventListener('message', function(e) {
             }
             
             const keyword = data.keyword || ''; // 确保keyword存在
-            const bookmarks = data.bookmarks || []; // 确保bookmarks存在
+            const bookmarks = Array.isArray(data.bookmarks) ? data.bookmarks : [];
+            const index = Array.isArray(data.index) ? data.index : null; // 优先使用扁平索引
             const options = data.options || {}; // 确保options存在
 
             // 如果关键词为空，直接返回空结果，不使用缓存
@@ -94,9 +96,12 @@ self.addEventListener('message', function(e) {
                 return;
             }
 
+            // 优先使用传入的 indexHash 作为缓存区分键；若不存在则回退到 index 长度（兼容旧逻辑）
+            const indexKey = data.indexHash || (index ? index.length : bookmarks.length);
+ 
             // 检查缓存（缓存内已存入深拷贝，直接使用；postMessage 会进行结构化克隆，主线程收到的是独立副本）
             if (useCache) {
-                const cacheKey = generateCacheKey(keyword, options);
+                const cacheKey = generateCacheKey(keyword, options, indexKey);
                 if (searchCache.has(cacheKey)) {
                     const cachedResult = searchCache.get(cacheKey);
                     self.postMessage({
@@ -108,12 +113,13 @@ self.addEventListener('message', function(e) {
                 }
             }
 
-            // 执行搜索
-            const results = searchBookmarks(keyword, bookmarks, options);
+            // 执行搜索：优先使用扁平索引（index），否则回退到树形结构（bookmarks）
+            const source = index || bookmarks;
+            const results = searchBookmarks(keyword, source, options);
 
             // 缓存结果 (仅在启用缓存时)，存入深拷贝以避免引用外部可变对象
             if (useCache) {
-                const cacheKey = generateCacheKey(keyword, options);
+                const cacheKey = generateCacheKey(keyword, options, indexKey);
                 searchCache.set(cacheKey, JSON.parse(JSON.stringify(results)));
             }
 
@@ -158,7 +164,7 @@ function searchBookmarks(keyword, data, options = {}) {
     if (!keyword) {
         return results;
     }
-
+ 
     // 设置默认选项，并进行解构赋值以提高可读性
     const {
         limit = 0,
@@ -169,62 +175,73 @@ function searchBookmarks(keyword, data, options = {}) {
     
     // 统一在函数入口处理大小写，避免在循环中重复转换
     const lowerKeyword = matchCase ? keyword : keyword.toLowerCase();
-
+ 
     const searchInTitle = searchFields.includes('title') || searchFields.includes('all');
     const searchInUrl = searchFields.includes('url') || searchFields.includes('all');
-
-    // 递归搜索函数
-    const stack = [...data]; // 初始化栈，包含顶层书签项
-
-    while (stack.length > 0) {
-        // 如果达到限制数量，停止搜索
-        if (limit > 0 && results.length >= limit) {
-            break;
-        }
-
-        const item = stack.pop(); // 从栈顶取出一个项目
-
+ 
+    // 检测是否为扁平索引（预处理索引）
+    const isFlatIndex = Array.isArray(data) && data.length > 0 && (data[0].__lcTitle !== undefined);
+    
+    // 公共匹配逻辑
+    const itemMatches = (item) => {
         let isMatch = false;
-        // 根据选项匹配标题
+        const lcTitle = isFlatIndex ? (item.__lcTitle || item.title.toLowerCase()) : item.title?.toLowerCase();
+        const lcUrl = isFlatIndex ? (item.__lcUrl || item.url.toLowerCase()) : item.url?.toLowerCase();
+
         if (searchInTitle && item.title) {
-            const title = matchCase ? item.title : item.title.toLowerCase();
+            const title = matchCase ? item.title : lcTitle;
             if (title.includes(lowerKeyword)) {
                 isMatch = true;
             }
         }
 
-        // 根据选项匹配URL (如果尚未匹配标题)
         if (!isMatch && searchInUrl && item.url) {
-            const url = matchCase ? item.url : item.url.toLowerCase();
+            const url = matchCase ? item.url : lcUrl;
             if (url.includes(lowerKeyword)) {
                 isMatch = true;
             }
         }
-
-        // 如果匹配，则添加到结果列表
-        if (isMatch) {
-            results.push(item);
+        return isMatch;
+    };
+ 
+    if (isFlatIndex) {
+        // 扁平索引搜索：直接迭代数组，利用预计算的小写字段提升性能
+        for (let i = 0; i < data.length; i++) {
+            if (limit > 0 && results.length >= limit) break;
+            const item = data[i];
+            if (itemMatches(item)) {
+                results.push(item);
+            }
         }
-
-        // 如果是文件夹且有子项，将子项压入栈中继续处理
-        // 注意：这里将子项逆序压栈，可以保持原始的深度优先遍历顺序
-        if (item.children?.length > 0) {
-            for (let i = item.children.length - 1; i >= 0; i--) {
-                stack.push(item.children[i]);
+    } else {
+        // 回退到原始的树形结构搜索（深度优先）
+        const stack = [...data]; // 初始化栈，包含顶层书签项
+        while (stack.length > 0) {
+            if (limit > 0 && results.length >= limit) break;
+            const item = stack.pop();
+            
+            if (itemMatches(item)) {
+                results.push(item);
+            }
+ 
+            if (item.children?.length > 0) {
+                for (let i = item.children.length - 1; i >= 0; i--) {
+                    stack.push(item.children[i]);
+                }
             }
         }
     }
-
+ 
     // 如果需要优先显示文件夹，对结果进行排序
     if (prioritizeFolders && results.length > 0) {
         results.sort((a, b) => {
-            const aIsFolder = a.children !== undefined;
-            const bIsFolder = b.children !== undefined;
+            const aIsFolder = a.children !== undefined || a.type === 'folder';
+            const bIsFolder = b.children !== undefined || b.type === 'folder';
             if (aIsFolder && !bIsFolder) return -1;
             if (!aIsFolder && bIsFolder) return 1;
             return 0;
         });
     }
-
+ 
     return results;
 }

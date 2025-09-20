@@ -171,8 +171,12 @@ const renderHome = () => {
 
     const deviceType = getDeviceType();
 
-    // 统一将主页消息添加到body以使用统一居中系统
-    document.body.appendChild(fragment);
+    // 将主页消息添加到适当容器：移动端附加到 body 以实现覆盖层效果，桌面端放入 content 以随侧栏布局变化
+    if (deviceType === 'mobile') {
+        document.body.appendChild(fragment);
+    } else {
+        content.appendChild(fragment);
+    }
     
     if (deviceType === 'mobile') {
         homeMessage.classList.add('mobile-home-message');
