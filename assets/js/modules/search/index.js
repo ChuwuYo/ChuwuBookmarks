@@ -126,6 +126,30 @@ const postSearchToWorker = (keyword, useCache = true) => {
 };
 
 const createSearchHandler = () => {
+    // 仅在 handler 创建时根据缓存的数据量与设备类型计算防抖时长，避免每次输入重算导致抖动
+    const payload = getCachedSearchPayload();
+    const bookmarksCount = (payload.index || payload.bookmarks || []).length || 0;
+
+    const computeDebounceMsSafe = (count) => {
+        const DEFAULT = 250;
+        const MIN = 120;
+        const MAX = 500;
+        try {
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 480;
+            let ms;
+            if (!count || count < 2000) ms = isMobile ? 180 : 140;
+            else if (count < 5000) ms = isMobile ? 260 : 200;
+            else if (count < 20000) ms = isMobile ? 380 : 300;
+            else ms = 500;
+            ms = Math.max(MIN, Math.min(MAX, ms));
+            return ms;
+        } catch (e) {
+            return DEFAULT;
+        }
+    };
+
+    const debounceMs = computeDebounceMsSafe(bookmarksCount);
+
     return debounce((event) => {
         const keyword = event.target.value.trim();
         if (!keyword) {
@@ -180,9 +204,9 @@ const createSearchHandler = () => {
             const centeringManager = getCenteringManager();
             centeringManager.updateSingleElement('error-message');
         }
-    }, 250);
+    }, debounceMs);
 };
- 
+
 /**
  * 重置分页状态 - 新搜索时调用
  */
