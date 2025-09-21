@@ -223,6 +223,9 @@ button.breadcrumb-item {
     transform: translateZ(0);
     transition: transform var(--duration-base) var(--ease-default), background var(--duration-base) var(--ease-in-out-cubic), box-shadow var(--duration-base) var(--ease-default);
     width: fit-content;
+    /* 保留最小占位，减少动态渲染/懒加载引起的布局偏移 */
+    min-width: 120px;
+    min-height: 32px;
 }
 /* 文件夹悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
@@ -282,6 +285,11 @@ button.breadcrumb-item {
     object-fit: contain;
     vertical-align: middle;
     transition: opacity 0.3s ease;
+    /* 保留占位并避免在加载完成时通过移动 DOM 引起位移 */
+    display: block;
+    min-width: 16px;
+    min-height: 16px;
+    box-sizing: border-box;
 }
 #content .bookmark a {
     color: var(--text-color);
@@ -360,6 +368,8 @@ button.breadcrumb-item:focus-visible {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    /* 保留占位，避免首次渲染时高度不足导致 CLS */
+    min-height: 80px;
 }
 
 .loading-spinner {
