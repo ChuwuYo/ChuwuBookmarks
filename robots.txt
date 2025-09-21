@@ -12,6 +12,3 @@ Disallow: /docs/
 
 # Sitemap
 Sitemap: https://chuwuyo.github.io/ChuwuBookmarks/sitemap.xml
-
-# 爬取延迟（可选）
-Crawl-delay: 1
