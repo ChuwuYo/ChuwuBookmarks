@@ -135,7 +135,8 @@ const createSearchHandler = () => {
         const MIN = 120;
         const MAX = 500;
         try {
-            const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 480;
+            // 使用统一的设备检测函数
+            const isMobile = getDeviceType() === 'mobile';
             let ms;
             if (!count || count < 2000) ms = isMobile ? 180 : 140;
             else if (count < 5000) ms = isMobile ? 260 : 200;
