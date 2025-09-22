@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1758162631105,
+    "addDate": 1758552458724,
     "title": "书签栏",
     "children": [
       {
@@ -7145,13 +7145,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1755538781093,
-                        "title": "YahooChat",
-                        "url": "https://chat.yahoo.com/?",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.yahoo.com"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1734800649587,
                         "title": "Duck Duck Go AI Chat",
                         "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
@@ -7215,17 +7208,17 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1715088237654,
-                        "title": "Workers AI LLM Playground",
-                        "url": "https://playground.ai.cloudflare.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1739472714159,
                         "title": "问小白",
                         "url": "https://www.wenxiaobai.com/chat/tourist",
                         "icon": "https://www.google.com/s2/favicons?domain=www.wenxiaobai.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1755538781093,
+                        "title": "YahooChat",
+                        "url": "https://chat.yahoo.com/?",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.yahoo.com"
                       },
                       {
                         "type": "link",
@@ -7243,17 +7236,17 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1754496816089,
-                        "title": "flowith 2.0 - Your AI Creation Workspace, with Knowledge",
-                        "url": "https://flowith.io/blank",
-                        "icon": "https://www.google.com/s2/favicons?domain=flowith.io"
+                        "addDate": 1758280828648,
+                        "title": "Playground - GroqCloud",
+                        "url": "https://console.groq.com/playground",
+                        "icon": "https://www.google.com/s2/favicons?domain=console.groq.com"
                       },
                       {
                         "type": "link",
-                        "addDate": 1756290025187,
-                        "title": "Wordware",
-                        "url": "https://app.wordware.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=app.wordware.ai"
+                        "addDate": 1758282560493,
+                        "title": "Workers AI LLM Playground",
+                        "url": "https://playground.ai.cloudflare.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=playground.ai.cloudflare.com"
                       }
                     ]
                   },
@@ -7376,13 +7369,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1755539489915,
-                        "title": "360智脑 — 以人为本，安全可信",
-                        "url": "https://ai.360.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=ai.360.com"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1756751909853,
                         "title": "美团LongCat AI",
                         "url": "https://longcat.chat/",
@@ -7401,6 +7387,34 @@
                         "title": "Pi, your personal AI",
                         "url": "https://pi.ai/discover",
                         "icon": "https://www.google.com/s2/favicons?domain=pi.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1758279960857,
+                        "title": "Upstage - Solar",
+                        "url": "https://console.upstage.ai/playground/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=console.upstage.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1758281361777,
+                        "title": "Mercury Playground",
+                        "url": "https://chat.inceptionlabs.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.inceptionlabs.ai"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1758281552443,
+                        "title": "AllenAI - Ai2 Playground",
+                        "url": "https://playground.allenai.org/",
+                        "icon": "https://www.google.com/s2/favicons?domain=playground.allenai.org"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1758511012090,
+                        "title": "Perceptron",
+                        "url": "https://www.perceptron.inc/demo",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.perceptron.inc"
                       }
                     ]
                   },
@@ -7732,6 +7746,13 @@
                     "title": "apps.abacus.ai",
                     "url": "https://apps.abacus.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=apps.abacus.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1758510925103,
+                    "title": "ZenMux",
+                    "url": "https://zenmux.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zenmux.ai"
                   }
                 ]
               },
@@ -7790,6 +7811,13 @@
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1756290025187,
+                "title": "Wordware",
+                "url": "https://app.wordware.ai/",
+                "icon": "https://www.google.com/s2/favicons?domain=app.wordware.ai"
               },
               {
                 "type": "link",
@@ -10198,6 +10226,13 @@
                 "title": "Tauri 2.0 | Tauri - Tauri 框架",
                 "url": "https://v2.tauri.org.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=v2.tauri.org.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1758341484079,
+                "title": "Deno Docs",
+                "url": "https://docs.deno.com/runtime/",
+                "icon": "https://www.google.com/s2/favicons?domain=docs.deno.com"
               }
             ]
           },
@@ -10312,6 +10347,13 @@
             "title": "比较所有顶级域名的价格 | 顶级域名列表",
             "url": "https://zh-hans.tld-list.com/?cur=CNY",
             "icon": "https://www.google.com/s2/favicons?domain=zh-hans.tld-list.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1758426733539,
+            "title": "Google Search Console",
+            "url": "https://search.google.com/search-console",
+            "icon": "https://www.google.com/s2/favicons?domain=search.google.com"
           }
         ]
       },
@@ -11794,6 +11836,20 @@
                 "title": "下厨房",
                 "url": "https://www.xiachufang.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.xiachufang.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1758376247254,
+                "title": "Anduin2017/HowToCook: 程序员在家做饭方法指南。Programmer's guide about how to cook at home (Simplified Chinese only).",
+                "url": "https://github.com/Anduin2017/HowToCook",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1758376264427,
+                "title": "Gar-b-age/CookLikeHOC: 🥢像老乡鸡🐔那样做饭。主要部分于2024年完工，非老乡鸡官方仓库。文字来自《老乡鸡菜品溯源报告》，并做归纳、编辑与整理。CookLikeHOC.",
+                "url": "https://github.com/Gar-b-age/CookLikeHOC",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
