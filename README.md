@@ -10,7 +10,7 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ChuwuYo/ChuwuBookmarks)
 ---
 
-这是一个基于浏览器的书签导航网页，旨在将JSON书签数据转换为一个美观且功能丰富的网页应用，支持多级文件夹、搜索、面包屑导航等。
+这是一个基于浏览器的书签导航网页模板，旨在将JSON书签数据转换为一个美观且功能丰富的网页应用，支持多级文件夹、搜索、面包屑导航等。
 
 中国大陆用户请尝试[Netlify](https://chuwubookmarks.netlify.app/)
 
