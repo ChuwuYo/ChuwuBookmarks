@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1758552458724,
+    "addDate": 1758893651897,
     "title": "书签栏",
     "children": [
       {
@@ -223,6 +223,13 @@
                 "title": "绅士导航",
                 "url": "https://www.gal123.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.gal123.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1758888853701,
+                "title": "Tensou赛博传送门  精选TG频道/网站 似乎还能传送到异世界?",
+                "url": "https://tensou.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=tensou.app"
               }
             ]
           },
@@ -923,6 +930,13 @@
                 "title": "漫画补档冰室论坛manhuabd? - Powered by phpwind",
                 "url": "https://www.manhuabudangbbs.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.manhuabudangbbs.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1758782203536,
+                "title": "Kmoe [Kindle|epub漫畫]",
+                "url": "https://mox.moe/",
+                "icon": "https://www.google.com/s2/favicons?domain=mox.moe"
               }
             ]
           },
@@ -1805,6 +1819,20 @@
                 "title": "穹之下导航页",
                 "url": "https://www.soraacg.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.soraacg.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1758888876569,
+                "title": "KisuGal",
+                "url": "https://kisugal.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=kisugal.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1758888922914,
+                "title": "LyCorisGal - Galgame引导资源站",
+                "url": "https://www.lycorisgal.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.lycorisgal.com"
               }
             ]
           },
@@ -2976,6 +3004,13 @@
             "title": "在不同的音乐服务之间迁移播放列表 | Tune My Music",
             "url": "https://www.tunemymusic.com/zh-CN/transfer",
             "icon": "https://www.google.com/s2/favicons?domain=www.tunemymusic.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1758888624130,
+            "title": "鸟白岛演绎厅-音乐爱好者的社区",
+            "url": "https://www.summerpockets.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.summerpockets.com"
           }
         ]
       },
@@ -5109,6 +5144,13 @@
                 "title": "纸巾云",
                 "url": "https://okt.getpapercloud.xyz/#/login",
                 "icon": "https://www.google.com/s2/favicons?domain=okt.getpapercloud.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1758888582103,
+                "title": "探索全球網絡無限可能 - XTcloud",
+                "url": "https://asia.xtyun.top/#/landing",
+                "icon": "https://www.google.com/s2/favicons?domain=asia.xtyun.top"
               }
             ]
           },
@@ -7355,13 +7397,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1757510106666,
-                        "title": "K2 Think - MBZUAI",
-                        "url": "https://www.k2think.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.k2think.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1755539140552,
                         "title": "Falcon Chat - 阿联酋",
                         "url": "https://chat.falconllm.tii.ae/",
@@ -7508,6 +7543,13 @@
                     "title": "Le Chat - Mistral AI",
                     "url": "https://chat.mistral.ai/chat",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1757510106666,
+                    "title": "K2 Think - MBZUAI",
+                    "url": "https://www.k2think.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.k2think.ai"
                   }
                 ]
               },
@@ -9757,6 +9799,13 @@
                 "title": "v0 by Vercel",
                 "url": "https://v0.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=v0.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1758891405051,
+                "title": "Augment Code - 用于真实软件的 AI 编码平台。",
+                "url": "https://www.augmentcode.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.augmentcode.com"
               }
             ]
           },
