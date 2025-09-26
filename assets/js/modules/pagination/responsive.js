@@ -47,6 +47,7 @@ export class ResponsiveConfigManager {
         this.currentConfig = null;
         this.listeners = new Set();
         this.resizeTimeout = null;
+        this.orientationTimeout = null;
         this.lastScreenWidth = window.innerWidth;
         
         // 初始化配置
@@ -81,17 +82,18 @@ export class ResponsiveConfigManager {
 
     /**
      * 更新当前配置
+     * @param {Object} [newConfig] - 新的配置对象，如果不提供则自动计算
      */
-    updateConfig() {
-        const newConfig = this.getConfigForScreenSize();
-        const hasChanged = !this.currentConfig || 
-                          this.currentConfig.type !== newConfig.type ||
-                          this.currentConfig.maxVisiblePages !== newConfig.maxVisiblePages;
-        
-        this.currentConfig = newConfig;
-        
+    updateConfig(newConfig = null) {
+        const configToUse = newConfig || this.getConfigForScreenSize();
+        const hasChanged = !this.currentConfig ||
+                          this.currentConfig.type !== configToUse.type ||
+                          this.currentConfig.maxVisiblePages !== configToUse.maxVisiblePages;
+
+        this.currentConfig = configToUse;
+
         if (hasChanged) {
-            this.notifyListeners(newConfig);
+            this.notifyListeners(configToUse);
         }
     }
 
@@ -139,18 +141,22 @@ export class ResponsiveConfigManager {
 
             this.resizeTimeout = requestAnimationFrame(() => {
                 const currentWidth = window.innerWidth;
+                const currentConfig = this.getConfigForScreenSize(currentWidth);
 
-                // 只有在跨越断点时才更新配置
-                if (this.shouldUpdateConfig(currentWidth)) {
+                // 只有在跨越断点时才更新配置，避免重复计算
+                if (this.shouldUpdateConfig(currentWidth, currentConfig)) {
                     this.lastScreenWidth = currentWidth;
-                    this.updateConfig();
+                    this.updateConfig(currentConfig);
                 }
             });
         };
 
         this.handleOrientationChange = () => {
-            // 设备方向变化时立即更新
-            requestAnimationFrame(() => {
+            // 设备方向变化时使用requestAnimationFrame优化性能，并防止多次排队
+            if (this.orientationTimeout) {
+                cancelAnimationFrame(this.orientationTimeout);
+            }
+            this.orientationTimeout = requestAnimationFrame(() => {
                 this.updateConfig();
             });
         };
@@ -166,13 +172,14 @@ export class ResponsiveConfigManager {
     /**
      * 判断是否需要更新配置
      * @param {number} currentWidth - 当前屏幕宽度
+     * @param {Object} [currentConfig] - 当前配置对象，如果不提供则自动计算
      * @returns {boolean}
      */
-    shouldUpdateConfig(currentWidth) {
+    shouldUpdateConfig(currentWidth, currentConfig = null) {
         const lastConfig = this.getConfigForScreenSize(this.lastScreenWidth);
-        const currentConfig = this.getConfigForScreenSize(currentWidth);
-        
-        return lastConfig.type !== currentConfig.type;
+        const configToCompare = currentConfig || this.getConfigForScreenSize(currentWidth);
+
+        return lastConfig.type !== configToCompare.type;
     }
 
     /**
@@ -181,6 +188,10 @@ export class ResponsiveConfigManager {
     destroy() {
         if (this.resizeTimeout) {
             cancelAnimationFrame(this.resizeTimeout);
+        }
+
+        if (this.orientationTimeout) {
+            cancelAnimationFrame(this.orientationTimeout);
         }
 
         // 移除事件监听器
@@ -195,6 +206,7 @@ export class ResponsiveConfigManager {
         this.listeners.clear();
         this.handleResize = null;
         this.handleOrientationChange = null;
+        this.orientationTimeout = null;
     }
 }
 
