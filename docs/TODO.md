@@ -42,7 +42,7 @@
 - [ ] **重绘优化**：检查哪些元素会触发重绘和重排，尽量使用transform和opacity等不会触发重排的属性。
 
 ### 7. 响应式系统优化
-- [ ] **媒体查询优化**：responsive.js中频繁监听resize事件，可以使用requestAnimationFrame或防抖优化。
+- [x] **媒体查询优化**：responsive.js中频繁监听resize事件，可以使用requestAnimationFrame或防抖优化。
 - [ ] **设备检测优化**：设备类型检测可以缓存结果，避免重复计算。
 
 ### 8. 内存管理优化
