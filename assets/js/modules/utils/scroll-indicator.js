@@ -9,13 +9,14 @@ class CustomScrollIndicator {
         this.thumb = null;
         this.isScrolling = false;
         this.scrollTimeout = null;
+        this.resizeTimeout = null;
         this.isInitialized = false;
         this.isMobile = this.checkIsMobile();
-        
+
         // 兼容性检查
         this.supportsPassiveEvents = this.checkPassiveEventSupport();
         this.supportsTransform = this.checkTransformSupport();
-        
+
         // 绑定方法上下文
         this.handleScroll = this.handleScroll.bind(this);
         this.handleResize = this.handleResize.bind(this);
@@ -149,21 +150,28 @@ class CustomScrollIndicator {
      * 处理窗口大小变化
      */
     handleResize() {
-        const wasMobile = this.isMobile;
-        this.isMobile = this.checkIsMobile();
-        
-        // 如果从桌面端切换到移动端，销毁指示器
-        if (!wasMobile && this.isMobile) {
-            this.destroy();
+        // 使用requestAnimationFrame优化性能
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
         }
-        // 如果从移动端切换到桌面端，重新初始化
-        else if (wasMobile && !this.isMobile && !this.isInitialized) {
-            this.init();
-        }
-        // 如果仍在桌面端，更新位置
-        else if (!this.isMobile) {
-            this.updateThumbPosition();
-        }
+
+        this.resizeTimeout = requestAnimationFrame(() => {
+            const wasMobile = this.isMobile;
+            this.isMobile = this.checkIsMobile();
+
+            // 如果从桌面端切换到移动端，销毁指示器
+            if (!wasMobile && this.isMobile) {
+                this.destroy();
+            }
+            // 如果从移动端切换到桌面端，重新初始化
+            else if (wasMobile && !this.isMobile && !this.isInitialized) {
+                this.init();
+            }
+            // 如果仍在桌面端，更新位置
+            else if (!this.isMobile) {
+                this.updateThumbPosition();
+            }
+        });
     }
 
     /**
@@ -218,29 +226,35 @@ class CustomScrollIndicator {
      */
     destroy() {
         if (!this.isInitialized) return;
-        
+
+        // 清理resize定时器
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
+        }
+
         // 移除事件监听器
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('resize', this.handleResize);
-        
+
         // 清除超时
         if (this.scrollTimeout) {
             clearTimeout(this.scrollTimeout);
         }
-        
+
         // 移除DOM元素
         if (this.indicator && this.indicator.parentNode) {
             this.indicator.parentNode.removeChild(this.indicator);
         }
-        
+
         // 清除body类名
         document.body.classList.remove('scrolling');
-        
+
         // 重置状态
         this.indicator = null;
         this.thumb = null;
         this.isScrolling = false;
         this.scrollTimeout = null;
+        this.resizeTimeout = null;
         this.isInitialized = false;
     }
 

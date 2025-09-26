@@ -132,30 +132,31 @@ export class ResponsiveConfigManager {
      */
     bindResizeEvent() {
         this.handleResize = () => {
-            // 防抖处理，避免频繁触发
+            // 使用requestAnimationFrame优化性能
             if (this.resizeTimeout) {
-                clearTimeout(this.resizeTimeout);
+                cancelAnimationFrame(this.resizeTimeout);
             }
 
-            this.resizeTimeout = setTimeout(() => {
+            this.resizeTimeout = requestAnimationFrame(() => {
                 const currentWidth = window.innerWidth;
-                
+
                 // 只有在跨越断点时才更新配置
                 if (this.shouldUpdateConfig(currentWidth)) {
                     this.lastScreenWidth = currentWidth;
                     this.updateConfig();
                 }
-            }, 150);
+            });
         };
 
         this.handleOrientationChange = () => {
-            setTimeout(() => {
+            // 设备方向变化时立即更新
+            requestAnimationFrame(() => {
                 this.updateConfig();
-            }, 100);
+            });
         };
 
         window.addEventListener('resize', this.handleResize, { passive: true });
-        
+
         // 监听设备方向变化
         if (window.screen && window.screen.orientation) {
             window.screen.orientation.addEventListener('change', this.handleOrientationChange);
@@ -179,18 +180,18 @@ export class ResponsiveConfigManager {
      */
     destroy() {
         if (this.resizeTimeout) {
-            clearTimeout(this.resizeTimeout);
+            cancelAnimationFrame(this.resizeTimeout);
         }
-        
+
         // 移除事件监听器
         if (this.handleResize) {
             window.removeEventListener('resize', this.handleResize);
         }
-        
+
         if (this.handleOrientationChange && window.screen && window.screen.orientation) {
             window.screen.orientation.removeEventListener('change', this.handleOrientationChange);
         }
-        
+
         this.listeners.clear();
         this.handleResize = null;
         this.handleOrientationChange = null;
@@ -203,11 +204,12 @@ export class ResponsiveConfigManager {
 export class SidebarStateMonitor {
     constructor() {
         this.listeners = new Set();
+        this.resizeTimeout = null;
         this.currentState = {
             isCollapsed: shouldCollapseSidebar(),
             screenWidth: window.innerWidth
         };
-        
+
         // 初始化监听
         this.initializeMonitoring();
     }
@@ -230,19 +232,26 @@ export class SidebarStateMonitor {
      * 处理窗口大小变化
      */
     handleResize() {
-        const newScreenWidth = window.innerWidth;
-        const newIsCollapsed = shouldCollapseSidebar();
-        
-        if (newScreenWidth !== this.currentState.screenWidth || 
-            newIsCollapsed !== this.currentState.isCollapsed) {
-            
-            this.currentState = {
-                isCollapsed: newIsCollapsed,
-                screenWidth: newScreenWidth
-            };
-            
-            this.notifyListeners(this.currentState);
+        // 使用requestAnimationFrame防抖优化
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
         }
+
+        this.resizeTimeout = requestAnimationFrame(() => {
+            const newScreenWidth = window.innerWidth;
+            const newIsCollapsed = shouldCollapseSidebar();
+
+            if (newScreenWidth !== this.currentState.screenWidth ||
+                newIsCollapsed !== this.currentState.isCollapsed) {
+
+                this.currentState = {
+                    isCollapsed: newIsCollapsed,
+                    screenWidth: newScreenWidth
+                };
+
+                this.notifyListeners(this.currentState);
+            }
+        });
     }
 
     /**
@@ -320,13 +329,18 @@ export class SidebarStateMonitor {
      */
     destroy() {
         this.listeners.clear();
-        
+
+        // 清理防抖定时器
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
+        }
+
         // 移除窗口事件监听器
         if (this.boundHandleResize) {
             window.removeEventListener('resize', this.boundHandleResize);
             this.boundHandleResize = null;
         }
-        
+
         if (this.sidebarObserver) {
             this.sidebarObserver.disconnect();
         }
