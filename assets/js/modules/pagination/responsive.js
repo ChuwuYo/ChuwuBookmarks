@@ -47,6 +47,7 @@ export class ResponsiveConfigManager {
         this.currentConfig = null;
         this.listeners = new Set();
         this.resizeTimeout = null;
+        this.orientationTimeout = null;
         this.lastScreenWidth = window.innerWidth;
         
         // 初始化配置
@@ -81,17 +82,18 @@ export class ResponsiveConfigManager {
 
     /**
      * 更新当前配置
+     * @param {Object} [newConfig] - 新的配置对象，如果不提供则自动计算
      */
-    updateConfig() {
-        const newConfig = this.getConfigForScreenSize();
-        const hasChanged = !this.currentConfig || 
-                          this.currentConfig.type !== newConfig.type ||
-                          this.currentConfig.maxVisiblePages !== newConfig.maxVisiblePages;
-        
-        this.currentConfig = newConfig;
-        
+    updateConfig(newConfig = null) {
+        const configToUse = newConfig || this.getConfigForScreenSize();
+        const hasChanged = !this.currentConfig ||
+                          this.currentConfig.type !== configToUse.type ||
+                          this.currentConfig.maxVisiblePages !== configToUse.maxVisiblePages;
+
+        this.currentConfig = configToUse;
+
         if (hasChanged) {
-            this.notifyListeners(newConfig);
+            this.notifyListeners(configToUse);
         }
     }
 
@@ -132,30 +134,35 @@ export class ResponsiveConfigManager {
      */
     bindResizeEvent() {
         this.handleResize = () => {
-            // 防抖处理，避免频繁触发
+            // 使用requestAnimationFrame优化性能
             if (this.resizeTimeout) {
-                clearTimeout(this.resizeTimeout);
+                cancelAnimationFrame(this.resizeTimeout);
             }
 
-            this.resizeTimeout = setTimeout(() => {
+            this.resizeTimeout = requestAnimationFrame(() => {
                 const currentWidth = window.innerWidth;
-                
-                // 只有在跨越断点时才更新配置
-                if (this.shouldUpdateConfig(currentWidth)) {
+                const currentConfig = this.getConfigForScreenSize(currentWidth);
+
+                // 只有在跨越断点时才更新配置，避免重复计算
+                if (this.shouldUpdateConfig(currentWidth, currentConfig)) {
                     this.lastScreenWidth = currentWidth;
-                    this.updateConfig();
+                    this.updateConfig(currentConfig);
                 }
-            }, 150);
+            });
         };
 
         this.handleOrientationChange = () => {
-            setTimeout(() => {
+            // 设备方向变化时使用requestAnimationFrame优化性能，并防止多次排队
+            if (this.orientationTimeout) {
+                cancelAnimationFrame(this.orientationTimeout);
+            }
+            this.orientationTimeout = requestAnimationFrame(() => {
                 this.updateConfig();
-            }, 100);
+            });
         };
 
         window.addEventListener('resize', this.handleResize, { passive: true });
-        
+
         // 监听设备方向变化
         if (window.screen && window.screen.orientation) {
             window.screen.orientation.addEventListener('change', this.handleOrientationChange);
@@ -165,13 +172,14 @@ export class ResponsiveConfigManager {
     /**
      * 判断是否需要更新配置
      * @param {number} currentWidth - 当前屏幕宽度
+     * @param {Object} [currentConfig] - 当前配置对象，如果不提供则自动计算
      * @returns {boolean}
      */
-    shouldUpdateConfig(currentWidth) {
+    shouldUpdateConfig(currentWidth, currentConfig = null) {
         const lastConfig = this.getConfigForScreenSize(this.lastScreenWidth);
-        const currentConfig = this.getConfigForScreenSize(currentWidth);
-        
-        return lastConfig.type !== currentConfig.type;
+        const configToCompare = currentConfig || this.getConfigForScreenSize(currentWidth);
+
+        return lastConfig.type !== configToCompare.type;
     }
 
     /**
@@ -179,21 +187,26 @@ export class ResponsiveConfigManager {
      */
     destroy() {
         if (this.resizeTimeout) {
-            clearTimeout(this.resizeTimeout);
+            cancelAnimationFrame(this.resizeTimeout);
         }
-        
+
+        if (this.orientationTimeout) {
+            cancelAnimationFrame(this.orientationTimeout);
+        }
+
         // 移除事件监听器
         if (this.handleResize) {
             window.removeEventListener('resize', this.handleResize);
         }
-        
+
         if (this.handleOrientationChange && window.screen && window.screen.orientation) {
             window.screen.orientation.removeEventListener('change', this.handleOrientationChange);
         }
-        
+
         this.listeners.clear();
         this.handleResize = null;
         this.handleOrientationChange = null;
+        this.orientationTimeout = null;
     }
 }
 
@@ -203,11 +216,12 @@ export class ResponsiveConfigManager {
 export class SidebarStateMonitor {
     constructor() {
         this.listeners = new Set();
+        this.resizeTimeout = null;
         this.currentState = {
             isCollapsed: shouldCollapseSidebar(),
             screenWidth: window.innerWidth
         };
-        
+
         // 初始化监听
         this.initializeMonitoring();
     }
@@ -230,19 +244,26 @@ export class SidebarStateMonitor {
      * 处理窗口大小变化
      */
     handleResize() {
-        const newScreenWidth = window.innerWidth;
-        const newIsCollapsed = shouldCollapseSidebar();
-        
-        if (newScreenWidth !== this.currentState.screenWidth || 
-            newIsCollapsed !== this.currentState.isCollapsed) {
-            
-            this.currentState = {
-                isCollapsed: newIsCollapsed,
-                screenWidth: newScreenWidth
-            };
-            
-            this.notifyListeners(this.currentState);
+        // 使用requestAnimationFrame防抖优化
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
         }
+
+        this.resizeTimeout = requestAnimationFrame(() => {
+            const newScreenWidth = window.innerWidth;
+            const newIsCollapsed = shouldCollapseSidebar();
+
+            if (newScreenWidth !== this.currentState.screenWidth ||
+                newIsCollapsed !== this.currentState.isCollapsed) {
+
+                this.currentState = {
+                    isCollapsed: newIsCollapsed,
+                    screenWidth: newScreenWidth
+                };
+
+                this.notifyListeners(this.currentState);
+            }
+        });
     }
 
     /**
@@ -320,13 +341,18 @@ export class SidebarStateMonitor {
      */
     destroy() {
         this.listeners.clear();
-        
+
+        // 清理防抖定时器
+        if (this.resizeTimeout) {
+            cancelAnimationFrame(this.resizeTimeout);
+        }
+
         // 移除窗口事件监听器
         if (this.boundHandleResize) {
             window.removeEventListener('resize', this.boundHandleResize);
             this.boundHandleResize = null;
         }
-        
+
         if (this.sidebarObserver) {
             this.sidebarObserver.disconnect();
         }
