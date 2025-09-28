@@ -100,47 +100,24 @@ class ElementRegistry {
     }
 
     /**
-     * 注册新元素 - 增强错误处理版本
+     * 注册新元素
      * @param {string} key - 元素唯一标识
      * @param {string} selector - CSS选择器
      * @param {Object} config - 元素配置
      * @returns {boolean} 注册是否成功
      */
     registerElement(key, selector, config = {}) {
+        if (!key || !selector) return false;
+
         try {
-            // 输入验证
-            if (!key || typeof key !== 'string') {
-                return false;
-            }
-
-            if (!selector || typeof selector !== 'string') {
-                return false;
-            }
-
-            // 检查是否已存在
-            if (this.registeredElements.has(key)) {
-                // 元素已存在，将覆盖原配置
-            }
-
-            // 验证选择器格式
-            try {
-                document.querySelector(selector);
-            } catch (selectorError) {
-                return false;
-            }
-
-            // 合并配置与默认值
             const normalizedConfig = this.validateAndNormalizeConfig({
                 selector,
                 ...config
             });
-
             this.registeredElements.set(key, normalizedConfig);
             return true;
-
         } catch (error) {
-            // 尝试恢复：使用默认配置注册
-            return this.registerElementWithFallback(key, selector);
+            return false;
         }
     }
 
@@ -298,51 +275,34 @@ class PositionCalculator {
     }
 
     /**
-     * 计算元素位置样式 - 增强错误处理版本
+     * 计算元素位置样式
      * @param {Object} config - 元素配置
      * @param {Object} context - 上下文信息
      * @returns {Object} 计算出的样式对象
      */
     calculatePosition(config, context) {
-        const startTime = performance.now();
-        
+        // 快速验证关键参数
+        if (!config?.positioning || !context?.deviceType) {
+            return {};
+        }
+
+        const { deviceType } = context;
+        const cacheKey = this.generateCacheKey(config, context);
+
+        // 检查缓存
+        if (this.calculationCache.has(cacheKey)) {
+            return this.calculationCache.get(cacheKey);
+        }
+
+        const positioning = config.positioning[deviceType];
+        if (!positioning?.strategy) {
+            return {};
+        }
+
+        let styles = {};
+
         try {
-            // 输入验证
-            if (!config || !context) {
-                throw new Error('配置或上下文信息缺失');
-            }
-
-            const { deviceType, sidebarCollapsed, centeringOffset } = context;
-
-            if (!deviceType || !['mobile', 'desktop'].includes(deviceType)) {
-                throw new Error(`无效的设备类型: ${deviceType}`);
-            }
-
-            // 生成缓存键
-            const cacheKey = this.generateCacheKey(config, context);
-
-            // 检查缓存
-            if (this.calculationCache.has(cacheKey)) {
-                const cachedResult = this.calculationCache.get(cacheKey);
-                return cachedResult;
-            }
-
-            let styles = {};
-
-            // 根据设备类型选择定位策略
-            const positioning = config.positioning && config.positioning[deviceType];
-
-            if (!positioning) {
-                throw new Error(`未找到设备类型 "${deviceType}" 的定位配置`);
-            }
-
-            // 验证定位策略
-            const validStrategies = ['fixed-center', 'fixed-top', 'css-controlled'];
-            if (!validStrategies.includes(positioning.strategy)) {
-                throw new Error(`未知的定位策略: ${positioning.strategy}`);
-            }
-
-            // 执行位置计算
+            // 执行位置计算 - 简化的错误处理
             switch (positioning.strategy) {
                 case 'fixed-center':
                     styles = this.calculateFixedCenter(positioning, context);
@@ -353,34 +313,28 @@ class PositionCalculator {
                 case 'css-controlled':
                     styles = this.calculateCssControlled(positioning, config, context);
                     break;
+                default:
+                    // 未知策略静默处理，不输出警告
+                    return {};
             }
 
             // 设置z-index
-            if (config.zIndex !== 'auto' && config.zIndex !== undefined) {
+            if (config.zIndex && config.zIndex !== 'auto') {
                 styles.zIndex = config.zIndex;
             }
 
-            // 缓存结果 - LRU策略
+            // 缓存结果
             this.setCacheWithLRU(cacheKey, styles);
 
-            return styles;
-
         } catch (error) {
-            console.error('Position calculation failed:', error);
-
-            // 返回基础居中样式作为回退
-            const fallbackStyles = this.getBasicCenteringStyles();
-            
-            // 尝试缓存回退样式以避免重复计算
-            try {
-                const cacheKey = this.generateCacheKey(config, context);
-                this.setCacheWithLRU(cacheKey, fallbackStyles);
-            } catch (cacheError) {
-                // 缓存失败，继续执行
+            // 只在开发环境输出错误，生产环境静默处理
+            if (process?.env?.NODE_ENV === 'development') {
+                console.warn('calculatePosition: 计算失败，使用空样式', error.message);
             }
-
-            return fallbackStyles;
+            return {};
         }
+
+        return styles;
     }
 
     /**
@@ -569,66 +523,34 @@ class StyleApplicator {
     }
 
     /**
-     * 应用样式到元素（支持批量处理）
+     * 应用样式到元素
      * @param {HTMLElement} element - 目标元素
      * @param {Object} styles - 样式对象
-     * @param {boolean} immediate - 是否立即应用（默认false，使用批量处理）
+     * @param {boolean} immediate - 是否立即应用
      */
     applyStyles(element, styles, immediate = false) {
-        if (!element || !styles) {
-            return;
-        }
-
-        const applyOperation = () => {
-            try {
-                this.doApplyStyles(element, styles);
-            } catch (error) {
-                // 尝试应用基础样式作为回退
-                this.applyFallbackStyles(element);
-            }
-        };
+        if (!element || !styles) return;
 
         if (immediate) {
-            applyOperation();
+            this.doApplyStyles(element, styles);
         } else {
-            // 使用元素作为key去重，自动防止队列无限增长
-            this.updateQueue.set(element, applyOperation);
+            this.updateQueue.set(element, () => this.doApplyStyles(element, styles));
             this.scheduleBatchUpdate();
         }
     }
 
     /**
-     * 实际执行样式应用 - 增强错误处理版本
+     * 实际执行样式应用
      * @param {HTMLElement} element - 目标元素
      * @param {Object} styles - 样式对象
      */
     doApplyStyles(element, styles) {
-        try {
-            // 验证输入
-            if (!element || !element.style) {
-                throw new Error('无效的DOM元素');
-            }
+        if (!element || !styles || !document.contains(element)) return;
 
-            if (!styles || typeof styles !== 'object') {
-                throw new Error('无效的样式对象');
-            }
-
-            // 检查元素是否仍在DOM中
-            if (!document.contains(element)) {
-                return;
-            }
-
-            // 检查是否为移动端内联样式应用
-            if (this.isMobileInlineStyles(styles)) {
-                this.applyMobileInlineStyles(element, styles);
-            } else {
-                // 桌面端CSS变量应用
-                this.applyDesktopCssVariables(element, styles);
-            }
-
-        } catch (error) {
-            // 尝试应用最基础的样式作为回退
-            this.applyFallbackStyles(element);
+        if (this.isMobileInlineStyles(styles)) {
+            this.applyMobileInlineStyles(element, styles);
+        } else {
+            this.applyDesktopCssVariables(element, styles);
         }
     }
 
@@ -688,50 +610,15 @@ class StyleApplicator {
     }
 
     /**
-     * 应用回退样式 - 增强版本，多级回退策略
+     * 应用回退样式
      * @param {HTMLElement} element - 目标元素
      */
     applyFallbackStyles(element) {
-        if (!element) {
-            return;
-        }
+        if (!element) return;
 
-        const fallbackStrategies = [
-            // 策略1: 标准居中
-            () => {
-                element.style.left = '50%';
-                element.style.transform = 'translateX(-50%)';
-                element.style.position = 'relative';
-            },
-            // 策略2: Flexbox居中（如果支持）
-            () => {
-                const parent = element.parentElement;
-                if (parent) {
-                    parent.style.display = 'flex';
-                    parent.style.justifyContent = 'center';
-                    element.style.position = 'static';
-                    element.style.left = 'auto';
-                    element.style.transform = 'none';
-                }
-            },
-            // 策略3: 最基础的居中
-            () => {
-                element.style.marginLeft = 'auto';
-                element.style.marginRight = 'auto';
-                element.style.position = 'static';
-                element.style.left = 'auto';
-                element.style.transform = 'none';
-            }
-        ];
-
-        for (let i = 0; i < fallbackStrategies.length; i++) {
-            try {
-                fallbackStrategies[i]();
-                return;
-            } catch (error) {
-                continue;
-            }
-        }
+        // 简单的回退策略
+        element.style.left = '50%';
+        element.style.transform = 'translateX(-50%)';
     }
 
     /**
@@ -760,14 +647,25 @@ class StyleApplicator {
         const operations = [...this.updateQueue.values()];
         this.updateQueue.clear();
 
-        // 执行所有操作
-        operations.forEach(operation => {
+        let errorCount = 0;
+
+        // 执行所有操作 - 简化的错误处理
+        operations.forEach((operation) => {
             try {
                 operation();
             } catch (error) {
-                // 静默处理错误
+                errorCount++;
+                // 只在开发环境输出错误详情
+                if (process?.env?.NODE_ENV === 'development') {
+                    console.warn('executeBatchUpdate: 操作失败:', error.message);
+                }
             }
         });
+
+        // 只在有错误时输出摘要
+        if (errorCount > 0 && process?.env?.NODE_ENV === 'development') {
+            console.warn(`executeBatchUpdate: ${errorCount}/${operations.length} 操作失败`);
+        }
 
         this.isUpdateScheduled = false;
 
@@ -915,44 +813,48 @@ class EventCoordinator {
      * 设置侧栏状态变化监听器（MutationObserver）
      */
     setupSidebarObserver() {
-        const sidebar = document.querySelector('.sidebar');
-        if (!sidebar) {
-            return;
+        try {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar) {
+                return;
+            }
+
+            this.listeners.sidebarObserver = new MutationObserver(
+                this.throttle((mutations) => {
+                    if (this.isDestroyed) return;
+
+                    let sidebarStateChanged = false;
+
+                    mutations.forEach(mutation => {
+                        if (mutation.type === 'attributes' &&
+                            (mutation.attributeName === 'class' ||
+                                mutation.attributeName === 'data-collapsed')) {
+                            sidebarStateChanged = true;
+                        }
+                    });
+
+                    if (sidebarStateChanged) {
+                        const isCollapsed = sidebar.classList.contains('collapsed') ||
+                            sidebar.getAttribute('data-collapsed') === 'true';
+
+                        if (this.updateCallback) {
+                            this.updateCallback('sidebarChange', {
+                                collapsed: isCollapsed,
+                                element: sidebar
+                            });
+                        }
+                    }
+                }, this.throttleDelay)
+            );
+
+            // 开始观察侧栏的属性变化
+            this.listeners.sidebarObserver.observe(sidebar, {
+                attributes: true,
+                attributeFilter: ['class', 'data-collapsed']
+            });
+        } catch (error) {
+            console.error('Failed to setup sidebar observer:', error);
         }
-
-        this.listeners.sidebarObserver = new MutationObserver(
-            this.throttle((mutations) => {
-                if (this.isDestroyed) return;
-
-                let sidebarStateChanged = false;
-
-                mutations.forEach(mutation => {
-                    if (mutation.type === 'attributes' &&
-                        (mutation.attributeName === 'class' ||
-                            mutation.attributeName === 'data-collapsed')) {
-                        sidebarStateChanged = true;
-                    }
-                });
-
-                if (sidebarStateChanged) {
-                    const isCollapsed = sidebar.classList.contains('collapsed') ||
-                        sidebar.getAttribute('data-collapsed') === 'true';
-
-                    if (this.updateCallback) {
-                        this.updateCallback('sidebarChange', {
-                            collapsed: isCollapsed,
-                            element: sidebar
-                        });
-                    }
-                }
-            }, this.throttleDelay)
-        );
-
-        // 开始观察侧栏的属性变化
-        this.listeners.sidebarObserver.observe(sidebar, {
-            attributes: true,
-            attributeFilter: ['class', 'data-collapsed']
-        });
     }
 
     /**
@@ -1254,23 +1156,15 @@ class UniversalCenteringManager {
      * @param {Object} data - 事件数据
      */
     handleContextChange(eventType, data) {
-        if (this.isDestroyed) {
-            return;
-        }
+        if (this.isDestroyed) return;
 
         try {
-            // 验证事件类型
-            const validEventTypes = ['resize', 'sidebarChange', 'layoutChange', 'centeringOffsetChange'];
-            if (!validEventTypes.includes(eventType)) {
-                return;
-            }
-
             switch (eventType) {
                 case 'resize':
                     this.updateContext(getDeviceType(), undefined, undefined);
                     break;
                 case 'sidebarChange':
-                    if (data && typeof data.collapsed === 'boolean') {
+                    if (data?.collapsed !== undefined) {
                         this.updateContext(undefined, data.collapsed, undefined);
                     }
                     break;
@@ -1278,15 +1172,23 @@ class UniversalCenteringManager {
                     this.forceUpdateAll();
                     break;
                 case 'centeringOffsetChange':
-                    if (data && data.offset) {
+                    if (data?.offset) {
                         this.updateContext(undefined, undefined, data.offset);
                     }
                     break;
             }
-
         } catch (error) {
-            // 尝试恢复：重置到安全状态
-            this.recoverFromContextError(eventType, data);
+            // 只在开发环境输出错误，生产环境静默处理
+            if (process?.env?.NODE_ENV === 'development') {
+                console.warn('handleContextChange: 事件处理失败:', { eventType, error: error.message });
+            }
+            // 尝试基础恢复
+            try {
+                this.recoverFromContextError(eventType, data);
+            } catch (recoveryError) {
+                // 最后的简洁回退
+                this.currentContext = { deviceType: 'desktop', sidebarCollapsed: false, centeringOffset: '0px' };
+            }
         }
     }
 
@@ -1297,7 +1199,7 @@ class UniversalCenteringManager {
      */
     recoverFromContextError(eventType, data) {
         try {
-            // 重置到安全的默认上下文
+            // 重置到默认上下文
             this.currentContext = {
                 deviceType: 'desktop',
                 sidebarCollapsed: false,
@@ -1305,22 +1207,13 @@ class UniversalCenteringManager {
                 screenWidth: window.innerWidth || 1024
             };
 
-            // 尝试重新检测设备类型
-            try {
-                this.currentContext.deviceType = getDeviceType();
-                this.currentContext.sidebarCollapsed = this.getSidebarState();
-            } catch (detectionError) {
-                // 设备状态检测失败，使用默认值
+            if (this.positionCalculator) {
+                this.positionCalculator.updateContext(this.currentContext);
             }
-
-            // 通知位置计算器
-            this.positionCalculator.updateContext(this.currentContext);
-
-            // 尝试更新所有元素
             this.forceUpdateAll();
-
-        } catch (recoveryError) {
-            // 最后的手段：禁用自动更新，等待手动干预
+        } catch (error) {
+            // 最后的简洁回退
+            this.currentContext = { deviceType: 'desktop', sidebarCollapsed: false, centeringOffset: '0px' };
         }
     }
 
@@ -1344,11 +1237,16 @@ class UniversalCenteringManager {
      * @returns {boolean} 侧栏是否收起
      */
     getSidebarState() {
-        const sidebar = document.querySelector('.sidebar');
-        if (!sidebar) return true; // 默认认为收起
+        try {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar) return true; // 默认认为收起
 
-        return sidebar.classList.contains('collapsed') ||
-            sidebar.getAttribute('data-collapsed') === 'true';
+            return sidebar.classList.contains('collapsed') ||
+                sidebar.getAttribute('data-collapsed') === 'true';
+        } catch (error) {
+            console.error('Failed to get sidebar state:', error);
+            return true; // 出错时默认认为收起
+        }
     }
 
     /**
@@ -1357,35 +1255,32 @@ class UniversalCenteringManager {
     destroy() {
         if (this.isDestroyed) return;
 
-        try {
-            // 销毁事件协调器
-            if (this.eventCoordinator) {
-                this.eventCoordinator.destroy();
-                this.eventCoordinator = null;
-            }
+        // 销毁事件协调器
+        if (this.eventCoordinator) {
+            this.eventCoordinator.destroy();
+            this.eventCoordinator = null;
+        }
 
-            // 清理所有元素样式
-            const allElements = this.elementRegistry.getAllElements();
-            allElements.forEach((config, key) => {
-                const element = this.styleApplicator.safeQuerySelector(config.selector);
+        // 清理所有元素样式
+        const allElements = this.elementRegistry.getAllElements();
+        allElements.forEach((config, key) => {
+            try {
+                const element = document.querySelector(config.selector);
                 if (element) {
                     this.styleApplicator.clearStyles(element);
                 }
-            });
+            } catch (error) {
+                console.error(`Failed to clean up element with selector: ${config.selector}`, error);
+            }
+        });
 
-            // 清理注册表
-            this.elementRegistry.clear();
+        // 清理注册表和缓存
+        this.elementRegistry.clear();
+        this.positionCalculator.clearCache();
 
-            // 清理计算缓存
-            this.positionCalculator.clearCache();
-
-            // 标记为已销毁
-            this.isDestroyed = true;
-            this.isInitialized = false;
-
-        } catch (error) {
-            // 销毁过程中发生错误
-        }
+        // 标记为已销毁
+        this.isDestroyed = true;
+        this.isInitialized = false;
     }
 }
 
