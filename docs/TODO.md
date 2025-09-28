@@ -33,13 +33,13 @@
 - [ ] **分页内存优化**：结合 pagination/performance.js 的池清理策略，定期检查并清理 elementPool。
 
 ### 5. Web Worker优化
-- [ ] **Worker数据驻留与消息最小化**：当前已复用搜索 Worker，但每次搜索都会随消息携带较大的数据（bookmarks/index/indexHash）。建议在 Worker 内驻留数据，后续仅传 keyword 与必要选项；当数据哈希变化时再刷新驻留数据。
-- [ ] **Worker通信优化**：避免重复传输大数据，优先仅传扁平 index；必要时使用可转移的 ArrayBuffer（可选）。保持改动简单，避免过度工程化。
+- [ ] ~~**Worker数据驻留与消息最小化**：当前已复用搜索 Worker，但每次搜索都会随消息携带较大的数据（bookmarks/index/indexHash）。建议在 Worker 内驻留数据，后续仅传 keyword 与必要选项；当数据哈希变化时再刷新驻留数据。~~(性价比低)
+- [ ] ~~**Worker通信优化**：避免重复传输大数据，优先仅传扁平 index；必要时使用可转移的 ArrayBuffer（可选）。~~(性价比低)
 
 ### 6. CSS/动画优化
 - [x] **CSS变量检查**：assets/css/animations.css 中包含较多 CSS 变量，建议核查其必要性，避免冗余与复杂度。
 - [ ] ~~**选择器优化**：检查CSS选择器的复杂度，避免使用过于复杂的选择器。~~(没必要)
-- [ ] **重绘优化**：检查哪些元素会触发重绘和重排，尽量使用transform和opacity等不会触发重排的属性。
+- [ ] ~~.**重绘优化**：检查哪些元素会触发重绘和重排，尽量使用transform和opacity等不会触发重排的属性。~~(性价比低)
 
 ### 7. 响应式系统优化
 - [x] **媒体查询优化**：responsive.js中频繁监听resize事件，可以使用requestAnimationFrame或防抖优化。
