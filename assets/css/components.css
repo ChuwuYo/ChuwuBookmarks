@@ -107,6 +107,8 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
+    /* 防止布局偏移 */
+    contain: layout style;
 }
 .breadcrumb-item {
     cursor: pointer;
