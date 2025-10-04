@@ -109,7 +109,7 @@
     margin-left: 250px;
     margin-right: 120px;
     min-height: 100vh;
-    padding: 20px 20px 20px 40px;
+    padding: 20px 20px 20px 60px;
     flex: 1;
     box-sizing: border-box;
     transition: margin-left var(--duration-short) var(--ease-in-out-cubic),
