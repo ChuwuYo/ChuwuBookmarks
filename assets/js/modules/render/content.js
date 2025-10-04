@@ -40,6 +40,12 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
         
         const breadcrumbFragment = document.createDocumentFragment();
 
+        const breadIcon = document.createElement('span');
+        breadIcon.textContent = '🍞';
+        breadIcon.className = 'breadcrumb-icon';
+        breadIcon.style.marginRight = '4px';
+        breadIcon.style.userSelect = 'none';
+
         const homeLink = document.createElement('button');
         homeLink.type = 'button';
         homeLink.className = 'breadcrumb-item';
@@ -58,6 +64,9 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
         
         homeLink.addEventListener('click', homeLinkHandler);
         homeLink.addEventListener('keydown', homeLinkHandler);
+
+        // 先添加🍞图标，再添加主页按钮
+        breadcrumbFragment.appendChild(breadIcon);
         breadcrumbFragment.appendChild(homeLink);
 
         if (filteredBreadcrumbs.length > 0) {
