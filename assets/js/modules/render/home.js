@@ -34,7 +34,7 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
         scale: 0.8,
         x: -50,
         transformOrigin: "center center",
-        textContent: '初五的书签'
+        textContent: '初五的书签回廊'
     });
     gsap.set(englishText, {
         opacity: 0,
@@ -206,7 +206,7 @@ const renderHome = () => {
     createHomeTextTimeline(homeMessage, chineseText, englishText);
 
     requestAnimationFrame(() => {
-        const { fragment: chineseFragment, spans: chineseSpans } = createCharacterSpans('初五的书签');
+        const { fragment: chineseFragment, spans: chineseSpans } = createCharacterSpans('初五的书签回廊');
         chineseText.textContent = '';
         chineseText.appendChild(chineseFragment);
         setupChineseCharacterAnimation(chineseSpans);
