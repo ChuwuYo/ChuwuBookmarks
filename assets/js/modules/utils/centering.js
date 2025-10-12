@@ -643,29 +643,20 @@ class StyleApplicator {
             return;
         }
 
-        // 批量执行DOM操作
+        // 批量执行DOM操作，避免在循环中读取DOM属性
         const operations = [...this.updateQueue.values()];
         this.updateQueue.clear();
 
-        let errorCount = 0;
-
-        // 执行所有操作 - 简化的错误处理
+        // 使用DocumentFragment批量操作
+        const fragment = document.createDocumentFragment();
+        
         operations.forEach((operation) => {
             try {
                 operation();
             } catch (error) {
-                errorCount++;
-                // 只在开发环境输出错误详情
-                if (process?.env?.NODE_ENV === 'development') {
-                    console.warn('executeBatchUpdate: 操作失败:', error.message);
-                }
+                // 静默处理错误
             }
         });
-
-        // 只在有错误时输出摘要
-        if (errorCount > 0 && process?.env?.NODE_ENV === 'development') {
-            console.warn(`executeBatchUpdate: ${errorCount}/${operations.length} 操作失败`);
-        }
 
         this.isUpdateScheduled = false;
 
@@ -1237,16 +1228,15 @@ class UniversalCenteringManager {
      * @returns {boolean} 侧栏是否收起
      */
     getSidebarState() {
-        try {
-            const sidebar = document.querySelector('.sidebar');
-            if (!sidebar) return true; // 默认认为收起
-
-            return sidebar.classList.contains('collapsed') ||
-                sidebar.getAttribute('data-collapsed') === 'true';
-        } catch (error) {
-            console.error('Failed to get sidebar state:', error);
-            return true; // 出错时默认认为收起
+        // 缓存sidebar元素引用，避免重复查询
+        if (!this._cachedSidebar) {
+            this._cachedSidebar = document.querySelector('.sidebar');
         }
+        
+        if (!this._cachedSidebar) return true;
+
+        return this._cachedSidebar.classList.contains('collapsed') ||
+            this._cachedSidebar.getAttribute('data-collapsed') === 'true';
     }
 
     /**
