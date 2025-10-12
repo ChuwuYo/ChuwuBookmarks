@@ -643,12 +643,9 @@ class StyleApplicator {
             return;
         }
 
-        // 批量执行DOM操作，避免在循环中读取DOM属性
+        // 批量执行DOM操作
         const operations = [...this.updateQueue.values()];
         this.updateQueue.clear();
-
-        // 使用DocumentFragment批量操作
-        const fragment = document.createDocumentFragment();
         
         operations.forEach((operation) => {
             try {
