@@ -38,24 +38,7 @@ const showLoadingIndicator = () => {
     
     loadingMessage.appendChild(loadingText);
     
-    const deviceType = getDeviceType();
-    if (deviceType === 'mobile') {
-        // 移动端：附加到body并居中
-        document.body.appendChild(loadingMessage);
-        loadingMessage.classList.add('mobile-home-message');
-        loadingMessage.style.cssText = `
-            position: fixed;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        `;
-    } else {
-        // 桌面端：添加到内容区域
-        content.appendChild(loadingMessage);
-    }
+    content.appendChild(loadingMessage);
 };
 
 // 显示错误信息
