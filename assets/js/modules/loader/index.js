@@ -38,8 +38,6 @@ const showLoadingIndicator = () => {
     
     loadingMessage.appendChild(loadingText);
     
-    // 使用CSS类而非JavaScript计算位置
-    loadingMessage.classList.add('loading-indicator');
     content.appendChild(loadingMessage);
 };
 
