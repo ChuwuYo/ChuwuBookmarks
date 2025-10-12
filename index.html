@@ -95,11 +95,11 @@
         <nav id="sidebar-folders" role="navigation" aria-label="书签导航"></nav>
     </aside>
     <main class="main-content" id="main-content" role="main">
-        <nav class="search-container centered-element" role="search">
+        <div class="search-container centered-element" role="search">
             <div class="search-input-wrapper">
                 <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
                     aria-describedby="search-hint" />
-                <div id="search-hint" class="shortcut-hint" aria-label="键盘快捷键">
+                <div id="search-hint" class="shortcut-hint">
                     <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
-        </nav>
+        </div>
         <nav id="breadcrumbs" role="navigation" aria-label="面包屑导航"></nav>
         <section id="content" role="region" aria-label="书签内容区域"></section>
         <!-- 居中消息元素将通过JS动态添加centered-element类 -->
