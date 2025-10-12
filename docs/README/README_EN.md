@@ -14,6 +14,8 @@ This is a browser-based bookmark navigation webpage template designed to convert
 
 For users outside mainland China, you can experience the website through the following links:
 
+[Chuwu](https://tabs.chuwu.top/)
+
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
 [Vercel](https://chuwubookmarks.vercel.app/)
