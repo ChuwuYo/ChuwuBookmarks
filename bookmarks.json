@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1760280990195,
+    "addDate": 1760694289698,
     "title": "书签栏",
     "children": [
       {
@@ -2344,6 +2344,13 @@
                 "title": "P2P传输(不开源)FolderPort - Instant Folder Sharing",
                 "url": "https://folderport.com/zh",
                 "icon": "https://www.google.com/s2/favicons?domain=folderport.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760513269024,
+                "title": "传文件，传文本，传屏幕，传实时视频 - 轻松传",
+                "url": "https://easychuan.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=easychuan.cn"
               }
             ]
           },
@@ -3180,6 +3187,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1704012714000,
+                "title": "Ylibrary · YLibrary Project",
+                "url": "https://ylibrary.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=ylibrary.org"
+              },
+              {
+                "type": "link",
                 "addDate": 1718272661867,
                 "title": "Z-Library项目",
                 "url": "https://zh.go-to-library.sk/#desktop_app_tab",
@@ -3209,9 +3223,16 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "Ylibrary · YLibrary Project",
-                "url": "https://ylibrary.org/",
-                "icon": "https://www.google.com/s2/favicons?domain=ylibrary.org"
+                "title": "OLD-2022好讀",
+                "url": "http://haodoo.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=haodoo.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1760693822784,
+                "title": "好讀二代 – 讓舊的好書有《好讀》這個歸宿，也讓更多的讀友能享受這些好書！",
+                "url": "https://haodoo.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=haodoo.org"
               },
               {
                 "type": "link",
@@ -3222,13 +3243,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "首頁- 好讀",
-                "url": "http://haodoo.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=haodoo.net"
-              },
-              {
-                "type": "link",
                 "addDate": 1706935266625,
                 "title": "mobi.moe - 冇貝書庫",
                 "url": "https://www.mobi.moe/",
@@ -3236,17 +3250,17 @@
               },
               {
                 "type": "link",
-                "addDate": 1726937454524,
-                "title": "书葵网_海量图书检索下载",
-                "url": "https://www.shukui.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.shukui.net"
-              },
-              {
-                "type": "link",
                 "addDate": 1728346360606,
                 "title": "知轩藏书-藏尽网络中最好的精校小说",
                 "url": "https://zxcs.zip/",
                 "icon": "https://www.google.com/s2/favicons?domain=zxcs.zip"
+              },
+              {
+                "type": "link",
+                "addDate": 1726937454524,
+                "title": "书葵网_海量图书检索下载",
+                "url": "https://www.shukui.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.shukui.net"
               },
               {
                 "type": "link",
@@ -5396,6 +5410,13 @@
                 "title": "赔钱机场 - 超便宜低价高速机场",
                 "url": "https://xn--mes358aby2apfg.com/login",
                 "icon": "https://www.google.com/s2/favicons?domain=xn--mes358aby2apfg.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760429336514,
+                "title": "GoRelay",
+                "url": "https://gorelay.net/#/login",
+                "icon": "https://www.google.com/s2/favicons?domain=gorelay.net"
               }
             ]
           },
@@ -7586,6 +7607,13 @@
                       },
                       {
                         "type": "link",
+                        "addDate": 1751992708475,
+                        "title": "Ernie",
+                        "url": "https://yiyan.baidu.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=yiyan.baidu.com"
+                      },
+                      {
+                        "type": "link",
                         "addDate": 1753852059840,
                         "title": "Stepfun国际站",
                         "url": "https://www.stepfun.com/chats/new",
@@ -7795,13 +7823,6 @@
                     "title": "Z.ai",
                     "url": "https://chat.z.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=chat.z.ai"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1751992708475,
-                    "title": "Ernie",
-                    "url": "https://yiyan.baidu.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=yiyan.baidu.com"
                   },
                   {
                     "type": "link",
@@ -8136,13 +8157,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1756290025187,
-                "title": "Wordware",
-                "url": "https://app.wordware.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=app.wordware.ai"
-              },
-              {
-                "type": "link",
                 "addDate": 1745902328490,
                 "title": "GithubDeepWiki(仓库理解)",
                 "url": "https://deepwiki.com/",
@@ -8203,6 +8217,13 @@
                 "title": "AI Model & API Providers Analysis | Artificial Analysis",
                 "url": "https://artificialanalysis.ai/",
                 "icon": "https://www.google.com/s2/favicons?domain=artificialanalysis.ai"
+              },
+              {
+                "type": "link",
+                "addDate": 1760508103870,
+                "title": "Inkeep - AI Agents that get real work done",
+                "url": "https://inkeep.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=inkeep.com"
               }
             ]
           },
@@ -9400,6 +9421,13 @@
                 "title": "Codédex | Course Catalog",
                 "url": "https://www.codedex.io/courses",
                 "icon": "https://www.google.com/s2/favicons?domain=www.codedex.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1760363763224,
+                "title": "Duruofu's 个人测试",
+                "url": "https://blog.duruofu.top/",
+                "icon": "https://www.google.com/s2/favicons?domain=blog.duruofu.top"
               }
             ]
           },
@@ -10240,6 +10268,27 @@
                 "title": "UinIO.com 电子技术实验室",
                 "url": "http://uinio.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=uinio.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760363696917,
+                "title": "CMIOT中国移动概览 - 物联网平台",
+                "url": "https://open.iot.10086.cn/console/summary",
+                "icon": "https://www.google.com/s2/favicons?domain=open.iot.10086.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1760506952758,
+                "title": "EMQX 文档",
+                "url": "https://docs.emqx.com/zh/",
+                "icon": "https://www.google.com/s2/favicons?domain=docs.emqx.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760506987409,
+                "title": "EMQX Platform Console",
+                "url": "https://cloud.emqx.com/console/",
+                "icon": "https://www.google.com/s2/favicons?domain=cloud.emqx.com"
               }
             ]
           },
