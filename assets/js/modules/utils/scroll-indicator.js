@@ -77,7 +77,7 @@ class CustomScrollIndicator {
      */
     attachEventListeners() {
         // 滚动事件
-        window.addEventListener('scroll', this.handleScroll, true);
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
         
         // 窗口大小变化事件
         window.addEventListener('resize', this.handleResize);
@@ -222,7 +222,7 @@ class CustomScrollIndicator {
         }
 
         // 移除事件监听器
-        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('scroll', this.handleScroll, { passive: true });
         window.removeEventListener('resize', this.handleResize);
 
         // 移除DOM元素
