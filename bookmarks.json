@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1760694289698,
+    "addDate": 1760963623580,
     "title": "书签栏",
     "children": [
       {
@@ -162,6 +162,13 @@
             "title": "aculix/bitplay：轻松在您的网络浏览器中传输视频种子。",
             "url": "https://github.com/aculix/bitplay",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1760855993037,
+            "title": "Csze BT种子发布共享系统 - BT种子|BT种子发布|BT影视下载|BT动漫下载|BT游戏下载|ACG",
+            "url": "https://bt.orzx.im/index.php",
+            "icon": "https://www.google.com/s2/favicons?domain=bt.orzx.im"
           }
         ]
       },
@@ -1507,13 +1514,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1730207433465,
-                "title": "狗蛋资源网",
-                "url": "https://goudanziyuan.cn/",
-                "icon": "https://www.google.com/s2/favicons?domain=goudanziyuan.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1732352119836,
                 "title": "FitGirl Repacks - The ONLY official site for FitGirl Repacks. Every single FG repack installer has a link inside, which leads here. Do not fall for fake and scam sites, which are using my name.",
                 "url": "https://fitgirl-repacks.site/",
@@ -1525,13 +1525,6 @@
                 "title": "Windows游戏 - 1212321游戏网 - H5游戏/手机游戏/PC游戏",
                 "url": "https://www.1212321.com/games/platform/WINDOWS.html?lang=zh-cn",
                 "icon": "https://www.google.com/s2/favicons?domain=www.1212321.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1745746863141,
-                "title": "steam宝儿be.com（免费游戏资源分享下载）",
-                "url": "https://steambe.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=steambe.com"
               },
               {
                 "type": "link",
@@ -2439,11 +2432,25 @@
             ]
           },
           {
-            "type": "link",
-            "addDate": 1753978637784,
-            "title": "秒搜-强大的网盘搜索引擎|百度|阿里|夸克",
-            "url": "https://miaosou.fun/",
-            "icon": "https://www.google.com/s2/favicons?domain=miaosou.fun"
+            "type": "folder",
+            "addDate": 1760856345414,
+            "title": "网盘搜索",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1760856324110,
+                "title": "502网盘搜 - 万能网盘资源搜索神器",
+                "url": "https://www.502so.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.502so.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1753978637784,
+                "title": "秒搜-强大的网盘搜索引擎|百度|阿里|夸克",
+                "url": "https://miaosou.fun/",
+                "icon": "https://www.google.com/s2/favicons?domain=miaosou.fun"
+              }
+            ]
           },
           {
             "type": "link",
@@ -2809,13 +2816,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1743503512747,
-                "title": "网易云VIP解析 - 全栈工具 - 免费实用的在线工具网站",
-                "url": "https://tools.qzxdp.cn/wyy_vip",
-                "icon": "https://www.google.com/s2/favicons?domain=tools.qzxdp.cn"
-              },
-              {
-                "type": "link",
                 "addDate": 1751646541283,
                 "title": "无损音乐免费下载_mp3歌曲免费下载",
                 "url": "https://www.isflac.com/",
@@ -3170,6 +3170,27 @@
                 "title": "mianfei22.com",
                 "url": "https://mianfei22.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=mianfei22.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760855803565,
+                "title": "小说列表_-妙味书屋",
+                "url": "https://www.tangsanbooks.com/all",
+                "icon": "https://www.google.com/s2/favicons?domain=www.tangsanbooks.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760856199417,
+                "title": "小说之家-免费看小说就上小说之家",
+                "url": "https://xszj.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=xszj.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1760856448293,
+                "title": "欧巴小说网_最值得收藏的小说网",
+                "url": "https://www.baode11.cc/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.baode11.cc"
               }
             ]
           },
@@ -3303,6 +3324,13 @@
                 "title": "搜书网站 - 英文书导航",
                 "url": "https://ywebook.com/category/%E6%90%9C%E4%B9%A6%E7%BD%91%E7%AB%99",
                 "icon": "https://www.google.com/s2/favicons?domain=ywebook.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760856006917,
+                "title": "txt小说网-全本完结txt小说下载-精校小说txt下载",
+                "url": "https://www.txtxiaoshuo.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.txtxiaoshuo.com"
               }
             ]
           },
@@ -3738,6 +3766,13 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1760930416820,
+                    "title": "Zen Browser",
+                    "url": "https://zen-browser.app/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zen-browser.app"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1704012714000,
                     "title": "下載測試未來版本的 Firefox 桌面版、Android 及 iOS 版本。",
                     "url": "https://www.mozilla.org/zh-TW/firefox/channel/desktop/#nightly",
@@ -3770,20 +3805,6 @@
                     "title": "AI-pinokio",
                     "url": "https://pinokio.computer/",
                     "icon": "https://www.google.com/s2/favicons?domain=pinokio.computer"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1742048568908,
-                    "title": "Zen Browser",
-                    "url": "https://zen-browser.app/?ref=https://szsyw.cn",
-                    "icon": "https://www.google.com/s2/favicons?domain=zen-browser.app"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1745937662195,
-                    "title": "奶酪浏览器：古希腊掌管网上冲浪的神！ - 奔跑中的奶酪",
-                    "url": "https://www.runningcheese.com/rc-browser",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.runningcheese.com"
                   }
                 ]
               },
@@ -7460,17 +7481,17 @@
                     "children": [
                       {
                         "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "PoeAI",
-                        "url": "https://poe.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=poe.com"
+                        "addDate": 1760790649410,
+                        "title": "HuggingChat",
+                        "url": "https://huggingface.co/chat/",
+                        "icon": "https://www.google.com/s2/favicons?domain=huggingface.co"
                       },
                       {
                         "type": "link",
-                        "addDate": 1734800649587,
-                        "title": "Duck Duck Go AI Chat",
-                        "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
-                        "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
+                        "addDate": 1756238069469,
+                        "title": "Yupp",
+                        "url": "https://yupp.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=yupp.ai"
                       },
                       {
                         "type": "link",
@@ -7488,10 +7509,17 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1756238069469,
-                        "title": "Yupp",
-                        "url": "https://yupp.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=yupp.ai"
+                        "addDate": 1704012714000,
+                        "title": "PoeAI",
+                        "url": "https://poe.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=poe.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1734800649587,
+                        "title": "Duck Duck Go AI Chat",
+                        "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
+                        "icon": "https://www.google.com/s2/favicons?domain=duckduckgo.com"
                       },
                       {
                         "type": "link",
@@ -12130,6 +12158,13 @@
                 "title": "程序员客栈-领先的程序员自由工作平台-程序员兼职",
                 "url": "https://www.proginn.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.proginn.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1760856277755,
+                "title": "BOSS直聘-找工作上BOSS直聘直接谈！招聘求职找工作！",
+                "url": "https://www.zhipin.com/suzhou/?seoRefer=index",
+                "icon": "https://www.google.com/s2/favicons?domain=www.zhipin.com"
               }
             ]
           },
