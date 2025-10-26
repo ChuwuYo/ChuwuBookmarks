@@ -130,36 +130,55 @@
     <script type="module" src="script.js"></script>
     <!-- 引入 instant.page -->
     <script src="assets/js/instant.page_v5.2.0.js" type="module" defer></script>
-    <!-- 结构化数据 - 部署时请修改以下内容 -->
+    <!-- 结构化数据（JSON-LD） - 使用根目录 structured-data.json 的内容，已内联以便搜索引擎抓取 -->
     <script type="application/ld+json">
     {
-      "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
-      "required_fields": ["name", "url", "author"],
-      "optional_fields": ["description", "alternateName", "inLanguage"],
-      
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "ChuwuBookmarks",
-      "alternateName": "初五的书签回廊",
-      "description": "基于浏览器的书签导航网页，将JSON书签数据转换为美观且功能丰富的网页应用。支持多级文件夹、智能搜索、面包屑导航、主题切换和响应式设计。",
-      "url": "https://tabs.chuwu.top/",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web Browser",
-      "author": {
-        "@type": "Person",
-        "name": "ChuwuYo", <!-- 部署时请替换为你的名称 -->
-        "url": "https://github.com/ChuwuYo" <!-- 部署时请替换为你的URL -->
-      },
-      "inLanguage": "zh-CN", <!-- 部署时请替换为你的语言代码 -->
-      "isAccessibleForFree": true,
-      "featureList": [
-        "多级文件夹分类",
-        "智能搜索功能",
-        "面包屑导航",
-        "响应式设计",
-        "主题切换"
-      ]
+        "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
+        "required_fields": ["name", "url", "author", "creator"],
+        "optional_fields": ["description", "alternateName", "inLanguage", "screenshot"],
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ChuwuBookmarks",
+        "alternateName": "初五的书签回廊",
+        "description": "个人书签导航站",
+        "url": "https://tabs.chuwu.top/",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web Browser",
+        "author": {
+            "@type": "Person",
+            "name": "ChuwuYo",
+            "url": "https://github.com/ChuwuYo"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "ChuwuYo",
+            "url": "https://github.com/ChuwuYo"
+        },
+        "dateCreated": "2025",
+        "inLanguage": "zh-CN",
+        "isAccessibleForFree": true,
+        "license": "https://github.com/ChuwuYo/ChuwuBookmarks/blob/main/LICENSE",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+        },
+        "featureList": [
+            "多级文件夹分类",
+            "智能搜索功能",
+            "面包屑导航",
+            "响应式设计",
+            "主题切换",
+            "键盘快捷键支持"
+        ],
+        "screenshot": "https://github.com/ChuwuYo/ChuwuBookmarks/blob/main/assets/images/tabs.chuwu.top.webp",
+        "softwareVersion": "1.0",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        }
     }
-    </script>
+        </script>
 </body>
 </html>
