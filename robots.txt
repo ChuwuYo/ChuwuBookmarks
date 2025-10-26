@@ -7,8 +7,7 @@ Allow: /
 
 # 禁止爬取目录
 Disallow: /assets/js/
-Disallow: /.git/
 Disallow: /docs/
 
 # Sitemap
-Sitemap: https://chuwuyo.github.io/ChuwuBookmarks/sitemap.xml
+Sitemap: https://tabs.chuwu.top/sitemap.xml
