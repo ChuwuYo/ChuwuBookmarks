@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1761451118759,
+    "addDate": 1761813589773,
     "title": "书签栏",
     "children": [
       {
@@ -814,6 +814,13 @@
             "children": [
               {
                 "type": "link",
+                "addDate": 1761811847152,
+                "title": "venera-app/venera: A comic app",
+                "url": "https://github.com/venera-app/venera",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
                 "addDate": 1742656460828,
                 "title": "Cmbok，一款免费开源的漫画、图书下载软件",
                 "url": "https://github.com/hlning/cmbok",
@@ -891,10 +898,10 @@
               },
               {
                 "type": "link",
-                "addDate": 1758782203536,
-                "title": "Kmoe [Kindle|epub漫畫]",
-                "url": "https://mox.moe/",
-                "icon": "https://www.google.com/s2/favicons?domain=mox.moe"
+                "addDate": 1761811830095,
+                "title": "COLAMANGA 为您提供优质的漫画阅读体验",
+                "url": "https://www.colamanga.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.colamanga.com"
               }
             ]
           },
@@ -1383,8 +1390,8 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "小妖怪分享|兴趣使然的资源搬运Blog",
-                "url": "https://www.xyg688.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.xyg688.com"
+                "url": "https://www.ixyg688.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.ixyg688.com"
               },
               {
                 "type": "link",
@@ -2309,6 +2316,20 @@
                 "title": "传文件，传文本，传屏幕，传实时视频 - 轻松传",
                 "url": "https://easychuan.cn/",
                 "icon": "https://www.google.com/s2/favicons?domain=easychuan.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1761707159317,
+                "title": "wifi504/translate-ha-jimi: 哈基密文加密器 | 哈吉米语翻译器 | 端到端加密聊天工具",
+                "url": "https://github.com/wifi504/translate-ha-jimi",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1761707167127,
+                "title": "Warma10032/hajimi-encoder: 哈基米加密器，让你的文字全部变成哈基米！",
+                "url": "https://github.com/Warma10032/hajimi-encoder",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -4173,7 +4194,7 @@
                   {
                     "type": "link",
                     "addDate": 1704012714000,
-                    "title": "Coubs ",
+                    "title": "Coubs",
                     "url": "https://coub.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=coub.com"
                   },
@@ -6768,6 +6789,13 @@
                 "title": "Squoosh",
                 "url": "https://squoosh.app/",
                 "icon": "https://www.google.com/s2/favicons?domain=squoosh.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1761619823557,
+                "title": "obamify",
+                "url": "https://obamify.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=obamify.com"
               }
             ]
           },
@@ -7614,6 +7642,20 @@
                       },
                       {
                         "type": "link",
+                        "addDate": 1728988403320,
+                        "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
+                        "url": "https://chat.minimaxi.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761617218856,
+                        "title": "StreamLake-AI Create Engine, Drives",
+                        "url": "https://www.streamlake.ai/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.streamlake.ai"
+                      },
+                      {
+                        "type": "link",
                         "addDate": 1761270792516,
                         "title": "Kwaipilot",
                         "url": "https://kwaipilot.ai/search",
@@ -7621,10 +7663,10 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1728988403320,
-                        "title": "海螺AI—MiniMax 旗下生产力产品，你的AI伙伴，10倍速提升工作学习效率",
-                        "url": "https://chat.minimaxi.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.minimaxi.com"
+                        "addDate": 1717499188488,
+                        "title": "Le Chat - Mistral AI",
+                        "url": "https://chat.mistral.ai/chat",
+                        "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
                       },
                       {
                         "type": "link",
@@ -7639,13 +7681,6 @@
                         "title": "K2 Think - MBZUAI",
                         "url": "https://www.k2think.ai/",
                         "icon": "https://www.google.com/s2/favicons?domain=www.k2think.ai"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1717499188488,
-                        "title": "Le Chat - Mistral AI",
-                        "url": "https://chat.mistral.ai/chat",
-                        "icon": "https://www.google.com/s2/favicons?domain=chat.mistral.ai"
                       },
                       {
                         "type": "link",
@@ -8541,6 +8576,13 @@
             "title": "护眼/LightBulb: Reduces eye strain by adjusting screen gamma based on the current time",
             "url": "https://github.com/Tyrrrz/LightBulb",
             "icon": "https://www.google.com/s2/favicons?domain=github.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1761793188360,
+            "title": "URL Shortener, Branded Short Links & Analytics | TinyURL",
+            "url": "https://tinyurl.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=tinyurl.com"
           }
         ]
       },
@@ -9662,8 +9704,8 @@
                     "type": "link",
                     "addDate": 1746800227809,
                     "title": "入门 - Go 编程语言",
-                    "url": "https://go.dev/learn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=go.dev"
+                    "url": "https://golang.google.cn/learn/",
+                    "icon": "https://www.google.com/s2/favicons?domain=golang.google.cn"
                   },
                   {
                     "type": "link",
@@ -9897,6 +9939,27 @@
                 "title": "sourcehut hub",
                 "url": "https://sr.ht/",
                 "icon": "https://www.google.com/s2/favicons?domain=sr.ht"
+              },
+              {
+                "type": "link",
+                "addDate": 1761657508870,
+                "title": "Codeberg.org",
+                "url": "https://codeberg.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=codeberg.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1761660617564,
+                "title": "AtomGit_开放原子开源基金会代码托管平台-AtomGit",
+                "url": "https://atomgit.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=atomgit.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1761794031329,
+                "title": "CNB - Cloud Native Build",
+                "url": "https://cnb.cool/",
+                "icon": "https://www.google.com/s2/favicons?domain=cnb.cool"
               }
             ]
           },
@@ -10261,20 +10324,6 @@
                 "title": "CMIOT中国移动概览 - 物联网平台",
                 "url": "https://open.iot.10086.cn/console/summary",
                 "icon": "https://www.google.com/s2/favicons?domain=open.iot.10086.cn"
-              },
-              {
-                "type": "link",
-                "addDate": 1760506952758,
-                "title": "EMQX 文档",
-                "url": "https://docs.emqx.com/zh/",
-                "icon": "https://www.google.com/s2/favicons?domain=docs.emqx.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1760506987409,
-                "title": "EMQX Platform Console",
-                "url": "https://cloud.emqx.com/console/",
-                "icon": "https://www.google.com/s2/favicons?domain=cloud.emqx.com"
               }
             ]
           },
