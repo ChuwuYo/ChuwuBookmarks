@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1761813589773,
+    "addDate": 1761970233170,
     "title": "书签栏",
     "children": [
       {
@@ -2755,8 +2755,8 @@
                 "type": "link",
                 "addDate": 1730375232786,
                 "title": "网易云音乐无损解析",
-                "url": "https://api.toubiec.cn/wyapi/",
-                "icon": "https://www.google.com/s2/favicons?domain=api.toubiec.cn"
+                "url": "https://wyapi.toubiec.cn/",
+                "icon": "https://www.google.com/s2/favicons?domain=wyapi.toubiec.cn"
               },
               {
                 "type": "link",
@@ -8931,11 +8931,179 @@
                 "title": "字体",
                 "children": [
                   {
-                    "type": "link",
-                    "addDate": 1739811366421,
-                    "title": "Browse Fonts - Google Fonts",
-                    "url": "https://fonts.google.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=fonts.google.com"
+                    "type": "folder",
+                    "addDate": 1761896404395,
+                    "title": "集合",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1739811366421,
+                        "title": "Browse Fonts - Google Fonts",
+                        "url": "https://fonts.google.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=fonts.google.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1746542292380,
+                        "title": "释放字体自由 - ZeoSeven Fonts",
+                        "url": "https://fonts.zeoseven.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=fonts.zeoseven.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897418208,
+                        "title": "Free Font - 商用免费艺术体字体下载｜Free Font 中文与英文字体合集",
+                        "url": "https://wangchujiang.com/free-font/",
+                        "icon": "https://www.google.com/s2/favicons?domain=wangchujiang.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1724787610246,
+                        "title": "字集-免费字体",
+                        "url": "https://wordshub.github.io/free-font/",
+                        "icon": "https://www.google.com/s2/favicons?domain=wordshub.github.io"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1738435005095,
+                        "title": "Download Free Chinese Fonts",
+                        "url": "https://www.freechinesefont.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.freechinesefont.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1704012714000,
+                        "title": "字由-让设计更有价值",
+                        "url": "https://www.hellofont.cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.hellofont.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1744902911031,
+                        "title": "喵闪字库-提供中文字体的在线预览和免费下载",
+                        "url": "https://www.miao3.cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.miao3.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896898530,
+                        "title": "猫啃网",
+                        "url": "https://www.maoken.com/freefonts",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.maoken.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897072555,
+                        "title": "字加网",
+                        "url": "https://www.zijia.com.cn/FindFont.html?auth_mode=3",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.zijia.com.cn"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897530857,
+                        "title": "✨中文网字计划-提供便捷实用的全字符集中文渲染方案",
+                        "url": "https://chinese-font.netlify.app/zh-cn/",
+                        "icon": "https://www.google.com/s2/favicons?domain=chinese-font.netlify.app"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761899437619,
+                        "title": "方正字库官网",
+                        "url": "https://www.foundertype.com/index.php/FindFont/index",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.foundertype.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761899770959,
+                        "title": "FontHub - Download 1000+ Free Programming Fonts with 10,000+ Developer Icons",
+                        "url": "https://www.fonthubinc.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=www.fonthubinc.com"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "folder",
+                    "addDate": 1761896479279,
+                    "title": "开源字体",
+                    "children": [
+                      {
+                        "type": "link",
+                        "addDate": 1744967848909,
+                        "title": "Fusion-JetBrainsMapleMono: JetBrains Maple Mono: The free and open-source font fused with JetBrains Mono & Maple Mono",
+                        "url": "https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1745979682068,
+                        "title": "字体subframe7536/maple-font: Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项",
+                        "url": "https://github.com/subframe7536/maple-font",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896387197,
+                        "title": "lxgw/LxgwWenKai: An unprofessional open-source Chinese font derived from Fontworks' Klee One. 一款非专业的开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。",
+                        "url": "https://github.com/lxgw/LxgwWenKai",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896937547,
+                        "title": "NoHeartPen/QiushuiShotai: An open-source Chinese font derived from Klee One and Ysabeau and LXGW WenKai.一款适合中日文混排的开源中文字体，基于 Ysabeau、 Klee One、霞鹜文楷衍生。",
+                        "url": "https://github.com/NoHeartPen/QiushuiShotai",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896855811,
+                        "title": "lxgw/LxgwWenKai-Screen: LXGW WenKai for Screen Reading.",
+                        "url": "https://github.com/lxgw/LxgwWenKai-Screen",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896987044,
+                        "title": "lxgw/kose-font: A Chinese handwriting font derived from SetoFont. 一款衍生于「濑户字体」的中文手写字型。",
+                        "url": "https://github.com/lxgw/kose-font",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896996843,
+                        "title": "lxgw/LxgwNeoZhiSong: A Chinese serif font derived from IPAmj Mincho. 一款衍生于「IPAmj明朝」的中文宋体字型。",
+                        "url": "https://github.com/lxgw/LxgwNeoZhiSong",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761896999282,
+                        "title": "lxgw/LxgwNeoXiHei: A Chinese sans-serif font derived from IPAex Gothic. 一款衍生于「IPAexゴシック」的中文黑体字型。",
+                        "url": "https://github.com/lxgw/LxgwNeoXiHei",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897018673,
+                        "title": "lxgw/LxgwZhenKai: 霞鹜臻楷：基于「霞鹜文楷」衍生，前期手动加粗调整字形，后期由 AI 生成字形辅助补字的开源中文字体。A bolder weight, AI-assisted font derived from LXGW Wenkai.",
+                        "url": "https://github.com/lxgw/LxgwZhenKai",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897457226,
+                        "title": "TakWolf/ark-pixel-font: Open source Pan-CJK pixel font / 开源的泛中日韩像素字体",
+                        "url": "https://github.com/TakWolf/ark-pixel-font",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1761897504110,
+                        "title": "laishulu/Sarasa-Term-SC-Nerd: 简体中文终端更纱黑体+Nerd图标字体库。中英文宽度完美2:1，图标长宽经过调整，不会出现对齐问题，尤其适合作为终端字体。",
+                        "url": "https://github.com/laishulu/Sarasa-Term-SC-Nerd",
+                        "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      }
+                    ]
                   },
                   {
                     "type": "link",
@@ -8950,41 +9118,6 @@
                     "title": "MiSans",
                     "url": "https://hyperos.mi.com/font/en/",
                     "icon": "https://www.google.com/s2/favicons?domain=hyperos.mi.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "字由-让设计更有价值",
-                    "url": "https://www.hellofont.cn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.hellofont.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1724787610246,
-                    "title": "字集-免费字体",
-                    "url": "https://wordshub.github.io/free-font/",
-                    "icon": "https://www.google.com/s2/favicons?domain=wordshub.github.io"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1738435005095,
-                    "title": "Download Free Chinese Fonts",
-                    "url": "https://www.freechinesefont.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.freechinesefont.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1744902911031,
-                    "title": "喵闪字库-提供中文字体的在线预览和免费下载",
-                    "url": "https://www.miao3.cn/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.miao3.cn"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1744967848909,
-                    "title": "Fusion-JetBrainsMapleMono: JetBrains Maple Mono: The free and open-source font fused with JetBrains Mono & Maple Mono",
-                    "url": "https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   },
                   {
                     "type": "link",
@@ -9016,24 +9149,24 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1745979682068,
-                    "title": "字体subframe7536/maple-font: Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项",
-                    "url": "https://github.com/subframe7536/maple-font",
-                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746542292380,
-                    "title": "释放字体自由 - ZeoSeven Fonts",
-                    "url": "https://fonts.zeoseven.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=fonts.zeoseven.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1746594751912,
                     "title": "字体设计GridType",
                     "url": "https://www.grid-type.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.grid-type.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1761897169263,
+                    "title": "統网  漢字源、形、音、義、碼网羅站點",
+                    "url": "https://zi.tools/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zi.tools"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1761899206786,
+                    "title": "isinvon/gold-foil-font-api: gold-foil-api - 烫金字体API, 为新年欢呼!",
+                    "url": "https://github.com/isinvon/gold-foil-font-api",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -9104,6 +9237,13 @@
                     "title": "Superdesign.dev - Open Source Design Agent",
                     "url": "https://www.superdesign.dev/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.superdesign.dev"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1761964357862,
+                    "title": "Affinity | Professional Creative Software, Free for Everyone",
+                    "url": "https://www.affinity.studio/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.affinity.studio"
                   }
                 ]
               },
