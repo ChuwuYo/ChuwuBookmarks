@@ -1,20 +1,23 @@
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/6e42f062-8cf9-4332-8d86-38ae92864233" alt="CWBocchi" width="150" height="150">
+    <img src="../../assets/icon/bocchi.png" alt="CWBocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
-    <a href="../../README.md">简体中文</a> | <a href="README_EN.md">English</a>
+    <h3><a href="../../README.md">简体中文</a> | <a href="README_EN.md">English</a></h3>
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ChuwuYo/ChuwuBookmarks)
+[![zread](https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/ChuwuYo/ChuwuBookmarks)
+
 </div>
 
 ---
-Project Overview
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ChuwuYo/ChuwuBookmarks)
+Project Overview
 ---
 
-This is a browser-based bookmark navigation webpage template designed to convert JSON bookmark data into a visually appealing and feature-rich web application, supporting multi-level folders, search functionality, breadcrumb navigation, and more.
+This is a browser-based bookmark navigation webpage template that converts JSON bookmark data into a visually appealing and feature-rich web application, supporting multi-level folders, search functionality, breadcrumb navigation, and more.
 
-For users outside mainland China, you can experience the website through the following links:
+Visit [Chuwu's Bookmark Corridor](https://tabs.chuwu.top/) to view example deployments.
 
-[Chuwu](https://tabs.chuwu.top/)
+You can also visit the following links to experience the service:
 
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
@@ -75,58 +78,58 @@ For users outside mainland China, you can experience the website through the fol
 ### **Core Features**
 
 1. **Sidebar Navigation**:
-
+   
    * Displays first-level folders
-
+   
    * Clicking a first-level folder displays subfolders and bookmarks in the main content area
-
+   
    * Supports expanding and collapsing nested multi-level folders
 
 2. **Main Content Area**:
-
+   
    * Displays subfolders and bookmarks of the current folder
 
    * Bookmarks are displayed as cards, supporting click-to-navigate
-
+   
    * Folders are displayed as icons, supporting click-to-enter subfolders
 
 3. **Breadcrumb Navigation**:
-
-   * Displays the current path (level of clicked folders)
-
+   
+   * Displays the current path (folder hierarchy)
+   
    * Supports returning to the previous level via breadcrumb navigation
 
 4. **Search Functionality**:
-
+   
    * Supports searching bookmarks by title
-
+   
    * Search results replace the content in the main content area
-
-   * Supports real-time rendering
+   
+   * Supports live search results
 
    * Pagination of search results
-   
+  
    * Folder-type results display the full path
 
 5. **Theme Switching**:
-
+   
    * Supports switching between dark and light modes
-
-   * PC supports hover effects, mobile optimized for touch interaction
+   
+   * PC supports hover effects, mobile optimization for touch interaction
 
 6. **Responsive Design**:
-
+   
    * Supports responsive layout for mobile(<480px) and PC devices
-
+   
    * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
    
    * Unified breakpoint system ensures optimal experience across different devices
 
-   * Some style optimizations have been made on the mobile end for better usability
+   * Mobile-specific style optimizations enhance usability
 
 7. **GSAP Animation Support**:
 
-   * Homepage messages include GSAP animations
+   * The homepage features GSAP animations
 
 8. **Keyboard Focus Support**:
 
