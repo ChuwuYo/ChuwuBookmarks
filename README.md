@@ -15,9 +15,9 @@
 
 这是一个基于浏览器的书签导航网页模板，旨在将JSON书签数据转换为一个美观且功能丰富的网页应用，支持多级文件夹、搜索、面包屑导航等。
 
-中国大陆用户请访问[初五的书签回廊](https://tabs.chuwu.top/)
+访问[初五的书签回廊](https://tabs.chuwu.top/)查看示例部署。
 
-非中国大陆可访问以下链接进行体验：
+也可访问以下链接进行体验：
 
 [CloudFlare](https://chuwubookmarks.pages.dev/)
 
