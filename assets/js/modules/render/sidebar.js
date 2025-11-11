@@ -37,48 +37,19 @@ const getLazyImageObserver = () => {
     return lazyImageObserver;
 };
 
-// 创建元素
+import { createElement as createItemElement } from './elements.js';
+
+// 创建元素（兼容旧签名，内部委托给通用工厂）
 const createElement = (type, item, onClick) => {
-    const element = document.createElement('div');
-    element.className = type;
-
-    if (type === 'folder') {
-        // 使用模板字符串一次性创建所有DOM
-        element.innerHTML = `
-            <span class="folder-icon">📁</span>
-            <span class="folder-name">${item.title}</span>
-        `;
-    } else {
-        const bookmarkIcon = document.createElement('span');
-        bookmarkIcon.className = 'bookmark-icon';
-        bookmarkIcon.textContent = '🔗';
-
-        // 优化的图标懒加载
-        if (item.icon) {
-            const img = document.createElement('img');
-            img.setAttribute('data-src', item.icon);
-            img.alt = '🔗';
-            img.style.display = 'none';
-            img.loading = 'lazy'; // 使用浏览器原生懒加载
-            
-            bookmarkIcon.appendChild(img);
-            getLazyImageObserver().observe(img);
+    return createItemElement(type, item, onClick, {
+        observeIcon: (img) => {
+            // 仅在存在懒加载观察器时绑定，保持行为与原实现一致
+            const observer = getLazyImageObserver();
+            if (observer) {
+                observer.observe(img);
+            }
         }
-
-        const link = document.createElement('a');
-        link.href = item.url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer'; // 安全性优化
-        link.textContent = item.title;
-
-        element.append(bookmarkIcon, link);
-    }
-
-    if (onClick) {
-        element.addEventListener('click', onClick, { passive: true });
-    }
-    
-    return element;
+    });
 };
 
 // 设置父引用
