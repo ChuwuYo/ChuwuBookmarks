@@ -487,14 +487,8 @@ const renderSearchResults = (results, renderMainContent) => {
 
 
 /**
- * 更新分页控件位置（响应式布局）
- */
-const updatePaginationPosition = () => {
-    searchResultsManager.updatePaginationPosition();
-};
-
-/**
  * 重置搜索分页状态 - 供外部调用
+ * 内部位置调整由 SearchResultsManager 自行处理
  */
 const resetSearchPagination = () => {
     searchResultsManager.reset();
