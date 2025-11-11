@@ -37,20 +37,7 @@ const getLazyImageObserver = () => {
     return lazyImageObserver;
 };
 
-import { createElement as createItemElement } from './elements.js';
-
-// 创建元素（兼容旧签名，内部委托给通用工厂）
-const createElement = (type, item, onClick) => {
-    return createItemElement(type, item, onClick, {
-        observeIcon: (img) => {
-            // 仅在存在懒加载观察器时绑定，保持行为与原实现一致
-            const observer = getLazyImageObserver();
-            if (observer) {
-                observer.observe(img);
-            }
-        }
-    });
-};
+import { createElement } from './elements.js';
 
 // 设置父引用
 const setParentReferences = (items, parent) => {
