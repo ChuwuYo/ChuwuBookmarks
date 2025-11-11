@@ -37,49 +37,7 @@ const getLazyImageObserver = () => {
     return lazyImageObserver;
 };
 
-// 创建元素
-const createElement = (type, item, onClick) => {
-    const element = document.createElement('div');
-    element.className = type;
-
-    if (type === 'folder') {
-        // 使用模板字符串一次性创建所有DOM
-        element.innerHTML = `
-            <span class="folder-icon">📁</span>
-            <span class="folder-name">${item.title}</span>
-        `;
-    } else {
-        const bookmarkIcon = document.createElement('span');
-        bookmarkIcon.className = 'bookmark-icon';
-        bookmarkIcon.textContent = '🔗';
-
-        // 优化的图标懒加载
-        if (item.icon) {
-            const img = document.createElement('img');
-            img.setAttribute('data-src', item.icon);
-            img.alt = '🔗';
-            img.style.display = 'none';
-            img.loading = 'lazy'; // 使用浏览器原生懒加载
-            
-            bookmarkIcon.appendChild(img);
-            getLazyImageObserver().observe(img);
-        }
-
-        const link = document.createElement('a');
-        link.href = item.url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer'; // 安全性优化
-        link.textContent = item.title;
-
-        element.append(bookmarkIcon, link);
-    }
-
-    if (onClick) {
-        element.addEventListener('click', onClick, { passive: true });
-    }
-    
-    return element;
-};
+import { createElement } from './elements.js';
 
 // 设置父引用
 const setParentReferences = (items, parent) => {
