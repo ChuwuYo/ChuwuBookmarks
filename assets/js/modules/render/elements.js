@@ -21,11 +21,16 @@ const createElement = (type, item, onClick, options = {}) => {
     element.className = type;
 
     if (type === 'folder') {
-        // 使用模板字符串一次性创建所有 DOM，保持与原 sidebar.js 一致
-        element.innerHTML = `
-            <span class="folder-icon">📁</span>
-            <span class="folder-name">${item.title}</span>
-        `;
+        // 使用显式节点创建，保持与原样式一致
+        const folderIcon = document.createElement('span');
+        folderIcon.className = 'folder-icon';
+        folderIcon.textContent = '📁';
+
+        const folderName = document.createElement('span');
+        folderName.className = 'folder-name';
+        folderName.textContent = item.title;
+
+        element.append(folderIcon, folderName);
     } else {
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
