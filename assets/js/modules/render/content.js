@@ -3,7 +3,7 @@
  */
 
 import { isMobileDevice, getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
-import { createElement } from './sidebar.js';
+import { createElement } from './elements.js';
 // 避免循环依赖，renderHome 将通过参数传递
 
 // 渲染主内容区
