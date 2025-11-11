@@ -17,8 +17,8 @@
    - 相关文件：[`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:489)
 
 2. 元素工厂解耦
-   - [ ] 将 createElement 从 sidebar 模块抽离到独立元素工厂（如 render/elements.js），供 sidebar/content/search 共用，避免 sidebar.js 作为全局元素工厂。
-   - 相关文件：[`assets/js/modules/render/sidebar.js`](assets/js/modules/render/sidebar.js:40), [`assets/js/modules/render/content.js`](assets/js/modules/render/content.js:146), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:151)
+   - [x] 将 createElement 从 sidebar 模块抽离到独立元素工厂（render/elements.js），并通过 sidebar.js 提供兼容包装，供 sidebar/content/search 共用，避免 sidebar.js 作为全局元素工厂唯一来源。
+   - 相关文件：[`assets/js/modules/render/elements.js`](assets/js/modules/render/elements.js:1), [`assets/js/modules/render/sidebar.js`](assets/js/modules/render/sidebar.js:40), [`assets/js/modules/render/content.js`](assets/js/modules/render/content.js:146), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:151)
 
 3. 消息展示统一管理
    - [ ] 抽取 Message/Overlay 管理模块（Home / Loading / Error / NoResults），统一负责 .home-message / .no-results / .error-message 的创建与销毁，减少 loader/home/search 对全局 DOM 的重复操作。
