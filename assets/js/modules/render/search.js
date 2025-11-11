@@ -26,7 +26,7 @@
  * - 移动端触摸友好的交互体验
  */
 
-import { createElement } from './sidebar.js';
+import { createElement } from './elements.js';
 import {
     PaginationController,
     PaginationRenderer,
