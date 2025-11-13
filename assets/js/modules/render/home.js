@@ -141,6 +141,8 @@ const setupEnglishCharacterAnimation = (spans) => {
 };
 
 // 渲染主页
+import { clearAllMessages } from './message.js';
+
 const renderHome = () => {
     const content = document.getElementById('content');
     const breadcrumbs = document.getElementById('breadcrumbs');
@@ -154,15 +156,8 @@ const renderHome = () => {
         console.error('清理分页控件失败:', error);
     }
 
-    // 彻底清除旧的主页消息，无论它在哪里
-    const oldHomeMessage = document.querySelector('.home-message');
-    if (oldHomeMessage) {
-        // 清理观察器（如果存在）
-        if (oldHomeMessage.observer) {
-            oldHomeMessage.observer.disconnect();
-        }
-        oldHomeMessage.remove();
-    }
+    // 使用统一管理清理所有消息元素，保证环境干净
+    clearAllMessages();
 
     const { fragment, homeMessage, chineseText, englishText } = createHomeStructure();
 

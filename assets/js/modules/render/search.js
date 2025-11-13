@@ -33,6 +33,7 @@ import {
     PaginationRenderUtils
 } from '../pagination/index.js';
 import { getCenteringManager } from '../utils/centering.js';
+import { clearAllMessages, showNoResultsMessage } from './message.js';
 
 /**
  * 搜索结果管理器 - 封装分页状态管理
@@ -424,17 +425,8 @@ const renderSearchResults = (results, renderMainContent) => {
     // 添加搜索状态标记，防止位置调整干扰
     content.classList.add('search-rendering');
 
-    // 清除主页消息和现有内容
-    const existingHomeMessage = document.querySelector('.home-message');
-    if (existingHomeMessage) {
-        existingHomeMessage.remove();
-    }
-
-    // 清除之前可能残留的 no-results 元素
-    const existingNoResults = document.querySelector('.no-results');
-    if (existingNoResults) {
-        existingNoResults.remove();
-    }
+    // 使用统一管理清理所有消息元素
+    clearAllMessages();
 
     // 清理现有的分页控制器和虚拟滚动
     searchResultsManager.reset();
@@ -443,10 +435,7 @@ const renderSearchResults = (results, renderMainContent) => {
     breadcrumbs.innerHTML = '';
 
     if (!results || !results.length) {
-        const noResults = document.createElement('div');
-        noResults.className = 'centered-message no-results centered-element vertical-center';
-        noResults.textContent = '未找到匹配的书签';
-        content.appendChild(noResults);
+        showNoResultsMessage(content);
         
         // 注册到统一居中系统
         const centeringManager = getCenteringManager();
