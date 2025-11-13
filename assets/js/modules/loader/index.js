@@ -17,12 +17,6 @@ const showLoadingIndicator = () => {
 };
 
 // 显示错误信息
-const showErrorMessageLegacy = (error) => {
-    // 兼容旧命名导出，内部委托给统一消息管理
-    showErrorMessage(error);
-    const centeringManager = getCenteringManager();
-    centeringManager.updateSingleElement('error-message');
-};
 
 // 加载书签数据 - 使用Web Worker优化
 
@@ -83,8 +77,12 @@ const loadBookmarksData = async (renderMainContent) => {
             console.error('Worker failed to load data:', error);
             // 只有在没有缓存数据可显示时才显示错误信息
             if (!localStorage.getItem('bookmarksData')) {
-                // 使用setTimeout确保在下一个事件循环中显示错误消息
-                setTimeout(() => showErrorMessageLegacy(new Error(error)), 10);
+                // 使用 setTimeout 确保在下一个事件循环中显示错误消息，并保持与居中系统的集成
+                setTimeout(() => {
+                    showErrorMessage(new Error(error));
+                    const centeringManager = getCenteringManager();
+                    centeringManager.updateSingleElement('error-message');
+                }, 10);
             } else {
                 // 如果有缓存数据，仍然渲染主页
                 renderHome();
@@ -97,8 +95,12 @@ const loadBookmarksData = async (renderMainContent) => {
     dataWorker.onerror = (error) => {
         console.error('Data Worker encountered an error:', error);
         if (!localStorage.getItem('bookmarksData')) {
-            // 使用setTimeout确保在下一个事件循环中显示错误消息
-            setTimeout(() => showErrorMessageLegacy(new Error(error.message || 'Web Worker加载失败')), 10);
+            // 使用 setTimeout 确保在下一个事件循环中显示错误消息，并保持与居中系统的集成
+            setTimeout(() => {
+                showErrorMessage(new Error(error.message || 'Web Worker加载失败'));
+                const centeringManager = getCenteringManager();
+                centeringManager.updateSingleElement('error-message');
+            }, 10);
         } else {
             // 如果有缓存数据，仍然渲染主页
             renderHome();

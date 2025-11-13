@@ -17,6 +17,8 @@ const SELECTORS = {
     ERROR_MESSAGE: '.error-message'
 };
 
+import { getCenteringManager } from '../utils/centering.js';
+
 /**
  * 清理指定选择器对应的所有元素
  * @param {string|string[]} selectors
@@ -71,6 +73,7 @@ const showLoadingMessage = (contentEl, breadcrumbsEl) => {
 
 /**
  * 显示错误消息（全局覆盖，用于数据加载失败）
+ * 内部整合定位逻辑，调用方无需关心居中实现
  */
 const showErrorMessage = (error) => {
     clearElements([
@@ -102,10 +105,15 @@ const showErrorMessage = (error) => {
 
     message.append(heading, line1, line2);
     document.body.appendChild(message);
+
+    // 统一在此处触发居中逻辑，避免调用方重复实现
+    const centeringManager = getCenteringManager();
+    centeringManager.updateSingleElement('error-message');
 };
 
 /**
  * 显示“未找到结果”消息（用于搜索无结果）
+ * 内部整合定位逻辑，调用方无需关心居中实现
  */
 const showNoResultsMessage = (contentEl) => {
     if (!contentEl) return;
@@ -121,6 +129,10 @@ const showNoResultsMessage = (contentEl) => {
 
     contentEl.innerHTML = '';
     contentEl.appendChild(noResults);
+
+    // 统一在此处触发居中逻辑
+    const centeringManager = getCenteringManager();
+    centeringManager.updateSingleElement('no-results');
 };
 
 export {
