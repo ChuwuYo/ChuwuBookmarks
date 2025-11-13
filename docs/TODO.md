@@ -5,10 +5,9 @@
 2. 面包屑导航第一个面包屑的聚焦样式左侧色彩被淡化
 
 ## 建议
-~~1. 是否要结合UA判断来做响应式处理（复杂且低效）~~
-2. 搜索结果筛选：文件夹名/书签名/URL
-3. 考虑是否重新使用oobe这样的加载库
-4. 多根目录时考虑展开得到一级文件夹
+1. 搜索结果筛选：文件夹名/书签名/URL
+2. 考虑是否重新使用oobe这样的加载库
+3. 多根目录时考虑展开得到一级文件夹
 
 ## 架构与耦合优化（待处理）
 
@@ -21,7 +20,7 @@
    - 相关文件：[`assets/js/modules/render/elements.js`](assets/js/modules/render/elements.js:1), [`assets/js/modules/render/sidebar.js`](assets/js/modules/render/sidebar.js:40), [`assets/js/modules/render/content.js`](assets/js/modules/render/content.js:146), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:151)
 
 3. 消息展示统一管理
-   - [x 抽取 Message/Overlay 管理模块（Home / Loading / Error / NoResults），统一负责 .home-message / .no-results / .error-message 的创建与销毁，减少 loader/home/search 对全局 DOM 的重复操作。
+   - [x] 抽取 Message/Overlay 管理模块（Home / Loading / Error / NoResults），统一负责 .home-message / .no-results / .error-message 的创建与销毁，减少 loader/home/search 对全局 DOM 的重复操作。
    - 相关文件：[`assets/js/modules/render/home.js`](assets/js/modules/render/home.js:157), [`assets/js/modules/loader/index.js`](assets/js/modules/loader/index.js:11), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:428)
 
 4. 事件监听聚合模块瘦身
@@ -35,47 +34,3 @@
 6. 废弃/未使用逻辑清理
    - [ ] 核查并处理 device.js 中 updatePaginationPositionIfExists 等未导出/未调用的遗留函数，确认是否接入当前分页响应式方案或删除，避免误导后续维护。
    - 相关文件：[`assets/js/modules/render/device.js`](assets/js/modules/render/device.js:66)
-
-## 已修复的问题
-
-- [x] 模块化了CSS
-
-- [x] 解决了CSP警告
-
-- [x] 解决字体模糊问题
-
-- [x] 修复gif背景缩放位置问题
-
-- [x] 合并DOM监听器
-
-- [x] 拆分函数为单一职责
-
-- [x] 修复移动端点击后样式丢失问题
-
-- [x] 统一断点系统重构
-
-- [x] 模块化了Render相关js
-
-- [x] 修复若干响应式bug
-
-- [x] 修复多个渲染问题
-
-- [x] 搜索结果分页
-
-- [x] 分页控件响应式设计
-
-- [x] 移动端分页优化
-
-- [x] 分页控件样式统一
-
-- [x] 分页性能优化
-
-- [x] 分页无障碍支持
-
-- [x] 分页滚动行为优化
-
-- [x] 无结果提示的清理
-
-- [x] 一些部件的位置修复
-
-- [x] 缓存优化
