@@ -21,7 +21,7 @@
    - 相关文件：[`assets/js/modules/render/elements.js`](assets/js/modules/render/elements.js:1), [`assets/js/modules/render/sidebar.js`](assets/js/modules/render/sidebar.js:40), [`assets/js/modules/render/content.js`](assets/js/modules/render/content.js:146), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:151)
 
 3. 消息展示统一管理
-   - [ ] 抽取 Message/Overlay 管理模块（Home / Loading / Error / NoResults），统一负责 .home-message / .no-results / .error-message 的创建与销毁，减少 loader/home/search 对全局 DOM 的重复操作。
+   - [x 抽取 Message/Overlay 管理模块（Home / Loading / Error / NoResults），统一负责 .home-message / .no-results / .error-message 的创建与销毁，减少 loader/home/search 对全局 DOM 的重复操作。
    - 相关文件：[`assets/js/modules/render/home.js`](assets/js/modules/render/home.js:157), [`assets/js/modules/loader/index.js`](assets/js/modules/loader/index.js:11), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:428)
 
 4. 事件监听聚合模块瘦身
