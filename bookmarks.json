@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1762508463383,
+    "addDate": 1763132227535,
     "title": "书签栏",
     "children": [
       {
@@ -646,6 +646,13 @@
             "children": [
               {
                 "type": "link",
+                "addDate": 1757177279868,
+                "title": "巴哈姆特動畫瘋",
+                "url": "https://ani.gamer.com.tw/",
+                "icon": "https://www.google.com/s2/favicons?domain=ani.gamer.com.tw"
+              },
+              {
+                "type": "link",
                 "addDate": 1756753279655,
                 "title": "樱空学园 - 樱花之空中起舞吧！❀ skrso.com",
                 "url": "https://www.sakuramau.com/",
@@ -760,8 +767,8 @@
                 "type": "link",
                 "addDate": 1756753515778,
                 "title": "MX动漫",
-                "url": "https://www.mxdm.xyz/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.mxdm.xyz"
+                "url": "http://mxdm.fans/",
+                "icon": "https://www.google.com/s2/favicons?domain=mxdm.fans"
               },
               {
                 "type": "link",
@@ -797,13 +804,6 @@
                 "title": "超高清画质的动漫网站 - 二矿动漫",
                 "url": "https://www.2rk.cc/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.2rk.cc"
-              },
-              {
-                "type": "link",
-                "addDate": 1757177279868,
-                "title": "巴哈姆特動畫瘋",
-                "url": "https://ani.gamer.com.tw/",
-                "icon": "https://www.google.com/s2/favicons?domain=ani.gamer.com.tw"
               }
             ]
           },
@@ -1301,6 +1301,13 @@
                 "title": "X Minecraft Launcher - 一個現代化的 Minecraft 啟動器 | X Minecraft Launcher",
                 "url": "https://xmcl.app/zh-TW/",
                 "icon": "https://www.google.com/s2/favicons?domain=xmcl.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1762943543340,
+                "title": "北极熊的地图列表",
+                "url": "https://maplist.atland.icu/",
+                "icon": "https://www.google.com/s2/favicons?domain=maplist.atland.icu"
               }
             ]
           },
@@ -2193,9 +2200,9 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "PikPak 云盘",
-                "url": "https://mypikpak.com/drive/recent?action=highlight_files&file_ids=VNmtF82YChy6vmBRR0EDQ31mo1",
+                "addDate": 1714116207291,
+                "title": "全部文件 | PikPak 云盘",
+                "url": "https://mypikpak.com/drive/all",
                 "icon": "https://www.google.com/s2/favicons?domain=mypikpak.com"
               },
               {
@@ -2204,13 +2211,6 @@
                 "title": "小飞机网盘官网—分享、下载、存储，更简单",
                 "url": "https://www.feijipan.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.feijipan.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1714116207291,
-                "title": "全部文件 | PikPak 云盘",
-                "url": "https://mypikpak.com/drive/all",
-                "icon": "https://www.google.com/s2/favicons?domain=mypikpak.com"
               },
               {
                 "type": "link",
@@ -2235,13 +2235,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "Qiwi - The Best Mediafire Alternative for File Sharing --- Qiwi - 文件共享的最佳媒体火替代方案",
-                "url": "https://qiwi.gg/",
-                "icon": "https://www.google.com/s2/favicons?domain=qiwi.gg"
-              },
-              {
-                "type": "link",
                 "addDate": 1756974244062,
                 "title": "Proton Drive",
                 "url": "https://drive.proton.me/",
@@ -2253,6 +2246,13 @@
                 "title": "NekoShare-游戏存储",
                 "url": "https://share.nekogal.top/home",
                 "icon": "https://www.google.com/s2/favicons?domain=share.nekogal.top"
+              },
+              {
+                "type": "link",
+                "addDate": 1763097039207,
+                "title": "Ranoz",
+                "url": "https://ranoz.gg/",
+                "icon": "https://www.google.com/s2/favicons?domain=ranoz.gg"
               }
             ]
           },
@@ -2881,6 +2881,13 @@
                     "title": "metowolf/Meting: :cake: 哇，这么强大的音乐 API 框架",
                     "url": "https://github.com/metowolf/Meting",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1763032225288,
+                    "title": "GD Studio's Online Music Platform API",
+                    "url": "https://music-api.gdstudio.xyz/api.php?btwaf=20124967",
+                    "icon": "https://www.google.com/s2/favicons?domain=music-api.gdstudio.xyz"
                   }
                 ]
               },
@@ -2945,6 +2952,13 @@
                 "addDate": 1757945086727,
                 "title": "jitwxs/163MusicLyrics: 云音乐歌词获取处理工具【网易云、QQ音乐】",
                 "url": "https://github.com/jitwxs/163MusicLyrics",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1763032481427,
+                "title": "UnblockNeteaseMusic/server: Revive unavailable songs for Netease Cloud Music (Refactored & Enhanced version)",
+                "url": "https://github.com/UnblockNeteaseMusic/server",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
@@ -3798,6 +3812,13 @@
                     "title": "AI-pinokio",
                     "url": "https://pinokio.computer/",
                     "icon": "https://www.google.com/s2/favicons?domain=pinokio.computer"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1762915784026,
+                    "title": "zzp198/Google-Chrome-Portable: Google Chrome 便携版",
+                    "url": "https://github.com/zzp198/Google-Chrome-Portable",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -4720,6 +4741,104 @@
         "addDate": 1704014875984,
         "title": "欣赏",
         "children": [
+          {
+            "type": "folder",
+            "addDate": 1740980512052,
+            "title": "地图",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "卫星地图-Google Earth高清卫星地图-谷歌地图-地球在线",
+                "url": "https://www.earthol.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.earthol.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Google 地图",
+                "url": "https://www.google.com.hk/maps/?hl=zh-CN",
+                "icon": "https://www.google.com/s2/favicons?domain=www.google.com.hk"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Bing 地图 - 路线、旅程规划、交通摄像头等",
+                "url": "https://www.bing.com/maps/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.bing.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1709633572176,
+                "title": "51Earth",
+                "url": "https://51earth.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=51earth.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Google Earth",
+                "url": "https://earth.google.com/web/",
+                "icon": "https://www.google.com/s2/favicons?domain=earth.google.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1726068511922,
+                "title": "openstreetmap.org",
+                "url": "https://www.openstreetmap.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.openstreetmap.org"
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
+                "title": "Airpano",
+                "url": "https://www.airpano.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.airpano.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1745720771364,
+                "title": "OMap–GeoDB九州数据库",
+                "url": "https://his.lreept.space/openqgis/omap-geodb/",
+                "icon": "https://www.google.com/s2/favicons?domain=his.lreept.space"
+              },
+              {
+                "type": "link",
+                "addDate": 1746542773029,
+                "title": "3D地图Pathfinder",
+                "url": "https://pathfinder.shadowdev.xyz/",
+                "icon": "https://www.google.com/s2/favicons?domain=pathfinder.shadowdev.xyz"
+              },
+              {
+                "type": "link",
+                "addDate": 1746543195115,
+                "title": "带有山脉信息的地图Map Viewer",
+                "url": "https://www.arcgis.com/apps/mapviewer/index.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.arcgis.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1747470505204,
+                "title": "OsmAnd Map",
+                "url": "https://osmand.net/map/#5/50.000/5.000",
+                "icon": "https://www.google.com/s2/favicons?domain=osmand.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1749174111852,
+                "title": "Mapcarta - The Open Map",
+                "url": "https://mapcarta.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=mapcarta.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1762857845635,
+                "title": "The World Factbook - The World Factbook",
+                "url": "https://www.cia.gov/the-world-factbook/",
+                "icon": "https://www.google.com/s2/favicons?domain=www.cia.gov"
+              }
+            ]
+          },
           {
             "type": "folder",
             "addDate": 1740980583602,
@@ -6614,6 +6733,27 @@
                 "title": "Convertio — 文件转换器",
                 "url": "https://convertio.co/zh/",
                 "icon": "https://www.google.com/s2/favicons?domain=convertio.co"
+              },
+              {
+                "type": "link",
+                "addDate": 1762740698103,
+                "title": "datalab-to/marker: Convert PDF to markdown + JSON quickly with high accuracy",
+                "url": "https://github.com/datalab-to/marker",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1762740713626,
+                "title": "MinerU",
+                "url": "https://mineru.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=mineru.net"
+              },
+              {
+                "type": "link",
+                "addDate": 1763040041884,
+                "title": "C4illin/ConvertX: 💾 Self-hosted online file converter. Supports 1000+ formats ⚙️",
+                "url": "https://github.com/C4illin/ConvertX",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -7663,13 +7803,6 @@
                       },
                       {
                         "type": "link",
-                        "addDate": 1761617218856,
-                        "title": "StreamLake-AI Create Engine, Drives",
-                        "url": "https://www.streamlake.ai/",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.streamlake.ai"
-                      },
-                      {
-                        "type": "link",
                         "addDate": 1761270792516,
                         "title": "Kwaipilot",
                         "url": "https://kwaipilot.ai/search",
@@ -7826,6 +7959,13 @@
                   },
                   {
                     "type": "link",
+                    "addDate": 1713853816390,
+                    "title": "Gemini",
+                    "url": "https://gemini.google.com/app",
+                    "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com"
+                  },
+                  {
+                    "type": "link",
                     "addDate": 1755538211521,
                     "title": "Microsoft Copilot: Your AI companion",
                     "url": "https://copilot.microsoft.com/chats",
@@ -7837,13 +7977,6 @@
                     "title": "GitHub Copilot",
                     "url": "https://github.com/copilot",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1713853816390,
-                    "title": "Gemini",
-                    "url": "https://gemini.google.com/app",
-                    "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com"
                   },
                   {
                     "type": "link",
@@ -7984,6 +8117,13 @@
                     "title": "Hello from Learning Prompt | Learning Prompt",
                     "url": "https://learningprompt.wiki/",
                     "icon": "https://www.google.com/s2/favicons?domain=learningprompt.wiki"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1763131432176,
+                    "title": "PromptPilot",
+                    "url": "https://promptpilot.volcengine.com/home",
+                    "icon": "https://www.google.com/s2/favicons?domain=promptpilot.volcengine.com"
                   }
                 ]
               },
@@ -9305,30 +9445,37 @@
               },
               {
                 "type": "folder",
+                "addDate": 1744173960076,
+                "title": "背景",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1739645399243,
+                    "title": "抽象动态背景生成器,免费导出图片视频或JS脚本",
+                    "url": "https://www.color4bg.com/zh-hans/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.color4bg.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "清新背景渐变|💎 WebGradients.com",
+                    "url": "https://webgradients.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=webgradients.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1762860768662,
+                    "title": "GradientsHub - 免费渐变背景和生成器工具",
+                    "url": "https://gradientshub.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=gradientshub.com"
+                  }
+                ]
+              },
+              {
+                "type": "folder",
                 "addDate": 1744885923387,
                 "title": "图片效果",
                 "children": [
-                  {
-                    "type": "folder",
-                    "addDate": 1744173960076,
-                    "title": "背景",
-                    "children": [
-                      {
-                        "type": "link",
-                        "addDate": 1739645399243,
-                        "title": "抽象动态背景生成器,免费导出图片视频或JS脚本",
-                        "url": "https://www.color4bg.com/zh-hans/",
-                        "icon": "https://www.google.com/s2/favicons?domain=www.color4bg.com"
-                      },
-                      {
-                        "type": "link",
-                        "addDate": 1704012714000,
-                        "title": "清新背景渐变|💎 WebGradients.com",
-                        "url": "https://webgradients.com/",
-                        "icon": "https://www.google.com/s2/favicons?domain=webgradients.com"
-                      }
-                    ]
-                  },
                   {
                     "type": "link",
                     "addDate": 1744285153476,
@@ -9954,13 +10101,6 @@
                 "children": [
                   {
                     "type": "link",
-                    "addDate": 1757379628134,
-                    "title": "帆软在线数据分析平台",
-                    "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
-                    "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1748488923181,
                     "title": "网站数据统计Umami",
                     "url": "https://umami.is/",
@@ -10051,6 +10191,13 @@
                 "title": "StackBlitz | Instant Dev Environments | Click. Code. Done.",
                 "url": "https://stackblitz.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=stackblitz.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1757379628134,
+                "title": "帆软在线数据分析平台",
+                "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
+                "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
               }
             ]
           },
@@ -10558,6 +10705,20 @@
                         "title": "DavidHDev/vue-bits：一个开源的动画、交互式和完全可定制的 Vue 组件集合，用于构建令人惊叹、令人难忘的网站。",
                         "url": "https://github.com/DavidHDev/vue-bits",
                         "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1762702849781,
+                        "title": "Vue Bits - Animated UI Components For Vue",
+                        "url": "https://vue-bits.dev/",
+                        "icon": "https://www.google.com/s2/favicons?domain=vue-bits.dev"
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1762702903869,
+                        "title": "Inspira UI: Build beautiful websites using Vue & Nuxt",
+                        "url": "https://inspira-ui.com/",
+                        "icon": "https://www.google.com/s2/favicons?domain=inspira-ui.com"
                       }
                     ]
                   },
@@ -10742,6 +10903,13 @@
                     "title": "CSS Design Awards - Website Awards - Best Web Design Inspiration - CSS Awards",
                     "url": "https://www.cssdesignawards.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.cssdesignawards.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1762860639570,
+                    "title": "Curated Web Design Inspiration & Templates - InspoWeb",
+                    "url": "https://www.inspoweb.com/?ref=ricocc.com",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.inspoweb.com"
                   }
                 ]
               },
@@ -10814,6 +10982,13 @@
                 "title": "CodePen: Online Code Editor and Front End Web Developer Community",
                 "url": "https://codepen.io/",
                 "icon": "https://www.google.com/s2/favicons?domain=codepen.io"
+              },
+              {
+                "type": "link",
+                "addDate": 1762860810293,
+                "title": "UIUXDECK",
+                "url": "https://uiuxdeck.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=uiuxdeck.com"
               }
             ]
           },
@@ -12488,97 +12663,6 @@
             "addDate": 1738681197381,
             "title": "旅行",
             "children": [
-              {
-                "type": "folder",
-                "addDate": 1740980512052,
-                "title": "地图",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "卫星地图-Google Earth高清卫星地图-谷歌地图-地球在线",
-                    "url": "https://www.earthol.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.earthol.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Google 地图",
-                    "url": "https://www.google.com.hk/maps/?hl=zh-CN",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.google.com.hk"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Bing 地图 - 路线、旅程规划、交通摄像头等",
-                    "url": "https://www.bing.com/maps/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.bing.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1709633572176,
-                    "title": "51Earth",
-                    "url": "https://51earth.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=51earth.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Google Earth",
-                    "url": "https://earth.google.com/web/",
-                    "icon": "https://www.google.com/s2/favicons?domain=earth.google.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1726068511922,
-                    "title": "openstreetmap.org",
-                    "url": "https://www.openstreetmap.org/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.openstreetmap.org"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Airpano",
-                    "url": "https://www.airpano.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.airpano.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1745720771364,
-                    "title": "OMap–GeoDB九州数据库",
-                    "url": "https://his.lreept.space/openqgis/omap-geodb/",
-                    "icon": "https://www.google.com/s2/favicons?domain=his.lreept.space"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746542773029,
-                    "title": "3D地图Pathfinder",
-                    "url": "https://pathfinder.shadowdev.xyz/",
-                    "icon": "https://www.google.com/s2/favicons?domain=pathfinder.shadowdev.xyz"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746543195115,
-                    "title": "带有山脉信息的地图Map Viewer",
-                    "url": "https://www.arcgis.com/apps/mapviewer/index.html",
-                    "icon": "https://www.google.com/s2/favicons?domain=www.arcgis.com"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1747470505204,
-                    "title": "OsmAnd Map",
-                    "url": "https://osmand.net/map/#5/50.000/5.000",
-                    "icon": "https://www.google.com/s2/favicons?domain=osmand.net"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1749174111852,
-                    "title": "Mapcarta - The Open Map",
-                    "url": "https://mapcarta.com/",
-                    "icon": "https://www.google.com/s2/favicons?domain=mapcarta.com"
-                  }
-                ]
-              },
               {
                 "type": "link",
                 "addDate": 1730714782387,
