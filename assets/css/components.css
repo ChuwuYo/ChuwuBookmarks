@@ -9,6 +9,7 @@
     opacity: 0.7;
     pointer-events: none;
 }
+
 .shortcut-hint span {
     background: var(--button-bg);
     color: var(--text-color);
@@ -16,10 +17,12 @@
     border-radius: 3px;
     font-size: 12px;
 }
-#search-input:not(:placeholder-shown) ~ .shortcut-hint {
+
+#search-input:not(:placeholder-shown)~.shortcut-hint {
     opacity: 0;
     transition: opacity var(--duration-base) var(--ease-default);
 }
+
 .search-container {
     display: flex;
     align-items: center;
@@ -32,10 +35,11 @@
     outline: none;
     backface-visibility: hidden;
     overflow: visible;
-    
+
     /* 添加左侧空白补偿，与主页按钮宽度匹配 */
     padding-left: calc(1rem + 15px + 6px + 5px);
 }
+
 .search-input-wrapper {
     position: relative;
     display: inline-block;
@@ -47,7 +51,7 @@
     font-size: 1rem;
     border: 2px solid #a4d1c4;
     border-radius: 8px;
-    width: 200px;
+    width: 230px;
     max-width: calc(100vw - 120px);
     box-sizing: border-box;
     background: var(--bg-color);
@@ -59,7 +63,9 @@
     text-rendering: optimizeLegibility;
     font-synthesis: none;
     outline: none;
+    transition: all var(--duration-base) var(--ease-default);
 }
+
 #search-input::placeholder {
     font-family: 'DingTalk JinBuTi', sans-serif;
     color: var(--text-color);
@@ -69,6 +75,7 @@
     text-rendering: optimizeLegibility;
     font-synthesis: none;
 }
+
 /* 搜索框悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
     #search-input:hover {
@@ -92,6 +99,7 @@
     box-shadow: var(--shadow-sm);
     transform: scale(1.02);
 }
+
 /* 面包屑导航 */
 #breadcrumbs {
     font-weight: bold;
@@ -110,6 +118,7 @@
     /* 防止布局偏移 */
     contain: layout style;
 }
+
 .breadcrumb-item {
     cursor: pointer;
     color: var(--link-color);
@@ -135,6 +144,7 @@ button.breadcrumb-item {
     margin: 0 4px 4px 0;
     min-height: 24px;
 }
+
 /* 面包屑悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
     .breadcrumb-item:hover {
@@ -144,20 +154,24 @@ button.breadcrumb-item {
         text-decoration: underline;
     }
 }
+
 .breadcrumb-separator {
     color: var(--text-color);
     margin: 0 4px;
     user-select: none;
 }
+
 .breadcrumb-item:last-child {
     color: var(--text-color);
     font-weight: bold;
     cursor: default;
 }
+
 .breadcrumb-item:last-child:hover {
     background: transparent;
     text-decoration: none;
 }
+
 /* 滚动提示样式 */
 #breadcrumbs.scrollable:not(.at-end)::after {
     content: '';
@@ -197,7 +211,8 @@ button.breadcrumb-item {
     width: 100%;
     max-width: 600px;
     position: relative;
-    padding-left: 5px; /* 增加一点左侧内边距 */
+    padding-left: 5px;
+    /* 增加一点左侧内边距 */
     /* 移除导致元素扩散的transform和left */
 }
 
@@ -217,6 +232,7 @@ button.breadcrumb-item {
     /* 防止布局偏移 */
     contain: layout;
 }
+
 #content .folder {
     user-select: none;
     -webkit-user-drag: none;
@@ -229,33 +245,35 @@ button.breadcrumb-item {
     min-width: 120px;
     min-height: 32px;
 }
+
 /* 文件夹悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
     #content .folder:hover {
         transform: translateY(-1px);
         cursor: pointer;
     }
-    
+
     #content .folder:hover .folder-name {
         color: var(--link-color);
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         box-shadow: var(--shadow-sm);
     }
-    
+
     #content .bookmark:hover {
         transform: translateY(-1px);
     }
-    
+
     #content .bookmark a:hover {
         color: var(--link-color);
         box-shadow: var(--shadow-sm);
     }
-    
+
     .github-link:hover {
         transform: scale(1.1);
         color: var(--link-color);
     }
 }
+
 #content .folder .folder-name {
     font-size: 1.0rem;
     padding: 0.25rem 0.5rem;
@@ -281,6 +299,7 @@ button.breadcrumb-item {
     font-size: 16px;
     line-height: 1;
 }
+
 #content .bookmark .bookmark-icon img {
     width: 100%;
     height: 100%;
@@ -293,6 +312,7 @@ button.breadcrumb-item {
     min-height: 16px;
     box-sizing: border-box;
 }
+
 #content .bookmark a {
     color: var(--text-color);
     text-decoration: none;
@@ -325,16 +345,20 @@ button.breadcrumb-item {
     font-family: 'DingTalk JinBuTi', sans-serif;
     color: var(--text-color);
 }
+
 .home-message .english-text {
     font-family: 'DingTalk JinBuTi', sans-serif;
     color: var(--link-color);
 }
+
 .home-message .chinese-text {
     font-size: 3rem;
 }
+
 .home-message .english-text {
     font-size: 2rem;
 }
+
 /* 主页消息基础样式 */
 .home-message {
     font-weight: bold;
@@ -411,13 +435,15 @@ button.breadcrumb-item:focus-visible {
 .results-container {
     position: relative;
     min-height: calc(100vh - 50px);
-    padding-bottom: 2rem; /* 底部留些空间 */
+    padding-bottom: 2rem;
+    /* 底部留些空间 */
 }
 
 /* 移动端减少底部间距 */
 @media screen and (max-width: 479px) {
     .results-container {
-        padding-bottom: 0.5rem; /* 移动端大幅减少底部间距 */
+        padding-bottom: 0.5rem;
+        /* 移动端大幅减少底部间距 */
     }
 }
 
@@ -440,6 +466,7 @@ button.breadcrumb-item:focus-visible {
         opacity: 0;
         transform: translateY(8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
