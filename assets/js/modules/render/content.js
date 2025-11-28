@@ -4,10 +4,57 @@
 
 import { isMobileDevice, getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
 import { createElement } from './elements.js';
+import { getFullBookmarksData, isFullDataReady, waitForFullData } from '../loader/index.js';
 // 避免循环依赖，renderHome 将通过参数传递
 
+/**
+ * 从完整数据中查找指定ID的文件夹
+ * @param {string} folderId - 要查找的文件夹ID
+ * @param {Array} data - 完整书签数据
+ * @returns {Object|null} - 找到的文件夹或null
+ */
+const findFolderById = (folderId, data) => {
+    if (!data || !folderId) return null;
+    
+    const search = (nodes, parent = null) => {
+        for (const node of nodes) {
+            if (node.id === folderId) {
+                // 保持父引用
+                node.parent = parent;
+                return node;
+            }
+            if (node.children) {
+                const found = search(node.children, node);
+                if (found) return found;
+            }
+        }
+        return null;
+    };
+    
+    return search(data);
+};
+
+/**
+ * 显示加载中状态
+ */
+const showFolderLoading = (content, folderTitle) => {
+    content.innerHTML = `
+        <div class="folder-loading" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--text-color); opacity: 0.7;">
+            <div class="loading-spinner" style="width: 24px; height: 24px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <p style="margin-top: 12px;">正在加载「${folderTitle}」...</p>
+        </div>
+    `;
+    // 添加旋转动画样式
+    if (!document.getElementById('folder-loading-style')) {
+        const style = document.createElement('style');
+        style.id = 'folder-loading-style';
+        style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+        document.head.appendChild(style);
+    }
+};
+
 // 渲染主内容区
-const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => {
+const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = null) => {
     // 无论.home-message在哪里，渲染新内容前都必须移除它
     const existingHomeMessage = document.querySelector('.home-message');
     if (existingHomeMessage) {
@@ -24,7 +71,7 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
         updateSidebarState(document.querySelector('.sidebar'), true);
     }
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(async () => {
         breadcrumbs.style.overflowX = 'auto';
         breadcrumbs.style.webkitOverflowScrolling = 'touch';
         
@@ -128,6 +175,36 @@ const renderMainContent = (folder, fromSidebar = false, renderHomeFn = null) => 
 
         breadcrumbs.addEventListener('scroll', handleBreadcrumbScroll);
         handleBreadcrumbScroll();
+
+        // 检查是否是懒加载文件夹（只有目录结构，没有完整内容）
+        if (folder._lazyLoad && folder.id) {
+            // 显示加载中状态
+            showFolderLoading(content, folder.title);
+            
+            // 等待完整数据加载
+            if (!isFullDataReady()) {
+                console.log('Waiting for full data to load folder:', folder.title);
+                await waitForFullData();
+            }
+            
+            // 从完整数据中获取文件夹
+            const fullData = getFullBookmarksData();
+            const fullFolder = findFolderById(folder.id, fullData);
+            
+            if (fullFolder) {
+                // 用完整数据替换懒加载文件夹
+                Object.assign(folder, fullFolder);
+                folder._lazyLoad = false;
+            } else {
+                console.warn('Folder not found in full data:', folder.id, folder.title);
+                content.innerHTML = `
+                    <div class="folder-error" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--text-color); opacity: 0.7;">
+                        <p>无法加载「${folder.title}」的内容</p>
+                    </div>
+                `;
+                return;
+            }
+        }
 
         if (folder.children && folder.children.length > 0) {
             const folderItems = [];

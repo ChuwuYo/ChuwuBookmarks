@@ -31,6 +31,16 @@ const createElement = (type, item, onClick, options = {}) => {
         folderName.textContent = item.title;
 
         element.append(folderIcon, folderName);
+
+        // 懒加载文件夹：显示链接数量提示
+        if (item._lazyLoad && item._linkCount !== undefined) {
+            const badge = document.createElement('span');
+            badge.className = 'folder-badge';
+            badge.textContent = `${item._linkCount}`;
+            badge.title = `包含 ${item._linkCount} 个书签`;
+            element.appendChild(badge);
+            element.classList.add('lazy-folder');
+        }
     } else {
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
