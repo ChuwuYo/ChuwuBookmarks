@@ -1,8 +1,17 @@
 {
   "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
-  "required_fields": ["name", "url", "author", "creator"],
-  "optional_fields": ["description", "alternateName", "inLanguage", "screenshot"],
-  
+  "required_fields": [
+    "name",
+    "url",
+    "author",
+    "creator"
+  ],
+  "optional_fields": [
+    "description",
+    "alternateName",
+    "inLanguage",
+    "screenshot"
+  ],
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "ChuwuBookmarks",
@@ -38,7 +47,7 @@
     "主题切换",
     "键盘快捷键支持"
   ],
-  "screenshot": "https://chuwuyo.github.io/ChuwuBookmarks/assets/icon/bocchi.png",
+  "screenshot": "https://chuwuyo.github.io/ChuwuBookmarks/assets/images/tabs.chuwu.top.webp",
   "softwareVersion": "1.0",
   "aggregateRating": {
     "@type": "AggregateRating",
