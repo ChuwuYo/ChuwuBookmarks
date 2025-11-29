@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="../../assets/icon/bocchi.png" alt="CWBocchi" width="150" height="150">
+    <img src="../../assets/icon/bocchi.webp" alt="CWBocchi" width="150" height="150">
     <h1>ChuwuBookmarks</h1>
     <h3><a href="../../README.md">简体中文</a> | <a href="README_EN.md">English</a></h3>
 
