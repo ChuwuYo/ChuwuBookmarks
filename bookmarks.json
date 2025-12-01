@@ -1,9 +1,37 @@
 [
   {
     "type": "folder",
-    "addDate": 1764323672087,
+    "addDate": 1764609600493,
     "title": "书签栏",
     "children": [
+      {
+        "type": "folder",
+        "addDate": 1764484386775,
+        "title": "初五的小站",
+        "children": [
+          {
+            "type": "link",
+            "addDate": 1764484391398,
+            "title": "初五的小窝 - 时间能冲淡痛苦",
+            "url": "https://blog.chuwu.top/",
+            "icon": "https://www.google.com/s2/favicons?domain=blog.chuwu.top"
+          },
+          {
+            "type": "link",
+            "addDate": 1764484404009,
+            "title": "初五的书签回廊",
+            "url": "https://tabs.chuwu.top/",
+            "icon": "https://www.google.com/s2/favicons?domain=tabs.chuwu.top"
+          },
+          {
+            "type": "link",
+            "addDate": 1764484414577,
+            "title": "末端协议-番茄钟",
+            "url": "https://pomo.chuwu.top/",
+            "icon": "https://www.google.com/s2/favicons?domain=pomo.chuwu.top"
+          }
+        ]
+      },
       {
         "type": "folder",
         "addDate": 1704014875953,
@@ -1374,13 +1402,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1718631433203,
-                "title": "bilibili憨憨问号 | Link3",
-                "url": "https://link3.cc/bilibilihanhanwenhao",
-                "icon": "https://www.google.com/s2/favicons?domain=link3.cc"
-              },
-              {
-                "type": "link",
                 "addDate": 1724064434468,
                 "title": "资源 | PVZ同人创作论坛",
                 "url": "https://www.pvz.moe/",
@@ -1833,6 +1854,20 @@
                 "title": "SearchGal - Galgame 聚合搜索",
                 "url": "https://searchgal.homes/",
                 "icon": "https://www.google.com/s2/favicons?domain=searchgal.homes"
+              },
+              {
+                "type": "link",
+                "addDate": 1764601948669,
+                "title": "Home | 月谣分享",
+                "url": "https://dl.sayafx.vip/",
+                "icon": "https://www.google.com/s2/favicons?domain=dl.sayafx.vip"
+              },
+              {
+                "type": "link",
+                "addDate": 1764602000856,
+                "title": "The Visual Novel Database | vndb",
+                "url": "https://vndb.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=vndb.org"
               }
             ]
           },
@@ -2937,6 +2972,20 @@
                     "title": "yhsj0919/music_api: 音乐api，myfreemp3,bd,kg,kw,mg,qq,wy,一网打尽",
                     "url": "https://github.com/yhsj0919/music_api",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1764393252366,
+                    "title": "网易云音乐 API",
+                    "url": "https://zm.i9mr.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zm.i9mr.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1764424723151,
+                    "title": "metowolf/MetingJS: :cake: A powerful plugin connect APlayer and Meting",
+                    "url": "https://github.com/metowolf/MetingJS",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
               },
@@ -3783,6 +3832,13 @@
                     "addDate": 1704012714000,
                     "title": "upscayl/upscayl: 🆙 Upscayl - Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.",
                     "url": "https://github.com/upscayl/upscayl",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1764564739478,
+                    "title": "CapSoftware/Cap：开源的 Loom 替代方案。美观且可分享的屏幕录制功能。",
+                    "url": "https://github.com/CapSoftware/Cap",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -8430,13 +8486,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1750168571778,
-                "title": "ReadmeX",
-                "url": "https://readmex.com/",
-                "icon": "https://www.google.com/s2/favicons?domain=readmex.com"
-              },
-              {
-                "type": "link",
                 "addDate": 1704012714000,
                 "title": "ChatPaper/README.md at main · kaixindelele/ChatPaper",
                 "url": "https://github.com/kaixindelele/ChatPaper/blob/main/README.md",
@@ -8483,6 +8532,13 @@
                 "title": "Inkeep - AI Agents that get real work done",
                 "url": "https://inkeep.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=inkeep.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1764578864064,
+                "title": "刺猬星球super-i_AI教程免费在线教学",
+                "url": "https://www.super-i.cn/tool.html",
+                "icon": "https://www.google.com/s2/favicons?domain=www.super-i.cn"
               }
             ]
           },
@@ -9816,6 +9872,13 @@
               },
               {
                 "type": "link",
+                "addDate": 1712829092350,
+                "title": "Cloud Studio - 云端开发，化繁为简",
+                "url": "https://cloudstudio.net/",
+                "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
+              },
+              {
+                "type": "link",
                 "addDate": 1712573374172,
                 "title": "书栈网 · BookStack_程序员IT互联网开源编程书籍免费阅读，助您【码】力十足！",
                 "url": "https://www.bookstack.cn/",
@@ -10306,10 +10369,10 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1712829092350,
-                "title": "Cloud Studio - 云端开发，化繁为简",
-                "url": "https://cloudstudio.net/",
-                "icon": "https://www.google.com/s2/favicons?domain=cloudstudio.net"
+                "addDate": 1761794031329,
+                "title": "CNB - Cloud Native Build",
+                "url": "https://cnb.cool/",
+                "icon": "https://www.google.com/s2/favicons?domain=cnb.cool"
               },
               {
                 "type": "link",
@@ -10324,6 +10387,13 @@
                 "title": "帆软在线数据分析平台",
                 "url": "https://pcdemo.finebi.com/webroot/decision/#/directory",
                 "icon": "https://www.google.com/s2/favicons?domain=pcdemo.finebi.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1764573017665,
+                "title": "Colab - Colab",
+                "url": "https://colab.research.google.com/",
+                "icon": "https://www.google.com/s2/favicons?domain=colab.research.google.com"
               }
             ]
           },
@@ -10394,13 +10464,6 @@
                 "title": "AtomGit_开放原子开源基金会代码托管平台-AtomGit",
                 "url": "https://atomgit.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=atomgit.com"
-              },
-              {
-                "type": "link",
-                "addDate": 1761794031329,
-                "title": "CNB - Cloud Native Build",
-                "url": "https://cnb.cool/",
-                "icon": "https://www.google.com/s2/favicons?domain=cnb.cool"
               },
               {
                 "type": "link",

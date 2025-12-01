@@ -36,9 +36,9 @@ You can also visit the following links to experience the service:
    git clone https://github.com/ChuwuYo/ChuwuBookmarks.git
    ```
 
-2. **Export Bookmarks**: Use [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) to export your bookmark data as a JSON file
+2. **Export Bookmarks**: Use [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) to export two JSON files: your bookmark data file and directory structure file
 
-3. **Replace File**: Rename the exported bookmark file to `bookmarks.json` and replace the file with the same name in the project root directory
+3. **Import Files**: Rename the exported bookmark file to `bookmarks.json` and place it in the root directory along with the directory structure file `structure.json`
 
 4. **Deploy and Use**: Deploy the project to your preferred static website hosting service (such as GitHub Pages, Vercel, Netlify, Cloudflare, Edgeone, etc.)
 

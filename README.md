@@ -36,9 +36,9 @@
    git clone https://github.com/ChuwuYo/ChuwuBookmarks.git
    ```
 
-2. **导出书签**：使用 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出您的书签数据JSON文件
+2. **导出书签**：使用 [BookmarksPortal](https://github.com/ChuwuYo/BookmarksPortal) 导出您的书签数据文件和目录结构文件两个JSON文件
 
-3. **替换文件**：将导出的书签文件重命名为 `bookmarks.json`，替换项目根目录下的同名文件
+3. **导入文件**：将导出的书签文件重命名为 `bookmarks.json`，与目录结构文件 `structure.json` 一同放在根目录下
 
 4. **部署使用**：将项目部署到您喜欢的静态网站托管服务（如 GitHub Pages、Vercel、Netlify、Cloudflare、Edgeone 等）
 
