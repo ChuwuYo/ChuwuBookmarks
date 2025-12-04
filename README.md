@@ -160,8 +160,6 @@
 
 ## 其他参考项目
 
-若不介意闭源或付费，可参考以下项目：
-
 [Pintree](https://github.com/Pintree-io/pintree)（开源 + 付费模式 + 广告）
 
 [TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab)（开源的浏览器扩展）
