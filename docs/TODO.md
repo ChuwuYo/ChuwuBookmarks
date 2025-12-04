@@ -24,7 +24,7 @@
    - 相关文件：[`assets/js/modules/render/home.js`](assets/js/modules/render/home.js:157), [`assets/js/modules/loader/index.js`](assets/js/modules/loader/index.js:11), [`assets/js/modules/render/search.js`](assets/js/modules/render/search.js:428)
 
 4. 事件监听聚合模块瘦身
-   - [ ] 将与设备适配、标题彩蛋等非核心逻辑从 listener/index.js 拆分为独立监听模块，initEventListeners 仅做聚合注册，降低对 render/device、render/home 等模块的强耦合。
+   - [x] 将与设备适配、标题彩蛋等非核心逻辑从 listener/index.js 拆分为独立监听模块,initEventListeners 仅做聚合注册，降低对 render/device、render/home 等模块的强耦合。
    - 相关文件：[`assets/js/modules/listener/index.js`](assets/js/modules/listener/index.js:166)
 
 5. Web Worker 创建统一化
