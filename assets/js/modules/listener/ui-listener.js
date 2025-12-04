@@ -93,13 +93,15 @@ const setupHomeButton = () => {
             });
         };
 
-        homeButton.addEventListener('click', handleHomeNavigation);
-        homeButton.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
+        const homeNavigationHandler = (e) => {
+            if (e.type === 'click' || (e.type === 'keydown' && (e.key === 'Enter' || e.key === ' '))) {
                 e.preventDefault();
                 handleHomeNavigation();
             }
-        });
+        };
+
+        homeButton.addEventListener('click', homeNavigationHandler);
+        homeButton.addEventListener('keydown', homeNavigationHandler);
     }
 };
 
