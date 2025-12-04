@@ -85,11 +85,17 @@ const setupHomeButton = () => {
 
             // 使用 requestAnimationFrame 延迟执行渲染，避免阻塞
             requestAnimationFrame(() => {
-                renderHome();
-                // 确保在下一帧重置状态
-                requestAnimationFrame(() => {
-                    isProcessing = false;
-                });
+                try {
+                    renderHome();
+                } catch (error) {
+                    console.error('Failed to render home:', error);
+                    // 即使渲染失败也要确保用户可以重试
+                } finally {
+                    // 确保在下一帧重置状态，即使 renderHome 抛出异常
+                    requestAnimationFrame(() => {
+                        isProcessing = false;
+                    });
+                }
             });
         };
 
