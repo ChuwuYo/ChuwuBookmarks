@@ -18,10 +18,10 @@ const initSearchListeners = (debounceSearch) => {
         });
 
         // 添加Ctrl+K快捷键聚焦搜索框功能
-        document.addEventListener('keydown', function (e) {
+        document.addEventListener('keydown', function handleSearchFocus(e) {
             if (e.ctrlKey && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
-                document.getElementById('search-input').focus();
+                searchInput.focus();
             }
         });
     }
