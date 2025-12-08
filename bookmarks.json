@@ -1,7 +1,7 @@
 [
   {
     "type": "folder",
-    "addDate": 1764609600493,
+    "addDate": 1765216061594,
     "title": "书签栏",
     "children": [
       {
@@ -1082,10 +1082,24 @@
           },
           {
             "type": "link",
-            "addDate": 1763185265989,
-            "title": "爱壹帆-海量高清视频免费在线观看",
-            "url": "https://www.iyf.tv/",
-            "icon": "https://www.google.com/s2/favicons?domain=www.iyf.tv"
+            "addDate": 1765111924722,
+            "title": "短剧王",
+            "url": "https://djw1.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=djw1.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1765122235449,
+            "title": "爱壹帆国际版-海量高清视频免费在线观看",
+            "url": "https://www.yfsp.tv/",
+            "icon": "https://www.google.com/s2/favicons?domain=www.yfsp.tv"
+          },
+          {
+            "type": "link",
+            "addDate": 1765122587619,
+            "title": "MXVOD 明星影院-在线电影-最新电影-免费电影-电影在线观看",
+            "url": "https://mxvod.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=mxvod.com"
           }
         ]
       },
@@ -1581,6 +1595,13 @@
                 "title": "Switch618|免费Switch游戏PC游戏下载 - SWITCH618游戏公益分享",
                 "url": "https://www.switch618.com/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.switch618.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1765043116802,
+                "title": "gdgame免费单机游戏下载 | 游戏库 - 免登录直接下载单机游戏",
+                "url": "https://gdgame.org/",
+                "icon": "https://www.google.com/s2/favicons?domain=gdgame.org"
               }
             ]
           },
@@ -2985,6 +3006,13 @@
                     "addDate": 1764424723151,
                     "title": "metowolf/MetingJS: :cake: A powerful plugin connect APlayer and Meting",
                     "url": "https://github.com/metowolf/MetingJS",
+                    "icon": "https://www.google.com/s2/favicons?domain=github.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1765049515684,
+                    "title": "metowolf/Meting：哇，如此强大的音乐 API 框架",
+                    "url": "https://github.com/metowolf/Meting/tree/master",
                     "icon": "https://www.google.com/s2/favicons?domain=github.com"
                   }
                 ]
@@ -6019,6 +6047,13 @@
                 "title": "节点测速后端AirportR/miaospeed: Yet another server for universal connectivity debugging.",
                 "url": "https://github.com/AirportR/miaospeed",
                 "icon": "https://www.google.com/s2/favicons?domain=github.com"
+              },
+              {
+                "type": "link",
+                "addDate": 1764781760001,
+                "title": "InterceptSuite/InterceptSuite：用于 TCP/TLS/DTLS/UDP 流量的中间人代理，支持 STARTTLS、PostgreSQL 等 TLS 升级。",
+                "url": "https://github.com/InterceptSuite/InterceptSuite",
+                "icon": "https://www.google.com/s2/favicons?domain=github.com"
               }
             ]
           },
@@ -8411,6 +8446,13 @@
                     "title": "ZenMux",
                     "url": "https://zenmux.ai/",
                     "icon": "https://www.google.com/s2/favicons?domain=zenmux.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1764665917318,
+                    "title": "Atlas Cloud | 300+ AI Models in One Place - AI API Aggregation Platform",
+                    "url": "https://www.atlascloud.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.atlascloud.ai"
                   }
                 ]
               },
@@ -8539,6 +8581,20 @@
                 "title": "刺猬星球super-i_AI教程免费在线教学",
                 "url": "https://www.super-i.cn/tool.html",
                 "icon": "https://www.google.com/s2/favicons?domain=www.super-i.cn"
+              },
+              {
+                "type": "link",
+                "addDate": 1732352947179,
+                "title": "Pieces for Developers — 开发人员工作流程的长期记忆",
+                "url": "https://pieces.app/",
+                "icon": "https://www.google.com/s2/favicons?domain=pieces.app"
+              },
+              {
+                "type": "link",
+                "addDate": 1765117037289,
+                "title": "perchance.org",
+                "url": "https://perchance.org/welcome",
+                "icon": "https://www.google.com/s2/favicons?domain=perchance.org"
               }
             ]
           },
@@ -9237,6 +9293,13 @@
                     "title": "Gorgeous SVG logos, perfect for your README or credits page - Vector Logo Zone",
                     "url": "https://www.vectorlogo.zone/",
                     "icon": "https://www.google.com/s2/favicons?domain=www.vectorlogo.zone"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1765092919001,
+                    "title": "lucide-animated",
+                    "url": "https://lucide-animated.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=lucide-animated.com"
                   }
                 ]
               },
@@ -10090,7 +10153,7 @@
               {
                 "type": "folder",
                 "addDate": 1708534919338,
-                "title": "编辑器",
+                "title": "IDE",
                 "children": [
                   {
                     "type": "link",
@@ -10175,6 +10238,20 @@
                     "title": "Google Antigravity Download",
                     "url": "https://antigravity.google/download",
                     "icon": "https://www.google.com/s2/favicons?domain=antigravity.google"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1765110927354,
+                    "title": "Traycer",
+                    "url": "https://traycer.ai/",
+                    "icon": "https://www.google.com/s2/favicons?domain=traycer.ai"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1765110966137,
+                    "title": "Zed — Love your editor again",
+                    "url": "https://zed.dev/",
+                    "icon": "https://www.google.com/s2/favicons?domain=zed.dev"
                   }
                 ]
               },
@@ -10677,13 +10754,6 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1715580062788,
-                "title": "Chat Blackbox：AI 代码生成、代码聊天、代码搜索 - Blackbox",
-                "url": "https://www.blackbox.ai/",
-                "icon": "https://www.google.com/s2/favicons?domain=www.blackbox.ai"
-              },
-              {
-                "type": "link",
                 "addDate": 1736611587286,
                 "title": "Replit – Build apps and sites with AI",
                 "url": "https://replit.com/",
@@ -10702,13 +10772,6 @@
                 "title": "Val Town",
                 "url": "https://www.val.town/",
                 "icon": "https://www.google.com/s2/favicons?domain=www.val.town"
-              },
-              {
-                "type": "link",
-                "addDate": 1732352947179,
-                "title": "Pieces for Developers — 开发人员工作流程的长期记忆",
-                "url": "https://pieces.app/",
-                "icon": "https://www.google.com/s2/favicons?domain=pieces.app"
               },
               {
                 "type": "link",
@@ -12356,6 +12419,20 @@
             "title": "订阅管理系统（自用）",
             "url": "https://domain-sub-tracker.s1805948721.workers.dev/",
             "icon": "https://www.google.com/s2/favicons?domain=domain-sub-tracker.s1805948721.workers.dev"
+          },
+          {
+            "type": "link",
+            "addDate": 1764962769783,
+            "title": "Logitech 支持 + 下载",
+            "url": "https://support.logi.com/hc/zh-cn",
+            "icon": "https://www.google.com/s2/favicons?domain=support.logi.com"
+          },
+          {
+            "type": "link",
+            "addDate": 1764962843249,
+            "title": "Razer ID",
+            "url": "https://razerid.razer.com/",
+            "icon": "https://www.google.com/s2/favicons?domain=razerid.razer.com"
           }
         ]
       },
@@ -12429,6 +12506,13 @@
                     "title": "SegmentFault 思否",
                     "url": "https://segmentfault.com/",
                     "icon": "https://www.google.com/s2/favicons?domain=segmentfault.com"
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1764665651056,
+                    "title": "lesswrong.com",
+                    "url": "https://www.lesswrong.com/",
+                    "icon": "https://www.google.com/s2/favicons?domain=www.lesswrong.com"
                   }
                 ]
               },
@@ -12882,13 +12966,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1753202531567,
-                "title": "唐志远",
-                "url": "https://fe32.top/",
-                "icon": "https://www.google.com/s2/favicons?domain=fe32.top"
-              },
-              {
-                "type": "link",
                 "addDate": 1755792136211,
                 "title": "fishcpy的小破站 -",
                 "url": "https://blog.fis.ink/",
@@ -13098,6 +13175,13 @@
             "title": "genact 1.4.1",
             "url": "https://svenstaro.github.io/genact/",
             "icon": "https://www.google.com/s2/favicons?domain=svenstaro.github.io"
+          },
+          {
+            "type": "link",
+            "addDate": 1765040076358,
+            "title": "ryokun6/ryos：ryOS，使用 Cursor 制作",
+            "url": "https://github.com/ryokun6/ryos",
+            "icon": "https://www.google.com/s2/favicons?domain=github.com"
           }
         ]
       }
