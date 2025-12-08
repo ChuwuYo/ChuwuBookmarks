@@ -63,27 +63,6 @@ const checkBreadcrumbsScroll = () => {
 
 
 
-// 辅助函数：触发布局变化事件 - 减少不必要的事件派发
-const updatePaginationPositionIfExists = () => { 
-    // 使用防抖机制避免频繁派发事件
-    if (updatePaginationPositionIfExists._debounceTimer) {
-        clearTimeout(updatePaginationPositionIfExists._debounceTimer);
-    }
-    
-    updatePaginationPositionIfExists._debounceTimer = setTimeout(() => {
-        const layoutChangeEvent = new CustomEvent('layoutChange', {
-            detail: {
-                type: 'deviceLayoutUpdate',
-                timestamp: Date.now(),
-                deviceType: getDeviceType(),
-                sidebarCollapsed: shouldCollapseSidebar()
-            }
-        });
-
-        document.dispatchEvent(layoutChangeEvent);
-    }, DEBOUNCE_THROTTLE_CONSTANTS.LAYOUT_CHANGE_DEBOUNCE_MS); // 布局变化事件防抖延迟
-};
-
 // 封装侧边栏状态管理
 const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
     updateSidebarVisibility(sidebar, isCollapsed, skipAnimation);

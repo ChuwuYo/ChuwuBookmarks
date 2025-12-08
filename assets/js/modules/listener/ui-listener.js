@@ -5,6 +5,7 @@
 import { toggleTheme } from '../render/theme.js';
 import { isMobileDevice, updateSidebarState } from '../render/device.js';
 import { renderHome } from '../render/home.js';
+import { showErrorMessage } from '../render/message.js';
 
 /**
  * 设置侧边栏切换事件
@@ -85,11 +86,18 @@ const setupHomeButton = () => {
 
             // 使用 requestAnimationFrame 延迟执行渲染，避免阻塞
             requestAnimationFrame(() => {
-                renderHome();
-                // 确保在下一帧重置状态
-                requestAnimationFrame(() => {
-                    isProcessing = false;
-                });
+                try {
+                    renderHome();
+                } catch (error) {
+                    console.error('Failed to render home:', error);
+                    // 向用户显示错误提示
+                    showErrorMessage(error);
+                } finally {
+                    // 确保在下一帧重置状态，即使 renderHome 抛出异常
+                    requestAnimationFrame(() => {
+                        isProcessing = false;
+                    });
+                }
             });
         };
 

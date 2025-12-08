@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated": "2025-12-01T17:20:01.019Z",
+  "generated": "2025-12-08T17:47:42.114Z",
   "folders": [
     {
       "id": "0",
       "title": "书签栏",
-      "addDate": 1764609600493,
+      "addDate": 1765216061594,
       "linkCount": 0,
       "folderCount": 19,
       "hasChildren": true,
@@ -74,7 +74,7 @@
           "id": "0_3",
           "title": "影视番剧",
           "addDate": 1704014875956,
-          "linkCount": 6,
+          "linkCount": 8,
           "folderCount": 4,
           "hasChildren": true,
           "children": [
@@ -164,7 +164,7 @@
               "id": "0_4_5",
               "title": "第三方",
               "addDate": 1704014875963,
-              "linkCount": 19,
+              "linkCount": 20,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -332,7 +332,7 @@
                   "id": "0_7_1_0",
                   "title": "API",
                   "addDate": 1759512107683,
-                  "linkCount": 11,
+                  "linkCount": 12,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -688,7 +688,7 @@
               "id": "0_12_3",
               "title": "流量监控",
               "addDate": 1753202946786,
-              "linkCount": 3,
+              "linkCount": 4,
               "folderCount": 0,
               "hasChildren": true
             }
@@ -864,7 +864,7 @@
               "id": "0_14_8",
               "title": "AI",
               "addDate": 1704014876001,
-              "linkCount": 10,
+              "linkCount": 12,
               "folderCount": 6,
               "hasChildren": true,
               "children": [
@@ -922,7 +922,7 @@
                   "id": "0_14_8_4",
                   "title": "第三方API",
                   "addDate": 1751384290417,
-                  "linkCount": 13,
+                  "linkCount": 14,
                   "folderCount": 1,
                   "hasChildren": true,
                   "children": [
@@ -1042,7 +1042,7 @@
                   "id": "0_16_0_0",
                   "title": "图标等",
                   "addDate": 1744173942762,
-                  "linkCount": 18,
+                  "linkCount": 19,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -1182,9 +1182,9 @@
                 },
                 {
                   "id": "0_16_3_2",
-                  "title": "编辑器",
+                  "title": "IDE",
                   "addDate": 1708534919338,
-                  "linkCount": 12,
+                  "linkCount": 14,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -1260,7 +1260,7 @@
               "id": "0_16_8",
               "title": "AI编程",
               "addDate": 1719239905714,
-              "linkCount": 16,
+              "linkCount": 14,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1362,7 +1362,7 @@
           "id": "0_17",
           "title": "日常生活",
           "addDate": 1704014876022,
-          "linkCount": 6,
+          "linkCount": 8,
           "folderCount": 9,
           "hasChildren": true,
           "children": [
@@ -1500,7 +1500,7 @@
           "id": "0_18",
           "title": "杂",
           "addDate": 1704014876010,
-          "linkCount": 5,
+          "linkCount": 6,
           "folderCount": 3,
           "hasChildren": true,
           "children": [
@@ -1516,7 +1516,7 @@
                   "id": "0_18_0_0",
                   "title": "技术论坛",
                   "addDate": 1742364470144,
-                  "linkCount": 8,
+                  "linkCount": 9,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -1526,7 +1526,7 @@
               "id": "0_18_1",
               "title": "个人博客",
               "addDate": 1704014876012,
-              "linkCount": 69,
+              "linkCount": 68,
               "folderCount": 0,
               "hasChildren": true
             },
