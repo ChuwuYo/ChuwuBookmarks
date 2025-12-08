@@ -32,5 +32,5 @@
    - 相关文件：[`assets/js/modules/loader/index.js`](assets/js/modules/loader/index.js:119), [`assets/js/modules/search/index.js`](assets/js/modules/search/index.js:52,73)
 
 6. 废弃/未使用逻辑清理
-   - [ ] 核查并处理 device.js 中 updatePaginationPositionIfExists 等未导出/未调用的遗留函数，确认是否接入当前分页响应式方案或删除，避免误导后续维护。
+   - [x] 核查并处理 device.js 中 updatePaginationPositionIfExists 等未导出/未调用的遗留函数，确认是否接入当前分页响应式方案或删除，避免误导后续维护。
    - 相关文件：[`assets/js/modules/render/device.js`](assets/js/modules/render/device.js:66)
