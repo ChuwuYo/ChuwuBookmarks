@@ -13,7 +13,7 @@
 Project Overview
 ---
 
-This browser-based bookmark navigation template transforms JSON bookmark data into a visually appealing and feature-rich web application with support for multi-level folders, search functionality, breadcrumb navigation, and more, though it does not include bookmark management capabilities.
+This browser-based bookmark navigation template transforms JSON bookmark data into a visually appealing and feature-rich web application. It supports multi-level folders, search functionality, breadcrumb navigation, and more, but does not include bookmark management capabilities.
 
 Visit [Chuwu's Bookmark Corridor](https://tabs.chuwu.top/) to view example deployments.
 
