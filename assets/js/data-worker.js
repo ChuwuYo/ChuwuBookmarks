@@ -36,7 +36,7 @@ function buildPreprocessedIndex(tree) {
             type: isFolder ? 'folder' : 'bookmark',
             title,
             url,
-            icon: node.icon || null, // 保留图标数据供搜索结果渲染使用
+            icon: node.icon ?? null, // 保留图标数据供搜索结果渲染使用
             childrenCount: isFolder ? node.children.length : 0,
             path: path.join(' / '), // 可用于展示或进一步过滤
             __lcTitle: title.toLowerCase(),
