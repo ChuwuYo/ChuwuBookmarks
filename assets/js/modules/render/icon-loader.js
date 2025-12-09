@@ -163,10 +163,19 @@ const loadIcon = (img, icon) => {
     }
 };
 
-export { 
-    loadIcon, 
-    handleIconLoadError, 
-    getSortedIconUrls, 
-    ensureImgVisible, 
-    displayLoadedIcon
+/**
+ * 批量加载书签元素的图标
+ * @param {HTMLElement[]} bookmarkElements - 书签元素数组
+ */
+const loadIconsForElements = (bookmarkElements) => {
+    bookmarkElements.forEach(element => {
+        const iconContainer = element.querySelector('.bookmark-icon');
+        const img = iconContainer?.querySelector('img[data-src]');
+        if (iconContainer && img) {
+            loadIcon(img, iconContainer);
+        }
+    });
 };
+
+// 导出外部需要使用的函数
+export { loadIcon, loadIconsForElements };
