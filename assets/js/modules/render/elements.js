@@ -56,9 +56,9 @@ const createElement = (type, item, onClick) => {
                 
                 // 如果有多个图标源，存储完整列表
                 // HTML 属性 data-icon-urls 自动映射到 dataset.iconUrls
+                // 注意：data-current-index 由 loadIcon 函数在加载时设置
                 if (validIconUrls.length > 1) {
                     img.setAttribute('data-icon-urls', JSON.stringify(validIconUrls));
-                    img.setAttribute('data-current-index', '0');
                 }
                 
                 img.alt = item.title || 'bookmark icon';

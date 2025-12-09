@@ -27,7 +27,7 @@
  */
 
 import { createElement } from './elements.js';
-import { loadIcon } from './icon-loader.js';
+import { loadIconsForElements } from './icon-loader.js';
 import {
     PaginationController,
     PaginationRenderer,
@@ -175,13 +175,7 @@ class SearchResultsManager {
             container.appendChild(fragment);
             
             // 在元素添加到 DOM 后，立即加载图标
-            bookmarkElements.forEach(element => {
-                const iconContainer = element.querySelector('.bookmark-icon');
-                const img = iconContainer?.querySelector('img[data-src]');
-                if (iconContainer && img) {
-                    loadIcon(img, iconContainer);
-                }
-            });
+            loadIconsForElements(bookmarkElements);
             
             // 优化焦点设置，使用已缓存的首个元素
             if (currentPageData.length > 0) {

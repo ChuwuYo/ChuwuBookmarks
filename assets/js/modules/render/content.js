@@ -4,7 +4,7 @@
 
 import { getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
 import { createElement } from './elements.js';
-import { loadIcon } from './icon-loader.js';
+import { loadIconsForElements } from './icon-loader.js';
 import { getFullBookmarksData, isFullDataReady, waitForFullData } from '../loader/index.js';
 // 避免循环依赖，renderHome 将通过参数传递
 
@@ -248,13 +248,7 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
             content.appendChild(contentFragment);
             
             // 在元素添加到 DOM 后，立即加载图标
-            bookmarkElements.forEach(element => {
-                const iconContainer = element.querySelector('.bookmark-icon');
-                const img = iconContainer?.querySelector('img[data-src]');
-                if (iconContainer && img) {
-                    loadIcon(img, iconContainer);
-                }
-            });
+            loadIconsForElements(bookmarkElements);
 
             const deviceType = getDeviceType();
             if (deviceType === 'mobile') {
