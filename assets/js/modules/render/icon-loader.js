@@ -5,9 +5,6 @@
  * 提供统一的 API 供所有渲染模块使用
  */
 
-// 创建图标懒加载观察器（单例模式）
-let lazyImageObserver = null;
-
 /**
  * 确保图标元素可见（有尺寸）
  * @param {HTMLImageElement} img - 图标元素
@@ -42,8 +39,16 @@ const displayLoadedIcon = (img, icon) => {
  * 处理图标加载失败，尝试备用源
  * @param {HTMLImageElement} img - 图标元素
  * @param {HTMLElement} icon - 图标容器
+ * @param {number} retryCount - 当前重试次数（防止栈溢出）
  */
-const handleIconLoadError = (img, icon) => {
+const handleIconLoadError = (img, icon, retryCount = 0) => {
+    const MAX_RETRIES = 10; // 防止无限递归
+    
+    if (retryCount > MAX_RETRIES) {
+        img.remove();
+        return;
+    }
+    
     const iconUrlsJson = img.dataset.iconUrls;
     
     if (!iconUrlsJson) {
@@ -61,19 +66,24 @@ const handleIconLoadError = (img, icon) => {
             
             const handleLoad = function() {
                 if (!displayLoadedIcon(this, icon)) {
-                    handleIconLoadError(this, icon);
+                    // 使用 setTimeout 打破同步递归链，防止栈溢出
+                    setTimeout(() => handleIconLoadError(this, icon, retryCount + 1), 0);
                 }
             };
             
             img.addEventListener('load', handleLoad, { once: true });
-            img.addEventListener('error', () => handleIconLoadError(img, icon), { once: true });
+            img.addEventListener('error', () => {
+                // 使用 setTimeout 打破同步递归链
+                setTimeout(() => handleIconLoadError(img, icon, retryCount + 1), 0);
+            }, { once: true });
             
             ensureImgVisible(img);
             img.src = iconUrls[nextIndex];
             
             if (img.complete) {
                 if (img.naturalHeight === 0) {
-                    handleIconLoadError(img, icon);
+                    // 使用 setTimeout 打破同步递归链
+                    setTimeout(() => handleIconLoadError(img, icon, retryCount + 1), 0);
                 } else {
                     handleLoad.call(img);
                 }
@@ -129,58 +139,28 @@ const loadIcon = (img, icon) => {
     
     const handleLoad = function() {
         if (!displayLoadedIcon(this, icon)) {
-            handleIconLoadError(this, icon);
+            // 使用 setTimeout 打破同步递归链，防止栈溢出
+            setTimeout(() => handleIconLoadError(this, icon, 0), 0);
         }
     };
     
     img.addEventListener('load', handleLoad, { once: true });
-    img.addEventListener('error', () => handleIconLoadError(img, icon), { once: true });
+    img.addEventListener('error', () => {
+        // 使用 setTimeout 打破同步递归链
+        setTimeout(() => handleIconLoadError(img, icon, 0), 0);
+    }, { once: true });
     
     ensureImgVisible(img);
     img.src = iconUrls[0];
     
     if (img.complete) {
         if (img.naturalHeight === 0) {
-            handleIconLoadError(img, icon);
+            // 使用 setTimeout 打破同步递归链
+            setTimeout(() => handleIconLoadError(img, icon, 0), 0);
         } else {
             handleLoad.call(img);
         }
     }
-};
-
-/**
- * 获取或创建 IntersectionObserver 单例
- * @returns {IntersectionObserver}
- */
-const getLazyImageObserver = () => {
-    if (!lazyImageObserver) {
-        lazyImageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // 支持观察 img 元素或其父容器 .bookmark-icon
-                    let img, icon;
-                    if (entry.target.tagName === 'IMG') {
-                        img = entry.target;
-                        icon = img.parentElement;
-                    } else {
-                        // 观察的是容器，从中找到 img
-                        icon = entry.target;
-                        img = icon.querySelector('img[data-src]');
-                    }
-                    
-                    if (img && img.dataset.src) {
-                        loadIcon(img, icon);
-                    }
-                    
-                    lazyImageObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            rootMargin: '100px 0px',
-            threshold: 0
-        });
-    }
-    return lazyImageObserver;
 };
 
 export { 
@@ -188,6 +168,5 @@ export {
     handleIconLoadError, 
     getSortedIconUrls, 
     ensureImgVisible, 
-    displayLoadedIcon, 
-    getLazyImageObserver 
+    displayLoadedIcon
 };
