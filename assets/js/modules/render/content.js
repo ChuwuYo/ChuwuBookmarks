@@ -2,8 +2,9 @@
  * 主内容区渲染模块
  */
 
-import { isMobileDevice, getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
+import { getDeviceType, updateSidebarState, checkBreadcrumbsScroll, shouldCollapseSidebar } from './device.js';
 import { createElement } from './elements.js';
+import { loadIcon } from './icon-loader.js';
 import { getFullBookmarksData, isFullDataReady, waitForFullData } from '../loader/index.js';
 // 避免循环依赖，renderHome 将通过参数传递
 
@@ -183,7 +184,6 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
             
             // 等待完整数据加载
             if (!isFullDataReady()) {
-                console.log('Waiting for full data to load folder:', folder.title);
                 await waitForFullData();
             }
             
@@ -196,7 +196,6 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
                 Object.assign(folder, fullFolder);
                 folder._lazyLoad = false;
             } else {
-                console.warn('Folder not found in full data:', folder.id, folder.title);
                 content.innerHTML = `
                     <div class="folder-error" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--text-color); opacity: 0.7;">
                         <p>无法加载「${folder.title}」的内容</p>
@@ -238,13 +237,24 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
                 contentFragment.appendChild(element);
             });
             
+            const bookmarkElements = [];
             bookmarkItems.forEach(({item, index}) => {
                 const element = createElement('bookmark', item, null);
                 element.style.setProperty('--item-index', index);
                 contentFragment.appendChild(element);
+                bookmarkElements.push(element);
             });
             
             content.appendChild(contentFragment);
+            
+            // 在元素添加到 DOM 后，立即加载图标
+            bookmarkElements.forEach(element => {
+                const iconContainer = element.querySelector('.bookmark-icon');
+                const img = iconContainer?.querySelector('img[data-src]');
+                if (iconContainer && img) {
+                    loadIcon(img, iconContainer);
+                }
+            });
 
             const deviceType = getDeviceType();
             if (deviceType === 'mobile') {
