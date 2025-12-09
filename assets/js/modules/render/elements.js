@@ -35,12 +35,7 @@ const createElement = (type, item, onClick) => {
         
         // 创建 emoji 容器，确保正确对齐
         const emojiSpan = document.createElement('span');
-        emojiSpan.style.display = 'flex';
-        emojiSpan.style.alignItems = 'center';
-        emojiSpan.style.justifyContent = 'center';
-        emojiSpan.style.width = '100%';
-        emojiSpan.style.height = '100%';
-        emojiSpan.style.lineHeight = '1';
+        emojiSpan.className = 'bookmark-icon-emoji';
         emojiSpan.textContent = '🔗';
         bookmarkIcon.appendChild(emojiSpan);
 

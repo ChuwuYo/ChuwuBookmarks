@@ -482,9 +482,6 @@ const renderSearchResults = (results, renderMainContent) => {
 
         // 创建分页控件容器并渲染分页控件
         searchResultsManager.createPaginationControls(content, paginationState);
-        
-        // 更新分页控制器状态
-        searchResultsManager.paginationController.calculatePagination(sortedResults.length, targetPage);
     }
     
     // 渲染完成后移除标记
