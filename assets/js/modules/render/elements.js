@@ -32,7 +32,17 @@ const createElement = (type, item, onClick) => {
     } else {
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
-        bookmarkIcon.textContent = '🔗';
+        
+        // 创建 emoji 容器，确保正确对齐
+        const emojiSpan = document.createElement('span');
+        emojiSpan.style.display = 'flex';
+        emojiSpan.style.alignItems = 'center';
+        emojiSpan.style.justifyContent = 'center';
+        emojiSpan.style.width = '100%';
+        emojiSpan.style.height = '100%';
+        emojiSpan.style.lineHeight = '1';
+        emojiSpan.textContent = '🔗';
+        bookmarkIcon.appendChild(emojiSpan);
 
         // 图标懒加载
         if (item.icon) {
