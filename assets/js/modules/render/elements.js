@@ -12,11 +12,9 @@
  * @param {'folder'|'bookmark'} type 元素类型
  * @param {Object} item 书签或文件夹数据
  * @param {Function|null} onClick 点击回调（用于文件夹导航等）
- * @param {Object} [options] 可选项
- * @param {Function} [options.observeIcon] 图标懒加载观察器回调
  * @returns {HTMLDivElement}
  */
-const createElement = (type, item, onClick, options = {}) => {
+const createElement = (type, item, onClick) => {
     const element = document.createElement('div');
     element.className = type;
 
@@ -34,20 +32,39 @@ const createElement = (type, item, onClick, options = {}) => {
     } else {
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
-        bookmarkIcon.textContent = '🔗';
+        
+        // 创建 emoji 容器，确保正确对齐
+        const emojiSpan = document.createElement('span');
+        emojiSpan.className = 'bookmark-icon-emoji';
+        emojiSpan.textContent = '🔗';
+        bookmarkIcon.appendChild(emojiSpan);
 
-        // 图标懒加载，支持由调用方注入观察逻辑（侧边栏使用 IntersectionObserver）
+        // 图标懒加载
         if (item.icon) {
             const img = document.createElement('img');
-            img.setAttribute('data-src', item.icon);
-            img.alt = '🔗';
-            img.style.display = 'none';
-            img.loading = 'lazy';
-
-            bookmarkIcon.appendChild(img);
-
-            if (typeof options.observeIcon === 'function') {
-                options.observeIcon(img);
+            
+            // 处理图标数据：支持字符串和数组
+            const iconUrls = Array.isArray(item.icon) ? item.icon : [item.icon];
+            
+            // 过滤掉空值
+            const validIconUrls = iconUrls.filter(url => url && typeof url === 'string');
+            
+            if (validIconUrls.length > 0) {
+                // 设置第一个图标源
+                // HTML 属性 data-src 自动映射到 dataset.src
+                img.setAttribute('data-src', validIconUrls[0]);
+                
+                // 如果有多个图标源，存储完整列表
+                // HTML 属性 data-icon-urls 自动映射到 dataset.iconUrls
+                // 注意：data-current-index 由 loadIcon 函数在加载时设置
+                if (validIconUrls.length > 1) {
+                    img.setAttribute('data-icon-urls', JSON.stringify(validIconUrls));
+                }
+                
+                img.alt = item.title || 'bookmark icon';
+                img.style.display = 'none';
+                img.loading = 'lazy';
+                bookmarkIcon.appendChild(img);
             }
         }
 
