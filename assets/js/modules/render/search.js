@@ -27,6 +27,7 @@
  */
 
 import { createElement } from './elements.js';
+import { loadIcon } from './icon-loader.js';
 import {
     PaginationController,
     PaginationRenderer,
@@ -79,7 +80,7 @@ class SearchResultsManager {
             },
             {
                 onPageChange: (newPage) => this.handlePageChange(newPage, sortedResults, container, renderMainContent),
-                onConfigChange: (config, responsiveConfig) => {
+                onConfigChange: () => {
                     // 响应式配置变化时的回调
                 }
             }
@@ -147,6 +148,7 @@ class SearchResultsManager {
 
             // DocumentFragment创建
             const fragment = document.createDocumentFragment();
+            const bookmarkElements = [];
             
             // 批量创建元素，避免单个循环中的DOM查询
             for (let i = 0; i < currentPageData.length; i++) {
@@ -162,10 +164,24 @@ class SearchResultsManager {
                 element.classList.add('search-result-item');
                 
                 fragment.appendChild(element);
+                
+                // 收集书签元素，稍后启动懒加载
+                if (item.type === 'bookmark') {
+                    bookmarkElements.push(element);
+                }
             }
 
             // 一次性添加所有元素
             container.appendChild(fragment);
+            
+            // 在元素添加到 DOM 后，立即加载图标
+            bookmarkElements.forEach(element => {
+                const iconContainer = element.querySelector('.bookmark-icon');
+                const img = iconContainer?.querySelector('img[data-src]');
+                if (iconContainer && img) {
+                    loadIcon(img, iconContainer);
+                }
+            });
             
             // 优化焦点设置，使用已缓存的首个元素
             if (currentPageData.length > 0) {
@@ -466,6 +482,9 @@ const renderSearchResults = (results, renderMainContent) => {
 
         // 创建分页控件容器并渲染分页控件
         searchResultsManager.createPaginationControls(content, paginationState);
+        
+        // 更新分页控制器状态
+        searchResultsManager.paginationController.calculatePagination(sortedResults.length, targetPage);
     }
     
     // 渲染完成后移除标记

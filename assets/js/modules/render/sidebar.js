@@ -2,41 +2,6 @@
  * 侧边栏渲染模块
  */
 
-// 创建图标懒加载观察器（单例模式）
-let lazyImageObserver = null;
-
-const getLazyImageObserver = () => {
-    if (!lazyImageObserver) {
-        lazyImageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const icon = img.parentElement;
-                    
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    
-                    img.addEventListener('load', function() {
-                        icon.textContent = '';
-                        this.style.display = '';
-                        icon.appendChild(this);
-                    }, { once: true });
-                    
-                    img.addEventListener('error', function() {
-                        this.remove();
-                    }, { once: true });
-                    
-                    lazyImageObserver.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '50px 0px',
-            threshold: 0.1
-        });
-    }
-    return lazyImageObserver;
-};
-
 import { createElement } from './elements.js';
 
 // 设置父引用
@@ -122,4 +87,4 @@ const renderSidebar = (data, renderMainContent) => {
     sidebar.appendChild(fragment);
 };
 
-export { createElement, setParentReferences, renderSidebar };
+export { renderSidebar, setParentReferences, createElement };
