@@ -59,7 +59,7 @@ const createElement = (type, item, onClick) => {
                     img.setAttribute('data-current-index', '0');
                 }
                 
-                img.alt = '🔗';
+                img.alt = item.title || 'bookmark icon';
                 img.style.display = 'none';
                 img.loading = 'lazy';
                 bookmarkIcon.appendChild(img);
