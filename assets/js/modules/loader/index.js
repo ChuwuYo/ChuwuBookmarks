@@ -73,7 +73,10 @@ const loadBookmarksData = async (renderMainContent) => {
     
     // 定义消息处理器
     const messageHandler = (event) => {
-        const { status, data, error, hash, structureVersion, generated } = event.data;
+        const { status, data, error, hash, structureVersion, generated, isFullData } = event.data;
+        
+        // 完整数据后台响应应仅由后台处理器处理
+        if (isFullData) return;
         
         // 处理目录结构加载成功
         if (status === 'structure_loaded') {
@@ -114,12 +117,14 @@ const loadBookmarksData = async (renderMainContent) => {
             handleFullDataLoaded(event.data, renderMainContent, hasCachedData);
             // 数据加载完成后移除监听器，但保持 Worker 活跃以供后续使用
             dataWorkerWrapper.removeMessageListener(messageHandler);
+            dataWorkerWrapper.removeErrorListener(errorHandler);
         }
         
         // 处理加载错误
         if (status === 'error') {
             handleLoadError(error, hasCachedData);
             dataWorkerWrapper.removeMessageListener(messageHandler);
+            dataWorkerWrapper.removeErrorListener(errorHandler);
         }
     };
 
@@ -186,6 +191,14 @@ const loadFullDataInBackground = (workerWrapper, renderMainContent, originalHand
                 workerWrapper.removeMessageListener(backgroundHandler);
                 
                 resolve(data);
+                return;
+            }
+            
+            // 确保后台加载失败时不会无限等待
+            if (status === 'error' && isFullData) {
+                console.warn('Full data background load failed:', data);
+                workerWrapper.removeMessageListener(backgroundHandler);
+                resolve(null);
             }
         };
         

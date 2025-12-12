@@ -45,7 +45,10 @@ class WorkerWrapper {
             return null;
         }
 
-        if (this._state === WorkerState.TERMINATED || !this._worker) {
+        // 当 Worker 不存在、已终止或出错时，重新创建
+        if (this._state === WorkerState.TERMINATED || 
+            this._state === WorkerState.ERROR || 
+            !this._worker) {
             this._createWorker();
         }
 
@@ -69,6 +72,13 @@ class WorkerWrapper {
             console.error(`[WorkerManager] ${this._name} postMessage 失败:`, error);
             this._state = WorkerState.ERROR;
             return false;
+        } finally {
+            // 消息发送后重置状态为 IDLE，允许后续消息发送
+            // 注意：这里使用 finally 确保状态总是被重置
+            // 实际的异步结果处理由 Worker 的 message 事件处理器负责
+            if (this._state === WorkerState.RUNNING) {
+                this._state = WorkerState.IDLE;
+            }
         }
     }
 
@@ -181,6 +191,12 @@ class WorkerWrapper {
             this._worker.addEventListener('error', (error) => {
                 console.error(`[WorkerManager] ${this._name} 发生错误:`, error);
                 this._state = WorkerState.ERROR;
+                
+                // 错误后清理 Worker 实例，允许下次 getInstance 调用时重建
+                this._worker = null;
+                
+                // 触发自动重建：在下一次 getInstance 调用时会重新创建
+                // 这样可以从错误状态恢复
             });
 
         } catch (error) {
