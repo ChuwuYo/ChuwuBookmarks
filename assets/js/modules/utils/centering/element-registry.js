@@ -56,6 +56,11 @@ export class ElementRegistry {
      * @returns {boolean} 注册是否成功
      */
     registerElementWithFallback(key, selector) {
+        // 验证必需参数
+        if (!key || !selector) {
+            return false;
+        }
+
         try {
             const fallbackConfig = {
                 selector,
@@ -67,7 +72,9 @@ export class ElementRegistry {
                 useCenteringOffset: false
             };
 
-            this.registeredElements.set(key, fallbackConfig);
+            // 验证和规范化配置
+            const normalizedConfig = this.validateAndNormalizeConfig(fallbackConfig);
+            this.registeredElements.set(key, normalizedConfig);
             return true;
 
         } catch (fallbackError) {

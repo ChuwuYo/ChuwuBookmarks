@@ -65,7 +65,7 @@ export class PositionCalculator {
 
         } catch (error) {
             // 只在开发环境输出错误，生产环境静默处理
-            if (process?.env?.NODE_ENV === 'development') {
+            if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
                 console.warn('calculatePosition: 计算失败，使用空样式', error.message);
             }
             return {};
