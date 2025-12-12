@@ -144,6 +144,12 @@ const loadBookmarksData = async (renderMainContent) => {
     const success = dataWorkerWrapper.postMessage({ action: 'loadStructure' });
     if (!success) {
         console.warn('[Loader] Failed to send loadStructure message to worker');
+        // 如果没有缓存数据，需要显示错误信息
+        if (!hasCachedData) {
+            handleLoadError('无法与数据工作线程通信', hasCachedData);
+            dataWorkerWrapper.removeMessageListener(messageHandler);
+            dataWorkerWrapper.removeErrorListener(errorHandler);
+        }
     }
 };
 
