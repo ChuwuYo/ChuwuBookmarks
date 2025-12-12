@@ -102,7 +102,10 @@ const loadBookmarksData = async (renderMainContent) => {
         // 处理目录结构不存在，回退到完整加载
         if (status === 'structure_not_found') {
             console.log('Structure not found, falling back to full load:', event.data.message);
-            dataWorkerWrapper.postMessage({ action: 'loadData' });
+            const success = dataWorkerWrapper.postMessage({ action: 'loadData' });
+            if (!success) {
+                console.warn('[Loader] Failed to send loadData message to worker');
+            }
             return;
         }
         
@@ -133,7 +136,10 @@ const loadBookmarksData = async (renderMainContent) => {
     dataWorkerWrapper.addErrorListener(errorHandler);
     
     // 首先尝试加载目录结构（懒加载模式）
-    dataWorkerWrapper.postMessage({ action: 'loadStructure' });
+    const success = dataWorkerWrapper.postMessage({ action: 'loadStructure' });
+    if (!success) {
+        console.warn('[Loader] Failed to send loadStructure message to worker');
+    }
 };
 
 /**
@@ -187,7 +193,12 @@ const loadFullDataInBackground = (workerWrapper, renderMainContent, originalHand
         workerWrapper.addMessageListener(backgroundHandler);
         
         // 请求加载完整数据
-        workerWrapper.postMessage({ action: 'loadFullData' });
+        const success = workerWrapper.postMessage({ action: 'loadFullData' });
+        if (!success) {
+            console.warn('[Loader] Failed to request full data loading from worker');
+            workerWrapper.removeMessageListener(backgroundHandler);
+            resolve(null);
+        }
     });
 };
 
