@@ -11,6 +11,7 @@ import { clearWorkerCaches } from '../search/index.js';
 import { getDeviceType } from '../render/device.js';
 import { getCenteringManager } from '../utils/centering.js';
 import { showLoadingMessage, showErrorMessage, clearAllMessages } from '../render/message.js';
+import { getDataWorkerWrapper } from '../worker/index.js';
 
 // 全局状态：存储完整的书签数据（用于懒加载文件夹时查找）
 let fullBookmarksData = null;
@@ -67,14 +68,12 @@ const loadBookmarksData = async (renderMainContent) => {
         localStorage.removeItem('bookmarksData'); // 清除损坏的缓存
     }
 
-    // 初始化Worker
-    const dataWorker = new Worker('./assets/js/data-worker.js');
+    // 从统一的 Worker 管理模块获取 Worker 包装器
+    const dataWorkerWrapper = getDataWorkerWrapper();
     
-    // 首先尝试加载目录结构（懒加载模式）
-    dataWorker.postMessage({ action: 'loadStructure' });
-
-    dataWorker.onmessage = (event) => {
-        const { status, data, index, error, hash, isFullData, structureVersion, generated } = event.data;
+    // 定义消息处理器
+    const messageHandler = (event) => {
+        const { status, data, error, hash, structureVersion, generated } = event.data;
         
         // 处理目录结构加载成功
         if (status === 'structure_loaded') {
@@ -96,46 +95,58 @@ const loadBookmarksData = async (renderMainContent) => {
             }
             
             // 后台异步加载完整数据
-            loadFullDataInBackground(dataWorker, renderMainContent);
-            return; // 不终止 Worker，继续用于加载完整数据
+            loadFullDataInBackground(dataWorkerWrapper, renderMainContent, messageHandler);
+            return;
         }
         
         // 处理目录结构不存在，回退到完整加载
         if (status === 'structure_not_found') {
             console.log('Structure not found, falling back to full load:', event.data.message);
-            dataWorker.postMessage({ action: 'loadData' });
-            return; // 不终止 Worker，继续加载完整数据
+            dataWorkerWrapper.postMessage({ action: 'loadData' });
+            return;
         }
         
         // 处理完整数据加载成功
         if (status === 'success') {
             handleFullDataLoaded(event.data, renderMainContent, hasCachedData);
-            dataWorker.terminate();
+            // 数据加载完成后移除监听器，但保持 Worker 活跃以供后续使用
+            dataWorkerWrapper.removeMessageListener(messageHandler);
         }
         
         // 处理加载错误
         if (status === 'error') {
             handleLoadError(error, hasCachedData);
-            dataWorker.terminate();
+            dataWorkerWrapper.removeMessageListener(messageHandler);
         }
     };
 
-    dataWorker.onerror = (error) => {
+    // 定义错误处理器
+    const errorHandler = (error) => {
         console.error('Data Worker encountered an error:', error);
         handleLoadError(error.message || 'Web Worker加载失败', hasCachedData);
-        dataWorker.terminate();
+        dataWorkerWrapper.removeMessageListener(messageHandler);
+        dataWorkerWrapper.removeErrorListener(errorHandler);
     };
+
+    // 注册监听器
+    dataWorkerWrapper.addMessageListener(messageHandler);
+    dataWorkerWrapper.addErrorListener(errorHandler);
+    
+    // 首先尝试加载目录结构（懒加载模式）
+    dataWorkerWrapper.postMessage({ action: 'loadStructure' });
 };
 
 /**
  * 后台加载完整数据
+ * @param {WorkerWrapper} workerWrapper - Worker 包装器实例
+ * @param {Function} renderMainContent - 渲染主内容的回调函数
+ * @param {Function} originalHandler - 原始消息处理器（用于移除）
  */
-const loadFullDataInBackground = (worker, renderMainContent) => {
+const loadFullDataInBackground = (workerWrapper, renderMainContent, originalHandler) => {
     // 创建一个 Promise 供其他模块等待
     fullDataLoadPromise = new Promise((resolve) => {
-        const originalOnMessage = worker.onmessage;
-        
-        worker.onmessage = (event) => {
+        // 定义后台加载的消息处理器
+        const backgroundHandler = (event) => {
             const { status, data, index, hash, isFullData } = event.data;
             
             if (status === 'success' && isFullData) {
@@ -164,18 +175,19 @@ const loadFullDataInBackground = (worker, renderMainContent) => {
                 // 重新渲染侧边栏（现在有完整数据了）
                 renderSidebar(data, renderMainContent);
                 
+                // 移除监听器，保持 Worker 活跃
+                workerWrapper.removeMessageListener(originalHandler);
+                workerWrapper.removeMessageListener(backgroundHandler);
+                
                 resolve(data);
-                worker.terminate();
-            } else {
-                // 其他消息交给原始处理器
-                if (originalOnMessage) {
-                    originalOnMessage(event);
-                }
             }
         };
         
+        // 注册后台加载监听器
+        workerWrapper.addMessageListener(backgroundHandler);
+        
         // 请求加载完整数据
-        worker.postMessage({ action: 'loadFullData' });
+        workerWrapper.postMessage({ action: 'loadFullData' });
     });
 };
 
