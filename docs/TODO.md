@@ -1,15 +1,14 @@
 # TODO
 
 ## 发现
-1. 考虑加大移动端 主内容区/侧栏/搜索渲染 的字体大小与间隔大小
-2. 面包屑导航第一个面包屑的聚焦样式左侧色彩被淡化
+1. 面包屑导航第一个面包屑的聚焦样式左侧色彩被淡化
 
 ## 建议
 1. 搜索结果筛选：文件夹名/书签名/URL
 2. 考虑是否重新使用oobe这样的加载库
 3. 多根目录时考虑展开得到一级文件夹
 
-## 架构与耦合优化（待处理）
+## 架构与耦合优化（已完成）
 
 1. render/search 与分页模块 API 不一致
    - [x] 补全 SearchResultsManager.updatePaginationPosition 或移除 render/search.js 对外暴露的 updatePaginationPosition，避免无效导出和隐式调用。
@@ -28,7 +27,7 @@
    - 相关文件：[`assets/js/modules/listener/index.js`](assets/js/modules/listener/index.js:166)
 
 5. Web Worker 创建统一化
-   - [ ] 创建 Worker 管理模块统一实例化 search-worker 与 data-worker，避免在 loader/index.js 与 search/index.js 中重复 new Worker 和硬编码路径。
+   - [x] 创建 Worker 管理模块统一实例化 search-worker 与 data-worker，避免在 loader/index.js 与 search/index.js 中重复 new Worker 和硬编码路径。
    - 相关文件：[`assets/js/modules/loader/index.js`](assets/js/modules/loader/index.js:119), [`assets/js/modules/search/index.js`](assets/js/modules/search/index.js:52,73)
 
 6. 废弃/未使用逻辑清理
