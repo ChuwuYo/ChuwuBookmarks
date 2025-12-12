@@ -7,7 +7,7 @@ import { ElementRegistry } from './element-registry.js';
 import { PositionCalculator } from './position-calculator.js';
 import { StyleApplicator } from './style-applicator.js';
 import { EventCoordinator } from './event-coordinator.js';
-import { getDeviceType } from '../render/device.js';
+import { getDeviceType } from '../../render/device.js';
 
 export class UniversalCenteringManager {
     constructor() {
@@ -104,14 +104,16 @@ export class UniversalCenteringManager {
             const success = this.elementRegistry.unregisterElement(key);
 
             if (success) {
-                // 清除该元素的缓存
-                this.elementCache.delete(key);
-
-                // 清理该元素的样式
+                // 先获取缓存的元素
                 const element = this.elementCache.get(key);
+                
+                // 清理该元素的样式
                 if (element) {
                     this.styleApplicator.clearStyles(element);
                 }
+                
+                // 然后清除缓存
+                this.elementCache.delete(key);
             }
 
             return success;
@@ -188,6 +190,15 @@ export class UniversalCenteringManager {
 
             // 获取或查询DOM元素
             let element = this.elementCache.get(key);
+            
+            // 检查缓存的元素是否仍在DOM中
+            if (element && !this.styleApplicator.isElementInDOM(element)) {
+                // 缓存的元素已被移除，清除缓存并重新查询
+                this.elementCache.delete(key);
+                element = null;
+            }
+            
+            // 如果没有有效的缓存元素，重新查询
             if (!element) {
                 element = this.styleApplicator.safeQuerySelector(config.selector);
                 if (element) {
@@ -195,7 +206,7 @@ export class UniversalCenteringManager {
                 }
             }
 
-            if (!element || !this.styleApplicator.isElementInDOM(element)) {
+            if (!element) {
                 return;
             }
 

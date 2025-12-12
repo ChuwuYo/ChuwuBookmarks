@@ -91,9 +91,23 @@ export class StyleApplicator {
         // 应用CSS变量和其他样式
         Object.entries(styles).forEach(([property, value]) => {
             if (value === '') {
-                element.style.removeProperty(property);
+                // 清除属性
+                if (property.startsWith('--')) {
+                    // CSS 自定义属性使用 removeProperty
+                    element.style.removeProperty(property);
+                } else {
+                    // 普通 CSS 属性设置为空字符串
+                    element.style[property] = '';
+                }
             } else {
-                element.style.setProperty(property, value);
+                // 设置属性
+                if (property.startsWith('--')) {
+                    // CSS 自定义属性使用 setProperty
+                    element.style.setProperty(property, value);
+                } else {
+                    // 普通 CSS 属性使用 DOM 样式访问器（支持 camelCase）
+                    element.style[property] = value;
+                }
             }
         });
     }
