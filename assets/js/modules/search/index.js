@@ -32,10 +32,13 @@ import {
  
 // 清除所有Worker缓存
 const clearWorkerCaches = () => {
-    const searchWorkerWrapper = getSearchWorkerWrapper();
-    searchWorkerWrapper.postMessage({ action: 'clearCache' });
+    if (!isWorkerSupported()) return;
+    getSearchWorkerWrapper().postMessage({ action: 'clearCache' });
 };
  
+// 标记Worker是否已初始化
+let workersWired = false;
+
 // 检查浏览器是否支持Web Worker并初始化
 const initSearchWorker = (renderMainContent) => {
     // 初始化响应式系统
@@ -52,11 +55,17 @@ const initSearchWorker = (renderMainContent) => {
         return;
     }
 
+    // 避免重复初始化监听器
+    if (workersWired) {
+        return;
+    }
+    workersWired = true;
+
     // 从统一的 Worker 管理模块获取搜索 Worker 包装器
     const searchWorkerWrapper = getSearchWorkerWrapper();
     
-    // 注册搜索结果监听器
-    searchWorkerWrapper.addMessageListener((e) => {
+    // 定义搜索结果监听器
+    const onSearchMessage = (e) => {
         const { action, results, message } = e.data;
 
         switch (action) {
@@ -70,13 +79,16 @@ const initSearchWorker = (renderMainContent) => {
                 console.error('搜索Worker错误:', message);
                 break;
         }
-    });
+    };
+    
+    // 注册搜索结果监听器
+    searchWorkerWrapper.addMessageListener(onSearchMessage);
 
     // 从统一的 Worker 管理模块获取数据处理 Worker 包装器
     const dataWorkerWrapper = getDataWorkerWrapper();
     
-    // 注册数据处理监听器
-    dataWorkerWrapper.addMessageListener((e) => {
+    // 定义数据处理监听器
+    const onDataMessage = (e) => {
         const { action, message } = e.data;
 
         switch (action) {
@@ -89,7 +101,10 @@ const initSearchWorker = (renderMainContent) => {
                 console.error('数据处理Worker错误:', message);
                 break;
         }
-    });
+    };
+    
+    // 注册数据处理监听器
+    dataWorkerWrapper.addMessageListener(onDataMessage);
 };
  
 const getCachedSearchPayload = () => {
@@ -111,6 +126,8 @@ const getCachedSearchPayload = () => {
 };
 
 const postSearchToWorker = (keyword, useCache = true) => {
+    if (!isWorkerSupported()) return null;
+    
     const payload = getCachedSearchPayload();
     const searchWorkerWrapper = getSearchWorkerWrapper();
     
@@ -186,9 +203,8 @@ const createSearchHandler = () => {
         content.appendChild(loadingIndicator);
  
         // 从缓存读取数据并发送给搜索Worker（如果存在）
-        if (postSearchToWorker(keyword)) {
-            // 已发送到worker
-        } else {
+        const posted = postSearchToWorker(keyword);
+        if (!posted) {
             // 如果不支持Web Worker，显示错误信息
             const errorMessage = document.createElement('div');
             errorMessage.className = 'centered-message error-message centered-element vertical-center';
