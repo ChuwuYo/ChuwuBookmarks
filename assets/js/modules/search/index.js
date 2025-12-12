@@ -24,21 +24,19 @@ import { debounce } from '../utils/index.js';
 import { initializeResponsiveSystem } from '../pagination/responsive.js';
 import { getCenteringManager } from '../utils/centering.js';
 import { getDeviceType } from '../render/device.js';
-
-// 初始化Web Worker
-let searchWorker;
-let dataWorker;
+import { 
+    getSearchWorkerWrapper, 
+    getDataWorkerWrapper,
+    isWorkerSupported 
+} from '../worker/index.js';
  
 // 清除所有Worker缓存
 const clearWorkerCaches = () => {
-    if (searchWorker) {
-        searchWorker.postMessage({
-            action: 'clearCache'
-        });
-    }
+    const searchWorkerWrapper = getSearchWorkerWrapper();
+    searchWorkerWrapper.postMessage({ action: 'clearCache' });
 };
  
-// 检查浏览器是否支持Web Worker
+// 检查浏览器是否支持Web Worker并初始化
 const initSearchWorker = (renderMainContent) => {
     // 初始化响应式系统
     initializeResponsiveSystem();
@@ -49,44 +47,49 @@ const initSearchWorker = (renderMainContent) => {
         centeringManager.initialize();
     }
     
-    if (window.Worker) {
-        // 初始化搜索Worker
-        searchWorker = new Worker('assets/js/search-worker.js');
- 
-        // 监听来自搜索Worker的消息
-        searchWorker.addEventListener('message', (e) => {
-            const { action, results, message, fromCache } = e.data;
- 
-            switch (action) {
-                case 'searchResults':
-                    renderSearchResults(results, renderMainContent);
-                    break;
-                case 'cacheCleared':
-                    break;
-                case 'error':
-                    console.error('搜索Worker错误:', message);
-                    break;
-            }
-        });
- 
-        // 初始化数据处理Worker
-        dataWorker = new Worker('assets/js/data-worker.js');
- 
-        // 监听来自数据Worker的消息
-        dataWorker.addEventListener('message', (e) => {
-            const { action, result, message, fromCache } = e.data;
- 
-            switch (action) {
-                case 'processResult':
-                case 'sortResult':
-                case 'filterResult':
-                    break;
-                case 'error':
-                    console.error('数据处理Worker错误:', message);
-                    break;
-            }
-        });
+    if (!isWorkerSupported()) {
+        console.warn('浏览器不支持 Web Worker，搜索功能将不可用');
+        return;
     }
+
+    // 从统一的 Worker 管理模块获取搜索 Worker 包装器
+    const searchWorkerWrapper = getSearchWorkerWrapper();
+    
+    // 注册搜索结果监听器
+    searchWorkerWrapper.addMessageListener((e) => {
+        const { action, results, message } = e.data;
+
+        switch (action) {
+            case 'searchResults':
+                renderSearchResults(results, renderMainContent);
+                break;
+            case 'cacheCleared':
+                // 缓存已清除，无需额外操作
+                break;
+            case 'error':
+                console.error('搜索Worker错误:', message);
+                break;
+        }
+    });
+
+    // 从统一的 Worker 管理模块获取数据处理 Worker 包装器
+    const dataWorkerWrapper = getDataWorkerWrapper();
+    
+    // 注册数据处理监听器
+    dataWorkerWrapper.addMessageListener((e) => {
+        const { action, message } = e.data;
+
+        switch (action) {
+            case 'processResult':
+            case 'sortResult':
+            case 'filterResult':
+                // 预留扩展点
+                break;
+            case 'error':
+                console.error('数据处理Worker错误:', message);
+                break;
+        }
+    });
 };
  
 const getCachedSearchPayload = () => {
@@ -109,20 +112,18 @@ const getCachedSearchPayload = () => {
 
 const postSearchToWorker = (keyword, useCache = true) => {
     const payload = getCachedSearchPayload();
-    if (searchWorker) {
-        searchWorker.postMessage({
-            action: 'search',
-            data: {
-                keyword,
-                bookmarks: payload.bookmarks,
-                index: payload.index,
-                indexHash: payload.indexHash,
-                useCache
-            }
-        });
-        return true;
-    }
-    return false;
+    const searchWorkerWrapper = getSearchWorkerWrapper();
+    
+    return searchWorkerWrapper.postMessage({
+        action: 'search',
+        data: {
+            keyword,
+            bookmarks: payload.bookmarks,
+            index: payload.index,
+            indexHash: payload.indexHash,
+            useCache
+        }
+    });
 };
 
 const createSearchHandler = () => {
