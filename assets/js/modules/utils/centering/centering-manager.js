@@ -7,6 +7,7 @@ import { ElementRegistry } from './element-registry.js';
 import { PositionCalculator } from './position-calculator.js';
 import { StyleApplicator } from './style-applicator.js';
 import { EventCoordinator } from './event-coordinator.js';
+import { getDeviceType } from '../render/device.js';
 
 export class UniversalCenteringManager {
     constructor() {
@@ -18,7 +19,7 @@ export class UniversalCenteringManager {
 
         // 当前上下文
         this.currentContext = {
-            deviceType: this.detectDeviceType(),
+            deviceType: getDeviceType(),
             sidebarCollapsed: this.getSidebarState(),
             centeringOffset: '0px',
             screenWidth: window.innerWidth
@@ -223,7 +224,7 @@ export class UniversalCenteringManager {
             switch (eventType) {
                 case 'resize':
                     this.updateContext(
-                        this.detectDeviceType(),
+                        getDeviceType(),
                         this.currentContext.sidebarCollapsed,
                         this.currentContext.centeringOffset
                     );
@@ -239,7 +240,7 @@ export class UniversalCenteringManager {
 
                 case 'layoutChange':
                     this.updateContext(
-                        this.detectDeviceType(),
+                        getDeviceType(),
                         this.getSidebarState(),
                         this.currentContext.centeringOffset
                     );
@@ -274,7 +275,7 @@ export class UniversalCenteringManager {
 
         try {
             // 重新检测设备类型和侧栏状态
-            const newDeviceType = this.detectDeviceType();
+            const newDeviceType = getDeviceType();
             const newSidebarState = this.getSidebarState();
 
             // 如果检测到变化，更新上下文
@@ -306,15 +307,6 @@ export class UniversalCenteringManager {
     }
 
     /**
-     * 检测设备类型
-     * @returns {string} 设备类型 ('mobile' 或 'desktop')
-     */
-    detectDeviceType() {
-        // 根据屏幕宽度判断设备类型
-        return window.innerWidth <= 768 ? 'mobile' : 'desktop';
-    }
-
-    /**
      * 获取侧栏状态
      * @returns {boolean} 侧栏是否收起
      */
@@ -322,14 +314,16 @@ export class UniversalCenteringManager {
         try {
             const sidebar = document.querySelector('.sidebar');
             if (!sidebar) {
-                return false;
+                // 侧栏不存在时，视为已折叠
+                return true;
             }
 
             return sidebar.classList.contains('collapsed') ||
                 sidebar.getAttribute('data-collapsed') === 'true';
 
         } catch (error) {
-            return false;
+            // 错误时也视为已折叠
+            return true;
         }
     }
 
