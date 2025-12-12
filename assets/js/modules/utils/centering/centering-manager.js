@@ -1,0 +1,376 @@
+/**
+ * UniversalCenteringManager - 统一居中管理器类
+ * 负责整合所有子组件，提供统一的居中管理API
+ */
+
+import { ElementRegistry } from './element-registry.js';
+import { PositionCalculator } from './position-calculator.js';
+import { StyleApplicator } from './style-applicator.js';
+import { EventCoordinator } from './event-coordinator.js';
+
+export class UniversalCenteringManager {
+    constructor() {
+        // 初始化所有子组件
+        this.elementRegistry = new ElementRegistry();
+        this.positionCalculator = new PositionCalculator();
+        this.styleApplicator = new StyleApplicator();
+        this.eventCoordinator = null;
+
+        // 当前上下文
+        this.currentContext = {
+            deviceType: this.detectDeviceType(),
+            sidebarCollapsed: this.getSidebarState(),
+            centeringOffset: '0px',
+            screenWidth: window.innerWidth
+        };
+
+        // 前一个上下文，用于检测变化
+        this.previousContext = { ...this.currentContext };
+
+        // 销毁标志
+        this.isDestroyed = false;
+
+        // 元素缓存 - 存储已查询的DOM元素
+        this.elementCache = new Map();
+    }
+
+    /**
+     * 初始化管理器
+     */
+    initialize() {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            // 创建事件协调器并传入更新回调
+            this.eventCoordinator = new EventCoordinator(
+                this.handleContextChange.bind(this)
+            );
+
+            // 初始化事件监听
+            this.eventCoordinator.initialize();
+
+            // 执行初始更新
+            this.forceUpdateAll();
+
+        } catch (error) {
+            // 初始化失败，继续执行
+        }
+    }
+
+    /**
+     * 注册元素
+     * @param {string} key - 元素唯一标识
+     * @param {string} selector - CSS选择器
+     * @param {Object} config - 元素配置
+     * @returns {boolean} 注册是否成功
+     */
+    registerElement(key, selector, config = {}) {
+        if (this.isDestroyed) {
+            return false;
+        }
+
+        try {
+            const success = this.elementRegistry.registerElement(key, selector, config);
+
+            if (success) {
+                // 清除该元素的缓存
+                this.elementCache.delete(key);
+
+                // 立即更新该元素
+                this.updateSingleElement(key);
+            }
+
+            return success;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    /**
+     * 注销元素
+     * @param {string} key - 元素唯一标识
+     * @returns {boolean} 注销是否成功
+     */
+    unregisterElement(key) {
+        if (this.isDestroyed) {
+            return false;
+        }
+
+        try {
+            const success = this.elementRegistry.unregisterElement(key);
+
+            if (success) {
+                // 清除该元素的缓存
+                this.elementCache.delete(key);
+
+                // 清理该元素的样式
+                const element = this.elementCache.get(key);
+                if (element) {
+                    this.styleApplicator.clearStyles(element);
+                }
+            }
+
+            return success;
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    /**
+     * 更新上下文
+     * @param {string} deviceType - 设备类型
+     * @param {boolean} sidebarCollapsed - 侧栏是否收起
+     * @param {string} centeringOffset - 居中偏移量
+     */
+    updateContext(deviceType, sidebarCollapsed, centeringOffset) {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        this.previousContext = { ...this.currentContext };
+
+        this.currentContext = {
+            deviceType: deviceType || this.currentContext.deviceType,
+            sidebarCollapsed: sidebarCollapsed !== undefined ? sidebarCollapsed : this.currentContext.sidebarCollapsed,
+            centeringOffset: centeringOffset || this.currentContext.centeringOffset,
+            screenWidth: window.innerWidth
+        };
+
+        // 通知位置计算器更新上下文
+        this.positionCalculator.updateContext(this.currentContext);
+
+        // 更新所有元素
+        this.forceUpdateAll();
+    }
+
+    /**
+     * 强制更新所有元素
+     */
+    forceUpdateAll() {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            const allElements = this.elementRegistry.getAllElements();
+
+            allElements.forEach((_, key) => {
+                this.updateSingleElement(key);
+            });
+
+            // 刷新所有待处理的样式更新
+            this.styleApplicator.flushUpdates();
+
+        } catch (error) {
+            // 更新失败，继续执行
+        }
+    }
+
+    /**
+     * 更新单个元素
+     * @param {string} key - 元素唯一标识
+     */
+    updateSingleElement(key) {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            const config = this.elementRegistry.getElementConfig(key);
+            if (!config) {
+                return;
+            }
+
+            // 获取或查询DOM元素
+            let element = this.elementCache.get(key);
+            if (!element) {
+                element = this.styleApplicator.safeQuerySelector(config.selector);
+                if (element) {
+                    this.elementCache.set(key, element);
+                }
+            }
+
+            if (!element || !this.styleApplicator.isElementInDOM(element)) {
+                return;
+            }
+
+            // 计算位置样式
+            const styles = this.positionCalculator.calculatePosition(config, this.currentContext);
+
+            // 应用样式
+            this.styleApplicator.applyStyles(element, styles);
+
+        } catch (error) {
+            // 更新失败，继续执行
+        }
+    }
+
+    /**
+     * 处理上下文变化
+     * @param {string} eventType - 事件类型
+     * @param {Object} data - 事件数据
+     */
+    handleContextChange(eventType, data) {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            switch (eventType) {
+                case 'resize':
+                    this.updateContext(
+                        this.detectDeviceType(),
+                        this.currentContext.sidebarCollapsed,
+                        this.currentContext.centeringOffset
+                    );
+                    break;
+
+                case 'sidebarChange':
+                    this.updateContext(
+                        this.currentContext.deviceType,
+                        data.collapsed,
+                        this.currentContext.centeringOffset
+                    );
+                    break;
+
+                case 'layoutChange':
+                    this.updateContext(
+                        this.detectDeviceType(),
+                        this.getSidebarState(),
+                        this.currentContext.centeringOffset
+                    );
+                    break;
+
+                case 'centeringOffsetChange':
+                    this.updateContext(
+                        this.currentContext.deviceType,
+                        this.currentContext.sidebarCollapsed,
+                        data.offset || this.currentContext.centeringOffset
+                    );
+                    break;
+
+                default:
+                    // 未知事件类型，尝试恢复到默认上下文
+                    this.recoverFromContextError();
+            }
+
+        } catch (error) {
+            // 处理失败，尝试恢复
+            this.recoverFromContextError();
+        }
+    }
+
+    /**
+     * 从上下文错误中恢复
+     */
+    recoverFromContextError() {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            // 重新检测设备类型和侧栏状态
+            const newDeviceType = this.detectDeviceType();
+            const newSidebarState = this.getSidebarState();
+
+            // 如果检测到变化，更新上下文
+            if (newDeviceType !== this.currentContext.deviceType ||
+                newSidebarState !== this.currentContext.sidebarCollapsed) {
+                this.updateContext(newDeviceType, newSidebarState, this.currentContext.centeringOffset);
+            }
+
+        } catch (error) {
+            // 恢复失败，使用最小化回退配置
+            this.forceUpdateAll();
+        }
+    }
+
+    /**
+     * 检查上下文是否发生变化
+     * @param {Object} currentContext - 当前上下文
+     * @param {Object} previousContext - 前一个上下文
+     * @returns {boolean} 是否发生变化
+     */
+    isContextChanged(currentContext, previousContext) {
+        if (!currentContext || !previousContext) {
+            return true;
+        }
+
+        return currentContext.deviceType !== previousContext.deviceType ||
+            currentContext.sidebarCollapsed !== previousContext.sidebarCollapsed ||
+            currentContext.centeringOffset !== previousContext.centeringOffset;
+    }
+
+    /**
+     * 检测设备类型
+     * @returns {string} 设备类型 ('mobile' 或 'desktop')
+     */
+    detectDeviceType() {
+        // 根据屏幕宽度判断设备类型
+        return window.innerWidth <= 768 ? 'mobile' : 'desktop';
+    }
+
+    /**
+     * 获取侧栏状态
+     * @returns {boolean} 侧栏是否收起
+     */
+    getSidebarState() {
+        try {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar) {
+                return false;
+            }
+
+            return sidebar.classList.contains('collapsed') ||
+                sidebar.getAttribute('data-collapsed') === 'true';
+
+        } catch (error) {
+            return false;
+        }
+    }
+
+    /**
+     * 销毁管理器，清理所有资源
+     */
+    destroy() {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        try {
+            // 销毁事件协调器
+            if (this.eventCoordinator) {
+                this.eventCoordinator.destroy();
+                this.eventCoordinator = null;
+            }
+
+            // 清理所有注册元素的样式
+            const allElements = this.elementRegistry.getAllElements();
+            allElements.forEach((_, key) => {
+                const element = this.elementCache.get(key);
+                if (element) {
+                    this.styleApplicator.clearStyles(element);
+                }
+            });
+
+            // 清理元素缓存
+            this.elementCache.clear();
+
+            // 清理注册表
+            this.elementRegistry.clear();
+
+            // 清理计算缓存
+            this.positionCalculator.clearCache();
+
+            // 标记为已销毁
+            this.isDestroyed = true;
+
+        } catch (error) {
+            // 销毁过程中发生错误，继续执行
+        }
+    }
+}
