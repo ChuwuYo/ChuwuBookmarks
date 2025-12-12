@@ -24,21 +24,22 @@ import { debounce } from '../utils/index.js';
 import { initializeResponsiveSystem } from '../pagination/responsive.js';
 import { getCenteringManager } from '../utils/centering.js';
 import { getDeviceType } from '../render/device.js';
-
-// 初始化Web Worker
-let searchWorker;
-let dataWorker;
+import { 
+    getSearchWorkerWrapper, 
+    getDataWorkerWrapper,
+    isWorkerSupported 
+} from '../worker/index.js';
  
 // 清除所有Worker缓存
 const clearWorkerCaches = () => {
-    if (searchWorker) {
-        searchWorker.postMessage({
-            action: 'clearCache'
-        });
-    }
+    if (!isWorkerSupported()) return;
+    getSearchWorkerWrapper().postMessage({ action: 'clearCache' });
 };
  
-// 检查浏览器是否支持Web Worker
+// 标记Worker是否已初始化
+let workersWired = false;
+
+// 检查浏览器是否支持Web Worker并初始化
 const initSearchWorker = (renderMainContent) => {
     // 初始化响应式系统
     initializeResponsiveSystem();
@@ -49,80 +50,96 @@ const initSearchWorker = (renderMainContent) => {
         centeringManager.initialize();
     }
     
-    if (window.Worker) {
-        // 初始化搜索Worker
-        searchWorker = new Worker('assets/js/search-worker.js');
- 
-        // 监听来自搜索Worker的消息
-        searchWorker.addEventListener('message', (e) => {
-            const { action, results, message, fromCache } = e.data;
- 
-            switch (action) {
-                case 'searchResults':
-                    renderSearchResults(results, renderMainContent);
-                    break;
-                case 'cacheCleared':
-                    break;
-                case 'error':
-                    console.error('搜索Worker错误:', message);
-                    break;
-            }
-        });
- 
-        // 初始化数据处理Worker
-        dataWorker = new Worker('assets/js/data-worker.js');
- 
-        // 监听来自数据Worker的消息
-        dataWorker.addEventListener('message', (e) => {
-            const { action, result, message, fromCache } = e.data;
- 
-            switch (action) {
-                case 'processResult':
-                case 'sortResult':
-                case 'filterResult':
-                    break;
-                case 'error':
-                    console.error('数据处理Worker错误:', message);
-                    break;
-            }
-        });
+    if (!isWorkerSupported()) {
+        console.warn('浏览器不支持 Web Worker，搜索功能将不可用');
+        return;
     }
+
+    // 避免重复初始化监听器
+    if (workersWired) {
+        return;
+    }
+    workersWired = true;
+
+    // 从统一的 Worker 管理模块获取搜索 Worker 包装器
+    const searchWorkerWrapper = getSearchWorkerWrapper();
+    
+    // 定义搜索结果监听器
+    const onSearchMessage = (e) => {
+        const { action, results, message } = e.data;
+
+        switch (action) {
+            case 'searchResults':
+                renderSearchResults(results, renderMainContent);
+                break;
+            case 'cacheCleared':
+                // 缓存已清除，无需额外操作
+                break;
+            case 'error':
+                console.error('搜索Worker错误:', message);
+                break;
+        }
+    };
+    
+    // 注册搜索结果监听器
+    searchWorkerWrapper.addMessageListener(onSearchMessage);
+
+    // 从统一的 Worker 管理模块获取数据处理 Worker 包装器
+    const dataWorkerWrapper = getDataWorkerWrapper();
+    
+    // 定义数据处理监听器
+    const onDataMessage = (e) => {
+        const { action, message } = e.data;
+
+        switch (action) {
+            case 'processResult':
+            case 'sortResult':
+            case 'filterResult':
+                // 预留扩展点
+                break;
+            case 'error':
+                console.error('数据处理Worker错误:', message);
+                break;
+        }
+    };
+    
+    // 注册数据处理监听器
+    dataWorkerWrapper.addMessageListener(onDataMessage);
 };
  
 const getCachedSearchPayload = () => {
     let data = [];
+    let index = null;
+    
     try {
         data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-    } catch (e) {
-        console.error("Failed to parse cached bookmarksData:", e);
-        data = [];
-    }
-    let index = null;
-    try {
         index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
     } catch (e) {
+        console.error("Failed to parse cached search data:", e);
+        data = [];
         index = null;
     }
+    
     const indexHash = localStorage.getItem('bookmarksHash') || null;
     return { bookmarks: data, index, indexHash };
 };
 
 const postSearchToWorker = (keyword, useCache = true) => {
+    if (!isWorkerSupported()) return null;
+    
     const payload = getCachedSearchPayload();
-    if (searchWorker) {
-        searchWorker.postMessage({
-            action: 'search',
-            data: {
-                keyword,
-                bookmarks: payload.bookmarks,
-                index: payload.index,
-                indexHash: payload.indexHash,
-                useCache
-            }
-        });
-        return true;
-    }
-    return false;
+    const searchWorkerWrapper = getSearchWorkerWrapper();
+    
+    return searchWorkerWrapper.postMessage({
+        action: 'search',
+        data: {
+            keyword,
+            bookmarks: payload.bookmarks,
+            index: payload.index,
+            indexHash: payload.indexHash,
+            useCache
+        }
+    });
 };
 
 const createSearchHandler = () => {
@@ -185,9 +202,8 @@ const createSearchHandler = () => {
         content.appendChild(loadingIndicator);
  
         // 从缓存读取数据并发送给搜索Worker（如果存在）
-        if (postSearchToWorker(keyword)) {
-            // 已发送到worker
-        } else {
+        const posted = postSearchToWorker(keyword);
+        if (!posted) {
             // 如果不支持Web Worker，显示错误信息
             const errorMessage = document.createElement('div');
             errorMessage.className = 'centered-message error-message centered-element vertical-center';
@@ -246,7 +262,10 @@ const restoreSearchStateFromURL = () => {
  * @param {string} keyword - 搜索关键词
  */
 const triggerSearch = (keyword) => {
-    postSearchToWorker(keyword);
+    const posted = postSearchToWorker(keyword);
+    if (!posted) {
+        console.warn('[Search] Failed to trigger search for keyword:', keyword);
+    }
 };
  
 export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL, triggerSearch };
