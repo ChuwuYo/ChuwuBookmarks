@@ -109,18 +109,17 @@ const initSearchWorker = (renderMainContent) => {
  
 const getCachedSearchPayload = () => {
     let data = [];
+    let index = null;
+    
     try {
         data = JSON.parse(localStorage.getItem('bookmarksData') || '[]');
-    } catch (e) {
-        console.error("Failed to parse cached bookmarksData:", e);
-        data = [];
-    }
-    let index = null;
-    try {
         index = JSON.parse(localStorage.getItem('bookmarksIndex') || 'null');
     } catch (e) {
+        console.error("Failed to parse cached search data:", e);
+        data = [];
         index = null;
     }
+    
     const indexHash = localStorage.getItem('bookmarksHash') || null;
     return { bookmarks: data, index, indexHash };
 };

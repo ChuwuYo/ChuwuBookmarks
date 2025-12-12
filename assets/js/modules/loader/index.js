@@ -128,9 +128,11 @@ const loadBookmarksData = async (renderMainContent) => {
         }
     };
 
-    // 定义错误处理器
+    // 定义错误处理器（处理 Worker 运行时错误）
     const errorHandler = (error) => {
         console.error('Data Worker encountered an error:', error);
+        // 只有在消息处理器还未处理过错误时才调用
+        // 避免重复处理同一个错误
         handleLoadError(error.message || 'Web Worker加载失败', hasCachedData);
         dataWorkerWrapper.removeMessageListener(messageHandler);
         dataWorkerWrapper.removeErrorListener(errorHandler);
@@ -154,6 +156,25 @@ const loadBookmarksData = async (renderMainContent) => {
 };
 
 /**
+ * 缓存书签数据到 localStorage
+ * @param {Array} data - 书签数据
+ * @param {string} hash - 数据哈希值
+ * @param {Array} index - 书签索引
+ */
+const cacheBookmarksData = (data, hash, index) => {
+    try {
+        localStorage.setItem('bookmarksData', JSON.stringify(data));
+        localStorage.setItem('bookmarksHash', hash);
+        
+        if (index) {
+            localStorage.setItem('bookmarksIndex', JSON.stringify(index));
+        }
+    } catch (e) {
+        console.warn('Failed to cache bookmarks data:', e);
+    }
+};
+
+/**
  * 后台加载完整数据
  * @param {WorkerWrapper} workerWrapper - Worker 包装器实例
  * @param {Function} renderMainContent - 渲染主内容的回调函数
@@ -173,18 +194,8 @@ const loadFullDataInBackground = (workerWrapper, renderMainContent, originalHand
                 fullBookmarksData = data;
                 isFullDataLoaded = true;
                 
-                // 更新缓存
-                try {
-                    const newDataString = JSON.stringify(data);
-                    localStorage.setItem('bookmarksData', newDataString);
-                    localStorage.setItem('bookmarksHash', hash);
-                    
-                    if (index) {
-                        localStorage.setItem('bookmarksIndex', JSON.stringify(index));
-                    }
-                } catch (e) {
-                    console.warn('Failed to cache full data:', e);
-                }
+                // 缓存数据
+                cacheBookmarksData(data, hash, index);
                 
                 // 清除搜索缓存，因为数据已更新
                 clearWorkerCaches();
@@ -235,17 +246,7 @@ const handleFullDataLoaded = (eventData, renderMainContent, hasCachedData) => {
     
     // 仅当数据有变化时才更新视图和缓存
     if (hash !== cachedHash) {
-        try {
-            localStorage.setItem('bookmarksData', JSON.stringify(data));
-            localStorage.setItem('bookmarksHash', hash);
-            
-            if (index) {
-                localStorage.setItem('bookmarksIndex', JSON.stringify(index));
-            }
-        } catch (e) {
-            console.warn('Failed to cache data:', e);
-        }
-        
+        cacheBookmarksData(data, hash, index);
         clearWorkerCaches();
         renderSidebar(data, renderMainContent);
         renderHome();

@@ -302,22 +302,6 @@ export class UniversalCenteringManager {
     }
 
     /**
-     * 检查上下文是否发生变化
-     * @param {Object} currentContext - 当前上下文
-     * @param {Object} previousContext - 前一个上下文
-     * @returns {boolean} 是否发生变化
-     */
-    isContextChanged(currentContext, previousContext) {
-        if (!currentContext || !previousContext) {
-            return true;
-        }
-
-        return currentContext.deviceType !== previousContext.deviceType ||
-            currentContext.sidebarCollapsed !== previousContext.sidebarCollapsed ||
-            currentContext.centeringOffset !== previousContext.centeringOffset;
-    }
-
-    /**
      * 获取侧栏状态
      * @returns {boolean} 侧栏是否收起
      */
