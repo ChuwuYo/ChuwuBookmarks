@@ -66,19 +66,13 @@ class WorkerWrapper {
         
         try {
             worker.postMessage(message);
-            this._state = WorkerState.RUNNING;
+            // 消息发送成功，状态保持为 IDLE
+            // Worker 处理完成后会通过 message 事件通知
             return true;
         } catch (error) {
             console.error(`[WorkerManager] ${this._name} postMessage 失败:`, error);
             this._state = WorkerState.ERROR;
             return false;
-        } finally {
-            // 消息发送后重置状态为 IDLE，允许后续消息发送
-            // 注意：这里使用 finally 确保状态总是被重置
-            // 实际的异步结果处理由 Worker 的 message 事件处理器负责
-            if (this._state === WorkerState.RUNNING) {
-                this._state = WorkerState.IDLE;
-            }
         }
     }
 
