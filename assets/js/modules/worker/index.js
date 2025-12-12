@@ -16,7 +16,6 @@ const WORKER_PATHS = Object.freeze({
 // Worker 状态枚举
 const WorkerState = Object.freeze({
     IDLE: 'idle',
-    RUNNING: 'running',
     TERMINATED: 'terminated',
     ERROR: 'error'
 });
@@ -72,6 +71,18 @@ class WorkerWrapper {
         } catch (error) {
             console.error(`[WorkerManager] ${this._name} postMessage 失败:`, error);
             this._state = WorkerState.ERROR;
+            
+            // 清理 Worker 实例，保持状态一致
+            // 这样 isAvailable() 会返回 false，下次 getInstance 会重建
+            if (this._worker) {
+                try {
+                    this._worker.terminate();
+                } catch (e) {
+                    // 终止失败，继续清理
+                }
+                this._worker = null;
+            }
+            
             return false;
         }
     }
