@@ -263,7 +263,10 @@ const restoreSearchStateFromURL = () => {
  * @param {string} keyword - 搜索关键词
  */
 const triggerSearch = (keyword) => {
-    postSearchToWorker(keyword);
+    const posted = postSearchToWorker(keyword);
+    if (!posted) {
+        console.warn('[Search] Failed to trigger search for keyword:', keyword);
+    }
 };
  
 export { clearWorkerCaches, initSearchWorker, createSearchHandler, resetPaginationState, restoreSearchStateFromURL, triggerSearch };
