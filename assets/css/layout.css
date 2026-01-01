@@ -90,7 +90,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 1.0rem 0;
+    margin: 1.2rem 0;
     margin-left: 10px;
     user-select: none;
     -webkit-user-drag: none;
@@ -98,6 +98,8 @@
     backface-visibility: hidden;
     will-change: opacity;
     transform: translateZ(0);
+    /* 确保emoji和文字垂直居中对齐 */
+    line-height: 1;
 }
 .sidebar .folder-name {
     font-size: 1.15rem;
@@ -105,6 +107,10 @@
     cursor: pointer;
     transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default);
     border-radius: 4px;
+    /* 确保文字垂直居中 */
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
 /* 侧边栏悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
