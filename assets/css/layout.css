@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 230px;
+    width: var(--sidebar-width);
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
@@ -31,7 +31,7 @@
 .sidebar-scroll-hint {
     position: fixed;
     bottom: 20px;
-    left: calc(230px - 40px); /* 侧边栏宽度 - 右边距 */
+    left: calc(var(--sidebar-width) - 24px - 15px); /* 侧边栏宽度 - 提示器宽度 - 右边距 */
     width: 24px;
     height: 24px;
     z-index: 1001;
