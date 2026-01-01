@@ -2,4 +2,5 @@
 :root {
     --breakpoint-mobile: 480px;   /* 移动端样式断点 */
     --breakpoint-sidebar: 1024px; /* 侧栏收起断点 */
+    --sidebar-width: 230px;       /* 侧边栏宽度 */
 }

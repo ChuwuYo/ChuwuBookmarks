@@ -1,5 +1,5 @@
 import { initTheme } from './assets/js/modules/render/theme.js';
-import { handleDeviceView } from './assets/js/modules/render/device.js';
+import { handleDeviceView, BREAKPOINT_MOBILE } from './assets/js/modules/render/device.js';
 import { renderHome } from './assets/js/modules/render/home.js';
 import { renderMainContent as _renderMainContent } from './assets/js/modules/render/content.js';
 import { initSearchWorker, createSearchHandler, restoreSearchStateFromURL } from './assets/js/modules/search/index.js';
@@ -24,13 +24,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
     handleDeviceView();
 
-    // 初始化自定义滚动条指示器（仅非手机端）
-    if (window.innerWidth >= 480) {
+    // 初始化自定义滚动条指示器和侧边栏滚动提示器（仅非手机端）
+    if (window.innerWidth >= BREAKPOINT_MOBILE) {
         customScrollIndicator.init();
-    }
-
-    // 初始化侧边栏滚动提示器（仅非手机端）
-    if (window.innerWidth >= 480) {
         initSidebarScrollHint();
     }
 

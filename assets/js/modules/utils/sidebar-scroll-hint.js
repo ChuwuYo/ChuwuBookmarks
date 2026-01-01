@@ -3,8 +3,30 @@
  * 简单检测侧边栏是否需要滚动，并显示向下滚动提示
  */
 
+// 模块级变量
+let initialized = false;
 let sidebar = null;
 let hintElement = null;
+let observer = null;
+
+/**
+ * 防抖函数 - 延迟执行，避免高频触发
+ */
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+// 绑定的事件处理函数引用
+const boundCheckScrollable = () => checkScrollable();
+const debouncedCheckScrollable = debounce(boundCheckScrollable, 150); // 防抖处理resize事件
 
 /**
  * 检查侧边栏是否可滚动并更新提示显示
@@ -37,6 +59,9 @@ function checkScrollable() {
  * 初始化侧边栏滚动提示器
  */
 function initSidebarScrollHint() {
+    // 防止重复初始化
+    if (initialized) return;
+
     sidebar = document.querySelector('.sidebar');
     if (!sidebar) {
         console.warn('侧边栏元素未找到');
@@ -50,19 +75,48 @@ function initSidebarScrollHint() {
     document.body.appendChild(hintElement);
     
     // 监听滚动事件
-    sidebar.addEventListener('scroll', checkScrollable, { passive: true });
+    sidebar.addEventListener('scroll', boundCheckScrollable, { passive: true });
     
-    // 监听窗口大小变化
-    window.addEventListener('resize', checkScrollable);
+    // 监听窗口大小变化（使用防抖处理）
+    window.addEventListener('resize', debouncedCheckScrollable);
     
     // 监听侧边栏折叠状态变化
-    const observer = new MutationObserver(checkScrollable);
+    observer = new MutationObserver(boundCheckScrollable);
     observer.observe(sidebar, { attributes: true, attributeFilter: ['class'] });
 
     // 初始检查
     setTimeout(checkScrollable, 100);
     
-    console.log('侧边栏滚动提示器已初始化');
+    initialized = true;
+}
+
+/**
+ * 销毁侧边栏滚动提示器
+ */
+function destroySidebarScrollHint() {
+    if (!initialized) return;
+
+    // 移除事件监听器
+    if (sidebar) {
+        sidebar.removeEventListener('scroll', boundCheckScrollable);
+    }
+    window.removeEventListener('resize', debouncedCheckScrollable);
+
+    // 断开MutationObserver
+    if (observer) {
+        observer.disconnect();
+        observer = null;
+    }
+
+    // 移除DOM元素
+    if (hintElement && hintElement.parentNode) {
+        hintElement.parentNode.removeChild(hintElement);
+    }
+
+    // 重置状态
+    sidebar = null;
+    hintElement = null;
+    initialized = false;
 }
 
 export { initSidebarScrollHint };
