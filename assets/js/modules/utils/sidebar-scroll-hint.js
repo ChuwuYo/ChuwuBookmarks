@@ -27,9 +27,6 @@ function checkScrollable() {
     const isAtBottom = scrollTop >= scrollHeight - clientHeight - 2; // 容差改为2px
 
     if (needsScroll && !isAtBottom) {
-        // 更新提示器位置（侧边栏右下角）
-        const sidebarWidth = sidebar.offsetWidth;
-        hintElement.style.left = (sidebarWidth - 40) + 'px';
         hintElement.classList.add('visible');
     } else {
         hintElement.classList.remove('visible');

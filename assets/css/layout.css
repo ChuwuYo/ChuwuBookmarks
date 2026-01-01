@@ -29,9 +29,9 @@
 
 /* 侧边栏滚动提示器 */
 .sidebar-scroll-hint {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
+    position: fixed;
+    bottom: 20px;
+    left: calc(230px - 40px); /* 侧边栏宽度 - 右边距 */
     width: 24px;
     height: 24px;
     z-index: 1001;
@@ -40,7 +40,6 @@
     transform: translateY(10px) scale(0.8);
     transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* 不参与滚动流 */
 }
 
 .sidebar-scroll-hint.visible {
