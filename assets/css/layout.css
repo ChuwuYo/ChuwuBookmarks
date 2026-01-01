@@ -27,6 +27,42 @@
     display: none;
 }
 
+/* 侧边栏滚动提示器 */
+.sidebar-scroll-hint {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 不参与滚动流 */
+}
+
+.sidebar-scroll-hint.visible {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+}
+
+/* 倒三角图标 */
+.sidebar-scroll-hint::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid var(--link-color);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+}
+
 /* 小于1024px时默认收起侧边栏 */
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
