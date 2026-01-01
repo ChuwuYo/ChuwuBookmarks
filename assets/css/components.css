@@ -243,7 +243,9 @@ button.breadcrumb-item {
     width: fit-content;
     /* 保留最小占位，减少动态渲染/懒加载引起的布局偏移 */
     min-width: 120px;
-    min-height: 32px;
+    /* 移除min-height以与书签保持一致的间距 */
+    /* 确保emoji和文字垂直居中对齐 */
+    line-height: 1;
 }
 
 /* 文件夹悬停效果 - 仅在PC端生效 */
@@ -280,6 +282,10 @@ button.breadcrumb-item {
     cursor: pointer;
     transition: all var(--duration-base) var(--ease-default);
     border-radius: 4px;
+    /* 确保文字垂直居中 */
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
 
 #content .bookmark .bookmark-icon {

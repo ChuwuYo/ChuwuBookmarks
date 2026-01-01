@@ -1,11 +1,12 @@
 import { initTheme } from './assets/js/modules/render/theme.js';
-import { handleDeviceView } from './assets/js/modules/render/device.js';
+import { handleDeviceView, BREAKPOINT_MOBILE } from './assets/js/modules/render/device.js';
 import { renderHome } from './assets/js/modules/render/home.js';
 import { renderMainContent as _renderMainContent } from './assets/js/modules/render/content.js';
 import { initSearchWorker, createSearchHandler, restoreSearchStateFromURL } from './assets/js/modules/search/index.js';
 import { showLoadingIndicator, loadBookmarksData } from './assets/js/modules/loader/index.js';
 import { initEventListeners } from './assets/js/modules/listener/index.js';
 import { customScrollIndicator } from './assets/js/modules/utils/scroll-indicator.js';
+import { initSidebarScrollHint } from './assets/js/modules/utils/sidebar-scroll-hint.js';
 
 // 创建包装函数解决循环依赖
 const renderMainContent = (folder, fromSidebar = false) => {
@@ -22,10 +23,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始化主题和设备视图
     initTheme();
     handleDeviceView();
-    
-    // 初始化自定义滚动条指示器（仅非手机端）
-    if (window.innerWidth >= 480) {
+
+    // 初始化自定义滚动条指示器和侧边栏滚动提示器（仅非手机端）
+    if (window.innerWidth >= BREAKPOINT_MOBILE) {
         customScrollIndicator.init();
+        initSidebarScrollHint();
     }
 
 

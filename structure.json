@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated": "2025-12-12T14:45:13.952Z",
+  "generated": "2026-01-01T07:03:29.989Z",
   "folders": [
     {
       "id": "0",
       "title": "书签栏",
-      "addDate": 1765550713432,
+      "addDate": 1767251009471,
       "linkCount": 0,
       "folderCount": 19,
       "hasChildren": true,
@@ -164,7 +164,7 @@
               "id": "0_4_5",
               "title": "第三方",
               "addDate": 1704014875963,
-              "linkCount": 20,
+              "linkCount": 21,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -316,7 +316,7 @@
               "id": "0_7_0",
               "title": "下载",
               "addDate": 1742049368049,
-              "linkCount": 11,
+              "linkCount": 14,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -330,9 +330,9 @@
               "children": [
                 {
                   "id": "0_7_1_0",
-                  "title": "API",
+                  "title": "API/Package",
                   "addDate": 1759512107683,
-                  "linkCount": 11,
+                  "linkCount": 14,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -352,7 +352,7 @@
           "id": "0_8",
           "title": "文字",
           "addDate": 1704014875972,
-          "linkCount": 12,
+          "linkCount": 13,
           "folderCount": 5,
           "hasChildren": true,
           "children": [
@@ -392,7 +392,7 @@
               "id": "0_8_4",
               "title": "古诗词文",
               "addDate": 1744904172811,
-              "linkCount": 7,
+              "linkCount": 9,
               "folderCount": 0,
               "hasChildren": true
             }
@@ -450,7 +450,7 @@
                   "id": "0_9_0_4",
                   "title": "笔记阅读",
                   "addDate": 1704014875976,
-                  "linkCount": 13,
+                  "linkCount": 14,
                   "folderCount": 4,
                   "hasChildren": true,
                   "children": [
@@ -458,7 +458,7 @@
                       "id": "0_9_0_4_0",
                       "title": "文档管理阅读",
                       "addDate": 1742656983830,
-                      "linkCount": 8,
+                      "linkCount": 9,
                       "folderCount": 0,
                       "hasChildren": true
                     },
@@ -492,7 +492,7 @@
                   "id": "0_9_0_5",
                   "title": "翻译",
                   "addDate": 1742656906181,
-                  "linkCount": 3,
+                  "linkCount": 4,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -572,7 +572,7 @@
           "id": "0_11",
           "title": "欣赏",
           "addDate": 1704014875984,
-          "linkCount": 2,
+          "linkCount": 4,
           "folderCount": 6,
           "hasChildren": true,
           "children": [
@@ -638,7 +638,7 @@
               "id": "0_12_0",
               "title": "机场",
               "addDate": 1704014875986,
-              "linkCount": 26,
+              "linkCount": 24,
               "folderCount": 3,
               "hasChildren": true,
               "children": [
@@ -654,7 +654,7 @@
                   "id": "0_12_0_1",
                   "title": "名单",
                   "addDate": 1744977212612,
-                  "linkCount": 5,
+                  "linkCount": 6,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -672,7 +672,7 @@
               "id": "0_12_1",
               "title": "客户端",
               "addDate": 1704014875988,
-              "linkCount": 19,
+              "linkCount": 18,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -822,7 +822,7 @@
               "id": "0_14_6",
               "title": "文本工具",
               "addDate": 1704014875998,
-              "linkCount": 19,
+              "linkCount": 18,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -846,7 +846,7 @@
                   "id": "0_14_7_1",
                   "title": "youtube",
                   "addDate": 1704014875999,
-                  "linkCount": 16,
+                  "linkCount": 15,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -854,7 +854,7 @@
                   "id": "0_14_7_2",
                   "title": "bilibili",
                   "addDate": 1704014876000,
-                  "linkCount": 8,
+                  "linkCount": 9,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -864,7 +864,7 @@
               "id": "0_14_8",
               "title": "AI",
               "addDate": 1704014876001,
-              "linkCount": 12,
+              "linkCount": 13,
               "folderCount": 6,
               "hasChildren": true,
               "children": [
@@ -880,7 +880,7 @@
                   "id": "0_14_8_1",
                   "title": "聊天",
                   "addDate": 1704014876004,
-                  "linkCount": 11,
+                  "linkCount": 12,
                   "folderCount": 2,
                   "hasChildren": true,
                   "children": [
@@ -888,7 +888,7 @@
                       "id": "0_14_8_1_0",
                       "title": "第三方",
                       "addDate": 1744783271020,
-                      "linkCount": 19,
+                      "linkCount": 20,
                       "folderCount": 0,
                       "hasChildren": true
                     },
@@ -896,7 +896,7 @@
                       "id": "0_14_8_1_1",
                       "title": "官方-不常用",
                       "addDate": 1751994267292,
-                      "linkCount": 26,
+                      "linkCount": 25,
                       "folderCount": 0,
                       "hasChildren": true
                     }
@@ -1184,7 +1184,7 @@
                   "id": "0_16_3_2",
                   "title": "IDE",
                   "addDate": 1708534919338,
-                  "linkCount": 14,
+                  "linkCount": 15,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -1226,7 +1226,7 @@
               "id": "0_16_6",
               "title": "云服务",
               "addDate": 1753202742551,
-              "linkCount": 9,
+              "linkCount": 10,
               "folderCount": 2,
               "hasChildren": true,
               "children": [
@@ -1260,7 +1260,7 @@
               "id": "0_16_8",
               "title": "AI编程",
               "addDate": 1719239905714,
-              "linkCount": 15,
+              "linkCount": 16,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1276,7 +1276,7 @@
               "id": "0_16_10",
               "title": "组件/模板/主题",
               "addDate": 1744173964942,
-              "linkCount": 11,
+              "linkCount": 12,
               "folderCount": 2,
               "hasChildren": true,
               "children": [
@@ -1324,9 +1324,9 @@
                 },
                 {
                   "id": "0_16_10_1",
-                  "title": "网站示例",
+                  "title": "聚合网站",
                   "addDate": 1752044971371,
-                  "linkCount": 6,
+                  "linkCount": 7,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -1420,7 +1420,7 @@
                   "id": "0_17_2_0",
                   "title": "临时",
                   "addDate": 1749288427904,
-                  "linkCount": 6,
+                  "linkCount": 7,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -1526,7 +1526,7 @@
               "id": "0_18_1",
               "title": "个人博客",
               "addDate": 1704014876012,
-              "linkCount": 68,
+              "linkCount": 69,
               "folderCount": 0,
               "hasChildren": true
             },

@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 230px;
+    width: var(--sidebar-width);
     background: var(--sidebar-bg);
     box-shadow: var(--shadow-md);
     padding: 20px 20px 40px;
@@ -25,6 +25,41 @@
 /* 隐藏侧边栏滚动条 */
 .sidebar::-webkit-scrollbar {
     display: none;
+}
+
+/* 侧边栏滚动提示器 */
+.sidebar-scroll-hint {
+    position: fixed;
+    bottom: 20px;
+    left: calc(var(--sidebar-width) - 24px - 15px); /* 侧边栏宽度 - 提示器宽度 - 右边距 */
+    width: 24px;
+    height: 24px;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-scroll-hint.visible {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+}
+
+/* 倒三角图标 */
+.sidebar-scroll-hint::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid var(--link-color);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
 }
 
 /* 小于1024px时默认收起侧边栏 */
@@ -54,7 +89,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 1.0rem 0;
+    margin: 1.2rem 0;
     margin-left: 10px;
     user-select: none;
     -webkit-user-drag: none;
@@ -62,6 +97,8 @@
     backface-visibility: hidden;
     will-change: opacity;
     transform: translateZ(0);
+    /* 确保emoji和文字垂直居中对齐 */
+    line-height: 1;
 }
 .sidebar .folder-name {
     font-size: 1.15rem;
@@ -69,6 +106,10 @@
     cursor: pointer;
     transition: background var(--duration-base) var(--ease-default), transform var(--duration-base) var(--ease-default), box-shadow var(--duration-base) var(--ease-default);
     border-radius: 4px;
+    /* 确保文字垂直居中 */
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
 /* 侧边栏悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
