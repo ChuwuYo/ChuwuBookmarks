@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
     handleDeviceView();
 
-    // 初始化自定义滚动条指示器和侧边栏滚动提示器（仅非手机端）
+    // 初始化自定义滚动条指示器（仅桌面端）
     if (window.innerWidth >= BREAKPOINT_MOBILE) {
         customScrollIndicator.init();
-        initSidebarScrollHint();
     }
+
+    // 初始化侧边栏滚动提示器（所有设备）
+    initSidebarScrollHint();
 
 
 
