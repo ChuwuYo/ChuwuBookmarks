@@ -26,10 +26,31 @@ const createElement = (type, item, onClick) => {
 
         const folderName = document.createElement('span');
         folderName.className = 'folder-name';
-        folderName.textContent = item.title;
+        folderName.textContent = (typeof item.title === 'string' && item.title.trim()) ? item.title.trim() : '未命名文件夹';
 
         element.append(folderIcon, folderName);
     } else {
+        const titleRaw = typeof item.title === 'string' ? item.title : '';
+        const title = titleRaw.trim();
+        const urlRaw = typeof item.url === 'string' ? item.url : '';
+        const url = urlRaw.trim();
+
+        const deriveLabelFromUrl = (u) => {
+            if (!u) return '';
+            if (u.startsWith('data:')) {
+                const match = /^data:([^;,]+)/i.exec(u);
+                return match?.[1] ? `(${match[1]})` : '(data)';
+            }
+            try {
+                const parsed = new URL(u);
+                return parsed.hostname || u;
+            } catch (e) {
+                return u;
+            }
+        };
+
+        const displayTitle = title || deriveLabelFromUrl(url) || '未命名书签';
+
         const bookmarkIcon = document.createElement('span');
         bookmarkIcon.className = 'bookmark-icon';
         
@@ -42,6 +63,7 @@ const createElement = (type, item, onClick) => {
         // 图标懒加载
         if (item.icon) {
             const img = document.createElement('img');
+            img.className = 'bookmark-icon-img';
             
             // 处理图标数据：支持字符串和数组
             const iconUrls = Array.isArray(item.icon) ? item.icon : [item.icon];
@@ -61,18 +83,17 @@ const createElement = (type, item, onClick) => {
                     img.setAttribute('data-icon-urls', JSON.stringify(validIconUrls));
                 }
                 
-                img.alt = item.title || 'bookmark icon';
-                img.style.display = 'none';
+                img.alt = displayTitle;
                 img.loading = 'lazy';
                 bookmarkIcon.appendChild(img);
             }
         }
 
         const link = document.createElement('a');
-        link.href = item.url;
+        link.href = url || '#';
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
-        link.textContent = item.title;
+        link.textContent = displayTitle;
 
         element.append(bookmarkIcon, link);
     }
