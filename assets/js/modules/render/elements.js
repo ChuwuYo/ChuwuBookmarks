@@ -7,6 +7,20 @@
  * - 低侵入：仅调整 import 源，调用签名不变
  */
 
+const deriveLabelFromUrl = (u) => {
+    if (!u) return '';
+    if (u.startsWith('data:')) {
+        const match = /^data:([^;,]+)/i.exec(u);
+        return match?.[1] ? `(${match[1]})` : '(data)';
+    }
+    try {
+        const parsed = new URL(u);
+        return parsed.hostname || u;
+    } catch (e) {
+        return u;
+    }
+};
+
 /**
  * 创建统一样式的文件夹/书签元素
  * @param {'folder'|'bookmark'} type 元素类型
@@ -34,20 +48,6 @@ const createElement = (type, item, onClick) => {
         const title = titleRaw.trim();
         const urlRaw = typeof item.url === 'string' ? item.url : '';
         const url = urlRaw.trim();
-
-        const deriveLabelFromUrl = (u) => {
-            if (!u) return '';
-            if (u.startsWith('data:')) {
-                const match = /^data:([^;,]+)/i.exec(u);
-                return match?.[1] ? `(${match[1]})` : '(data)';
-            }
-            try {
-                const parsed = new URL(u);
-                return parsed.hostname || u;
-            } catch (e) {
-                return u;
-            }
-        };
 
         const displayTitle = title || deriveLabelFromUrl(url) || '未命名书签';
 

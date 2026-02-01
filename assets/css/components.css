@@ -374,16 +374,6 @@ button.breadcrumb-item {
     visibility: visible;
 }
 
-.bookmark-icon.bookmark-icon--img-loaded img {
-    opacity: 1;
-    visibility: visible;
-}
-
-#content .bookmark .bookmark-icon.bookmark-icon--img-loaded img {
-    opacity: 1;
-    visibility: visible;
-}
-
 #content .bookmark a {
     color: var(--text-color);
     text-decoration: none;
