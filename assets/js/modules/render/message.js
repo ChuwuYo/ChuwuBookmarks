@@ -60,12 +60,11 @@ const showLoadingMessage = (contentEl, breadcrumbsEl) => {
     breadcrumbsEl.innerHTML = '';
 
     const loadingMessage = document.createElement('div');
-    loadingMessage.className = 'home-message';
+    loadingMessage.className = 'home-message loading-message';
 
     const loadingText = document.createElement('div');
-    loadingText.className = 'chinese-text';
+    loadingText.className = 'chinese-text message-title';
     loadingText.textContent = '正在加载书签······';
-    loadingText.style.fontSize = '2rem';
 
     loadingMessage.appendChild(loadingText);
     contentEl.appendChild(loadingMessage);
@@ -87,21 +86,16 @@ const showErrorMessage = (error) => {
     message.setAttribute('aria-live', 'assertive');
 
     const heading = document.createElement('div');
-    heading.className = 'chinese-text';
+    heading.className = 'chinese-text message-title';
     heading.textContent = '加载书签数据失败';
-    heading.style.fontSize = '2rem';
-    heading.style.marginBottom = '20px';
 
     const line1 = document.createElement('div');
-    line1.className = 'english-text';
+    line1.className = 'english-text message-subtitle';
     line1.textContent = '请确保 bookmarks.json 文件存在且格式正确';
-    line1.style.fontSize = '1.2rem';
-    line1.style.marginBottom = '10px';
 
     const line2 = document.createElement('div');
-    line2.className = 'english-text';
+    line2.className = 'english-text message-detail';
     line2.textContent = `错误详情: ${error?.message || error || '未知错误'}`;
-    line2.style.fontSize = '1rem';
 
     message.append(heading, line1, line2);
     document.body.appendChild(message);

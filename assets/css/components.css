@@ -107,7 +107,7 @@
     padding: 60px 0 0 0;
     font-size: 1.5rem;
     white-space: normal;
-    overflow-x: visible;
+    overflow-x: auto;
     user-select: none;
     opacity: 0;
     animation: slideDown 0.3s ease forwards;
@@ -117,6 +117,12 @@
     transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
     /* 防止布局偏移 */
     contain: layout style;
+}
+
+.breadcrumb-icon {
+    margin-right: 4px;
+    user-select: none;
+    display: inline-block;
 }
 
 .breadcrumb-item {
@@ -198,6 +204,33 @@ button.breadcrumb-item {
     pointer-events: none;
     opacity: 0.8;
     z-index: 1;
+}
+
+.folder-loading,
+.folder-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-align: center;
+    gap: 12px;
+}
+
+.folder-loading-text,
+.folder-error-text {
+    margin: 0;
+}
+
+.folder-loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
 /* 内容区 */
@@ -318,7 +351,7 @@ button.breadcrumb-item {
     line-height: 1;
 }
 
-#content .bookmark .bookmark-icon img {
+.bookmark-icon .bookmark-icon-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -328,6 +361,17 @@ button.breadcrumb-item {
     min-width: 16px;
     min-height: 16px;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-emoji {
+    display: none;
+}
+
+.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-img {
+    opacity: 1;
+    visibility: visible;
 }
 
 #content .bookmark a {
@@ -389,6 +433,24 @@ button.breadcrumb-item {
     outline: none;
 }
 
+.home-char {
+    display: inline-block;
+    position: relative;
+}
+
+.mobile-home-message {
+    width: 90%;
+    max-width: 400px;
+}
+
+.mobile-home-message .chinese-text {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+}
+
+.mobile-home-message .english-text {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+}
+
 /* 内容区文件夹聚焦样式 */
 #content .folder:focus-visible {
     outline: 2px solid var(--link-color);
@@ -415,6 +477,12 @@ button.breadcrumb-item:focus-visible {
     min-height: 80px;
 }
 
+.loading-indicator.search-loading {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-color);
+}
+
 .loading-spinner {
     width: 40px;
     height: 40px;
@@ -437,6 +505,34 @@ button.breadcrumb-item:focus-visible {
     align-items: center;
     gap: 1rem;
     padding: 2rem;
+}
+
+.loading-message .message-title {
+    font-size: 2rem;
+}
+
+.error-message .message-title {
+    font-size: 2rem;
+}
+
+.error-message .message-subtitle {
+    font-size: 1.2rem;
+}
+
+.error-message .message-detail {
+    font-size: 1rem;
+}
+
+.search-results-fade {
+    transition: opacity 0.3s ease;
+}
+
+.search-results-fade-dim {
+    opacity: 0.8;
+}
+
+.search-results-fade-full {
+    opacity: 1;
 }
 
 .no-results {

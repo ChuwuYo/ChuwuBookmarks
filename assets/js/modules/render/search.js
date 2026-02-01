@@ -209,15 +209,15 @@ class SearchResultsManager {
             
             const content = this.contentElement;
             if (content) {
-                // 使用CSS变量优化过渡
-                content.style.cssText = 'transition: opacity 0.3s ease; opacity: 0.8;';
+                content.classList.add('search-results-fade', 'search-results-fade-dim');
 
                 setTimeout(() => {
-                    content.style.opacity = '1';
+                    content.classList.remove('search-results-fade-dim');
+                    content.classList.add('search-results-fade-full');
                 }, 150);
 
                 setTimeout(() => {
-                    content.style.cssText = '';
+                    content.classList.remove('search-results-fade', 'search-results-fade-full');
                     
                     // 优化焦点设置
                     const firstResult = content.querySelector('.search-result-item[tabindex="0"]');
