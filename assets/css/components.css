@@ -107,7 +107,7 @@
     padding: 60px 0 0 0;
     font-size: 1.5rem;
     white-space: normal;
-    overflow-x: visible;
+    overflow-x: auto;
     user-select: none;
     opacity: 0;
     animation: slideDown 0.3s ease forwards;
@@ -117,6 +117,12 @@
     transition: mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
     /* 防止布局偏移 */
     contain: layout style;
+}
+
+.breadcrumb-icon {
+    margin-right: 4px;
+    user-select: none;
+    display: inline-block;
 }
 
 .breadcrumb-item {
@@ -198,6 +204,33 @@ button.breadcrumb-item {
     pointer-events: none;
     opacity: 0.8;
     z-index: 1;
+}
+
+.folder-loading,
+.folder-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-align: center;
+    gap: 12px;
+}
+
+.folder-loading-text,
+.folder-error-text {
+    margin: 0;
+}
+
+.folder-loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
 /* 内容区 */
@@ -413,6 +446,12 @@ button.breadcrumb-item:focus-visible {
     gap: 1rem;
     /* 保留占位，避免首次渲染时高度不足导致 CLS */
     min-height: 80px;
+}
+
+.loading-indicator.search-loading {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-color);
 }
 
 .loading-spinner {
