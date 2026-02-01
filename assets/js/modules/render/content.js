@@ -7,6 +7,8 @@ import { createElement } from './elements.js';
 import { loadIconsForElements } from './icon-loader.js';
 import { getFullBookmarksData, isFullDataReady, waitForFullData } from '../loader/index.js';
 // 避免循环依赖，renderHome 将通过参数传递
+ 
+let breadcrumbsScrollHandler = null;
 
 /**
  * 从完整数据中查找指定ID的文件夹
@@ -39,19 +41,19 @@ const findFolderById = (folderId, data) => {
  * 显示加载中状态
  */
 const showFolderLoading = (content, folderTitle) => {
-    content.innerHTML = `
-        <div class="folder-loading" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--text-color); opacity: 0.7;">
-            <div class="loading-spinner" style="width: 24px; height: 24px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-            <p style="margin-top: 12px;">正在加载「${folderTitle}」...</p>
-        </div>
-    `;
-    // 添加旋转动画样式
-    if (!document.getElementById('folder-loading-style')) {
-        const style = document.createElement('style');
-        style.id = 'folder-loading-style';
-        style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-        document.head.appendChild(style);
-    }
+    const wrapper = document.createElement('div');
+    wrapper.className = 'folder-loading';
+    
+    const spinner = document.createElement('div');
+    spinner.className = 'loading-spinner folder-loading-spinner';
+    
+    const text = document.createElement('p');
+    text.className = 'folder-loading-text';
+    text.textContent = `正在加载「${folderTitle}」...`;
+    
+    wrapper.append(spinner, text);
+    content.innerHTML = '';
+    content.appendChild(wrapper);
 };
 
 // 渲染主内容区
@@ -73,9 +75,6 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
     }
 
     requestAnimationFrame(async () => {
-        breadcrumbs.style.overflowX = 'auto';
-        breadcrumbs.style.webkitOverflowScrolling = 'touch';
-        
         const breadcrumbPath = [];
         let current = folder;
         while (current) {
@@ -91,8 +90,6 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
         const breadIcon = document.createElement('span');
         breadIcon.textContent = '🍞';
         breadIcon.className = 'breadcrumb-icon';
-        breadIcon.style.marginRight = '4px';
-        breadIcon.style.userSelect = 'none';
 
         const homeLink = document.createElement('button');
         homeLink.type = 'button';
@@ -158,9 +155,19 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
         breadcrumbs.appendChild(breadcrumbFragment);
         checkBreadcrumbsScroll();
 
-        const handleBreadcrumbScroll = () => {
+        if (breadcrumbsScrollHandler) {
+            breadcrumbs.removeEventListener('scroll', breadcrumbsScrollHandler);
+        }
+        
+        breadcrumbsScrollHandler = () => {
             const scrollLeft = breadcrumbs.scrollLeft;
             const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
+            if (maxScroll <= 0) {
+                breadcrumbs.style.maskImage = '';
+                breadcrumbs.classList.remove('at-end');
+                breadcrumbs.classList.remove('at-start');
+                return;
+            }
             
             const maskValue = `linear-gradient(to right,
                 transparent,
@@ -174,8 +181,8 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
             breadcrumbs.classList.toggle('at-start', scrollLeft <= 10);
         };
 
-        breadcrumbs.addEventListener('scroll', handleBreadcrumbScroll);
-        handleBreadcrumbScroll();
+        breadcrumbs.addEventListener('scroll', breadcrumbsScrollHandler, { passive: true });
+        breadcrumbsScrollHandler();
 
         // 检查是否是懒加载文件夹（只有目录结构，没有完整内容）
         if (folder._lazyLoad && folder.id) {
@@ -196,11 +203,16 @@ const renderMainContent = async (folder, fromSidebar = false, renderHomeFn = nul
                 Object.assign(folder, fullFolder);
                 folder._lazyLoad = false;
             } else {
-                content.innerHTML = `
-                    <div class="folder-error" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--text-color); opacity: 0.7;">
-                        <p>无法加载「${folder.title}」的内容</p>
-                    </div>
-                `;
+                const errorWrapper = document.createElement('div');
+                errorWrapper.className = 'folder-error';
+                
+                const errorText = document.createElement('p');
+                errorText.className = 'folder-error-text';
+                errorText.textContent = `无法加载「${folder.title}」的内容`;
+                
+                errorWrapper.appendChild(errorText);
+                content.innerHTML = '';
+                content.appendChild(errorWrapper);
                 return;
             }
         }

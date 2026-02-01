@@ -373,29 +373,18 @@ export class TouchOptimizer {
     static optimizeForTouch(paginationElement, responsiveConfig) {
         if (!paginationElement) return;
 
-        const buttons = paginationElement.querySelectorAll('.pagination-button');
         const { type, buttonSize, spacing } = responsiveConfig;
-
-        buttons.forEach(button => {
-            // 设置触摸友好的最小尺寸
-            if (type === 'mobile') {
-                button.style.minWidth = `${buttonSize}px`;
-                button.style.height = `${buttonSize}px`;
-                
-                // 确保触摸目标足够大
-                if (buttonSize < 44) {
-                    button.style.padding = `${(44 - buttonSize) / 2}px`;
-                }
-            }
-
-            // 优化触摸反馈
-            button.style.touchAction = 'manipulation';
-            button.style.webkitTapHighlightColor = 'transparent';
-        });
-
-        // 调整间距
+        
         if (type === 'mobile') {
-            paginationElement.style.gap = `${spacing}px`;
+            paginationElement.style.setProperty('--pagination-button-size', `${buttonSize}px`);
+            paginationElement.style.setProperty('--pagination-spacing', `${spacing}px`);
+            
+            const padding = buttonSize < 44 ? `${(44 - buttonSize) / 2}px` : '0px';
+            paginationElement.style.setProperty('--pagination-button-padding', padding);
+        } else {
+            paginationElement.style.removeProperty('--pagination-button-padding');
+            paginationElement.style.removeProperty('--pagination-button-size');
+            paginationElement.style.removeProperty('--pagination-spacing');
         }
     }
 

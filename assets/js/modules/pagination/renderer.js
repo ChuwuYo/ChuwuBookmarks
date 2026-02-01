@@ -179,7 +179,7 @@ export class PaginationRenderer {
      */
     createPaginationElement() {
         this.paginationElement = document.createElement('nav');
-        this.paginationElement.className = 'pagination-container centered-element';
+        this.paginationElement.className = 'pagination-container centered-element is-hidden';
         this.paginationElement.setAttribute('role', 'navigation');
         this.paginationElement.setAttribute('aria-label', '搜索结果分页导航');
 
@@ -946,10 +946,8 @@ export class PaginationRenderer {
      */
     show() {
         if (this.paginationElement) {
-            this.paginationElement.style.display = '';
-            this.paginationElement.style.opacity = '1';
-            this.paginationElement.style.visibility = 'visible';
-            this.paginationElement.classList.remove('hidden');
+            this.paginationElement.classList.remove('hidden', 'is-hidden');
+            this.paginationElement.classList.add('is-visible');
         }
     }
 
@@ -958,9 +956,8 @@ export class PaginationRenderer {
      */
     hide() {
         if (this.paginationElement) {
-            this.paginationElement.style.display = 'none';
-            this.paginationElement.classList.add('hidden');
-            this.paginationElement.classList.remove('fade-in');
+            this.paginationElement.classList.add('hidden', 'is-hidden');
+            this.paginationElement.classList.remove('is-visible', 'fade-in');
         }
     }
 
@@ -1045,9 +1042,6 @@ export class PaginationRenderer {
         const fallbackElement = document.createElement('div');
         fallbackElement.className = 'pagination-fallback';
         fallbackElement.textContent = '分页控件加载失败';
-        fallbackElement.style.textAlign = 'center';
-        fallbackElement.style.padding = '1rem';
-        fallbackElement.style.color = 'var(--text-color)';
 
         this.container.innerHTML = '';
         this.container.appendChild(fallbackElement);

@@ -103,6 +103,12 @@
     transition-property: transform, opacity, background-color;
 }
 
+.pagination-fallback {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color);
+}
+
 /* 分页按钮基础样式 */
 .pagination-button {
     min-width: var(--pagination-button-size);
@@ -121,7 +127,7 @@
     cursor: pointer;
     outline: none;
     appearance: none;
-    padding: 0;
+    padding: var(--pagination-button-padding, 0);
     margin: 0;
 
     /* 布局和对齐 */
@@ -472,8 +478,14 @@ body .pagination-container.mobile-pagination {
 }
 
 /* 分页容器隐藏状态 */
-.pagination-container.hidden {
+.pagination-container.hidden,
+.pagination-container.is-hidden {
     display: none;
+}
+
+.pagination-container.is-visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* 分页容器加载状态 */
@@ -493,12 +505,10 @@ body .pagination-container.mobile-pagination {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
