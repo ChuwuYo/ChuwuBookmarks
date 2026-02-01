@@ -103,6 +103,12 @@
     transition-property: transform, opacity, background-color;
 }
 
+.pagination-fallback {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color);
+}
+
 /* 分页按钮基础样式 */
 .pagination-button {
     min-width: var(--pagination-button-size);

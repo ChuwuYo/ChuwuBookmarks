@@ -422,6 +422,24 @@ button.breadcrumb-item {
     outline: none;
 }
 
+.home-char {
+    display: inline-block;
+    position: relative;
+}
+
+.mobile-home-message {
+    width: 90%;
+    max-width: 400px;
+}
+
+.mobile-home-message .chinese-text {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+}
+
+.mobile-home-message .english-text {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+}
+
 /* 内容区文件夹聚焦样式 */
 #content .folder:focus-visible {
     outline: 2px solid var(--link-color);
@@ -476,6 +494,34 @@ button.breadcrumb-item:focus-visible {
     align-items: center;
     gap: 1rem;
     padding: 2rem;
+}
+
+.loading-message .message-title {
+    font-size: 2rem;
+}
+
+.error-message .message-title {
+    font-size: 2rem;
+}
+
+.error-message .message-subtitle {
+    font-size: 1.2rem;
+}
+
+.error-message .message-detail {
+    font-size: 1rem;
+}
+
+.search-results-fade {
+    transition: opacity 0.3s ease;
+}
+
+.search-results-fade-dim {
+    opacity: 0.8;
+}
+
+.search-results-fade-full {
+    opacity: 1;
 }
 
 .no-results {
