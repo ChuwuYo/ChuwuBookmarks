@@ -351,7 +351,7 @@ button.breadcrumb-item {
     line-height: 1;
 }
 
-#content .bookmark .bookmark-icon img {
+.bookmark-icon .bookmark-icon-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -361,6 +361,27 @@ button.breadcrumb-item {
     min-width: 16px;
     min-height: 16px;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-emoji {
+    display: none;
+}
+
+.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-img {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bookmark-icon.bookmark-icon--img-loaded img {
+    opacity: 1;
+    visibility: visible;
+}
+
+#content .bookmark .bookmark-icon.bookmark-icon--img-loaded img {
+    opacity: 1;
+    visibility: visible;
 }
 
 #content .bookmark a {

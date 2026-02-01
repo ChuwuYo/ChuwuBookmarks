@@ -6,19 +6,6 @@
  */
 
 /**
- * 确保图标元素可见（有尺寸）
- * @param {HTMLImageElement} img - 图标元素
- */
-const ensureImgVisible = (img) => {
-    if (img.style.display === 'none') {
-        img.style.display = 'block';
-        img.style.width = '16px';
-        img.style.height = '16px';
-        img.style.visibility = 'hidden';
-    }
-};
-
-/**
  * 显示加载成功的图标
  * @param {HTMLImageElement} img - 图标元素
  * @param {HTMLElement} icon - 图标容器
@@ -26,10 +13,8 @@ const ensureImgVisible = (img) => {
  */
 const displayLoadedIcon = (img, icon) => {
     if (img.naturalWidth > 1 && img.naturalHeight > 1) {
-        icon.textContent = '';
-        img.style.display = '';
-        img.style.visibility = 'visible';
-        icon.appendChild(img);
+        icon.classList.add('bookmark-icon--img-loaded');
+        img.classList.add('is-loaded');
         return true;
     }
     return false;
@@ -45,6 +30,7 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
     const MAX_RETRIES = 10; // 防止无限递归
     
     if (retryCount > MAX_RETRIES) {
+        icon.classList.remove('bookmark-icon--img-loaded');
         img.remove();
         return;
     }
@@ -52,6 +38,7 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
     const iconUrlsJson = img.dataset.iconUrls;
     
     if (!iconUrlsJson) {
+        icon.classList.remove('bookmark-icon--img-loaded');
         img.remove();
         return;
     }
@@ -77,7 +64,8 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
                 setTimeout(() => handleIconLoadError(img, icon, retryCount + 1), 0);
             }, { once: true });
             
-            ensureImgVisible(img);
+            icon.classList.remove('bookmark-icon--img-loaded');
+            img.classList.remove('is-loaded');
             img.src = iconUrls[nextIndex];
             
             if (img.complete) {
@@ -89,9 +77,11 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
                 }
             }
         } else {
+            icon.classList.remove('bookmark-icon--img-loaded');
             img.remove();
         }
     } catch (error) {
+        icon.classList.remove('bookmark-icon--img-loaded');
         img.remove();
     }
 };
@@ -132,10 +122,13 @@ const getSortedIconUrls = (img) => {
  */
 const loadIcon = (img, icon) => {
     if (!img || !img.dataset.src) return;
+    img.classList.add('bookmark-icon-img');
     
     const iconUrls = getSortedIconUrls(img);
     img.dataset.iconUrls = JSON.stringify(iconUrls);
     img.dataset.currentIndex = '0';
+    icon.classList.remove('bookmark-icon--img-loaded');
+    img.classList.remove('is-loaded');
     
     const handleLoad = function() {
         if (!displayLoadedIcon(this, icon)) {
@@ -150,7 +143,6 @@ const loadIcon = (img, icon) => {
         setTimeout(() => handleIconLoadError(img, icon, 0), 0);
     }, { once: true });
     
-    ensureImgVisible(img);
     img.src = iconUrls[0];
     
     if (img.complete) {
