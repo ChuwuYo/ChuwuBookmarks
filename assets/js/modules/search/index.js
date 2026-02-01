@@ -184,10 +184,7 @@ const createSearchHandler = () => {
         // 显示加载指示器
         const content = document.getElementById('content');
         const loadingIndicator = document.createElement('div');
-        loadingIndicator.className = 'loading-indicator';
-        loadingIndicator.style.textAlign = 'center';
-        loadingIndicator.style.marginTop = '50px';
-        loadingIndicator.style.color = 'var(--text-color)';
+        loadingIndicator.className = 'loading-indicator search-loading';
  
         const heading = document.createElement('h2');
         heading.textContent = '正在搜索...';
