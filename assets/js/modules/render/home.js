@@ -80,8 +80,7 @@ const createCharacterSpans = (chars) => {
     const spans = chars.split('').map(char => {
         const charSpan = document.createElement('span');
         charSpan.textContent = char;
-        charSpan.style.display = 'inline-block';
-        charSpan.style.position = 'relative';
+        charSpan.className = 'home-char';
         fragment.appendChild(charSpan);
         return charSpan;
     });
@@ -175,11 +174,6 @@ const renderHome = () => {
     
     if (deviceType === 'mobile') {
         homeMessage.classList.add('mobile-home-message');
-        // 设置移动端特定样式（非定位相关）
-        homeMessage.style.width = '90%';
-        homeMessage.style.maxWidth = '400px';
-        chineseText.style.fontSize = 'clamp(1.5rem, 8vw, 2rem)';
-        englishText.style.fontSize = 'clamp(1rem, 6vw, 1.5rem)';
     }
 
     // 获取统一居中管理器并注册主页消息

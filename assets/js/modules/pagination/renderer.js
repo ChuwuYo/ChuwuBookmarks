@@ -1045,9 +1045,6 @@ export class PaginationRenderer {
         const fallbackElement = document.createElement('div');
         fallbackElement.className = 'pagination-fallback';
         fallbackElement.textContent = '分页控件加载失败';
-        fallbackElement.style.textAlign = 'center';
-        fallbackElement.style.padding = '1rem';
-        fallbackElement.style.color = 'var(--text-color)';
 
         this.container.innerHTML = '';
         this.container.appendChild(fallbackElement);
