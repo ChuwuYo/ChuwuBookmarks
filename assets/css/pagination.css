@@ -478,8 +478,14 @@ body .pagination-container.mobile-pagination {
 }
 
 /* 分页容器隐藏状态 */
-.pagination-container.hidden {
+.pagination-container.hidden,
+.pagination-container.is-hidden {
     display: none;
+}
+
+.pagination-container.is-visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* 分页容器加载状态 */
