@@ -122,7 +122,6 @@ const getSortedIconUrls = (img) => {
  */
 const loadIcon = (img, icon) => {
     if (!img || !img.dataset.src) return;
-    img.classList.add('bookmark-icon-img');
     
     const iconUrls = getSortedIconUrls(img);
     img.dataset.iconUrls = JSON.stringify(iconUrls);
