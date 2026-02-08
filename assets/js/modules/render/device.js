@@ -19,10 +19,17 @@ const getDeviceType = () => {
         return 'mobile';
     }
 
-    return width < BREAKPOINT_MOBILE ? 'mobile' : 'desktop';
+    if (width < BREAKPOINT_MOBILE) {
+        return 'mobile';
+    } else if (width < BREAKPOINT_SIDEBAR) {
+        return 'tablet';
+    } else {
+        return 'desktop';
+    }
 };
 
 const isMobileDevice = () => getDeviceType() === 'mobile';
+const isTabletDevice = () => getDeviceType() === 'tablet';
 const isDesktopDevice = () => getDeviceType() === 'desktop';
 const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 
@@ -76,6 +83,7 @@ const handleDeviceView = () => {
     const shouldCollapse = shouldCollapseSidebar();
     
     document.body.classList.toggle('mobile-device', deviceType === 'mobile');
+    document.body.classList.toggle('tablet-device', deviceType === 'tablet');
     document.body.classList.toggle('desktop-device', deviceType === 'desktop');
     
     // 标记JavaScript已初始化，禁用CSS默认状态
@@ -91,6 +99,7 @@ export {
     BREAKPOINT_SIDEBAR,
     getDeviceType,
     isMobileDevice,
+    isTabletDevice,
     isDesktopDevice,
     shouldCollapseSidebar,
     updateSidebarVisibility,

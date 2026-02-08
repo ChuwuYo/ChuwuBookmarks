@@ -16,7 +16,7 @@
     }
 }
 
-/* 中间范围居中元素样式 (480px-1023px) */
+/* 平板端居中元素样式 (480px-1023px) */
 @media screen and (min-width: 480px) and (max-width: 1023px) {
     .centered-element {
         transform: translateX(-50%);
@@ -336,7 +336,7 @@
 
 
 
-/* 中间范围样式：桌面端样式但侧栏收起 (480px-1024px) */
+/* 平板端样式：桌面端样式但侧栏收起 (480px-1023px) */
 @media screen and (min-width: 480px) and (max-width: 1023px) {
     .search-container {
         top: 20px;
