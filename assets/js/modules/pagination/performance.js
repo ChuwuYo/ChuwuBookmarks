@@ -206,13 +206,13 @@ ${this.generateOptimizationSuggestions(stats)}
 /**
  * 内存优化工具
  */
-export class MemoryOptimizer {
+export const MemoryOptimizer = {
 	/**
 	 * 检查内存使用情况
 	 * @param {Object} component - 要检查的组件
 	 * @returns {Object} 内存使用信息
 	 */
-	static checkMemoryUsage(component) {
+	checkMemoryUsage(component) {
 		const usage = {
 			elementPoolSize: 0,
 			eventListenersCount: 0,
@@ -236,13 +236,13 @@ export class MemoryOptimizer {
 		}
 
 		return usage;
-	}
+	},
 
 	/**
 	 * 优化内存使用
 	 * @param {Object} component - 要优化的组件
 	 */
-	static optimizeMemory(component) {
+	optimizeMemory(component) {
 		// 清理过大的元素池
 		if (component.elementPool) {
 			Object.keys(component.elementPool).forEach((type) => {
@@ -263,14 +263,14 @@ export class MemoryOptimizer {
 		if (component.pendingUpdates && component.pendingUpdates.length > 5) {
 			component.pendingUpdates.length = 0;
 		}
-	}
+	},
 
 	/**
 	 * 检测内存泄漏
 	 * @param {Object} component - 要检查的组件
 	 * @returns {Array} 潜在的内存泄漏问题
 	 */
-	static detectMemoryLeaks(component) {
+	detectMemoryLeaks(component) {
 		const issues = [];
 
 		// 检查元素池是否过大
@@ -296,40 +296,40 @@ export class MemoryOptimizer {
 		}
 
 		return issues;
-	}
-}
+	},
+};
 
 /**
  * DOM操作优化工具
  */
-export class DOMOptimizer {
+export const DOMOptimizer = {
 	/**
 	 * 批量DOM操作包装器
 	 * @param {Function} operations - DOM操作函数
 	 * @returns {Promise} 操作完成的Promise
 	 */
-	static batchDOMOperations(operations) {
+	batchDOMOperations(operations) {
 		return new Promise((resolve) => {
 			requestAnimationFrame(() => {
-				const startTime = performance.now();
+				const _startTime = performance.now();
 
 				operations();
 
-				const endTime = performance.now();
+				const _endTime = performance.now();
 
 				resolve();
 			});
 		});
-	}
+	},
 
 	/**
 	 * 优化DOM更新
 	 * @param {HTMLElement} container - 容器元素
 	 * @param {Function} updateFn - 更新函数
 	 */
-	static optimizedUpdate(container, updateFn) {
+	optimizedUpdate(container, updateFn) {
 		// 使用DocumentFragment减少重排
-		const fragment = document.createDocumentFragment();
+		const _fragment = document.createDocumentFragment();
 		const originalParent = container.parentNode;
 		const nextSibling = container.nextSibling;
 
@@ -345,7 +345,7 @@ export class DOMOptimizer {
 		if (originalParent) {
 			originalParent.insertBefore(container, nextSibling);
 		}
-	}
+	},
 
 	/**
 	 * 防抖DOM更新
@@ -353,7 +353,7 @@ export class DOMOptimizer {
 	 * @param {number} delay - 延迟时间
 	 * @returns {Function} 防抖后的函数
 	 */
-	static debounceUpdate(updateFn, delay = 16) {
+	debounceUpdate(updateFn, delay = 16) {
 		let timeoutId = null;
 
 		return function (...args) {
@@ -362,8 +362,8 @@ export class DOMOptimizer {
 				updateFn.apply(this, args);
 			}, delay);
 		};
-	}
-}
+	},
+};
 
 // 全局性能监控实例
 export const globalPerformanceMonitor = new PaginationPerformanceMonitor();

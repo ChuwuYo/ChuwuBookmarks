@@ -2,13 +2,7 @@
  * 分页响应式配置系统 - 根据屏幕尺寸调整分页参数
  */
 
-import {
-	BREAKPOINT_MOBILE,
-	BREAKPOINT_SIDEBAR,
-	getDeviceType,
-	shouldCollapseSidebar,
-} from "../render/device.js";
-import { getCenteringManager } from "../utils/centering.js";
+import { shouldCollapseSidebar } from "../render/device.js";
 
 /**
  * 响应式断点配置
@@ -170,7 +164,7 @@ export class ResponsiveConfigManager {
 		window.addEventListener("resize", this.handleResize, { passive: true });
 
 		// 监听设备方向变化
-		if (window.screen && window.screen.orientation) {
+		if (window.screen?.orientation) {
 			window.screen.orientation.addEventListener(
 				"change",
 				this.handleOrientationChange,
@@ -385,13 +379,13 @@ export class SidebarStateMonitor {
 /**
  * 触摸友好性优化器
  */
-export class TouchOptimizer {
+export const TouchOptimizer = {
 	/**
 	 * 优化分页控件的触摸友好性
 	 * @param {HTMLElement} paginationElement - 分页控件元素
 	 * @param {Object} responsiveConfig - 响应式配置
 	 */
-	static optimizeForTouch(paginationElement, responsiveConfig) {
+	optimizeForTouch(paginationElement, responsiveConfig) {
 		if (!paginationElement) return;
 
 		const { type, buttonSize, spacing } = responsiveConfig;
@@ -416,14 +410,14 @@ export class TouchOptimizer {
 			paginationElement.style.removeProperty("--pagination-button-size");
 			paginationElement.style.removeProperty("--pagination-spacing");
 		}
-	}
+	},
 
 	/**
 	 * 添加触摸手势支持
 	 * @param {HTMLElement} paginationElement - 分页控件元素
 	 * @param {Function} onSwipe - 滑动回调
 	 */
-	static addSwipeSupport(paginationElement, onSwipe) {
+	addSwipeSupport(paginationElement, onSwipe) {
 		if (!paginationElement || typeof onSwipe !== "function") return;
 
 		let startX = 0;
@@ -466,8 +460,8 @@ export class TouchOptimizer {
 		paginationElement.addEventListener("touchend", handleTouchEnd, {
 			passive: true,
 		});
-	}
-}
+	},
+};
 
 /**
  * 全局响应式管理器实例

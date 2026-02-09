@@ -2,7 +2,6 @@
  * 设备检测和适配模块
  */
 
-import { DEBOUNCE_THROTTLE_CONSTANTS } from "../utils/constants.js";
 import { animationConfig } from "./theme.js";
 
 // 断点系统 - 移动端样式断点和侧栏收起断点分离

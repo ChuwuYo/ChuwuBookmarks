@@ -166,7 +166,7 @@ const createSearchHandler = () => {
 			else ms = 500;
 			ms = Math.max(MIN, Math.min(MAX, ms));
 			return ms;
-		} catch (e) {
+		} catch (_e) {
 			return DEFAULT;
 		}
 	};

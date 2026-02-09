@@ -12,7 +12,7 @@ function fnv1aHash(str) {
 		h ^= str.charCodeAt(i);
 		h = Math.imul(h, 16777619) >>> 0;
 	}
-	return ("00000000" + (h >>> 0).toString(16)).slice(-8);
+	return `00000000${(h >>> 0).toString(16)}`.slice(-8);
 }
 
 /**
@@ -93,7 +93,7 @@ function convertStructureToBookmarks(structure) {
  * 将完整数据合并到结构数据中
  * 遍历结构中的懒加载文件夹，从完整数据中填充其 children
  */
-function mergeFullDataIntoStructure(structureData, fullData) {
+function _mergeFullDataIntoStructure(structureData, fullData) {
 	// 构建一个ID到完整数据节点的映射
 	const fullDataMap = new Map();
 
@@ -114,7 +114,7 @@ function mergeFullDataIntoStructure(structureData, fullData) {
 		nodes.forEach((node) => {
 			if (node._lazyLoad && node.id) {
 				const fullNode = fullDataMap.get(node.id);
-				if (fullNode && fullNode.children) {
+				if (fullNode?.children) {
 					node.children = fullNode.children;
 					node._lazyLoad = false;
 				}

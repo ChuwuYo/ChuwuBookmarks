@@ -16,7 +16,7 @@ const deriveLabelFromUrl = (u) => {
 	try {
 		const parsed = new URL(u);
 		return parsed.hostname || u;
-	} catch (e) {
+	} catch (_e) {
 		return u;
 	}
 };

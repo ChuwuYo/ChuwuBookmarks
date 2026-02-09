@@ -40,7 +40,7 @@ export class ElementRegistry {
 			});
 			this.registeredElements.set(key, normalizedConfig);
 			return true;
-		} catch (error) {
+		} catch (_error) {
 			return false;
 		}
 	}
@@ -75,7 +75,7 @@ export class ElementRegistry {
 			const normalizedConfig = this.validateAndNormalizeConfig(fallbackConfig);
 			this.registeredElements.set(key, normalizedConfig);
 			return true;
-		} catch (fallbackError) {
+		} catch (_fallbackError) {
 			return false;
 		}
 	}

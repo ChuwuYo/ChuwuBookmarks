@@ -153,7 +153,7 @@ class SearchResultsManager {
 	 */
 	renderCurrentPageResults(
 		allResults,
-		paginationState,
+		_paginationState,
 		container,
 		renderMainContent,
 	) {
@@ -329,7 +329,7 @@ class SearchResultsManager {
 	 * @param {Object} layoutData - 布局变化数据
 	 */
 	handleLayoutChange(layoutData) {
-		if (this.paginationRenderer && this.paginationRenderer.paginationElement) {
+		if (this.paginationRenderer?.paginationElement) {
 			// 应用响应式样式
 			PaginationRenderUtils.applyResponsiveStyles(
 				this.paginationRenderer.paginationElement,
@@ -347,7 +347,7 @@ class SearchResultsManager {
 	adjustPaginationForLayout(layoutData) {
 		const { deviceType, sidebarCollapsed } = layoutData;
 
-		if (this.paginationRenderer && this.paginationRenderer.paginationElement) {
+		if (this.paginationRenderer?.paginationElement) {
 			const paginationElement = this.paginationRenderer.paginationElement;
 
 			// 根据设备类型调整样式类

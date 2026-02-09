@@ -84,7 +84,7 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
 			icon.classList.remove("bookmark-icon--img-loaded");
 			img.remove();
 		}
-	} catch (error) {
+	} catch (_error) {
 		icon.classList.remove("bookmark-icon--img-loaded");
 		img.remove();
 	}
@@ -103,7 +103,7 @@ const getSortedIconUrls = (img) => {
 	if (iconUrlsJson) {
 		try {
 			iconUrls = JSON.parse(iconUrlsJson);
-		} catch (e) {
+		} catch (_e) {
 			iconUrls = [img.dataset.src];
 		}
 	} else {

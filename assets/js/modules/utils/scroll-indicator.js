@@ -191,13 +191,12 @@ class CustomScrollIndicator {
 			const thumbTop = scrollPercentage * thumbMaxTop;
 
 			// 应用样式
-			this.thumb.style.height = thumbHeight + "px";
+			this.thumb.style.height = `${thumbHeight}px`;
 
 			if (this.transformProperty) {
-				this.thumb.style[this.transformProperty] =
-					"translateY(" + thumbTop + "px)";
+				this.thumb.style[this.transformProperty] = `translateY(${thumbTop}px)`;
 			} else {
-				this.thumb.style.top = thumbTop + "px";
+				this.thumb.style.top = `${thumbTop}px`;
 			}
 
 			// 底部高亮
@@ -237,7 +236,7 @@ class CustomScrollIndicator {
 		window.removeEventListener("resize", this.handleResize);
 
 		// 移除DOM元素
-		if (this.indicator && this.indicator.parentNode) {
+		if (this.indicator?.parentNode) {
 			this.indicator.parentNode.removeChild(this.indicator);
 		}
 

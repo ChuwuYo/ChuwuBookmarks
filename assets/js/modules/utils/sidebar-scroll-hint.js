@@ -93,7 +93,7 @@ function initSidebarScrollHint() {
 /**
  * 销毁侧边栏滚动提示器
  */
-function destroySidebarScrollHint() {
+function _destroySidebarScrollHint() {
 	if (!initialized) return;
 
 	// 移除事件监听器
@@ -109,7 +109,7 @@ function destroySidebarScrollHint() {
 	}
 
 	// 移除DOM元素
-	if (hintElement && hintElement.parentNode) {
+	if (hintElement?.parentNode) {
 		hintElement.parentNode.removeChild(hintElement);
 	}
 

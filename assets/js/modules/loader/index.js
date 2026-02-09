@@ -6,13 +6,8 @@
  * 2. 完整加载模式：直接加载 bookmarks.json（向后兼容）
  */
 
-import { getDeviceType } from "../render/device.js";
 import { renderHome } from "../render/home.js";
-import {
-	clearAllMessages,
-	showErrorMessage,
-	showLoadingMessage,
-} from "../render/message.js";
+import { showErrorMessage, showLoadingMessage } from "../render/message.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { clearWorkerCaches } from "../search/index.js";
 import { getCenteringManager } from "../utils/centering.js";

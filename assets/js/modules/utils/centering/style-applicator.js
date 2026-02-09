@@ -231,7 +231,7 @@ export class StyleApplicator {
 	safeQuerySelector(selector) {
 		try {
 			return document.querySelector(selector);
-		} catch (error) {
+		} catch (_error) {
 			return null;
 		}
 	}
