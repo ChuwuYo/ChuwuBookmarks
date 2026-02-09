@@ -42,6 +42,11 @@
 	/* 使用 --header-bg */
 	--scroll-indicator-width: 5px;
 	--scroll-indicator-border-radius: 4px;
+
+	/* 主页按钮变量 */
+	--home-button-bg-start: #9ee9f4d8;
+	--home-button-bg-end: #d1d1f3a5;
+	--home-button-text: #333;
 }
 
 :root[data-theme="dark"] {
@@ -71,6 +76,11 @@
 	/* 使用 --link-color */
 	--scroll-indicator-thumb-hover: #ffffff4b;
 	/* 使用 --header-bg */
+
+	/* 暗色主题主页按钮变量 */
+	--home-button-bg-start: #5d6687d8;
+	--home-button-bg-end: #3d4663a5;
+	--home-button-text: #f9f1d5e6;
 }
 
 /* 字体定义 */
