@@ -63,7 +63,8 @@
 	text-rendering: optimizeLegibility;
 	font-synthesis: none;
 	outline: none;
-	transition: all var(--duration-base) var(--ease-default);
+	transition: border-color var(--duration-base) var(--ease-default),
+		box-shadow var(--duration-base) var(--ease-default);
 }
 
 #search-input::placeholder {
@@ -80,24 +81,22 @@
 @media (hover: hover) and (pointer: fine) {
 	#search-input:hover {
 		border-color: var(--link-color);
-		box-shadow: var(--shadow-sm);
-		transform: scale(1.02);
+		box-shadow: 0 0 0 1px var(--link-color), var(--shadow-sm);
 	}
 }
 
-/* 非PC端搜索框点击效果 - 使用:active替代:hover */
+/* 非PC端搜索框点击效果 */
 @media not all and (hover: hover) and (pointer: fine) {
 	#search-input:active {
 		border-color: var(--link-color);
-		box-shadow: var(--shadow-sm);
+		box-shadow: 0 0 0 1px var(--link-color), var(--shadow-sm);
 	}
 }
 
 /* 搜索框键盘聚焦样式 */
 #search-input:focus-visible {
 	border-color: var(--link-color);
-	box-shadow: var(--shadow-sm);
-	transform: scale(1.02);
+	box-shadow: 0 0 0 1px var(--link-color), var(--shadow-sm);
 }
 
 /* 面包屑导航 */
