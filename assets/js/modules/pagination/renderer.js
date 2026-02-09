@@ -252,7 +252,7 @@ export class PaginationRenderer {
 		const fragment = document.createDocumentFragment();
 
 		// 收集需要的元素类型和数量
-		const requiredElements = this.calculateRequiredElements(state);
+		const _requiredElements = this.calculateRequiredElements(state);
 		globalPerformanceMonitor.incrementDOMOperations();
 
 		// 渲染上一页按钮
@@ -665,7 +665,7 @@ export class PaginationRenderer {
 		currentElements.forEach((element) => {
 			// 检查元素是否具有可复用的元数据
 			const metadata = this.elementMetadata.get(element);
-			if (metadata && metadata.reusable) {
+			if (metadata?.reusable) {
 				// 将可复用的元素放回池中
 				this.returnToPool(element);
 			}
@@ -846,7 +846,7 @@ export class PaginationRenderer {
 				this.controller.goToNextPage();
 			} else if (button.classList.contains("pagination-page")) {
 				const pageNum = parseInt(button.dataset.page, 10);
-				if (!isNaN(pageNum)) {
+				if (!Number.isNaN(pageNum)) {
 					this.controller.handlePageChange(pageNum);
 				} else {
 					console.error(
@@ -966,7 +966,7 @@ export class PaginationRenderer {
 
 		const buttons =
 			this.paginationElement.querySelectorAll(".pagination-button");
-		buttons.forEach((button, index) => {
+		buttons.forEach((button, _index) => {
 			if (button.disabled) {
 				button.setAttribute("tabindex", "-1");
 			} else {
@@ -1151,7 +1151,7 @@ export class PaginationRenderer {
 		this.cleanup();
 
 		// 移除DOM元素
-		if (this.paginationElement && this.paginationElement.parentNode) {
+		if (this.paginationElement?.parentNode) {
 			this.paginationElement.parentNode.removeChild(this.paginationElement);
 		}
 
@@ -1203,7 +1203,7 @@ ${globalPerformanceMonitor.generateReport()}
 - 事件监听器数量: ${stats.memoryUsage.eventListenersCount}
 - 待处理更新: ${stats.memoryUsage.pendingUpdates}
 
-${stats.memoryIssues.length > 0 ? "内存问题:\n" + stats.memoryIssues.map((issue) => `- ${issue}`).join("\n") : "内存使用正常"}
+${stats.memoryIssues.length > 0 ? `内存问题:\n${stats.memoryIssues.map((issue) => `- ${issue}`).join("\n")}` : "内存使用正常"}
         `.trim();
 	}
 }

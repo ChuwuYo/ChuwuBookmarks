@@ -285,7 +285,7 @@ export const ErrorHandler = {
 
 				if (performance.memory) {
 					const finalMemory = performance.memory.usedJSHeapSize;
-					const memoryDelta = finalMemory - initialMemory;
+					const _memoryDelta = finalMemory - initialMemory;
 
 					// 记录内存使用（生产环境静默）
 				}

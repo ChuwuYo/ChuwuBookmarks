@@ -2,10 +2,7 @@
  * 分页控制器 - 处理分页状态计算和页码变更逻辑
  */
 
-import {
-	getResponsiveManager,
-	initializeResponsiveSystem,
-} from "./responsive.js";
+import { initializeResponsiveSystem } from "./responsive.js";
 
 /**
  * 分页配置接口

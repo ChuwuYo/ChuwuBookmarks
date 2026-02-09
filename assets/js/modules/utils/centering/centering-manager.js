@@ -87,7 +87,7 @@ export class UniversalCenteringManager {
 			}
 
 			return success;
-		} catch (error) {
+		} catch (_error) {
 			return false;
 		}
 	}
@@ -119,7 +119,7 @@ export class UniversalCenteringManager {
 			}
 
 			return success;
-		} catch (error) {
+		} catch (_error) {
 			return false;
 		}
 	}
@@ -281,7 +281,7 @@ export class UniversalCenteringManager {
 					// 未知事件类型，尝试恢复到默认上下文
 					this.recoverFromContextError();
 			}
-		} catch (error) {
+		} catch (_error) {
 			// 处理失败，尝试恢复
 			this.recoverFromContextError();
 		}
@@ -311,7 +311,7 @@ export class UniversalCenteringManager {
 					this.currentContext.centeringOffset,
 				);
 			}
-		} catch (error) {
+		} catch (_error) {
 			// 恢复失败，使用最小化回退配置
 			this.forceUpdateAll();
 		}
@@ -333,7 +333,7 @@ export class UniversalCenteringManager {
 				sidebar.classList.contains("collapsed") ||
 				sidebar.getAttribute("data-collapsed") === "true"
 			);
-		} catch (error) {
+		} catch (_error) {
 			// 错误时也视为已折叠
 			return true;
 		}

@@ -50,12 +50,12 @@ const searchCache = new LRUCache(100);
 // 缓存键生成函数 - 确保选项顺序一致性
 function stableStringify(obj) {
 	if (obj === null || typeof obj !== "object") return JSON.stringify(obj);
-	if (Array.isArray(obj)) return "[" + obj.map(stableStringify).join(",") + "]";
+	if (Array.isArray(obj)) return `[${obj.map(stableStringify).join(",")}]`;
 	const keys = Object.keys(obj).sort();
 	return (
 		"{" +
 		keys
-			.map((k) => JSON.stringify(k) + ":" + stableStringify(obj[k]))
+			.map((k) => `${JSON.stringify(k)}:${stableStringify(obj[k])}`)
 			.join(",") +
 		"}"
 	);

@@ -171,9 +171,9 @@ const renderMainContent = async (
 				},
 			);
 
-			breadcrumbElements.forEach((element) =>
-				breadcrumbFragment.appendChild(element),
-			);
+			breadcrumbElements.forEach((element) => {
+				breadcrumbFragment.appendChild(element);
+			});
 		}
 
 		breadcrumbs.appendChild(breadcrumbFragment);

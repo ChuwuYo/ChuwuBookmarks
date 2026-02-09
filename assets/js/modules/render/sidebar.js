@@ -66,7 +66,9 @@ const renderSidebar = (data, renderMainContent) => {
 			return folderElement;
 		});
 
-		folderElements.forEach((element) => fragment.appendChild(element));
+		folderElements.forEach((element) => {
+			fragment.appendChild(element);
+		});
 	} else if (matchedRootFolders.length > 1) {
 		// 多个根文件夹：直接显示这些根文件夹本身
 		matchedRootFolders.forEach((rootItem) => {
