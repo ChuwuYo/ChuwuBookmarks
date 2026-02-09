@@ -350,17 +350,6 @@
 	will-change: transform;
 }
 
-/* 优化的旋转动画 - 使用transform提升性能 */
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-}
-
 /* 省略号样式 - 增强主题适配 */
 .pagination-ellipsis {
 	min-width: var(--pagination-button-size);
@@ -508,12 +497,12 @@ body .pagination-container.mobile-pagination {
 /* 分页容器动画进入效果 - 简化动画 */
 .pagination-container.fade-in {
 	opacity: 0;
-	animation: fadeInUp 0.3s var(--ease-out-quad) forwards;
+	animation: fadeIn 0.3s var(--ease-out-quad) forwards;
 	will-change: opacity;
 }
 
-/* 简化的淡入动画 */
-@keyframes fadeInUp {
+/* 分页专用淡入动画（无位移，仅opacity） */
+@keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
