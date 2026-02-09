@@ -105,6 +105,7 @@
 }
 
 html {
+	font-size: 13px;
 	scrollbar-width: none;
 	scrollbar-color: rgba(0, 0, 0, 0.2) var(--bg-color);
 }
