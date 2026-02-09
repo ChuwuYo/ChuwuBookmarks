@@ -64,10 +64,7 @@ export class PositionCalculator {
             this.setCacheWithLRU(cacheKey, styles);
 
         } catch (error) {
-            // 只在开发环境输出错误，生产环境静默处理
-            if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
-                console.warn('calculatePosition: 计算失败，使用空样式', error.message);
-            }
+            console.warn('[PositionCalculator] Calculate position failed:', error.message);
             return {};
         }
 

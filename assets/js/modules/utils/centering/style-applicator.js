@@ -154,7 +154,7 @@ export class StyleApplicator {
             try {
                 operation();
             } catch (error) {
-                // 静默处理错误
+                console.warn('[StyleApplicator] Batch operation failed:', error);
             }
         });
 
@@ -193,7 +193,7 @@ export class StyleApplicator {
             });
 
         } catch (error) {
-            // 样式清理失败，继续执行
+            console.warn('[StyleApplicator] Failed to clear styles:', error);
         }
     }
 

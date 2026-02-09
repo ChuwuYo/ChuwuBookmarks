@@ -154,7 +154,7 @@ const renderHome = () => {
     try {
         resetSearchPagination();
     } catch (error) {
-        console.error('清理分页控件失败:', error);
+        console.error('[Home] Failed to cleanup pagination:', error);
     }
 
     // 使用统一管理清理所有消息元素，保证环境干净

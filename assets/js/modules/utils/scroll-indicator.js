@@ -195,7 +195,7 @@ class CustomScrollIndicator {
                 ? 'var(--scroll-indicator-thumb-hover)'
                 : 'var(--scroll-indicator-thumb)';
         } catch (error) {
-            console.warn('滚动条指示器更新失败:', error);
+            console.warn('[ScrollIndicator] Update failed:', error);
         }
     }
 
