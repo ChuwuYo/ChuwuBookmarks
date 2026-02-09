@@ -56,7 +56,7 @@ export class UniversalCenteringManager {
             this.forceUpdateAll();
 
         } catch (error) {
-            // 初始化失败，继续执行
+            console.warn('[CenteringManager] Initialization failed:', error);
         }
     }
 
@@ -169,7 +169,7 @@ export class UniversalCenteringManager {
             this.styleApplicator.flushUpdates();
 
         } catch (error) {
-            // 更新失败，继续执行
+            console.warn('[CenteringManager] Force update all elements failed:', error);
         }
     }
 
@@ -217,7 +217,7 @@ export class UniversalCenteringManager {
             this.styleApplicator.applyStyles(element, styles);
 
         } catch (error) {
-            // 更新失败，继续执行
+            console.warn('[CenteringManager] Update single element failed:', key, error);
         }
     }
 
@@ -359,7 +359,7 @@ export class UniversalCenteringManager {
             this.isDestroyed = true;
 
         } catch (error) {
-            // 销毁过程中发生错误，继续执行
+            console.warn('[CenteringManager] Error during destruction:', error);
         }
     }
 }

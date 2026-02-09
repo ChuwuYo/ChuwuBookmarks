@@ -12,6 +12,8 @@ const createHomeStructure = () => {
     const fragment = document.createDocumentFragment();
     const homeMessage = document.createElement('div');
     homeMessage.className = 'home-message centered-element vertical-center';
+    homeMessage.setAttribute('role', 'status');
+    homeMessage.setAttribute('aria-live', 'polite');
 
     const chineseText = document.createElement('div');
     chineseText.className = 'chinese-text';
