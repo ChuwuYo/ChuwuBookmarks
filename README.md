@@ -44,7 +44,7 @@ You can also visit the following links to experience the service:
 4. **Deploy and Use**: Deploy the project to your preferred static website hosting service (such as GitHub Pages, Vercel, Netlify, Cloudflare, Edgeone, etc.)
 
 5. **SEO Configuration** (Optional): The project includes complete SEO optimization files. When deploying, you can modify the following files according to your needs:
-   - `index.html`: Modify meta tags, canonical links, and structured data
+   - `index.html`: Modify Open Graph data, meta tags, canonical links, and structured data
    - `sitemap.xml`: Update website URL and last modified date
    - `robots.txt`: Adjust crawler rules and sitemap links
    - `manifest.json`: Customize PWA application information
@@ -102,11 +102,11 @@ You can also visit the following links to experience the service:
 
 4. **Search Functionality**:
    
-   * Supports searching bookmarks by title
+   * Supports searching bookmarks by title or URL
    
    * Search results replace the content in the main content area
    
-   * Supports live search results
+   * Real-time search results
 
    * Pagination of search results
   
@@ -123,8 +123,6 @@ You can also visit the following links to experience the service:
     * Supports responsive layout for mobile(<480px), tablet(480px-1023px), and desktop(≥1024px) devices
     
     * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
-    
-    * Unified breakpoint system ensures optimal experience across different devices
     
     * Mobile-specific style optimizations enhance touch usability
 
