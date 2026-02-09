@@ -1,34 +1,23 @@
 {
-  "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
-  "required_fields": [
-    "name",
-    "short_name"
-  ],
-  "optional_fields": [
-    "description",
-    "theme_color",
-    "background_color",
-    "lang"
-  ],
-  "name": "ChuwuBookmarks - 我的书签导航",
-  "short_name": "ChuwuBookmarks",
-  "description": "功能强大的个人书签导航，支持多级分类、智能搜索、响应式设计",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
-  "orientation": "portrait-primary",
-  "categories": [
-    "productivity",
-    "utilities"
-  ],
-  "lang": "zh-CN",
-  "icons": [
-    {
-      "src": "assets/icon/bocchi.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "any maskable"
-    }
-  ]
+	"_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
+	"required_fields": ["name", "short_name"],
+	"optional_fields": ["description", "theme_color", "background_color", "lang"],
+	"name": "ChuwuBookmarks - 我的书签导航",
+	"short_name": "ChuwuBookmarks",
+	"description": "功能强大的个人书签导航，支持多级分类、智能搜索、响应式设计",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#007bff",
+	"orientation": "portrait-primary",
+	"categories": ["productivity", "utilities"],
+	"lang": "zh-CN",
+	"icons": [
+		{
+			"src": "assets/icon/bocchi.webp",
+			"sizes": "192x192",
+			"type": "image/webp",
+			"purpose": "any maskable"
+		}
+	]
 }

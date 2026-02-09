@@ -1,1594 +1,1594 @@
 {
-  "version": 1,
-  "generated": "2026-02-01T14:03:39.455Z",
-  "folders": [
-    {
-      "id": "0",
-      "title": "书签栏",
-      "addDate": 1769954618935,
-      "linkCount": 0,
-      "folderCount": 19,
-      "hasChildren": true,
-      "children": [
-        {
-          "id": "0_0",
-          "title": "初五的小站",
-          "addDate": 1764484386775,
-          "linkCount": 3,
-          "folderCount": 0,
-          "hasChildren": true
-        },
-        {
-          "id": "0_1",
-          "title": "acg",
-          "addDate": 1704014875953,
-          "linkCount": 23,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_1_0",
-              "title": "导航",
-              "addDate": 1742048976547,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_1_1",
-              "title": "番剧导视",
-              "addDate": 1742657988297,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_1_2",
-              "title": "论坛",
-              "addDate": 1742919046667,
-              "linkCount": 13,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_2",
-          "title": "bt",
-          "addDate": 1704014875951,
-          "linkCount": 18,
-          "folderCount": 1,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_2_0",
-              "title": "trackerslist",
-              "addDate": 1742049130634,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_3",
-          "title": "影视番剧",
-          "addDate": 1704014875956,
-          "linkCount": 8,
-          "folderCount": 4,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_3_0",
-              "title": "下载",
-              "addDate": 1704014875956,
-              "linkCount": 17,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_3_1",
-              "title": "在线",
-              "addDate": 1704014875958,
-              "linkCount": 26,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_3_2",
-              "title": "漫画",
-              "addDate": 1740282516756,
-              "linkCount": 15,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_3_3",
-              "title": "第三方平台/软件",
-              "addDate": 1755197609983,
-              "linkCount": 11,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_4",
-          "title": "game",
-          "addDate": 1704014875960,
-          "linkCount": 5,
-          "folderCount": 11,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_4_0",
-              "title": "游戏工具",
-              "addDate": 1704014875979,
-              "linkCount": 13,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_1",
-              "title": "泰拉瑞亚",
-              "addDate": 1704014875961,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_2",
-              "title": "mc",
-              "addDate": 1704014875961,
-              "linkCount": 20,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_3",
-              "title": "pvz",
-              "addDate": 1704014875962,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_4",
-              "title": "mod",
-              "addDate": 1704014875962,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_5",
-              "title": "第三方",
-              "addDate": 1704014875963,
-              "linkCount": 20,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_6",
-              "title": "gal",
-              "addDate": 1704014875965,
-              "linkCount": 39,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_7",
-              "title": "pokemon",
-              "addDate": 1717594839232,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_8",
-              "title": "在线",
-              "addDate": 1742048798030,
-              "linkCount": 11,
-              "folderCount": 2,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_4_8_0",
-                  "title": "音乐类",
-                  "addDate": 1746113139800,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_4_8_1",
-                  "title": "猜谜类",
-                  "addDate": 1746113160284,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_4_9",
-              "title": "正版平台",
-              "addDate": 1755274801354,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_4_10",
-              "title": "AI",
-              "addDate": 1768853617324,
-              "linkCount": 1,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_5",
-          "title": "传输云盘",
-          "addDate": 1704014875967,
-          "linkCount": 5,
-          "folderCount": 5,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_5_0",
-              "title": "云盘",
-              "addDate": 1704014875967,
-              "linkCount": 20,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_5_1",
-              "title": "临时传输",
-              "addDate": 1720441108092,
-              "linkCount": 12,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_5_2",
-              "title": "局域网传输",
-              "addDate": 1741452262053,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_5_3",
-              "title": "远程桌面/投屏",
-              "addDate": 1741452551496,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_5_4",
-              "title": "网盘搜索",
-              "addDate": 1760856345414,
-              "linkCount": 2,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_6",
-          "title": "放松",
-          "addDate": 1704014875969,
-          "linkCount": 4,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_6_0",
-              "title": "白噪音",
-              "addDate": 1741452602438,
-              "linkCount": 15,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_6_1",
-              "title": "Lofi",
-              "addDate": 1741452748238,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_6_2",
-              "title": "ASMR",
-              "addDate": 1742048744856,
-              "linkCount": 12,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_7",
-          "title": "音乐",
-          "addDate": 1704014875971,
-          "linkCount": 14,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_7_0",
-              "title": "下载",
-              "addDate": 1742049368049,
-              "linkCount": 14,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_7_1",
-              "title": "开源软件",
-              "addDate": 1742049694128,
-              "linkCount": 12,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_7_1_0",
-                  "title": "API/Package",
-                  "addDate": 1759512107683,
-                  "linkCount": 14,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_7_2",
-              "title": "官网",
-              "addDate": 1745573150850,
-              "linkCount": 6,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_8",
-          "title": "文字",
-          "addDate": 1704014875972,
-          "linkCount": 13,
-          "folderCount": 5,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_8_0",
-              "title": "在线",
-              "addDate": 1704014875972,
-              "linkCount": 14,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_8_1",
-              "title": "下载",
-              "addDate": 1704014875972,
-              "linkCount": 22,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_8_2",
-              "title": "书源",
-              "addDate": 1731851483562,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_8_3",
-              "title": "轻小说",
-              "addDate": 1742049718135,
-              "linkCount": 12,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_8_4",
-              "title": "古诗词文",
-              "addDate": 1744904172811,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_9",
-          "title": "软件官网",
-          "addDate": 1704014875974,
-          "linkCount": 3,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_9_0",
-              "title": "Windows",
-              "addDate": 1704014875974,
-              "linkCount": 3,
-              "folderCount": 9,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_9_0_0",
-                  "title": "媒体播放转换",
-                  "addDate": 1704014875974,
-                  "linkCount": 10,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_1",
-                  "title": "bt磁力下载",
-                  "addDate": 1704014875975,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_2",
-                  "title": "压缩",
-                  "addDate": 1704014875976,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_3",
-                  "title": "浏览器",
-                  "addDate": 1704014875976,
-                  "linkCount": 9,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_4",
-                  "title": "笔记阅读",
-                  "addDate": 1704014875976,
-                  "linkCount": 14,
-                  "folderCount": 4,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_9_0_4_0",
-                      "title": "文档管理阅读",
-                      "addDate": 1742656983830,
-                      "linkCount": 9,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_9_0_4_1",
-                      "title": "AI",
-                      "addDate": 1742657298988,
-                      "linkCount": 2,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_9_0_4_2",
-                      "title": "白板",
-                      "addDate": 1746542911153,
-                      "linkCount": 7,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_9_0_4_3",
-                      "title": "思维导图",
-                      "addDate": 1751555373822,
-                      "linkCount": 4,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                },
-                {
-                  "id": "0_9_0_5",
-                  "title": "翻译",
-                  "addDate": 1742656906181,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_6",
-                  "title": "操作加速",
-                  "addDate": 1704014875978,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_7",
-                  "title": "社交",
-                  "addDate": 1704014875978,
-                  "linkCount": 17,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_9_0_8",
-                  "title": "系统安全",
-                  "addDate": 1704014875979,
-                  "linkCount": 3,
-                  "folderCount": 1,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_9_0_8_0",
-                      "title": "空间管理",
-                      "addDate": 1750907338929,
-                      "linkCount": 7,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "0_9_1",
-              "title": "安卓",
-              "addDate": 1704014875980,
-              "linkCount": 6,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_9_2",
-              "title": "插件",
-              "addDate": 1726714142894,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_10",
-          "title": "下载站",
-          "addDate": 1704014875982,
-          "linkCount": 6,
-          "folderCount": 1,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_10_0",
-              "title": "非官方分发",
-              "addDate": 1704014875982,
-              "linkCount": 25,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_11",
-          "title": "欣赏",
-          "addDate": 1704014875984,
-          "linkCount": 4,
-          "folderCount": 6,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_11_0",
-              "title": "地图",
-              "addDate": 1740980512052,
-              "linkCount": 13,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_11_1",
-              "title": "风景",
-              "addDate": 1740980583602,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_11_2",
-              "title": "壁纸",
-              "addDate": 1741152682570,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_11_3",
-              "title": "画作",
-              "addDate": 1741364916229,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_11_4",
-              "title": "色彩",
-              "addDate": 1741452045363,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_11_5",
-              "title": "素材",
-              "addDate": 1745500397810,
-              "linkCount": 6,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_12",
-          "title": "网络",
-          "addDate": 1704014875986,
-          "linkCount": 15,
-          "folderCount": 5,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_12_0",
-              "title": "机场",
-              "addDate": 1704014875986,
-              "linkCount": 17,
-              "folderCount": 3,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_12_0_0",
-                  "title": "Free",
-                  "addDate": 1726717447422,
-                  "linkCount": 18,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_12_0_1",
-                  "title": "名单",
-                  "addDate": 1744977212612,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_12_0_2",
-                  "title": "使用过",
-                  "addDate": 1751382221962,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_12_1",
-              "title": "客户端",
-              "addDate": 1704014875988,
-              "linkCount": 17,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_12_2",
-              "title": "检测",
-              "addDate": 1720354433141,
-              "linkCount": 19,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_12_3",
-              "title": "流量监控",
-              "addDate": 1753202946786,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_12_4",
-              "title": "esim",
-              "addDate": 1769608438081,
-              "linkCount": 2,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_13",
-          "title": "导航",
-          "addDate": 1704014875990,
-          "linkCount": 21,
-          "folderCount": 0,
-          "hasChildren": true
-        },
-        {
-          "id": "0_14",
-          "title": "工具",
-          "addDate": 1704014875990,
-          "linkCount": 7,
-          "folderCount": 15,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_14_0",
-              "title": "系统",
-              "addDate": 1704014875990,
-              "linkCount": 12,
-              "folderCount": 6,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_14_0_0",
-                  "title": "PE",
-                  "addDate": 1712213770896,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_0_1",
-                  "title": "系统镜像",
-                  "addDate": 1712213882851,
-                  "linkCount": 12,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_0_2",
-                  "title": "驱动/缺失文件下载",
-                  "addDate": 1712213964767,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_0_3",
-                  "title": "激活/部署",
-                  "addDate": 1744900212020,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_0_4",
-                  "title": "界面",
-                  "addDate": 1750907211840,
-                  "linkCount": 2,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_0_5",
-                  "title": "文件搜索",
-                  "addDate": 1750907523833,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_14_1",
-              "title": "小工具合集",
-              "addDate": 1704014875992,
-              "linkCount": 23,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_2",
-              "title": "多格式转换",
-              "addDate": 1738151225254,
-              "linkCount": 15,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_3",
-              "title": "图片工具",
-              "addDate": 1704014875993,
-              "linkCount": 8,
-              "folderCount": 3,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_14_3_0",
-                  "title": "搜图",
-                  "addDate": 1753634086342,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_3_1",
-                  "title": "超分",
-                  "addDate": 1767356417615,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_3_2",
-                  "title": "压缩",
-                  "addDate": 1767356636790,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_14_4",
-              "title": "视频工具",
-              "addDate": 1704014875995,
-              "linkCount": 12,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_5",
-              "title": "音频工具",
-              "addDate": 1704014875996,
-              "linkCount": 10,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_6",
-              "title": "文本工具",
-              "addDate": 1704014875998,
-              "linkCount": 18,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_7",
-              "title": "下载",
-              "addDate": 1704014875999,
-              "linkCount": 10,
-              "folderCount": 3,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_14_7_0",
-                  "title": "GIthub",
-                  "addDate": 1704014875999,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_7_1",
-                  "title": "youtube",
-                  "addDate": 1704014875999,
-                  "linkCount": 16,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_7_2",
-                  "title": "bilibili",
-                  "addDate": 1704014876000,
-                  "linkCount": 9,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_14_8",
-              "title": "AI",
-              "addDate": 1704014876001,
-              "linkCount": 15,
-              "folderCount": 7,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_14_8_0",
-                  "title": "聚合网站",
-                  "addDate": 1704014876001,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_8_1",
-                  "title": "聊天",
-                  "addDate": 1704014876004,
-                  "linkCount": 13,
-                  "folderCount": 2,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_14_8_1_0",
-                      "title": "第三方",
-                      "addDate": 1744783271020,
-                      "linkCount": 14,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_14_8_1_1",
-                      "title": "官方-不常用",
-                      "addDate": 1751994267292,
-                      "linkCount": 19,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                },
-                {
-                  "id": "0_14_8_2",
-                  "title": "社区",
-                  "addDate": 1704014876005,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_8_3",
-                  "title": "提示词",
-                  "addDate": 1748185820965,
-                  "linkCount": 9,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_8_4",
-                  "title": "第三方API",
-                  "addDate": 1751384290417,
-                  "linkCount": 16,
-                  "folderCount": 1,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_14_8_4_0",
-                      "title": "个人",
-                      "addDate": 1756752700658,
-                      "linkCount": 3,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                },
-                {
-                  "id": "0_14_8_5",
-                  "title": "客户端/网页UI",
-                  "addDate": 1751384337700,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_14_8_6",
-                  "title": "多元娱乐",
-                  "addDate": 1767279565207,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_14_9",
-              "title": "隐私",
-              "addDate": 1704014876006,
-              "linkCount": 15,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_10",
-              "title": "搜索",
-              "addDate": 1704014876005,
-              "linkCount": 11,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_11",
-              "title": "文件/病毒检测",
-              "addDate": 1738151264483,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_12",
-              "title": "PPT",
-              "addDate": 1753027766771,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_13",
-              "title": "PDF",
-              "addDate": 1763134364697,
-              "linkCount": 2,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_14_14",
-              "title": "短链接",
-              "addDate": 1767793079862,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_15",
-          "title": "学习",
-          "addDate": 1704014876008,
-          "linkCount": 3,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_15_0",
-              "title": "文献",
-              "addDate": 1704014876008,
-              "linkCount": 11,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_15_1",
-              "title": "数学",
-              "addDate": 1704014876009,
-              "linkCount": 6,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_15_2",
-              "title": "英语",
-              "addDate": 1742049838296,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_16",
-          "title": "计算机",
-          "addDate": 1704014876017,
-          "linkCount": 6,
-          "folderCount": 13,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_16_0",
-              "title": "设计",
-              "addDate": 1715431855165,
-              "linkCount": 5,
-              "folderCount": 9,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_16_0_0",
-                  "title": "图标等",
-                  "addDate": 1744173942762,
-                  "linkCount": 19,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_1",
-                  "title": "字体",
-                  "addDate": 1744174059642,
-                  "linkCount": 10,
-                  "folderCount": 2,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_16_0_1_0",
-                      "title": "集合",
-                      "addDate": 1761896404395,
-                      "linkCount": 13,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_16_0_1_1",
-                      "title": "开源字体",
-                      "addDate": 1761896479279,
-                      "linkCount": 19,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                },
-                {
-                  "id": "0_16_0_2",
-                  "title": "设计器",
-                  "addDate": 1744173948207,
-                  "linkCount": 11,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_3",
-                  "title": "表情与插图",
-                  "addDate": 1744174306439,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_4",
-                  "title": "背景",
-                  "addDate": 1744173960076,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_5",
-                  "title": "图片效果",
-                  "addDate": 1744885923387,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_6",
-                  "title": "3D",
-                  "addDate": 1744190623851,
-                  "linkCount": 2,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_7",
-                  "title": "卡片",
-                  "addDate": 1744903829757,
-                  "linkCount": 8,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_0_8",
-                  "title": "绘图",
-                  "addDate": 1753201153202,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_16_1",
-              "title": "学习",
-              "addDate": 1704014876017,
-              "linkCount": 16,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_16_1_0",
-                  "title": "刷题",
-                  "addDate": 1743604967702,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_16_2",
-              "title": "官网",
-              "addDate": 1704014876019,
-              "linkCount": 5,
-              "folderCount": 5,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_16_2_0",
-                  "title": "Linux/OS",
-                  "addDate": 1708534872441,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_2_1",
-                  "title": "数据库",
-                  "addDate": 1704014876017,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_2_2",
-                  "title": "IDE",
-                  "addDate": 1708534919338,
-                  "linkCount": 14,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_2_3",
-                  "title": "环境语言",
-                  "addDate": 1708534942350,
-                  "linkCount": 13,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_2_4",
-                  "title": "数据分析统计",
-                  "addDate": 1753352898114,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_16_3",
-              "title": "在线开发",
-              "addDate": 1753203518023,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_4",
-              "title": "代码托管/审查",
-              "addDate": 1706600031346,
-              "linkCount": 14,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_5",
-              "title": "云服务",
-              "addDate": 1753202742551,
-              "linkCount": 12,
-              "folderCount": 2,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_16_5_0",
-                  "title": "域名",
-                  "addDate": 1759991827567,
-                  "linkCount": 3,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_5_1",
-                  "title": "CloudFlare",
-                  "addDate": 1753202766704,
-                  "linkCount": 6,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_16_6",
-              "title": "镜像",
-              "addDate": 1719239651228,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_7",
-              "title": "AI编程",
-              "addDate": 1719239905714,
-              "linkCount": 17,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_8",
-              "title": "硬件与嵌入式",
-              "addDate": 1720261381276,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_9",
-              "title": "组件/模板/主题",
-              "addDate": 1744173964942,
-              "linkCount": 9,
-              "folderCount": 3,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_16_9_0",
-                  "title": "框架UI组件库",
-                  "addDate": 1737822583582,
-                  "linkCount": 5,
-                  "folderCount": 4,
-                  "hasChildren": true,
-                  "children": [
-                    {
-                      "id": "0_16_9_0_0",
-                      "title": "Vue",
-                      "addDate": 1755015044777,
-                      "linkCount": 9,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_16_9_0_1",
-                      "title": "React",
-                      "addDate": 1755015063071,
-                      "linkCount": 7,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_16_9_0_2",
-                      "title": "CSS框架",
-                      "addDate": 1755015182371,
-                      "linkCount": 3,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    },
-                    {
-                      "id": "0_16_9_0_3",
-                      "title": "Tailwind组件库",
-                      "addDate": 1755015280778,
-                      "linkCount": 2,
-                      "folderCount": 0,
-                      "hasChildren": true
-                    }
-                  ]
-                },
-                {
-                  "id": "0_16_9_1",
-                  "title": "聚合网站",
-                  "addDate": 1752044971371,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_16_9_2",
-                  "title": "动画",
-                  "addDate": 1767349534490,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_16_10",
-              "title": "文档",
-              "addDate": 1738068748771,
-              "linkCount": 20,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_11",
-              "title": "多API",
-              "addDate": 1744123173565,
-              "linkCount": 3,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_16_12",
-              "title": "信息安全",
-              "addDate": 1757385860380,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_17",
-          "title": "日常生活",
-          "addDate": 1704014876022,
-          "linkCount": 8,
-          "folderCount": 9,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_17_0",
-              "title": "政府网站",
-              "addDate": 1704014876012,
-              "linkCount": 9,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_17_1",
-              "title": "经济",
-              "addDate": 1740374334710,
-              "linkCount": 15,
-              "folderCount": 3,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_17_1_0",
-                  "title": "网上银行/传统支付",
-                  "addDate": 1751212955209,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_17_1_1",
-                  "title": "Web3银行/国际虚拟卡",
-                  "addDate": 1704014876011,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                },
-                {
-                  "id": "0_17_1_2",
-                  "title": "Web3钱包/加密货币",
-                  "addDate": 1756965581481,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_17_2",
-              "title": "邮箱",
-              "addDate": 1749090839674,
-              "linkCount": 9,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_17_2_0",
-                  "title": "临时",
-                  "addDate": 1749288427904,
-                  "linkCount": 7,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_17_3",
-              "title": "医学健康",
-              "addDate": 1719076056676,
-              "linkCount": 8,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_17_3_0",
-                  "title": "精神心理",
-                  "addDate": 1747494190453,
-                  "linkCount": 4,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_17_4",
-              "title": "工作",
-              "addDate": 1719076038755,
-              "linkCount": 7,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_17_4_0",
-                  "title": "简历",
-                  "addDate": 1749293867184,
-                  "linkCount": 5,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_17_5",
-              "title": "日报杂志新闻热搜快讯",
-              "addDate": 1720523474122,
-              "linkCount": 10,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_17_6",
-              "title": "旅行",
-              "addDate": 1738681197381,
-              "linkCount": 8,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_17_7",
-              "title": "食物",
-              "addDate": 1738849638186,
-              "linkCount": 7,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_17_8",
-              "title": "手册",
-              "addDate": 1745590970995,
-              "linkCount": 4,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        },
-        {
-          "id": "0_18",
-          "title": "杂",
-          "addDate": 1704014876010,
-          "linkCount": 6,
-          "folderCount": 3,
-          "hasChildren": true,
-          "children": [
-            {
-              "id": "0_18_0",
-              "title": "论坛聊天",
-              "addDate": 1704014876010,
-              "linkCount": 14,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_18_0_0",
-                  "title": "技术论坛",
-                  "addDate": 1742364470144,
-                  "linkCount": 11,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
-            },
-            {
-              "id": "0_18_1",
-              "title": "个人博客",
-              "addDate": 1704014876012,
-              "linkCount": 69,
-              "folderCount": 0,
-              "hasChildren": true
-            },
-            {
-              "id": "0_18_2",
-              "title": "网页快照",
-              "addDate": 1704014876015,
-              "linkCount": 5,
-              "folderCount": 0,
-              "hasChildren": true
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"version": 1,
+	"generated": "2026-02-01T14:03:39.455Z",
+	"folders": [
+		{
+			"id": "0",
+			"title": "书签栏",
+			"addDate": 1769954618935,
+			"linkCount": 0,
+			"folderCount": 19,
+			"hasChildren": true,
+			"children": [
+				{
+					"id": "0_0",
+					"title": "初五的小站",
+					"addDate": 1764484386775,
+					"linkCount": 3,
+					"folderCount": 0,
+					"hasChildren": true
+				},
+				{
+					"id": "0_1",
+					"title": "acg",
+					"addDate": 1704014875953,
+					"linkCount": 23,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_1_0",
+							"title": "导航",
+							"addDate": 1742048976547,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_1_1",
+							"title": "番剧导视",
+							"addDate": 1742657988297,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_1_2",
+							"title": "论坛",
+							"addDate": 1742919046667,
+							"linkCount": 13,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_2",
+					"title": "bt",
+					"addDate": 1704014875951,
+					"linkCount": 18,
+					"folderCount": 1,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_2_0",
+							"title": "trackerslist",
+							"addDate": 1742049130634,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_3",
+					"title": "影视番剧",
+					"addDate": 1704014875956,
+					"linkCount": 8,
+					"folderCount": 4,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_3_0",
+							"title": "下载",
+							"addDate": 1704014875956,
+							"linkCount": 17,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_3_1",
+							"title": "在线",
+							"addDate": 1704014875958,
+							"linkCount": 26,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_3_2",
+							"title": "漫画",
+							"addDate": 1740282516756,
+							"linkCount": 15,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_3_3",
+							"title": "第三方平台/软件",
+							"addDate": 1755197609983,
+							"linkCount": 11,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_4",
+					"title": "game",
+					"addDate": 1704014875960,
+					"linkCount": 5,
+					"folderCount": 11,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_4_0",
+							"title": "游戏工具",
+							"addDate": 1704014875979,
+							"linkCount": 13,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_1",
+							"title": "泰拉瑞亚",
+							"addDate": 1704014875961,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_2",
+							"title": "mc",
+							"addDate": 1704014875961,
+							"linkCount": 20,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_3",
+							"title": "pvz",
+							"addDate": 1704014875962,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_4",
+							"title": "mod",
+							"addDate": 1704014875962,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_5",
+							"title": "第三方",
+							"addDate": 1704014875963,
+							"linkCount": 20,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_6",
+							"title": "gal",
+							"addDate": 1704014875965,
+							"linkCount": 39,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_7",
+							"title": "pokemon",
+							"addDate": 1717594839232,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_8",
+							"title": "在线",
+							"addDate": 1742048798030,
+							"linkCount": 11,
+							"folderCount": 2,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_4_8_0",
+									"title": "音乐类",
+									"addDate": 1746113139800,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_4_8_1",
+									"title": "猜谜类",
+									"addDate": 1746113160284,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_4_9",
+							"title": "正版平台",
+							"addDate": 1755274801354,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_4_10",
+							"title": "AI",
+							"addDate": 1768853617324,
+							"linkCount": 1,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_5",
+					"title": "传输云盘",
+					"addDate": 1704014875967,
+					"linkCount": 5,
+					"folderCount": 5,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_5_0",
+							"title": "云盘",
+							"addDate": 1704014875967,
+							"linkCount": 20,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_5_1",
+							"title": "临时传输",
+							"addDate": 1720441108092,
+							"linkCount": 12,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_5_2",
+							"title": "局域网传输",
+							"addDate": 1741452262053,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_5_3",
+							"title": "远程桌面/投屏",
+							"addDate": 1741452551496,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_5_4",
+							"title": "网盘搜索",
+							"addDate": 1760856345414,
+							"linkCount": 2,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_6",
+					"title": "放松",
+					"addDate": 1704014875969,
+					"linkCount": 4,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_6_0",
+							"title": "白噪音",
+							"addDate": 1741452602438,
+							"linkCount": 15,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_6_1",
+							"title": "Lofi",
+							"addDate": 1741452748238,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_6_2",
+							"title": "ASMR",
+							"addDate": 1742048744856,
+							"linkCount": 12,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_7",
+					"title": "音乐",
+					"addDate": 1704014875971,
+					"linkCount": 14,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_7_0",
+							"title": "下载",
+							"addDate": 1742049368049,
+							"linkCount": 14,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_7_1",
+							"title": "开源软件",
+							"addDate": 1742049694128,
+							"linkCount": 12,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_7_1_0",
+									"title": "API/Package",
+									"addDate": 1759512107683,
+									"linkCount": 14,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_7_2",
+							"title": "官网",
+							"addDate": 1745573150850,
+							"linkCount": 6,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_8",
+					"title": "文字",
+					"addDate": 1704014875972,
+					"linkCount": 13,
+					"folderCount": 5,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_8_0",
+							"title": "在线",
+							"addDate": 1704014875972,
+							"linkCount": 14,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_8_1",
+							"title": "下载",
+							"addDate": 1704014875972,
+							"linkCount": 22,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_8_2",
+							"title": "书源",
+							"addDate": 1731851483562,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_8_3",
+							"title": "轻小说",
+							"addDate": 1742049718135,
+							"linkCount": 12,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_8_4",
+							"title": "古诗词文",
+							"addDate": 1744904172811,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_9",
+					"title": "软件官网",
+					"addDate": 1704014875974,
+					"linkCount": 3,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_9_0",
+							"title": "Windows",
+							"addDate": 1704014875974,
+							"linkCount": 3,
+							"folderCount": 9,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_9_0_0",
+									"title": "媒体播放转换",
+									"addDate": 1704014875974,
+									"linkCount": 10,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_1",
+									"title": "bt磁力下载",
+									"addDate": 1704014875975,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_2",
+									"title": "压缩",
+									"addDate": 1704014875976,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_3",
+									"title": "浏览器",
+									"addDate": 1704014875976,
+									"linkCount": 9,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_4",
+									"title": "笔记阅读",
+									"addDate": 1704014875976,
+									"linkCount": 14,
+									"folderCount": 4,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_9_0_4_0",
+											"title": "文档管理阅读",
+											"addDate": 1742656983830,
+											"linkCount": 9,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_9_0_4_1",
+											"title": "AI",
+											"addDate": 1742657298988,
+											"linkCount": 2,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_9_0_4_2",
+											"title": "白板",
+											"addDate": 1746542911153,
+											"linkCount": 7,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_9_0_4_3",
+											"title": "思维导图",
+											"addDate": 1751555373822,
+											"linkCount": 4,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								},
+								{
+									"id": "0_9_0_5",
+									"title": "翻译",
+									"addDate": 1742656906181,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_6",
+									"title": "操作加速",
+									"addDate": 1704014875978,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_7",
+									"title": "社交",
+									"addDate": 1704014875978,
+									"linkCount": 17,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_9_0_8",
+									"title": "系统安全",
+									"addDate": 1704014875979,
+									"linkCount": 3,
+									"folderCount": 1,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_9_0_8_0",
+											"title": "空间管理",
+											"addDate": 1750907338929,
+											"linkCount": 7,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"id": "0_9_1",
+							"title": "安卓",
+							"addDate": 1704014875980,
+							"linkCount": 6,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_9_2",
+							"title": "插件",
+							"addDate": 1726714142894,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_10",
+					"title": "下载站",
+					"addDate": 1704014875982,
+					"linkCount": 6,
+					"folderCount": 1,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_10_0",
+							"title": "非官方分发",
+							"addDate": 1704014875982,
+							"linkCount": 25,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_11",
+					"title": "欣赏",
+					"addDate": 1704014875984,
+					"linkCount": 4,
+					"folderCount": 6,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_11_0",
+							"title": "地图",
+							"addDate": 1740980512052,
+							"linkCount": 13,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_11_1",
+							"title": "风景",
+							"addDate": 1740980583602,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_11_2",
+							"title": "壁纸",
+							"addDate": 1741152682570,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_11_3",
+							"title": "画作",
+							"addDate": 1741364916229,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_11_4",
+							"title": "色彩",
+							"addDate": 1741452045363,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_11_5",
+							"title": "素材",
+							"addDate": 1745500397810,
+							"linkCount": 6,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_12",
+					"title": "网络",
+					"addDate": 1704014875986,
+					"linkCount": 15,
+					"folderCount": 5,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_12_0",
+							"title": "机场",
+							"addDate": 1704014875986,
+							"linkCount": 17,
+							"folderCount": 3,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_12_0_0",
+									"title": "Free",
+									"addDate": 1726717447422,
+									"linkCount": 18,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_12_0_1",
+									"title": "名单",
+									"addDate": 1744977212612,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_12_0_2",
+									"title": "使用过",
+									"addDate": 1751382221962,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_12_1",
+							"title": "客户端",
+							"addDate": 1704014875988,
+							"linkCount": 17,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_12_2",
+							"title": "检测",
+							"addDate": 1720354433141,
+							"linkCount": 19,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_12_3",
+							"title": "流量监控",
+							"addDate": 1753202946786,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_12_4",
+							"title": "esim",
+							"addDate": 1769608438081,
+							"linkCount": 2,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_13",
+					"title": "导航",
+					"addDate": 1704014875990,
+					"linkCount": 21,
+					"folderCount": 0,
+					"hasChildren": true
+				},
+				{
+					"id": "0_14",
+					"title": "工具",
+					"addDate": 1704014875990,
+					"linkCount": 7,
+					"folderCount": 15,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_14_0",
+							"title": "系统",
+							"addDate": 1704014875990,
+							"linkCount": 12,
+							"folderCount": 6,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_14_0_0",
+									"title": "PE",
+									"addDate": 1712213770896,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_0_1",
+									"title": "系统镜像",
+									"addDate": 1712213882851,
+									"linkCount": 12,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_0_2",
+									"title": "驱动/缺失文件下载",
+									"addDate": 1712213964767,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_0_3",
+									"title": "激活/部署",
+									"addDate": 1744900212020,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_0_4",
+									"title": "界面",
+									"addDate": 1750907211840,
+									"linkCount": 2,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_0_5",
+									"title": "文件搜索",
+									"addDate": 1750907523833,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_14_1",
+							"title": "小工具合集",
+							"addDate": 1704014875992,
+							"linkCount": 23,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_2",
+							"title": "多格式转换",
+							"addDate": 1738151225254,
+							"linkCount": 15,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_3",
+							"title": "图片工具",
+							"addDate": 1704014875993,
+							"linkCount": 8,
+							"folderCount": 3,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_14_3_0",
+									"title": "搜图",
+									"addDate": 1753634086342,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_3_1",
+									"title": "超分",
+									"addDate": 1767356417615,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_3_2",
+									"title": "压缩",
+									"addDate": 1767356636790,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_14_4",
+							"title": "视频工具",
+							"addDate": 1704014875995,
+							"linkCount": 12,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_5",
+							"title": "音频工具",
+							"addDate": 1704014875996,
+							"linkCount": 10,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_6",
+							"title": "文本工具",
+							"addDate": 1704014875998,
+							"linkCount": 18,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_7",
+							"title": "下载",
+							"addDate": 1704014875999,
+							"linkCount": 10,
+							"folderCount": 3,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_14_7_0",
+									"title": "GIthub",
+									"addDate": 1704014875999,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_7_1",
+									"title": "youtube",
+									"addDate": 1704014875999,
+									"linkCount": 16,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_7_2",
+									"title": "bilibili",
+									"addDate": 1704014876000,
+									"linkCount": 9,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_14_8",
+							"title": "AI",
+							"addDate": 1704014876001,
+							"linkCount": 15,
+							"folderCount": 7,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_14_8_0",
+									"title": "聚合网站",
+									"addDate": 1704014876001,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_8_1",
+									"title": "聊天",
+									"addDate": 1704014876004,
+									"linkCount": 13,
+									"folderCount": 2,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_14_8_1_0",
+											"title": "第三方",
+											"addDate": 1744783271020,
+											"linkCount": 14,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_14_8_1_1",
+											"title": "官方-不常用",
+											"addDate": 1751994267292,
+											"linkCount": 19,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								},
+								{
+									"id": "0_14_8_2",
+									"title": "社区",
+									"addDate": 1704014876005,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_8_3",
+									"title": "提示词",
+									"addDate": 1748185820965,
+									"linkCount": 9,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_8_4",
+									"title": "第三方API",
+									"addDate": 1751384290417,
+									"linkCount": 16,
+									"folderCount": 1,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_14_8_4_0",
+											"title": "个人",
+											"addDate": 1756752700658,
+											"linkCount": 3,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								},
+								{
+									"id": "0_14_8_5",
+									"title": "客户端/网页UI",
+									"addDate": 1751384337700,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_14_8_6",
+									"title": "多元娱乐",
+									"addDate": 1767279565207,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_14_9",
+							"title": "隐私",
+							"addDate": 1704014876006,
+							"linkCount": 15,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_10",
+							"title": "搜索",
+							"addDate": 1704014876005,
+							"linkCount": 11,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_11",
+							"title": "文件/病毒检测",
+							"addDate": 1738151264483,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_12",
+							"title": "PPT",
+							"addDate": 1753027766771,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_13",
+							"title": "PDF",
+							"addDate": 1763134364697,
+							"linkCount": 2,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_14_14",
+							"title": "短链接",
+							"addDate": 1767793079862,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_15",
+					"title": "学习",
+					"addDate": 1704014876008,
+					"linkCount": 3,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_15_0",
+							"title": "文献",
+							"addDate": 1704014876008,
+							"linkCount": 11,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_15_1",
+							"title": "数学",
+							"addDate": 1704014876009,
+							"linkCount": 6,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_15_2",
+							"title": "英语",
+							"addDate": 1742049838296,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_16",
+					"title": "计算机",
+					"addDate": 1704014876017,
+					"linkCount": 6,
+					"folderCount": 13,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_16_0",
+							"title": "设计",
+							"addDate": 1715431855165,
+							"linkCount": 5,
+							"folderCount": 9,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_16_0_0",
+									"title": "图标等",
+									"addDate": 1744173942762,
+									"linkCount": 19,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_1",
+									"title": "字体",
+									"addDate": 1744174059642,
+									"linkCount": 10,
+									"folderCount": 2,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_16_0_1_0",
+											"title": "集合",
+											"addDate": 1761896404395,
+											"linkCount": 13,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_16_0_1_1",
+											"title": "开源字体",
+											"addDate": 1761896479279,
+											"linkCount": 19,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								},
+								{
+									"id": "0_16_0_2",
+									"title": "设计器",
+									"addDate": 1744173948207,
+									"linkCount": 11,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_3",
+									"title": "表情与插图",
+									"addDate": 1744174306439,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_4",
+									"title": "背景",
+									"addDate": 1744173960076,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_5",
+									"title": "图片效果",
+									"addDate": 1744885923387,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_6",
+									"title": "3D",
+									"addDate": 1744190623851,
+									"linkCount": 2,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_7",
+									"title": "卡片",
+									"addDate": 1744903829757,
+									"linkCount": 8,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_0_8",
+									"title": "绘图",
+									"addDate": 1753201153202,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_16_1",
+							"title": "学习",
+							"addDate": 1704014876017,
+							"linkCount": 16,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_16_1_0",
+									"title": "刷题",
+									"addDate": 1743604967702,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_16_2",
+							"title": "官网",
+							"addDate": 1704014876019,
+							"linkCount": 5,
+							"folderCount": 5,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_16_2_0",
+									"title": "Linux/OS",
+									"addDate": 1708534872441,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_2_1",
+									"title": "数据库",
+									"addDate": 1704014876017,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_2_2",
+									"title": "IDE",
+									"addDate": 1708534919338,
+									"linkCount": 14,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_2_3",
+									"title": "环境语言",
+									"addDate": 1708534942350,
+									"linkCount": 13,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_2_4",
+									"title": "数据分析统计",
+									"addDate": 1753352898114,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_16_3",
+							"title": "在线开发",
+							"addDate": 1753203518023,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_4",
+							"title": "代码托管/审查",
+							"addDate": 1706600031346,
+							"linkCount": 14,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_5",
+							"title": "云服务",
+							"addDate": 1753202742551,
+							"linkCount": 12,
+							"folderCount": 2,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_16_5_0",
+									"title": "域名",
+									"addDate": 1759991827567,
+									"linkCount": 3,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_5_1",
+									"title": "CloudFlare",
+									"addDate": 1753202766704,
+									"linkCount": 6,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_16_6",
+							"title": "镜像",
+							"addDate": 1719239651228,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_7",
+							"title": "AI编程",
+							"addDate": 1719239905714,
+							"linkCount": 17,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_8",
+							"title": "硬件与嵌入式",
+							"addDate": 1720261381276,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_9",
+							"title": "组件/模板/主题",
+							"addDate": 1744173964942,
+							"linkCount": 9,
+							"folderCount": 3,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_16_9_0",
+									"title": "框架UI组件库",
+									"addDate": 1737822583582,
+									"linkCount": 5,
+									"folderCount": 4,
+									"hasChildren": true,
+									"children": [
+										{
+											"id": "0_16_9_0_0",
+											"title": "Vue",
+											"addDate": 1755015044777,
+											"linkCount": 9,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_16_9_0_1",
+											"title": "React",
+											"addDate": 1755015063071,
+											"linkCount": 7,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_16_9_0_2",
+											"title": "CSS框架",
+											"addDate": 1755015182371,
+											"linkCount": 3,
+											"folderCount": 0,
+											"hasChildren": true
+										},
+										{
+											"id": "0_16_9_0_3",
+											"title": "Tailwind组件库",
+											"addDate": 1755015280778,
+											"linkCount": 2,
+											"folderCount": 0,
+											"hasChildren": true
+										}
+									]
+								},
+								{
+									"id": "0_16_9_1",
+									"title": "聚合网站",
+									"addDate": 1752044971371,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_16_9_2",
+									"title": "动画",
+									"addDate": 1767349534490,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_16_10",
+							"title": "文档",
+							"addDate": 1738068748771,
+							"linkCount": 20,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_11",
+							"title": "多API",
+							"addDate": 1744123173565,
+							"linkCount": 3,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_16_12",
+							"title": "信息安全",
+							"addDate": 1757385860380,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_17",
+					"title": "日常生活",
+					"addDate": 1704014876022,
+					"linkCount": 8,
+					"folderCount": 9,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_17_0",
+							"title": "政府网站",
+							"addDate": 1704014876012,
+							"linkCount": 9,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_17_1",
+							"title": "经济",
+							"addDate": 1740374334710,
+							"linkCount": 15,
+							"folderCount": 3,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_17_1_0",
+									"title": "网上银行/传统支付",
+									"addDate": 1751212955209,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_17_1_1",
+									"title": "Web3银行/国际虚拟卡",
+									"addDate": 1704014876011,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								},
+								{
+									"id": "0_17_1_2",
+									"title": "Web3钱包/加密货币",
+									"addDate": 1756965581481,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_17_2",
+							"title": "邮箱",
+							"addDate": 1749090839674,
+							"linkCount": 9,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_17_2_0",
+									"title": "临时",
+									"addDate": 1749288427904,
+									"linkCount": 7,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_17_3",
+							"title": "医学健康",
+							"addDate": 1719076056676,
+							"linkCount": 8,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_17_3_0",
+									"title": "精神心理",
+									"addDate": 1747494190453,
+									"linkCount": 4,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_17_4",
+							"title": "工作",
+							"addDate": 1719076038755,
+							"linkCount": 7,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_17_4_0",
+									"title": "简历",
+									"addDate": 1749293867184,
+									"linkCount": 5,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_17_5",
+							"title": "日报杂志新闻热搜快讯",
+							"addDate": 1720523474122,
+							"linkCount": 10,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_17_6",
+							"title": "旅行",
+							"addDate": 1738681197381,
+							"linkCount": 8,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_17_7",
+							"title": "食物",
+							"addDate": 1738849638186,
+							"linkCount": 7,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_17_8",
+							"title": "手册",
+							"addDate": 1745590970995,
+							"linkCount": 4,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				},
+				{
+					"id": "0_18",
+					"title": "杂",
+					"addDate": 1704014876010,
+					"linkCount": 6,
+					"folderCount": 3,
+					"hasChildren": true,
+					"children": [
+						{
+							"id": "0_18_0",
+							"title": "论坛聊天",
+							"addDate": 1704014876010,
+							"linkCount": 14,
+							"folderCount": 1,
+							"hasChildren": true,
+							"children": [
+								{
+									"id": "0_18_0_0",
+									"title": "技术论坛",
+									"addDate": 1742364470144,
+									"linkCount": 11,
+									"folderCount": 0,
+									"hasChildren": true
+								}
+							]
+						},
+						{
+							"id": "0_18_1",
+							"title": "个人博客",
+							"addDate": 1704014876012,
+							"linkCount": 69,
+							"folderCount": 0,
+							"hasChildren": true
+						},
+						{
+							"id": "0_18_2",
+							"title": "网页快照",
+							"addDate": 1704014876015,
+							"linkCount": 5,
+							"folderCount": 0,
+							"hasChildren": true
+						}
+					]
+				}
+			]
+		}
+	]
 }

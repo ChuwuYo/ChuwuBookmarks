@@ -1,11 +1,11 @@
 /* 主样式文件 - 导入所有模块 */
-@import url('assets/css/breakpoints.css');
-@import url('assets/css/base.css');
-@import url('assets/css/layout.css');
-@import url('assets/css/components.css');
-@import url('assets/css/responsive.css');
-@import url('assets/css/animations.css');
-@import url('assets/css/theme-toggle.css');
-@import url('assets/css/sidepanel.css');
-@import url('assets/css/homebutton.css');
-@import url('assets/css/pagination.css');
+@import url("assets/css/breakpoints.css");
+@import url("assets/css/base.css");
+@import url("assets/css/layout.css");
+@import url("assets/css/components.css");
+@import url("assets/css/responsive.css");
+@import url("assets/css/animations.css");
+@import url("assets/css/theme-toggle.css");
+@import url("assets/css/sidepanel.css");
+@import url("assets/css/homebutton.css");
+@import url("assets/css/pagination.css");

@@ -1,139 +1,147 @@
 /* 基础样式：CSS变量、字体、重置样式 */
 :root {
-    --transition-normal: background-color var(--duration-short) ease-out, color var(--duration-short) ease-out;
-    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
-    --duration-short: 0.12s;
-    --duration-base: 0.15s;
-    --duration-medium: 0.2s;
-    --duration-long: 0.3s;
-    --ease-in-out-cubic: var(--cubic-bezier);
-    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --ease-default: ease-out;
-    --bg-color: #fcfced;
-    --sidebar-bg: #e2f5f5;
-    --text-color: #0e141a;
-    --link-color: #23d6e3;
-    --hover-bg: #dfe6e9;
-    --button-bg: #a1dcf5;
-    --button-hover: #faeaf4;
-    --header-bg: #88dcfa;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 0 10px rgba(0, 0, 0, 0.2);
-    --button-shadow: 3px 0 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
-    --button-shadow-expanded: 0 2px 8px rgba(0, 0, 0, 0.25), -2px 0 4px rgba(0, 0, 0, 0.15);
-    --button-shadow-hover: 4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
-    --theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
+	--transition-normal:
+		background-color var(--duration-short) ease-out,
+		color var(--duration-short) ease-out;
+	--cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+	--duration-short: 0.12s;
+	--duration-base: 0.15s;
+	--duration-medium: 0.2s;
+	--duration-long: 0.3s;
+	--ease-in-out-cubic: var(--cubic-bezier);
+	--ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	--ease-default: ease-out;
+	--bg-color: #fcfced;
+	--sidebar-bg: #e2f5f5;
+	--text-color: #0e141a;
+	--link-color: #23d6e3;
+	--hover-bg: #dfe6e9;
+	--button-bg: #a1dcf5;
+	--button-hover: #faeaf4;
+	--header-bg: #88dcfa;
+	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
+	--shadow-lg: 0 0 10px rgba(0, 0, 0, 0.2);
+	--button-shadow: 3px 0 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+	--button-shadow-expanded:
+		0 2px 8px rgba(0, 0, 0, 0.25), -2px 0 4px rgba(0, 0, 0, 0.15);
+	--button-shadow-hover:
+		4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+	--theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
 
-    /* 统一居中系统变量 */
-    --universal-centering-offset: 0px;
-    --desktop-base-offset: 110px;
+	/* 统一居中系统变量 */
+	--universal-centering-offset: 0px;
+	--desktop-base-offset: 110px;
 
-    /* 自定义滚动条指示器变量 */
-    --scroll-indicator-bg: rgba(161, 220, 245, 0.3);
-    /* 基于 --button-bg 的半透明版本 */
-    --scroll-indicator-thumb: #23d6e3;
-    /* 使用 --link-color */
-    --scroll-indicator-thumb-hover: #88dcfa;
-    /* 使用 --header-bg */
-    --scroll-indicator-width: 5px;
-    --scroll-indicator-border-radius: 4px;
+	/* 自定义滚动条指示器变量 */
+	--scroll-indicator-bg: rgba(161, 220, 245, 0.3);
+	/* 基于 --button-bg 的半透明版本 */
+	--scroll-indicator-thumb: #23d6e3;
+	/* 使用 --link-color */
+	--scroll-indicator-thumb-hover: #88dcfa;
+	/* 使用 --header-bg */
+	--scroll-indicator-width: 5px;
+	--scroll-indicator-border-radius: 4px;
 }
 
-:root[data-theme='dark'] {
-    --bg-color: #1c1c1c;
-    --sidebar-bg: #161515;
-    --text-color: #f9f1d5e6;
-    --link-color: #74ceff;
-    --hover-bg: #2d3436;
-    --button-bg: #5d6687;
-    --button-hover: rgb(201, 207, 159);
-    --header-bg: #ffffff4b;
-    --shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
-    --shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
-    --shadow-lg: 0 0 10px rgba(255, 255, 255, 0.2);
-    --button-shadow: 3px 0 8px rgba(255, 255, 255, 0.15), 0 2px 4px rgba(255, 255, 255, 0.1);
-    --button-shadow-expanded: 0 2px 8px rgba(255, 255, 255, 0.15), -2px 0 4px rgba(255, 255, 255, 0.1);
-    --button-shadow-hover: 4px 0 12px rgba(255, 255, 255, 0.25), 0 4px 6px rgba(255, 255, 255, 0.2);
-    --theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
+:root[data-theme="dark"] {
+	--bg-color: #1c1c1c;
+	--sidebar-bg: #161515;
+	--text-color: #f9f1d5e6;
+	--link-color: #74ceff;
+	--hover-bg: #2d3436;
+	--button-bg: #5d6687;
+	--button-hover: rgb(201, 207, 159);
+	--header-bg: #ffffff4b;
+	--shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
+	--shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
+	--shadow-lg: 0 0 10px rgba(255, 255, 255, 0.2);
+	--button-shadow:
+		3px 0 8px rgba(255, 255, 255, 0.15), 0 2px 4px rgba(255, 255, 255, 0.1);
+	--button-shadow-expanded:
+		0 2px 8px rgba(255, 255, 255, 0.15), -2px 0 4px rgba(255, 255, 255, 0.1);
+	--button-shadow-hover:
+		4px 0 12px rgba(255, 255, 255, 0.25), 0 4px 6px rgba(255, 255, 255, 0.2);
+	--theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
 
-    /* 深色主题滚动条指示器变量 */
-    --scroll-indicator-bg: rgba(93, 102, 135, 0.3);
-    /* 基于 --button-bg 的半透明版本 */
-    --scroll-indicator-thumb: #74ceff;
-    /* 使用 --link-color */
-    --scroll-indicator-thumb-hover: #ffffff4b;
-    /* 使用 --header-bg */
+	/* 深色主题滚动条指示器变量 */
+	--scroll-indicator-bg: rgba(93, 102, 135, 0.3);
+	/* 基于 --button-bg 的半透明版本 */
+	--scroll-indicator-thumb: #74ceff;
+	/* 使用 --link-color */
+	--scroll-indicator-thumb-hover: #ffffff4b;
+	/* 使用 --header-bg */
 }
 
 /* 字体定义 */
 @font-face {
-    font-family: 'LXGW WenKai';
-    src: url('../fonts/LXGWWenKai-Medium.woff2') format('woff2');
-    font-display: swap;
+	font-family: "LXGW WenKai";
+	src: url("../fonts/LXGWWenKai-Medium.woff2") format("woff2");
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'DingTalk JinBuTi';
-    src: url('../fonts/DingTalk-JinBuTi.woff2') format('woff2');
-    font-display: swap;
+	font-family: "DingTalk JinBuTi";
+	src: url("../fonts/DingTalk-JinBuTi.woff2") format("woff2");
+	font-display: swap;
 }
 
 /* 全局重置 */
 * {
-    -webkit-tap-highlight-color: transparent;
-    transition: background-color var(--duration-short) var(--ease-default),
-        color var(--duration-short) var(--ease-default);
+	-webkit-tap-highlight-color: transparent;
+	transition:
+		background-color var(--duration-short) var(--ease-default),
+		color var(--duration-short) var(--ease-default);
 }
 
 html {
-    scrollbar-width: none;
-    scrollbar-color: rgba(0, 0, 0, 0.2) var(--bg-color);
+	scrollbar-width: none;
+	scrollbar-color: rgba(0, 0, 0, 0.2) var(--bg-color);
 }
 
 /* 全局隐藏滚动条 - 纯CSS方案 */
 html,
 body,
 * {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
 *::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
+	width: 0;
+	height: 0;
+	display: none;
 }
 
 body {
-    font-family: 'LXGW WenKai', Arial, sans-serif;
-    background-color: var(--bg-color);
-    position: relative;
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+	font-family: "LXGW WenKai", Arial, sans-serif;
+	background-color: var(--bg-color);
+	position: relative;
+	color: var(--text-color);
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 /* 添加背景GIF */
 body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 1000px;
-    /* 根据实际GIF尺寸调整 */
-    height: 1000px;
-    /* 根据实际GIF尺寸调整 */
-    background: url('../images/moecat.gif') no-repeat right bottom;
-    background-size: contain;
-    z-index: 1;
-    pointer-events: none;
+	content: "";
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 1000px;
+	/* 根据实际GIF尺寸调整 */
+	height: 1000px;
+	/* 根据实际GIF尺寸调整 */
+	background: url("../images/moecat.gif") no-repeat right bottom;
+	background-size: contain;
+	z-index: 1;
+	pointer-events: none;
 }
 
 /* 确保其他内容在GIF之上 */
@@ -142,87 +150,88 @@ body::after {
 .search-container,
 .github-link,
 #theme-toggle {
-    position: relative;
-    z-index: 2;
+	position: relative;
+	z-index: 2;
 }
 
 /* 自定义滚动条指示器 - 仅限非手机端 */
 @media screen and (min-width: 480px) {
-    .custom-scroll-indicator {
-        position: fixed;
-        top: 0;
-        right: 1px;
-        /* 更靠近右侧边 */
-        width: var(--scroll-indicator-width);
-        height: 100vh;
-        background: var(--scroll-indicator-bg);
-        border-radius: var(--scroll-indicator-border-radius);
-        z-index: 9999;
-        /* 高层级，确保在最顶层 */
-        opacity: 0;
-        transition: opacity var(--duration-short) var(--ease-default);
-        pointer-events: none;
-        /* 兼容性降级方案：先设置普通背景 */
-        background: var(--scroll-indicator-bg);
-        /* 改善兼容性：为不支持backdrop-filter的浏览器提供降级方案 */
-        backdrop-filter: blur(2px);
-        box-shadow: var(--shadow-sm);
-        /* 添加轻微的边框以增强可见性 */
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+	.custom-scroll-indicator {
+		position: fixed;
+		top: 0;
+		right: 1px;
+		/* 更靠近右侧边 */
+		width: var(--scroll-indicator-width);
+		height: 100vh;
+		background: var(--scroll-indicator-bg);
+		border-radius: var(--scroll-indicator-border-radius);
+		z-index: 9999;
+		/* 高层级，确保在最顶层 */
+		opacity: 0;
+		transition: opacity var(--duration-short) var(--ease-default);
+		pointer-events: none;
+		/* 兼容性降级方案：先设置普通背景 */
+		background: var(--scroll-indicator-bg);
+		/* 改善兼容性：为不支持backdrop-filter的浏览器提供降级方案 */
+		backdrop-filter: blur(2px);
+		box-shadow: var(--shadow-sm);
+		/* 添加轻微的边框以增强可见性 */
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
 
-    /* 为不支持backdrop-filter的浏览器提供降级方案 */
-    @supports not (backdrop-filter: blur(2px)) {
-        .custom-scroll-indicator {
-            background: var(--scroll-indicator-bg);
-            /* 增加不透明度以增强可见性 */
-            background: rgba(161, 220, 245, 0.6);
-            /* 浅色主题 */
-        }
+	/* 为不支持backdrop-filter的浏览器提供降级方案 */
+	@supports not (backdrop-filter: blur(2px)) {
+		.custom-scroll-indicator {
+			background: var(--scroll-indicator-bg);
+			/* 增加不透明度以增强可见性 */
+			background: rgba(161, 220, 245, 0.6);
+			/* 浅色主题 */
+		}
 
-        [data-theme='dark'] .custom-scroll-indicator {
-            background: rgba(93, 102, 135, 0.6);
-            /* 深色主题 */
-        }
-    }
+		[data-theme="dark"] .custom-scroll-indicator {
+			background: rgba(93, 102, 135, 0.6);
+			/* 深色主题 */
+		}
+	}
 
-    .custom-scroll-thumb {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: var(--scroll-indicator-thumb);
-        border-radius: var(--scroll-indicator-border-radius);
-        transition: background-color var(--duration-short) var(--ease-default),
-            box-shadow var(--duration-short) var(--ease-default);
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-        /* 添加最小高度以确保可见性 */
-        min-height: 20px;
-    }
+	.custom-scroll-thumb {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: var(--scroll-indicator-thumb);
+		border-radius: var(--scroll-indicator-border-radius);
+		transition:
+			background-color var(--duration-short) var(--ease-default),
+			box-shadow var(--duration-short) var(--ease-default);
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		/* 添加最小高度以确保可见性 */
+		min-height: 20px;
+	}
 
-    /* 滚动时显示指示器 */
-    body.scrolling .custom-scroll-indicator {
-        opacity: 1;
-    }
+	/* 滚动时显示指示器 */
+	body.scrolling .custom-scroll-indicator {
+		opacity: 1;
+	}
 
-    /* 悬停效果 */
-    .custom-scroll-indicator:hover {
-        opacity: 1;
-        /* 悬停时稍微放大 */
-        transform: scaleX(1.2);
-        transform-origin: right center;
-    }
+	/* 悬停效果 */
+	.custom-scroll-indicator:hover {
+		opacity: 1;
+		/* 悬停时稍微放大 */
+		transform: scaleX(1.2);
+		transform-origin: right center;
+	}
 
-    .custom-scroll-indicator:hover .custom-scroll-thumb {
-        background: var(--scroll-indicator-thumb-hover);
-        box-shadow: var(--shadow-md);
-    }
+	.custom-scroll-indicator:hover .custom-scroll-thumb {
+		background: var(--scroll-indicator-thumb-hover);
+		box-shadow: var(--shadow-md);
+	}
 
-    /* 在侧边栏展开时保持靠近右侧边 */
-    @media screen and (min-width: 1024px) {
-        .custom-scroll-indicator {
-            right: 2px;
-            /* 桌面端稍微调整但仍然靠近边缘 */
-        }
-    }
+	/* 在侧边栏展开时保持靠近右侧边 */
+	@media screen and (min-width: 1024px) {
+		.custom-scroll-indicator {
+			right: 2px;
+			/* 桌面端稍微调整但仍然靠近边缘 */
+		}
+	}
 }

@@ -1,29 +1,40 @@
 /* 动画和过渡效果 */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 @keyframes spin {
-    to { transform: rotate(360deg); }
+	to {
+		transform: rotate(360deg);
+	}
 }
 @keyframes pulseRight {
-    0% { opacity: 0.3; transform: translate(0, -50%); }
-    50% { opacity: 0.15; transform: translate(5px, -50%); }
-    100% { opacity: 0.3; transform: translate(0, -50%); }
+	0% {
+		opacity: 0.3;
+		transform: translate(0, -50%);
+	}
+	50% {
+		opacity: 0.15;
+		transform: translate(5px, -50%);
+	}
+	100% {
+		opacity: 0.3;
+		transform: translate(0, -50%);
+	}
 }
