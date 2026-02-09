@@ -1,194 +1,271 @@
 /* 主题切换按钮的日出/日落效果 */
 @property --sunray1 {
-  syntax: '<percentage>';
-  inherits: true;
-  initial-value: 27%;
+	syntax: "<percentage>";
+	inherits: true;
+	initial-value: 27%;
 }
 
 @property --sunlight {
-  syntax: '<percentage>';
-  inherits: true;
-  initial-value: 91%;
+	syntax: "<percentage>";
+	inherits: true;
+	initial-value: 91%;
 }
 
 /* 主题切换按钮基础样式 */
 .theme-toggle {
-  --speed: var(--duration-base); /* Use global variable */
-  appearance: none;
-  padding: 0;
-  font-size: 1rem;
-  border: 2px solid #a4d1c4;
-  border-radius: 10px;
-  background: var(--button-bg); /* 使用变量定义背景色 */
-  color: var(--text-color);
-  cursor: pointer;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(1rem + 15px + 6px);
-  width: calc(1rem + 15px + 6px);
-  position: relative;
-  overflow: hidden;
-  transition: background-color var(--duration-medium) var(--ease-out-quad), transform var(--duration-base) var(--ease-default);
-  will-change: background-color, transform;
+	--speed: var(--duration-base); /* Use global variable */
+	appearance: none;
+	padding: 0;
+	font-size: 1rem;
+	border: 2px solid #a4d1c4;
+	border-radius: 10px;
+	background: var(--button-bg); /* 使用变量定义背景色 */
+	color: var(--text-color);
+	cursor: pointer;
+	margin-left: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(1rem + 15px + 6px);
+	width: calc(1rem + 15px + 6px);
+	position: relative;
+	overflow: hidden;
+	transition:
+		background-color var(--duration-medium) var(--ease-out-quad),
+		transform var(--duration-base) var(--ease-default);
+	will-change: background-color, transform;
 }
 
 /* 日/月图标基础样式 */
 .theme-toggle svg {
-    width: calc(1rem + 5px);
-    height: calc(1rem + 5px);
-    transition: all var(--duration-base) var(--ease-default), transform var(--duration-medium) var(--ease-out-quad);
-    z-index: 3;
+	width: calc(1rem + 5px);
+	height: calc(1rem + 5px);
+	transition:
+		all var(--duration-base) var(--ease-default),
+		transform var(--duration-medium) var(--ease-out-quad);
+	z-index: 3;
 }
 
 .theme-toggle .sun,
 .theme-toggle .moon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity var(--duration-base) var(--ease-default), transform var(--duration-medium) var(--ease-out-quad);
-    will-change: opacity, transform;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition:
+		opacity var(--duration-base) var(--ease-default),
+		transform var(--duration-medium) var(--ease-out-quad);
+	will-change: opacity, transform;
 }
 
 /* 日出效果 - 伪元素 */
 .theme-toggle::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background:
-        /* 太阳光芒 - 增强光晕效果 */
-        radial-gradient(circle at 50% calc(100% - 0.3em), rgba(255, 239, 203, 0.95) 0.075em, rgba(255, 204, 153, 0.8), rgba(255, 183, 102, 0.6), rgba(255, 162, 51, 0.4), rgba(255, 142, 0, 0.2), transparent 1.4em) 50% 100%,
-        radial-gradient(circle at 50% calc(100% - 0.2em), rgba(255, 255, 255, 0.9) 0.25em, rgba(255, 255, 255, 0.7) 0.6em, transparent 1.2em),
-        repeating-conic-gradient(at 50% calc(100% - 0.3em), rgba(255, 255, 255, 0.05) 0 4%, transparent 9%) 50% 50% / 100% 100%,
-        repeating-conic-gradient(at 50% calc(100% - 0.3em), rgba(255, 255, 255, 0.03) 6%, transparent 14%) 50% 50% / 100% 100%,
-        repeating-conic-gradient(at 50% calc(100% - 0.3em), rgba(255, 255, 255, 0.03) 1deg, transparent 4deg) 50% 50% / 100% 100%;
-    mask: radial-gradient(farthest-side at 50% calc(100% - 0.3em), #000 85%, transparent);
-    opacity: 0;
-    transform: translate(0, 100%);
-    transition: transform var(--speed) var(--ease-out-quad), opacity var(--speed) var(--ease-out-quad);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	/* 太阳光芒 - 增强光晕效果 */
+	background:
+		radial-gradient(
+			circle at 50% calc(100% - 0.3em),
+			rgba(255, 239, 203, 0.95) 0.075em,
+			rgba(255, 204, 153, 0.8),
+			rgba(255, 183, 102, 0.6),
+			rgba(255, 162, 51, 0.4),
+			rgba(255, 142, 0, 0.2),
+			transparent 1.4em
+		)
+		50% 100%,
+		radial-gradient(
+			circle at 50% calc(100% - 0.2em),
+			rgba(255, 255, 255, 0.9) 0.25em,
+			rgba(255, 255, 255, 0.7) 0.6em,
+			transparent 1.2em
+		),
+		repeating-conic-gradient(
+			at 50% calc(100% - 0.3em),
+			rgba(255, 255, 255, 0.05) 0 4%,
+			transparent 9%
+		)
+		50% 50% / 100% 100%,
+		repeating-conic-gradient(
+			at 50% calc(100% - 0.3em),
+			rgba(255, 255, 255, 0.03) 6%,
+			transparent 14%
+		)
+		50% 50% / 100% 100%,
+		repeating-conic-gradient(
+			at 50% calc(100% - 0.3em),
+			rgba(255, 255, 255, 0.03) 1deg,
+			transparent 4deg
+		)
+		50% 50% / 100% 100%;
+	mask: radial-gradient(
+		farthest-side at 50% calc(100% - 0.3em),
+		#000 85%,
+		transparent
+	);
+	opacity: 0;
+	transform: translate(0, 100%);
+	transition:
+		transform var(--speed) var(--ease-out-quad),
+		opacity var(--speed) var(--ease-out-quad);
 }
 
 /* 月亮/地面效果 - 伪元素 */
 .theme-toggle::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    z-index: 2;
-    border-radius: 50%;
-    box-shadow: 0 -0.15em 0.3em -0.1em rgba(255, 255, 255, 0.8);
-    background:
-        /* 月光/地面效果 - 增加层次感 */
-        radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.9), rgba(187, 177, 168, 0.8), rgba(228, 222, 215, 0.6), transparent 2.2em) 50% 100%,
-        radial-gradient(100% 50% at 50% 0, rgba(255, 255, 255, 0.5), transparent 20%),
-        radial-gradient(farthest-side at 20% 50%, rgba(17, 8, 32, 0.5) 80%, transparent),
-        radial-gradient(farthest-side at 70% 50%, rgba(8, 4, 16, 0.5) 80%, transparent),
-        radial-gradient(60% 50%, rgba(18, 60, 96, 0.6) var(--sunlight), #ffff),
-        repeating-conic-gradient(at 50% 0, transparent 27%, rgba(255, 255, 255, 0.15) var(--sunray1)),
-        radial-gradient(farthest-side, rgba(1, 40, 96, 0.5) 60%, rgba(1, 35, 84, 0.4) 70%, rgba(238, 238, 238, 0.95) 99%);
-    transform: translate(0, 65%);
-    transition: transform var(--speed) var(--ease-out-quad), box-shadow var(--speed) var(--ease-out-quad), --sunray1 var(--speed) var(--ease-out-quad), --sunlight var(--speed) var(--ease-out-quad);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	z-index: 2;
+	border-radius: 50%;
+	box-shadow: 0 -0.15em 0.3em -0.1em rgba(255, 255, 255, 0.8);
+	/* 月光/地面效果 - 增加层次感 */
+	background:
+		radial-gradient(
+			circle at 50% 0,
+			rgba(255, 255, 255, 0.9),
+			rgba(187, 177, 168, 0.8),
+			rgba(228, 222, 215, 0.6),
+			transparent 2.2em
+		)
+		50% 100%,
+		radial-gradient(
+			100% 50% at 50% 0,
+			rgba(255, 255, 255, 0.5),
+			transparent 20%
+		),
+		radial-gradient(
+			farthest-side at 20% 50%,
+			rgba(17, 8, 32, 0.5) 80%,
+			transparent
+		),
+		radial-gradient(
+			farthest-side at 70% 50%,
+			rgba(8, 4, 16, 0.5) 80%,
+			transparent
+		),
+		radial-gradient(60% 50%, rgba(18, 60, 96, 0.6) var(--sunlight), #ffff),
+		repeating-conic-gradient(
+			at 50% 0,
+			transparent 27%,
+			rgba(255, 255, 255, 0.15) var(--sunray1)
+		),
+		radial-gradient(
+			farthest-side,
+			rgba(1, 40, 96, 0.5) 60%,
+			rgba(1, 35, 84, 0.4) 70%,
+			rgba(238, 238, 238, 0.95) 99%
+		);
+	transform: translate(0, 65%);
+	transition:
+		transform var(--speed) var(--ease-out-quad),
+		box-shadow var(--speed) var(--ease-out-quad),
+		--sunray1 var(--speed) var(--ease-out-quad),
+		--sunlight var(--speed) var(--ease-out-quad);
 }
 
 /* 亮色主题状态 */
-[data-theme='light'] .theme-toggle .sun {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1) rotate(0);
-  z-index: 4;
+[data-theme="light"] .theme-toggle .sun {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1) rotate(0);
+	z-index: 4;
 }
 
-[data-theme='light'] .theme-toggle .moon {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);
+[data-theme="light"] .theme-toggle .moon {
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);
 }
 
-[data-theme='light'] .theme-toggle::before {
-  opacity: 1;
-  transform: translate(0, 0);
+[data-theme="light"] .theme-toggle::before {
+	opacity: 1;
+	transform: translate(0, 0);
 }
 
-[data-theme='light'] .theme-toggle::after {
-  --sunray1: 40%;
-  --sunlight: 81%;
-  transform: translate(0, 100%);
+[data-theme="light"] .theme-toggle::after {
+	--sunray1: 40%;
+	--sunlight: 81%;
+	transform: translate(0, 100%);
 }
 
 /* 暗色主题状态 */
-[data-theme='dark'] .theme-toggle .sun {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5) rotate(30deg);
+[data-theme="dark"] .theme-toggle .sun {
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.5) rotate(30deg);
 }
 
-[data-theme='dark'] .theme-toggle .moon {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1) rotate(0);
-  z-index: 4;
+[data-theme="dark"] .theme-toggle .moon {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1) rotate(0);
+	z-index: 4;
 }
 
-[data-theme='dark'] .theme-toggle::before {
-  opacity: 0;
-  transform: translate(0, 100%);
+[data-theme="dark"] .theme-toggle::before {
+	opacity: 0;
+	transform: translate(0, 100%);
 }
 
-[data-theme='dark'] .theme-toggle::after {
-  --sunray1: 27%;
-  --sunlight: 91%;
-  transform: translate(0, 65%);
+[data-theme="dark"] .theme-toggle::after {
+	--sunray1: 27%;
+	--sunlight: 91%;
+	transform: translate(0, 65%);
 }
 
 /* 夜间主题状态 */
-[data-theme='dark'] .theme-toggle {
-  background: var(--button-bg); /* 使用变量定义夜间主题背景色 */
+[data-theme="dark"] .theme-toggle {
+	background: var(--button-bg); /* 使用变量定义夜间主题背景色 */
 }
 
 /* 悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
-    .theme-toggle:hover {
-        background-color: var(--button-hover);
-        box-shadow: var(--theme-shadow-hover);
-        transition: all var(--duration-medium) var(--ease-out-quad);
-    }
-    
-    .theme-toggle:hover .sun {
-        transform: translate(-50%, -50%) scale(1.05) rotate(45deg);
-        transition: transform var(--duration-medium) var(--ease-out-quad);
-    }
-    
-    .theme-toggle:hover .moon {
-        transform: translate(-50%, -50%) scale(1.05) rotate(45deg);
-        transition: transform var(--duration-medium) var(--ease-out-quad);
-    }
-    
-    [data-theme='light'] .theme-toggle:hover::after {
-        --sunlight: 85%;
-    }
-    
-    [data-theme='dark'] .theme-toggle:hover::after {
-        --sunlight: 88%;
-    }
+	.theme-toggle:hover {
+		background-color: var(--button-hover);
+		box-shadow: var(--theme-shadow-hover);
+		transition: all var(--duration-medium) var(--ease-out-quad);
+	}
+
+	.theme-toggle:hover .sun {
+		transform: translate(-50%, -50%) scale(1.05) rotate(45deg);
+		transition: transform var(--duration-medium) var(--ease-out-quad);
+	}
+
+	.theme-toggle:hover .moon {
+		transform: translate(-50%, -50%) scale(1.05) rotate(45deg);
+		transition: transform var(--duration-medium) var(--ease-out-quad);
+	}
+
+	[data-theme="light"] .theme-toggle:hover::after {
+		--sunlight: 85%;
+	}
+
+	[data-theme="dark"] .theme-toggle:hover::after {
+		--sunlight: 88%;
+	}
 }
 
 /* 为按钮添加一个包装器来实现缩放效果，不影响内部元素 */
-.theme-toggle::before, .theme-toggle::after {
-  transition: transform var(--speed) var(--ease-default), opacity var(--speed) var(--ease-default), --sunray1 var(--speed) var(--ease-default), --sunlight var(--speed) var(--ease-default), box-shadow var(--speed) var(--ease-default);
+.theme-toggle::before,
+.theme-toggle::after {
+	transition:
+		transform var(--speed) var(--ease-default),
+		opacity var(--speed) var(--ease-default),
+		--sunray1 var(--speed) var(--ease-default),
+		--sunlight var(--speed) var(--ease-default),
+		box-shadow var(--speed) var(--ease-default);
 }
 
 /* 移动端焦点状态处理 */
 @media (hover: none) and (pointer: coarse) {
-  .theme-toggle:focus,
-  .theme-toggle:active {
-    background: var(--button-bg);
-    border: 2px solid #a4d1c4;
-    outline: none;
-  }
+	.theme-toggle:focus,
+	.theme-toggle:active {
+		background: var(--button-bg);
+		border: 2px solid #a4d1c4;
+		outline: none;
+	}
 }
-
-
