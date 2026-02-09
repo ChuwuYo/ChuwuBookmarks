@@ -106,6 +106,11 @@
 	/* 确保emoji和文字垂直居中对齐 */
 	line-height: 1;
 }
+
+/* 文件夹区域下移 */
+.sidebar .folder:first-child {
+	margin-top: 2rem;
+}
 .sidebar .folder-name {
 	font-size: 1.15rem;
 	padding: 0.5rem 1rem;
