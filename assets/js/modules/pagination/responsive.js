@@ -124,7 +124,7 @@ export class ResponsiveConfigManager {
             try {
                 listener(config);
             } catch (error) {
-                console.error('响应式配置监听器执行失败:', error);
+                console.error('[ResponsiveManager] Listener execution failed:', error);
             }
         });
     }
@@ -323,7 +323,7 @@ export class SidebarStateMonitor {
             try {
                 listener(state);
             } catch (error) {
-                console.error('侧栏状态监听器执行失败:', error);
+                console.error('[SidebarMonitor] Listener execution failed:', error);
             }
         });
     }

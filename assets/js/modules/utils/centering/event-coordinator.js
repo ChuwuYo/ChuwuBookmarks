@@ -48,7 +48,7 @@ export class EventCoordinator {
             this.setupCenteringOffsetListener();
 
         } catch (error) {
-            // 初始化失败，继续执行
+            console.warn('[EventCoordinator] Initialization failed:', error);
         }
     }
 
@@ -115,7 +115,7 @@ export class EventCoordinator {
                 attributeFilter: ['class', 'data-collapsed']
             });
         } catch (error) {
-            // 侧栏观察器设置失败，继续执行
+            console.warn('[EventCoordinator] Sidebar observer setup failed:', error);
         }
     }
 
@@ -235,7 +235,7 @@ export class EventCoordinator {
             this.isDestroyed = true;
 
         } catch (error) {
-            // 销毁过程中发生错误，继续执行
+            console.warn('[EventCoordinator] Error during destruction:', error);
         }
     }
 }

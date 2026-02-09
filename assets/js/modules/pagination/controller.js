@@ -186,7 +186,7 @@ export class PaginationController {
         if (this.events.onPageChange) {
             this.events.onPageChange(newPage);
         } else {
-            console.error('没有页码变更事件处理器');
+            console.error('[PaginationController] No page change event handler');
         }
         
         return true;

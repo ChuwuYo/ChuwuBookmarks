@@ -64,7 +64,7 @@ function initSidebarScrollHint() {
 
     sidebar = document.querySelector('.sidebar');
     if (!sidebar) {
-        console.warn('侧边栏元素未找到');
+        console.warn('[SidebarScrollHint] Sidebar element not found');
         return;
     }
 

@@ -51,7 +51,7 @@ const initSearchWorker = (renderMainContent) => {
     }
     
     if (!isWorkerSupported()) {
-        console.warn('浏览器不支持 Web Worker，搜索功能将不可用');
+        console.warn('[Search] Web Worker not supported, search functionality unavailable');
         return;
     }
 
@@ -76,7 +76,7 @@ const initSearchWorker = (renderMainContent) => {
                 // 缓存已清除，无需额外操作
                 break;
             case 'error':
-                console.error('搜索Worker错误:', message);
+                console.error('[Search] Worker error:', message);
                 break;
         }
     };
@@ -98,7 +98,7 @@ const initSearchWorker = (renderMainContent) => {
                 // 预留扩展点
                 break;
             case 'error':
-                console.error('数据处理Worker错误:', message);
+                console.error('[Search] Data worker error:', message);
                 break;
         }
     };
@@ -233,7 +233,7 @@ const resetPaginationState = () => {
         url.searchParams.delete('page');
         window.history.replaceState({}, document.title, url.toString());
     } catch (error) {
-        console.error('重置分页状态失败:', error);
+        console.error('[Search] Failed to reset pagination state:', error);
     }
 };
  

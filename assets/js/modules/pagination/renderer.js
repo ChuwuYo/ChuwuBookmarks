@@ -166,7 +166,7 @@ export class PaginationRenderer {
             globalPerformanceMonitor.recordMemoryUsage(memoryUsage);
 
         } catch (error) {
-            console.error('分页控件渲染失败:', error);
+            console.error('[PaginationRenderer] Render failed:', error);
             this.renderFallback();
         }
     }
@@ -681,7 +681,7 @@ export class PaginationRenderer {
      */
     bindEventsOptimized() {
         if (!this.paginationElement) {
-            console.error('无法绑定事件：分页元素不存在');
+            console.error('[PaginationRenderer] Cannot bind events: element not found');
             return;
         }
 
@@ -823,11 +823,11 @@ export class PaginationRenderer {
                 if (!isNaN(pageNum)) {
                     this.controller.handlePageChange(pageNum);
                 } else {
-                    console.error('无效的页码:', button.dataset.page);
+                    console.error('[PaginationRenderer] Invalid page number:', button.dataset.page);
                 }
             }
         } catch (error) {
-            console.error('处理按钮点击失败:', error);
+            console.error('[PaginationRenderer] Button click handling failed:', error);
         } finally {
             // 短暂延迟后移除处理状态
             setTimeout(() => {
@@ -963,7 +963,7 @@ export class PaginationRenderer {
      */
     applyResponsiveStyles() {
         if (!this.paginationElement) {
-            console.error('无法应用响应式样式：分页元素不存在');
+            console.error('[PaginationRenderer] Cannot apply responsive styles: element not found');
             return;
         }
 
@@ -1009,7 +1009,7 @@ export class PaginationRenderer {
                 this.paginationElement.classList.remove('scrollable');
             }
         } catch (error) {
-            console.error('移动端滚动检测失败:', error);
+            console.error('[PaginationRenderer] Mobile scroll detection failed:', error);
         }
     }
 

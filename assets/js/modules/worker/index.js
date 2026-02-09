@@ -78,7 +78,7 @@ class WorkerWrapper {
                 try {
                     this._worker.terminate();
                 } catch (e) {
-                    // 终止失败，继续清理
+                    console.warn(`[WorkerManager] Failed to terminate ${this._name}:`, e);
                 }
                 this._worker = null;
             }
