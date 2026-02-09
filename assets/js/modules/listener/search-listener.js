@@ -21,7 +21,11 @@ const initSearchListeners = (debounceSearch) => {
         document.addEventListener('keydown', function handleSearchFocus(e) {
             if (e.ctrlKey && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
-                searchInput.focus();
+                // 检查 searchInput 是否仍在 DOM 中
+                const currentSearchInput = document.getElementById('search-input');
+                if (currentSearchInput) {
+                    currentSearchInput.focus();
+                }
             }
         });
     }

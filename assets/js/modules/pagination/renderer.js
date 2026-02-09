@@ -25,7 +25,8 @@
 import {
     getSidebarMonitor,
     getResponsiveManager,
-    TouchOptimizer
+    TouchOptimizer,
+    RESPONSIVE_BREAKPOINTS
 } from './responsive.js';
 import { getCenteringManager } from '../utils/centering.js';
 import {
@@ -77,10 +78,6 @@ export class PaginationRenderer {
         // 性能优化：批量DOM操作标志
         this.batchUpdateScheduled = false;
         this.pendingUpdates = [];
-
-        // 懒加载标志
-        this.isLazyLoaded = false;
-        this.shouldLazyLoad = true;
 
         // 内存管理：WeakMap存储临时数据
         this.buttonStates = new WeakMap();
@@ -188,9 +185,9 @@ export class PaginationRenderer {
 
         // 直接根据屏幕宽度应用响应式类，就像侧栏自动隐藏一样
         const screenWidth = window.innerWidth;
-        if (screenWidth <= 479) {
+        if (screenWidth <= RESPONSIVE_BREAKPOINTS.mobile.maxWidth) {
             this.paginationElement.classList.add('mobile-pagination');
-        } else if (screenWidth <= 1023) {
+        } else if (screenWidth <= RESPONSIVE_BREAKPOINTS.tablet.maxWidth) {
             this.paginationElement.classList.add('tablet-pagination');
         } else {
             this.paginationElement.classList.add('desktop-pagination');
@@ -974,9 +971,9 @@ export class PaginationRenderer {
         const screenWidth = window.innerWidth;
         let type = 'desktop';
         
-        if (screenWidth <= 479) {
+        if (screenWidth <= RESPONSIVE_BREAKPOINTS.mobile.maxWidth) {
             type = 'mobile';
-        } else if (screenWidth <= 1023) {
+        } else if (screenWidth <= RESPONSIVE_BREAKPOINTS.tablet.maxWidth) {
             type = 'tablet';
         }
 

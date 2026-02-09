@@ -181,6 +181,11 @@ const cacheBookmarksData = (data, hash, index) => {
  * @param {Function} originalHandler - 原始消息处理器（用于移除）
  */
 const loadFullDataInBackground = (workerWrapper, renderMainContent, originalHandler) => {
+    // 如果已有正在进行的加载，直接返回现有 Promise，避免竞态条件
+    if (fullDataLoadPromise && !isFullDataLoaded) {
+        return fullDataLoadPromise;
+    }
+    
     // 创建一个 Promise 供其他模块等待
     fullDataLoadPromise = new Promise((resolve) => {
         // 定义后台加载的消息处理器

@@ -87,11 +87,17 @@ const handleDeviceView = () => {
     document.body.classList.toggle('desktop-device', deviceType === 'desktop');
     
     // 标记JavaScript已初始化，禁用CSS默认状态
-    sidebar.classList.add('js-initialized');
-    toggleButton.classList.add('js-initialized');
+    if (sidebar) {
+        sidebar.classList.add('js-initialized');
+    }
+    if (toggleButton) {
+        toggleButton.classList.add('js-initialized');
+    }
     
     // 设置初始状态
-    updateSidebarState(sidebar, shouldCollapse, true);
+    if (sidebar) {
+        updateSidebarState(sidebar, shouldCollapse, true);
+    }
 };
 
 export {
