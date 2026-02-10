@@ -88,12 +88,6 @@ const loadBookmarksData = async (renderMainContent) => {
 
 		// 处理目录结构加载成功
 		if (status === "structure_loaded") {
-			console.log(
-				"Structure loaded successfully, version:",
-				structureVersion,
-				"generated:",
-				generated,
-			);
 
 			const cachedStructureHash = localStorage.getItem("structureHash");
 
@@ -121,10 +115,6 @@ const loadBookmarksData = async (renderMainContent) => {
 
 		// 处理目录结构不存在，回退到完整加载
 		if (status === "structure_not_found") {
-			console.log(
-				"Structure not found, falling back to full load:",
-				event.data.message,
-			);
 			const success = dataWorkerWrapper.postMessage({ action: "loadData" });
 			if (!success) {
 				console.warn("[Loader] Failed to send loadData message to worker");
@@ -217,7 +207,6 @@ const loadFullDataInBackground = (
 			const { status, data, index, hash, isFullData } = event.data;
 
 			if (status === "success" && isFullData) {
-				console.log("Full data loaded in background");
 
 				// 保存完整数据到全局状态
 				fullBookmarksData = data;
