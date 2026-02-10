@@ -4,6 +4,8 @@
  * 提供性能监控、内存使用跟踪和优化建议功能
  */
 
+import { PERFORMANCE_MONITOR_CONSTANTS } from "../utils/constants.js";
+
 /**
  * 性能监控器类
  */
@@ -18,7 +20,7 @@ export class PaginationPerformanceMonitor {
 		};
 
 		this.isMonitoring = false;
-		this.maxMetricsHistory = 100; // 限制历史记录数量，防止内存泄漏
+		this.maxMetricsHistory = PERFORMANCE_MONITOR_CONSTANTS.MAX_METRICS_HISTORY;
 	}
 
 	/**
@@ -135,72 +137,6 @@ export class PaginationPerformanceMonitor {
 			memoryUsageHistory: this.metrics.memoryUsage.slice(-10), // 最近10次记录
 		};
 	}
-
-	/**
-	 * 生成性能报告
-	 * @returns {string} 性能报告
-	 */
-	generateReport() {
-		const stats = this.getPerformanceStats();
-
-		return `
-分页性能报告:
-==============
-渲染性能:
-  - 平均渲染时间: ${stats.renderStats.average.toFixed(2)}ms
-  - 最大渲染时间: ${stats.renderStats.max.toFixed(2)}ms
-  - 渲染次数: ${stats.renderStats.count}
-
-更新性能:
-  - 平均更新时间: ${stats.updateStats.average.toFixed(2)}ms
-  - 最大更新时间: ${stats.updateStats.max.toFixed(2)}ms
-  - 更新次数: ${stats.updateStats.count}
-
-DOM操作: ${stats.domOperations}次
-事件绑定: ${stats.eventBindings}次
-
-建议:
-${this.generateOptimizationSuggestions(stats)}
-        `.trim();
-	}
-
-	/**
-	 * 生成优化建议
-	 * @param {Object} stats - 性能统计
-	 * @returns {string} 优化建议
-	 */
-	generateOptimizationSuggestions(stats) {
-		const suggestions = [];
-
-		if (stats.renderStats.average > 10) {
-			suggestions.push("- 渲染时间较长，考虑使用虚拟滚动或减少DOM操作");
-		}
-
-		if (stats.domOperations > stats.renderStats.count * 10) {
-			suggestions.push("- DOM操作过多，建议使用DocumentFragment批量操作");
-		}
-
-		if (stats.eventBindings > stats.renderStats.count * 2) {
-			suggestions.push("- 事件绑定过多，建议使用事件委托");
-		}
-
-		return suggestions.length > 0
-			? suggestions.join("\n")
-			: "- 性能表现良好，无需优化";
-	}
-
-	/**
-	 * 重置统计数据
-	 */
-	reset() {
-		this.metrics = {
-			renderTimes: [],
-			updateTimes: [],
-			memoryUsage: [],
-			domOperations: 0,
-			eventBindings: 0,
-		};
-	}
 }
 
 /**
@@ -247,9 +183,13 @@ export const MemoryOptimizer = {
 		if (component.elementPool) {
 			Object.keys(component.elementPool).forEach((type) => {
 				const pool = component.elementPool[type];
-				if (pool.length > 10) {
-					// 保留最近的10个元素，清理其余的
-					const excess = pool.splice(10);
+				if (
+					pool.length > PERFORMANCE_MONITOR_CONSTANTS.MAX_ELEMENT_POOL_SIZE
+				) {
+					// 保留最近的元素，清理其余的
+					const excess = pool.splice(
+						PERFORMANCE_MONITOR_CONSTANTS.MAX_ELEMENT_POOL_SIZE,
+					);
 					excess.forEach((element) => {
 						if (element.parentNode) {
 							element.parentNode.removeChild(element);
@@ -260,43 +200,16 @@ export const MemoryOptimizer = {
 		}
 
 		// 清理待处理的更新
-		if (component.pendingUpdates && component.pendingUpdates.length > 5) {
+		if (
+			component.pendingUpdates &&
+			component.pendingUpdates.length >
+				PERFORMANCE_MONITOR_CONSTANTS.MAX_PENDING_UPDATES
+		) {
 			component.pendingUpdates.length = 0;
 		}
 	},
 
-	/**
-	 * 检测内存泄漏
-	 * @param {Object} component - 要检查的组件
-	 * @returns {Array} 潜在的内存泄漏问题
-	 */
-	detectMemoryLeaks(component) {
-		const issues = [];
 
-		// 检查元素池是否过大
-		if (component.elementPool) {
-			const totalPoolSize = Object.values(component.elementPool).reduce(
-				(total, pool) => total + pool.length,
-				0,
-			);
-
-			if (totalPoolSize > 50) {
-				issues.push("元素池过大，可能存在内存泄漏");
-			}
-		}
-
-		// 检查事件监听器是否过多
-		if (component.eventListeners && component.eventListeners.size > 10) {
-			issues.push("事件监听器过多，可能存在内存泄漏");
-		}
-
-		// 检查待处理更新是否堆积
-		if (component.pendingUpdates && component.pendingUpdates.length > 10) {
-			issues.push("待处理更新堆积，可能存在性能问题");
-		}
-
-		return issues;
-	},
 };
 
 /**

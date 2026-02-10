@@ -2,6 +2,9 @@
  * 分页控制器 - 处理分页状态计算和页码变更逻辑
  */
 
+import {
+	PAGINATION_CONSTANTS,
+} from "../utils/constants.js";
 import { initializeResponsiveSystem } from "./responsive.js";
 
 /**
@@ -47,8 +50,8 @@ export class PaginationController {
 	constructor(config = {}, events = {}) {
 		// 默认配置
 		this.config = {
-			itemsPerPage: 20,
-			maxVisiblePages: 5,
+			itemsPerPage: PAGINATION_CONSTANTS.DEFAULT_ITEMS_PER_PAGE,
+			maxVisiblePages: PAGINATION_CONSTANTS.DEFAULT_MAX_VISIBLE_PAGES,
 			showFirstLast: true,
 			showPrevNext: true,
 			responsive: true,
@@ -367,8 +370,8 @@ export const PaginationUtils = {
 	calculatePaginationState(
 		totalItems,
 		currentPage,
-		itemsPerPage = 20,
-		maxVisiblePages = 5,
+		itemsPerPage = PAGINATION_CONSTANTS.DEFAULT_ITEMS_PER_PAGE,
+		maxVisiblePages = PAGINATION_CONSTANTS.DEFAULT_MAX_VISIBLE_PAGES,
 	) {
 		if (totalItems < 0) {
 			throw new Error("总项目数不能为负数");
@@ -413,7 +416,11 @@ export const PaginationUtils = {
 	 * @param {number} maxVisible - 最大可见页码数
 	 * @returns {number[]}
 	 */
-	calculateVisiblePages(currentPage, totalPages, maxVisible = 5) {
+	calculateVisiblePages(
+		currentPage,
+		totalPages,
+		maxVisible = PAGINATION_CONSTANTS.DEFAULT_MAX_VISIBLE_PAGES,
+	) {
 		if (totalPages <= maxVisible) {
 			return Array.from({ length: totalPages }, (_, i) => i + 1);
 		}

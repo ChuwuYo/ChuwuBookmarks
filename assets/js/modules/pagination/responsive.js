@@ -376,6 +376,8 @@ export class SidebarStateMonitor {
 	}
 }
 
+import { TOUCH_CONSTANTS } from "../utils/constants.js";
+
 /**
  * 触摸友好性优化器
  */
@@ -400,7 +402,10 @@ export const TouchOptimizer = {
 				`${spacing}px`,
 			);
 
-			const padding = buttonSize < 44 ? `${(44 - buttonSize) / 2}px` : "0px";
+			const padding =
+			buttonSize < TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE
+				? `${(TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE - buttonSize) / 2}px`
+				: "0px";
 			paginationElement.style.setProperty(
 				"--pagination-button-padding",
 				padding,
@@ -446,8 +451,8 @@ export const TouchOptimizer = {
 			// 检查是否为有效的滑动手势
 			if (
 				Math.abs(deltaX) > Math.abs(deltaY) &&
-				Math.abs(deltaX) > 50 &&
-				deltaTime < 300
+				Math.abs(deltaX) > TOUCH_CONSTANTS.SWIPE_THRESHOLD_PX &&
+				deltaTime < TOUCH_CONSTANTS.SWIPE_MAX_DURATION_MS
 			) {
 				const direction = deltaX > 0 ? "right" : "left";
 				onSwipe(direction);
