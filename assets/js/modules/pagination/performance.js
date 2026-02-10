@@ -183,9 +183,7 @@ export const MemoryOptimizer = {
 		if (component.elementPool) {
 			Object.keys(component.elementPool).forEach((type) => {
 				const pool = component.elementPool[type];
-				if (
-					pool.length > PERFORMANCE_MONITOR_CONSTANTS.MAX_ELEMENT_POOL_SIZE
-				) {
+				if (pool.length > PERFORMANCE_MONITOR_CONSTANTS.MAX_ELEMENT_POOL_SIZE) {
 					// 保留最近的元素，清理其余的
 					const excess = pool.splice(
 						PERFORMANCE_MONITOR_CONSTANTS.MAX_ELEMENT_POOL_SIZE,
@@ -208,8 +206,6 @@ export const MemoryOptimizer = {
 			component.pendingUpdates.length = 0;
 		}
 	},
-
-
 };
 
 /**

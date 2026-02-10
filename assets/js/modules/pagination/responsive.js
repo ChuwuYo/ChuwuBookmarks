@@ -403,9 +403,9 @@ export const TouchOptimizer = {
 			);
 
 			const padding =
-			buttonSize < TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE
-				? `${(TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE - buttonSize) / 2}px`
-				: "0px";
+				buttonSize < TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE
+					? `${(TOUCH_CONSTANTS.MIN_TOUCH_TARGET_SIZE - buttonSize) / 2}px`
+					: "0px";
 			paginationElement.style.setProperty(
 				"--pagination-button-padding",
 				padding,
