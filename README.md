@@ -123,8 +123,6 @@ You can also visit the following links to experience the service:
     * Supports responsive layout for mobile(<480px), tablet(480px-1023px), and desktop(≥1024px) devices
     
     * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
-    
-    * Mobile-specific style optimizations enhance touch usability
 
 7. **GSAP Animation Support**:
 
