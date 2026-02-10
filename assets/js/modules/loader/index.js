@@ -73,15 +73,7 @@ const loadBookmarksData = async (renderMainContent) => {
 
 	// 定义消息处理器
 	const messageHandler = (event) => {
-		const {
-			status,
-			data,
-			error,
-			hash,
-			structureVersion,
-			generated,
-			isFullData,
-		} = event.data;
+		const { status, data, error, hash, isFullData } = event.data;
 
 		// 完整数据后台响应应仅由后台处理器处理
 		if (isFullData) return;
