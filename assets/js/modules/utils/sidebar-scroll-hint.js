@@ -7,7 +7,8 @@
 let initialized = false;
 let sidebar = null;
 let hintElement = null;
-let observer = null;
+let mutationObserver = null;
+let resizeObserver = null;
 
 /**
  * 防抖函数 - 延迟执行，避免高频触发
@@ -81,8 +82,15 @@ function initSidebarScrollHint() {
 	window.addEventListener("resize", debouncedCheckScrollable);
 
 	// 监听侧边栏折叠状态变化
-	observer = new MutationObserver(boundCheckScrollable);
-	observer.observe(sidebar, { attributes: true, attributeFilter: ["class"] });
+	mutationObserver = new MutationObserver(boundCheckScrollable);
+	mutationObserver.observe(sidebar, {
+		attributes: true,
+		attributeFilter: ["class"],
+	});
+
+	// 使用 ResizeObserver 监测侧边栏尺寸变化（包括缩放导致的变化）
+	resizeObserver = new ResizeObserver(boundCheckScrollable);
+	resizeObserver.observe(sidebar);
 
 	// 初始检查
 	setTimeout(checkScrollable, 100);
@@ -102,10 +110,16 @@ function _destroySidebarScrollHint() {
 	}
 	window.removeEventListener("resize", debouncedCheckScrollable);
 
-	// 断开MutationObserver
-	if (observer) {
-		observer.disconnect();
-		observer = null;
+	// 断开 MutationObserver
+	if (mutationObserver) {
+		mutationObserver.disconnect();
+		mutationObserver = null;
+	}
+
+	// 断开 ResizeObserver
+	if (resizeObserver) {
+		resizeObserver.disconnect();
+		resizeObserver = null;
 	}
 
 	// 移除DOM元素
