@@ -23,10 +23,7 @@
  */
 
 import { getCenteringManager } from "../utils/centering.js";
-import {
-	PAGINATION_CONSTANTS,
-	PERFORMANCE_MONITOR_CONSTANTS,
-} from "../utils/constants.js";
+import { PAGINATION_CONSTANTS } from "../utils/constants.js";
 import {
 	DOMOptimizer,
 	globalPerformanceMonitor,
