@@ -2,9 +2,7 @@
  * 分页控制器 - 处理分页状态计算和页码变更逻辑
  */
 
-import {
-	PAGINATION_CONSTANTS,
-} from "../utils/constants.js";
+import { PAGINATION_CONSTANTS } from "../utils/constants.js";
 import { initializeResponsiveSystem } from "./responsive.js";
 
 /**

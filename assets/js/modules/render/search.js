@@ -32,10 +32,7 @@ import {
 	PaginationRenderUtils,
 } from "../pagination/index.js";
 import { getCenteringManager } from "../utils/centering.js";
-import {
-	PAGINATION_CONSTANTS,
-	RENDER_CONSTANTS,
-} from "../utils/constants.js";
+import { PAGINATION_CONSTANTS, RENDER_CONSTANTS } from "../utils/constants.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";

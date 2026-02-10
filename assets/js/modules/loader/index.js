@@ -88,7 +88,6 @@ const loadBookmarksData = async (renderMainContent) => {
 
 		// 处理目录结构加载成功
 		if (status === "structure_loaded") {
-
 			const cachedStructureHash = localStorage.getItem("structureHash");
 
 			// 如果结构数据有更新或没有缓存
@@ -207,7 +206,6 @@ const loadFullDataInBackground = (
 			const { status, data, index, hash, isFullData } = event.data;
 
 			if (status === "success" && isFullData) {
-
 				// 保存完整数据到全局状态
 				fullBookmarksData = data;
 				isFullDataLoaded = true;

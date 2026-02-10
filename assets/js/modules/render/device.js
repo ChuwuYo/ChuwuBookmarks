@@ -2,9 +2,8 @@
  * 设备检测和适配模块
  */
 
-import { animationConfig } from "./theme.js";
-
 import { RENDER_CONSTANTS } from "../utils/constants.js";
+import { animationConfig } from "./theme.js";
 
 // 断点系统 - 移动端样式断点和侧栏收起断点分离
 const BREAKPOINT_MOBILE = 480; // 移动端样式断点
@@ -17,7 +16,11 @@ const getDeviceType = () => {
 		"ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 	// 手机设备（包括横屏）优先使用移动端样式
-	if (isTouchDevice && (width < BREAKPOINT_MOBILE || height < RENDER_CONSTANTS.MOBILE_HEIGHT_BREAKPOINT)) {
+	if (
+		isTouchDevice &&
+		(width < BREAKPOINT_MOBILE ||
+			height < RENDER_CONSTANTS.MOBILE_HEIGHT_BREAKPOINT)
+	) {
 		return "mobile";
 	}
 
