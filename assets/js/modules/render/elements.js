@@ -78,8 +78,8 @@ const createElement = (type, item, onClick) => {
 
 			if (validIconUrls.length > 0) {
 				// 设置第一个图标源
-				// HTML 属性 data-src 自动映射到 dataset.src
-				img.setAttribute("data-src", validIconUrls[0]);
+				img.src = validIconUrls[0];
+				img.loading = "lazy";
 
 				// 如果有多个图标源，存储完整列表
 				// HTML 属性 data-icon-urls 自动映射到 dataset.iconUrls

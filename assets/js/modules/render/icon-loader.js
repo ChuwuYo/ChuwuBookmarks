@@ -104,10 +104,10 @@ const getSortedIconUrls = (img) => {
 		try {
 			iconUrls = JSON.parse(iconUrlsJson);
 		} catch (_e) {
-			iconUrls = [img.dataset.src];
+			iconUrls = [img.src];
 		}
 	} else {
-		iconUrls = [img.dataset.src];
+		iconUrls = [img.src];
 	}
 
 	return iconUrls.sort((a, b) => {
@@ -125,7 +125,7 @@ const getSortedIconUrls = (img) => {
  * @param {HTMLElement} icon - 图标容器
  */
 const loadIcon = (img, icon) => {
-	if (!img || !img.dataset.src) return;
+	if (!img || !img.src) return;
 
 	const iconUrls = getSortedIconUrls(img);
 	img.dataset.iconUrls = JSON.stringify(iconUrls);
@@ -169,7 +169,7 @@ const loadIcon = (img, icon) => {
 const loadIconsForElements = (bookmarkElements) => {
 	bookmarkElements.forEach((element) => {
 		const iconContainer = element.querySelector(".bookmark-icon");
-		const img = iconContainer?.querySelector("img[data-src]");
+		const img = iconContainer?.querySelector("img.bookmark-icon-img");
 		if (iconContainer && img) {
 			loadIcon(img, iconContainer);
 		}
