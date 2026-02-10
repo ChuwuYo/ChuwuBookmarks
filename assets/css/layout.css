@@ -18,7 +18,6 @@
 	/* 侧边栏始终隐藏滚动条 */
 	scrollbar-width: none;
 	-ms-overflow-style: none;
-	will-change: background-color;
 	box-sizing: border-box;
 	border-radius: 0 15px 15px 0;
 }
@@ -95,24 +94,20 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	margin: 1.2rem 0;
+	margin: 1.1rem 0;
 	margin-left: 10px;
 	user-select: none;
 	-webkit-user-drag: none;
 	-webkit-touch-callout: none;
-	backface-visibility: hidden;
-	will-change: opacity;
-	transform: translateZ(0);
-	/* 确保emoji和文字垂直居中对齐 */
 	line-height: 1;
 }
 
 /* 文件夹区域下移 */
-.sidebar .folder:first-child {
+.sidebar #sidebar-folders .folder:first-child {
 	margin-top: 2rem;
 }
 .sidebar .folder-name {
-	font-size: 1.15rem;
+	font-size: 1.1rem;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	transition:
@@ -161,7 +156,7 @@
 	align-self: flex-start;
 }
 .main-content {
-	margin-left: 250px;
+	margin-left: calc(var(--sidebar-width) + 20px);
 	margin-right: 120px;
 	min-height: 100vh;
 	padding: 20px 20px 20px 60px;
@@ -172,7 +167,6 @@
 		padding var(--duration-short) var(--ease-in-out-cubic);
 	position: relative;
 	z-index: 2;
-	will-change: margin-left, padding;
 	overflow-y: auto;
 	/* 完全隐藏滚动条 */
 	scrollbar-width: none;
