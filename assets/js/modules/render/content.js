@@ -2,6 +2,7 @@
  * 主内容区渲染模块
  */
 
+import { RENDER_CONSTANTS } from "../utils/constants.js";
 import {
 	getFullBookmarksData,
 	isFullDataReady,
@@ -193,16 +194,16 @@ const renderMainContent = async (
 				return;
 			}
 
-			const maskValue = `linear-gradient(to right,
+		const maskValue = `linear-gradient(to right,
                 transparent,
-                black ${Math.min(scrollLeft + 15, 15)}px,
-                black calc(100% - ${Math.max(15 - (maxScroll - scrollLeft), 0)}px),
+                black ${Math.min(scrollLeft + RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET, RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET)}px,
+                black calc(100% - ${Math.max(RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET - (maxScroll - scrollLeft), 0)}px),
                 transparent
             )`;
-			breadcrumbs.style.maskImage = maskValue;
+		breadcrumbs.style.maskImage = maskValue;
 
-			breadcrumbs.classList.toggle("at-end", scrollLeft >= maxScroll - 10);
-			breadcrumbs.classList.toggle("at-start", scrollLeft <= 10);
+		breadcrumbs.classList.toggle("at-end", scrollLeft >= maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD);
+		breadcrumbs.classList.toggle("at-start", scrollLeft <= RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD);
 		};
 
 		breadcrumbs.addEventListener("scroll", breadcrumbsScrollHandler, {

@@ -4,7 +4,11 @@
  * 该模块集中管理系统的配置常量，便于维护和修改
  */
 
-import { LAYOUT_CONSTANTS, Z_INDEX_CONSTANTS } from "../constants.js";
+import {
+	CENTERING_CONSTANTS,
+	LAYOUT_CONSTANTS,
+	Z_INDEX_CONSTANTS,
+} from "../constants.js";
 
 /**
  * 元素配置常量 - 定义所有需要居中的元素配置
@@ -43,7 +47,10 @@ export const ELEMENT_CONFIGS = {
 	pagination: {
 		selector: ".pagination-container",
 		positioning: {
-			mobile: { strategy: "fixed-center", bottom: "20px" },
+			mobile: {
+				strategy: "fixed-center",
+				bottom: `${CENTERING_CONSTANTS.PAGINATION_MOBILE_BOTTOM_OFFSET_PX}px`,
+			},
 			desktop: {
 				strategy: "css-controlled",
 				baseOffset: LAYOUT_CONSTANTS.SIDEBAR_BASE_OFFSET,

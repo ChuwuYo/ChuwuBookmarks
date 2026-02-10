@@ -2,6 +2,8 @@
  * 分页错误处理模块
  */
 
+import { PAGINATION_CONSTANTS } from "../utils/constants.js";
+
 /**
  * 分页错误类
  */
@@ -81,9 +83,9 @@ export const ErrorHandler = {
 			);
 		}
 
-		if (pageSize > 1000) {
+		if (pageSize > PAGINATION_CONSTANTS.MAX_PAGE_SIZE) {
 			throw new PaginationError(
-				"每页项目数不能大于1000",
+				`每页项目数不能大于${PAGINATION_CONSTANTS.MAX_PAGE_SIZE}`,
 				ERROR_CODES.INVALID_PAGE_SIZE,
 			);
 		}
