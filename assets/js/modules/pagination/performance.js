@@ -134,7 +134,9 @@ export class PaginationPerformanceMonitor {
 			},
 			domOperations: this.metrics.domOperations,
 			eventBindings: this.metrics.eventBindings,
-			memoryUsageHistory: this.metrics.memoryUsage.slice(-10), // 最近10次记录
+			memoryUsageHistory: this.metrics.memoryUsage.slice(
+				-PERFORMANCE_MONITOR_CONSTANTS.MEMORY_USAGE_HISTORY_DISPLAY_COUNT,
+			),
 		};
 	}
 }
@@ -220,12 +222,7 @@ export const DOMOptimizer = {
 	batchDOMOperations(operations) {
 		return new Promise((resolve) => {
 			requestAnimationFrame(() => {
-				const _startTime = performance.now();
-
 				operations();
-
-				const _endTime = performance.now();
-
 				resolve();
 			});
 		});
@@ -237,12 +234,10 @@ export const DOMOptimizer = {
 	 * @param {Function} updateFn - 更新函数
 	 */
 	optimizedUpdate(container, updateFn) {
-		// 使用DocumentFragment减少重排
-		const _fragment = document.createDocumentFragment();
 		const originalParent = container.parentNode;
 		const nextSibling = container.nextSibling;
 
-		// 临时移除容器，减少重排
+		// 临时移除容器，减少重排 (detach-mutate-reattach)
 		if (originalParent) {
 			originalParent.removeChild(container);
 		}

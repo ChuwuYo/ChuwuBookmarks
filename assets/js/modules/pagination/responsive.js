@@ -3,6 +3,7 @@
  */
 
 import { shouldCollapseSidebar } from "../render/device.js";
+import { TOUCH_CONSTANTS } from "../utils/constants.js";
 
 /**
  * 响应式断点配置
@@ -375,8 +376,6 @@ export class SidebarStateMonitor {
 		}
 	}
 }
-
-import { TOUCH_CONSTANTS } from "../utils/constants.js";
 
 /**
  * 触摸友好性优化器
