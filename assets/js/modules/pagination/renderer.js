@@ -23,6 +23,7 @@
  */
 
 import { getCenteringManager } from "../utils/centering.js";
+import { PAGINATION_CONSTANTS } from "../utils/constants.js";
 import {
 	DOMOptimizer,
 	globalPerformanceMonitor,
@@ -60,7 +61,7 @@ export class PaginationRenderer {
 
 		// 防抖处理快速点击
 		this.debounceTimeout = null;
-		this.debounceDelay = 150;
+		this.debounceDelay = PAGINATION_CONSTANTS.DEFAULT_DEBOUNCE_DELAY_MS;
 
 		// 统一居中系统管理器
 		this.centeringManager = getCenteringManager();
@@ -202,7 +203,7 @@ export class PaginationRenderer {
 				() => {
 					this.createPaginationElement();
 				},
-				{ timeout: 100 },
+				{ timeout: PAGINATION_CONSTANTS.LAZY_CREATE_TIMEOUT_MS },
 			);
 		} else {
 			// 降级处理：使用 setTimeout
@@ -568,7 +569,10 @@ export class PaginationRenderer {
 		this.cleanElementForReuse(element, type);
 
 		// 限制池的大小，避免内存泄漏
-		if (this.elementPool[type].length < 20) {
+		if (
+			this.elementPool[type].length <
+			PAGINATION_CONSTANTS.MAX_POOL_SIZE_PER_TYPE
+		) {
 			this.elementPool[type].push(element);
 		}
 	}
@@ -752,7 +756,9 @@ export class PaginationRenderer {
 
 		// 为不同类型的按钮使用不同的防抖延迟
 		const isPageButton = button.classList.contains("pagination-page");
-		const debounceDelay = isPageButton ? this.debounceDelay : 100; // 页码按钮使用更长的防抖
+		const debounceDelay = isPageButton
+			? this.debounceDelay
+			: PAGINATION_CONSTANTS.NAV_BUTTON_DEBOUNCE_MS;
 
 		this.debounceTimeout = setTimeout(() => {
 			this.processButtonClick(button);
@@ -864,7 +870,7 @@ export class PaginationRenderer {
 			// 短暂延迟后移除处理状态
 			setTimeout(() => {
 				button.classList.remove("processing");
-			}, 200);
+			}, PAGINATION_CONSTANTS.PROCESSING_STATE_DELAY_MS);
 		}
 	}
 
@@ -879,11 +885,11 @@ export class PaginationRenderer {
 		// 短暂延迟后移除动画类
 		setTimeout(() => {
 			button.classList.remove("clicked");
-		}, 150);
+		}, PAGINATION_CONSTANTS.CLICK_FEEDBACK_DURATION_MS);
 
 		// 触觉反馈（如果支持）
 		if (navigator.vibrate) {
-			navigator.vibrate(50);
+			navigator.vibrate(PAGINATION_CONSTANTS.VIBRATION_DURATION_MS);
 		}
 	}
 
@@ -1173,11 +1179,9 @@ export class PaginationRenderer {
 	 */
 	getPerformanceStats() {
 		const memoryUsage = MemoryOptimizer.checkMemoryUsage(this);
-		const memoryIssues = MemoryOptimizer.detectMemoryLeaks(this);
 
 		return {
 			memoryUsage,
-			memoryIssues,
 			elementPoolSizes: Object.keys(this.elementPool).reduce((acc, type) => {
 				acc[type] = this.elementPool[type].length;
 				return acc;
@@ -1196,14 +1200,11 @@ export class PaginationRenderer {
 		return `
 分页渲染器性能报告:
 ==================
-${globalPerformanceMonitor.generateReport()}
 
 内存使用情况:
 - 元素池大小: ${stats.memoryUsage.elementPoolSize}
 - 事件监听器数量: ${stats.memoryUsage.eventListenersCount}
 - 待处理更新: ${stats.memoryUsage.pendingUpdates}
-
-${stats.memoryIssues.length > 0 ? `内存问题:\n${stats.memoryIssues.map((issue) => `- ${issue}`).join("\n")}` : "内存使用正常"}
         `.trim();
 	}
 }

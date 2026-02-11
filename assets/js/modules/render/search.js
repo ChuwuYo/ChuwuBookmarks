@@ -32,6 +32,7 @@ import {
 	PaginationRenderUtils,
 } from "../pagination/index.js";
 import { getCenteringManager } from "../utils/centering.js";
+import { PAGINATION_CONSTANTS, RENDER_CONSTANTS } from "../utils/constants.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
@@ -72,7 +73,7 @@ class SearchResultsManager {
 		// 初始化分页控制器
 		this.paginationController = new PaginationController(
 			{
-				itemsPerPage: 20,
+				itemsPerPage: PAGINATION_CONSTANTS.DEFAULT_ITEMS_PER_PAGE,
 				maxVisiblePages: 3,
 				showFirstLast: true,
 				showPrevNext: true,
@@ -201,7 +202,7 @@ class SearchResultsManager {
 
 			// 优化焦点设置，使用已缓存的首个元素
 			if (currentPageData.length > 0) {
-				const firstResult = fragment.firstElementChild;
+				const firstResult = container.firstElementChild;
 				if (firstResult) {
 					firstResult.setAttribute("tabindex", "0");
 				}
@@ -236,7 +237,7 @@ class SearchResultsManager {
 				setTimeout(() => {
 					content.classList.remove("search-results-fade-dim");
 					content.classList.add("search-results-fade-full");
-				}, 150);
+				}, RENDER_CONSTANTS.SEARCH_FADE_IN_DELAY_MS);
 
 				setTimeout(() => {
 					content.classList.remove(
@@ -251,7 +252,7 @@ class SearchResultsManager {
 					if (firstResult) {
 						firstResult.focus();
 					}
-				}, 300);
+				}, RENDER_CONSTANTS.SEARCH_FADE_TOTAL_DURATION_MS);
 			}
 		}, 16); // ~60fps
 	}
@@ -275,7 +276,7 @@ class SearchResultsManager {
 			requestAnimationFrame(() => {
 				setTimeout(() => {
 					content.classList.remove("page-changing");
-				}, 200);
+				}, RENDER_CONSTANTS.PAGE_CHANGE_FEEDBACK_DURATION_MS);
 			});
 		}
 

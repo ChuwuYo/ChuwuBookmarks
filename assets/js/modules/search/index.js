@@ -26,6 +26,7 @@ import {
 	resetSearchPagination,
 } from "../render/search.js";
 import { getCenteringManager } from "../utils/centering.js";
+import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
 import {
 	getDataWorkerWrapper,
@@ -153,21 +154,37 @@ const createSearchHandler = () => {
 	const bookmarksCount = (payload.index || payload.bookmarks || []).length || 0;
 
 	const computeDebounceMsSafe = (count) => {
-		const DEFAULT = 250;
-		const MIN = 120;
-		const MAX = 500;
+		const {
+			DEFAULT_MS,
+			MIN_MS,
+			MAX_MS,
+			SMALL_DATA_THRESHOLD,
+			MEDIUM_DATA_THRESHOLD,
+			LARGE_DATA_THRESHOLD,
+			SMALL_DATA_DESKTOP_MS,
+			SMALL_DATA_MOBILE_MS,
+			MEDIUM_DATA_DESKTOP_MS,
+			MEDIUM_DATA_MOBILE_MS,
+			LARGE_DATA_DESKTOP_MS,
+			LARGE_DATA_MOBILE_MS,
+			EXTRA_LARGE_DATA_MS,
+		} = SEARCH_DEBOUNCE_CONSTANTS;
+
 		try {
 			// 使用统一的设备检测函数
 			const isMobile = getDeviceType() === "mobile";
 			let ms;
-			if (!count || count < 2000) ms = isMobile ? 180 : 140;
-			else if (count < 5000) ms = isMobile ? 260 : 200;
-			else if (count < 20000) ms = isMobile ? 380 : 300;
-			else ms = 500;
-			ms = Math.max(MIN, Math.min(MAX, ms));
+			if (!count || count < SMALL_DATA_THRESHOLD)
+				ms = isMobile ? SMALL_DATA_MOBILE_MS : SMALL_DATA_DESKTOP_MS;
+			else if (count < MEDIUM_DATA_THRESHOLD)
+				ms = isMobile ? MEDIUM_DATA_MOBILE_MS : MEDIUM_DATA_DESKTOP_MS;
+			else if (count < LARGE_DATA_THRESHOLD)
+				ms = isMobile ? LARGE_DATA_MOBILE_MS : LARGE_DATA_DESKTOP_MS;
+			else ms = EXTRA_LARGE_DATA_MS;
+			ms = Math.max(MIN_MS, Math.min(MAX_MS, ms));
 			return ms;
 		} catch (_e) {
-			return DEFAULT;
+			return DEFAULT_MS;
 		}
 	};
 

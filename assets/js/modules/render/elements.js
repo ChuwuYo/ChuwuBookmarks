@@ -77,19 +77,28 @@ const createElement = (type, item, onClick) => {
 			);
 
 			if (validIconUrls.length > 0) {
-				// 设置第一个图标源
-				// HTML 属性 data-src 自动映射到 dataset.src
-				img.setAttribute("data-src", validIconUrls[0]);
+				// 对图标URL排序：favicon.im 优先于 Google S2
+				// 确保与 icon-loader.js 中的 getSortedIconUrls 逻辑一致
+				const sortedIconUrls = [...validIconUrls].sort((a, b) => {
+					const aIsFavicon = a.includes("favicon.im");
+					const bIsFavicon = b.includes("favicon.im");
+					if (aIsFavicon && !bIsFavicon) return -1;
+					if (!aIsFavicon && bIsFavicon) return 1;
+					return 0;
+				});
+
+				// 设置排序后的第一个图标源
+				img.src = sortedIconUrls[0];
+				img.loading = "lazy";
 
 				// 如果有多个图标源，存储完整列表
 				// HTML 属性 data-icon-urls 自动映射到 dataset.iconUrls
 				// 注意：data-current-index 由 loadIcon 函数在加载时设置
-				if (validIconUrls.length > 1) {
-					img.setAttribute("data-icon-urls", JSON.stringify(validIconUrls));
+				if (sortedIconUrls.length > 1) {
+					img.setAttribute("data-icon-urls", JSON.stringify(sortedIconUrls));
 				}
 
 				img.alt = displayTitle;
-				img.loading = "lazy";
 				bookmarkIcon.appendChild(img);
 			}
 		}
