@@ -184,32 +184,41 @@ const renderMainContent = async (
 			breadcrumbs.removeEventListener("scroll", breadcrumbsScrollHandler);
 		}
 
+		// 用于 requestAnimationFrame 的 ID
+		let breadcrumbRafId = null;
+
 		breadcrumbsScrollHandler = () => {
-			const scrollLeft = breadcrumbs.scrollLeft;
-			const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
-			if (maxScroll <= 0) {
-				breadcrumbs.style.maskImage = "";
-				breadcrumbs.classList.remove("at-end");
-				breadcrumbs.classList.remove("at-start");
-				return;
-			}
+			// 使用 requestAnimationFrame 优化滚动 UI 更新
+			if (breadcrumbRafId) return;
+			breadcrumbRafId = requestAnimationFrame(() => {
+				breadcrumbRafId = null;
 
-			const maskValue = `linear-gradient(to right,
-                transparent,
-                black ${Math.min(scrollLeft + RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET, RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET)}px,
-                black calc(100% - ${Math.max(RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET - (maxScroll - scrollLeft), 0)}px),
-                transparent
-            )`;
-			breadcrumbs.style.maskImage = maskValue;
+				const scrollLeft = breadcrumbs.scrollLeft;
+				const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
+				if (maxScroll <= 0) {
+					breadcrumbs.style.maskImage = "";
+					breadcrumbs.classList.remove("at-end");
+					breadcrumbs.classList.remove("at-start");
+					return;
+				}
 
-			breadcrumbs.classList.toggle(
-				"at-end",
-				scrollLeft >= maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
-			);
-			breadcrumbs.classList.toggle(
-				"at-start",
-				scrollLeft <= RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
-			);
+				const maskValue = `linear-gradient(to right,
+                    transparent,
+                    black ${Math.min(scrollLeft + RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET, RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET)}px,
+                    black calc(100% - ${Math.max(RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET - (maxScroll - scrollLeft), 0)}px),
+                    transparent
+                )`;
+				breadcrumbs.style.maskImage = maskValue;
+
+				breadcrumbs.classList.toggle(
+					"at-end",
+					scrollLeft >= maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
+				);
+				breadcrumbs.classList.toggle(
+					"at-start",
+					scrollLeft <= RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
+				);
+			});
 		};
 
 		breadcrumbs.addEventListener("scroll", breadcrumbsScrollHandler, {

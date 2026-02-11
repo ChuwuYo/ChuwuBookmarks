@@ -202,7 +202,7 @@ class SearchResultsManager {
 
 			// 优化焦点设置，使用已缓存的首个元素
 			if (currentPageData.length > 0) {
-				const firstResult = fragment.firstElementChild;
+				const firstResult = container.firstElementChild;
 				if (firstResult) {
 					firstResult.setAttribute("tabindex", "0");
 				}

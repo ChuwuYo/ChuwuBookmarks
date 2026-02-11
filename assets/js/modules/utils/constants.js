@@ -219,6 +219,11 @@ export const PERFORMANCE_MONITOR_CONSTANTS = {
 	 * 待处理更新最大数量
 	 */
 	MAX_PENDING_UPDATES: 5,
+
+	/**
+	 * 内存使用历史显示条目数
+	 */
+	MEMORY_USAGE_HISTORY_DISPLAY_COUNT: 10,
 };
 
 /**
