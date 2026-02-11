@@ -3,11 +3,13 @@
  * 负责根据设备类型和上下文计算元素位置样式
  */
 
+import { CENTERING_CONSTANTS } from "../constants.js";
+
 export class PositionCalculator {
 	constructor() {
 		// 缓存计算结果以提高性能 - 使用LRU缓存
 		this.calculationCache = new Map();
-		this.maxCacheSize = 50;
+		this.maxCacheSize = CENTERING_CONSTANTS.POSITION_CACHE_MAX_SIZE;
 		this.lastContext = null;
 	}
 
@@ -117,7 +119,7 @@ export class PositionCalculator {
 		if (positioning.top) {
 			styles.top = positioning.top;
 		} else {
-			styles.top = "20px";
+			styles.top = `${CENTERING_CONSTANTS.FIXED_TOP_DEFAULT_OFFSET_PX}px`;
 		}
 
 		return styles;

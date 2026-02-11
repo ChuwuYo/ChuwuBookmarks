@@ -2,6 +2,7 @@
  * 设备检测和适配模块
  */
 
+import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { animationConfig } from "./theme.js";
 
 // 断点系统 - 移动端样式断点和侧栏收起断点分离
@@ -15,7 +16,11 @@ const getDeviceType = () => {
 		"ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 	// 手机设备（包括横屏）优先使用移动端样式
-	if (isTouchDevice && (width < BREAKPOINT_MOBILE || height < 600)) {
+	if (
+		isTouchDevice &&
+		(width < BREAKPOINT_MOBILE ||
+			height < RENDER_CONSTANTS.MOBILE_HEIGHT_BREAKPOINT)
+	) {
 		return "mobile";
 	}
 
@@ -52,7 +57,7 @@ const updateSidebarVisibility = (
 			folderElements.forEach((folder, index) => {
 				gsap.to(folder, {
 					opacity: 1,
-					delay: index * 0.05, // 减少延迟时间
+					delay: index * RENDER_CONSTANTS.SIDEBAR_ANIMATION_STAGGER,
 					duration: animationConfig.duration.medium,
 					ease: animationConfig.ease.outQuad,
 				});

@@ -73,28 +73,13 @@ const loadBookmarksData = async (renderMainContent) => {
 
 	// 定义消息处理器
 	const messageHandler = (event) => {
-		const {
-			status,
-			data,
-			error,
-			hash,
-			structureVersion,
-			generated,
-			isFullData,
-		} = event.data;
+		const { status, data, error, hash, isFullData } = event.data;
 
 		// 完整数据后台响应应仅由后台处理器处理
 		if (isFullData) return;
 
 		// 处理目录结构加载成功
 		if (status === "structure_loaded") {
-			console.log(
-				"Structure loaded successfully, version:",
-				structureVersion,
-				"generated:",
-				generated,
-			);
-
 			const cachedStructureHash = localStorage.getItem("structureHash");
 
 			// 如果结构数据有更新或没有缓存
@@ -121,10 +106,6 @@ const loadBookmarksData = async (renderMainContent) => {
 
 		// 处理目录结构不存在，回退到完整加载
 		if (status === "structure_not_found") {
-			console.log(
-				"Structure not found, falling back to full load:",
-				event.data.message,
-			);
 			const success = dataWorkerWrapper.postMessage({ action: "loadData" });
 			if (!success) {
 				console.warn("[Loader] Failed to send loadData message to worker");
@@ -217,8 +198,6 @@ const loadFullDataInBackground = (
 			const { status, data, index, hash, isFullData } = event.data;
 
 			if (status === "success" && isFullData) {
-				console.log("Full data loaded in background");
-
 				// 保存完整数据到全局状态
 				fullBookmarksData = data;
 				isFullDataLoaded = true;
