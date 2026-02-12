@@ -112,15 +112,13 @@ html {
 
 /* 全局隐藏滚动条 - 纯CSS方案 */
 html,
-body,
-* {
+body {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 }
 
 html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
 	width: 0;
 	height: 0;
 	display: none;
@@ -181,10 +179,8 @@ body::after {
 		opacity: 0;
 		transition: opacity var(--duration-short) var(--ease-default);
 		pointer-events: none;
-		/* 兼容性降级方案：先设置普通背景 */
-		background: var(--scroll-indicator-bg);
-		/* 改善兼容性：为不支持backdrop-filter的浏览器提供降级方案 */
-		backdrop-filter: blur(2px);
+		/* 兼容性降级方案：为不支持backdrop-filter的浏览器提供降级方案 */
+		background: rgba(161, 220, 245, 0.6);
 		box-shadow: var(--shadow-sm);
 		/* 添加轻微的边框以增强可见性 */
 		border: 1px solid rgba(255, 255, 255, 0.1);

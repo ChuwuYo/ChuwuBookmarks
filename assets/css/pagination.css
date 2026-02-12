@@ -488,12 +488,6 @@ body .pagination-container.mobile-pagination {
 	visibility: visible;
 }
 
-/* 分页容器加载状态 */
-.pagination-container.loading {
-	opacity: 0.6;
-	pointer-events: none;
-}
-
 /* 分页容器动画进入效果 - 简化动画 */
 .pagination-container.fade-in {
 	opacity: 0;

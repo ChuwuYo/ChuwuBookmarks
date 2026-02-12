@@ -32,8 +32,6 @@ export const ERROR_CODES = {
 	DATA_TYPE_ERROR: "DATA_TYPE_ERROR",
 	DOM_NOT_FOUND: "DOM_NOT_FOUND",
 	CONTROLLER_NOT_INITIALIZED: "CONTROLLER_NOT_INITIALIZED",
-	MEMORY_LIMIT_EXCEEDED: "MEMORY_LIMIT_EXCEEDED",
-	PERFORMANCE_DEGRADED: "PERFORMANCE_DEGRADED",
 };
 
 /**
@@ -232,71 +230,4 @@ export const ErrorHandler = {
 		}
 	},
 
-	/**
-	 * 性能监控包装器
-	 * @param {Function} fn - 要监控的函数
-	 * @param {string} operationName - 操作名称
-	 * @param {number} maxDuration - 最大允许执行时间（毫秒）
-	 * @returns {Function}
-	 */
-	withPerformanceMonitoring(fn, operationName, maxDuration = 100) {
-		return (...args) => {
-			const startTime = performance.now();
-
-			try {
-				const result = fn(...args);
-
-				const endTime = performance.now();
-				const duration = endTime - startTime;
-
-				if (duration > maxDuration && window.globalPerformanceMonitor) {
-					window.globalPerformanceMonitor.recordSlowOperation(
-						operationName,
-						duration,
-					);
-				}
-
-				return result;
-			} catch (error) {
-				const endTime = performance.now();
-				const duration = endTime - startTime;
-
-				console.error(
-					`${operationName}执行失败 (${duration.toFixed(2)}ms):`,
-					error,
-				);
-				throw error;
-			}
-		};
-	},
-
-	/**
-	 * 内存使用监控
-	 * @param {Function} fn - 要监控的函数
-	 * @param {string} operationName - 操作名称
-	 * @returns {Function}
-	 */
-	withMemoryMonitoring(fn, operationName) {
-		return (...args) => {
-			const initialMemory = performance.memory
-				? performance.memory.usedJSHeapSize
-				: 0;
-
-			try {
-				const result = fn(...args);
-
-				if (performance.memory) {
-					const finalMemory = performance.memory.usedJSHeapSize;
-					const _memoryDelta = finalMemory - initialMemory;
-
-					// 记录内存使用（生产环境静默）
-				}
-
-				return result;
-			} catch (error) {
-				console.error(`${operationName}执行失败:`, error);
-				throw error;
-			}
-		};
-	},
 };
