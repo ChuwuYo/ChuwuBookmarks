@@ -45,25 +45,6 @@ export const PERFORMANCE_CONSTANTS = {
 	 * 用于与浏览器渲染周期同步
 	 */
 	ANIMATION_FRAME_DELAY_MS: 16,
-
-	/**
-	 * 内存使用警告阈值
-	 * 当内存使用超过此值时触发警告（单位：字节）
-	 * 50MB = 50 * 1024 * 1024 bytes
-	 */
-	MEMORY_USAGE_WARNING_THRESHOLD_BYTES: 50 * 1024 * 1024,
-
-	/**
-	 * 内存使用警告阈值（MB单位，用于显示）
-	 * 便于日志输出和调试时的可读性
-	 */
-	MEMORY_USAGE_WARNING_THRESHOLD_MB: 50,
-
-	/**
-	 * 缓存历史记录保留数量
-	 * 性能监控时保留的历史数据条数，避免内存泄漏
-	 */
-	CACHE_HISTORY_RETENTION_COUNT: 50,
 };
 
 /**
@@ -119,23 +100,6 @@ export const Z_INDEX_CONSTANTS = {
 	AUTO: "auto",
 };
 
-/**
- * 内存监控相关常量
- */
-export const MEMORY_MONITORING_CONSTANTS = {
-	/**
-	 * 最大事件监听器数量
-	 * 用于检测潜在的内存泄漏
-	 */
-	MAX_LISTENER_COUNT: 50,
-
-	/**
-	 * 内存泄漏检查间隔
-	 * 定期检查内存使用情况（单位：毫秒）
-	 * 30秒 = 30 * 1000ms
-	 */
-	MEMORY_LEAK_CHECK_INTERVAL_MS: 30 * 1000,
-};
 
 /**
  * 分页模块常量
