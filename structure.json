@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-24T07:30:42.935Z",
+  "generated": "2026-09-18T15:09:20.839Z",
   "folders": [
     {
       "id": "0",
@@ -90,7 +90,7 @@
               "id": "0_3_1",
               "title": "在线",
               "addDate": 1704014875958,
-              "linkCount": 24,
+              "linkCount": 28,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -98,7 +98,7 @@
               "id": "0_3_2",
               "title": "漫画",
               "addDate": 1740282516756,
-              "linkCount": 16,
+              "linkCount": 15,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -140,7 +140,7 @@
               "id": "0_4_2",
               "title": "mc",
               "addDate": 1704014875961,
-              "linkCount": 22,
+              "linkCount": 23,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -248,7 +248,7 @@
               "id": "0_5_1",
               "title": "临时传输",
               "addDate": 1720441108092,
-              "linkCount": 12,
+              "linkCount": 11,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -390,7 +390,7 @@
               "id": "0_8_3",
               "title": "轻小说",
               "addDate": 1742049718135,
-              "linkCount": 11,
+              "linkCount": 12,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -448,7 +448,7 @@
                   "id": "0_9_0_3",
                   "title": "浏览器",
                   "addDate": 1704014875976,
-                  "linkCount": 9,
+                  "linkCount": 8,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -970,7 +970,7 @@
           "id": "0_15",
           "title": "AI",
           "addDate": 1704014876001,
-          "linkCount": 5,
+          "linkCount": 4,
           "folderCount": 10,
           "hasChildren": true,
           "children": [
@@ -994,7 +994,7 @@
                   "id": "0_15_1_0",
                   "title": "第三方",
                   "addDate": 1744783271020,
-                  "linkCount": 10,
+                  "linkCount": 8,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -1028,25 +1028,15 @@
               "id": "0_15_4",
               "title": "第三方API",
               "addDate": 1751384290417,
-              "linkCount": 21,
-              "folderCount": 1,
-              "hasChildren": true,
-              "children": [
-                {
-                  "id": "0_15_4_0",
-                  "title": "个人",
-                  "addDate": 1756752700658,
-                  "linkCount": 2,
-                  "folderCount": 0,
-                  "hasChildren": true
-                }
-              ]
+              "linkCount": 18,
+              "folderCount": 0,
+              "hasChildren": true
             },
             {
               "id": "0_15_5",
               "title": "客户端/网页UI",
               "addDate": 1751384337700,
-              "linkCount": 7,
+              "linkCount": 6,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1054,7 +1044,7 @@
               "id": "0_15_6",
               "title": "多元娱乐",
               "addDate": 1767279565207,
-              "linkCount": 9,
+              "linkCount": 8,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1062,7 +1052,7 @@
               "id": "0_15_7",
               "title": "Leaderboard/Arena",
               "addDate": 1771945035922,
-              "linkCount": 13,
+              "linkCount": 14,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1086,7 +1076,7 @@
                   "id": "0_15_9_0",
                   "title": "单仓库",
                   "addDate": 1776756365343,
-                  "linkCount": 12,
+                  "linkCount": 13,
                   "folderCount": 0,
                   "hasChildren": true
                 }
@@ -1098,7 +1088,7 @@
           "id": "0_16",
           "title": "学习",
           "addDate": 1704014876008,
-          "linkCount": 4,
+          "linkCount": 3,
           "folderCount": 3,
           "hasChildren": true,
           "children": [
@@ -1276,7 +1266,7 @@
               "id": "0_17_3",
               "title": "官网",
               "addDate": 1704014876019,
-              "linkCount": 8,
+              "linkCount": 7,
               "folderCount": 5,
               "hasChildren": true,
               "children": [
@@ -1308,7 +1298,7 @@
                   "id": "0_17_3_3",
                   "title": "环境语言",
                   "addDate": 1708534942350,
-                  "linkCount": 13,
+                  "linkCount": 12,
                   "folderCount": 0,
                   "hasChildren": true
                 },
@@ -1334,7 +1324,7 @@
               "id": "0_17_5",
               "title": "代码托管/审查",
               "addDate": 1706600031346,
-              "linkCount": 14,
+              "linkCount": 11,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1368,7 +1358,7 @@
               "id": "0_17_7",
               "title": "镜像/CDN分发",
               "addDate": 1719239651228,
-              "linkCount": 7,
+              "linkCount": 6,
               "folderCount": 0,
               "hasChildren": true
             },
@@ -1426,7 +1416,7 @@
                       "id": "0_17_10_0_1",
                       "title": "React",
                       "addDate": 1755015063071,
-                      "linkCount": 7,
+                      "linkCount": 8,
                       "folderCount": 0,
                       "hasChildren": true
                     },
