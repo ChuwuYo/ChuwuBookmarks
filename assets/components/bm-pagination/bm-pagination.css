@@ -1,4 +1,11 @@
-/* 分页控件样式系统 */
+/* <bm-pagination>：分页导航 */
+bm-pagination {
+	display: block;
+}
+
+bm-pagination .pagination-container[hidden] {
+	display: none;
+}
 
 /* 分页控件专用CSS变量 - 与项目主题系统集成 */
 :root {

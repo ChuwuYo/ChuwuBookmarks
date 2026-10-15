@@ -132,6 +132,40 @@ test.describe("smoke", () => {
 		);
 	});
 
+	test("components expose keyboard and ARIA contracts", async ({
+		page,
+	}, testInfo) => {
+		await openApp(page);
+		const toggle = page.locator("#toggle-sidebar");
+		const sidebar = page.locator(".sidebar");
+		const expanded = !(await sidebar.evaluate((el) =>
+			el.classList.contains("collapsed"),
+		));
+		await expect(toggle).toHaveAttribute("aria-expanded", String(expanded));
+		await toggle.click();
+		await expect(toggle).toHaveAttribute("aria-expanded", String(!expanded));
+		await expect(page.locator("bm-sidebar")).toHaveAttribute(
+			"data-state",
+			expanded ? "collapsed" : "expanded",
+		);
+		if (!expanded) await settle(page, 500);
+		else await toggle.click();
+
+		const folder = page.locator("#sidebar-folders bm-card", {
+			hasText: "开发",
+		});
+		await expect(folder).toHaveAttribute("role", "button");
+		await folder.focus();
+		await page.keyboard.press("Enter");
+		if (isMobile(testInfo)) await closeSidebar(page);
+		await expect(
+			page.locator("#breadcrumbs .breadcrumb-item").last(),
+		).toHaveAttribute("aria-current", "location");
+
+		await page.keyboard.press("Control+k");
+		await expect(page.locator("#search-input")).toBeFocused();
+	});
+
 	test("theme toggle switches and persists", async ({ page }) => {
 		await openApp(page);
 		const html = page.locator("html");

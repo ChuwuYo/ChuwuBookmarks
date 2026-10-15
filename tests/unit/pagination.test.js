@@ -1,9 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import {
-	getPageRange,
-	getTotalPages,
-} from "../../assets/js/modules/pagination.js";
+import { getPageRange } from "../../assets/components/bm-pagination/page-range.js";
 
 const E = "ellipsis";
 
@@ -40,13 +37,5 @@ describe("getPageRange", () => {
 
 	it("supports a custom window size", () => {
 		assert.deepEqual(getPageRange(6, 11, 5), [1, E, 4, 5, 6, 7, 8, E, 11]);
-	});
-});
-
-describe("getTotalPages", () => {
-	it("rounds up and never returns zero", () => {
-		assert.equal(getTotalPages(0, 20), 1);
-		assert.equal(getTotalPages(20, 20), 1);
-		assert.equal(getTotalPages(45, 20), 3);
 	});
 });
