@@ -7,6 +7,8 @@
  * - 低侵入：仅调整 import 源，调用签名不变
  */
 
+import { createIcon } from "../../../components/bm-icon/bm-icon.js";
+
 const deriveLabelFromUrl = (u) => {
 	if (!u) return "";
 	if (u.startsWith("data:")) {
@@ -36,7 +38,7 @@ const createElement = (type, item, onClick) => {
 		// 使用显式节点创建，保持与原样式一致
 		const folderIcon = document.createElement("span");
 		folderIcon.className = "folder-icon";
-		folderIcon.textContent = "📁";
+		folderIcon.append(createIcon("folder"));
 
 		const folderName = document.createElement("span");
 		folderName.className = "folder-name";
@@ -57,10 +59,10 @@ const createElement = (type, item, onClick) => {
 		const bookmarkIcon = document.createElement("span");
 		bookmarkIcon.className = "bookmark-icon";
 
-		// 创建 emoji 容器，确保正确对齐
+		// 默认链接图标，favicon 加载成功后被替换
 		const emojiSpan = document.createElement("span");
 		emojiSpan.className = "bookmark-icon-emoji";
-		emojiSpan.textContent = "🔗";
+		emojiSpan.append(createIcon("link"));
 		bookmarkIcon.appendChild(emojiSpan);
 
 		// 图标懒加载

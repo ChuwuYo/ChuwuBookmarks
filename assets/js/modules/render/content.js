@@ -2,6 +2,7 @@
  * 主内容区渲染模块
  */
 
+import { createIcon } from "../../../components/bm-icon/bm-icon.js";
 import {
 	getFullBookmarksData,
 	isFullDataReady,
@@ -103,7 +104,7 @@ const renderMainContent = async (
 		const breadcrumbFragment = document.createDocumentFragment();
 
 		const breadIcon = document.createElement("span");
-		breadIcon.textContent = "🍞";
+		breadIcon.append(createIcon("breadcrumb"));
 		breadIcon.className = "breadcrumb-icon";
 
 		const homeLink = document.createElement("button");
@@ -128,7 +129,7 @@ const renderMainContent = async (
 		homeLink.addEventListener("click", homeLinkHandler);
 		homeLink.addEventListener("keydown", homeLinkHandler);
 
-		// 先添加🍞图标，再添加主页按钮
+		// 先添加面包图标，再添加主页按钮
 		breadcrumbFragment.appendChild(breadIcon);
 		breadcrumbFragment.appendChild(homeLink);
 
