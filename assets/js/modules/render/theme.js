@@ -16,8 +16,20 @@ const animationConfig = {
 	},
 };
 
+/**
+ * 系统开启“减少动态效果”时，让 GSAP 动画几乎瞬间完成（保留最终状态与回调）
+ */
+const applyReducedMotion = () => {
+	const query = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+	if (!query || typeof gsap === "undefined") return;
+	const apply = () => gsap.globalTimeline.timeScale(query.matches ? 100 : 1);
+	apply();
+	query.addEventListener("change", apply);
+};
+
 /** 主题相关 */
 const initTheme = () => {
+	applyReducedMotion();
 	const theme = localStorage.getItem("theme") || "light";
 	document.documentElement.setAttribute("data-theme", theme);
 };
