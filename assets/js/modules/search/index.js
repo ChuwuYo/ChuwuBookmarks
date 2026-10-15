@@ -18,7 +18,6 @@
  * - 防抖处理，避免频繁搜索请求
  */
 
-import { initializeResponsiveSystem } from "../pagination/responsive.js";
 import { getDeviceType } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import {
@@ -44,9 +43,6 @@ let workersWired = false;
 
 // 检查浏览器是否支持Web Worker并初始化
 const initSearchWorker = (renderMainContent) => {
-	// 初始化响应式系统
-	initializeResponsiveSystem();
-
 	if (!isWorkerSupported()) {
 		console.warn(
 			"[Search] Web Worker not supported, search functionality unavailable",
