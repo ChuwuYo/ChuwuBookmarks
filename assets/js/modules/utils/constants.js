@@ -40,16 +40,6 @@ export const DEBOUNCE_THROTTLE_CONSTANTS = {
  */
 export const RENDER_CONSTANTS = {
 	/**
-	 * 面包屑遮罩渐变偏移（像素）
-	 */
-	BREADCRUMB_MASK_OFFSET: 15,
-
-	/**
-	 * 面包屑滚动检测阈值（像素）
-	 */
-	BREADCRUMB_SCROLL_THRESHOLD: 10,
-
-	/**
 	 * 移动端高度断点（像素）
 	 * 用于检测手机设备（包括横屏）
 	 */

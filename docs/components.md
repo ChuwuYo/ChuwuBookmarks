@@ -78,51 +78,77 @@ JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中
 
 ## `<bm-pagination>`
 
-搜索结果分页导航。页码计算由纯函数 `getPageRange(current, total, siblings)` 完成。
+搜索结果分页导航。页码由纯函数 `getPageRange(current, total, windowSize = 3)`
+（`page-range.js`）计算：以当前页为中心显示 3 个连续页码，始终显示首末页，缺页处显示省略号。
 
 | 接口 | 说明 |
 | --- | --- |
-| `current` attribute | 当前页，从 1 开始，默认 `1` |
-| `total` attribute | 总页数，默认 `1`；`total <= 1` 时不渲染 |
-| `bm-page-change` event | `detail: { page }`，点击页码或上一页/下一页时触发 |
+| `total` attribute | 总页数，默认 `1`；不足两页时导航隐藏 |
+| `current` attribute | 当前页，从 1 开始，默认 `1`，超出范围时取边界值 |
+| `label` attribute | 导航的 `aria-label`，默认 `分页导航` |
+| `bm-page-change` event | `detail: { page }`；组件已先更新 `current` |
+| 键盘 | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
 
-DOM 契约：`nav.pagination-container > .pagination-prev, .pagination-page(.active), .pagination-ellipsis, .pagination-next`
+DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page(.active[aria-current=page]), .pagination-ellipsis, .pagination-next`
+
+尺寸变量：`--pagination-button-size`、`--pagination-spacing`、`--pagination-font-size`、
+`--pagination-button-padding`（移动端 6px，补足 44px 触控区域）。
 
 ## `<bm-breadcrumbs>`
 
 | 接口 | 说明 |
 | --- | --- |
 | `path` property | `Array<{ title: string }>`，从根到当前文件夹 |
-| `bm-navigate` event | `detail: { index }`，`-1` 表示主页 |
+| `bm-navigate` event | `detail: { index }`，`-1` 表示主页，其余为 `path` 下标 |
 
-DOM 契约：`.breadcrumb-item`（按钮），最后一项为当前位置，带 `aria-current="location"`。
+元素为 `display: contents`，父元素（`#breadcrumbs`）作为横向滚动容器；组件为父元素维护
+`scrollable`、`at-start`、`at-end` 类与边缘渐隐遮罩。
+
+DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
+最后一项为当前位置，带 `aria-current="location"` 且不触发导航。
 
 ## `<bm-card>`
 
-书签或文件夹条目。
+文件夹或书签条目，由 `createCard(type, item)` 创建。
 
 | 接口 | 说明 |
 | --- | --- |
 | `type` attribute | `bookmark`（默认）或 `folder` |
-| `title`、`href` attributes | 标题与链接（`folder` 不需要 `href`） |
-| `bm-open-folder` event | `folder` 类型被点击或按下 Enter/Space 时触发 |
+| `item` property | `{ title, url?, icon? }`；`icon` 可为字符串或数组，`favicon.im` 优先 |
+| `bm-open-folder` event | `folder` 类型被点击或按下 Enter / Space 时触发，`detail: { item, originalEvent }` |
 
-DOM 契约：`.bookmark` / `.folder`，内含 `<bm-icon>` 与标题文本。
+状态与可访问性：`folder` 自动设置 `tabindex="0"`、`role="button"`、`aria-label="文件夹: 名称"`。
+标题为空时，文件夹显示“未命名文件夹”，书签依次回退到域名、“未命名书签”。
+
+DOM 契约：元素自身带 `.folder` / `.bookmark` 类；
+文件夹 `.folder-icon > bm-icon` + `.folder-name`；
+书签 `.bookmark-icon > (.bookmark-icon-emoji > bm-icon, img.bookmark-icon-img)` + `a`。
+favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon--img-loaded`。
 
 ## `<bm-search>`
 
+渐进增强页面中已有的搜索输入框（无 JS 时输入框仍可见）。
+
 | 接口 | 说明 |
 | --- | --- |
-| `placeholder` attribute | 输入框占位文本 |
-| `bm-search` event | `detail: { query }`，输入防抖后触发 |
+| `placeholder` attribute | 可选，覆盖内部输入框的占位文本 |
+| `value` property | 输入框当前值 |
+| `bm-search` event | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`；防抖由应用处理 |
+| 快捷键 | `Ctrl + K` / `⌘ + K` 聚焦输入框 |
 
-DOM 契约：保留 `#search-input` 与 `Ctrl K` 快捷键提示。
+DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示占位符时可见）、
+`.shortcut-hint`。
 
 ## `<bm-sidebar>`
 
+放在 `<aside class="sidebar">` 内，包裹侧边栏头部与 `#sidebar-folders`，自身 `display: contents`。
+
 | 接口 | 说明 |
 | --- | --- |
-| `data-state` attribute | `expanded` 或 `collapsed`，同步到 `<html data-sidebar>` 供布局使用 |
-| `bm-sidebar-toggle` event | `detail: { collapsed }` |
+| `[data-sidebar-toggle]` | 子元素中的切换按钮 |
+| `collapsed` property | 只读，侧边栏是否收起（`.sidebar.collapsed`） |
+| `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
+| `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
+| `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
 
-布局宽度通过 `--sidebar-w` 变量控制，主内容区由 CSS Grid 自动让位，不使用 JS 计算位置。
+切换按钮的 `aria-expanded` 随侧边栏状态自动更新。

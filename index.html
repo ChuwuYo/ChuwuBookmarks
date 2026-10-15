@@ -67,6 +67,7 @@
         </svg>
     </a>
     <aside class="sidebar" aria-label="导航侧边栏">
+        <bm-sidebar>
         <header class="sidebar-header">
             <button class="home-button" type="button" aria-label="返回首页">
                 <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -86,7 +87,7 @@
                         stroke="currentColor" stroke-width="1.5" />
                 </svg>
             </button>
-            <button id="toggle-sidebar" type="button" aria-label="切换侧边栏" aria-expanded="true">
+            <button id="toggle-sidebar" type="button" aria-label="切换侧边栏" aria-expanded="true" aria-controls="sidebar-folders" data-sidebar-toggle>
                 <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="" width="24"
                     height="24" aria-hidden="true">
                 <img src="assets/images/hide_sidepanel.svg" class="hide-panel" alt="" width="24"
@@ -94,17 +95,18 @@
             </button>
         </header>
         <nav id="sidebar-folders" aria-label="书签导航"></nav>
+        </bm-sidebar>
     </aside>
     <main class="main-content" id="main-content">
         <search class="search-container centered-element">
-            <div class="search-input-wrapper">
+            <bm-search class="search-input-wrapper">
                 <input type="text" id="search-input" name="query" placeholder="搜索 ( title / url )" aria-label="搜索书签"
                     aria-describedby="search-hint" />
                 <bm-icon name="search" class="search-icon"></bm-icon>
                 <div id="search-hint" class="shortcut-hint">
                     <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
                 </div>
-            </div>
+            </bm-search>
             <button id="theme-toggle" type="button" class="theme-toggle" aria-label="切换主题">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

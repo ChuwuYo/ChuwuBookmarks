@@ -2,7 +2,7 @@
  * 搜索结果渲染：分页显示结果，文件夹排在书签前面
  */
 
-import { createPagination, getTotalPages } from "../pagination.js";
+import "../../../components/bm-pagination/bm-pagination.js";
 import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
@@ -113,15 +113,18 @@ const renderSearchResults = (results, renderMainContent) => {
 	content.appendChild(container);
 	renderPage(container, sorted, 1, renderMainContent);
 
-	const pagination = createPagination({
-		total: getTotalPages(sorted.length, ITEMS_PER_PAGE),
-		onChange: (page) => {
+	const total = Math.ceil(sorted.length / ITEMS_PER_PAGE);
+	if (total > 1) {
+		const pagination = document.createElement("bm-pagination");
+		pagination.setAttribute("label", "搜索结果分页导航");
+		pagination.setAttribute("total", String(total));
+		pagination.addEventListener("bm-page-change", ({ detail: { page } }) => {
 			playPageTransition(content);
 			renderPage(container, sorted, page, renderMainContent);
 			updateHistory(page);
-		},
-	});
-	if (pagination) content.appendChild(pagination.element);
+		});
+		content.appendChild(pagination);
+	}
 };
 
 export { renderSearchResults, resetSearchPagination };

@@ -53,16 +53,6 @@ const renderSidebar = (data, renderMainContent) => {
 				renderMainContent(item, true);
 			});
 
-			folderElement.setAttribute("tabindex", "0");
-			folderElement.setAttribute("role", "button");
-			folderElement.setAttribute("aria-label", `文件夹: ${item.title}`);
-			folderElement.addEventListener("keydown", (e) => {
-				if (e.key === "Enter" || e.key === " ") {
-					e.preventDefault();
-					renderMainContent(item, true);
-				}
-			});
-
 			return folderElement;
 		});
 
@@ -78,16 +68,6 @@ const renderSidebar = (data, renderMainContent) => {
 			const folderElement = createElement("folder", rootItem, (e) => {
 				e.stopPropagation();
 				renderMainContent(rootItem, true);
-			});
-
-			folderElement.setAttribute("tabindex", "0");
-			folderElement.setAttribute("role", "button");
-			folderElement.setAttribute("aria-label", `文件夹: ${rootItem.title}`);
-			folderElement.addEventListener("keydown", (e) => {
-				if (e.key === "Enter" || e.key === " ") {
-					e.preventDefault();
-					renderMainContent(rootItem, true);
-				}
 			});
 
 			fragment.appendChild(folderElement);
