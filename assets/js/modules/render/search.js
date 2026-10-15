@@ -496,7 +496,7 @@ const renderSearchResults = (results, renderMainContent) => {
 	content.innerHTML = "";
 	breadcrumbs.innerHTML = "";
 
-	if (!results || !results.length) {
+	if (!results?.length) {
 		showNoResultsMessage(content);
 
 		// 注册到统一居中系统

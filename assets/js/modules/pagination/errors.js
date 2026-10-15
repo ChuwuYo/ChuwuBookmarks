@@ -229,5 +229,4 @@ export const ErrorHandler = {
 			);
 		}
 	},
-
 };

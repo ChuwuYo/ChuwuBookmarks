@@ -66,7 +66,7 @@
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
         </svg>
     </a>
-    <aside class="sidebar" role="complementary" aria-label="导航侧边栏">
+    <aside class="sidebar" aria-label="导航侧边栏">
         <header class="sidebar-header">
             <button class="home-button" type="button" aria-label="返回首页">
                 <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -93,10 +93,10 @@
                     height="24" aria-hidden="true">
             </button>
         </header>
-        <nav id="sidebar-folders" role="navigation" aria-label="书签导航"></nav>
+        <nav id="sidebar-folders" aria-label="书签导航"></nav>
     </aside>
-    <main class="main-content" id="main-content" role="main">
-        <div class="search-container centered-element" role="search">
+    <main class="main-content" id="main-content">
+        <search class="search-container centered-element">
             <div class="search-input-wrapper">
                 <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
                     aria-describedby="search-hint" />
@@ -122,9 +122,9 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
-        </div>
-        <nav id="breadcrumbs" role="navigation" aria-label="面包屑导航"></nav>
-        <section id="content" role="region" aria-label="书签内容区域"></section>
+        </search>
+        <nav id="breadcrumbs" aria-label="面包屑导航"></nav>
+        <section id="content" aria-label="书签内容区域"></section>
         <!-- 居中消息元素将通过JS动态添加centered-element类 -->
     </main>
     <!-- 引入脚本 -->

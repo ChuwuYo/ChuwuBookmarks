@@ -558,7 +558,7 @@ export class PaginationRenderer {
 	 */
 	returnToPool(element) {
 		const metadata = this.elementMetadata.get(element);
-		if (!metadata || !metadata.reusable) return;
+		if (!metadata?.reusable) return;
 
 		const { type } = metadata;
 		if (!this.elementPool[type]) {

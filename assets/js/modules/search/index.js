@@ -290,8 +290,8 @@ const triggerSearch = (keyword) => {
 
 export {
 	clearWorkerCaches,
-	initSearchWorker,
 	createSearchHandler,
+	initSearchWorker,
 	resetPaginationState,
 	restoreSearchStateFromURL,
 	triggerSearch,

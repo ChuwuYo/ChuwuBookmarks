@@ -62,7 +62,7 @@ function buildPreprocessedIndex(tree) {
  * structure.json 中只有文件夹信息，需要转换为网站期望的格式
  */
 function convertStructureToBookmarks(structure) {
-	if (!structure || !structure.folders) {
+	if (!structure?.folders) {
 		return null;
 	}
 

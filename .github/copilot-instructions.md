@@ -1,3 +1,5 @@
+See AGENTS.md in the repository root for rules, commands and the test workflow.
+
 Project: ChuwuBookmarks (static SPA)
 
 Purpose
@@ -28,7 +30,7 @@ Data/SEO workflow
 - After editing structured-data.json, manually sync the inline JSON-LD block in index.html.
 
 Formatting/linting
-- Biome is configured in biome.json (tabs, double quotes); vendor files are excluded.
+- Biome is configured in biome.json (tabs, double quotes); vendor files are excluded. Run `npm run lint` in tests/.
 
 Common edit paths
 - Add UI control: index.html markup -> listener/index.js wiring -> render/* updates.
