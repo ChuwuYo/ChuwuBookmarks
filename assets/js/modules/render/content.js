@@ -212,7 +212,8 @@ const renderMainContent = async (
 
 				breadcrumbs.classList.toggle(
 					"at-end",
-					scrollLeft >= maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
+					scrollLeft >=
+						maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
 				);
 				breadcrumbs.classList.toggle(
 					"at-start",

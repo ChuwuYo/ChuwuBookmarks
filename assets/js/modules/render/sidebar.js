@@ -97,4 +97,4 @@ const renderSidebar = (data, renderMainContent) => {
 	sidebar.appendChild(fragment);
 };
 
-export { renderSidebar, setParentReferences, createElement };
+export { createElement, renderSidebar, setParentReferences };

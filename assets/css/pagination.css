@@ -174,7 +174,7 @@
 
 	/* 暗色主题下的悬停文本阴影调整 */
 	:root[data-theme="dark"]
-		.pagination-button:hover:not(:disabled):not(.active) {
+	.pagination-button:hover:not(:disabled):not(.active) {
 		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
 	}
 
@@ -621,7 +621,7 @@ body .pagination-container.mobile-pagination {
 @media (hover: hover) and (pointer: fine) {
 	/* 亮色主题悬停时的光晕效果 */
 	:root[data-theme="light"]
-		.pagination-button:hover:not(:disabled):not(.active) {
+	.pagination-button:hover:not(:disabled):not(.active) {
 		box-shadow:
 			var(--pagination-shadow-hover),
 			0 0 12px rgba(35, 214, 227, 0.2),
@@ -630,7 +630,7 @@ body .pagination-container.mobile-pagination {
 
 	/* 暗色主题悬停时的光晕效果 */
 	:root[data-theme="dark"]
-		.pagination-button:hover:not(:disabled):not(.active) {
+	.pagination-button:hover:not(:disabled):not(.active) {
 		box-shadow:
 			var(--pagination-shadow-hover),
 			0 0 12px rgba(116, 206, 255, 0.3),

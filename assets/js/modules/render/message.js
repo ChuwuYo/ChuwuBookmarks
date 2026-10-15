@@ -127,7 +127,7 @@ const showNoResultsMessage = (contentEl) => {
 
 export {
 	clearAllMessages,
-	showLoadingMessage,
 	showErrorMessage,
+	showLoadingMessage,
 	showNoResultsMessage,
 };

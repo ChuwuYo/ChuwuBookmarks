@@ -125,7 +125,7 @@ const getSortedIconUrls = (img) => {
  * @param {HTMLElement} icon - 图标容器
  */
 const loadIcon = (img, icon) => {
-	if (!img || !img.src) return;
+	if (!img?.src) return;
 
 	const iconUrls = getSortedIconUrls(img);
 	img.dataset.iconUrls = JSON.stringify(iconUrls);

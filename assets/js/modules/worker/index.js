@@ -279,20 +279,20 @@ const restartAllWorkers = () => {
 const isWorkerSupported = () => typeof Worker !== "undefined";
 
 export {
+	getDataWorker,
+	getDataWorkerWrapper,
 	// Worker 实例获取
 	getSearchWorker,
-	getDataWorker,
 	// Worker 包装器获取（高级用法）
 	getSearchWorkerWrapper,
-	getDataWorkerWrapper,
-	// 生命周期管理
-	terminateSearchWorker,
-	terminateDataWorker,
-	terminateAllWorkers,
-	restartAllWorkers,
 	// 工具函数
 	isWorkerSupported,
+	restartAllWorkers,
+	terminateAllWorkers,
+	terminateDataWorker,
+	// 生命周期管理
+	terminateSearchWorker,
+	WORKER_PATHS,
 	// 常量导出
 	WorkerState,
-	WORKER_PATHS,
 };

@@ -1,0 +1,68 @@
+{
+	"$schema": "./tests/node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!**/assets/js/vendor",
+			"!**/bookmarks.json",
+			"!**/structure.json",
+			"!**/tests/fixtures",
+			"!**/tests/test-results",
+			"!**/tests/playwright-report",
+			"!**/assets/images"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noDescendingSpecificity": "off"
+			},
+			"complexity": {
+				"noImportantStyles": "off"
+			},
+			"suspicious": {
+				"noDuplicateProperties": "off"
+			}
+		}
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"html": {
+		"formatter": {
+			"enabled": false
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.html"],
+			"linter": {
+				"rules": {
+					"a11y": {
+						"useAnchorContent": "off"
+					}
+				}
+			}
+		}
+	]
+}

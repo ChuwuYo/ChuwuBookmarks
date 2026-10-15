@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "generated": "fixture",
+ "folders": [
+  {
+   "id": "0",
+   "title": "书签栏",
+   "addDate": 1700000000000,
+   "linkCount": 0,
+   "folderCount": 4,
+   "hasChildren": true,
+   "children": [
+    {
+     "id": "0_0",
+     "title": "常用",
+     "addDate": 1700000000000,
+     "linkCount": 45,
+     "folderCount": 0,
+     "hasChildren": true
+    },
+    {
+     "id": "0_1",
+     "title": "开发",
+     "addDate": 1700000000000,
+     "linkCount": 2,
+     "folderCount": 1,
+     "hasChildren": true,
+     "children": [
+      {
+       "id": "0_1_0",
+       "title": "前端",
+       "addDate": 1700000000000,
+       "linkCount": 3,
+       "folderCount": 0,
+       "hasChildren": true
+      }
+     ]
+    },
+    {
+     "id": "0_2",
+     "title": "工具",
+     "addDate": 1700000000000,
+     "linkCount": 6,
+     "folderCount": 0,
+     "hasChildren": true
+    },
+    {
+     "id": "0_3",
+     "title": "空文件夹",
+     "addDate": 1700000000000,
+     "linkCount": 0,
+     "folderCount": 0,
+     "hasChildren": false
+    }
+   ]
+  }
+ ]
+}

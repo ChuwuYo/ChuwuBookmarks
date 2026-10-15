@@ -285,10 +285,10 @@ const handleLoadError = (error, hasCachedData) => {
 };
 
 export {
-	showLoadingIndicator,
-	showErrorMessage,
-	loadBookmarksData,
 	getFullBookmarksData,
 	isFullDataReady,
+	loadBookmarksData,
+	showErrorMessage,
+	showLoadingIndicator,
 	waitForFullData,
 };

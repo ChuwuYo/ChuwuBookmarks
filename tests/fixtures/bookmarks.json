@@ -1,0 +1,379 @@
+[
+ {
+  "type": "folder",
+  "addDate": 1700000000000,
+  "title": "书签栏",
+  "children": [
+   {
+    "type": "folder",
+    "addDate": 1700000000000,
+    "title": "常用",
+    "children": [
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 01",
+      "url": "https://demo01.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 02",
+      "url": "https://demo02.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 03",
+      "url": "https://demo03.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 04",
+      "url": "https://demo04.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 05",
+      "url": "https://demo05.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 06",
+      "url": "https://demo06.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 07",
+      "url": "https://demo07.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 08",
+      "url": "https://demo08.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 09",
+      "url": "https://demo09.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 10",
+      "url": "https://demo10.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 11",
+      "url": "https://demo11.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 12",
+      "url": "https://demo12.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 13",
+      "url": "https://demo13.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 14",
+      "url": "https://demo14.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 15",
+      "url": "https://demo15.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 16",
+      "url": "https://demo16.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 17",
+      "url": "https://demo17.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 18",
+      "url": "https://demo18.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 19",
+      "url": "https://demo19.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 20",
+      "url": "https://demo20.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 21",
+      "url": "https://demo21.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 22",
+      "url": "https://demo22.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 23",
+      "url": "https://demo23.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 24",
+      "url": "https://demo24.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 25",
+      "url": "https://demo25.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 26",
+      "url": "https://demo26.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 27",
+      "url": "https://demo27.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 28",
+      "url": "https://demo28.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 29",
+      "url": "https://demo29.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 30",
+      "url": "https://demo30.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 31",
+      "url": "https://demo31.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 32",
+      "url": "https://demo32.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 33",
+      "url": "https://demo33.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 34",
+      "url": "https://demo34.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 35",
+      "url": "https://demo35.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 36",
+      "url": "https://demo36.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 37",
+      "url": "https://demo37.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 38",
+      "url": "https://demo38.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 39",
+      "url": "https://demo39.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 40",
+      "url": "https://demo40.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 41",
+      "url": "https://demo41.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 42",
+      "url": "https://demo42.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 43",
+      "url": "https://demo43.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 44",
+      "url": "https://demo44.example.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Demo 站点 45",
+      "url": "https://demo45.example.com/"
+     }
+    ]
+   },
+   {
+    "type": "folder",
+    "addDate": 1700000000000,
+    "title": "开发",
+    "children": [
+     {
+      "type": "folder",
+      "addDate": 1700000000000,
+      "title": "前端",
+      "children": [
+       {
+        "type": "link",
+        "addDate": 1700000000000,
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/"
+       },
+       {
+        "type": "link",
+        "addDate": 1700000000000,
+        "title": "web.dev",
+        "url": "https://web.dev/"
+       },
+       {
+        "type": "link",
+        "addDate": 1700000000000,
+        "title": "Can I use",
+        "url": "https://caniuse.com/"
+       }
+      ]
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "GitHub",
+      "url": "https://github.com/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "Stack Overflow",
+      "url": "https://stackoverflow.com/"
+     }
+    ]
+   },
+   {
+    "type": "folder",
+    "addDate": 1700000000000,
+    "title": "工具",
+    "children": [
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 1",
+      "url": "https://tools1.example.org/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 2",
+      "url": "https://tools2.example.org/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 3",
+      "url": "https://tools3.example.org/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 4",
+      "url": "https://tools4.example.org/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 5",
+      "url": "https://tools5.example.org/"
+     },
+     {
+      "type": "link",
+      "addDate": 1700000000000,
+      "title": "工具 6",
+      "url": "https://tools6.example.org/"
+     }
+    ]
+   },
+   {
+    "type": "folder",
+    "addDate": 1700000000000,
+    "title": "空文件夹",
+    "children": []
+   }
+  ]
+ }
+]

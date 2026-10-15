@@ -204,11 +204,7 @@ export class ResponsiveConfigManager {
 			window.removeEventListener("resize", this.handleResize);
 		}
 
-		if (
-			this.handleOrientationChange &&
-			window.screen &&
-			window.screen.orientation
-		) {
+		if (this.handleOrientationChange && window.screen?.orientation) {
 			window.screen.orientation.removeEventListener(
 				"change",
 				this.handleOrientationChange,
