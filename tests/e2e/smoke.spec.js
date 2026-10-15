@@ -98,6 +98,40 @@ test.describe("smoke", () => {
 		await expect(page.locator(".no-results")).toBeVisible();
 	});
 
+	test("second visit renders from the IndexedDB cache", async ({ page }) => {
+		await page.addInitScript(() => {
+			if (!sessionStorage.getItem("seeded")) {
+				localStorage.setItem("bookmarksData", "[]");
+				localStorage.setItem("bookmarksHash", "legacy");
+				sessionStorage.setItem("seeded", "1");
+			}
+		});
+		await openApp(page);
+		await page.locator("#search-input").fill("demo");
+		await expect(page.locator(".search-result-item")).toHaveCount(20);
+		expect(
+			await page.evaluate(() => localStorage.getItem("bookmarksData")),
+		).toBeNull();
+
+		// 第二次访问：数据文件不可用时仍能从缓存渲染侧边栏并搜索
+		await page.route("**/structure.json", (route) => route.abort());
+		await page.route("**/bookmarks.json", (route) => route.abort());
+		await page.reload();
+		await expect(page.locator("#sidebar-folders .folder")).toHaveCount(4);
+		await page.locator("#search-input").fill("demo");
+		await expect(page.locator(".search-result-item")).toHaveCount(20);
+	});
+
+	test("home shows the configured site title", async ({ page }) => {
+		await openApp(page);
+		await expect(page.locator(".home-message .chinese-text")).toHaveText(
+			"初五的书签",
+		);
+		await expect(page.locator(".home-message .english-text")).toHaveText(
+			"Chuwu's Bookmarks",
+		);
+	});
+
 	test("theme toggle switches and persists", async ({ page }) => {
 		await openApp(page);
 		const html = page.locator("html");
