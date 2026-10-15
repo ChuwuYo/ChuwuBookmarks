@@ -10,7 +10,6 @@ import { renderHome } from "../render/home.js";
 import { showErrorMessage, showLoadingMessage } from "../render/message.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { clearWorkerCaches } from "../search/index.js";
-import { getCenteringManager } from "../utils/centering.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
 
 // 全局状态：存储完整的书签数据（用于懒加载文件夹时查找）
@@ -275,8 +274,6 @@ const handleLoadError = (error, hasCachedData) => {
 	if (!hasCachedData && !localStorage.getItem("bookmarksData")) {
 		setTimeout(() => {
 			showErrorMessage(new Error(error));
-			const centeringManager = getCenteringManager();
-			centeringManager.updateSingleElement("error-message");
 		}, 10);
 	} else {
 		// 如果有缓存数据，仍然渲染主页

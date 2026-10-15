@@ -2,7 +2,6 @@
  * 主页渲染模块
  */
 
-import { getCenteringManager } from "../utils/centering.js";
 import { getDeviceType } from "./device.js";
 import { resetSearchPagination } from "./search.js";
 import { animationConfig } from "./theme.js";
@@ -186,21 +185,6 @@ const renderHome = () => {
 	if (deviceType === "mobile") {
 		homeMessage.classList.add("mobile-home-message");
 	}
-
-	// 获取统一居中管理器并注册主页消息
-	const centeringManager = getCenteringManager();
-
-	// 确保管理器已初始化
-	if (!centeringManager.isInitialized) {
-		centeringManager.initialize();
-	}
-
-	// 注册主页消息到统一居中系统（使用预定义配置）
-	// 主页消息配置已在ELEMENT_CONFIGS中预定义，这里只需要确保元素存在
-	requestAnimationFrame(() => {
-		// 强制更新主页消息位置
-		centeringManager.updateSingleElement("home-message");
-	});
 
 	setupHomeTextAnimation(homeMessage, chineseText, englishText);
 	createHomeTextTimeline(homeMessage, chineseText, englishText);

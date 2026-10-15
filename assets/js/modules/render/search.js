@@ -31,7 +31,6 @@ import {
 	PaginationRenderer,
 	PaginationRenderUtils,
 } from "../pagination/index.js";
-import { getCenteringManager } from "../utils/centering.js";
 import { PAGINATION_CONSTANTS, RENDER_CONSTANTS } from "../utils/constants.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
@@ -498,10 +497,6 @@ const renderSearchResults = (results, renderMainContent) => {
 
 	if (!results?.length) {
 		showNoResultsMessage(content);
-
-		// 注册到统一居中系统
-		const centeringManager = getCenteringManager();
-		centeringManager.updateSingleElement("no-results");
 
 		// 移除搜索状态标记
 		content.classList.remove("search-rendering");

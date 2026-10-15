@@ -17,8 +17,6 @@ const SELECTORS = {
 	ERROR_MESSAGE: ".error-message",
 };
 
-import { getCenteringManager } from "../utils/centering.js";
-
 /**
  * 清理指定选择器对应的所有元素
  * @param {string|string[]} selectors
@@ -97,10 +95,6 @@ const showErrorMessage = (error) => {
 
 	message.append(heading, line1, line2);
 	document.body.appendChild(message);
-
-	// 统一在此处触发居中逻辑，避免调用方重复实现
-	const centeringManager = getCenteringManager();
-	centeringManager.updateSingleElement("error-message");
 };
 
 /**
@@ -119,10 +113,6 @@ const showNoResultsMessage = (contentEl) => {
 
 	contentEl.innerHTML = "";
 	contentEl.appendChild(noResults);
-
-	// 统一在此处触发居中逻辑
-	const centeringManager = getCenteringManager();
-	centeringManager.updateSingleElement("no-results");
 };
 
 export {

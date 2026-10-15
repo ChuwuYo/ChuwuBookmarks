@@ -28,13 +28,7 @@
 /* 桌面端居中元素样式 (>=1024px) */
 @media screen and (min-width: 1024px) {
 	.centered-element {
-		transform: translateX(
-			calc(
-				-50% +
-				var(--desktop-base-offset) +
-				var(--universal-centering-offset)
-			)
-		);
+		transform: translateX(calc(-50% + var(--desktop-base-offset)));
 	}
 
 	.sidebar.collapsed + .main-content .centered-element {
@@ -61,17 +55,30 @@
 
 @media screen and (min-width: 1024px) {
 	.centered-element.vertical-center {
-		transform: translate(
-			calc(
-				-50% +
-				var(--desktop-base-offset) +
-				var(--universal-centering-offset)
-			),
-			-50%
-		);
+		transform: translate(calc(-50% + var(--desktop-base-offset)), -50%);
 	}
 
 	.sidebar.collapsed + .main-content .centered-element.vertical-center {
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* 手机（含横屏触屏设备）居中元素的垂直位置 */
+@media screen and (max-width: 479px),
+	screen and (pointer: coarse) and (max-height: 599px) {
+	.search-container.centered-element {
+		top: 20px;
+		transform: translateX(-50%);
+	}
+
+	.home-message.centered-element,
+	.no-results.centered-element {
+		top: 45%;
+		transform: translate(-50%, -50%);
+	}
+
+	.error-message.centered-element {
+		top: 50%;
 		transform: translate(-50%, -50%);
 	}
 }
