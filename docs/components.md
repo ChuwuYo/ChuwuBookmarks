@@ -68,8 +68,13 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | `name` attribute | 图标 id：`folder`、`link`、`search`、`breadcrumb` |
 | `label` attribute | 可选；提供时设置 `role="img"` 与 `aria-label`，否则 `aria-hidden="true"` |
 | `--bm-icon-size` | 尺寸，默认 `1em` |
+| `--bm-icon-align` | `vertical-align`，默认 `-0.125em` |
 
-DOM 契约：`<bm-icon name="folder"><svg><use href="…#folder"></use></svg></bm-icon>`
+DOM 契约：`<bm-icon name="folder" aria-hidden="true"><svg><use href="…/icons.svg#folder"></use></svg></bm-icon>`
+
+JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中添加
+`<symbol id="名称" viewBox="0 0 32 32">`。现有图标来自 Fluent Emoji（Flat，MIT 许可，
+© Microsoft），保持同一风格以与整体可爱的视觉一致。
 
 ## `<bm-pagination>`
 

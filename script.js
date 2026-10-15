@@ -1,3 +1,4 @@
+import "./assets/components/index.js";
 import { initEventListeners } from "./assets/js/modules/listener/index.js";
 import {
 	loadBookmarksData,
