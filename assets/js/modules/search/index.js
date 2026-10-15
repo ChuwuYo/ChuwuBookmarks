@@ -4,13 +4,9 @@
  * 本模块负责处理搜索功能的核心逻辑，包括：
  * - Web Worker搜索处理
  * - 分页状态管理
- * - URL状态保持
- * - 响应式系统初始化
+ * - URL状态保持（?q=）
  *
- * 分页集成说明：
- * - 新搜索时自动重置分页状态到第一页
- * - 支持从URL恢复搜索和分页状态
- * - 与分页控件的响应式系统完全集成
+ * 新搜索总是从第一页开始。
  *
  * 性能优化：
  * - 使用Web Worker进行搜索，避免阻塞主线程
@@ -18,6 +14,11 @@
  * - 防抖处理，避免频繁搜索请求
  */
 
+import {
+	getSearchPayload,
+	isFullDataReady,
+	waitForFullData,
+} from "../loader/index.js";
 import { getDeviceType } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import {
@@ -102,44 +103,34 @@ const initSearchWorker = (renderMainContent) => {
 	dataWorkerWrapper.addMessageListener(onDataMessage);
 };
 
-const getCachedSearchPayload = () => {
-	let data = [];
-	let index = null;
-
-	try {
-		data = JSON.parse(localStorage.getItem("bookmarksData") || "[]");
-		index = JSON.parse(localStorage.getItem("bookmarksIndex") || "null");
-	} catch (e) {
-		console.error("Failed to parse cached search data:", e);
-		data = [];
-		index = null;
-	}
-
-	const indexHash = localStorage.getItem("bookmarksHash") || null;
-	return { bookmarks: data, index, indexHash };
-};
-
 const postSearchToWorker = (keyword, useCache = true) => {
 	if (!isWorkerSupported()) return null;
 
-	const payload = getCachedSearchPayload();
-	const searchWorkerWrapper = getSearchWorkerWrapper();
+	const post = () => {
+		const payload = getSearchPayload();
+		return getSearchWorkerWrapper().postMessage({
+			action: "search",
+			data: {
+				keyword,
+				bookmarks: payload.bookmarks,
+				index: payload.index,
+				indexHash: payload.indexHash,
+				useCache,
+			},
+		});
+	};
 
-	return searchWorkerWrapper.postMessage({
-		action: "search",
-		data: {
-			keyword,
-			bookmarks: payload.bookmarks,
-			index: payload.index,
-			indexHash: payload.indexHash,
-			useCache,
-		},
-	});
+	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
+	if (!isFullDataReady()) {
+		waitForFullData().then(post);
+		return true;
+	}
+	return post();
 };
 
 const createSearchHandler = () => {
 	// 仅在 handler 创建时根据缓存的数据量与设备类型计算防抖时长，避免每次输入重算导致抖动
-	const payload = getCachedSearchPayload();
+	const payload = getSearchPayload();
 	const bookmarksCount = (payload.index || payload.bookmarks || []).length || 0;
 
 	const computeDebounceMsSafe = (count) => {

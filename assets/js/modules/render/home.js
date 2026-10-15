@@ -2,6 +2,7 @@
  * 主页渲染模块
  */
 
+import site from "../../../../site.config.js";
 import { getDeviceType } from "./device.js";
 import { resetSearchPagination } from "./search.js";
 import { animationConfig } from "./theme.js";
@@ -35,14 +36,14 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 		scale: 0.8,
 		x: -50,
 		transformOrigin: "center center",
-		textContent: "初五的书签",
+		textContent: site.title,
 	});
 	gsap.set(englishText, {
 		opacity: 0,
 		scale: 0.8,
 		x: -50,
 		transformOrigin: "center center",
-		textContent: "Chuwu's Bookmarks",
+		textContent: site.subtitle,
 	});
 };
 
@@ -191,13 +192,13 @@ const renderHome = () => {
 
 	requestAnimationFrame(() => {
 		const { fragment: chineseFragment, spans: chineseSpans } =
-			createCharacterSpans("初五的书签");
+			createCharacterSpans(site.title);
 		chineseText.textContent = "";
 		chineseText.appendChild(chineseFragment);
 		setupChineseCharacterAnimation(chineseSpans);
 
 		const { fragment: englishFragment, spans: englishSpans } =
-			createCharacterSpans("Chuwu's Bookmarks");
+			createCharacterSpans(site.subtitle);
 		englishText.textContent = "";
 		englishText.appendChild(englishFragment);
 		setupEnglishCharacterAnimation(englishSpans);
