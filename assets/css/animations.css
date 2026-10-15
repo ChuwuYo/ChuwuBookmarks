@@ -38,3 +38,15 @@
 		transform: translate(0, -50%);
 	}
 }
+
+/* 尊重系统“减少动态效果”设置：保留最终状态，去掉过渡与循环动画 */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

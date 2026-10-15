@@ -20,9 +20,11 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
 | Path | Purpose |
 | --- | --- |
 | `index.html`, `script.js`, `styles.css` | Entry document, bootstrap, CSS entry |
-| `assets/js/modules/` | App modules (render, listener, loader, search, worker, utils) |
+| `assets/js/modules/` | App modules (render, listener, loader, search, worker, store, utils) |
 | `assets/js/data-worker.js`, `assets/js/search-worker.js` | Web Workers for data loading and search |
-| `assets/css/` | Stylesheets imported by `styles.css` |
+| `assets/components/<name>/` | Light-DOM custom elements (JS + CSS pair each), spec in `docs/components.md` |
+| `assets/css/` | Global stylesheets imported by `styles.css`; colour tokens use `light-dark()` |
+| `site.config.js` | Home page title and subtitle |
 | `bookmarks.json`, `structure.json` | Bookmark data (full tree / lightweight folder tree) |
 | `tests/` | Biome + Playwright tooling, fixtures, screenshot baselines |
 

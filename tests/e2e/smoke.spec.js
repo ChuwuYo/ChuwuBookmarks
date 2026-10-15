@@ -166,12 +166,27 @@ test.describe("smoke", () => {
 		await expect(page.locator("#search-input")).toBeFocused();
 	});
 
+	test("reduced motion shows the home text without animating", async ({
+		page,
+	}) => {
+		await page.emulateMedia({ reducedMotion: "reduce" });
+		await openApp(page);
+		const opacity = await page
+			.locator(".home-message")
+			.evaluate((el) => getComputedStyle(el).opacity);
+		expect(Number(opacity)).toBe(1);
+	});
+
 	test("theme toggle switches and persists", async ({ page }) => {
 		await openApp(page);
 		const html = page.locator("html");
 		const initial = await html.getAttribute("data-theme");
 		await page.locator("#theme-toggle").click();
 		await expect(html).not.toHaveAttribute("data-theme", initial);
+		const scheme = await html.evaluate(
+			(el) => getComputedStyle(el).colorScheme,
+		);
+		expect(scheme).toBe(await html.getAttribute("data-theme"));
 		const next = await html.getAttribute("data-theme");
 		await page.reload();
 		await expect(html).toHaveAttribute("data-theme", next);
