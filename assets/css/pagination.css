@@ -25,8 +25,6 @@
 	--pagination-shadow-active: var(--button-shadow);
 	--pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
 
-	/* 分页控件居中偏移变量 - 使用统一居中系统 */
-
 	/* 分页控件过渡动画变量 */
 	--pagination-transition-base: all var(--duration-base) var(--ease-default);
 	--pagination-transition-transform: transform var(--duration-base)
@@ -43,11 +41,12 @@
 		--pagination-spacing: 4px;
 		--pagination-button-size: 32px;
 		--pagination-font-size: 12px;
+		/* 补足 44px 触控区域 */
+		--pagination-button-padding: 6px;
 	}
 
 	.pagination-container {
 		bottom: 10px;
-		/* 移动端transform由JS直接设置 */
 	}
 }
 
@@ -61,7 +60,6 @@
 
 	.pagination-container {
 		bottom: 20px;
-		/* 平板端transform由JS直接设置 */
 	}
 }
 
@@ -73,7 +71,7 @@
 	/* 暗色主题焦点阴影 */
 }
 
-/* 分页容器基础样式 - 统一居中系统 */
+/* 分页容器：固定在内容区底部居中 */
 .pagination-container {
 	display: flex;
 	justify-content: center;
@@ -86,16 +84,14 @@
 	width: 100%;
 	max-width: 500px;
 
-	/* 统一居中系统定位 */
+	/* 定位 */
 	position: fixed;
 	left: 50%;
 	bottom: 20px;
 	z-index: 999;
 
 	/* 桌面端transform，使用CSS变量 */
-	transform: translateX(
-		calc(-50% + var(--desktop-base-offset) + var(--centering-offset, 0px))
-	);
+	transform: translateX(calc(-50% + var(--desktop-base-offset)));
 
 	/* 过渡效果 */
 	transition:
@@ -106,12 +102,6 @@
 
 	/* 主题切换时的平滑过渡 */
 	transition-property: transform, opacity, background-color;
-}
-
-.pagination-fallback {
-	text-align: center;
-	padding: 1rem;
-	color: var(--text-color);
 }
 
 /* 分页按钮基础样式 */
@@ -175,12 +165,6 @@
 	:root[data-theme="dark"]
 	.pagination-button:hover:not(:disabled):not(.active) {
 		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
-	}
-
-	/* 悬停时的图标动画效果 */
-	.pagination-button:hover:not(:disabled) .pagination-icon {
-		transform: scale(1.1);
-		transition: transform var(--duration-base) var(--ease-out-quad);
 	}
 }
 
@@ -253,12 +237,6 @@
 	box-shadow: none;
 }
 
-/* 禁用状态下的图标样式 */
-.pagination-button:disabled .pagination-icon {
-	opacity: 0.5;
-	transition: opacity var(--duration-short) var(--ease-default);
-}
-
 /* 分页按钮焦点样式 - 与项目其他元素保持一致的无障碍支持 */
 .pagination-button:focus-visible {
 	outline: 2px solid var(--link-color);
@@ -308,47 +286,6 @@
 	}
 }
 
-/* 分页按钮点击反馈样式 - 使用transform和opacity优化性能 */
-.pagination-button.clicked {
-	transform: translateZ(0) scale(0.95);
-	opacity: 0.8;
-	transition:
-		transform var(--duration-short) var(--ease-default),
-		opacity var(--duration-short) var(--ease-default);
-}
-
-/* 暗色主题下的点击反馈调整 */
-:root[data-theme="dark"] .pagination-button.clicked {
-	box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-:root[data-theme="light"] .pagination-button.clicked {
-	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 分页按钮处理中状态 - 优化动画性能 */
-.pagination-button.processing {
-	opacity: 0.7;
-	cursor: wait;
-	pointer-events: none;
-	transition: opacity var(--duration-base) var(--ease-default);
-}
-
-.pagination-button.processing::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 12px;
-	height: 12px;
-	margin: -6px 0 0 -6px;
-	border: 2px solid transparent;
-	border-top-color: var(--pagination-text);
-	border-radius: 50%;
-	animation: spin 0.8s linear infinite;
-	will-change: transform;
-}
-
 /* 省略号样式 - 增强主题适配 */
 .pagination-ellipsis {
 	min-width: var(--pagination-button-size);
@@ -376,142 +313,33 @@
 	text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-/* 上一页/下一页按钮图标样式 - 增强主题适配和动画 */
-.pagination-button .pagination-icon {
-	font-size: 16px;
-	line-height: 1;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	transition:
-		transform var(--duration-base) var(--ease-out-quad),
-		opacity var(--duration-short) var(--ease-default);
-	will-change: transform;
-}
-
-/* 分页按钮文本样式 - 增强可读性 */
-.pagination-button .pagination-text {
-	font-size: var(--pagination-font-size);
-	line-height: 1;
-	white-space: nowrap;
-	transition: color var(--duration-short) var(--ease-default);
-}
-
-/* 主题特定的图标和文本样式 */
-:root[data-theme="light"] .pagination-button .pagination-text {
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-:root[data-theme="dark"] .pagination-button .pagination-text {
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-/* 激活状态下的图标和文本样式 */
-.pagination-button.active .pagination-text {
-	font-weight: 600;
-	letter-spacing: 0.5px;
-}
-
-.pagination-button.active .pagination-icon {
-	transform: scale(1.05);
-}
-
-/* 侧边栏收起时桌面端分页控件调整 (>= 1024px) */
+/* 侧边栏收起时回到视口中心 */
 .sidebar.collapsed + .main-content .pagination-container {
-	transform: translateX(calc(-50% + var(--centering-offset, 0px)));
-}
-
-/* 响应式分页控件类型样式 - 由 responsive.js 管理 */
-body .pagination-container.mobile-pagination {
-	gap: var(--pagination-spacing);
-	padding: 0.1rem;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-	justify-content: center;
-	scroll-snap-type: x proximity;
-}
-
-.pagination-container.tablet-pagination {
-	gap: var(--pagination-spacing);
-	margin: 0.4rem 0;
-	padding: 0.2rem;
-}
-
-.pagination-container.desktop-pagination {
-	gap: var(--pagination-spacing);
-	margin: 0.5rem 0;
-	padding: 0.3rem;
-}
-
-/* 移动端分页容器滚动条隐藏 */
-.mobile-pagination::-webkit-scrollbar {
-	display: none;
-}
-
-/* 移动端滑动手势提示 - 仅在可滚动时显示 */
-.mobile-pagination.scrollable::after {
-	content: "";
-	position: absolute;
-	bottom: -15px;
-	left: 50%;
 	transform: translateX(-50%);
-	width: 30px;
-	height: 2px;
-	background: var(--pagination-border);
-	border-radius: 1px;
-	opacity: 0.4;
-	animation: slideHint 2s ease-in-out infinite;
 }
 
-@keyframes slideHint {
-	0%,
-	100% {
-		opacity: 0.4;
-	}
-
-	50% {
-		opacity: 0.8;
+/* 各设备的容器内边距 */
+@media screen and (max-width: 479px) {
+	.pagination-container {
+		padding: 0.1rem;
+		overflow-x: auto;
+		scrollbar-width: none;
+		scroll-snap-type: x proximity;
 	}
 }
 
-/* 分页容器隐藏状态 */
-.pagination-container.hidden,
-.pagination-container.is-hidden {
-	display: none;
-}
-
-.pagination-container.is-visible {
-	opacity: 1;
-	visibility: visible;
-}
-
-/* 分页容器动画进入效果 - 简化动画 */
-.pagination-container.fade-in {
-	opacity: 0;
-	animation: fadeIn 0.3s var(--ease-out-quad) forwards;
-	will-change: opacity;
-}
-
-/* 分页专用淡入动画（无位移，仅opacity） */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+	.pagination-container {
+		margin: 0.4rem 0;
+		padding: 0.2rem;
 	}
 }
 
-/* 主题切换时的平滑过渡动画 */
-.pagination-container.theme-transitioning {
-	transition: all var(--duration-medium) var(--ease-in-out-cubic);
-}
-
-.pagination-container.theme-transitioning .pagination-button {
-	transition: all var(--duration-medium) var(--ease-in-out-cubic);
+@media screen and (min-width: 1024px) {
+	.pagination-container {
+		margin: 0.5rem 0;
+		padding: 0.3rem;
+	}
 }
 
 /* 高对比度模式支持 - 合并所有高对比度样式 */
@@ -558,22 +386,6 @@ body .pagination-container.mobile-pagination {
 	pointer-events: none;
 }
 
-/* 当前页指示器样式 */
-.current-page-indicator {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	background: var(--pagination-active-bg);
-	color: var(--pagination-active-text);
-	padding: 4px 8px;
-	border-radius: 4px;
-	font-size: 12px;
-	font-weight: 500;
-	z-index: 1000;
-	opacity: 0.9;
-	transition: opacity 0.3s ease;
-}
-
 /* 主题特定的视觉增强 */
 
 /* 亮色主题下的额外视觉效果 */
@@ -607,15 +419,6 @@ body .pagination-container.mobile-pagination {
 		inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* 主题切换时的特殊过渡效果 */
-.pagination-container[data-theme-transitioning] {
-	transition: all var(--duration-long) var(--ease-in-out-cubic);
-}
-
-.pagination-container[data-theme-transitioning] .pagination-button {
-	transition: all var(--duration-long) var(--ease-in-out-cubic);
-}
-
 /* 高级悬停效果 - 仅在支持的设备上启用 */
 @media (hover: hover) and (pointer: fine) {
 	/* 亮色主题悬停时的光晕效果 */
@@ -637,15 +440,6 @@ body .pagination-container.mobile-pagination {
 	}
 }
 
-/* 页码切换时的视觉反馈 */
-.pagination-button.page-changing {
-	transform: translateZ(0) scale(0.98);
-	opacity: 0.7;
-	transition:
-		transform var(--duration-short) var(--ease-default),
-		opacity var(--duration-short) var(--ease-default);
-}
-
 /* 减少动画偏好支持 */
 @media (prefers-reduced-motion: reduce) {
 	.pagination-container,
@@ -661,46 +455,9 @@ body .pagination-container.mobile-pagination {
 		transform: translateZ(0);
 	}
 
-	.pagination-container.fade-in {
-		animation: none;
-		opacity: 1;
-	}
-
-	.pagination-button.clicked {
-		transform: translateZ(0);
-	}
-
-	.pagination-button.page-changing {
-		transform: translateZ(0);
-	}
-
 	.page-changing {
 		transition: none;
 	}
-
-	.current-page-indicator {
-		transition: none;
-	}
-
-	/* 保持主题切换的颜色过渡 */
-	.pagination-container[data-theme-transitioning],
-	.pagination-container[data-theme-transitioning] .pagination-button {
-		transition:
-			color var(--duration-medium) var(--ease-default),
-			background-color var(--duration-medium) var(--ease-default),
-			border-color var(--duration-medium) var(--ease-default),
-			box-shadow var(--duration-medium) var(--ease-default);
-	}
-}
-
-/* 主题适配测试和优化区域 */
-
-/* 确保分页控件在主题切换时的完整适配 */
-.pagination-container.theme-test {
-	/* 测试用类，用于验证主题切换效果 */
-	border: 1px dashed var(--pagination-border);
-	border-radius: var(--pagination-border-radius);
-	background: rgba(var(--text-color), 0.02);
 }
 
 /* 主题切换动画的性能优化 */
@@ -740,79 +497,7 @@ body .pagination-container.mobile-pagination {
 
 /* 打印样式优化 */
 @media print {
-	body .pagination-container,
-	html .pagination-container {
+	.pagination-container {
 		display: none;
-		visibility: hidden;
 	}
-}
-
-/* 主题切换完成后的清理 */
-.pagination-container.theme-transition-complete {
-	transition: none;
-}
-
-.pagination-container.theme-transition-complete .pagination-button {
-	transition: var(--pagination-transition-base);
-}
-
-/* 调试用样式 - 仅在开发环境使用 */
-.pagination-debug .pagination-button {
-	position: relative;
-}
-
-.pagination-debug .pagination-button::after {
-	content: attr(data-page);
-	position: absolute;
-	top: -20px;
-	left: 50%;
-	transform: translateX(-50%);
-	font-size: 10px;
-	color: var(--text-color);
-	opacity: 0.5;
-	pointer-events: none;
-}
-
-/* 确保所有状态组合都有正确的样式 */
-.pagination-button:disabled.active {
-	/* 禁用的激活按钮（理论上不应该存在，但确保样式正确） */
-	background: var(--pagination-disabled-text);
-	color: var(--pagination-bg);
-	opacity: 0.4;
-
-	/* 确保禁用的激活按钮不会被缩放 */
-	transform: translateZ(0) scale(1);
-}
-
-.pagination-button.processing.active {
-	/* 处理中的激活按钮 */
-	background: var(--pagination-active-bg);
-	opacity: 0.7;
-}
-
-/* 最终的主题适配验证 */
-:root[data-theme="light"] .pagination-container,
-:root[data-theme="dark"] .pagination-container {
-	/* 确保容器在两种主题下都正确显示 */
-	opacity: 1;
-	visibility: visible;
-}
-
-/* 主题切换时的微妙动画效果 */
-@keyframes themeSwitch {
-	0% {
-		filter: brightness(1);
-	}
-
-	50% {
-		filter: brightness(1.1);
-	}
-
-	100% {
-		filter: brightness(1);
-	}
-}
-
-.pagination-container.theme-switching {
-	animation: themeSwitch 0.3s ease-in-out;
 }

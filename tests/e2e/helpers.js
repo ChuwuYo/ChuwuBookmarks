@@ -8,7 +8,11 @@ const fixture = (name) =>
  * Serve fixture data instead of the deployed bookmarks, block third-party
  * requests (favicons, analytics) and open the home page.
  */
-export async function openApp(page, path = "/") {
+export async function openApp(
+	page,
+	path = "/",
+	bookmarks = fixture("bookmarks.json"),
+) {
 	await page.route("**/structure.json", (route) =>
 		route.fulfill({
 			contentType: "application/json",
@@ -18,7 +22,7 @@ export async function openApp(page, path = "/") {
 	await page.route("**/bookmarks.json", (route) =>
 		route.fulfill({
 			contentType: "application/json",
-			body: fixture("bookmarks.json"),
+			body: bookmarks,
 		}),
 	);
 	await page.route(/^https?:\/\/(?!(?:127\.0\.0\.1|localhost)[:/])/, (route) =>
@@ -58,4 +62,20 @@ export async function closeSidebar(page) {
 		await page.locator("#toggle-sidebar").click();
 		await settle(page, 500);
 	}
+}
+
+/** Bookmarks fixture with `extra` additional "Demo" links in the first folder. */
+export function bookmarksWithExtraLinks(extra) {
+	const data = JSON.parse(fixture("bookmarks.json"));
+	const links = data[0].children[0].children;
+	const first = links.length + 1;
+	for (let i = first; i < first + extra; i++) {
+		links.push({
+			type: "link",
+			addDate: 1700000000000,
+			title: `Demo 站点 ${i}`,
+			url: `https://demo${i}.example.com/`,
+		});
+	}
+	return JSON.stringify(data);
 }

@@ -5,7 +5,9 @@
 	"description": "Development-only test tooling. The site itself has no build step.",
 	"scripts": {
 		"serve": "node server.mjs",
-		"test": "playwright test",
+		"test": "npm run test:unit && npm run test:e2e",
+		"test:unit": "node --test \"unit/**/*.test.js\"",
+		"test:e2e": "playwright test",
 		"test:smoke": "playwright test e2e/smoke.spec.js",
 		"test:update": "playwright test e2e/visual.spec.js --update-snapshots",
 		"lint": "biome ci .."

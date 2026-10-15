@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import {
+	bookmarksWithExtraLinks,
 	closeSidebar,
 	isMobile,
 	openApp,
@@ -57,6 +58,38 @@ test.describe("smoke", () => {
 		await expect(page.locator(".pagination-page.active")).toHaveText("2");
 		await page.locator(".pagination-page", { hasText: "3" }).click();
 		await expect(page.locator(".search-result-item")).toHaveCount(5);
+	});
+
+	test("pagination collapses distant pages and keeps the page in the URL", async ({
+		page,
+	}) => {
+		await openApp(page, "/", bookmarksWithExtraLinks(160));
+		await page.locator("#search-input").fill("demo");
+		const pages = page.locator(".pagination-container");
+		await expect(pages.locator(".pagination-page")).toHaveText([
+			"1",
+			"2",
+			"3",
+			"11",
+		]);
+		await expect(pages.locator(".pagination-ellipsis")).toHaveCount(1);
+		await expect(pages.locator(".pagination-prev")).toBeDisabled();
+		await pages.locator(".pagination-page", { hasText: "3" }).click();
+		await pages.locator(".pagination-next").click();
+		await expect(pages.locator(".pagination-page")).toHaveText([
+			"1",
+			"3",
+			"4",
+			"5",
+			"11",
+		]);
+		await expect(pages.locator(".pagination-ellipsis")).toHaveCount(2);
+		await expect(page).toHaveURL(/page=4/);
+		await pages.locator(".pagination-page", { hasText: "11" }).click();
+		await expect(page.locator(".search-result-item")).toHaveCount(5);
+		await expect(pages.locator(".pagination-next")).toBeDisabled();
+		await pages.locator(".pagination-page", { hasText: /^1$/ }).click();
+		await expect(page).not.toHaveURL(/page=/);
 	});
 
 	test("search with no match shows empty state", async ({ page }) => {
