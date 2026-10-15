@@ -29,8 +29,7 @@
 		4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
 	--theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
 
-	/* 统一居中系统变量 */
-	--universal-centering-offset: 0px;
+	/* 桌面端侧栏展开时内容中心的水平偏移（侧栏宽度的一半） */
 	--desktop-base-offset: 110px;
 
 	/* 自定义滚动条指示器变量 */

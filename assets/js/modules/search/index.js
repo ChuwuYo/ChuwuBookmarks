@@ -25,7 +25,6 @@ import {
 	renderSearchResults,
 	resetSearchPagination,
 } from "../render/search.js";
-import { getCenteringManager } from "../utils/centering.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
 import {
@@ -47,12 +46,6 @@ let workersWired = false;
 const initSearchWorker = (renderMainContent) => {
 	// 初始化响应式系统
 	initializeResponsiveSystem();
-
-	// 确保统一居中系统已初始化并注册搜索容器
-	const centeringManager = getCenteringManager();
-	if (!centeringManager.isInitialized) {
-		centeringManager.initialize();
-	}
 
 	if (!isWorkerSupported()) {
 		console.warn(
@@ -236,10 +229,6 @@ const createSearchHandler = () => {
 			} else {
 				content.appendChild(errorMessage);
 			}
-
-			// 注册到统一居中系统
-			const centeringManager = getCenteringManager();
-			centeringManager.updateSingleElement("error-message");
 		}
 	}, debounceMs);
 };

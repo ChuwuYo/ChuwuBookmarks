@@ -6,48 +6,6 @@
  */
 
 /**
- * 布局相关常量
- */
-export const LAYOUT_CONSTANTS = {
-	/**
-	 * 侧边栏基础偏移量
-	 * 用于桌面端居中计算，包含侧边栏宽度和内边距
-	 * 计算依据：侧边栏宽度(100px) + 边距(10px) = 110px
-	 */
-	SIDEBAR_BASE_OFFSET: "110px",
-
-	/**
-	 * 搜索容器默认顶部位置
-	 * 移动端搜索容器距离顶部的固定距离
-	 */
-	SEARCH_CONTAINER_TOP_MOBILE: "20px",
-
-	/**
-	 * 主页消息默认顶部位置
-	 * 主页消息在屏幕中的垂直位置
-	 */
-	HOME_MESSAGE_TOP: "45%",
-
-	/**
-	 * 错误消息默认顶部位置
-	 * 错误消息在屏幕中的垂直位置
-	 */
-	ERROR_MESSAGE_TOP: "50%",
-};
-
-/**
- * 性能相关常量
- */
-export const PERFORMANCE_CONSTANTS = {
-	/**
-	 * 动画帧延迟时间
-	 * 对应60fps的单帧时间（1000ms/60 ≈ 16.67ms）
-	 * 用于与浏览器渲染周期同步
-	 */
-	ANIMATION_FRAME_DELAY_MS: 16,
-};
-
-/**
  * 事件防抖和节流相关常量
  */
 export const DEBOUNCE_THROTTLE_CONSTANTS = {
@@ -75,29 +33,6 @@ export const DEBOUNCE_THROTTLE_CONSTANTS = {
 	 * 用户输入搜索关键词时的防抖延迟，提升用户体验
 	 */
 	SEARCH_INPUT_DEBOUNCE_MS: 300,
-};
-
-/**
- * Z-Index层级常量
- */
-export const Z_INDEX_CONSTANTS = {
-	/**
-	 * 搜索容器层级
-	 * 确保搜索容器始终在其他元素之上
-	 */
-	SEARCH_CONTAINER: 999,
-
-	/**
-	 * 消息提示层级
-	 * 用于各种消息提示的层级
-	 */
-	MESSAGE_OVERLAY: 10,
-
-	/**
-	 * 默认层级
-	 * 表示使用浏览器默认的z-index值
-	 */
-	AUTO: "auto",
 };
 
 /**
@@ -321,24 +256,4 @@ export const SEARCH_DEBOUNCE_CONSTANTS = {
 	 * 超大数据量防抖时间（毫秒）
 	 */
 	EXTRA_LARGE_DATA_MS: 500,
-};
-
-/**
- * 居中管理器常量
- */
-export const CENTERING_CONSTANTS = {
-	/**
-	 * 位置计算缓存最大大小
-	 */
-	POSITION_CACHE_MAX_SIZE: 50,
-
-	/**
-	 * 固定顶部默认偏移（像素）
-	 */
-	FIXED_TOP_DEFAULT_OFFSET_PX: 20,
-
-	/**
-	 * 分页控件移动端底部偏移（像素）
-	 */
-	PAGINATION_MOBILE_BOTTOM_OFFSET_PX: 20,
 };

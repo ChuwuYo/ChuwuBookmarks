@@ -22,7 +22,6 @@
  * - 支持滑动手势切换页面（移动端）
  */
 
-import { getCenteringManager } from "../utils/centering.js";
 import { PAGINATION_CONSTANTS } from "../utils/constants.js";
 import {
 	DOMOptimizer,
@@ -63,9 +62,6 @@ export class PaginationRenderer {
 		this.debounceTimeout = null;
 		this.debounceDelay = PAGINATION_CONSTANTS.DEFAULT_DEBOUNCE_DELAY_MS;
 
-		// 统一居中系统管理器
-		this.centeringManager = getCenteringManager();
-
 		// 侧栏监听器（保留以维持兼容性，但实际居中由统一系统处理）
 		this.sidebarMonitor = getSidebarMonitor();
 		this.currentSidebarState = null;
@@ -86,18 +82,6 @@ export class PaginationRenderer {
 
 		// 初始化侧栏状态监听（用于居中偏移）
 		this.initializeSidebarListener();
-
-		// 注册到统一居中系统
-		this.registerWithCenteringSystem();
-	}
-
-	/**
-	 * 注册到统一居中系统
-	 */
-	registerWithCenteringSystem() {
-		if (this.centeringManager && !this.centeringManager.isDestroyed) {
-			this.centeringManager.initialize();
-		}
 	}
 
 	/**
@@ -1147,7 +1131,6 @@ export class PaginationRenderer {
 		this.batchUpdateScheduled = false;
 
 		// 清理统一居中系统引用
-		this.centeringManager = null;
 	}
 
 	/**
@@ -1170,7 +1153,6 @@ export class PaginationRenderer {
 		this.sidebarStateListener = null;
 		this.currentResponsiveConfig = null;
 		this.currentSidebarState = null;
-		this.centeringManager = null;
 	}
 
 	/**
