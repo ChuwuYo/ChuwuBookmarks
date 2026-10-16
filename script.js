@@ -10,6 +10,7 @@ import {
 	handleDeviceView,
 } from "./assets/js/modules/render/device.js";
 import { renderHome } from "./assets/js/modules/render/home.js";
+import { revealApp } from "./assets/js/modules/render/reveal.js";
 import { initTheme } from "./assets/js/modules/render/theme.js";
 import {
 	createSearchHandler,
@@ -28,7 +29,11 @@ const renderMainContent = (folder, fromSidebar = false) => {
 showLoadingIndicator();
 loadBookmarksData(renderMainContent).catch((error) => {
 	console.error("加载书签数据失败:", error);
+	revealApp();
 });
+// 有缓存时首屏在几十毫秒内渲染并淡入；首次访问需要等网络，超过这个时间就先显示加载状态
+const REVEAL_FALLBACK_DELAY = 400;
+setTimeout(revealApp, REVEAL_FALLBACK_DELAY);
 /** 初始化和事件监听 */
 document.addEventListener("DOMContentLoaded", async () => {
 	// 初始化主题和设备视图

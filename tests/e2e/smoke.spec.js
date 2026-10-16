@@ -253,4 +253,69 @@ test.describe("smoke", () => {
 			result.theme === "dark" ? "#74ceff" : "#23d6e3",
 		);
 	});
+	test("saved dark theme is applied before the first paint", async ({
+		page,
+	}) => {
+		await page.addInitScript(() => {
+			if (!sessionStorage.getItem("seeded")) {
+				localStorage.setItem("theme", "dark");
+				sessionStorage.setItem("seeded", "1");
+			}
+		});
+		// 模块脚本迟迟不到，首帧也必须已经是暗色
+		let release;
+		const held = new Promise((resolve) => {
+			release = resolve;
+		});
+		await page.route("**/script.js", async (route) => {
+			await held;
+			await route.continue();
+		});
+		// 模块脚本会推迟 DOMContentLoaded，这里只等到文档解析出主区
+		await page.goto("/", { waitUntil: "commit" });
+		await page.locator(".main-content").waitFor({ state: "attached" });
+		const early = await page.evaluate(() => ({
+			theme: document.documentElement.dataset.theme,
+			scheme: getComputedStyle(document.documentElement).colorScheme,
+			loading: document.documentElement.classList.contains("app-loading"),
+			sidebar: getComputedStyle(document.querySelector(".sidebar")).opacity,
+			main: getComputedStyle(document.querySelector(".main-content")).opacity,
+		}));
+		expect(early).toEqual({
+			theme: "dark",
+			scheme: "dark",
+			loading: true,
+			sidebar: "0",
+			main: "0",
+		});
+		release();
+		await expect(page.locator("html")).not.toHaveClass(
+			/app-(loading|entering)/,
+		);
+	});
+
+	test("without a saved theme the page follows the system", async ({
+		page,
+	}) => {
+		await page.emulateMedia({ colorScheme: "dark" });
+		await openApp(page);
+		const html = page.locator("html");
+		await expect(html).toHaveAttribute("data-theme", "dark");
+		await page.emulateMedia({ colorScheme: "light" });
+		await expect(html).toHaveAttribute("data-theme", "light");
+	});
+
+	test("sidebar and main content are revealed together", async ({ page }) => {
+		await openApp(page);
+		const opacities = await page.evaluate(() =>
+			[".sidebar", ".main-content"].map(
+				(selector) =>
+					getComputedStyle(document.querySelector(selector)).opacity,
+			),
+		);
+		expect(opacities).toEqual(["1", "1"]);
+		await expect(page.locator("html")).not.toHaveClass(
+			/app-(loading|entering)/,
+		);
+	});
 });

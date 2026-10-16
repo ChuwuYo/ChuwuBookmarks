@@ -71,3 +71,21 @@
 	background: none;
 	z-index: 2;
 }
+
+/*
+ * 首屏：index.html 内联脚本给 <html> 加 .app-loading，主题和首屏内容就绪前侧栏、主区都不显示
+ * （背景色照常按主题绘制）；就绪后 reveal.js 换成 .app-entering，整页一起淡入。
+ */
+.app-loading body > * {
+	opacity: 0;
+}
+
+.app-entering body > * {
+	transition: opacity 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.app-entering body > * {
+		transition: none;
+	}
+}
