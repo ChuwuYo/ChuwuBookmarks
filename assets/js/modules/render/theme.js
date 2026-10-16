@@ -140,7 +140,12 @@ const getOrigin = () => {
  * 得到两个坐标系之间的偏移。桌面端偏移为 0。
  */
 const createProbe = () => {
+	// 连续快速切换时，上一次的 probe 可能还没清理；同名元素会让新的过渡放弃动画
+	for (const stale of document.querySelectorAll("[data-theme-origin-probe]")) {
+		stale.remove();
+	}
 	const probe = document.createElement("div");
+	probe.dataset.themeOriginProbe = "";
 	probe.setAttribute("aria-hidden", "true");
 	probe.style.cssText = `position:fixed;top:0;left:0;width:1px;height:1px;pointer-events:none;view-transition-name:${PROBE_NAME}`;
 	document.body.append(probe);
