@@ -97,8 +97,7 @@ bm-pagination .pagination-container[hidden] {
 	bottom: 20px;
 	z-index: 999;
 
-	/* 桌面端transform，使用CSS变量 */
-	transform: translateX(calc(-50% + var(--desktop-base-offset)));
+	transform: translateX(-50%);
 
 	/* 过渡效果 */
 	transition:
@@ -320,9 +319,15 @@ bm-pagination .pagination-container[hidden] {
 	text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-/* 侧边栏收起时回到视口中心 */
-.sidebar.collapsed + .main-content .pagination-container {
-	transform: translateX(-50%);
+/* 桌面端侧栏展开时对齐主内容中心，收起时回到视口中心 */
+@media screen and (min-width: 1024px) {
+	.pagination-container {
+		transform: translateX(calc(-50% + var(--desktop-base-offset)));
+	}
+
+	.sidebar.collapsed + .main-content .pagination-container {
+		transform: translateX(-50%);
+	}
 }
 
 /* 各设备的容器内边距 */
