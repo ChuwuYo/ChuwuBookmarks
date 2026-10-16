@@ -78,6 +78,7 @@
  */
 .app-loading body > * {
 	opacity: 0;
+	visibility: hidden;
 }
 
 .app-entering body > * {
