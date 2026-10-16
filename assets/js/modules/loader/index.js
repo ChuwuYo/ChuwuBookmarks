@@ -27,14 +27,26 @@ const state = {
 	hash: null,
 };
 let fullDataLoadPromise = null;
+/** 完整数据加载流程是否仍在进行（含尚未发出完整数据请求的阶段） */
+let fullDataPending = false;
+/** 等待完整数据的回调，加载成功或失败时统一结算 */
+let fullDataWaiters = [];
 
 const getFullBookmarksData = () => state.full;
 const isFullDataReady = () => state.full !== null;
 
-/** 等待完整数据加载完成；未在加载时立即返回当前值 */
+const settleFullData = (data) => {
+	fullDataPending = false;
+	const waiters = fullDataWaiters;
+	fullDataWaiters = [];
+	for (const resolve of waiters) resolve(data);
+};
+
+/** 等待完整数据加载完成；加载失败或未在加载时返回 null */
 const waitForFullData = () => {
 	if (state.full) return Promise.resolve(state.full);
-	return fullDataLoadPromise ?? Promise.resolve(null);
+	if (!fullDataPending) return Promise.resolve(null);
+	return new Promise((resolve) => fullDataWaiters.push(resolve));
 };
 
 /** 搜索所需的数据：完整数据就绪前使用已有的目录结构 */
@@ -61,6 +73,7 @@ const setFullData = ({ data, index, hash }) => {
 	state.full = data;
 	state.index = index ?? null;
 	state.hash = hash ?? null;
+	settleFullData(data);
 };
 
 /** 读取缓存并渲染，返回缓存内容 */
@@ -80,6 +93,7 @@ const renderFromCache = async (renderMainContent) => {
 
 const loadBookmarksData = async (renderMainContent) => {
 	removeLegacyCache();
+	fullDataPending = true;
 	const cached = await renderFromCache(renderMainContent);
 	const hasCachedData = Boolean(cached.bookmarks || cached.structure);
 
@@ -92,6 +106,7 @@ const loadBookmarksData = async (renderMainContent) => {
 	const fail = (error) => {
 		console.error("Worker failed to load data:", error);
 		stop();
+		cancelFullDataLoad();
 		if (hasCachedData) renderHome();
 		else setTimeout(() => showErrorMessage(new Error(error)), 10);
 	};
@@ -112,6 +127,7 @@ const loadBookmarksData = async (renderMainContent) => {
 			case "structure_not_found":
 				if (!worker.postMessage({ action: "loadData" })) {
 					console.warn("[Loader] Failed to send loadData message to worker");
+					fail("无法与数据工作线程通信");
 				}
 				break;
 			case "success":
@@ -141,19 +157,33 @@ const loadBookmarksData = async (renderMainContent) => {
 
 	if (!worker.postMessage({ action: "loadStructure" })) {
 		console.warn("[Loader] Failed to send loadStructure message to worker");
-		if (!hasCachedData) fail("无法与数据工作线程通信");
+		fail("无法与数据工作线程通信");
 	}
+};
+
+/** 取消进行中的后台加载：移除监听并结算等待者，之后可重新发起 */
+let cancelBackgroundLoad = null;
+const cancelFullDataLoad = () => {
+	cancelBackgroundLoad?.();
+	if (!state.full) settleFullData(null);
 };
 
 /** 后台加载完整数据，完成后更新缓存与侧边栏 */
 const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
-	if (fullDataLoadPromise && !state.full) return fullDataLoadPromise;
+	if (fullDataLoadPromise) return fullDataLoadPromise;
 
 	fullDataLoadPromise = new Promise((resolve) => {
-		const onMessage = (event) => {
-			const { status, data, index, hash, isFullData } = event.data;
-			if (!isFullData) return;
+		const finish = (data) => {
 			worker.removeMessageListener(onMessage);
+			cancelBackgroundLoad = null;
+			fullDataLoadPromise = null;
+			resolve(data);
+		};
+		cancelBackgroundLoad = () => finish(null);
+
+		function onMessage(event) {
+			const { status, data, index, hash, isFullData, error } = event.data;
+			if (!isFullData) return;
 
 			if (status === "success") {
 				setFullData({ data, index, hash });
@@ -161,18 +191,20 @@ const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 				clearWorkerCaches();
 				render(data, renderMainContent, { home: false });
 				onDone();
-				resolve(data);
+				finish(data);
 				return;
 			}
-			console.warn("Full data background load failed:", data);
-			resolve(null);
-		};
+			console.warn("Full data background load failed:", error);
+			onDone();
+			finish(null);
+			if (!state.full) settleFullData(null);
+		}
 
 		worker.addMessageListener(onMessage);
 		if (!worker.postMessage({ action: "loadFullData" })) {
 			console.warn("[Loader] Failed to request full data loading from worker");
-			worker.removeMessageListener(onMessage);
-			resolve(null);
+			finish(null);
+			if (!state.full) settleFullData(null);
 		}
 	});
 	return fullDataLoadPromise;

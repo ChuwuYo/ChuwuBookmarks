@@ -210,12 +210,14 @@ self.onmessage = async (event) => {
 				data: bookmarks,
 				index: index,
 				hash: hash,
-				isFullData: true,
+				// 仅后台补全请求打标记；回退加载（loadData）由主流程处理
+				isFullData: action === ACTIONS.LOAD_FULL_DATA,
 			});
 		} catch (error) {
 			self.postMessage({
 				status: "error",
 				error: `Failed to load or parse bookmarks from ${bookmarksUrl}: ${error.message}`,
+				isFullData: action === ACTIONS.LOAD_FULL_DATA,
 			});
 		}
 	}
