@@ -12,7 +12,6 @@ import { renderHome } from "../render/home.js";
 import { showErrorMessage, showLoadingMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
-import { clearWorkerCaches } from "../search/index.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
 
@@ -22,10 +21,6 @@ const state = {
 	data: null,
 	/** 完整书签数据 */
 	full: null,
-	/** 扁平搜索索引 */
-	index: null,
-	/** 完整数据哈希，用作搜索缓存键 */
-	hash: null,
 };
 let fullDataLoadPromise = null;
 /** 完整数据加载流程是否仍在进行（含尚未发出完整数据请求的阶段） */
@@ -50,12 +45,8 @@ const waitForFullData = () => {
 	return new Promise((resolve) => fullDataWaiters.push(resolve));
 };
 
-/** 搜索所需的数据：完整数据就绪前使用已有的目录结构 */
-const getSearchPayload = () => ({
-	bookmarks: state.full ?? state.data ?? [],
-	index: state.full ? state.index : null,
-	indexHash: state.full ? state.hash : null,
-});
+/** 搜索使用的书签树：完整数据就绪前使用已有的目录结构 */
+const getSearchSource = () => state.full ?? state.data ?? [];
 
 const showLoadingIndicator = () => {
 	const content = document.getElementById("content");
@@ -71,10 +62,8 @@ const render = (data, renderMainContent, { home = true } = {}) => {
 	revealApp();
 };
 
-const setFullData = ({ data, index, hash }) => {
+const setFullData = ({ data }) => {
 	state.full = data;
-	state.index = index ?? null;
-	state.hash = hash ?? null;
 	settleFullData(data);
 };
 
@@ -114,7 +103,7 @@ const loadBookmarksData = async (renderMainContent) => {
 	};
 
 	function onMessage(event) {
-		const { status, data, error, hash, index, isFullData } = event.data;
+		const { status, data, error, hash, isFullData } = event.data;
 		// 后台完整数据由 loadFullDataInBackground 处理
 		if (isFullData) return;
 
@@ -134,10 +123,9 @@ const loadBookmarksData = async (renderMainContent) => {
 				break;
 			case "success":
 				stop();
-				setFullData({ data, index, hash });
+				setFullData({ data });
 				if (hash !== cached.bookmarks?.hash) {
-					writeCache("bookmarks", { hash, data, index });
-					clearWorkerCaches();
+					writeCache("bookmarks", { hash, data });
 					render(data, renderMainContent);
 				} else if (!hasCachedData) {
 					render(data, renderMainContent);
@@ -186,13 +174,12 @@ const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 		cancelBackgroundLoad = () => finish(null);
 
 		function onMessage(event) {
-			const { status, data, index, hash, isFullData, error } = event.data;
+			const { status, data, hash, isFullData, error } = event.data;
 			if (!isFullData) return;
 
 			if (status === "success") {
-				setFullData({ data, index, hash });
-				writeCache("bookmarks", { hash, data, index });
-				clearWorkerCaches();
+				setFullData({ data });
+				writeCache("bookmarks", { hash, data });
 				render(data, renderMainContent, { home: false });
 				onDone();
 				finish(data);
@@ -219,7 +206,7 @@ const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 
 export {
 	getFullBookmarksData,
-	getSearchPayload,
+	getSearchSource,
 	isFullDataReady,
 	loadBookmarksData,
 	showErrorMessage,
