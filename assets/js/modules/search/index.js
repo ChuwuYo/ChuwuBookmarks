@@ -103,8 +103,17 @@ const initSearchWorker = (renderMainContent) => {
 	dataWorkerWrapper.addMessageListener(onDataMessage);
 };
 
+/** 每次发起或取消搜索时递增，用于丢弃已过期的延迟搜索 */
+let searchGeneration = 0;
+
+/** 使尚在等待完整数据的搜索失效（清空搜索框、返回主页时调用） */
+const cancelPendingSearch = () => {
+	searchGeneration++;
+};
+
 const postSearchToWorker = (keyword, useCache = true) => {
 	if (!isWorkerSupported()) return null;
+	const generation = ++searchGeneration;
 
 	const post = () => {
 		const payload = getSearchPayload();
@@ -122,16 +131,23 @@ const postSearchToWorker = (keyword, useCache = true) => {
 
 	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
 	if (!isFullDataReady()) {
-		waitForFullData().then(post);
+		waitForFullData().then(() => {
+			const current = document.getElementById("search-input")?.value.trim();
+			if (generation !== searchGeneration) return;
+			if (current !== undefined && current !== keyword) return;
+			post();
+		});
 		return true;
 	}
 	return post();
 };
 
 const createSearchHandler = () => {
-	// 仅在 handler 创建时根据缓存的数据量与设备类型计算防抖时长，避免每次输入重算导致抖动
-	const payload = getSearchPayload();
-	const bookmarksCount = (payload.index || payload.bookmarks || []).length || 0;
+	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
+	const getBookmarksCount = () => {
+		const payload = getSearchPayload();
+		return (payload.index || payload.bookmarks || []).length || 0;
+	};
 
 	const computeDebounceMsSafe = (count) => {
 		const {
@@ -168,11 +184,10 @@ const createSearchHandler = () => {
 		}
 	};
 
-	const debounceMs = computeDebounceMsSafe(bookmarksCount);
-
-	return debounce((event) => {
+	const runSearch = (event) => {
 		const keyword = event.target.value.trim();
 		if (!keyword) {
+			cancelPendingSearch();
 			// 搜索框为空时返回主页，不重新渲染侧边栏
 			renderHome();
 			// 重置分页状态
@@ -217,7 +232,19 @@ const createSearchHandler = () => {
 				content.appendChild(errorMessage);
 			}
 		}
-	}, debounceMs);
+	};
+
+	let debounceMs = 0;
+	let debounced = null;
+	return (event) => {
+		const ms = computeDebounceMsSafe(getBookmarksCount());
+		if (!debounced || ms !== debounceMs) {
+			debounced?.cancel();
+			debounceMs = ms;
+			debounced = debounce(runSearch, ms);
+		}
+		debounced(event);
+	};
 };
 
 /**
