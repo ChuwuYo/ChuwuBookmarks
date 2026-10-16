@@ -102,6 +102,7 @@ const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
 const DURATION = { expand: 600, collapse: 500 };
 const ENABLE_TRANSITIONS_DELAY = 500;
 const SAFETY_TIMEOUT = 2000;
+const PROBE_NAME = "theme-origin-probe";
 let switchId = 0;
 
 const prefersReducedMotion = () =>
@@ -130,6 +131,32 @@ const getOrigin = () => {
 	if (!target) return { x: window.innerWidth / 2, y: 0 };
 	const rect = target.getBoundingClientRect();
 	return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+};
+
+/**
+ * 视口左上角在快照容器（snapshot containing block）中的位置。
+ * 手机上快照容器包含可收起的地址栏，原点和视口不同；getBoundingClientRect 是视口坐标，
+ * 直接用会让圆心偏移。用一个固定在视口左上角的命名元素，读它的 ::view-transition-group 位移，
+ * 得到两个坐标系之间的偏移。桌面端偏移为 0。
+ */
+const createProbe = () => {
+	const probe = document.createElement("div");
+	probe.setAttribute("aria-hidden", "true");
+	probe.style.cssText = `position:fixed;top:0;left:0;width:1px;height:1px;pointer-events:none;view-transition-name:${PROBE_NAME}`;
+	document.body.append(probe);
+	return probe;
+};
+
+const getProbeOffset = () => {
+	const { transform } = getComputedStyle(
+		document.documentElement,
+		`::view-transition-group(${PROBE_NAME})`,
+	);
+	if (!transform || transform === "none" || typeof DOMMatrix !== "function") {
+		return { x: 0, y: 0 };
+	}
+	const matrix = new DOMMatrix(transform);
+	return { x: matrix.e, y: matrix.f };
 };
 
 /** 以快照自身尺寸的百分比表示圆，避免不同浏览器对 px 与设备像素比的解释差异 */
@@ -161,6 +188,7 @@ const toggleTheme = () => {
 	const circle = !prefersReducedMotion();
 	const reverse = next === "light";
 	const origin = circle ? getOrigin() : null;
+	const probe = circle ? createProbe() : null;
 	root.classList.toggle(CIRCLE_CLASS, circle);
 	root.classList.toggle(REVERSE_CLASS, circle && reverse);
 	void root.offsetLeft; // 先让类名生效，再拍旧快照
@@ -181,7 +209,9 @@ const toggleTheme = () => {
 				const box = getComputedStyle(root, pseudoElement);
 				const width = Number.parseFloat(box.width) || window.innerWidth;
 				const height = Number.parseFloat(box.height) || window.innerHeight;
-				const { x, y } = origin;
+				const offset = getProbeOffset();
+				const x = origin.x + offset.x;
+				const y = origin.y + offset.y;
 				const radius = Math.hypot(
 					Math.max(x, width - x),
 					Math.max(y, height - y),
@@ -208,6 +238,7 @@ const toggleTheme = () => {
 		.finally(() => {
 			clearTimeout(safety);
 			clip?.cancel();
+			probe?.remove();
 			if (!isCurrent()) return;
 			setGsapPaused(false);
 			root.classList.remove(SWITCH_CLASS, CIRCLE_CLASS, REVERSE_CLASS);
