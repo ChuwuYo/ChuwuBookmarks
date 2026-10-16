@@ -11,9 +11,13 @@
 
 ```
 assets/components/<name>/
-  <name>.js    # customElements.define，仅依赖浏览器 API 与同目录文件
-  <name>.css   # 只引用设计令牌（CSS 变量），不写死颜色
+  <name>.js    # customElements.define，仅依赖浏览器 API、同目录文件与 bm-icon
+  <name>.css   # 颜色取自设计令牌（CSS 变量），不在规则里写死
 ```
+
+`<bm-icon>` 是唯一的共享依赖：`bm-card` 与 `bm-breadcrumbs` 通过
+`../bm-icon/bm-icon.js` 创建图标，复制这两个组件时需连同 `bm-icon/` 目录与
+`assets/images/icons.svg` 一起复制。其余组件可单独复制。
 
 组件 CSS 由 `styles.css` 统一 `@import`；组件 JS 由 `assets/components/index.js` 统一注册。
 
@@ -93,6 +97,10 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 
 尺寸变量：`--pagination-button-size`、`--pagination-spacing`、`--pagination-font-size`、
 `--pagination-button-padding`（移动端 6px，补足 44px 触控区域）。
+
+例外：分页沿用旧版公开的 `--pagination-*` 变量名（不改名，避免破坏已有的自定义样式），
+并在 `bm-pagination.css` 的 `:root` 中用 `rgba(...)` 定义自身的颜色与阴影令牌；
+省略号的文字阴影仍直接写在规则中。
 
 ## `<bm-breadcrumbs>`
 
