@@ -47,6 +47,29 @@ test.describe("smoke", () => {
 		await expect(page.locator(".home-message")).toBeVisible();
 	});
 
+	test("folder opened before full data loads shows its bookmarks", async ({
+		page,
+	}, testInfo) => {
+		await openApp(page, "/", undefined, { bookmarksDelay: 2500 });
+		await openSidebarFolder(page, testInfo, "开发");
+		if (isMobile(testInfo)) await closeSidebar(page);
+		await expect(page.locator("#content .bookmark")).toHaveCount(2, {
+			timeout: 10_000,
+		});
+		await expect(page.locator(".folder-error")).toHaveCount(0);
+	});
+
+	test("bookmarks load when structure.json is missing", async ({ page }) => {
+		await openApp(page, "/", undefined, { structure: null });
+		await expect(page.locator("#sidebar-folders .folder")).toHaveCount(4);
+	});
+
+	test("search restores the page number from the URL", async ({ page }) => {
+		await openApp(page, "/?q=demo&page=3", undefined, { waitForHome: false });
+		await expect(page.locator(".pagination-page.active")).toHaveText("3");
+		await expect(page.locator(".search-result-item")).toHaveCount(5);
+	});
+
 	test("search shows results with pagination", async ({ page }) => {
 		await openApp(page);
 		await page.locator("#search-input").fill("demo");
@@ -175,6 +198,11 @@ test.describe("smoke", () => {
 			.locator(".home-message")
 			.evaluate((el) => getComputedStyle(el).opacity);
 		expect(Number(opacity)).toBe(1);
+		// GSAP 时间线被加速到几乎瞬时完成
+		const timeScale = await page.evaluate(() =>
+			window.gsap.globalTimeline.timeScale(),
+		);
+		expect(timeScale).toBeGreaterThan(1);
 	});
 
 	test("theme toggle switches and persists", async ({ page }) => {

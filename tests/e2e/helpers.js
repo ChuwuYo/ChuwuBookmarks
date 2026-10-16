@@ -7,29 +7,40 @@ const fixture = (name) =>
 /**
  * Serve fixture data instead of the deployed bookmarks, block third-party
  * requests (favicons, analytics) and open the home page.
+ *
+ * Options: `structure: null` answers structure.json with 404;
+ * `bookmarksDelay` holds bookmarks.json back for that many milliseconds;
+ * `waitForHome: false` skips waiting for the home text (e.g. a search URL).
  */
 export async function openApp(
 	page,
 	path = "/",
 	bookmarks = fixture("bookmarks.json"),
+	{
+		structure = fixture("structure.json"),
+		bookmarksDelay = 0,
+		waitForHome = true,
+	} = {},
 ) {
 	await page.route("**/structure.json", (route) =>
-		route.fulfill({
-			contentType: "application/json",
-			body: fixture("structure.json"),
-		}),
+		structure === null
+			? route.fulfill({ status: 404, body: "Not found" })
+			: route.fulfill({ contentType: "application/json", body: structure }),
 	);
-	await page.route("**/bookmarks.json", (route) =>
-		route.fulfill({
+	await page.route("**/bookmarks.json", async (route) => {
+		if (bookmarksDelay) {
+			await new Promise((resolve) => setTimeout(resolve, bookmarksDelay));
+		}
+		await route.fulfill({
 			contentType: "application/json",
 			body: bookmarks,
-		}),
-	);
+		});
+	});
 	await page.route(/^https?:\/\/(?!(?:127\.0\.0\.1|localhost)[:/])/, (route) =>
 		route.abort(),
 	);
 	await page.goto(path);
-	await page.locator(".home-message .chinese-text").waitFor();
+	if (waitForHome) await page.locator(".home-message .chinese-text").waitFor();
 	await settle(page);
 }
 
