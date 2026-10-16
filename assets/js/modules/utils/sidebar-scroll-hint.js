@@ -1,66 +1,54 @@
 /**
- * 侧边栏滚动提示器模块
- * 简单检测侧边栏是否需要滚动，并显示向下滚动提示
+ * 侧边栏滚动提示
+ *
+ * 侧边栏内容超出可视高度且没滚到底时，在右下角显示向下的小三角。
+ *
+ * 侧边栏本身高度固定，往里面插入文件夹、展开子文件夹、字体加载完成都只改变它的
+ * scrollHeight，不会改变它自身的尺寸，也没有任何事件通知。所以除了观察侧边栏，还要用
+ * ResizeObserver 观察里面的内容（头部和 #sidebar-folders）：内容高度一变就重新判断。
+ * 同一帧内的多次触发合并成一次检查。
  */
 
-// 模块级变量
+const AT_BOTTOM_TOLERANCE = 2;
+
 let initialized = false;
 let sidebar = null;
 let hintElement = null;
-let mutationObserver = null;
-let resizeObserver = null;
+let frame = 0;
 
-/**
- * 防抖函数 - 延迟执行，避免高频触发
- */
-const debounce = (func, wait) => {
-	let timeout;
-	return function executedFunction(...args) {
-		const later = () => {
-			clearTimeout(timeout);
-			func(...args);
-		};
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
-};
-
-// 绑定的事件处理函数引用
-const boundCheckScrollable = () => checkScrollable();
-const debouncedCheckScrollable = debounce(boundCheckScrollable, 150); // 防抖处理resize事件
-
-/**
- * 检查侧边栏是否可滚动并更新提示显示
- */
-function checkScrollable() {
+/** 侧边栏是否可滚动且未到底，据此显示或隐藏提示 */
+const checkScrollable = () => {
+	frame = 0;
 	if (!sidebar || !hintElement) return;
 
-	// 侧边栏折叠时隐藏提示
 	if (sidebar.classList.contains("collapsed")) {
 		hintElement.classList.remove("visible");
 		return;
 	}
 
-	const scrollHeight = sidebar.scrollHeight;
-	const clientHeight = sidebar.clientHeight;
-	const scrollTop = sidebar.scrollTop;
-
-	// 如果内容超出容器高度且未滚动到底部，显示提示
+	const { scrollHeight, clientHeight, scrollTop } = sidebar;
 	const needsScroll = scrollHeight > clientHeight;
-	const isAtBottom = scrollTop >= scrollHeight - clientHeight - 2; // 容差改为2px
+	const isAtBottom =
+		scrollTop >= scrollHeight - clientHeight - AT_BOTTOM_TOLERANCE;
+	hintElement.classList.toggle("visible", needsScroll && !isAtBottom);
+};
 
-	if (needsScroll && !isAtBottom) {
-		hintElement.classList.add("visible");
-	} else {
-		hintElement.classList.remove("visible");
+const scheduleCheck = () => {
+	if (!frame) frame = requestAnimationFrame(checkScrollable);
+};
+
+/** 观察侧边栏及其内容的尺寸；<bm-sidebar> 是 display: contents，没有盒子，观察它的子元素 */
+const observeSizes = () => {
+	const observer = new ResizeObserver(scheduleCheck);
+	observer.observe(sidebar);
+	for (const element of sidebar.querySelectorAll(
+		".sidebar-header, #sidebar-folders",
+	)) {
+		observer.observe(element);
 	}
-}
+};
 
-/**
- * 初始化侧边栏滚动提示器
- */
-function initSidebarScrollHint() {
-	// 防止重复初始化
+const initSidebarScrollHint = () => {
 	if (initialized) return;
 
 	sidebar = document.querySelector(".sidebar");
@@ -69,68 +57,23 @@ function initSidebarScrollHint() {
 		return;
 	}
 
-	// 创建提示器元素
 	hintElement = document.createElement("div");
 	hintElement.className = "sidebar-scroll-hint";
 	hintElement.setAttribute("aria-hidden", "true");
 	document.body.appendChild(hintElement);
 
-	// 监听滚动事件
-	sidebar.addEventListener("scroll", boundCheckScrollable, { passive: true });
+	sidebar.addEventListener("scroll", scheduleCheck, { passive: true });
 
-	// 监听窗口大小变化（使用防抖处理）
-	window.addEventListener("resize", debouncedCheckScrollable);
-
-	// 监听侧边栏折叠状态变化
-	mutationObserver = new MutationObserver(boundCheckScrollable);
-	mutationObserver.observe(sidebar, {
+	// 折叠/展开侧边栏
+	new MutationObserver(scheduleCheck).observe(sidebar, {
 		attributes: true,
 		attributeFilter: ["class"],
 	});
 
-	// 使用 ResizeObserver 监测侧边栏尺寸变化（包括缩放导致的变化）
-	resizeObserver = new ResizeObserver(boundCheckScrollable);
-	resizeObserver.observe(sidebar);
-
-	// 初始检查
-	setTimeout(checkScrollable, 100);
+	// ResizeObserver 开始观察后会先回调一次，作为初始检查
+	observeSizes();
 
 	initialized = true;
-}
-
-/**
- * 销毁侧边栏滚动提示器
- */
-function _destroySidebarScrollHint() {
-	if (!initialized) return;
-
-	// 移除事件监听器
-	if (sidebar) {
-		sidebar.removeEventListener("scroll", boundCheckScrollable);
-	}
-	window.removeEventListener("resize", debouncedCheckScrollable);
-
-	// 断开 MutationObserver
-	if (mutationObserver) {
-		mutationObserver.disconnect();
-		mutationObserver = null;
-	}
-
-	// 断开 ResizeObserver
-	if (resizeObserver) {
-		resizeObserver.disconnect();
-		resizeObserver = null;
-	}
-
-	// 移除DOM元素
-	if (hintElement?.parentNode) {
-		hintElement.parentNode.removeChild(hintElement);
-	}
-
-	// 重置状态
-	sidebar = null;
-	hintElement = null;
-	initialized = false;
-}
+};
 
 export { initSidebarScrollHint };
