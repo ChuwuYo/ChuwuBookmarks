@@ -92,7 +92,22 @@ const updateHistory = (page) => {
 const resetSearchPagination = () => {
 	for (const id of timers) clearTimeout(id);
 	timers.clear();
-	document.getElementById("content")?.classList.remove("page-changing");
+	document
+		.getElementById("content")
+		?.classList.remove(
+			"page-changing",
+			"search-results-fade",
+			"search-results-fade-dim",
+			"search-results-fade-full",
+		);
+};
+
+/** 地址栏中的页码，缺失或非法时为第一页，并限制在 [1, total] 内 */
+const pageFromUrl = (total) => {
+	const raw = new URL(window.location).searchParams.get("page");
+	const page = Number.parseInt(raw ?? "", 10);
+	if (!Number.isFinite(page) || page < 1) return 1;
+	return Math.min(page, total);
 };
 
 const renderSearchResults = (results, renderMainContent) => {
@@ -114,13 +129,18 @@ const renderSearchResults = (results, renderMainContent) => {
 	const container = document.createElement("div");
 	container.className = "results-container";
 	content.appendChild(container);
-	renderPage(container, sorted, 1, renderMainContent);
 
 	const total = Math.ceil(sorted.length / ITEMS_PER_PAGE);
+	const page = pageFromUrl(total);
+	renderPage(container, sorted, page, renderMainContent);
+	if (page > 1) updateHistory(page);
+	else if (new URL(window.location).searchParams.has("page")) updateHistory(1);
+
 	if (total > 1) {
 		const pagination = document.createElement("bm-pagination");
 		pagination.setAttribute("label", "搜索结果分页导航");
 		pagination.setAttribute("total", String(total));
+		pagination.setAttribute("current", String(page));
 		pagination.addEventListener("bm-page-change", ({ detail: { page } }) => {
 			playPageTransition(content);
 			renderPage(container, sorted, page, renderMainContent);
