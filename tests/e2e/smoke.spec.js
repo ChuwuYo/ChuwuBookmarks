@@ -191,4 +191,38 @@ test.describe("smoke", () => {
 		await page.reload();
 		await expect(html).toHaveAttribute("data-theme", next);
 	});
+
+	test("theme switch changes colours in one step without CSS transitions", async ({
+		page,
+	}) => {
+		await openApp(page);
+		const result = await page.evaluate(async () => {
+			const icon = document.querySelector(".home-icon");
+			const seen = new Set([getComputedStyle(icon).color]);
+			document.getElementById("theme-toggle").click();
+			const start = performance.now();
+			await new Promise((resolve) => {
+				const tick = (now) => {
+					seen.add(getComputedStyle(icon).color);
+					if (now - start < 800) requestAnimationFrame(tick);
+					else resolve();
+				};
+				requestAnimationFrame(tick);
+			});
+			await new Promise((resolve) => setTimeout(resolve, 600));
+			return {
+				colours: seen.size,
+				classes: document.documentElement.className,
+				themeColor: document
+					.querySelector('meta[name="theme-color"]')
+					.getAttribute("content"),
+				theme: document.documentElement.dataset.theme,
+			};
+		});
+		expect(result.colours).toBe(2);
+		expect(result.classes).not.toContain("theme-switching");
+		expect(result.themeColor).toBe(
+			result.theme === "dark" ? "#74ceff" : "#23d6e3",
+		);
+	});
 });

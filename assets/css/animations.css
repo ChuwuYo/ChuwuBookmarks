@@ -50,3 +50,22 @@
 		scroll-behavior: auto !important;
 	}
 }
+
+/* 主题切换：切换期间暂停全站过渡（主题按钮自身的日出/日落动画除外） */
+.theme-switching *:not(.theme-toggle, .theme-toggle *),
+.theme-switching *:not(.theme-toggle, .theme-toggle *)::before,
+.theme-switching *:not(.theme-toggle, .theme-toggle *)::after {
+	transition: none !important;
+}
+
+/* 圆形展开/收缩由 JS 驱动，去掉浏览器默认的交叉淡入 */
+.theme-switching-circle::view-transition-old(root),
+.theme-switching-circle::view-transition-new(root) {
+	animation: none;
+}
+
+/* 切回亮色：旧（暗色）快照放在上层收缩 */
+.theme-switching-reverse::view-transition-old(root) {
+	background: none;
+	z-index: 2;
+}
