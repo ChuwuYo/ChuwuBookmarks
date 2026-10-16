@@ -2,7 +2,7 @@
  * 主页渲染模块
  */
 
-import { getCenteringManager } from "../utils/centering.js";
+import site from "../../../../site.config.js";
 import { getDeviceType } from "./device.js";
 import { resetSearchPagination } from "./search.js";
 import { animationConfig } from "./theme.js";
@@ -36,14 +36,14 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 		scale: 0.8,
 		x: -50,
 		transformOrigin: "center center",
-		textContent: "初五的书签",
+		textContent: site.title,
 	});
 	gsap.set(englishText, {
 		opacity: 0,
 		scale: 0.8,
 		x: -50,
 		transformOrigin: "center center",
-		textContent: "Chuwu's Bookmarks",
+		textContent: site.subtitle,
 	});
 };
 
@@ -85,9 +85,20 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 };
 
 // 创建字符元素
+/** 按字素簇切分，emoji 与组合字符不会被拆开 */
+const splitGraphemes = (text) => {
+	if (typeof Intl !== "undefined" && Intl.Segmenter) {
+		const segmenter = new Intl.Segmenter(undefined, {
+			granularity: "grapheme",
+		});
+		return Array.from(segmenter.segment(text), ({ segment }) => segment);
+	}
+	return Array.from(text);
+};
+
 const createCharacterSpans = (chars) => {
 	const fragment = document.createDocumentFragment();
-	const spans = chars.split("").map((char) => {
+	const spans = splitGraphemes(chars).map((char) => {
 		const charSpan = document.createElement("span");
 		charSpan.textContent = char;
 		charSpan.className = "home-char";
@@ -187,33 +198,18 @@ const renderHome = () => {
 		homeMessage.classList.add("mobile-home-message");
 	}
 
-	// 获取统一居中管理器并注册主页消息
-	const centeringManager = getCenteringManager();
-
-	// 确保管理器已初始化
-	if (!centeringManager.isInitialized) {
-		centeringManager.initialize();
-	}
-
-	// 注册主页消息到统一居中系统（使用预定义配置）
-	// 主页消息配置已在ELEMENT_CONFIGS中预定义，这里只需要确保元素存在
-	requestAnimationFrame(() => {
-		// 强制更新主页消息位置
-		centeringManager.updateSingleElement("home-message");
-	});
-
 	setupHomeTextAnimation(homeMessage, chineseText, englishText);
 	createHomeTextTimeline(homeMessage, chineseText, englishText);
 
 	requestAnimationFrame(() => {
 		const { fragment: chineseFragment, spans: chineseSpans } =
-			createCharacterSpans("初五的书签");
+			createCharacterSpans(site.title);
 		chineseText.textContent = "";
 		chineseText.appendChild(chineseFragment);
 		setupChineseCharacterAnimation(chineseSpans);
 
 		const { fragment: englishFragment, spans: englishSpans } =
-			createCharacterSpans("Chuwu's Bookmarks");
+			createCharacterSpans(site.subtitle);
 		englishText.textContent = "";
 		englishText.appendChild(englishFragment);
 		setupEnglishCharacterAnimation(englishSpans);

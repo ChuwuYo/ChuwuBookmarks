@@ -1,0 +1,4 @@
+/* <bm-sidebar>：不参与布局，头部与导航直接排入 .sidebar */
+bm-sidebar {
+	display: contents;
+}

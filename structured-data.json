@@ -1,5 +1,5 @@
 {
-	"_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
+	"_comment": "模板配置说明：请根据你的部署环境修改以下字段。",
 	"required_fields": ["name", "url", "author", "creator"],
 	"optional_fields": [
 		"description",

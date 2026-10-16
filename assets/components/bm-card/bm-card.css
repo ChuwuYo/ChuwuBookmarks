@@ -1,0 +1,4 @@
+/* <bm-card>：块级条目，具体外观由 .folder / .bookmark 样式决定 */
+bm-card {
+	display: block;
+}

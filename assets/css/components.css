@@ -18,6 +18,24 @@
 	font-size: 12px;
 }
 
+/* 搜索框内的放大镜图标，仅在显示占位符时出现 */
+.search-icon {
+	position: absolute;
+	left: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	--bm-icon-size: 1em;
+	pointer-events: none;
+}
+
+#search-input:placeholder-shown {
+	padding-left: calc(8px + 1.3em);
+}
+
+#search-input:not(:placeholder-shown) ~ .search-icon {
+	display: none;
+}
+
 #search-input:not(:placeholder-shown) ~ .shortcut-hint {
 	opacity: 0;
 	transition: opacity var(--duration-base) var(--ease-default);
@@ -591,4 +609,14 @@ button.breadcrumb-item:focus-visible {
 	outline-offset: 2px;
 	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
 	border-radius: 4px;
+}
+
+/* 图标占位与原 emoji 字形宽度一致，避免文字位移 */
+.folder-icon > bm-icon {
+	width: 1.2em;
+}
+
+.breadcrumb-icon > bm-icon {
+	--bm-icon-size: 1.15em;
+	width: 1.3em;
 }

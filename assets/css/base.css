@@ -1,5 +1,7 @@
 /* 基础样式：CSS变量、字体、重置样式 */
 :root {
+	/* 颜色令牌用 light-dark() 同时声明亮/暗两套值，由 color-scheme 决定取哪一个 */
+	color-scheme: light;
 	--transition-normal:
 		background-color var(--duration-short) ease-out,
 		color var(--duration-short) ease-out;
@@ -11,14 +13,14 @@
 	--ease-in-out-cubic: var(--cubic-bezier);
 	--ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	--ease-default: ease-out;
-	--bg-color: #fcfced;
-	--sidebar-bg: #e2f5f5;
-	--text-color: #0e141a;
-	--link-color: #23d6e3;
-	--hover-bg: #dfe6e9;
-	--button-bg: #a1dcf5;
-	--button-hover: #faeaf4;
-	--header-bg: #88dcfa;
+	--bg-color: light-dark(#fcfced, #1c1c1c);
+	--sidebar-bg: light-dark(#e2f5f5, #161515);
+	--text-color: light-dark(#0e141a, #f9f1d5e6);
+	--link-color: light-dark(#23d6e3, #74ceff);
+	--hover-bg: light-dark(#dfe6e9, #2d3436);
+	--button-bg: light-dark(#a1dcf5, #5d6687);
+	--button-hover: light-dark(#faeaf4, rgb(201, 207, 159));
+	--header-bg: light-dark(#88dcfa, #ffffff4b);
 	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
 	--shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
 	--shadow-lg: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -29,35 +31,30 @@
 		4px 0 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
 	--theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
 
-	/* 统一居中系统变量 */
-	--universal-centering-offset: 0px;
+	/* 桌面端侧栏展开时内容中心的水平偏移（侧栏宽度的一半） */
 	--desktop-base-offset: 110px;
 
 	/* 自定义滚动条指示器变量 */
-	--scroll-indicator-bg: rgba(161, 220, 245, 0.3);
+	--scroll-indicator-bg: light-dark(
+		rgba(161, 220, 245, 0.3),
+		rgba(93, 102, 135, 0.3)
+	);
 	/* 基于 --button-bg 的半透明版本 */
-	--scroll-indicator-thumb: #23d6e3;
+	--scroll-indicator-thumb: light-dark(#23d6e3, #74ceff);
 	/* 使用 --link-color */
-	--scroll-indicator-thumb-hover: #88dcfa;
+	--scroll-indicator-thumb-hover: light-dark(#88dcfa, #ffffff4b);
 	/* 使用 --header-bg */
 	--scroll-indicator-width: 5px;
 	--scroll-indicator-border-radius: 4px;
 
 	/* 主页按钮变量 */
-	--home-button-bg-start: #9ee9f4d8;
-	--home-button-bg-end: #d1d1f3a5;
-	--home-button-text: #333;
+	--home-button-bg-start: light-dark(#9ee9f4d8, #5d6687d8);
+	--home-button-bg-end: light-dark(#d1d1f3a5, #3d4663a5);
+	--home-button-text: light-dark(#333, #f9f1d5e6);
 }
 
 :root[data-theme="dark"] {
-	--bg-color: #1c1c1c;
-	--sidebar-bg: #161515;
-	--text-color: #f9f1d5e6;
-	--link-color: #74ceff;
-	--hover-bg: #2d3436;
-	--button-bg: #5d6687;
-	--button-hover: rgb(201, 207, 159);
-	--header-bg: #ffffff4b;
+	color-scheme: dark;
 	--shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
 	--shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
 	--shadow-lg: 0 0 10px rgba(255, 255, 255, 0.2);
@@ -68,19 +65,6 @@
 	--button-shadow-hover:
 		4px 0 12px rgba(255, 255, 255, 0.25), 0 4px 6px rgba(255, 255, 255, 0.2);
 	--theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
-
-	/* 深色主题滚动条指示器变量 */
-	--scroll-indicator-bg: rgba(93, 102, 135, 0.3);
-	/* 基于 --button-bg 的半透明版本 */
-	--scroll-indicator-thumb: #74ceff;
-	/* 使用 --link-color */
-	--scroll-indicator-thumb-hover: #ffffff4b;
-	/* 使用 --header-bg */
-
-	/* 暗色主题主页按钮变量 */
-	--home-button-bg-start: #5d6687d8;
-	--home-button-bg-end: #3d4663a5;
-	--home-button-text: #f9f1d5e6;
 }
 
 /* 字体定义 */
