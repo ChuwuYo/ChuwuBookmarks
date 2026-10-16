@@ -10,12 +10,12 @@
  *
  * 性能优化：
  * - 使用Web Worker进行搜索，避免阻塞主线程
- * - 搜索结果缓存，提升重复搜索的响应速度
+ * - 索引常驻 Worker，每次搜索只传关键词
  * - 防抖处理，避免频繁搜索请求
  */
 
 import {
-	getSearchPayload,
+	getSearchSource,
 	isFullDataReady,
 	waitForFullData,
 } from "../loader/index.js";
@@ -27,17 +27,83 @@ import {
 } from "../render/search.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
-import {
-	getDataWorkerWrapper,
-	getSearchWorkerWrapper,
-	isWorkerSupported,
-} from "../worker/index.js";
+import { getSearchWorkerWrapper, isWorkerSupported } from "../worker/index.js";
 
-// 清除所有Worker缓存
-const clearWorkerCaches = () => {
-	if (!isWorkerSupported()) return;
-	getSearchWorkerWrapper().postMessage({ action: "clearCache" });
+/**
+ * 可搜索条目：书签树的扁平列表，下标与 Worker 中的索引一一对应。
+ * 结果直接取自书签树的节点，点击文件夹结果与侧边栏进入的是同一个对象。
+ */
+const searchIndex = {
+	/** 构建索引时使用的书签树 */
+	source: null,
+	/** @type {{ node: object, parent: number }[]} parent 为父文件夹条目下标，-1 表示顶层 */
+	entries: [],
+	/** 已收到当前索引的 Worker 实例（Worker 出错重建后需要重新发送） */
+	worker: null,
 };
+
+const isFolder = (node) =>
+	node.type === "folder" || Array.isArray(node.children);
+
+const buildEntries = (tree) => {
+	const entries = [];
+	const walk = (nodes, parent) => {
+		for (const node of nodes) {
+			if (!node || typeof node !== "object") continue;
+			const position = entries.push({ node, parent }) - 1;
+			if (Array.isArray(node.children)) walk(node.children, position);
+		}
+	};
+	walk(Array.isArray(tree) ? tree : [], -1);
+	return entries;
+};
+
+/** 书签数据变化时重建条目列表 */
+const ensureEntries = () => {
+	const source = getSearchSource();
+	if (source !== searchIndex.source) {
+		searchIndex.source = source;
+		searchIndex.entries = buildEntries(source);
+		searchIndex.worker = null;
+	}
+	return searchIndex.entries;
+};
+
+/** 数据或 Worker 实例变化时重建并发送索引 */
+const syncIndex = (worker) => {
+	ensureEntries();
+	if (searchIndex.worker === worker) return true;
+	const items = searchIndex.entries.map(({ node }) => [
+		node.title ?? "",
+		node.url ?? "",
+	]);
+	if (!getSearchWorkerWrapper().postMessage({ action: "setIndex", items })) {
+		return false;
+	}
+	searchIndex.worker = worker;
+	return true;
+};
+
+/** 文件夹结果补上父级引用，面包屑才能显示完整路径 */
+const linkParents = (position) => {
+	let entry = searchIndex.entries[position];
+	while (entry) {
+		const parent = searchIndex.entries[entry.parent];
+		if (isFolder(entry.node)) entry.node.parent = parent?.node ?? null;
+		entry = parent;
+	}
+};
+
+const toResults = (positions) =>
+	positions.flatMap((position) => {
+		const entry = searchIndex.entries[position];
+		if (!entry) return [];
+		if (isFolder(entry.node)) linkParents(position);
+		return [entry.node];
+	});
+
+/** 每次发起或取消搜索时递增；Worker 返回的结果编号不是最新时直接丢弃 */
+let searchGeneration = 0;
 
 // 标记Worker是否已初始化
 let workersWired = false;
@@ -57,84 +123,37 @@ const initSearchWorker = (renderMainContent) => {
 	}
 	workersWired = true;
 
-	// 从统一的 Worker 管理模块获取搜索 Worker 包装器
-	const searchWorkerWrapper = getSearchWorkerWrapper();
-
-	// 定义搜索结果监听器
-	const onSearchMessage = (e) => {
-		const { action, results, message } = e.data;
-
-		switch (action) {
-			case "searchResults":
-				renderSearchResults(results, renderMainContent);
-				break;
-			case "cacheCleared":
-				// 缓存已清除，无需额外操作
-				break;
-			case "error":
-				console.error("[Search] Worker error:", message);
-				break;
+	getSearchWorkerWrapper().addMessageListener((e) => {
+		const { action, id, positions, message } = e.data;
+		if (action === "searchResults") {
+			if (id !== searchGeneration) return;
+			renderSearchResults(toResults(positions), renderMainContent);
+		} else if (action === "error") {
+			console.error("[Search] Worker error:", message);
 		}
-	};
-
-	// 注册搜索结果监听器
-	searchWorkerWrapper.addMessageListener(onSearchMessage);
-
-	// 从统一的 Worker 管理模块获取数据处理 Worker 包装器
-	const dataWorkerWrapper = getDataWorkerWrapper();
-
-	// 定义数据处理监听器
-	const onDataMessage = (e) => {
-		const { action, message } = e.data;
-
-		switch (action) {
-			case "processResult":
-			case "sortResult":
-			case "filterResult":
-				// 预留扩展点
-				break;
-			case "error":
-				console.error("[Search] Data worker error:", message);
-				break;
-		}
-	};
-
-	// 注册数据处理监听器
-	dataWorkerWrapper.addMessageListener(onDataMessage);
+	});
 };
 
-/** 每次发起或取消搜索时递增，用于丢弃已过期的延迟搜索 */
-let searchGeneration = 0;
-
-/** 使尚在等待完整数据的搜索失效（清空搜索框、返回主页时调用） */
+/** 使尚未返回的搜索失效（清空搜索框、返回主页时调用） */
 const cancelPendingSearch = () => {
 	searchGeneration++;
 };
 
-const postSearchToWorker = (keyword, useCache = true) => {
+const postSearchToWorker = (keyword) => {
 	if (!isWorkerSupported()) return null;
 	const generation = ++searchGeneration;
 
 	const post = () => {
-		const payload = getSearchPayload();
-		return getSearchWorkerWrapper().postMessage({
-			action: "search",
-			data: {
-				keyword,
-				bookmarks: payload.bookmarks,
-				index: payload.index,
-				indexHash: payload.indexHash,
-				useCache,
-			},
-		});
+		const wrapper = getSearchWorkerWrapper();
+		const worker = wrapper.getInstance();
+		if (!worker || !syncIndex(worker)) return false;
+		return wrapper.postMessage({ action: "search", id: generation, keyword });
 	};
 
 	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
 	if (!isFullDataReady()) {
 		waitForFullData().then(() => {
-			const current = document.getElementById("search-input")?.value.trim();
 			if (generation !== searchGeneration) return;
-			if (current !== undefined && current !== keyword) return;
 			post();
 		});
 		return true;
@@ -144,10 +163,7 @@ const postSearchToWorker = (keyword, useCache = true) => {
 
 const createSearchHandler = () => {
 	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
-	const getBookmarksCount = () => {
-		const payload = getSearchPayload();
-		return (payload.index || payload.bookmarks || []).length || 0;
-	};
+	const getBookmarksCount = () => ensureEntries().length;
 
 	const computeDebounceMsSafe = (count) => {
 		const {
@@ -237,6 +253,8 @@ const createSearchHandler = () => {
 	let debounceMs = 0;
 	let debounced = null;
 	return (event) => {
+		// 输入一变就让尚未返回的旧搜索失效（包括仍在等待完整数据的那次）
+		cancelPendingSearch();
 		const ms = computeDebounceMsSafe(getBookmarksCount());
 		if (!debounced || ms !== debounceMs) {
 			debounced?.cancel();
@@ -292,7 +310,6 @@ const triggerSearch = (keyword) => {
 };
 
 export {
-	clearWorkerCaches,
 	createSearchHandler,
 	initSearchWorker,
 	resetPaginationState,

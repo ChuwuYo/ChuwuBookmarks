@@ -149,31 +149,6 @@ class WorkerWrapper {
 		}
 	}
 
-	/**
-	 * 重启 Worker（终止后重新创建）
-	 * @returns {Worker|null}
-	 */
-	restart() {
-		this.terminate();
-		return this.getInstance();
-	}
-
-	/**
-	 * 获取当前状态
-	 * @returns {string}
-	 */
-	getState() {
-		return this._state;
-	}
-
-	/**
-	 * 检查 Worker 是否可用
-	 * @returns {boolean}
-	 */
-	isAvailable() {
-		return this._worker !== null && this._state !== WorkerState.TERMINATED;
-	}
-
 	// ========== 私有方法 ==========
 
 	_isWorkerSupported() {
@@ -222,77 +197,13 @@ const workers = {
 
 // ========== 公共 API ==========
 
-/**
- * 获取搜索 Worker 实例
- * @returns {Worker|null}
- */
-const getSearchWorker = () => workers.search.getInstance();
-
-/**
- * 获取数据处理 Worker 实例
- * @returns {Worker|null}
- */
-const getDataWorker = () => workers.data.getInstance();
-
-/**
- * 获取搜索 Worker 包装器（用于高级操作）
- * @returns {WorkerWrapper}
- */
+/** 搜索 Worker 包装器 */
 const getSearchWorkerWrapper = () => workers.search;
 
-/**
- * 获取数据 Worker 包装器（用于高级操作）
- * @returns {WorkerWrapper}
- */
+/** 数据 Worker 包装器 */
 const getDataWorkerWrapper = () => workers.data;
 
-/**
- * 终止搜索 Worker
- */
-const terminateSearchWorker = () => workers.search.terminate();
-
-/**
- * 终止数据处理 Worker
- */
-const terminateDataWorker = () => workers.data.terminate();
-
-/**
- * 终止所有 Worker
- */
-const terminateAllWorkers = () => {
-	workers.search.terminate();
-	workers.data.terminate();
-};
-
-/**
- * 重启所有 Worker
- */
-const restartAllWorkers = () => {
-	workers.search.restart();
-	workers.data.restart();
-};
-
-/**
- * 检查 Worker 支持情况
- * @returns {boolean}
- */
+/** 检查 Worker 支持情况 */
 const isWorkerSupported = () => typeof Worker !== "undefined";
 
-export {
-	getDataWorker,
-	getDataWorkerWrapper,
-	// Worker 实例获取
-	getSearchWorker,
-	// Worker 包装器获取（高级用法）
-	getSearchWorkerWrapper,
-	// 工具函数
-	isWorkerSupported,
-	restartAllWorkers,
-	terminateAllWorkers,
-	terminateDataWorker,
-	// 生命周期管理
-	terminateSearchWorker,
-	WORKER_PATHS,
-	// 常量导出
-	WorkerState,
-};
+export { getDataWorkerWrapper, getSearchWorkerWrapper, isWorkerSupported };
