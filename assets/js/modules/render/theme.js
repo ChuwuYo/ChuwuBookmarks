@@ -37,6 +37,9 @@ const syncThemeColor = (theme) => {
 
 const THEME_KEY = "theme";
 
+/** 本次会话中手动选择的主题；存储不可用时也能保住用户的选择 */
+let manualTheme = null;
+
 const readStoredTheme = () => {
 	try {
 		const theme = localStorage.getItem(THEME_KEY);
@@ -67,7 +70,7 @@ const initTheme = () => {
 	syncThemeColor(theme);
 
 	systemThemeQuery()?.addEventListener("change", () => {
-		if (readStoredTheme()) return;
+		if (manualTheme || readStoredTheme()) return;
 		const next = getSystemTheme();
 		// 与手动切换一样暂停全站过渡，颜色一步到位
 		root.classList.add(SWITCH_CLASS);
@@ -105,6 +108,7 @@ const prefersReducedMotion = () =>
 	window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 
 const applyTheme = (theme) => {
+	manualTheme = theme;
 	document.documentElement.setAttribute("data-theme", theme);
 	try {
 		localStorage.setItem(THEME_KEY, theme);

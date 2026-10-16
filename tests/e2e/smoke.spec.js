@@ -274,20 +274,25 @@ test.describe("smoke", () => {
 		// 模块脚本会推迟 DOMContentLoaded，这里只等到文档解析出主区
 		await page.goto("/", { waitUntil: "commit" });
 		await page.locator(".main-content").waitFor({ state: "attached" });
-		const early = await page.evaluate(() => ({
-			theme: document.documentElement.dataset.theme,
-			scheme: getComputedStyle(document.documentElement).colorScheme,
-			loading: document.documentElement.classList.contains("app-loading"),
-			sidebar: getComputedStyle(document.querySelector(".sidebar")).opacity,
-			main: getComputedStyle(document.querySelector(".main-content")).opacity,
-		}));
-		expect(early).toEqual({
-			theme: "dark",
-			scheme: "dark",
-			loading: true,
-			sidebar: "0",
-			main: "0",
-		});
+		// 样式表异步到达，轮询直到样式生效；模块脚本一直被拦着，结果反映的就是首帧状态
+		await expect
+			.poll(() =>
+				page.evaluate(() => ({
+					theme: document.documentElement.dataset.theme,
+					scheme: getComputedStyle(document.documentElement).colorScheme,
+					loading: document.documentElement.classList.contains("app-loading"),
+					sidebar: getComputedStyle(document.querySelector(".sidebar")).opacity,
+					main: getComputedStyle(document.querySelector(".main-content"))
+						.opacity,
+				})),
+			)
+			.toEqual({
+				theme: "dark",
+				scheme: "dark",
+				loading: true,
+				sidebar: "0",
+				main: "0",
+			});
 		release();
 		await expect(page.locator("html")).not.toHaveClass(
 			/app-(loading|entering)/,
