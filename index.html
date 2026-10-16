@@ -10,6 +10,31 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#23d6e3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#74ceff" media="(prefers-color-scheme: dark)" />
+    <!--
+      首帧主题：在样式表之前同步执行，渲染第一帧时 data-theme 已经确定，不会先亮后暗。
+      没有保存过主题时跟随系统。同时给 <html> 加 .app-loading，侧栏和主区先不显示，
+      等首屏渲染好后由 script.js 一起淡入；3 秒兜底，脚本出错时页面也不会一直空白。
+      逻辑须与 assets/js/modules/render/theme.js 中的 THEME_KEY / THEME_COLOR 保持一致。
+    -->
+    <script>
+        (() => {
+            const root = document.documentElement;
+            let theme = null;
+            try {
+                theme = localStorage.getItem("theme");
+            } catch {}
+            if (theme !== "light" && theme !== "dark") {
+                theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            root.setAttribute("data-theme", theme);
+            const color = theme === "dark" ? "#74ceff" : "#23d6e3";
+            for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+                meta.setAttribute("content", color);
+            }
+            root.classList.add("app-loading");
+            setTimeout(() => root.classList.remove("app-loading"), 3000);
+        })();
+    </script>
     <meta name="application-name" content="ChuwuBookmarks" />
 
     <!-- Open Graph / 社交媒体分享 -->

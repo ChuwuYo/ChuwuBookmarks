@@ -10,6 +10,7 @@
 
 import { renderHome } from "../render/home.js";
 import { showErrorMessage, showLoadingMessage } from "../render/message.js";
+import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { clearWorkerCaches } from "../search/index.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
@@ -67,6 +68,7 @@ const render = (data, renderMainContent, { home = true } = {}) => {
 	state.data = data;
 	renderSidebar(data, renderMainContent);
 	if (home) renderHome();
+	revealApp();
 };
 
 const setFullData = ({ data, index, hash }) => {
