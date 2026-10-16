@@ -6,6 +6,7 @@ import {
 	openApp,
 	openSidebarFolder,
 	settle,
+	sidebarStartsCollapsed,
 } from "./helpers.js";
 
 test.describe("smoke", () => {
@@ -322,5 +323,27 @@ test.describe("smoke", () => {
 		await expect(page.locator("html")).not.toHaveClass(
 			/app-(loading|entering)/,
 		);
+	});
+	test("sidebar scroll hint appears when folders render late", async ({
+		page,
+	}, testInfo) => {
+		// 矮视口让文件夹列表超出侧边栏；数据晚到，渲染发生在提示初始化之后
+		await page.setViewportSize({ width: 1280, height: 260 });
+		await openApp(page, "/", undefined, {
+			structure: null,
+			bookmarksDelay: 800,
+		});
+		if (sidebarStartsCollapsed(testInfo)) {
+			const collapsed = await page
+				.locator(".sidebar")
+				.evaluate((el) => el.classList.contains("collapsed"));
+			if (collapsed) await page.locator("#toggle-sidebar").click();
+		}
+		const hint = page.locator(".sidebar-scroll-hint");
+		await expect(hint).toHaveClass(/\bvisible\b/);
+		await page
+			.locator(".sidebar")
+			.evaluate((el) => el.scrollTo(0, el.scrollHeight));
+		await expect(hint).not.toHaveClass(/\bvisible\b/);
 	});
 });
