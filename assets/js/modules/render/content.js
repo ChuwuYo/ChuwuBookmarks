@@ -24,7 +24,33 @@ import { loadIconsForElements } from "./icon-loader.js";
  * @param {Array} data - 完整书签数据
  * @returns {Object|null} - 找到的文件夹或null
  */
-const findFolderById = (folderId, data) => {
+/**
+ * structure.json 的文件夹 id 是层级下标路径（如 "0_1_0"），而 bookmarks.json
+ * 的节点通常没有 id：先按 id 查找，找不到时按路径在文件夹中定位，并核对标题。
+ */
+const findFolderByPath = (folderId, title, data) => {
+	if (!/^\d+(?:_\d+)*$/.test(folderId)) return null;
+	const path = folderId.split("_").map(Number);
+	const walk = (pick) => {
+		let nodes = data;
+		let node = null;
+		let parent = null;
+		for (const index of path) {
+			const candidates = pick(nodes ?? []);
+			if (!candidates[index]) return null;
+			parent = node;
+			node = candidates[index];
+			nodes = node.children;
+		}
+		if (title !== undefined && node.title !== title) return null;
+		node.parent = parent;
+		return node;
+	};
+	const foldersOnly = (nodes) => nodes.filter((n) => n.type === "folder");
+	return walk(foldersOnly) ?? walk((nodes) => nodes);
+};
+
+const findFolderById = (folderId, data, title) => {
 	if (!data || !folderId) return null;
 
 	const search = (nodes, parent = null) => {
@@ -42,7 +68,7 @@ const findFolderById = (folderId, data) => {
 		return null;
 	};
 
-	return search(data);
+	return search(data) ?? findFolderByPath(folderId, title, data);
 };
 
 /**
@@ -114,7 +140,7 @@ const renderMainContent = async (
 
 			// 从完整数据中获取文件夹
 			const fullData = getFullBookmarksData();
-			const fullFolder = findFolderById(folder.id, fullData);
+			const fullFolder = findFolderById(folder.id, fullData, folder.title);
 
 			if (fullFolder) {
 				// 用完整数据替换懒加载文件夹
