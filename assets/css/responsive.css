@@ -63,9 +63,10 @@
 	}
 }
 
-/* 手机（含横屏触屏设备）居中元素的垂直位置 */
+/* 手机（含横屏触屏设备）居中元素的垂直位置；
+   any-pointer 与 getDeviceType() 一致：只要有触屏输入就算触屏设备 */
 @media screen and (max-width: 479px),
-	screen and (pointer: coarse) and (max-height: 599px) {
+	screen and (any-pointer: coarse) and (max-height: 599px) {
 	.search-container.centered-element {
 		top: 20px;
 		transform: translateX(-50%);
@@ -79,6 +80,31 @@
 
 	.error-message.centered-element {
 		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* 宽屏横屏触屏设备：侧栏仍在页面中，保留桌面端水平偏移 */
+@media screen and (min-width: 1024px) and (any-pointer: coarse) and (
+		max-height: 599px
+	) {
+	.search-container.centered-element {
+		transform: translateX(calc(-50% + var(--desktop-base-offset)));
+	}
+
+	.home-message.centered-element,
+	.no-results.centered-element,
+	.error-message.centered-element {
+		transform: translate(calc(-50% + var(--desktop-base-offset)), -50%);
+	}
+
+	.sidebar.collapsed + .main-content .search-container.centered-element {
+		transform: translateX(-50%);
+	}
+
+	.sidebar.collapsed + .main-content .home-message.centered-element,
+	.sidebar.collapsed + .main-content .no-results.centered-element,
+	.sidebar.collapsed + .main-content .error-message.centered-element {
 		transform: translate(-50%, -50%);
 	}
 }
