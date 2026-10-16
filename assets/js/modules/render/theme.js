@@ -35,12 +35,52 @@ const syncThemeColor = (theme) => {
 	}
 };
 
-/** 主题相关 */
+const THEME_KEY = "theme";
+
+/** 本次会话中手动选择的主题；存储不可用时也能保住用户的选择 */
+let manualTheme = null;
+
+const readStoredTheme = () => {
+	try {
+		const theme = localStorage.getItem(THEME_KEY);
+		return theme === "light" || theme === "dark" ? theme : null;
+	} catch {
+		return null;
+	}
+};
+
+const systemThemeQuery = () =>
+	window.matchMedia?.("(prefers-color-scheme: dark)") ?? null;
+
+const getSystemTheme = () => (systemThemeQuery()?.matches ? "dark" : "light");
+
+/**
+ * 主题相关
+ *
+ * 首帧的 data-theme 已由 index.html 内联脚本设好（保存过的主题，否则跟随系统），这里只做同步：
+ * 没有保存过主题时继续跟随系统的深浅色变化；用户手动切换后以保存的主题为准。
+ */
 const initTheme = () => {
 	applyReducedMotion();
-	const theme = localStorage.getItem("theme") || "light";
-	document.documentElement.setAttribute("data-theme", theme);
+	const root = document.documentElement;
+	const theme = readStoredTheme() ?? getSystemTheme();
+	if (root.getAttribute("data-theme") !== theme) {
+		root.setAttribute("data-theme", theme);
+	}
 	syncThemeColor(theme);
+
+	systemThemeQuery()?.addEventListener("change", () => {
+		if (manualTheme || readStoredTheme()) return;
+		const next = getSystemTheme();
+		// 与手动切换一样暂停全站过渡，颜色一步到位
+		root.classList.add(SWITCH_CLASS);
+		root.setAttribute("data-theme", next);
+		syncThemeColor(next);
+		setTimeout(
+			() => root.classList.remove(SWITCH_CLASS),
+			ENABLE_TRANSITIONS_DELAY,
+		);
+	});
 };
 
 /**
@@ -68,8 +108,13 @@ const prefersReducedMotion = () =>
 	window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 
 const applyTheme = (theme) => {
+	manualTheme = theme;
 	document.documentElement.setAttribute("data-theme", theme);
-	localStorage.setItem("theme", theme);
+	try {
+		localStorage.setItem(THEME_KEY, theme);
+	} catch {
+		// 存储不可用（如隐私模式）时只切换本次会话
+	}
 	syncThemeColor(theme);
 };
 
