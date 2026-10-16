@@ -22,9 +22,10 @@ const setIndex = (items) => {
 };
 
 const search = (keyword) => {
-	const query = normalize(keyword).trim();
-	const words = query.split(/\s+/).filter(Boolean);
+	const words = normalize(keyword).split(/\s+/).filter(Boolean);
 	if (!words.length) return [];
+	// 连续空白按一个空格算，与拆分后的词保持一致
+	const query = words.join(" ");
 
 	// 每档一个数组，最后按档位拼接，档内保持原顺序
 	const tiers = [[], [], [], []];

@@ -253,6 +253,8 @@ const createSearchHandler = () => {
 	let debounceMs = 0;
 	let debounced = null;
 	return (event) => {
+		// 输入一变就让尚未返回的旧搜索失效（包括仍在等待完整数据的那次）
+		cancelPendingSearch();
 		const ms = computeDebounceMsSafe(getBookmarksCount());
 		if (!debounced || ms !== debounceMs) {
 			debounced?.cancel();
