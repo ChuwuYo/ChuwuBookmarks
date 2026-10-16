@@ -6,17 +6,20 @@
 
 export class BmSearch extends HTMLElement {
 	#input = null;
+	/** 连接前设置的 value，连接后写入输入框 */
+	#pendingValue = null;
 
 	get input() {
 		return this.#input;
 	}
 
 	get value() {
-		return this.#input?.value ?? "";
+		return this.#input?.value ?? this.#pendingValue ?? "";
 	}
 
 	set value(text) {
 		if (this.#input) this.#input.value = text;
+		else this.#pendingValue = text;
 	}
 
 	connectedCallback() {
@@ -25,6 +28,10 @@ export class BmSearch extends HTMLElement {
 			this.#input = document.createElement("input");
 			this.#input.type = "search";
 			this.prepend(this.#input);
+		}
+		if (this.#pendingValue !== null) {
+			this.#input.value = this.#pendingValue;
+			this.#pendingValue = null;
 		}
 		const placeholder = this.getAttribute("placeholder");
 		if (placeholder) this.#input.placeholder = placeholder;
