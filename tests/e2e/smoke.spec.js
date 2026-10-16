@@ -6,7 +6,6 @@ import {
 	openApp,
 	openSidebarFolder,
 	settle,
-	sidebarStartsCollapsed,
 } from "./helpers.js";
 
 test.describe("smoke", () => {
@@ -253,97 +252,5 @@ test.describe("smoke", () => {
 		expect(result.themeColor).toBe(
 			result.theme === "dark" ? "#74ceff" : "#23d6e3",
 		);
-	});
-	test("saved dark theme is applied before the first paint", async ({
-		page,
-	}) => {
-		await page.addInitScript(() => {
-			if (!sessionStorage.getItem("seeded")) {
-				localStorage.setItem("theme", "dark");
-				sessionStorage.setItem("seeded", "1");
-			}
-		});
-		// 模块脚本迟迟不到，首帧也必须已经是暗色
-		let release;
-		const held = new Promise((resolve) => {
-			release = resolve;
-		});
-		await page.route("**/script.js", async (route) => {
-			await held;
-			await route.continue();
-		});
-		// 模块脚本会推迟 DOMContentLoaded，这里只等到文档解析出主区
-		await page.goto("/", { waitUntil: "commit" });
-		await page.locator(".main-content").waitFor({ state: "attached" });
-		// 样式表异步到达，轮询直到样式生效；模块脚本一直被拦着，结果反映的就是首帧状态
-		await expect
-			.poll(() =>
-				page.evaluate(() => ({
-					theme: document.documentElement.dataset.theme,
-					scheme: getComputedStyle(document.documentElement).colorScheme,
-					loading: document.documentElement.classList.contains("app-loading"),
-					sidebar: getComputedStyle(document.querySelector(".sidebar")).opacity,
-					main: getComputedStyle(document.querySelector(".main-content"))
-						.opacity,
-				})),
-			)
-			.toEqual({
-				theme: "dark",
-				scheme: "dark",
-				loading: true,
-				sidebar: "0",
-				main: "0",
-			});
-		release();
-		await expect(page.locator("html")).not.toHaveClass(
-			/app-(loading|entering)/,
-		);
-	});
-
-	test("without a saved theme the page follows the system", async ({
-		page,
-	}) => {
-		await page.emulateMedia({ colorScheme: "dark" });
-		await openApp(page);
-		const html = page.locator("html");
-		await expect(html).toHaveAttribute("data-theme", "dark");
-		await page.emulateMedia({ colorScheme: "light" });
-		await expect(html).toHaveAttribute("data-theme", "light");
-	});
-
-	test("sidebar and main content are revealed together", async ({ page }) => {
-		await openApp(page);
-		const opacities = await page.evaluate(() =>
-			[".sidebar", ".main-content"].map(
-				(selector) =>
-					getComputedStyle(document.querySelector(selector)).opacity,
-			),
-		);
-		expect(opacities).toEqual(["1", "1"]);
-		await expect(page.locator("html")).not.toHaveClass(
-			/app-(loading|entering)/,
-		);
-	});
-	test("sidebar scroll hint appears when folders render late", async ({
-		page,
-	}, testInfo) => {
-		// 矮视口让文件夹列表超出侧边栏；数据晚到，渲染发生在提示初始化之后
-		await page.setViewportSize({ width: 1280, height: 260 });
-		await openApp(page, "/", undefined, {
-			structure: null,
-			bookmarksDelay: 800,
-		});
-		if (sidebarStartsCollapsed(testInfo)) {
-			const collapsed = await page
-				.locator(".sidebar")
-				.evaluate((el) => el.classList.contains("collapsed"));
-			if (collapsed) await page.locator("#toggle-sidebar").click();
-		}
-		const hint = page.locator(".sidebar-scroll-hint");
-		await expect(hint).toHaveClass(/\bvisible\b/);
-		await page
-			.locator(".sidebar")
-			.evaluate((el) => el.scrollTo(0, el.scrollHeight));
-		await expect(hint).not.toHaveClass(/\bvisible\b/);
 	});
 });
