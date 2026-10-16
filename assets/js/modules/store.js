@@ -27,23 +27,48 @@ const promisify = (request) =>
 
 const openDb = () => {
 	if (dbPromise) return dbPromise;
-	dbPromise = new Promise((resolve, reject) => {
+	const pending = new Promise((resolve, reject) => {
 		if (!("indexedDB" in globalThis)) {
 			reject(new Error("IndexedDB unavailable"));
 			return;
 		}
+		let settled = false;
 		const request = indexedDB.open(DB_NAME, CACHE_VERSION);
 		request.onupgradeneeded = () => {
 			const db = request.result;
 			if (db.objectStoreNames.contains(STORE)) db.deleteObjectStore(STORE);
 			db.createObjectStore(STORE);
 		};
-		request.onsuccess = () => resolve(request.result);
-		request.onerror = () => reject(request.error);
-		request.onblocked = () => reject(new Error("IndexedDB blocked"));
+		request.onsuccess = () => {
+			const db = request.result;
+			// 已因阻塞放弃的请求稍后成功时，关闭这个无人使用的连接
+			if (settled) {
+				db.close();
+				return;
+			}
+			settled = true;
+			// 其他标签页升级版本时让出连接，下次读写重新打开
+			db.onversionchange = () => {
+				db.close();
+				if (dbPromise === pending) dbPromise = null;
+			};
+			resolve(db);
+		};
+		request.onerror = () => {
+			settled = true;
+			reject(request.error);
+		};
+		request.onblocked = () => {
+			settled = true;
+			reject(new Error("IndexedDB blocked"));
+		};
 	});
-	dbPromise.catch(() => {});
-	return dbPromise;
+	dbPromise = pending;
+	// 打开失败不缓存，下次读写时重试
+	pending.catch(() => {
+		if (dbPromise === pending) dbPromise = null;
+	});
+	return pending;
 };
 
 const withStore = async (mode, fn) => {
