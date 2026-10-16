@@ -4,10 +4,12 @@
 
 const debounce = (fn, delay) => {
 	let timeout;
-	return (...args) => {
+	const debounced = (...args) => {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => fn(...args), delay);
 	};
+	debounced.cancel = () => clearTimeout(timeout);
+	return debounced;
 };
 
 export { debounce };

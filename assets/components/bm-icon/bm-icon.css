@@ -1,0 +1,15 @@
+/* <bm-icon>：尺寸跟随字号，可用 --bm-icon-size 覆盖 */
+bm-icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	width: var(--bm-icon-size, 1em);
+	height: var(--bm-icon-size, 1em);
+	vertical-align: var(--bm-icon-align, -0.125em);
+	line-height: 1;
+}
+
+bm-icon > svg {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}

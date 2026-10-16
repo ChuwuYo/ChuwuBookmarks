@@ -2,14 +2,13 @@
  * 主内容区渲染模块
  */
 
+import "../../../components/bm-breadcrumbs/bm-breadcrumbs.js";
 import {
 	getFullBookmarksData,
 	isFullDataReady,
 	waitForFullData,
 } from "../loader/index.js";
-import { RENDER_CONSTANTS } from "../utils/constants.js";
 import {
-	checkBreadcrumbsScroll,
 	getDeviceType,
 	shouldCollapseSidebar,
 	updateSidebarState,
@@ -19,15 +18,39 @@ import { loadIconsForElements } from "./icon-loader.js";
 
 // 避免循环依赖，renderHome 将通过参数传递
 
-let breadcrumbsScrollHandler = null;
-
 /**
  * 从完整数据中查找指定ID的文件夹
  * @param {string} folderId - 要查找的文件夹ID
  * @param {Array} data - 完整书签数据
  * @returns {Object|null} - 找到的文件夹或null
  */
-const findFolderById = (folderId, data) => {
+/**
+ * structure.json 的文件夹 id 是层级下标路径（如 "0_1_0"），而 bookmarks.json
+ * 的节点通常没有 id：先按 id 查找，找不到时按路径在文件夹中定位，并核对标题。
+ */
+const findFolderByPath = (folderId, title, data) => {
+	if (!/^\d+(?:_\d+)*$/.test(folderId)) return null;
+	const path = folderId.split("_").map(Number);
+	const walk = (pick) => {
+		let nodes = data;
+		let node = null;
+		let parent = null;
+		for (const index of path) {
+			const candidates = pick(nodes ?? []);
+			if (!candidates[index]) return null;
+			parent = node;
+			node = candidates[index];
+			nodes = node.children;
+		}
+		if (title !== undefined && node.title !== title) return null;
+		node.parent = parent;
+		return node;
+	};
+	const foldersOnly = (nodes) => nodes.filter((n) => n.type === "folder");
+	return walk(foldersOnly) ?? walk((nodes) => nodes);
+};
+
+const findFolderById = (folderId, data, title) => {
 	if (!data || !folderId) return null;
 
 	const search = (nodes, parent = null) => {
@@ -45,7 +68,7 @@ const findFolderById = (folderId, data) => {
 		return null;
 	};
 
-	return search(data);
+	return search(data) ?? findFolderByPath(folderId, title, data);
 };
 
 /**
@@ -97,134 +120,13 @@ const renderMainContent = async (
 			current = current.parent;
 		}
 
-		// 在新的多根文件夹模式下，不过滤根文件夹，让它们显示在面包屑中
-		const filteredBreadcrumbs = breadcrumbPath;
-
-		const breadcrumbFragment = document.createDocumentFragment();
-
-		const breadIcon = document.createElement("span");
-		breadIcon.textContent = "🍞";
-		breadIcon.className = "breadcrumb-icon";
-
-		const homeLink = document.createElement("button");
-		homeLink.type = "button";
-		homeLink.className = "breadcrumb-item";
-		homeLink.textContent = "主页";
-		homeLink.setAttribute("tabindex", "0");
-		homeLink.setAttribute("role", "button");
-		homeLink.setAttribute("aria-label", "返回主页");
-
-		const homeLinkHandler = (e) => {
-			if (
-				e.type === "click" ||
-				(e.type === "keydown" && (e.key === "Enter" || e.key === " "))
-			) {
-				e.preventDefault();
-				e.stopPropagation();
-				if (renderHomeFn) renderHomeFn();
-			}
-		};
-
-		homeLink.addEventListener("click", homeLinkHandler);
-		homeLink.addEventListener("keydown", homeLinkHandler);
-
-		// 先添加🍞图标，再添加主页按钮
-		breadcrumbFragment.appendChild(breadIcon);
-		breadcrumbFragment.appendChild(homeLink);
-
-		if (filteredBreadcrumbs.length > 0) {
-			const breadcrumbElements = filteredBreadcrumbs.map(
-				(crumb, index, arr) => {
-					const fragment = document.createDocumentFragment();
-
-					const separator = document.createElement("span");
-					separator.textContent = " > ";
-					separator.className = "breadcrumb-separator";
-					fragment.appendChild(separator);
-
-					const crumbElement = document.createElement("button");
-					crumbElement.textContent = crumb.title;
-					crumbElement.className = "breadcrumb-item";
-					crumbElement.type = "button";
-
-					if (index < arr.length - 1) {
-						crumbElement.setAttribute("tabindex", "0");
-						crumbElement.setAttribute("role", "button");
-						crumbElement.setAttribute("aria-label", `导航到${crumb.title}`);
-
-						const crumbHandler = (e) => {
-							if (
-								e.type === "click" ||
-								(e.type === "keydown" && (e.key === "Enter" || e.key === " "))
-							) {
-								e.preventDefault();
-								e.stopPropagation();
-								renderMainContent(crumb, true, renderHomeFn);
-							}
-						};
-
-						crumbElement.addEventListener("click", crumbHandler);
-						crumbElement.addEventListener("keydown", crumbHandler);
-					}
-
-					fragment.appendChild(crumbElement);
-					return fragment;
-				},
-			);
-
-			breadcrumbElements.forEach((element) => {
-				breadcrumbFragment.appendChild(element);
-			});
-		}
-
-		breadcrumbs.appendChild(breadcrumbFragment);
-		checkBreadcrumbsScroll();
-
-		if (breadcrumbsScrollHandler) {
-			breadcrumbs.removeEventListener("scroll", breadcrumbsScrollHandler);
-		}
-
-		// 用于 requestAnimationFrame 的 ID
-		let breadcrumbRafId = null;
-
-		breadcrumbsScrollHandler = () => {
-			// 使用 requestAnimationFrame 优化滚动 UI 更新
-			if (breadcrumbRafId) return;
-			breadcrumbRafId = requestAnimationFrame(() => {
-				breadcrumbRafId = null;
-
-				const scrollLeft = breadcrumbs.scrollLeft;
-				const maxScroll = breadcrumbs.scrollWidth - breadcrumbs.clientWidth;
-				if (maxScroll <= 0) {
-					breadcrumbs.style.maskImage = "";
-					breadcrumbs.classList.remove("at-end");
-					breadcrumbs.classList.remove("at-start");
-					return;
-				}
-
-				const maskValue = `linear-gradient(to right,
-                    transparent,
-                    black ${Math.min(scrollLeft + RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET, RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET)}px,
-                    black calc(100% - ${Math.max(RENDER_CONSTANTS.BREADCRUMB_MASK_OFFSET - (maxScroll - scrollLeft), 0)}px),
-                    transparent
-                )`;
-				breadcrumbs.style.maskImage = maskValue;
-
-				breadcrumbs.classList.toggle(
-					"at-end",
-					scrollLeft >= maxScroll - RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
-				);
-				breadcrumbs.classList.toggle(
-					"at-start",
-					scrollLeft <= RENDER_CONSTANTS.BREADCRUMB_SCROLL_THRESHOLD,
-				);
-			});
-		};
-
-		breadcrumbs.addEventListener("scroll", breadcrumbsScrollHandler, {
-			passive: true,
+		const crumbs = document.createElement("bm-breadcrumbs");
+		crumbs.path = breadcrumbPath;
+		crumbs.addEventListener("bm-navigate", ({ detail: { index } }) => {
+			if (index < 0) renderHomeFn?.();
+			else renderMainContent(breadcrumbPath[index], true, renderHomeFn);
 		});
-		breadcrumbsScrollHandler();
+		breadcrumbs.replaceChildren(crumbs);
 
 		// 检查是否是懒加载文件夹（只有目录结构，没有完整内容）
 		if (folder._lazyLoad && folder.id) {
@@ -238,7 +140,7 @@ const renderMainContent = async (
 
 			// 从完整数据中获取文件夹
 			const fullData = getFullBookmarksData();
-			const fullFolder = findFolderById(folder.id, fullData);
+			const fullFolder = findFolderById(folder.id, fullData, folder.title);
 
 			if (fullFolder) {
 				// 用完整数据替换懒加载文件夹
@@ -277,17 +179,6 @@ const renderMainContent = async (
 				const element = createElement("folder", item, () =>
 					renderMainContent(item, false, renderHomeFn),
 				);
-
-				element.setAttribute("tabindex", "0");
-				element.setAttribute("role", "button");
-				element.setAttribute("aria-label", `文件夹: ${item.title}`);
-
-				element.addEventListener("keydown", (e) => {
-					if (e.key === "Enter" || e.key === " ") {
-						e.preventDefault();
-						renderMainContent(item, false, renderHomeFn);
-					}
-				});
 
 				element.style.setProperty("--item-index", index);
 				contentFragment.appendChild(element);

@@ -1,0 +1,92 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+const fixture = (name) =>
+	readFileSync(resolve(import.meta.dirname, "../fixtures", name), "utf8");
+
+/**
+ * Serve fixture data instead of the deployed bookmarks, block third-party
+ * requests (favicons, analytics) and open the home page.
+ *
+ * Options: `structure: null` answers structure.json with 404;
+ * `bookmarksDelay` holds bookmarks.json back for that many milliseconds;
+ * `waitForHome: false` skips waiting for the home text (e.g. a search URL).
+ */
+export async function openApp(
+	page,
+	path = "/",
+	bookmarks = fixture("bookmarks.json"),
+	{
+		structure = fixture("structure.json"),
+		bookmarksDelay = 0,
+		waitForHome = true,
+	} = {},
+) {
+	await page.route("**/structure.json", (route) =>
+		structure === null
+			? route.fulfill({ status: 404, body: "Not found" })
+			: route.fulfill({ contentType: "application/json", body: structure }),
+	);
+	await page.route("**/bookmarks.json", async (route) => {
+		if (bookmarksDelay) {
+			await new Promise((resolve) => setTimeout(resolve, bookmarksDelay));
+		}
+		await route.fulfill({
+			contentType: "application/json",
+			body: bookmarks,
+		});
+	});
+	await page.route(/^https?:\/\/(?!(?:127\.0\.0\.1|localhost)[:/])/, (route) =>
+		route.abort(),
+	);
+	await page.goto(path);
+	if (waitForHome) await page.locator(".home-message .chinese-text").waitFor();
+	await settle(page);
+}
+
+/** Wait for fonts and GSAP-driven transitions to finish. */
+export async function settle(page, ms = 900) {
+	await page.evaluate(() => document.fonts.ready);
+	await page.waitForTimeout(ms);
+}
+
+export const isMobile = (testInfo) => testInfo.project.name === "mobile";
+export const sidebarStartsCollapsed = (testInfo) =>
+	testInfo.project.name !== "desktop";
+
+/** Make sure the sidebar is open, then click a top-level folder in it. */
+export async function openSidebarFolder(page, testInfo, title) {
+	if (sidebarStartsCollapsed(testInfo)) {
+		await page.locator("#toggle-sidebar").click();
+		await settle(page, 500);
+	}
+	await page.locator(".sidebar .folder-name", { hasText: title }).click();
+	await settle(page);
+}
+
+/** Collapse the sidebar if it is still open (mobile auto-collapses on navigation). */
+export async function closeSidebar(page) {
+	const open = await page
+		.locator(".sidebar")
+		.evaluate((el) => !el.classList.contains("collapsed"));
+	if (open) {
+		await page.locator("#toggle-sidebar").click();
+		await settle(page, 500);
+	}
+}
+
+/** Bookmarks fixture with `extra` additional "Demo" links in the first folder. */
+export function bookmarksWithExtraLinks(extra) {
+	const data = JSON.parse(fixture("bookmarks.json"));
+	const links = data[0].children[0].children;
+	const first = links.length + 1;
+	for (let i = first; i < first + extra; i++) {
+		links.push({
+			type: "link",
+			addDate: 1700000000000,
+			title: `Demo 站点 ${i}`,
+			url: `https://demo${i}.example.com/`,
+		});
+	}
+	return JSON.stringify(data);
+}

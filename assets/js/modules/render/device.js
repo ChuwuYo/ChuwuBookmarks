@@ -110,13 +110,13 @@ const handleDeviceView = () => {
 export {
 	BREAKPOINT_MOBILE,
 	BREAKPOINT_SIDEBAR,
+	checkBreadcrumbsScroll,
 	getDeviceType,
+	handleDeviceView,
+	isDesktopDevice,
 	isMobileDevice,
 	isTabletDevice,
-	isDesktopDevice,
 	shouldCollapseSidebar,
-	updateSidebarVisibility,
-	checkBreadcrumbsScroll,
 	updateSidebarState,
-	handleDeviceView,
+	updateSidebarVisibility,
 };

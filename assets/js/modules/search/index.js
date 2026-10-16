@@ -4,13 +4,9 @@
  * 本模块负责处理搜索功能的核心逻辑，包括：
  * - Web Worker搜索处理
  * - 分页状态管理
- * - URL状态保持
- * - 响应式系统初始化
+ * - URL状态保持（?q=）
  *
- * 分页集成说明：
- * - 新搜索时自动重置分页状态到第一页
- * - 支持从URL恢复搜索和分页状态
- * - 与分页控件的响应式系统完全集成
+ * 新搜索总是从第一页开始。
  *
  * 性能优化：
  * - 使用Web Worker进行搜索，避免阻塞主线程
@@ -18,14 +14,17 @@
  * - 防抖处理，避免频繁搜索请求
  */
 
-import { initializeResponsiveSystem } from "../pagination/responsive.js";
+import {
+	getSearchPayload,
+	isFullDataReady,
+	waitForFullData,
+} from "../loader/index.js";
 import { getDeviceType } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import {
 	renderSearchResults,
 	resetSearchPagination,
 } from "../render/search.js";
-import { getCenteringManager } from "../utils/centering.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
 import {
@@ -45,15 +44,6 @@ let workersWired = false;
 
 // 检查浏览器是否支持Web Worker并初始化
 const initSearchWorker = (renderMainContent) => {
-	// 初始化响应式系统
-	initializeResponsiveSystem();
-
-	// 确保统一居中系统已初始化并注册搜索容器
-	const centeringManager = getCenteringManager();
-	if (!centeringManager.isInitialized) {
-		centeringManager.initialize();
-	}
-
 	if (!isWorkerSupported()) {
 		console.warn(
 			"[Search] Web Worker not supported, search functionality unavailable",
@@ -113,45 +103,51 @@ const initSearchWorker = (renderMainContent) => {
 	dataWorkerWrapper.addMessageListener(onDataMessage);
 };
 
-const getCachedSearchPayload = () => {
-	let data = [];
-	let index = null;
+/** 每次发起或取消搜索时递增，用于丢弃已过期的延迟搜索 */
+let searchGeneration = 0;
 
-	try {
-		data = JSON.parse(localStorage.getItem("bookmarksData") || "[]");
-		index = JSON.parse(localStorage.getItem("bookmarksIndex") || "null");
-	} catch (e) {
-		console.error("Failed to parse cached search data:", e);
-		data = [];
-		index = null;
-	}
-
-	const indexHash = localStorage.getItem("bookmarksHash") || null;
-	return { bookmarks: data, index, indexHash };
+/** 使尚在等待完整数据的搜索失效（清空搜索框、返回主页时调用） */
+const cancelPendingSearch = () => {
+	searchGeneration++;
 };
 
 const postSearchToWorker = (keyword, useCache = true) => {
 	if (!isWorkerSupported()) return null;
+	const generation = ++searchGeneration;
 
-	const payload = getCachedSearchPayload();
-	const searchWorkerWrapper = getSearchWorkerWrapper();
+	const post = () => {
+		const payload = getSearchPayload();
+		return getSearchWorkerWrapper().postMessage({
+			action: "search",
+			data: {
+				keyword,
+				bookmarks: payload.bookmarks,
+				index: payload.index,
+				indexHash: payload.indexHash,
+				useCache,
+			},
+		});
+	};
 
-	return searchWorkerWrapper.postMessage({
-		action: "search",
-		data: {
-			keyword,
-			bookmarks: payload.bookmarks,
-			index: payload.index,
-			indexHash: payload.indexHash,
-			useCache,
-		},
-	});
+	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
+	if (!isFullDataReady()) {
+		waitForFullData().then(() => {
+			const current = document.getElementById("search-input")?.value.trim();
+			if (generation !== searchGeneration) return;
+			if (current !== undefined && current !== keyword) return;
+			post();
+		});
+		return true;
+	}
+	return post();
 };
 
 const createSearchHandler = () => {
-	// 仅在 handler 创建时根据缓存的数据量与设备类型计算防抖时长，避免每次输入重算导致抖动
-	const payload = getCachedSearchPayload();
-	const bookmarksCount = (payload.index || payload.bookmarks || []).length || 0;
+	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
+	const getBookmarksCount = () => {
+		const payload = getSearchPayload();
+		return (payload.index || payload.bookmarks || []).length || 0;
+	};
 
 	const computeDebounceMsSafe = (count) => {
 		const {
@@ -188,11 +184,10 @@ const createSearchHandler = () => {
 		}
 	};
 
-	const debounceMs = computeDebounceMsSafe(bookmarksCount);
-
-	return debounce((event) => {
+	const runSearch = (event) => {
 		const keyword = event.target.value.trim();
 		if (!keyword) {
+			cancelPendingSearch();
 			// 搜索框为空时返回主页，不重新渲染侧边栏
 			renderHome();
 			// 重置分页状态
@@ -236,12 +231,20 @@ const createSearchHandler = () => {
 			} else {
 				content.appendChild(errorMessage);
 			}
-
-			// 注册到统一居中系统
-			const centeringManager = getCenteringManager();
-			centeringManager.updateSingleElement("error-message");
 		}
-	}, debounceMs);
+	};
+
+	let debounceMs = 0;
+	let debounced = null;
+	return (event) => {
+		const ms = computeDebounceMsSafe(getBookmarksCount());
+		if (!debounced || ms !== debounceMs) {
+			debounced?.cancel();
+			debounceMs = ms;
+			debounced = debounce(runSearch, ms);
+		}
+		debounced(event);
+	};
 };
 
 /**
@@ -290,8 +293,8 @@ const triggerSearch = (keyword) => {
 
 export {
 	clearWorkerCaches,
-	initSearchWorker,
 	createSearchHandler,
+	initSearchWorker,
 	resetPaginationState,
 	restoreSearchStateFromURL,
 	triggerSearch,

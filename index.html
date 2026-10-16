@@ -48,7 +48,6 @@
     
     <!-- 样式表 -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assets/css/pagination.css">
     
     <!-- 脚本 -->
     <script src="assets/js/vendor/gsap.min.js" defer></script>
@@ -66,7 +65,8 @@
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
         </svg>
     </a>
-    <aside class="sidebar" role="complementary" aria-label="导航侧边栏">
+    <aside class="sidebar" aria-label="导航侧边栏">
+        <bm-sidebar>
         <header class="sidebar-header">
             <button class="home-button" type="button" aria-label="返回首页">
                 <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -86,24 +86,26 @@
                         stroke="currentColor" stroke-width="1.5" />
                 </svg>
             </button>
-            <button id="toggle-sidebar" type="button" aria-label="切换侧边栏" aria-expanded="true">
+            <button id="toggle-sidebar" type="button" aria-label="切换侧边栏" aria-expanded="true" aria-controls="sidebar-folders" data-sidebar-toggle>
                 <img src="assets/images/show_sidepanel.svg" class="show-panel" alt="" width="24"
                     height="24" aria-hidden="true">
                 <img src="assets/images/hide_sidepanel.svg" class="hide-panel" alt="" width="24"
                     height="24" aria-hidden="true">
             </button>
         </header>
-        <nav id="sidebar-folders" role="navigation" aria-label="书签导航"></nav>
+        <nav id="sidebar-folders" aria-label="书签导航"></nav>
+        </bm-sidebar>
     </aside>
-    <main class="main-content" id="main-content" role="main">
-        <div class="search-container centered-element" role="search">
-            <div class="search-input-wrapper">
-                <input type="text" id="search-input" name="query" placeholder="🔍 搜索 ( title / url )" aria-label="搜索书签"
+    <main class="main-content" id="main-content">
+        <search class="search-container centered-element">
+            <bm-search class="search-input-wrapper">
+                <input type="text" id="search-input" name="query" placeholder="搜索 ( title / url )" aria-label="搜索书签"
                     aria-describedby="search-hint" />
+                <bm-icon name="search" class="search-icon"></bm-icon>
                 <div id="search-hint" class="shortcut-hint">
                     <span aria-hidden="true">Ctrl</span><span aria-hidden="true">K</span>
                 </div>
-            </div>
+            </bm-search>
             <button id="theme-toggle" type="button" class="theme-toggle" aria-label="切换主题">
                 <svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -122,9 +124,9 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
-        </div>
-        <nav id="breadcrumbs" role="navigation" aria-label="面包屑导航"></nav>
-        <section id="content" role="region" aria-label="书签内容区域"></section>
+        </search>
+        <nav id="breadcrumbs" aria-label="面包屑导航"></nav>
+        <section id="content" aria-label="书签内容区域"></section>
         <!-- 居中消息元素将通过JS动态添加centered-element类 -->
     </main>
     <!-- 引入脚本 -->
@@ -134,7 +136,7 @@
     <!-- 结构化数据（JSON-LD） - 使用根目录 structured-data.json 的内容，已内联以便搜索引擎抓取 -->
     <script type="application/ld+json">
     {
-        "_comment": "📦 模板配置说明：请根据你的部署环境修改以下字段。",
+        "_comment": "模板配置说明：请根据你的部署环境修改以下字段。",
         "required_fields": ["name", "url", "author", "creator"],
         "optional_fields": ["description", "alternateName", "inLanguage", "screenshot"],
         "@context": "https://schema.org",

@@ -1,0 +1,4 @@
+/* Applied only while taking screenshots: hide animated decoration. */
+body::after {
+	visibility: hidden !important;
+}

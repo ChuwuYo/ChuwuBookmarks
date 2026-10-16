@@ -8,30 +8,13 @@ import { showErrorMessage } from "../render/message.js";
 import { toggleTheme } from "../render/theme.js";
 
 /**
- * 设置侧边栏切换事件
+ * 设置侧边栏切换事件：<bm-sidebar> 请求切换，这里执行带动画的收起/展开
  */
 const setupSidebarToggle = () => {
-	const toggleSidebar = document.getElementById("toggle-sidebar");
-
-	if (toggleSidebar) {
-		// 合并点击和键盘事件处理
-		const toggleSidebarHandler = (e) => {
-			if (
-				e.type === "click" ||
-				(e.type === "keydown" && (e.key === "Enter" || e.key === " "))
-			) {
-				e.preventDefault();
-				e.stopPropagation();
-				const sidebar = document.querySelector(".sidebar");
-				if (sidebar) {
-					updateSidebarState(sidebar, !sidebar.classList.contains("collapsed"));
-				}
-			}
-		};
-
-		toggleSidebar.addEventListener("click", toggleSidebarHandler);
-		toggleSidebar.addEventListener("keydown", toggleSidebarHandler);
-	}
+	document.addEventListener("bm-sidebar-toggle", (event) => {
+		const sidebar = document.querySelector(".sidebar");
+		if (sidebar) updateSidebarState(sidebar, event.detail.collapsed);
+	});
 };
 
 /**
