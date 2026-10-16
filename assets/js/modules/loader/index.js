@@ -172,8 +172,10 @@ const cancelFullDataLoad = () => {
 const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 	if (fullDataLoadPromise) return fullDataLoadPromise;
 
+	let settled = false;
 	fullDataLoadPromise = new Promise((resolve) => {
 		const finish = (data) => {
+			settled = true;
 			worker.removeMessageListener(onMessage);
 			cancelBackgroundLoad = null;
 			fullDataLoadPromise = null;
@@ -207,7 +209,10 @@ const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 			if (!state.full) settleFullData(null);
 		}
 	});
-	return fullDataLoadPromise;
+	const promise = fullDataLoadPromise;
+	// executor 内同步失败时 finish 已清空，外层赋值不能把已结算的 Promise 写回
+	if (settled) fullDataLoadPromise = null;
+	return promise;
 };
 
 export {
