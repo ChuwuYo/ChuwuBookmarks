@@ -1,7 +1,7 @@
 // Minimal static file server for tests. Serves the repository root.
 import { createReadStream, statSync } from "node:fs";
 import { createServer } from "node:http";
-import { extname, join, normalize, resolve } from "node:path";
+import { extname, isAbsolute, join, relative, resolve, sep } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const port = Number(process.env.PORT || 4173);
@@ -20,10 +20,29 @@ const types = {
 	".xml": "application/xml",
 };
 
+/** 解析请求路径；非法编码返回 null，越出站点根目录返回 false */
+const resolvePath = (pathname) => {
+	let decoded;
+	try {
+		decoded = decodeURIComponent(pathname);
+	} catch {
+		return null;
+	}
+	const path = resolve(root, `.${decoded}`);
+	const rel = relative(root, path);
+	if (rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel))
+		return false;
+	return path;
+};
+
 createServer((req, res) => {
 	const url = new URL(req.url, "http://localhost");
-	let path = normalize(join(root, decodeURIComponent(url.pathname)));
-	if (!path.startsWith(root)) {
+	let path = resolvePath(url.pathname);
+	if (path === null) {
+		res.writeHead(400).end("Bad request");
+		return;
+	}
+	if (path === false) {
 		res.writeHead(403).end();
 		return;
 	}
