@@ -43,7 +43,7 @@ You can also visit the following links to experience the service:
 
 4. **Deploy and Use**: Deploy the project to your preferred static website hosting service (such as GitHub Pages, Vercel, Netlify, Cloudflare, Edgeone, etc.)
 
-5. **Customize the Homepage** (Optional): Edit the homepage title and subtitle in `site.config.js`
+5. **Customize the Homepage** (Optional): Edit the homepage title and subtitle in `site.config.js`, then redeploy for the change to take effect
 
 6. **SEO Configuration** (Optional): The project includes complete SEO optimization files. When deploying, you can modify the following files according to your needs:
    - `index.html`: Modify Open Graph data, meta tags, canonical links, and structured data
@@ -122,7 +122,7 @@ You can also visit the following links to experience the service:
 
    * The saved theme is applied before the first paint, so the page does not flash
    
-   * In browsers that support View Transitions, the new theme spreads out in a circle from the toggle button
+   * In browsers that support View Transitions (with reduced motion off), switching uses a circular transition centered on the toggle button: switching to dark expands from it, switching to light shrinks back into it
    
    * PC supports hover effects, mobile optimization for touch interaction
 
