@@ -42,7 +42,7 @@ const renderPage = (container, results, page, renderMainContent) => {
 			element.style.cssText = `--item-index: ${index}`;
 			element.classList.add("search-result-item");
 			fragment.appendChild(element);
-			if (item.type === "bookmark") bookmarks.push(element);
+			if (!isFolder) bookmarks.push(element);
 		});
 		container.appendChild(fragment);
 		loadIconsForElements(bookmarks);
