@@ -113,8 +113,9 @@ export class BmBreadcrumbs extends HTMLElement {
 				el.classList.remove("at-end", "at-start");
 				return;
 			}
-			const start = Math.min(left + MASK_OFFSET, MASK_OFFSET);
-			const end = Math.max(MASK_OFFSET - (max - left), 0);
+			// 只在该侧有内容被滚出时渐隐
+			const start = Math.min(left, MASK_OFFSET);
+			const end = Math.min(max - left, MASK_OFFSET);
 			el.style.maskImage = `linear-gradient(to right, transparent, black ${start}px, black calc(100% - ${end}px), transparent)`;
 			el.classList.toggle("at-end", left >= max - EDGE_THRESHOLD);
 			el.classList.toggle("at-start", left <= EDGE_THRESHOLD);
