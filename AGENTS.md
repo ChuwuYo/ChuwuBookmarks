@@ -57,3 +57,11 @@ and after layout work and only refresh baselines for intended changes.
 3. Run lint and the full test suite again. Pixel diffs are regressions unless
    the change is meant to alter the visuals.
 4. Commit with an objective message.
+
+## Page loading
+
+- `index.html` links every stylesheet directly, in cascade order. Add a new
+  stylesheet there; there is no CSS entry file.
+- `index.html` has a `<link rel="modulepreload">` for every ES module that
+  `script.js` imports statically (directly or indirectly), so they download in
+  parallel. Keep that list in sync when adding, moving or removing an import.
