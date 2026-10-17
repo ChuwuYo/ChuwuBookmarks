@@ -67,7 +67,7 @@ and after layout work and only refresh baselines for intended changes.
   parallel. Keep that list in sync when adding, moving or removing an import.
 - LXGW WenKai and DingTalk JinBuTi are served as unicode-range slices
   (`assets/fonts/<font>/`, declared in the generated `assets/css/fonts.css`),
-  so a page only downloads the characters it shows.
+  so a page only downloads the slices holding the characters it shows.
   `assets/js/modules/loader/font-slices.js` loads the slices the first screen
   needs before rendering cached data, and the slices for all bookmark titles
   and the search font after the page has loaded. The original files live in
