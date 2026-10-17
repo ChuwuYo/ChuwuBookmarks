@@ -14,6 +14,7 @@ import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
+import { loadFirstScreenFonts, preloadFontSlices } from "./font-slices.js";
 
 /** 内存中的当前数据 */
 const state = {
@@ -64,6 +65,7 @@ const render = (data, renderMainContent, { home = true } = {}) => {
 
 const setFullData = ({ data }) => {
 	state.full = data;
+	preloadFontSlices(data);
 	settleFullData(data);
 };
 
@@ -75,8 +77,10 @@ const renderFromCache = async (renderMainContent) => {
 	]);
 	if (bookmarks?.data) {
 		setFullData(bookmarks);
+		await loadFirstScreenFonts(bookmarks.data);
 		render(bookmarks.data, renderMainContent);
 	} else if (structure?.data) {
+		await loadFirstScreenFonts(structure.data);
 		render(structure.data, renderMainContent);
 	}
 	return { bookmarks, structure };

@@ -26,3 +26,7 @@ pnpm-lock.yaml
 # -------------------------------
 tests/test-results/
 tests/playwright-report/
+
+# Python
+# -------------------------------
+__pycache__/
