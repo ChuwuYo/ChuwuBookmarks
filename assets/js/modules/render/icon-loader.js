@@ -1,16 +1,3 @@
-/**
- * 图标加载模块
- *
- * 专门处理图标的加载、缓存和错误处理
- * 提供统一的 API 供所有渲染模块使用
- */
-
-/**
- * 显示加载成功的图标
- * @param {HTMLImageElement} img - 图标元素
- * @param {HTMLElement} icon - 图标容器
- * @returns {boolean} 是否成功显示
- */
 const displayLoadedIcon = (img, icon) => {
 	if (img.naturalWidth > 1 && img.naturalHeight > 1) {
 		icon.classList.add("bookmark-icon--img-loaded");
@@ -20,14 +7,8 @@ const displayLoadedIcon = (img, icon) => {
 	return false;
 };
 
-/**
- * 处理图标加载失败，尝试备用源
- * @param {HTMLImageElement} img - 图标元素
- * @param {HTMLElement} icon - 图标容器
- * @param {number} retryCount - 当前重试次数（防止栈溢出）
- */
 const handleIconLoadError = (img, icon, retryCount = 0) => {
-	const MAX_RETRIES = 10; // 防止无限递归
+	const MAX_RETRIES = 10;
 
 	if (retryCount > MAX_RETRIES) {
 		icon.classList.remove("bookmark-icon--img-loaded");
@@ -62,7 +43,6 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
 			img.addEventListener(
 				"error",
 				() => {
-					// 使用 setTimeout 打破同步递归链
 					setTimeout(() => handleIconLoadError(img, icon, retryCount + 1), 0);
 				},
 				{ once: true },
@@ -74,7 +54,6 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
 
 			if (img.complete) {
 				if (img.naturalHeight === 0) {
-					// 使用 setTimeout 打破同步递归链
 					setTimeout(() => handleIconLoadError(img, icon, retryCount + 1), 0);
 				} else {
 					handleLoad.call(img);
@@ -90,12 +69,7 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
 	}
 };
 
-/**
- * 获取排序后的图标 URL 列表
- * favicon.im 优先于 Google S2（因为 Google S2 在中国无法使用）
- * @param {HTMLImageElement} img - 图标元素
- * @returns {string[]} 排序后的图标 URL 列表
- */
+// Google S2 在中国无法访问，favicon.im 排在前面
 const getSortedIconUrls = (img) => {
 	const iconUrlsJson = img.dataset.iconUrls;
 	let iconUrls = [];
@@ -119,11 +93,6 @@ const getSortedIconUrls = (img) => {
 	});
 };
 
-/**
- * 加载单个图标
- * @param {HTMLImageElement} img - 图标元素
- * @param {HTMLElement} icon - 图标容器
- */
 const loadIcon = (img, icon) => {
 	if (!img?.src) return;
 
@@ -144,7 +113,6 @@ const loadIcon = (img, icon) => {
 	img.addEventListener(
 		"error",
 		() => {
-			// 使用 setTimeout 打破同步递归链
 			setTimeout(() => handleIconLoadError(img, icon, 0), 0);
 		},
 		{ once: true },
@@ -154,7 +122,6 @@ const loadIcon = (img, icon) => {
 
 	if (img.complete) {
 		if (img.naturalHeight === 0) {
-			// 使用 setTimeout 打破同步递归链
 			setTimeout(() => handleIconLoadError(img, icon, 0), 0);
 		} else {
 			handleLoad.call(img);
@@ -162,10 +129,6 @@ const loadIcon = (img, icon) => {
 	}
 };
 
-/**
- * 批量加载书签元素的图标
- * @param {HTMLElement[]} bookmarkElements - 书签元素数组
- */
 const loadIconsForElements = (bookmarkElements) => {
 	bookmarkElements.forEach((element) => {
 		const iconContainer = element.querySelector(".bookmark-icon");
@@ -176,5 +139,4 @@ const loadIconsForElements = (bookmarkElements) => {
 	});
 };
 
-// 导出外部需要使用的函数
 export { loadIcon, loadIconsForElements };

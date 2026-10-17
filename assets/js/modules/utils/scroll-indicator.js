@@ -1,8 +1,3 @@
-/**
- * 自定义滚动条指示器模块
- * 为非手机端提供滚动位置指示
- */
-
 class CustomScrollIndicator {
 	constructor() {
 		this.indicator = null;
@@ -15,22 +10,15 @@ class CustomScrollIndicator {
 		this.isMobile = this.checkIsMobile();
 		this.transformProperty = this.detectTransformProperty();
 
-		// 绑定方法上下文
 		this.handleScroll = this.handleScroll.bind(this);
 		this.handleResize = this.handleResize.bind(this);
 		this.updateThumbPosition = this.updateThumbPosition.bind(this);
 	}
 
-	/**
-	 * 检查是否为移动设备
-	 */
 	checkIsMobile() {
 		return window.innerWidth < 480;
 	}
 
-	/**
-	 * 检查是否支持CSS Transform
-	 */
 	detectTransformProperty() {
 		const testElement = document.createElement("div");
 		const transforms = [
@@ -48,9 +36,6 @@ class CustomScrollIndicator {
 		return "";
 	}
 
-	/**
-	 * 初始化滚动条指示器
-	 */
 	init() {
 		if (this.isInitialized || this.isMobile) return;
 
@@ -60,16 +45,11 @@ class CustomScrollIndicator {
 		this.isInitialized = true;
 	}
 
-	/**
-	 * 创建滚动条指示器DOM元素
-	 */
 	createIndicator() {
-		// 创建指示器容器
 		this.indicator = document.createElement("div");
 		this.indicator.className = "custom-scroll-indicator";
 		this.indicator.setAttribute("aria-hidden", "true");
 
-		// 创建滚动缩略图
 		this.thumb = document.createElement("div");
 		this.thumb.className = "custom-scroll-thumb";
 
@@ -77,17 +57,11 @@ class CustomScrollIndicator {
 		document.body.appendChild(this.indicator);
 	}
 
-	/**
-	 * 绑定事件监听器
-	 */
 	attachEventListeners() {
-		// 滚动事件
 		window.addEventListener("scroll", this.handleScroll, { passive: true });
 
-		// 窗口大小变化事件
 		window.addEventListener("resize", this.handleResize);
 
-		// 鼠标悬停事件
 		if (this.indicator) {
 			this.indicator.addEventListener("mouseenter", () => {
 				this.indicator.style.opacity = "1";
@@ -101,13 +75,9 @@ class CustomScrollIndicator {
 		}
 	}
 
-	/**
-	 * 处理滚动事件
-	 */
 	handleScroll() {
 		if (!this.indicator || this.isMobile) return;
 
-		// 显示滚动状态
 		if (!this.isScrolling) {
 			this.isScrolling = true;
 			document.body.classList.add("scrolling");
@@ -120,21 +90,16 @@ class CustomScrollIndicator {
 			});
 		}
 
-		// 清除之前的超时
 		if (this.scrollTimeout) {
 			clearTimeout(this.scrollTimeout);
 		}
 
-		// 设置隐藏超时
 		this.scrollTimeout = setTimeout(() => {
 			this.isScrolling = false;
 			document.body.classList.remove("scrolling");
-		}, 1000); // 1秒后隐藏
+		}, 1000);
 	}
 
-	/**
-	 * 处理窗口大小变化
-	 */
 	handleResize() {
 		if (this.resizeTimeout) {
 			cancelAnimationFrame(this.resizeTimeout);
@@ -154,9 +119,6 @@ class CustomScrollIndicator {
 		});
 	}
 
-	/**
-	 * 更新滚动缩略图位置和大小
-	 */
 	updateThumbPosition() {
 		if (!this.thumb || this.isMobile) return;
 
@@ -177,12 +139,10 @@ class CustomScrollIndicator {
 			const windowHeight =
 				window.innerHeight || document.documentElement.clientHeight;
 
-			// 计算滚动百分比
 			const scrollableHeight = documentHeight - windowHeight;
 			const scrollPercentage =
 				scrollableHeight > 0 ? Math.min(scrollTop / scrollableHeight, 1) : 0;
 
-			// 计算缩略图高度
 			const thumbHeight = Math.max(
 				20,
 				(windowHeight / documentHeight) * windowHeight,
@@ -190,7 +150,6 @@ class CustomScrollIndicator {
 			const thumbMaxTop = windowHeight - thumbHeight;
 			const thumbTop = scrollPercentage * thumbMaxTop;
 
-			// 应用样式
 			this.thumb.style.height = `${thumbHeight}px`;
 
 			if (this.transformProperty) {
@@ -199,7 +158,6 @@ class CustomScrollIndicator {
 				this.thumb.style.top = `${thumbTop}px`;
 			}
 
-			// 底部高亮
 			this.thumb.style.background =
 				scrollPercentage >= 0.99
 					? "var(--scroll-indicator-thumb-hover)"
@@ -209,13 +167,9 @@ class CustomScrollIndicator {
 		}
 	}
 
-	/**
-	 * 销毁滚动条指示器
-	 */
 	destroy() {
 		if (!this.isInitialized) return;
 
-		// 清理定时器和帧
 		if (this.resizeTimeout) {
 			cancelAnimationFrame(this.resizeTimeout);
 			this.resizeTimeout = null;
@@ -231,37 +185,27 @@ class CustomScrollIndicator {
 			this.scrollTimeout = null;
 		}
 
-		// 移除事件监听器
 		window.removeEventListener("scroll", this.handleScroll, { passive: true });
 		window.removeEventListener("resize", this.handleResize);
 
-		// 移除DOM元素
 		if (this.indicator?.parentNode) {
 			this.indicator.parentNode.removeChild(this.indicator);
 		}
 
-		// 清除body类名
 		document.body.classList.remove("scrolling");
 
-		// 重置状态
 		this.indicator = null;
 		this.thumb = null;
 		this.isScrolling = false;
 		this.isInitialized = false;
 	}
 
-	/**
-	 * 强制显示指示器（用于调试）
-	 */
 	show() {
 		if (this.indicator) {
 			this.indicator.style.opacity = "1";
 		}
 	}
 
-	/**
-	 * 强制隐藏指示器
-	 */
 	hide() {
 		if (this.indicator) {
 			this.indicator.style.opacity = "0";
@@ -269,12 +213,8 @@ class CustomScrollIndicator {
 	}
 }
 
-// 创建全局实例
 const customScrollIndicator = new CustomScrollIndicator();
 
-/**
- * 初始化滚动指示器（需要手动调用）
- */
 function initScrollIndicator() {
 	if (window.innerWidth >= 480) {
 		if (document.readyState === "loading") {
@@ -287,5 +227,4 @@ function initScrollIndicator() {
 	}
 }
 
-// 导出模块
 export { CustomScrollIndicator, customScrollIndicator, initScrollIndicator };

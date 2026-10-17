@@ -13,9 +13,8 @@ const collectTitleCharacters = (nodes, characters = new Set()) => {
 
 const ignoreFailure = () => {};
 
-// A unicode-range slice is fetched only when its characters are first laid
-// out. Cached data renders before that would happen, so load the slices the
-// first screen shows beforehand; otherwise it fades in with fallback glyphs.
+// unicode-range 分片要等字符排版时才开始下载；缓存数据渲染得比这更早，
+// 不先加载首屏用到的分片，页面会带着回退字体淡入。
 const loadFirstScreenFonts = (bookmarks) =>
 	Promise.all([
 		document.fonts.load(
@@ -31,8 +30,7 @@ const afterPageAndFontsLoad = (callback) => {
 	else window.addEventListener("load", run, { once: true });
 };
 
-// Fetch the slices for every bookmark title and for typed searches ahead of
-// use, so later views never show fallback glyphs while a slice downloads.
+// 提前下载所有书签标题和搜索输入会用到的分片，之后的视图不会在分片下载期间显示回退字体。
 const preloadFontSlices = (bookmarks) =>
 	afterPageAndFontsLoad(() => {
 		const titleText = [...collectTitleCharacters(bookmarks)].join("");

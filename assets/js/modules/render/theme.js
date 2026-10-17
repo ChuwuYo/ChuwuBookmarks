@@ -1,7 +1,3 @@
-/**
- * 主题、设备适配、渲染和搜索功能模块
- */
-
 const animationConfig = {
 	duration: {
 		short: 0.15,
@@ -16,9 +12,6 @@ const animationConfig = {
 	},
 };
 
-/**
- * 系统开启“减少动态效果”时，让 GSAP 动画几乎瞬间完成（保留最终状态与回调）
- */
 const applyReducedMotion = () => {
 	const query = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 	if (!query || typeof gsap === "undefined") return;
@@ -27,7 +20,6 @@ const applyReducedMotion = () => {
 	query.addEventListener("change", apply);
 };
 
-/** 浏览器地址栏颜色跟随站内主题，而不是系统主题 */
 const THEME_COLOR = { light: "#23d6e3", dark: "#74ceff" };
 const syncThemeColor = (theme) => {
 	for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
@@ -54,12 +46,6 @@ const systemThemeQuery = () =>
 
 const getSystemTheme = () => (systemThemeQuery()?.matches ? "dark" : "light");
 
-/**
- * 主题相关
- *
- * 首帧的 data-theme 已由 index.html 内联脚本设好（保存过的主题，否则跟随系统），这里只做同步：
- * 没有保存过主题时继续跟随系统的深浅色变化；用户手动切换后以保存的主题为准。
- */
 const initTheme = () => {
 	applyReducedMotion();
 	const root = document.documentElement;
@@ -72,7 +58,6 @@ const initTheme = () => {
 	systemThemeQuery()?.addEventListener("change", () => {
 		if (manualTheme || readStoredTheme()) return;
 		const next = getSystemTheme();
-		// 与手动切换一样暂停全站过渡，颜色一步到位
 		root.classList.add(SWITCH_CLASS);
 		root.setAttribute("data-theme", next);
 		syncThemeColor(next);
@@ -84,16 +69,7 @@ const initTheme = () => {
 };
 
 /**
- * 主题切换
- *
- * - 切换期间给 <html> 加 .theme-switching，暂停全站 CSS 过渡，避免每个元素各自从旧色
- *   过渡到新色（子元素继承的颜色会在父元素过渡中途反复重启，造成卡顿和多次闪烁）。
- *   直接切换时在 500ms 后恢复；View Transition 时在动画结束后恢复。
- * - 支持 View Transitions 时，以主题按钮图标中心为圆心：切到暗色时新主题快照画圆展开
- *   （600ms），切到亮色时旧主题快照在上层收缩（500ms），缓动 cubic-bezier(.4, 0, .2, 1)。
- * - 系统开启“减少动态效果”时不画圆，使用浏览器默认的交叉淡入；不支持 View Transitions
- *   时直接切换。
- * - 动画期间暂停 GSAP 时间线，结束后恢复；2 秒内未结束则强制跳过，保证页面不会卡在快照上。
+ * 切换期间暂停全站 CSS 过渡：子元素继承的颜色会在父元素过渡中途反复重启，造成卡顿和多次闪烁。
  */
 const SWITCH_CLASS = "theme-switching";
 const CIRCLE_CLASS = "theme-switching-circle";
@@ -119,7 +95,6 @@ const applyTheme = (theme) => {
 	syncThemeColor(theme);
 };
 
-/** 圆心：主题按钮图标的中心 */
 const getOrigin = () => {
 	const button = document.getElementById("theme-toggle");
 	const icon = button?.querySelector(

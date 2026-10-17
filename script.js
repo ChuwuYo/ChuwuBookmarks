@@ -25,30 +25,23 @@ const renderMainContent = (folder, fromSidebar = false) => {
 	return _renderMainContent(folder, fromSidebar, renderHome);
 };
 
-// 立即开始加载书签数据并显示加载指示器，确保一旦读取到书签数据就能立即渲染主页
 showLoadingIndicator();
 loadBookmarksData(renderMainContent).catch((error) => {
 	console.error("加载书签数据失败:", error);
 	revealApp();
 });
-// 有缓存时首屏在几十毫秒内渲染并淡入；首次访问需要等网络，超过这个时间就先显示加载状态
 const REVEAL_FALLBACK_DELAY = 400;
 setTimeout(revealApp, REVEAL_FALLBACK_DELAY);
-/** 初始化和事件监听 */
 document.addEventListener("DOMContentLoaded", async () => {
-	// 初始化主题和设备视图
 	initTheme();
 	handleDeviceView();
 
-	// 初始化自定义滚动条指示器（仅桌面端）
 	if (window.innerWidth >= BREAKPOINT_MOBILE) {
 		customScrollIndicator.init();
 	}
 
-	// 初始化侧边栏滚动提示器（所有设备）
 	initSidebarScrollHint();
 
-	// 初始化搜索Web Worker（包含分页功能集成）
 	let searchWorkerReady = false;
 	try {
 		initSearchWorker(renderMainContent);
@@ -57,16 +50,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 		console.error("搜索和分页功能初始化失败:", error);
 	}
 
-	// 创建搜索处理函数
 	const debounceSearch = createSearchHandler();
 
-	// 加载已在脚本入口立即开始，避免等待 DOMContentLoaded 完成
-	// loadBookmarksData 在脚本最开始处已被调用并处理错误
-
-	// 初始化所有事件监听器
 	initEventListeners(debounceSearch);
 
-	// 从URL恢复搜索状态（在搜索Worker准备就绪后）
 	if (searchWorkerReady) {
 		restoreSearchStateFromURL();
 	}
