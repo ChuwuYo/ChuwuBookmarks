@@ -67,13 +67,7 @@
 	--theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
-/* 字体定义 */
-@font-face {
-	font-family: "LXGW WenKai";
-	src: url("../fonts/LXGWWenKai-Medium.woff2") format("woff2");
-	font-display: swap;
-}
-
+/* 字体定义；LXGW WenKai 按 unicode-range 分片，见 fonts.css（由 tests/tools/fonts/split-fonts.py 生成） */
 @font-face {
 	font-family: "DingTalk JinBuTi";
 	src: url("../fonts/DingTalk-JinBuTi.woff2") format("woff2");
