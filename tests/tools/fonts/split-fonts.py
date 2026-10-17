@@ -198,7 +198,7 @@ def autohint_reference(cps, cmap_cps, extremes):
     for _ in range(4 * len(parts)):
         have = (cps | extra) & cmap_cps
         if blue_medians(have, extremes) == target:
-            return extra
+            break
         for chars, axis, top, goal in parts:
             listed = [ord(ch) for ch in chars if ord(ch) in extremes]
             values = {cp: extremes[cp][axis][1 if top else 0] for cp in listed}
@@ -218,8 +218,9 @@ def autohint_reference(cps, cmap_cps, extremes):
                 for pool, count in zip(pools, add):
                     extra.update(pool[:count])
                 break
-    every = {ord(ch) for fills, flats, _, _ in CJK_BLUES for ch in fills + flats}
-    return (extra | every) & cmap_cps
+    have = (cps | extra) & cmap_cps
+    assert blue_medians(have, extremes) == target, "auto-hint medians differ"
+    return extra
 
 
 def subset_font(src, dest, cps):
@@ -254,7 +255,7 @@ def main():
     ]
     with tempfile.TemporaryDirectory() as tmp:
         for family, filename, folder in FONTS:
-            original = TTFont(str(SOURCE / filename))
+            original = TTFont(str(SOURCE / filename), recalcTimestamp=False)
             cmap_cps = set(original.getBestCmap())
             extremes = outline_extremes(original)
             original.flavor = None
