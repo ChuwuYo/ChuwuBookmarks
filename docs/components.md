@@ -142,7 +142,7 @@ favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon
 | `placeholder` attribute | 可选，覆盖内部输入框的占位文本 |
 | `value` property | 输入框当前值 |
 | `bm-search` event | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`；防抖由应用处理 |
-| 快捷键 | `Ctrl + K` / `⌘ + K` 聚焦输入框 |
+| 快捷键 | Apple 平台 `⌘ + K`，其他平台 `Ctrl + K` 聚焦输入框；`.shortcut-hint` 内的按键提示与输入框的 `aria-keyshortcuts` 由组件按平台生成 |
 
 DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示占位符时可见）、
 `.shortcut-hint`。
