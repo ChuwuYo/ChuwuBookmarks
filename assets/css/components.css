@@ -10,7 +10,8 @@
 	pointer-events: none;
 }
 
-.shortcut-hint span {
+.shortcut-hint kbd {
+	font-family: inherit;
 	background: var(--button-bg);
 	color: var(--text-color);
 	padding: 2px 4px;
