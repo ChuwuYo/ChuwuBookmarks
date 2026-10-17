@@ -5,7 +5,7 @@
  */
 
 /** Apple 平台（macOS / iPadOS / iOS）以 Command 为主修饰键 */
-const IS_APPLE = /mac|iphone|ipad|ipod/i.test(
+const IS_APPLE = /mac|ios|iphone|ipad|ipod/i.test(
 	navigator.userAgentData?.platform ?? navigator.platform ?? "",
 );
 const MODIFIER_LABEL = IS_APPLE ? "⌘" : "Ctrl";
