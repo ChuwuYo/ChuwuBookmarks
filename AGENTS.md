@@ -69,8 +69,9 @@ and after layout work and only refresh baselines for intended changes.
   (`assets/fonts/<font>/`, declared in the generated `assets/css/fonts.css`),
   so a page only downloads the slices holding the characters it shows.
   `assets/js/modules/loader/font-slices.js` loads the slices the first screen
-  needs before rendering cached data, and the slices for all bookmark titles
-  and the search font after the page has loaded. The original files live in
+  needs before rendering cached data, the slices for all bookmark titles after
+  the page has loaded, and every search font slice when the search box first
+  gets focus. The original files live in
   `tests/tools/fonts/source/`. When a font file changes, replace it there and
   run `python3 tests/tools/fonts/split-fonts.py` (needs
   `pip install fonttools brotli`) to regenerate the slices and `fonts.css`;
