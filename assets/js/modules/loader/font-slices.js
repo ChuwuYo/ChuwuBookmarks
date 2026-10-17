@@ -36,16 +36,24 @@ const afterPageAndFontsLoad = (callback) => {
 	else window.addEventListener("load", run, { once: true });
 };
 
-// 提前下载所有书签标题和搜索输入会用到的分片，之后的视图不会在分片下载期间显示回退字体。
-const preloadFontSlices = (bookmarks) =>
+const loadSearchFont = () => {
+	for (const face of document.fonts) {
+		if (face.family.replaceAll('"', "") === HOME_FONT) {
+			face.load().catch(ignoreFailure);
+		}
+	}
+};
+
+// 提前下载所有书签标题会用到的分片，之后的视图不会在分片下载期间显示回退字体；
+// 搜索输入可能用到任意字符，聚焦搜索框时再下载搜索字体的全部分片。
+const preloadFontSlices = (bookmarks) => {
+	document
+		.getElementById("search-input")
+		?.addEventListener("focus", loadSearchFont, { once: true });
 	afterPageAndFontsLoad(() => {
 		const titleText = [...collectTitleCharacters(bookmarks)].join("");
 		document.fonts.load(`1em "${TITLE_FONT}"`, titleText).catch(ignoreFailure);
-		for (const face of document.fonts) {
-			if (face.family.replaceAll('"', "") === HOME_FONT) {
-				face.load().catch(ignoreFailure);
-			}
-		}
 	});
+};
 
 export { loadFirstScreenFonts, preloadFontSlices };
