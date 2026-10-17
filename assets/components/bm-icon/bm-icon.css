@@ -1,4 +1,3 @@
-/* <bm-icon>：尺寸跟随字号，可用 --bm-icon-size 覆盖 */
 bm-icon {
 	display: inline-flex;
 	flex-shrink: 0;

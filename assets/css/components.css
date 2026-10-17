@@ -1,4 +1,3 @@
-/* 组件样式：按钮、搜索框、面包屑、内容区等 */
 .shortcut-hint {
 	position: absolute;
 	right: 10px;
@@ -19,7 +18,6 @@
 	font-size: 12px;
 }
 
-/* 搜索框内的放大镜图标，仅在显示占位符时出现 */
 .search-icon {
 	position: absolute;
 	left: 8px;
@@ -55,7 +53,6 @@
 	backface-visibility: hidden;
 	overflow: visible;
 
-	/* 添加左侧空白补偿，与主页按钮宽度匹配 */
 	padding-left: calc(1rem + 15px + 6px + 5px);
 }
 
@@ -97,7 +94,6 @@
 	font-synthesis: none;
 }
 
-/* 搜索框悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	#search-input:hover {
 		border-color: var(--link-color);
@@ -107,7 +103,6 @@
 	}
 }
 
-/* 非PC端搜索框点击效果 */
 @media not all and (hover: hover) and (pointer: fine) {
 	#search-input:active {
 		border-color: var(--link-color);
@@ -117,7 +112,6 @@
 	}
 }
 
-/* 搜索框键盘聚焦样式 */
 #search-input:focus-visible {
 	border-color: var(--link-color);
 	box-shadow:
@@ -125,7 +119,6 @@
 		var(--shadow-sm);
 }
 
-/* 面包屑导航 */
 #breadcrumbs {
 	font-weight: bold;
 	margin-bottom: 1rem;
@@ -142,7 +135,6 @@
 	transition:
 		mask-image 0.3s ease,
 		-webkit-mask-image 0.3s ease;
-	/* 防止布局偏移 */
 	contain: layout style;
 }
 
@@ -174,7 +166,6 @@
 	font-weight: inherit;
 }
 
-/* 重置button默认样式 */
 button.breadcrumb-item {
 	appearance: none;
 	line-height: normal;
@@ -182,7 +173,6 @@ button.breadcrumb-item {
 	min-height: 24px;
 }
 
-/* 面包屑悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	.breadcrumb-item:hover {
 		background: var(--hover-bg);
@@ -209,7 +199,6 @@ button.breadcrumb-item {
 	text-decoration: none;
 }
 
-/* 滚动提示样式 */
 #breadcrumbs.scrollable:not(.at-end)::after {
 	content: "";
 	position: absolute;
@@ -264,20 +253,16 @@ button.breadcrumb-item {
 	animation: spin 1s linear infinite;
 }
 
-/* 内容区 */
 #content {
 	transition: transform var(--duration-base) var(--ease-in-out-cubic);
 }
 
-/* 移动端内容布局 */
 #content.mobile-content-layout {
 	margin-left: 0;
 	width: 100%;
 	max-width: 600px;
 	position: relative;
 	padding-left: 5px;
-	/* 增加一点左侧内边距 */
-	/* 移除导致元素扩散的transform和left */
 }
 
 #content .folder,
@@ -293,7 +278,6 @@ button.breadcrumb-item {
 	will-change: transform;
 	outline: none;
 	box-sizing: border-box;
-	/* 防止布局偏移 */
 	contain: layout;
 }
 
@@ -308,14 +292,10 @@ button.breadcrumb-item {
 		background var(--duration-base) var(--ease-in-out-cubic),
 		box-shadow var(--duration-base) var(--ease-default);
 	width: fit-content;
-	/* 保留最小占位，减少动态渲染/懒加载引起的布局偏移 */
 	min-width: 120px;
-	/* 移除min-height以与书签保持一致的间距 */
-	/* 确保emoji和文字垂直居中对齐 */
 	line-height: 1;
 }
 
-/* 文件夹悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	#content .folder:hover {
 		transform: translateY(-1px);
@@ -349,7 +329,6 @@ button.breadcrumb-item {
 	cursor: pointer;
 	transition: all var(--duration-base) var(--ease-default);
 	border-radius: 4px;
-	/* 确保文字垂直居中 */
 	display: flex;
 	align-items: center;
 	line-height: 1;
@@ -390,7 +369,6 @@ button.breadcrumb-item {
 	height: 100%;
 	object-fit: contain;
 	transition: opacity 0.3s ease;
-	/* 保留占位并避免在加载完成时通过移动 DOM 引起位移 */
 	display: block;
 	min-width: 16px;
 	min-height: 16px;
@@ -425,7 +403,6 @@ button.breadcrumb-item {
 	border-radius: 4px;
 }
 
-/* GitHub链接按钮样式 */
 .github-link {
 	position: fixed;
 	top: 20px;
@@ -439,7 +416,6 @@ button.breadcrumb-item {
 		color 0.2s;
 }
 
-/* 主页消息字体与颜色 */
 .home-message .chinese-text {
 	font-family: "DingTalk JinBuTi", sans-serif;
 	color: var(--text-color);
@@ -458,7 +434,6 @@ button.breadcrumb-item {
 	font-size: 2rem;
 }
 
-/* 主页消息基础样式 */
 .home-message {
 	font-weight: bold;
 	text-align: center;
@@ -489,7 +464,6 @@ button.breadcrumb-item {
 	font-size: clamp(1rem, 6vw, 1.5rem);
 }
 
-/* 内容区文件夹聚焦样式 */
 #content .folder:focus-visible {
 	outline: 2px solid var(--link-color);
 	outline-offset: 2px;
@@ -497,7 +471,6 @@ button.breadcrumb-item {
 	border-radius: 4px;
 }
 
-/* 面包屑导航聚焦样式 */
 button.breadcrumb-item:focus-visible {
 	outline: 2px solid var(--link-color);
 	outline-offset: 2px;
@@ -505,13 +478,11 @@ button.breadcrumb-item:focus-visible {
 	border-radius: 4px;
 }
 
-/* 加载指示器样式 */
 .loading-indicator {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-	/* 保留占位，避免首次渲染时高度不足导致 CLS */
 	min-height: 80px;
 }
 
@@ -530,7 +501,6 @@ button.breadcrumb-item:focus-visible {
 	animation: spin 1s linear infinite;
 }
 
-/* 居中消息基类 - 使用统一居中系统 */
 .centered-message {
 	z-index: 10;
 	text-align: center;
@@ -582,23 +552,18 @@ button.breadcrumb-item:focus-visible {
 	top: 45%;
 }
 
-/* 搜索结果相关样式 */
 .results-container {
 	position: relative;
 	min-height: calc(100vh - 50px);
 	padding-bottom: 2rem;
-	/* 底部留些空间 */
 }
 
-/* 移动端减少底部间距 */
 @media screen and (max-width: 479px) {
 	.results-container {
 		padding-bottom: 0.5rem;
-		/* 移动端大幅减少底部间距 */
 	}
 }
 
-/* 搜索结果项目样式 */
 .search-result-item {
 	opacity: 0;
 	animation: fadeInUp 0.15s ease-out forwards;

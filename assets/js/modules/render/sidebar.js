@@ -1,10 +1,5 @@
-/**
- * 侧边栏渲染模块
- */
-
 import { createElement } from "./elements.js";
 
-// 设置父引用
 const setParentReferences = (items, parent) => {
 	items.forEach((item) => {
 		if (item.type === "folder") {
@@ -14,7 +9,6 @@ const setParentReferences = (items, parent) => {
 	});
 };
 
-// 渲染侧边栏
 const renderSidebar = (data, renderMainContent) => {
 	const sidebar = document.getElementById("sidebar-folders");
 	if (!sidebar) return;
@@ -22,7 +16,6 @@ const renderSidebar = (data, renderMainContent) => {
 	sidebar.innerHTML = "";
 	const fragment = document.createDocumentFragment();
 
-	// 支持的根文件夹名称
 	const possibleRootNames = [
 		"书签栏",
 		"Bookmarks Bar",
@@ -36,7 +29,6 @@ const renderSidebar = (data, renderMainContent) => {
 	);
 
 	if (matchedRootFolders.length === 1) {
-		// 只有一个根文件夹：显示该根文件夹下的所有一级子文件夹
 		const rootFolder = matchedRootFolders[0];
 		const folders = rootFolder.children.filter(
 			(item) => item.type === "folder",
@@ -60,9 +52,7 @@ const renderSidebar = (data, renderMainContent) => {
 			fragment.appendChild(element);
 		});
 	} else if (matchedRootFolders.length > 1) {
-		// 多个根文件夹：直接显示这些根文件夹本身
 		matchedRootFolders.forEach((rootItem) => {
-			// 设置父引用
 			if (rootItem.children) setParentReferences(rootItem.children, rootItem);
 
 			const folderElement = createElement("folder", rootItem, (e) => {

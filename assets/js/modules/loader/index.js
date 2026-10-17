@@ -1,13 +1,3 @@
-/**
- * 数据加载模块
- *
- * 加载流程：
- * 1. 读取 IndexedDB 缓存（完整数据优先，其次目录结构）并立即渲染
- * 2. 让 Worker 加载 structure.json（轻量目录结构），有变化时重新渲染
- * 3. 后台加载完整的 bookmarks.json，完成后更新缓存与侧边栏
- * 4. structure.json 不存在时直接加载 bookmarks.json
- */
-
 import { renderHome } from "../render/home.js";
 import { showErrorMessage, showLoadingMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
@@ -16,17 +6,12 @@ import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
 import { loadFirstScreenFonts, preloadFontSlices } from "./font-slices.js";
 
-/** 内存中的当前数据 */
 const state = {
-	/** 侧边栏当前使用的数据（目录结构或完整数据） */
 	data: null,
-	/** 完整书签数据 */
 	full: null,
 };
 let fullDataLoadPromise = null;
-/** 完整数据加载流程是否仍在进行（含尚未发出完整数据请求的阶段） */
 let fullDataPending = false;
-/** 等待完整数据的回调，加载成功或失败时统一结算 */
 let fullDataWaiters = [];
 
 const getFullBookmarksData = () => state.full;
@@ -39,14 +24,12 @@ const settleFullData = (data) => {
 	for (const resolve of waiters) resolve(data);
 };
 
-/** 等待完整数据加载完成；加载失败或未在加载时返回 null */
 const waitForFullData = () => {
 	if (state.full) return Promise.resolve(state.full);
 	if (!fullDataPending) return Promise.resolve(null);
 	return new Promise((resolve) => fullDataWaiters.push(resolve));
 };
 
-/** 搜索使用的书签树：完整数据就绪前使用已有的目录结构 */
 const getSearchSource = () => state.full ?? state.data ?? [];
 
 const showLoadingIndicator = () => {
@@ -69,7 +52,6 @@ const setFullData = ({ data }) => {
 	settleFullData(data);
 };
 
-/** 读取缓存并渲染，返回缓存内容 */
 const renderFromCache = async (renderMainContent) => {
 	const [bookmarks, structure] = await Promise.all([
 		readCache("bookmarks"),
@@ -108,7 +90,6 @@ const loadBookmarksData = async (renderMainContent) => {
 
 	function onMessage(event) {
 		const { status, data, error, hash, isFullData } = event.data;
-		// 后台完整数据由 loadFullDataInBackground 处理
 		if (isFullData) return;
 
 		switch (status) {
@@ -155,14 +136,12 @@ const loadBookmarksData = async (renderMainContent) => {
 	}
 };
 
-/** 取消进行中的后台加载：移除监听并结算等待者，之后可重新发起 */
 let cancelBackgroundLoad = null;
 const cancelFullDataLoad = () => {
 	cancelBackgroundLoad?.();
 	if (!state.full) settleFullData(null);
 };
 
-/** 后台加载完整数据，完成后更新缓存与侧边栏 */
 const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 	if (fullDataLoadPromise) return fullDataLoadPromise;
 

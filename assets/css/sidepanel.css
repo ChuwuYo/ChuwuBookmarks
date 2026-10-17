@@ -1,4 +1,3 @@
-/* 侧栏控制按钮样式 */
 #toggle-sidebar {
 	position: fixed;
 	left: 0;
@@ -26,11 +25,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* 防止布局偏移 */
 	backface-visibility: hidden;
 }
 
-/* 添加初始状态，防止按钮位置跳动 */
 .sidebar:not(.js-initialized) #toggle-sidebar,
 .sidebar:not(.js-initialized).collapsed #toggle-sidebar {
 	transform: translateZ(0);
@@ -45,23 +42,18 @@
 		color var(--duration-short) var(--ease-default),
 		transform var(--duration-short) var(--ease-default);
 	display: none;
-	/* 默认隐藏所有图标 */
 	flex-shrink: 0;
 	will-change: transform;
 }
 
-/* 根据侧边栏状态显示对应图标 */
 .sidebar.collapsed #toggle-sidebar .show-panel {
 	display: block;
-	/* 侧边栏收起时显示展开图标 */
 }
 
 .sidebar:not(.collapsed) #toggle-sidebar .hide-panel {
 	display: block;
-	/* 侧边栏展开时显示收起图标 */
 }
 
-/* 侧边栏按钮悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	#toggle-sidebar:hover {
 		background-color: var(--button-hover);
@@ -88,7 +80,6 @@
 	border-radius: 0 15px 15px 0;
 }
 
-/* 小于1024px时，侧栏收起状态下按钮保持在左边 */
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
 	.sidebar.collapsed #toggle-sidebar,
@@ -98,7 +89,6 @@
 	}
 }
 
-/* 聚焦样式 */
 #toggle-sidebar:focus-visible {
 	outline: 2px solid var(--link-color);
 	outline-offset: 2px;
@@ -106,7 +96,6 @@
 	border-radius: 4px;
 }
 
-/* 移动端焦点状态处理 */
 @media (hover: none) and (pointer: coarse) {
 	#toggle-sidebar:focus,
 	#toggle-sidebar:active {

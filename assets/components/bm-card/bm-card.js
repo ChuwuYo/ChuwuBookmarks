@@ -20,10 +20,8 @@ const labelFromUrl = (url) => {
 	}
 };
 
-/** 会在页面中执行代码的协议，书签链接一律不使用 */
 const UNSAFE_PROTOCOLS = new Set(["javascript:", "vbscript:", "data:"]);
 
-/** 可安全用作链接的地址，不安全或无法解析时返回空字符串 */
 const safeHref = (url) => {
 	if (!url) return "";
 	try {
@@ -36,7 +34,6 @@ const safeHref = (url) => {
 
 const text = (value) => (typeof value === "string" ? value.trim() : "");
 
-/** favicon.im 优先于其他图标源（与 icon-loader 的回退顺序一致） */
 const sortIconUrls = (icon) =>
 	(Array.isArray(icon) ? icon : [icon])
 		.filter((url) => url && typeof url === "string")
@@ -46,7 +43,6 @@ export class BmCard extends HTMLElement {
 	static observedAttributes = ["type"];
 
 	#item = null;
-	/** 当前已渲染的类型，type 改变时据此重新渲染 */
 	#renderedType = null;
 
 	get item() {
@@ -111,13 +107,11 @@ export class BmCard extends HTMLElement {
 
 		const icon = document.createElement("span");
 		icon.className = "bookmark-icon";
-		// 默认链接图标，favicon 加载成功后被替换
 		const fallback = document.createElement("span");
 		fallback.className = "bookmark-icon-emoji";
 		fallback.append(createIcon("link"));
 		icon.append(fallback);
 
-		// 书签不是按钮，清除文件夹状态留下的交互属性
 		this.removeAttribute("tabindex");
 		this.removeAttribute("role");
 		this.removeAttribute("aria-label");
@@ -128,7 +122,6 @@ export class BmCard extends HTMLElement {
 			img.className = "bookmark-icon-img";
 			img.src = urls[0];
 			img.loading = "lazy";
-			// 装饰性图标：标题已由相邻链接朗读
 			img.alt = "";
 			img.setAttribute("aria-hidden", "true");
 			if (urls.length > 1) img.dataset.iconUrls = JSON.stringify(urls);

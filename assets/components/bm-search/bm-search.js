@@ -4,7 +4,6 @@
  * 并提供聚焦快捷键：Apple 平台为 ⌘ + K，其他平台为 Ctrl + K。规范见 docs/components.md。
  */
 
-/** Apple 平台（macOS / iPadOS / iOS）以 Command 为主修饰键 */
 const IS_APPLE = /mac|ios|iphone|ipad|ipod/i.test(
 	navigator.userAgentData?.platform ?? navigator.platform ?? "",
 );
@@ -13,7 +12,6 @@ const SHORTCUT_ARIA = IS_APPLE ? "Meta+K" : "Control+K";
 
 export class BmSearch extends HTMLElement {
 	#input = null;
-	/** 连接前设置的 value，连接后写入输入框 */
 	#pendingValue = null;
 
 	get input() {
@@ -73,7 +71,6 @@ export class BmSearch extends HTMLElement {
 		if (event.key === "Enter") this.#emit(event);
 	};
 
-	/** 按平台填充 .shortcut-hint 中的按键提示 */
 	#renderHint() {
 		const hint = this.querySelector(".shortcut-hint");
 		if (!hint) return;
