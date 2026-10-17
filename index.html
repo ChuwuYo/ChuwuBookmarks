@@ -62,10 +62,6 @@
     <link rel="icon" type="image/webp" href="assets/icon/bocchi.webp">
     <link rel="manifest" href="manifest.json">
     
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
-
-    <!-- 样式表：直接并行加载，顺序即层叠顺序 -->
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/breakpoints.css">
     <link rel="stylesheet" href="assets/css/base.css">
@@ -83,7 +79,6 @@
     <link rel="stylesheet" href="assets/components/bm-search/bm-search.css">
     <link rel="stylesheet" href="assets/components/bm-sidebar/bm-sidebar.css">
     
-    <!-- 模块预加载：script.js 静态导入的全部 ES 模块，并行下载而不是逐层发现（增删 import 时同步更新） -->
     <link rel="modulepreload" href="script.js">
     <link rel="modulepreload" href="assets/components/index.js">
     <link rel="modulepreload" href="assets/components/bm-breadcrumbs/bm-breadcrumbs.js">
@@ -109,6 +104,7 @@
     <link rel="modulepreload" href="assets/js/modules/render/icon-loader.js">
     <link rel="modulepreload" href="assets/js/modules/render/message.js">
     <link rel="modulepreload" href="assets/js/modules/loader/index.js">
+    <link rel="modulepreload" href="assets/js/modules/loader/font-slices.js">
     <link rel="modulepreload" href="assets/js/modules/render/reveal.js">
     <link rel="modulepreload" href="assets/js/modules/render/sidebar.js">
     <link rel="modulepreload" href="assets/js/modules/store.js">

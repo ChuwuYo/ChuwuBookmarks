@@ -1,40 +1,17 @@
 #!/usr/bin/env python3
-"""Split LXGW WenKai Medium into unicode-range slices.
-
-Development-only tool; the site itself stays zero-build. It reads the original
-font file from tests/tools/fonts/source/, writes the slices to
-assets/fonts/<name>/ and the matching @font-face rules to assets/css/fonts.css.
-DingTalk JinBuTi (assets/fonts/DingTalk-JinBuTi.woff2, declared in base.css)
-stays one file: sliced, it rendered a few pixels differently in Chromium.
-
-Slicing: every codepoint in a font's cmap goes to exactly one slice.
-1. "common": every codepoint that is not a CJK ideograph (Latin, Greek,
-   Cyrillic, kana, punctuation, symbols, combining marks). These characters
-   take part in kerning, punctuation spacing (halt) and grapheme clusters
-   with each other, which only work when they come from the same font file,
-   so they stay together.
-2. "han-NN": CJK ideographs in frequency order, taken from Google Fonts'
-   Chinese slicing (google-cjk-sc-ranges.json, applied from its last, most
-   frequent entry to the first). Consecutive Google slices are merged until a
-   slice holds at least SLICE_SIZE ideographs, which keeps the per-file
-   overhead (see below) small. Ideographs outside those ranges follow in
-   codepoint order, SLICE_SIZE per slice.
-
-Every slice also carries the glyphs from autohint-reference.txt that belong to
-its own characters' scripts (ideograph slices: the ideographs in the list;
-"common": all of them), only in its cmap, not in its unicode-range. FreeType's
-auto-hinter, used by Chromium on Linux, derives a font's alignment zones from
-these characters; without them a slice would be hinted differently from the
-original font and render with slightly different pixels. The list holds the
-blue-zone and standard characters of the FreeType auto-hinter
-(src/autofit/afblue.dat and afscript.h).
-
-Empty slices are skipped. The unicode-range lists may span codepoints the font
-does not contain (see format_range). Each slice keeps all layout features,
-hinting, name records and metrics of the original font.
+"""Split the site fonts into unicode-range slices and write assets/css/fonts.css.
 
 Usage (Python 3.9+, `pip install fonttools brotli`):
     python3 tests/tools/fonts/split-fonts.py
+
+Non-ideographs stay together in one "common" slice: kerning, punctuation
+spacing (halt) and grapheme clusters only work within one font file.
+
+Every slice also carries the characters of autohint-reference.txt for its own
+scripts (in its cmap, not in its unicode-range): FreeType's auto-hinter, used by
+Chromium on Linux, derives alignment zones from them (src/autofit/afblue.dat,
+afscript.h), and without them a slice renders with different pixels than the
+original font.
 """
 
 import json
@@ -52,9 +29,9 @@ FONTS_DIR = ROOT / "assets" / "fonts"
 CSS_FILE = ROOT / "assets" / "css" / "fonts.css"
 SLICE_SIZE = 500
 
-# family name in CSS, source file, output folder
 FONTS = [
     ("LXGW WenKai", "LXGWWenKai-Medium.woff2", "LXGWWenKai-Medium"),
+    ("DingTalk JinBuTi", "DingTalk-JinBuTi.woff2", "DingTalk-JinBuTi"),
 ]
 
 
@@ -99,7 +76,6 @@ def plan_slices(cmap_cps, ranges):
     common = {cp for cp in cmap_cps if not is_han(cp)}
     remaining = set(cmap_cps) - common
     planned = [("common", common)] if common else []
-    # Google's slices, most frequent first, merged up to SLICE_SIZE codepoints
     groups = []
     current = set()
     for entry in reversed(ranges):
@@ -150,7 +126,6 @@ def main():
     ]
     tmp = tempfile.mkdtemp()
     for family, filename, folder in FONTS:
-        # Decode the woff2 once; subsetting from a plain TTF is much faster.
         original = TTFont(str(SOURCE / filename))
         cmap_cps = set(original.getBestCmap())
         original.flavor = None
@@ -167,8 +142,6 @@ def main():
             dest = out_dir / f"{name}.woff2"
             extra = reference if name == "common" else {cp for cp in reference if is_han(cp)}
             subset_font(src, dest, cps | (extra & cmap_cps))
-            # A slice may map a few extra codepoints whose glyphs it keeps for
-            # layout features; unicode-range decides which slice is used.
             got = set(TTFont(str(dest)).getBestCmap())
             assert cps <= got, f"{family}: slice {name} is missing codepoints"
             css += [
