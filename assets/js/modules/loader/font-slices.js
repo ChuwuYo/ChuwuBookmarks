@@ -2,6 +2,7 @@ import site from "../../../../site.config.js";
 
 const TITLE_FONT = "LXGW WenKai";
 const HOME_FONT = "DingTalk JinBuTi";
+const FIRST_SCREEN_FONT_WAIT_LIMIT_MS = 300;
 
 const collectTitleCharacters = (nodes, characters = new Set()) => {
 	for (const node of nodes) {
@@ -15,14 +16,19 @@ const ignoreFailure = () => {};
 
 // unicode-range 分片要等字符排版时才开始下载；缓存数据渲染得比这更早，
 // 不先加载首屏用到的分片，页面会带着回退字体淡入。
-const loadFirstScreenFonts = (bookmarks) =>
-	Promise.all([
+const loadFirstScreenFonts = (bookmarks) => {
+	const fontsLoaded = Promise.all([
 		document.fonts.load(
 			`1em "${TITLE_FONT}"`,
 			bookmarks.map((node) => node.title ?? "").join(""),
 		),
 		document.fonts.load(`1em "${HOME_FONT}"`, site.title + site.subtitle),
 	]).catch(ignoreFailure);
+	const waitLimit = new Promise((resolve) =>
+		setTimeout(resolve, FIRST_SCREEN_FONT_WAIT_LIMIT_MS),
+	);
+	return Promise.race([fontsLoaded, waitLimit]);
+};
 
 const afterPageAndFontsLoad = (callback) => {
 	const run = () => document.fonts.ready.then(callback);
