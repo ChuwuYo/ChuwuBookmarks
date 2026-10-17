@@ -65,3 +65,11 @@ and after layout work and only refresh baselines for intended changes.
 - `index.html` has a `<link rel="modulepreload">` for every ES module that
   `script.js` imports statically (directly or indirectly), so they download in
   parallel. Keep that list in sync when adding, moving or removing an import.
+- LXGW WenKai is served as unicode-range slices (`assets/fonts/LXGWWenKai-Medium/`,
+  declared in the generated `assets/css/fonts.css`), so a page only downloads
+  the characters it shows. The original file lives in
+  `tests/tools/fonts/source/`. When that font file changes, replace it there
+  and run `python3 tests/tools/fonts/split-fonts.py` (needs
+  `pip install fonttools brotli`) to regenerate the slices and `fonts.css`;
+  never edit them by hand. Then compare rendering before and after pixel by
+  pixel; the screenshot tests do not catch font changes.
