@@ -1,13 +1,8 @@
-/**
- * 设备检测和适配模块
- */
-
 import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { animationConfig } from "./theme.js";
 
-// 断点系统 - 移动端样式断点和侧栏收起断点分离
-const BREAKPOINT_MOBILE = 480; // 移动端样式断点
-const BREAKPOINT_SIDEBAR = 1024; // 侧栏收起断点
+const BREAKPOINT_MOBILE = 480;
+const BREAKPOINT_SIDEBAR = 1024;
 
 const getDeviceType = () => {
 	const width = window.innerWidth;
@@ -15,7 +10,6 @@ const getDeviceType = () => {
 	const isTouchDevice =
 		"ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-	// 手机设备（包括横屏）优先使用移动端样式
 	if (
 		isTouchDevice &&
 		(width < BREAKPOINT_MOBILE ||
@@ -38,15 +32,12 @@ const isTabletDevice = () => getDeviceType() === "tablet";
 const isDesktopDevice = () => getDeviceType() === "desktop";
 const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 
-// 更新侧边栏状态的函数
 const updateSidebarVisibility = (
 	sidebar,
 	isCollapsed,
 	skipAnimation = false,
 ) => {
 	sidebar.classList.toggle("collapsed", isCollapsed);
-
-	// 处理文件夹的动画，但主页按钮的可见性完全由CSS控制
 
 	const folderElements = sidebar.querySelectorAll(".folder");
 	if (folderElements && folderElements.length > 0) {
@@ -68,7 +59,6 @@ const updateSidebarVisibility = (
 	}
 };
 
-// 检查面包屑导航是否可滚动
 const checkBreadcrumbsScroll = () => {
 	const breadcrumbs = document.getElementById("breadcrumbs");
 	if (!breadcrumbs) return;
@@ -77,7 +67,6 @@ const checkBreadcrumbsScroll = () => {
 	breadcrumbs.classList.toggle("scrollable", isScrollable);
 };
 
-// 封装侧边栏状态管理
 const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 	updateSidebarVisibility(sidebar, isCollapsed, skipAnimation);
 	checkBreadcrumbsScroll();
@@ -93,7 +82,6 @@ const handleDeviceView = () => {
 	document.body.classList.toggle("tablet-device", deviceType === "tablet");
 	document.body.classList.toggle("desktop-device", deviceType === "desktop");
 
-	// 标记JavaScript已初始化，禁用CSS默认状态
 	if (sidebar) {
 		sidebar.classList.add("js-initialized");
 	}
@@ -101,7 +89,6 @@ const handleDeviceView = () => {
 		toggleButton.classList.add("js-initialized");
 	}
 
-	// 设置初始状态
 	if (sidebar) {
 		updateSidebarState(sidebar, shouldCollapse, true);
 	}

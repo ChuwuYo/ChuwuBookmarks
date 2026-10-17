@@ -1,15 +1,7 @@
-/**
- * 书签数据的持久缓存（IndexedDB）。
- *
- * - 所有读写都是异步的，失败时静默回退（隐私模式、配额不足等不会影响页面）。
- * - 修改缓存结构时提升 CACHE_VERSION，旧数据会被整体丢弃。
- */
-
 const DB_NAME = "chuwu-bookmarks";
 const STORE = "cache";
 const CACHE_VERSION = 2;
 
-/** 旧版本使用的 localStorage 键，首次打开时清理以释放配额 */
 const LEGACY_KEYS = [
 	"bookmarksData",
 	"bookmarksHash",
@@ -64,7 +56,6 @@ const openDb = () => {
 		};
 	});
 	dbPromise = pending;
-	// 打开失败不缓存，下次读写时重试
 	pending.catch(() => {
 		if (dbPromise === pending) dbPromise = null;
 	});
@@ -83,7 +74,6 @@ const withStore = async (mode, fn) => {
 	return result;
 };
 
-/** 读取缓存，不存在或出错时返回 null */
 export const readCache = async (key) => {
 	try {
 		return (await withStore("readonly", (s) => s.get(key))) ?? null;
@@ -92,7 +82,6 @@ export const readCache = async (key) => {
 	}
 };
 
-/** 写入缓存，失败时返回 false */
 export const writeCache = async (key, value) => {
 	try {
 		await withStore("readwrite", (s) => s.put(value, key));
@@ -103,7 +92,6 @@ export const writeCache = async (key, value) => {
 	}
 };
 
-/** 清理旧版 localStorage 缓存 */
 export const removeLegacyCache = () => {
 	try {
 		for (const key of LEGACY_KEYS) localStorage.removeItem(key);

@@ -9,7 +9,6 @@
  * 只在网址中命中；同一档内保持书签原有顺序。
  */
 
-/** @type {{ title: string, url: string }[]} */
 let entries = [];
 
 const normalize = (text) => (text ? text.normalize("NFKC").toLowerCase() : "");
@@ -24,10 +23,8 @@ const setIndex = (items) => {
 const search = (keyword) => {
 	const words = normalize(keyword).split(/\s+/).filter(Boolean);
 	if (!words.length) return [];
-	// 连续空白按一个空格算，与拆分后的词保持一致
 	const query = words.join(" ");
 
-	// 每档一个数组，最后按档位拼接，档内保持原顺序
 	const tiers = [[], [], [], []];
 	for (let i = 0; i < entries.length; i++) {
 		const { title, url } = entries[i];

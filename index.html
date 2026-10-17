@@ -11,10 +11,8 @@
     <meta name="theme-color" content="#23d6e3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#74ceff" media="(prefers-color-scheme: dark)" />
     <!--
-      首帧主题：在样式表之前同步执行，渲染第一帧时 data-theme 已经确定，不会先亮后暗。
-      没有保存过主题时跟随系统。同时给 <html> 加 .app-loading，侧栏和主区先不显示，
-      等首屏渲染好后由 script.js 一起淡入；3 秒兜底，脚本出错时页面也不会一直空白。
-      逻辑须与 assets/js/modules/render/theme.js 中的 THEME_KEY / THEME_COLOR 保持一致。
+      在样式表之前同步执行，第一帧就确定主题，避免先亮后暗。
+      须与 assets/js/modules/render/theme.js 中的 THEME_KEY / THEME_COLOR 保持一致。
     -->
     <script>
         (() => {
@@ -37,7 +35,6 @@
     </script>
     <meta name="application-name" content="ChuwuBookmarks" />
 
-    <!-- Open Graph / 社交媒体分享 -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tabs.chuwu.top/" />
     <meta property="og:title" content="初五的书签回廊" />
@@ -45,7 +42,6 @@
     <meta property="og:image" content="https://chuwuyo.github.io/ChuwuBookmarks/assets/images/tabs.chuwu.top.webp" />
     <meta property="og:locale" content="zh_CN" />
     
-    <!-- 移动端优化 -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -62,19 +58,58 @@
     <link rel="icon" type="image/webp" href="assets/icon/bocchi.webp">
     <link rel="manifest" href="manifest.json">
     
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/breakpoints.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/theme-toggle.css">
+    <link rel="stylesheet" href="assets/css/sidepanel.css">
+    <link rel="stylesheet" href="assets/css/homebutton.css">
+    <link rel="stylesheet" href="assets/components/bm-icon/bm-icon.css">
+    <link rel="stylesheet" href="assets/components/bm-pagination/bm-pagination.css">
+    <link rel="stylesheet" href="assets/components/bm-breadcrumbs/bm-breadcrumbs.css">
+    <link rel="stylesheet" href="assets/components/bm-card/bm-card.css">
+    <link rel="stylesheet" href="assets/components/bm-search/bm-search.css">
+    <link rel="stylesheet" href="assets/components/bm-sidebar/bm-sidebar.css">
+    
+    <link rel="modulepreload" href="script.js">
+    <link rel="modulepreload" href="assets/components/index.js">
+    <link rel="modulepreload" href="assets/components/bm-breadcrumbs/bm-breadcrumbs.js">
+    <link rel="modulepreload" href="assets/components/bm-icon/bm-icon.js">
+    <link rel="modulepreload" href="assets/components/bm-card/bm-card.js">
+    <link rel="modulepreload" href="assets/components/bm-pagination/bm-pagination.js">
+    <link rel="modulepreload" href="assets/components/bm-pagination/page-range.js">
+    <link rel="modulepreload" href="assets/components/bm-search/bm-search.js">
+    <link rel="modulepreload" href="assets/components/bm-sidebar/bm-sidebar.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/index.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/device-listener.js">
+    <link rel="modulepreload" href="assets/js/modules/render/device.js">
+    <link rel="modulepreload" href="assets/js/modules/utils/constants.js">
+    <link rel="modulepreload" href="assets/js/modules/render/theme.js">
+    <link rel="modulepreload" href="assets/js/modules/utils/index.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/search-listener.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/title-listener.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/ui-listener.js">
+    <link rel="modulepreload" href="assets/js/modules/render/home.js">
+    <link rel="modulepreload" href="site.config.js">
+    <link rel="modulepreload" href="assets/js/modules/render/search.js">
+    <link rel="modulepreload" href="assets/js/modules/render/elements.js">
+    <link rel="modulepreload" href="assets/js/modules/render/icon-loader.js">
+    <link rel="modulepreload" href="assets/js/modules/render/message.js">
+    <link rel="modulepreload" href="assets/js/modules/loader/index.js">
+    <link rel="modulepreload" href="assets/js/modules/loader/font-slices.js">
+    <link rel="modulepreload" href="assets/js/modules/render/reveal.js">
+    <link rel="modulepreload" href="assets/js/modules/render/sidebar.js">
+    <link rel="modulepreload" href="assets/js/modules/store.js">
+    <link rel="modulepreload" href="assets/js/modules/worker/index.js">
+    <link rel="modulepreload" href="assets/js/modules/render/content.js">
+    <link rel="modulepreload" href="assets/js/modules/search/index.js">
+    <link rel="modulepreload" href="assets/js/modules/utils/scroll-indicator.js">
+    <link rel="modulepreload" href="assets/js/modules/utils/sidebar-scroll-hint.js">
 
-    <!-- 预加载关键样式 -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="assets/css/layout.css" as="style">
-    <link rel="preload" href="assets/css/components.css" as="style">
-    
-    <!-- 样式表 -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- 脚本 -->
     <script src="assets/js/vendor/gsap.min.js" defer></script>
 </head>
 
@@ -149,11 +184,8 @@
         </search>
         <nav id="breadcrumbs" aria-label="面包屑导航"></nav>
         <section id="content" aria-label="书签内容区域"></section>
-        <!-- 居中消息元素将通过JS动态添加centered-element类 -->
     </main>
-    <!-- 引入脚本 -->
     <script type="module" src="script.js"></script>
-    <!-- 引入 instant.page -->
     <script src="assets/js/vendor/instant.page_v5.2.0.js" defer></script>
     <!-- 结构化数据（JSON-LD） - 使用根目录 structured-data.json 的内容，已内联以便搜索引擎抓取 -->
     <script type="application/ld+json">

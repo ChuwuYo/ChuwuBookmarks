@@ -19,11 +19,11 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
 
 | Path | Purpose |
 | --- | --- |
-| `index.html`, `script.js`, `styles.css` | Entry document, bootstrap, CSS entry |
+| `index.html`, `script.js` | Entry document (links every stylesheet in cascade order), bootstrap |
 | `assets/js/modules/` | App modules (render, listener, loader, search, worker, store, utils) |
 | `assets/js/data-worker.js`, `assets/js/search-worker.js` | Web Workers for data loading and search |
 | `assets/components/<name>/` | Light-DOM custom elements (JS + CSS pair each), spec in `docs/components.md` |
-| `assets/css/` | Global stylesheets imported by `styles.css`; colour tokens use `light-dark()` |
+| `assets/css/` | Global stylesheets linked from `index.html`; colour tokens use `light-dark()` |
 | `site.config.js` | Home page title and subtitle |
 | `bookmarks.json`, `structure.json` | Bookmark data (full tree / lightweight folder tree) |
 | `tests/` | Biome + Playwright tooling, fixtures, screenshot baselines |
@@ -57,3 +57,23 @@ and after layout work and only refresh baselines for intended changes.
 3. Run lint and the full test suite again. Pixel diffs are regressions unless
    the change is meant to alter the visuals.
 4. Commit with an objective message.
+
+## Page loading
+
+- `index.html` links every stylesheet directly, in cascade order. Add a new
+  stylesheet there; there is no CSS entry file.
+- `index.html` has a `<link rel="modulepreload">` for every ES module that
+  `script.js` imports statically (directly or indirectly), so they download in
+  parallel. Keep that list in sync when adding, moving or removing an import.
+- LXGW WenKai and DingTalk JinBuTi are served as unicode-range slices
+  (`assets/fonts/<font>/`, declared in the generated `assets/css/fonts.css`),
+  so a page only downloads the slices holding the characters it shows.
+  `assets/js/modules/loader/font-slices.js` loads the slices the first screen
+  needs before rendering cached data, the slices for all bookmark titles after
+  the page has loaded, and every search font slice when the search box first
+  gets focus. The original files live in
+  `tests/tools/fonts/source/`. When a font file changes, replace it there and
+  run `python3 tests/tools/fonts/split-fonts.py` (needs
+  `pip install fonttools brotli`) to regenerate the slices and `fonts.css`;
+  never edit them by hand. Then compare rendering before and after pixel by
+  pixel; the screenshot tests do not catch font changes.

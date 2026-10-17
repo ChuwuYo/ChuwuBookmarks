@@ -8,7 +8,6 @@
 
 import { createIcon } from "../bm-icon/bm-icon.js";
 
-/** 渐隐遮罩宽度与“到达边缘”判定阈值（px） */
 const MASK_OFFSET = 15;
 const EDGE_THRESHOLD = 10;
 
@@ -113,7 +112,6 @@ export class BmBreadcrumbs extends HTMLElement {
 				el.classList.remove("at-end", "at-start");
 				return;
 			}
-			// 只在该侧有内容被滚出时渐隐
 			const start = Math.min(left, MASK_OFFSET);
 			const end = Math.min(max - left, MASK_OFFSET);
 			el.style.maskImage = `linear-gradient(to right, transparent, black ${start}px, black calc(100% - ${end}px), transparent)`;

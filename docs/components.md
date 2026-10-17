@@ -19,7 +19,7 @@ assets/components/<name>/
 `../bm-icon/bm-icon.js` 创建图标，复制这两个组件时需连同 `bm-icon/` 目录与
 `assets/images/icons.svg` 一起复制。其余组件可单独复制。
 
-组件 CSS 由 `styles.css` 统一 `@import`；组件 JS 由 `assets/components/index.js` 统一注册。
+组件 CSS 由 `index.html` 用 `<link rel="stylesheet">` 统一引入；组件 JS 由 `assets/components/index.js` 统一注册。
 
 ### 设计令牌
 

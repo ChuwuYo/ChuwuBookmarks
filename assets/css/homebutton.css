@@ -1,4 +1,3 @@
-/* 主页按钮样式 */
 .home-button {
 	background: linear-gradient(
 		to bottom,
@@ -17,26 +16,22 @@
 		border-radius var(--duration-long) var(--ease-default),
 		opacity var(--duration-medium) var(--ease-in-out-cubic);
 	user-select: none;
-	/* 允许键盘焦点操作 */
 	outline: none;
 	box-shadow:
 		0 4px 6px rgba(0, 0, 0, 0.1),
-		inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* 添加内阴影 */
+		inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 	transform: translateY(0);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	/* 添加硬件加速优化 */
 	will-change: transform, box-shadow, border-radius;
 	backface-visibility: hidden;
 	transform: translateZ(0);
-	/* 确保位置稳定 */
 	position: static;
 	vertical-align: top;
 }
 
-/* 主页按钮悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	.home-button:hover {
 		box-shadow:
@@ -45,12 +40,10 @@
 		border-radius: 18px;
 		transform: translateY(-2px);
 		transition: var(--duration-medium) var(--ease-default);
-		/* 添加硬件加速优化 */
 		will-change: transform, box-shadow, border-radius;
 	}
 }
 
-/* SVG图标样式 */
 .home-icon {
 	width: 22px;
 	height: 22px;
@@ -59,13 +52,11 @@
 	transition:
 		transform var(--duration-medium) var(--ease-default),
 		color var(--duration-medium) var(--ease-default);
-	/* 添加硬件加速优化 */
 	will-change: transform;
 	backface-visibility: hidden;
 	transform: translateZ(0);
 }
 
-/* 聚焦样式 */
 .home-button:focus-visible {
 	outline: 2px solid var(--link-color);
 	outline-offset: 2px;
@@ -73,7 +64,6 @@
 	border-radius: 4px;
 }
 
-/* 移动端焦点状态处理 */
 @media (hover: none) and (pointer: coarse) {
 	.home-button:focus,
 	.home-button:active {
@@ -86,7 +76,6 @@
 			0 4px 6px rgba(0, 0, 0, 0.1),
 			inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 		outline: none;
-		/* 添加硬件加速优化 */
 		will-change: auto;
 	}
 }
