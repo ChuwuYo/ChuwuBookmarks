@@ -66,13 +66,22 @@
     <link rel="preload" href="assets/fonts/LXGWWenKai-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/DingTalk-JinBuTi.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- 预加载关键样式 -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="assets/css/layout.css" as="style">
-    <link rel="preload" href="assets/css/components.css" as="style">
-    
-    <!-- 样式表 -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- 样式表：直接并行加载，顺序即层叠顺序 -->
+    <link rel="stylesheet" href="assets/css/breakpoints.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/theme-toggle.css">
+    <link rel="stylesheet" href="assets/css/sidepanel.css">
+    <link rel="stylesheet" href="assets/css/homebutton.css">
+    <link rel="stylesheet" href="assets/components/bm-icon/bm-icon.css">
+    <link rel="stylesheet" href="assets/components/bm-pagination/bm-pagination.css">
+    <link rel="stylesheet" href="assets/components/bm-breadcrumbs/bm-breadcrumbs.css">
+    <link rel="stylesheet" href="assets/components/bm-card/bm-card.css">
+    <link rel="stylesheet" href="assets/components/bm-search/bm-search.css">
+    <link rel="stylesheet" href="assets/components/bm-sidebar/bm-sidebar.css">
     
     <!-- 脚本 -->
     <script src="assets/js/vendor/gsap.min.js" defer></script>
