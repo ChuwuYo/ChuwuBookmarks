@@ -31,7 +31,6 @@ export class BmSidebar extends HTMLElement {
 		this.#observer = null;
 	}
 
-	/** 请求切换；返回请求后的目标状态 */
 	toggle() {
 		const collapsed = !this.collapsed;
 		this.dispatchEvent(

@@ -1,13 +1,8 @@
-/**
- * 主页渲染模块
- */
-
 import site from "../../../../site.config.js";
 import { getDeviceType } from "./device.js";
 import { resetSearchPagination } from "./search.js";
 import { animationConfig } from "./theme.js";
 
-// 创建主页基础DOM结构
 const createHomeStructure = () => {
 	const fragment = document.createDocumentFragment();
 	const homeMessage = document.createElement("div");
@@ -28,7 +23,6 @@ const createHomeStructure = () => {
 	return { fragment, homeMessage, chineseText, englishText };
 };
 
-// 设置主页文本的初始动画状态
 const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 	gsap.set(homeMessage, { opacity: 0 });
 	gsap.set(chineseText, {
@@ -47,7 +41,6 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 	});
 };
 
-// 创建文字动画的时间线
 const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	const masterTimeline = gsap.timeline();
 
@@ -84,7 +77,6 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	return masterTimeline;
 };
 
-// 创建字符元素
 /** 按字素簇切分，emoji 与组合字符不会被拆开 */
 const splitGraphemes = (text) => {
 	if (typeof Intl !== "undefined" && Intl.Segmenter) {
@@ -108,7 +100,6 @@ const createCharacterSpans = (chars) => {
 	return { fragment, spans };
 };
 
-// 设置中文字符动画
 const setupChineseCharacterAnimation = (spans) => {
 	spans.forEach((charSpan, index) => {
 		const char = charSpan.textContent;
@@ -134,7 +125,6 @@ const setupChineseCharacterAnimation = (spans) => {
 	});
 };
 
-// 设置英文字符动画
 const setupEnglishCharacterAnimation = (spans) => {
 	spans.forEach((charSpan, index) => {
 		const char = charSpan.textContent;
@@ -160,7 +150,6 @@ const setupEnglishCharacterAnimation = (spans) => {
 	});
 };
 
-// 渲染主页
 import { clearAllMessages } from "./message.js";
 
 const renderHome = () => {
@@ -169,14 +158,12 @@ const renderHome = () => {
 
 	if (!content || !breadcrumbs) return;
 
-	// 清理分页控件
 	try {
 		resetSearchPagination();
 	} catch (error) {
 		console.error("[Home] Failed to cleanup pagination:", error);
 	}
 
-	// 使用统一管理清理所有消息元素，保证环境干净
 	clearAllMessages();
 
 	const { fragment, homeMessage, chineseText, englishText } =
@@ -187,7 +174,6 @@ const renderHome = () => {
 
 	const deviceType = getDeviceType();
 
-	// 将主页消息添加到适当容器：移动端附加到 body 以实现覆盖层效果，桌面端放入 content 以随侧栏布局变化
 	if (deviceType === "mobile") {
 		document.body.appendChild(fragment);
 	} else {

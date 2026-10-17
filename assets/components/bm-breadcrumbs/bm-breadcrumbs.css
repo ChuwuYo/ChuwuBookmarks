@@ -1,4 +1,3 @@
-/* <bm-breadcrumbs>：不参与布局，子元素直接排入父级滚动容器 */
 bm-breadcrumbs {
 	display: contents;
 }

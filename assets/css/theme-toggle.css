@@ -1,4 +1,3 @@
-/* 主题切换按钮的日出/日落效果 */
 @property --sunray1 {
 	syntax: "<percentage>";
 	inherits: true;
@@ -11,15 +10,14 @@
 	initial-value: 91%;
 }
 
-/* 主题切换按钮基础样式 */
 .theme-toggle {
-	--speed: var(--duration-base); /* Use global variable */
+	--speed: var(--duration-base);
 	appearance: none;
 	padding: 0;
 	font-size: 1rem;
 	border: 2px solid #a4d1c4;
 	border-radius: 10px;
-	background: var(--button-bg); /* 使用变量定义背景色 */
+	background: var(--button-bg);
 	color: var(--text-color);
 	cursor: pointer;
 	margin-left: 5px;
@@ -36,7 +34,6 @@
 	will-change: background-color, transform;
 }
 
-/* 日/月图标基础样式 */
 .theme-toggle svg {
 	width: calc(1rem + 5px);
 	height: calc(1rem + 5px);
@@ -58,7 +55,6 @@
 	will-change: opacity, transform;
 }
 
-/* 日出效果 - 伪元素 */
 .theme-toggle::before {
 	content: "";
 	position: absolute;
@@ -67,7 +63,6 @@
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	/* 太阳光芒 - 增强光晕效果 */
 	background:
 		radial-gradient(
 			circle at 50% calc(100% - 0.3em),
@@ -115,7 +110,6 @@
 		opacity var(--speed) var(--ease-out-quad);
 }
 
-/* 月亮/地面效果 - 伪元素 */
 .theme-toggle::after {
 	content: "";
 	position: absolute;
@@ -126,7 +120,6 @@
 	z-index: 2;
 	border-radius: 50%;
 	box-shadow: 0 -0.15em 0.3em -0.1em rgba(255, 255, 255, 0.8);
-	/* 月光/地面效果 - 增加层次感 */
 	background:
 		radial-gradient(
 			circle at 50% 0,
@@ -171,7 +164,6 @@
 		--sunlight var(--speed) var(--ease-out-quad);
 }
 
-/* 亮色主题状态 */
 [data-theme="light"] .theme-toggle .sun {
 	opacity: 1;
 	transform: translate(-50%, -50%) scale(1) rotate(0);
@@ -194,7 +186,6 @@
 	transform: translate(0, 100%);
 }
 
-/* 暗色主题状态 */
 [data-theme="dark"] .theme-toggle .sun {
 	opacity: 0;
 	transform: translate(-50%, -50%) scale(0.5) rotate(30deg);
@@ -217,12 +208,10 @@
 	transform: translate(0, 65%);
 }
 
-/* 夜间主题状态 */
 [data-theme="dark"] .theme-toggle {
-	background: var(--button-bg); /* 使用变量定义夜间主题背景色 */
+	background: var(--button-bg);
 }
 
-/* 悬停效果 - 仅在PC端生效 */
 @media (hover: hover) and (pointer: fine) {
 	.theme-toggle:hover {
 		background-color: var(--button-hover);
@@ -249,7 +238,6 @@
 	}
 }
 
-/* 为按钮添加一个包装器来实现缩放效果，不影响内部元素 */
 .theme-toggle::before,
 .theme-toggle::after {
 	transition:
@@ -260,7 +248,6 @@
 		box-shadow var(--speed) var(--ease-default);
 }
 
-/* 移动端焦点状态处理 */
 @media (hover: none) and (pointer: coarse) {
 	.theme-toggle:focus,
 	.theme-toggle:active {

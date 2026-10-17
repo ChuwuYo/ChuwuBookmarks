@@ -1,7 +1,3 @@
-/**
- * 搜索结果渲染：分页显示结果，文件夹排在书签前面
- */
-
 import "../../../components/bm-pagination/bm-pagination.js";
 import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { createElement } from "./elements.js";
@@ -10,7 +6,6 @@ import { clearAllMessages, showNoResultsMessage } from "./message.js";
 
 const ITEMS_PER_PAGE = 20;
 
-/** 进行中的定时器，新搜索或返回主页时清理 */
 const timers = new Set();
 const later = (fn, ms) => {
 	const id = setTimeout(() => {
@@ -50,7 +45,6 @@ const renderPage = (container, results, page, renderMainContent) => {
 	});
 };
 
-/** 翻页后的过渡：内容区淡出再淡入，并聚焦第一条结果 */
 const playPageTransition = (content) => {
 	content.classList.add("page-changing");
 	later(
@@ -78,7 +72,6 @@ const playPageTransition = (content) => {
 	}, 16);
 };
 
-/** 把当前页写入地址栏，第一页时移除 page 参数 */
 const updateHistory = (page) => {
 	const keyword = document.getElementById("search-input")?.value.trim();
 	if (!keyword) return;
@@ -102,7 +95,6 @@ const resetSearchPagination = () => {
 		);
 };
 
-/** 地址栏中的页码，缺失或非法时为第一页，并限制在 [1, total] 内 */
 const pageFromUrl = (total) => {
 	const raw = new URL(window.location).searchParams.get("page");
 	const page = Number.parseInt(raw ?? "", 10);

@@ -1,7 +1,3 @@
-/**
- * 分页页码计算（纯函数，可在 Node 中单测）
- */
-
 /** @typedef {number | "ellipsis"} PageItem */
 
 /**

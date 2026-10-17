@@ -1,4 +1,3 @@
-/* 动画和过渡效果 */
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
@@ -39,7 +38,6 @@
 	}
 }
 
-/* 尊重系统“减少动态效果”设置：保留最终状态，去掉过渡与循环动画 */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -53,7 +51,6 @@
 	}
 }
 
-/* 主题切换：切换期间暂停全站过渡（主题按钮自身的日出/日落动画除外） */
 .theme-switching *:not(.theme-toggle, .theme-toggle *),
 .theme-switching *:not(.theme-toggle, .theme-toggle *)::before,
 .theme-switching *:not(.theme-toggle, .theme-toggle *)::after {
@@ -66,16 +63,11 @@
 	animation: none;
 }
 
-/* 切回亮色：旧（暗色）快照放在上层收缩 */
 .theme-switching-reverse::view-transition-old(root) {
 	background: none;
 	z-index: 2;
 }
 
-/*
- * 首屏：index.html 内联脚本给 <html> 加 .app-loading，主题和首屏内容就绪前侧栏、主区都不显示
- * （背景色照常按主题绘制）；就绪后 reveal.js 换成 .app-entering，整页一起淡入。
- */
 .app-loading body > * {
 	opacity: 0;
 	visibility: hidden;
