@@ -4,7 +4,11 @@ import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
-import { loadFirstScreenFonts, preloadFontSlices } from "./font-slices.js";
+import {
+	loadFirstScreenFonts,
+	loadSearchFontOnFocus,
+	preloadFontSlices,
+} from "./font-slices.js";
 
 const state = {
 	data: null,
@@ -70,6 +74,7 @@ const renderFromCache = async (renderMainContent) => {
 
 const loadBookmarksData = async (renderMainContent) => {
 	removeLegacyCache();
+	loadSearchFontOnFocus();
 	fullDataPending = true;
 	const cached = await renderFromCache(renderMainContent);
 	const hasCachedData = Boolean(cached.bookmarks || cached.structure);
