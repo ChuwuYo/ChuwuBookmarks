@@ -139,6 +139,22 @@ const getProbeOffset = () => {
 	return { x: matrix.e, y: matrix.f };
 };
 
+const parsePx = (value) =>
+	value?.endsWith("px") ? Number.parseFloat(value) : Number.NaN;
+
+const getSnapshotSize = () => {
+	const box = getComputedStyle(
+		document.documentElement,
+		"::view-transition-group(root)",
+	);
+	const width = parsePx(box.width);
+	const height = parsePx(box.height);
+	return {
+		width: width > 0 ? width : window.innerWidth,
+		height: height > 0 ? height : window.innerHeight,
+	};
+};
+
 /** 以快照自身尺寸的百分比表示圆，避免不同浏览器对 px 与设备像素比的解释差异 */
 const circleIn = (width, height) => (radius, x, y) =>
 	`circle(${(radius / Math.hypot(width, height)) * Math.SQRT2 * 100}% at ${(x / width) * 100}% ${(y / height) * 100}%)`;
@@ -186,9 +202,7 @@ const toggleTheme = () => {
 		transition.ready
 			.then(() => {
 				const pseudoElement = `::view-transition-${reverse ? "old" : "new"}(root)`;
-				const box = getComputedStyle(root, pseudoElement);
-				const width = Number.parseFloat(box.width) || window.innerWidth;
-				const height = Number.parseFloat(box.height) || window.innerHeight;
+				const { width, height } = getSnapshotSize();
 				const offset = getProbeOffset();
 				const x = origin.x + offset.x;
 				const y = origin.y + offset.y;
