@@ -16,6 +16,7 @@ whole font; without them a slice renders with different pixels. The reference
 characters of the other scripts are all in the common slice.
 """
 
+import hashlib
 import json
 import shutil
 import tempfile
@@ -269,15 +270,18 @@ def main():
             for name, cps in planned:
                 assert not (covered & cps), f"{family}: overlapping slice {name}"
                 covered |= cps
-                dest = out_dir / f"{name}.woff2"
+                tmp_dest = Path(tmp) / f"{folder}-{name}.woff2"
                 extra = autohint_reference(cps, cmap_cps, extremes)
-                subset_font(src, dest, cps | extra)
-                got = set(TTFont(str(dest)).getBestCmap())
+                subset_font(src, tmp_dest, cps | extra)
+                got = set(TTFont(str(tmp_dest)).getBestCmap())
                 assert cps <= got, f"{family}: slice {name} is missing codepoints"
+                digest = hashlib.sha256(tmp_dest.read_bytes()).hexdigest()[:10]
+                file = f"{name}.{digest}.woff2"
+                shutil.move(tmp_dest, out_dir / file)
                 css += [
                     "@font-face {",
                     f'\tfont-family: "{family}";',
-                    f'\tsrc: url("../fonts/{folder}/{name}.woff2") format("woff2");',
+                    f'\tsrc: url("../fonts/{folder}/{file}") format("woff2");',
                     "\tfont-display: swap;",
                     unicode_range_line(format_range(cps, cmap_cps)),
                     "}",
