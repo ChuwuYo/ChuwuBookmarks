@@ -77,3 +77,6 @@ and after layout work and only refresh baselines for intended changes.
   `pip install fonttools brotli`) to regenerate the slices and `fonts.css`;
   never edit them by hand. Then compare rendering before and after pixel by
   pixel; the screenshot tests do not catch font changes.
+- Slice file names carry a hash of their contents, so `_headers` (Netlify,
+  Cloudflare Pages) and `vercel.json` cache `assets/fonts/` for a year as
+  immutable. Never change a font file without regenerating its name.
