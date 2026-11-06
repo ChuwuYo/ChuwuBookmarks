@@ -20,7 +20,7 @@ const types = {
 	".xml": "application/xml",
 };
 
-/** 解析请求路径；非法编码返回 null，越出站点根目录返回 false */
+/** 解析请求路径；非法编码返回 null，越出站点根目录或含 . 开头的路径段返回 false */
 const resolvePath = (pathname) => {
 	let decoded;
 	try {
@@ -30,7 +30,7 @@ const resolvePath = (pathname) => {
 	}
 	const path = resolve(root, `.${decoded}`);
 	const rel = relative(root, path);
-	if (rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel))
+	if (isAbsolute(rel) || rel.split(sep).some((part) => part.startsWith(".")))
 		return false;
 	return path;
 };
@@ -58,6 +58,6 @@ createServer((req, res) => {
 		"Cache-Control": "no-store",
 	});
 	createReadStream(path).pipe(res);
-}).listen(port, () =>
-	console.log(`Serving ${root} on http://localhost:${port}`),
+}).listen(port, "127.0.0.1", () =>
+	console.log(`Serving ${root} on http://127.0.0.1:${port}`),
 );
