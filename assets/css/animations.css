@@ -63,6 +63,24 @@
 	animation: none;
 }
 
+/* 按钮单独成组并盖在根快照之上，收缩动画期间也能看到图标变形 */
+.theme-switching-circle .theme-toggle {
+	view-transition-name: theme-toggle;
+}
+
+.theme-switching-circle::view-transition-group(theme-toggle) {
+	z-index: 3;
+	animation: none;
+}
+
+.theme-switching-circle::view-transition-old(theme-toggle) {
+	display: none;
+}
+
+.theme-switching-circle::view-transition-new(theme-toggle) {
+	animation: none;
+}
+
 .theme-switching-reverse::view-transition-old(root) {
 	background: none;
 	z-index: 2;
