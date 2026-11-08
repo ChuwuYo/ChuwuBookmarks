@@ -18,7 +18,6 @@ import {
 	restoreSearchStateFromURL,
 } from "./assets/js/modules/search/index.js";
 import { customScrollIndicator } from "./assets/js/modules/utils/scroll-indicator.js";
-import { initSidebarScrollHint } from "./assets/js/modules/utils/sidebar-scroll-hint.js";
 
 // 创建包装函数解决循环依赖
 const renderMainContent = (folder, fromSidebar = false) => {
@@ -39,8 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 	if (window.innerWidth >= BREAKPOINT_MOBILE) {
 		customScrollIndicator.init();
 	}
-
-	initSidebarScrollHint();
 
 	let searchWorkerReady = false;
 	try {
