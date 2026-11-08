@@ -29,6 +29,16 @@ const syncThemeColor = (theme) => {
 
 const THEME_KEY = "theme";
 
+/** 每次切换加一，按钮的光条和图标据此始终朝同一方向转 */
+let themeTurn = 0;
+
+const setRootTheme = (theme) => {
+	const root = document.documentElement;
+	root.setAttribute("data-theme", theme);
+	themeTurn += (themeTurn % 2 === 1) === (theme === "dark") ? 0 : 1;
+	root.style.setProperty("--theme-turn", themeTurn);
+};
+
 /** 本次会话中手动选择的主题；存储不可用时也能保住用户的选择 */
 let manualTheme = null;
 
@@ -50,16 +60,14 @@ const initTheme = () => {
 	applyReducedMotion();
 	const root = document.documentElement;
 	const theme = readStoredTheme() ?? getSystemTheme();
-	if (root.getAttribute("data-theme") !== theme) {
-		root.setAttribute("data-theme", theme);
-	}
+	setRootTheme(theme);
 	syncThemeColor(theme);
 
 	systemThemeQuery()?.addEventListener("change", () => {
 		if (manualTheme || readStoredTheme()) return;
 		const next = getSystemTheme();
 		root.classList.add(SWITCH_CLASS);
-		root.setAttribute("data-theme", next);
+		setRootTheme(next);
 		syncThemeColor(next);
 		setTimeout(
 			() => root.classList.remove(SWITCH_CLASS),
@@ -86,7 +94,7 @@ const prefersReducedMotion = () =>
 
 const applyTheme = (theme) => {
 	manualTheme = theme;
-	document.documentElement.setAttribute("data-theme", theme);
+	setRootTheme(theme);
 	try {
 		localStorage.setItem(THEME_KEY, theme);
 	} catch {
@@ -97,12 +105,7 @@ const applyTheme = (theme) => {
 
 const getOrigin = () => {
 	const button = document.getElementById("theme-toggle");
-	const icon = button?.querySelector(
-		document.documentElement.getAttribute("data-theme") === "dark"
-			? ".moon"
-			: ".sun",
-	);
-	const target = icon ?? button;
+	const target = button?.querySelector(".theme-icon") ?? button;
 	if (!target) return { x: window.innerWidth / 2, y: 0 };
 	const rect = target.getBoundingClientRect();
 	return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
