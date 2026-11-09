@@ -5,57 +5,132 @@
 	width: var(--sidebar-width);
 	background: var(--sidebar-bg);
 	box-shadow: var(--shadow-md);
-	padding: 20px 20px 40px;
+	padding: 20px 20px 0;
+	display: flex;
+	flex-direction: column;
 	transition:
 		width var(--duration-short) var(--ease-in-out-cubic),
 		padding var(--duration-short) var(--ease-in-out-cubic),
 		background-color var(--duration-short) var(--ease-default);
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow: hidden;
 	height: 100vh;
+	height: 100dvh;
 	z-index: 1000;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
 	box-sizing: border-box;
 	border-radius: 0 15px 15px 0;
 }
 
-.sidebar::-webkit-scrollbar {
-	display: none;
+@property --sidebar-fade-top {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0px;
 }
 
-.sidebar-scroll-hint {
-	position: fixed;
-	bottom: 20px;
-	left: calc(var(--sidebar-width) - 24px - 15px);
-	width: 24px;
-	height: 24px;
-	z-index: 1001;
-	pointer-events: none;
-	opacity: 0;
-	transform: translateY(10px) scale(0.8);
-	transition:
-		opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+@property --sidebar-fade-bottom {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0px;
 }
 
-.sidebar-scroll-hint.visible {
-	opacity: 0.9;
-	transform: translateY(0) scale(1);
+#sidebar-folders {
+	--fade-size: 2.5rem;
+	flex: 1 1 auto;
+	min-height: 0;
+	margin: 0 -20px 12px;
+	padding: 0 20px calc(1.5rem + env(safe-area-inset-bottom, 0px));
+	overflow: hidden auto;
+	overscroll-behavior: contain;
+	--sidebar-thumb: transparent;
+	scrollbar-gutter: stable;
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		#000 var(--sidebar-fade-top),
+		#000 calc(100% - var(--sidebar-fade-bottom)),
+		transparent
+	);
 }
 
-.sidebar-scroll-hint::before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 0;
-	height: 0;
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 10px solid var(--link-color);
-	filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+/* 不支持滚动驱动动画时，动画会按 0 秒播完停在终态，顶部被一直遮住 */
+@supports (animation-timeline: scroll()) {
+	#sidebar-folders {
+		animation:
+			sidebar-fade-top linear both,
+			sidebar-fade-bottom linear both;
+		animation-timeline: scroll(self), scroll(self);
+		animation-range:
+			0 var(--fade-size),
+			calc(100% - var(--fade-size)) 100%;
+	}
+}
+
+@keyframes sidebar-fade-top {
+	to {
+		--sidebar-fade-top: var(--fade-size);
+	}
+}
+
+@keyframes sidebar-fade-bottom {
+	from {
+		--sidebar-fade-bottom: var(--fade-size);
+	}
+}
+
+/* 触屏用系统自带的悬浮滚动条：滚动时出现、停下后淡出 */
+@media not (pointer: fine) {
+	#sidebar-folders {
+		scrollbar-width: auto;
+		scrollbar-color: auto;
+	}
+}
+
+@media (pointer: fine) {
+	#sidebar-folders:is(:hover, :focus-within) {
+		--sidebar-thumb: var(--sidebar-thumb-color);
+	}
+
+	/* 主指针是鼠标的触屏笔记本，用手指滚动时没有悬停 */
+	@media (any-pointer: coarse) {
+		#sidebar-folders {
+			--sidebar-thumb: var(--sidebar-thumb-color);
+		}
+	}
+
+	/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */
+	@supports not (animation-timeline: scroll()) {
+		#sidebar-folders {
+			--sidebar-thumb: var(--sidebar-thumb-color);
+		}
+	}
+
+	/* scrollbar-width 最细只有 thin，也不能设圆角；有 ::-webkit-scrollbar 的浏览器用它画更细的圆头滑块 */
+	@supports selector(::-webkit-scrollbar) {
+		#sidebar-folders {
+			scrollbar-color: auto;
+		}
+
+		#sidebar-folders::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		#sidebar-folders::-webkit-scrollbar-track {
+			margin-block: 12px;
+			background: transparent;
+		}
+
+		#sidebar-folders::-webkit-scrollbar-thumb {
+			border: 3px solid transparent;
+			border-radius: 999px;
+			background: var(--sidebar-thumb) padding-box;
+		}
+	}
+
+	@supports not selector(::-webkit-scrollbar) {
+		#sidebar-folders {
+			scrollbar-width: thin;
+			scrollbar-color: var(--sidebar-thumb) transparent;
+		}
+	}
 }
 
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
@@ -122,6 +197,7 @@
 	display: flex;
 	align-items: center;
 	gap: 20px;
+	flex: none;
 	margin-bottom: 20px;
 	padding: 0 5px;
 	flex-wrap: nowrap;

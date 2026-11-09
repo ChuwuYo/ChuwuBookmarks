@@ -39,6 +39,10 @@
 	--scroll-indicator-thumb-hover: light-dark(#88dcfa, #ffffff4b);
 	--scroll-indicator-width: 5px;
 	--scroll-indicator-border-radius: 4px;
+	--sidebar-thumb-color: light-dark(
+		rgb(20 70 80 / 0.22),
+		rgb(255 255 255 / 0.16)
+	);
 
 	--home-button-bg-start: light-dark(#9ee9f4d8, #5d6687d8);
 	--home-button-bg-end: light-dark(#d1d1f3a5, #3d4663a5);
