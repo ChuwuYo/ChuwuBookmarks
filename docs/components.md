@@ -208,6 +208,7 @@ DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示�
 | `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
 | `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
 | `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
+| `data-scrolling` attribute | 加在正在滚动的子元素上，停止 600ms 后移除 |
 
 切换按钮的 `aria-expanded` 随侧边栏状态自动更新。页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
