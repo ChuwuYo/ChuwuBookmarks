@@ -133,12 +133,6 @@
 	}
 }
 
-@media (prefers-reduced-motion: reduce) {
-	#sidebar-folders {
-		animation-duration: auto !important;
-	}
-}
-
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
 	.sidebar:not(.js-initialized) {
