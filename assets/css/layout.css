@@ -40,8 +40,7 @@
 	padding: 0 20px calc(1.5rem + env(safe-area-inset-bottom, 0px));
 	overflow: hidden auto;
 	overscroll-behavior: contain;
-	scrollbar-width: thin;
-	scrollbar-color: transparent transparent;
+	--sidebar-thumb: transparent;
 	scrollbar-gutter: stable;
 	mask-image: linear-gradient(
 		to bottom,
@@ -72,19 +71,48 @@
 }
 
 #sidebar-folders:is(:hover, :focus-within) {
-	scrollbar-color: var(--scroll-indicator-thumb) transparent;
+	--sidebar-thumb: var(--sidebar-thumb-color);
 }
 
 @media (any-pointer: coarse) {
 	#sidebar-folders {
-		scrollbar-color: var(--scroll-indicator-thumb) transparent;
+		--sidebar-thumb: var(--sidebar-thumb-color);
 	}
 }
 
-/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的细滚动条提示 */
+/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */
 @supports not (animation-timeline: scroll()) {
 	#sidebar-folders {
-		scrollbar-color: var(--scroll-indicator-thumb) transparent;
+		--sidebar-thumb: var(--sidebar-thumb-color);
+	}
+}
+
+/* scrollbar-width 最细只有 thin，也不能设圆角；有 ::-webkit-scrollbar 的浏览器用它画更细的圆头滑块 */
+@supports selector(::-webkit-scrollbar) {
+	#sidebar-folders {
+		scrollbar-color: auto;
+	}
+
+	#sidebar-folders::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	#sidebar-folders::-webkit-scrollbar-track {
+		margin-block: 12px;
+		background: transparent;
+	}
+
+	#sidebar-folders::-webkit-scrollbar-thumb {
+		border: 3px solid transparent;
+		border-radius: 999px;
+		background: var(--sidebar-thumb) padding-box;
+	}
+}
+
+@supports not selector(::-webkit-scrollbar) {
+	#sidebar-folders {
+		scrollbar-width: thin;
+		scrollbar-color: var(--sidebar-thumb) transparent;
 	}
 }
 
