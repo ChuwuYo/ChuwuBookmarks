@@ -49,13 +49,19 @@
 		#000 calc(100% - var(--sidebar-fade-bottom)),
 		transparent
 	);
-	animation:
-		sidebar-fade-top linear both,
-		sidebar-fade-bottom linear both;
-	animation-timeline: scroll(self), scroll(self);
-	animation-range:
-		0 var(--fade-size),
-		calc(100% - var(--fade-size)) 100%;
+}
+
+/* 不支持滚动驱动动画时，动画会按 0 秒播完停在终态，顶部被一直遮住 */
+@supports (animation-timeline: scroll()) {
+	#sidebar-folders {
+		animation:
+			sidebar-fade-top linear both,
+			sidebar-fade-bottom linear both;
+		animation-timeline: scroll(self), scroll(self);
+		animation-range:
+			0 var(--fade-size),
+			calc(100% - var(--fade-size)) 100%;
+	}
 }
 
 @keyframes sidebar-fade-top {
@@ -81,6 +87,13 @@
 @media (pointer: fine) {
 	#sidebar-folders:is(:hover, :focus-within) {
 		--sidebar-thumb: var(--sidebar-thumb-color);
+	}
+
+	/* 主指针是鼠标的触屏笔记本，用手指滚动时没有悬停 */
+	@media (any-pointer: coarse) {
+		#sidebar-folders {
+			--sidebar-thumb: var(--sidebar-thumb-color);
+		}
 	}
 
 	/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */

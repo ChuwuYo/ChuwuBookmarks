@@ -195,16 +195,18 @@ const toggleTheme = () => {
 	const transition = document.startViewTransition(() => applyTheme(next));
 	setGsapPaused(true);
 
-	// 兜底计时从动画真正开始算：性能差的设备上拍快照就要几百毫秒，从点击起算会在动画末尾强行跳过
+	// 性能差的设备上拍快照就要几百毫秒，兜底计时在动画开始时重新计，否则会在动画末尾强行跳过
 	let safety = 0;
 	let clip;
 	const armSafety = (duration) => {
+		clearTimeout(safety);
 		safety = setTimeout(
 			() => transition.skipTransition?.(),
 			duration + SAFETY_MARGIN,
 		);
 	};
 
+	armSafety(0);
 	if (circle) {
 		transition.ready
 			.then(() => {
