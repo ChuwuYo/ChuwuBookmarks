@@ -85,7 +85,7 @@ const REVERSE_CLASS = "theme-switching-reverse";
 const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
 const DURATION = { expand: 600, collapse: 500 };
 const ENABLE_TRANSITIONS_DELAY = 500;
-const SAFETY_TIMEOUT = 2000;
+const SAFETY_MARGIN = 2000;
 const PROBE_NAME = "theme-origin-probe";
 let switchId = 0;
 
@@ -195,12 +195,16 @@ const toggleTheme = () => {
 	const transition = document.startViewTransition(() => applyTheme(next));
 	setGsapPaused(true);
 
-	const safety = setTimeout(
-		() => transition.skipTransition?.(),
-		SAFETY_TIMEOUT,
-	);
-
+	// 兜底计时从动画真正开始算：性能差的设备上拍快照就要几百毫秒，从点击起算会在动画末尾强行跳过
+	let safety = 0;
 	let clip;
+	const armSafety = (duration) => {
+		safety = setTimeout(
+			() => transition.skipTransition?.(),
+			duration + SAFETY_MARGIN,
+		);
+	};
+
 	if (circle) {
 		transition.ready
 			.then(() => {
@@ -218,8 +222,10 @@ const toggleTheme = () => {
 					{ clipPath: toCircle(0, x, y) },
 					{ clipPath: toCircle(radius, x, y) },
 				];
+				const duration = reverse ? DURATION.collapse : DURATION.expand;
+				armSafety(duration);
 				clip = root.animate(reverse ? keyframes.reverse() : keyframes, {
-					duration: reverse ? DURATION.collapse : DURATION.expand,
+					duration,
 					easing: EASING,
 					pseudoElement,
 					fill: "forwards", // 没有它，结束瞬间会闪一下
@@ -227,7 +233,7 @@ const toggleTheme = () => {
 			})
 			.catch(() => {}); // 被跳过时 ready 会 reject
 	} else {
-		transition.ready.catch(() => {});
+		transition.ready.then(() => armSafety(0)).catch(() => {});
 	}
 
 	transition.finished
