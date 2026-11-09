@@ -19,6 +19,12 @@
 	border-radius: 0 var(--radius-7) var(--radius-7) 0;
 }
 
+@property --sidebar-thumb {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: transparent;
+}
+
 @property --sidebar-fade-top {
 	syntax: "<length>";
 	inherits: false;
@@ -40,6 +46,7 @@
 	overflow: hidden auto;
 	overscroll-behavior: contain;
 	--sidebar-thumb: transparent;
+	transition: --sidebar-thumb var(--duration-4) var(--ease-out);
 	scrollbar-gutter: stable;
 	mask-image: linear-gradient(
 		to bottom,
@@ -86,6 +93,7 @@
 @media (pointer: fine) {
 	#sidebar-folders:is(:hover, :focus-within, [data-scrolling]) {
 		--sidebar-thumb: var(--sidebar-thumb-color);
+		transition-duration: var(--duration-2);
 	}
 
 	/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */
