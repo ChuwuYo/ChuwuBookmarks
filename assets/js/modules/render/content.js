@@ -65,7 +65,7 @@ const showFolderLoading = (content, folderTitle) => {
 	wrapper.className = "folder-loading";
 
 	const spinner = document.createElement("div");
-	spinner.className = "loading-spinner folder-loading-spinner";
+	spinner.className = "loading-spinner";
 
 	const text = document.createElement("p");
 	text.className = "folder-loading-text";

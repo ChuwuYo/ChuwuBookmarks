@@ -1,7 +1,6 @@
 const displayLoadedIcon = (img, icon) => {
 	if (img.naturalWidth > 1 && img.naturalHeight > 1) {
 		icon.classList.add("bookmark-icon--img-loaded");
-		img.classList.add("is-loaded");
 		return true;
 	}
 	return false;
@@ -49,7 +48,6 @@ const handleIconLoadError = (img, icon, retryCount = 0) => {
 			);
 
 			icon.classList.remove("bookmark-icon--img-loaded");
-			img.classList.remove("is-loaded");
 			img.src = iconUrls[nextIndex];
 
 			if (img.complete) {
@@ -100,7 +98,6 @@ const loadIcon = (img, icon) => {
 	img.dataset.iconUrls = JSON.stringify(iconUrls);
 	img.dataset.currentIndex = "0";
 	icon.classList.remove("bookmark-icon--img-loaded");
-	img.classList.remove("is-loaded");
 
 	const handleLoad = function () {
 		if (!displayLoadedIcon(this, icon)) {
@@ -139,4 +136,4 @@ const loadIconsForElements = (bookmarkElements) => {
 	});
 };
 
-export { loadIcon, loadIconsForElements };
+export { loadIconsForElements };

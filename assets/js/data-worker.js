@@ -39,40 +39,6 @@ function convertStructureToBookmarks(structure) {
 	return structure.folders.map(convertFolder);
 }
 
-function _mergeFullDataIntoStructure(structureData, fullData) {
-	const fullDataMap = new Map();
-
-	function buildMap(nodes) {
-		nodes.forEach((node) => {
-			if (node.id) {
-				fullDataMap.set(node.id, node);
-			}
-			if (node.children) {
-				buildMap(node.children);
-			}
-		});
-	}
-	buildMap(fullData);
-
-	function fillChildren(nodes) {
-		nodes.forEach((node) => {
-			if (node._lazyLoad && node.id) {
-				const fullNode = fullDataMap.get(node.id);
-				if (fullNode?.children) {
-					node.children = fullNode.children;
-					node._lazyLoad = false;
-				}
-			}
-			if (node.children) {
-				fillChildren(node.children);
-			}
-		});
-	}
-	fillChildren(structureData);
-
-	return structureData;
-}
-
 self.onmessage = async (event) => {
 	const { action } = event.data;
 

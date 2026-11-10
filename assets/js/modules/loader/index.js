@@ -197,7 +197,6 @@ export {
 	getSearchSource,
 	isFullDataReady,
 	loadBookmarksData,
-	showErrorMessage,
 	showLoadingIndicator,
 	waitForFullData,
 };
