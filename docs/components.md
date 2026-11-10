@@ -204,6 +204,9 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
 最后一项为当前位置，带 `aria-current="location"` 且不触发导航，样式按 `[aria-current]` 选择。
 
+面包屑项、分隔符与图标的样式（含窄屏的胶囊样式）都在 `bm-breadcrumbs.css`；
+父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
+
 ## `<bm-card>`
 
 文件夹或书签条目，由 `createCard(type, item)` 创建。
