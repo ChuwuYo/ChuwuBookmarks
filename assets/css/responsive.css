@@ -4,7 +4,6 @@
 	transition:
 		transform var(--duration-2) var(--ease-standard),
 		opacity var(--duration-2) var(--ease-out);
-	will-change: transform, opacity;
 	backface-visibility: hidden;
 }
 
@@ -136,8 +135,16 @@
 
 	.sidebar {
 		z-index: 1001;
-		left: -220px;
+		left: calc(-1 * var(--sidebar-width));
 		transition: left var(--duration-1) var(--ease-standard);
+	}
+
+	/* 收起时先滑出，滑完再收宽度；否则宽度先归零，滑动看不见 */
+	.sidebar.collapsed {
+		transition:
+			left var(--duration-1) var(--ease-standard),
+			width 0s var(--duration-1),
+			padding 0s var(--duration-1);
 	}
 
 	.sidebar:not(.collapsed) {
@@ -154,7 +161,6 @@
 		position: relative;
 		box-sizing: border-box;
 		contain: layout style;
-		will-change: auto;
 		backface-visibility: hidden;
 		transform: translateZ(0);
 		min-height: 100vh;
@@ -165,8 +171,7 @@
 	#breadcrumbs,
 	.breadcrumb-item {
 		transform: none;
-		transition: opacity 0.2s ease;
-		will-change: auto;
+		transition: opacity var(--duration-3) var(--ease-out);
 		contain: layout;
 	}
 
@@ -223,8 +228,8 @@
 		white-space: nowrap;
 		flex-shrink: 0;
 		transition:
-			transform 0.15s ease,
-			background-color 0.15s ease;
+			transform var(--duration-2) var(--ease-standard),
+			background-color var(--duration-2) var(--ease-standard);
 	}
 
 	.breadcrumb-separator {
@@ -287,7 +292,8 @@
 		border-radius: 50%;
 		transform: translateY(-50%);
 		pointer-events: none;
-		animation: pulseRight 1.5s infinite;
+		animation: pulseRight calc(var(--duration-loop) * 1.5) var(--ease-in-out)
+			infinite;
 	}
 
 	#breadcrumbs:not(.scrollable)::after {

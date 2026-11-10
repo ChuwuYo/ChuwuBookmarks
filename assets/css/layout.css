@@ -54,8 +54,8 @@
 @supports (animation-timeline: scroll()) {
 	#sidebar-folders {
 		animation:
-			sidebar-fade-top linear both,
-			sidebar-fade-bottom linear both;
+			sidebar-fade-top var(--ease-linear) both,
+			sidebar-fade-bottom var(--ease-linear) both;
 		animation-timeline: scroll(self), scroll(self);
 		animation-range:
 			0 var(--fade-size),
