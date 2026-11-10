@@ -5,9 +5,9 @@ import {
 	showLoadingIndicator,
 } from "./assets/js/modules/loader/index.js";
 import { renderMainContent as _renderMainContent } from "./assets/js/modules/render/content.js";
-import { handleDeviceView } from "./assets/js/modules/render/device.js";
 import { renderHome } from "./assets/js/modules/render/home.js";
 import { revealApp } from "./assets/js/modules/render/reveal.js";
+import { initSidebarState } from "./assets/js/modules/render/sidebar-state.js";
 import { initTheme } from "./assets/js/modules/render/theme.js";
 import {
 	createSearchHandler,
@@ -31,7 +31,7 @@ const REVEAL_FALLBACK_DELAY = 400;
 setTimeout(revealApp, REVEAL_FALLBACK_DELAY);
 document.addEventListener("DOMContentLoaded", async () => {
 	initTheme();
-	handleDeviceView();
+	initSidebarState();
 
 	if (!isNarrow()) {
 		customScrollIndicator.init();
