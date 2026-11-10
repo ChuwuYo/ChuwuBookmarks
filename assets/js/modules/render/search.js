@@ -73,7 +73,7 @@ const playPageTransition = (content) => {
 };
 
 const updateHistory = (page) => {
-	const keyword = document.getElementById("search-input")?.value.trim();
+	const keyword = document.querySelector("bm-search")?.value.trim();
 	if (!keyword) return;
 	const url = new URL(window.location);
 	url.searchParams.set("q", keyword);

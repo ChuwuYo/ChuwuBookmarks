@@ -39,10 +39,8 @@ const setupHomeButton = () => {
 
 			isProcessing = true;
 
-			const searchInput = document.getElementById("search-input");
-			if (searchInput) {
-				searchInput.value = "";
-			}
+			const search = document.querySelector("bm-search");
+			if (search) search.value = "";
 
 			const url = new URL(window.location);
 			url.searchParams.delete("q");
