@@ -15,6 +15,10 @@ assets/components/<name>/
   <name>.css   # 颜色取自设计令牌（CSS 变量），不在规则里写死
 ```
 
+组件的全部样式都在自己的 `<name>.css` 里，包括在页面不同位置的变体（如内容区与侧边栏中的
+`bm-card`）、窄屏规则与悬停效果；`assets/css/` 下的全局样式表只放令牌、页面布局与不属于任何组件的页面元素。
+组件 CSS 在 `index.html` 中排在全局样式表之后。
+
 `<bm-icon>` 是组件间唯一的共享依赖：`bm-card` 与 `bm-breadcrumbs` 通过
 `../bm-icon/bm-icon.js` 创建图标，复制这两个组件时需连同 `bm-icon/` 目录与
 `assets/images/icons.svg` 一起复制。`bm-sidebar` 依赖
