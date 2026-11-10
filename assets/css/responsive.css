@@ -144,8 +144,7 @@
 
 	#content .folder,
 	#content .bookmark,
-	#breadcrumbs,
-	.breadcrumb-item {
+	#breadcrumbs {
 		transform: none;
 		transition: opacity var(--duration-3) var(--ease-out);
 		contain: layout;
@@ -185,60 +184,12 @@
 		min-height: 40px;
 	}
 
-	.breadcrumb-item {
-		padding: 8px 12px;
-		margin: 0;
-		background: var(--bg-color);
-		border-radius: var(--radius-4);
-		box-shadow: var(--shadow-sm);
-		white-space: nowrap;
-		flex-shrink: 0;
-		transition:
-			transform var(--duration-2) var(--ease-standard),
-			background-color var(--duration-2) var(--ease-standard);
-	}
-
-	.breadcrumb-separator {
-		margin: 0;
-		opacity: 0.7;
-		color: var(--text-color);
-		flex-shrink: 0;
-		transform: scale(0.9);
-	}
-
-	button.breadcrumb-item {
-		min-height: 40px;
-		min-width: 44px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		touch-action: manipulation;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.breadcrumb-item:active {
-		transform: scale(0.95);
-		background-color: var(--button-bg);
-	}
-
-	.breadcrumb-item[aria-current] {
-		background-color: var(--button-bg);
-		opacity: 0.8;
-		pointer-events: none;
-	}
-
 	#breadcrumbs {
 		overflow-x: auto;
 		scrollbar-width: none;
 		padding-bottom: 5px;
 		scroll-padding: 0 20px;
 		scroll-snap-type: x proximity;
-	}
-
-	.breadcrumb-item {
-		scroll-snap-align: start;
-		scroll-margin-right: 20px;
 	}
 
 	#breadcrumbs::-webkit-scrollbar {
@@ -291,7 +242,6 @@
 	button,
 	a,
 	.folder,
-	.breadcrumb-item,
 	.home-button,
 	.theme-toggle {
 		touch-action: manipulation;

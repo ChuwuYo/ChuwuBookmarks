@@ -48,65 +48,6 @@
 	}
 }
 
-.breadcrumb-icon {
-	margin-right: 4px;
-	user-select: none;
-	display: inline-block;
-}
-
-.breadcrumb-item {
-	cursor: pointer;
-	color: var(--link-color);
-	padding: 8px 8px;
-	border-radius: var(--radius-2);
-	display: inline-block;
-	margin: 0 4px 4px 0;
-	user-select: none;
-	transition:
-		background var(--duration-2) var(--ease-out),
-		transform var(--duration-2) var(--ease-out),
-		box-shadow var(--duration-2) var(--ease-out),
-		text-decoration var(--duration-2) var(--ease-out);
-	border: none;
-	background: transparent;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
-}
-
-button.breadcrumb-item {
-	appearance: none;
-	line-height: normal;
-	margin: 0 4px 4px 0;
-	min-height: 24px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-	.breadcrumb-item:hover {
-		background: var(--hover-bg);
-		box-shadow: var(--shadow-sm);
-		transform: scale(1.05);
-		text-decoration: underline;
-	}
-}
-
-.breadcrumb-separator {
-	color: var(--text-color);
-	margin: 0 4px;
-	user-select: none;
-}
-
-.breadcrumb-item[aria-current] {
-	color: var(--text-color);
-	font-weight: bold;
-	cursor: default;
-}
-
-.breadcrumb-item[aria-current]:hover {
-	background: transparent;
-	text-decoration: none;
-}
-
 .folder-loading,
 .folder-error {
 	display: flex;
@@ -409,9 +350,4 @@ button.breadcrumb-item {
 /* 图标占位与原 emoji 字形宽度一致，避免文字位移 */
 .folder-icon > bm-icon {
 	width: 1.2em;
-}
-
-.breadcrumb-icon > bm-icon {
-	--bm-icon-size: 1.15em;
-	width: 1.3em;
 }
