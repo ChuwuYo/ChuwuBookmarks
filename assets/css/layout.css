@@ -19,20 +19,8 @@
 	border-radius: 0 var(--radius-7) var(--radius-7) 0;
 }
 
-@property --sidebar-fade-top {
-	syntax: "<length>";
-	inherits: false;
-	initial-value: 0px;
-}
-
-@property --sidebar-fade-bottom {
-	syntax: "<length>";
-	inherits: false;
-	initial-value: 0px;
-}
-
 #sidebar-folders {
-	--fade-size: 2.5rem;
+	--edge-fade-size: 2.5rem;
 	flex: 1 1 auto;
 	min-height: 0;
 	margin: 0 -20px 12px;
@@ -43,8 +31,8 @@
 	mask-image: linear-gradient(
 		to bottom,
 		transparent,
-		#000 var(--sidebar-fade-top),
-		#000 calc(100% - var(--sidebar-fade-bottom)),
+		#000 var(--edge-fade-start),
+		#000 calc(100% - var(--edge-fade-end)),
 		transparent
 	);
 }
@@ -53,24 +41,12 @@
 @supports (animation-timeline: scroll()) {
 	#sidebar-folders {
 		animation:
-			sidebar-fade-top var(--ease-linear) both,
-			sidebar-fade-bottom var(--ease-linear) both;
+			edge-fade-start var(--ease-linear) both,
+			edge-fade-end var(--ease-linear) both;
 		animation-timeline: scroll(self), scroll(self);
 		animation-range:
-			0 var(--fade-size),
-			calc(100% - var(--fade-size)) 100%;
-	}
-}
-
-@keyframes sidebar-fade-top {
-	to {
-		--sidebar-fade-top: var(--fade-size);
-	}
-}
-
-@keyframes sidebar-fade-bottom {
-	from {
-		--sidebar-fade-bottom: var(--fade-size);
+			0 var(--edge-fade-size),
+			calc(100% - var(--edge-fade-size)) 100%;
 	}
 }
 
