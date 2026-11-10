@@ -56,7 +56,7 @@
 }
 
 .theme-switching-circle::view-transition-group(theme-toggle) {
-	z-index: 3;
+	z-index: var(--z-local-3);
 	animation: none;
 }
 
@@ -70,7 +70,7 @@
 
 .theme-switching-reverse::view-transition-old(root) {
 	background: none;
-	z-index: 2;
+	z-index: var(--z-local-2);
 }
 
 .app-loading body > * {

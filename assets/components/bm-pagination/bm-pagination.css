@@ -17,7 +17,7 @@ bm-pagination .pagination-container[hidden] {
 
 	--pagination-spacing: 8px;
 	--pagination-button-size: 40px;
-	--pagination-border-radius: 6px;
+	--pagination-border-radius: var(--radius-3);
 	--pagination-font-size: 14px;
 
 	--pagination-shadow: var(--shadow-sm);
@@ -60,7 +60,7 @@ bm-pagination .pagination-container[hidden] {
 	position: fixed;
 	left: 50%;
 	bottom: 20px;
-	z-index: 999;
+	z-index: var(--z-float);
 
 	transform: translateX(-50%);
 
@@ -144,7 +144,7 @@ bm-pagination .pagination-container[hidden] {
 	background: var(--pagination-active-bg);
 	border-radius: calc(var(--pagination-border-radius) + 2px);
 	opacity: 0.2;
-	z-index: -1;
+	z-index: var(--z-local-below);
 	transition: opacity var(--duration-2) var(--ease-out);
 }
 
@@ -204,7 +204,7 @@ bm-pagination .pagination-container[hidden] {
 
 .pagination-button:focus {
 	position: relative;
-	z-index: 1;
+	z-index: var(--z-local-1);
 }
 
 @keyframes focusPulse {
