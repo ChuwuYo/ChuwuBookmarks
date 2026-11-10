@@ -186,11 +186,18 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 | `path` property | `Array<{ title: string }>`，从根到当前文件夹 |
 | `bm-navigate` event | `detail: { index }`，`-1` 表示主页，其余为 `path` 下标 |
 
-元素为 `display: contents`，父元素（`#breadcrumbs`）作为横向滚动容器；组件为父元素维护
-`scrollable`、`at-start`、`at-end` 类与边缘渐隐遮罩。
+元素为 `display: contents`，父元素（`#breadcrumbs`）作为横向滚动容器。组件只渲染自身子节点，
+不读写父元素，也不监听滚动或尺寸。
+
+边缘渐隐是纯 CSS，与侧边栏 `#sidebar-folders` 共用一套机制：`base.css` 注册
+`--edge-fade-start` / `--edge-fade-end`（`<length>`，初始 `0px`）与关键帧
+`edge-fade-start` / `edge-fade-end`；滚动容器设置 `--edge-fade-size`（面包屑 `1.5rem`），
+`mask-image` 读这两个长度，动画用 `animation-timeline: scroll(self inline)`（侧边栏为
+`scroll(self)`）驱动。有隐藏内容的一侧才渐隐：在起点只有右侧，滚动中两侧，到末端只有左侧；
+内容不溢出时滚动时间线无效，两侧都不渐隐。不支持滚动驱动动画的浏览器不加渐隐动画，遮罩保持全显。
 
 DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
-最后一项为当前位置，带 `aria-current="location"` 且不触发导航。
+最后一项为当前位置，带 `aria-current="location"` 且不触发导航，样式按 `[aria-current]` 选择。
 
 ## `<bm-card>`
 
