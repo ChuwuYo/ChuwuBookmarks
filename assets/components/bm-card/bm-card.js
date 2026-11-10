@@ -34,10 +34,36 @@ const safeHref = (url) => {
 
 const text = (value) => (typeof value === "string" ? value.trim() : "");
 
+/** Google S2 在中国大陆无法访问，favicon.im 的地址排在前面 */
 const sortIconUrls = (icon) =>
 	(Array.isArray(icon) ? icon : [icon])
 		.filter((url) => url && typeof url === "string")
 		.sort((a, b) => b.includes("favicon.im") - a.includes("favicon.im"));
+
+const loadFavicon = (box, urls) => {
+	const img = document.createElement("img");
+	img.className = "bookmark-icon-img";
+	img.loading = "lazy";
+	img.alt = "";
+	img.setAttribute("aria-hidden", "true");
+
+	let index = 0;
+	const tryNext = () => {
+		index += 1;
+		if (index < urls.length) img.src = urls[index];
+		else img.remove();
+	};
+	img.addEventListener("load", () => {
+		if (img.naturalWidth > 1 && img.naturalHeight > 1) {
+			box.toggleAttribute("data-loaded", true);
+		} else {
+			tryNext();
+		}
+	});
+	img.addEventListener("error", tryNext);
+	img.src = urls[0];
+	return img;
+};
 
 export class BmCard extends HTMLElement {
 	static observedAttributes = ["type"];
@@ -117,16 +143,7 @@ export class BmCard extends HTMLElement {
 		this.removeAttribute("aria-label");
 
 		const urls = item.icon ? sortIconUrls(item.icon) : [];
-		if (urls.length) {
-			const img = document.createElement("img");
-			img.className = "bookmark-icon-img";
-			img.src = urls[0];
-			img.loading = "lazy";
-			img.alt = "";
-			img.setAttribute("aria-hidden", "true");
-			if (urls.length > 1) img.dataset.iconUrls = JSON.stringify(urls);
-			icon.append(img);
-		}
+		if (urls.length) icon.append(loadFavicon(icon, urls));
 
 		const link = document.createElement("a");
 		link.href = safeHref(url) || "#";

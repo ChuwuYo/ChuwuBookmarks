@@ -6,7 +6,6 @@ import {
 } from "../loader/index.js";
 import { isSidebarOverlay } from "../utils/viewport.js";
 import { createElement } from "./elements.js";
-import { loadIconsForElements } from "./icon-loader.js";
 import { updateSidebarState } from "./sidebar-state.js";
 
 // 避免循环依赖，renderHome 将通过参数传递
@@ -160,17 +159,13 @@ const renderMainContent = async (
 				contentFragment.appendChild(element);
 			});
 
-			const bookmarkElements = [];
 			bookmarkItems.forEach(({ item, index }) => {
 				const element = createElement("bookmark", item, null);
 				element.style.setProperty("--item-index", index);
 				contentFragment.appendChild(element);
-				bookmarkElements.push(element);
 			});
 
 			content.appendChild(contentFragment);
-
-			loadIconsForElements(bookmarkElements);
 		}
 	});
 };

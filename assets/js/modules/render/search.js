@@ -1,7 +1,6 @@
 import "../../../components/bm-pagination/bm-pagination.js";
 import { durationMs, prefersReducedMotion } from "../utils/motion.js";
 import { createElement } from "./elements.js";
-import { loadIconsForElements } from "./icon-loader.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
 
 const ITEMS_PER_PAGE = 20;
@@ -26,7 +25,6 @@ const renderPage = (container, results, page, renderMainContent) => {
 		if (!items.length) return;
 
 		const fragment = document.createDocumentFragment();
-		const bookmarks = [];
 		items.forEach((item, index) => {
 			const isFolder = item.type === "folder";
 			const element = createElement(
@@ -37,10 +35,8 @@ const renderPage = (container, results, page, renderMainContent) => {
 			element.style.cssText = `--item-index: ${index}`;
 			element.classList.add("search-result-item");
 			fragment.appendChild(element);
-			if (!isFolder) bookmarks.push(element);
 		});
 		container.appendChild(fragment);
-		loadIconsForElements(bookmarks);
 		container.firstElementChild?.setAttribute("tabindex", "0");
 	});
 };

@@ -142,8 +142,6 @@
 		min-height: 100vh;
 	}
 
-	#content .folder,
-	#content .bookmark,
 	#breadcrumbs {
 		transform: none;
 		transition: opacity var(--duration-3) var(--ease-out);
@@ -196,10 +194,6 @@
 		display: none;
 	}
 
-	#content .bookmark a {
-		max-width: 80%;
-	}
-
 	.home-message {
 		top: 45%;
 	}
@@ -241,7 +235,6 @@
 @media (any-pointer: coarse) {
 	button,
 	a,
-	.folder,
 	.home-button,
 	.theme-toggle {
 		touch-action: manipulation;
