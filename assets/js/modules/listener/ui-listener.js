@@ -1,6 +1,6 @@
-import { updateSidebarState } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import { showErrorMessage } from "../render/message.js";
+import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
 import { isCompact } from "../utils/viewport.js";
 

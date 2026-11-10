@@ -5,9 +5,9 @@ import {
 	waitForFullData,
 } from "../loader/index.js";
 import { isSidebarOverlay } from "../utils/viewport.js";
-import { updateSidebarState } from "./device.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
+import { updateSidebarState } from "./sidebar-state.js";
 
 // 避免循环依赖，renderHome 将通过参数传递
 
