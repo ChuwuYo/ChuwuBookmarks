@@ -100,7 +100,7 @@
 	}
 }
 
-@media not all and (hover: hover) and (pointer: fine) {
+@media not ((hover: hover) and (pointer: fine)) {
 	#search-input:active {
 		border-color: var(--link-color);
 		box-shadow:
@@ -236,14 +236,6 @@ button.breadcrumb-item {
 
 #content {
 	transition: transform var(--duration-2) var(--ease-standard);
-}
-
-#content.mobile-content-layout {
-	margin-left: 0;
-	width: 100%;
-	max-width: 600px;
-	position: relative;
-	padding-left: 5px;
 }
 
 #content .folder,
@@ -423,19 +415,6 @@ button.breadcrumb-item {
 	position: relative;
 }
 
-.mobile-home-message {
-	width: 90%;
-	max-width: 400px;
-}
-
-.mobile-home-message .chinese-text {
-	font-size: clamp(1.5rem, 8vw, 2rem);
-}
-
-.mobile-home-message .english-text {
-	font-size: clamp(1rem, 6vw, 1.5rem);
-}
-
 .loading-indicator {
 	display: flex;
 	flex-direction: column;
@@ -516,7 +495,7 @@ button.breadcrumb-item {
 	padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (width < 480px) {
 	.results-container {
 		padding-bottom: 0.5rem;
 	}

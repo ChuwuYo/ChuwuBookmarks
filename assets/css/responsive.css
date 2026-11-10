@@ -7,13 +7,13 @@
 	backface-visibility: hidden;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (width < 1024px) {
 	.centered-element {
 		transform: translateX(-50%);
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.centered-element {
 		transform: translateX(calc(-50% + var(--desktop-base-offset)));
 	}
@@ -27,13 +27,13 @@
 	top: 50%;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (width < 1024px) {
 	.centered-element.vertical-center {
 		transform: translate(-50%, -50%);
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.centered-element.vertical-center {
 		transform: translate(calc(-50% + var(--desktop-base-offset)), -50%);
 	}
@@ -43,10 +43,9 @@
 	}
 }
 
-/* 手机（含横屏触屏设备）居中元素的垂直位置；
-   any-pointer 与 getDeviceType() 一致：只要有触屏输入就算触屏设备 */
-@media screen and (max-width: 479px),
-	screen and (any-pointer: coarse) and (max-height: 599px) {
+/* 手机布局（含横屏手机）：与 viewport.js 的 compact 查询一致 */
+@media screen and (width < 480px),
+	screen and (any-pointer: coarse) and (height < 600px) {
 	.search-container.centered-element {
 		top: 20px;
 		transform: translateX(-50%);
@@ -62,10 +61,31 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 	}
+
+	.home-message {
+		width: 90%;
+		max-width: 400px;
+	}
+
+	.home-message .chinese-text {
+		font-size: clamp(1.5rem, 8vw, 2rem);
+	}
+
+	.home-message .english-text {
+		font-size: clamp(1rem, 6vw, 1.5rem);
+	}
+
+	#content:has(> .folder, > .bookmark) {
+		margin-left: 0;
+		width: 100%;
+		max-width: 600px;
+		position: relative;
+		padding-left: 5px;
+	}
 }
 
-@media screen and (min-width: 1024px) and (any-pointer: coarse) and (
-		max-height: 599px
+@media screen and (width >= 1024px) and (any-pointer: coarse) and (
+		height < 600px
 	) {
 	.search-container.centered-element {
 		transform: translateX(calc(-50% + var(--desktop-base-offset)));
@@ -88,7 +108,7 @@
 	}
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (width < 480px) {
 	body {
 		overflow-y: auto;
 		scrollbar-width: none;
@@ -110,29 +130,6 @@
 		display: none;
 	}
 
-	.mobile-device button,
-	.mobile-device .folder,
-	.mobile-device .breadcrumb-item,
-	.mobile-device #toggle-sidebar,
-	.mobile-device .home-button,
-	.mobile-device .theme-toggle,
-	.mobile-device a {
-		cursor: pointer;
-		touch-action: manipulation;
-		-webkit-tap-highlight-color: transparent;
-	}
-
-	.mobile-device #toggle-sidebar:hover {
-		box-shadow:
-			var(--button-shadow),
-			inset 0 0 0 1px var(--highlight-color);
-		transform: translateZ(0);
-	}
-
-	.mobile-device #toggle-sidebar:hover img {
-		transform: none;
-	}
-
 	.sidebar {
 		z-index: var(--z-sidebar-raised);
 		left: calc(-1 * var(--sidebar-width));
@@ -151,9 +148,9 @@
 		left: 0;
 	}
 
-	.mobile-device .main-content,
-	.mobile-device .sidebar.collapsed + .main-content,
-	.mobile-device .sidebar:not(.collapsed) + .main-content {
+	.main-content,
+	.sidebar.collapsed + .main-content,
+	.sidebar:not(.collapsed) + .main-content {
 		margin: 0 auto;
 		width: 100%;
 		max-width: 600px;
@@ -251,7 +248,7 @@
 		overflow: hidden;
 	}
 
-	.mobile-device .breadcrumb-item:active {
+	.breadcrumb-item:active {
 		transform: scale(0.95);
 		background-color: var(--button-bg);
 	}
@@ -306,19 +303,15 @@
 
 	.home-message {
 		top: 45%;
-		width: 90%;
-		max-width: 400px;
 	}
 
 	.home-message .chinese-text {
-		font-size: clamp(1.5rem, 8vw, 2rem);
 		line-height: 1.4;
 		margin-bottom: 0.5rem;
 		word-break: keep-all;
 	}
 
 	.home-message .english-text {
-		font-size: clamp(1rem, 6vw, 1.5rem);
 		line-height: 1.4;
 		word-break: break-word;
 	}
@@ -334,14 +327,25 @@
 	}
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.search-container {
 		top: 20px;
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.search-container {
 		transform-style: preserve-3d;
+	}
+}
+
+@media (any-pointer: coarse) {
+	button,
+	a,
+	.folder,
+	.breadcrumb-item,
+	.home-button,
+	.theme-toggle {
+		touch-action: manipulation;
 	}
 }

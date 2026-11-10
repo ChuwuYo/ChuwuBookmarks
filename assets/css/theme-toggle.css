@@ -349,10 +349,3 @@
 		--sunlight: 88%;
 	}
 }
-
-@media (hover: none) and (pointer: coarse) {
-	.theme-toggle:focus,
-	.theme-toggle:active {
-		--toggle-fill: var(--button-bg);
-	}
-}
