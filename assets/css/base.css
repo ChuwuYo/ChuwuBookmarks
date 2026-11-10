@@ -30,6 +30,30 @@
 	--button-shadow: 3px 0 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
 	--theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
 
+	--radius-1: 3px;
+	--radius-2: 4px;
+	--radius-3: 6px;
+	--radius-4: 8px;
+	--radius-5: 10px;
+	--radius-6: 12px;
+	--radius-7: 15px;
+	--radius-8: 18px;
+	--radius-round: 50%;
+	--radius-full: 999px;
+
+	--z-local-below: -1;
+	--z-local-1: 1;
+	--z-local-2: 2;
+	--z-local-3: 3;
+	--z-decor: 1;
+	--z-content: 2;
+	--z-message: 10;
+	--z-float: 999;
+	--z-sidebar: 1000;
+	--z-sidebar-raised: 1001;
+	--z-sidebar-toggle: 1002;
+	--z-scroll-indicator: 1003;
+
 	--desktop-base-offset: 110px;
 
 	--scroll-indicator-bg: light-dark(
@@ -39,7 +63,7 @@
 	--scroll-indicator-thumb: light-dark(#23d6e3, #74ceff);
 	--scroll-indicator-thumb-hover: light-dark(#88dcfa, #ffffff4b);
 	--scroll-indicator-width: 5px;
-	--scroll-indicator-border-radius: 4px;
+	--scroll-indicator-border-radius: var(--radius-2);
 	--sidebar-thumb-color: light-dark(
 		rgb(20 70 80 / 0.22),
 		rgb(255 255 255 / 0.16)
@@ -129,7 +153,7 @@ body::after {
 	height: 1000px;
 	background: url("../images/moecat.gif") no-repeat right bottom;
 	background-size: contain;
-	z-index: 1;
+	z-index: var(--z-decor);
 	pointer-events: none;
 }
 
@@ -139,7 +163,7 @@ body::after {
 .github-link,
 #theme-toggle {
 	position: relative;
-	z-index: 2;
+	z-index: var(--z-content);
 }
 
 @media screen and (min-width: 480px) {
@@ -151,7 +175,7 @@ body::after {
 		height: 100vh;
 		background: var(--scroll-indicator-bg);
 		border-radius: var(--scroll-indicator-border-radius);
-		z-index: 9999;
+		z-index: var(--z-scroll-indicator);
 		opacity: 0;
 		transition: opacity var(--duration-1) var(--ease-out);
 		pointer-events: none;
