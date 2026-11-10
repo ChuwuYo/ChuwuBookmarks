@@ -14,6 +14,12 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
 - UI components are native Custom Elements rendered in light DOM (no Shadow
   DOM), so the global stylesheets keep working. See `docs/components.md`.
 - Commit messages and PR descriptions describe the change objectively.
+- Layout depends on width only (range-syntax media queries at 480px and
+  1024px, see `assets/css/breakpoints.css`); hover styles live in
+  `(hover: hover) and (pointer: fine)` and everything else in its complement.
+  JS reads breakpoints and input queries from
+  `assets/js/modules/utils/viewport.js`; no `innerWidth` comparisons, touch or
+  UA sniffing, or JS-set device classes.
 
 ## Layout
 
