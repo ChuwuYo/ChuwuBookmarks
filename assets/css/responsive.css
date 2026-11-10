@@ -8,13 +8,7 @@
 	backface-visibility: hidden;
 }
 
-@media screen and (max-width: 479px) {
-	.centered-element {
-		transform: translateX(-50%);
-	}
-}
-
-@media screen and (min-width: 480px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
 	.centered-element {
 		transform: translateX(-50%);
 	}
@@ -34,13 +28,7 @@
 	top: 50%;
 }
 
-@media screen and (max-width: 479px) {
-	.centered-element.vertical-center {
-		transform: translate(-50%, -50%);
-	}
-}
-
-@media screen and (min-width: 480px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
 	.centered-element.vertical-center {
 		transform: translate(-50%, -50%);
 	}
@@ -104,7 +92,6 @@
 @media screen and (max-width: 479px) {
 	body {
 		overflow-y: auto;
-		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
 
@@ -113,7 +100,6 @@
 	}
 
 	.main-content {
-		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
 
@@ -125,7 +111,6 @@
 		display: none;
 	}
 
-	.mobile-device [onclick],
 	.mobile-device button,
 	.mobile-device .folder,
 	.mobile-device .breadcrumb-item,
@@ -274,9 +259,7 @@
 
 	#breadcrumbs {
 		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
 		scrollbar-width: none;
-		-ms-overflow-style: none;
 		padding-bottom: 5px;
 		position: relative;
 		scroll-padding: 0 20px;
@@ -345,51 +328,14 @@
 	}
 }
 
-@media screen and (min-width: 480px) and (max-width: 1023px) {
+@media screen and (min-width: 480px) {
 	.search-container {
 		top: 20px;
-		display: flex;
-		align-items: center;
-		z-index: 999;
-		white-space: nowrap;
-		user-select: none;
-		contain: layout;
-		outline: none;
-	}
-
-	.home-message {
-		font-weight: bold;
-		text-align: center;
-		user-select: none;
-		opacity: 0;
-		perspective: 1000px;
-		transform-style: preserve-3d;
-		content-visibility: auto;
-		outline: none;
 	}
 }
 
 @media screen and (min-width: 1024px) {
 	.search-container {
-		top: 20px;
-		display: flex;
-		align-items: center;
-		z-index: 999;
-		white-space: nowrap;
-		user-select: none;
-		contain: layout;
-		outline: none;
 		transform-style: preserve-3d;
-	}
-
-	.home-message {
-		font-weight: bold;
-		text-align: center;
-		user-select: none;
-		opacity: 0;
-		perspective: 1000px;
-		transform-style: preserve-3d;
-		content-visibility: auto;
-		outline: none;
 	}
 }
