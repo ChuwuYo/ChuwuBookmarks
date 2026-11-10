@@ -5,10 +5,7 @@ import {
 	showLoadingIndicator,
 } from "./assets/js/modules/loader/index.js";
 import { renderMainContent as _renderMainContent } from "./assets/js/modules/render/content.js";
-import {
-	BREAKPOINT_MOBILE,
-	handleDeviceView,
-} from "./assets/js/modules/render/device.js";
+import { handleDeviceView } from "./assets/js/modules/render/device.js";
 import { renderHome } from "./assets/js/modules/render/home.js";
 import { revealApp } from "./assets/js/modules/render/reveal.js";
 import { initTheme } from "./assets/js/modules/render/theme.js";
@@ -18,6 +15,7 @@ import {
 	restoreSearchStateFromURL,
 } from "./assets/js/modules/search/index.js";
 import { customScrollIndicator } from "./assets/js/modules/utils/scroll-indicator.js";
+import { isNarrow } from "./assets/js/modules/utils/viewport.js";
 
 // 创建包装函数解决循环依赖
 const renderMainContent = (folder, fromSidebar = false) => {
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	initTheme();
 	handleDeviceView();
 
-	if (window.innerWidth >= BREAKPOINT_MOBILE) {
+	if (!isNarrow()) {
 		customScrollIndicator.init();
 	}
 

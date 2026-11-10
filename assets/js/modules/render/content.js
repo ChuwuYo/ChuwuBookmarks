@@ -4,11 +4,8 @@ import {
 	isFullDataReady,
 	waitForFullData,
 } from "../loader/index.js";
-import {
-	getDeviceType,
-	shouldCollapseSidebar,
-	updateSidebarState,
-} from "./device.js";
+import { isSidebarOverlay } from "../utils/viewport.js";
+import { updateSidebarState } from "./device.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
 
@@ -92,7 +89,7 @@ const renderMainContent = async (
 
 	content.innerHTML = breadcrumbs.innerHTML = "";
 
-	if (fromSidebar && shouldCollapseSidebar()) {
+	if (fromSidebar && isSidebarOverlay()) {
 		updateSidebarState(document.querySelector(".sidebar"), true);
 	}
 
@@ -174,13 +171,6 @@ const renderMainContent = async (
 			content.appendChild(contentFragment);
 
 			loadIconsForElements(bookmarkElements);
-
-			const deviceType = getDeviceType();
-			if (deviceType === "mobile") {
-				content.classList.add("mobile-content-layout");
-			} else {
-				content.classList.remove("mobile-content-layout");
-			}
 		}
 	});
 };
