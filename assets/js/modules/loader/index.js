@@ -43,9 +43,9 @@ const showLoadingIndicator = () => {
 	showLoadingMessage(content, breadcrumbs);
 };
 
-const render = (data, renderMainContent, { home = true } = {}) => {
+const render = (data, { home = true } = {}) => {
 	state.data = data;
-	renderSidebar(data, renderMainContent);
+	renderSidebar(data);
 	if (home) renderHome();
 	revealApp();
 };
@@ -56,7 +56,7 @@ const setFullData = ({ data }) => {
 	settleFullData(data);
 };
 
-const renderFromCache = async (renderMainContent) => {
+const renderFromCache = async () => {
 	const [bookmarks, structure] = await Promise.all([
 		readCache("bookmarks"),
 		readCache("structure"),
@@ -64,19 +64,19 @@ const renderFromCache = async (renderMainContent) => {
 	if (bookmarks?.data) {
 		setFullData(bookmarks);
 		await loadFirstScreenFonts(bookmarks.data);
-		render(bookmarks.data, renderMainContent);
+		render(bookmarks.data);
 	} else if (structure?.data) {
 		await loadFirstScreenFonts(structure.data);
-		render(structure.data, renderMainContent);
+		render(structure.data);
 	}
 	return { bookmarks, structure };
 };
 
-const loadBookmarksData = async (renderMainContent) => {
+const loadBookmarksData = async () => {
 	removeLegacyCache();
 	loadSearchFontOnFocus();
 	fullDataPending = true;
-	const cached = await renderFromCache(renderMainContent);
+	const cached = await renderFromCache();
 	const hasCachedData = Boolean(cached.bookmarks || cached.structure);
 
 	const worker = getDataWorkerWrapper();
@@ -101,9 +101,9 @@ const loadBookmarksData = async (renderMainContent) => {
 			case "structure_loaded":
 				if (!hasCachedData || hash !== cached.structure?.hash) {
 					writeCache("structure", { hash, data });
-					render(data, renderMainContent);
+					render(data);
 				}
-				loadFullDataInBackground(worker, renderMainContent, stop);
+				loadFullDataInBackground(worker, stop);
 				break;
 			case "structure_not_found":
 				if (!worker.postMessage({ action: "loadData" })) {
@@ -116,9 +116,9 @@ const loadBookmarksData = async (renderMainContent) => {
 				setFullData({ data });
 				if (hash !== cached.bookmarks?.hash) {
 					writeCache("bookmarks", { hash, data });
-					render(data, renderMainContent);
+					render(data);
 				} else if (!hasCachedData) {
-					render(data, renderMainContent);
+					render(data);
 				}
 				break;
 			case "error":
@@ -147,7 +147,7 @@ const cancelFullDataLoad = () => {
 	if (!state.full) settleFullData(null);
 };
 
-const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
+const loadFullDataInBackground = (worker, onDone) => {
 	if (fullDataLoadPromise) return fullDataLoadPromise;
 
 	let settled = false;
@@ -168,7 +168,7 @@ const loadFullDataInBackground = (worker, renderMainContent, onDone) => {
 			if (status === "success") {
 				setFullData({ data });
 				writeCache("bookmarks", { hash, data });
-				render(data, renderMainContent, { home: false });
+				render(data, { home: false });
 				onDone();
 				finish(data);
 				return;

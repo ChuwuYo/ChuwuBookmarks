@@ -4,8 +4,6 @@ import {
 	loadBookmarksData,
 	showLoadingIndicator,
 } from "./assets/js/modules/loader/index.js";
-import { renderMainContent as _renderMainContent } from "./assets/js/modules/render/content.js";
-import { renderHome } from "./assets/js/modules/render/home.js";
 import { revealApp } from "./assets/js/modules/render/reveal.js";
 import { initSidebarState } from "./assets/js/modules/render/sidebar-state.js";
 import { initTheme } from "./assets/js/modules/render/theme.js";
@@ -16,13 +14,8 @@ import {
 } from "./assets/js/modules/search/index.js";
 import { trackScrollActivity } from "./assets/js/modules/utils/scroll-activity.js";
 
-// 创建包装函数解决循环依赖
-const renderMainContent = (folder, fromSidebar = false) => {
-	return _renderMainContent(folder, fromSidebar, renderHome);
-};
-
 showLoadingIndicator();
-loadBookmarksData(renderMainContent).catch((error) => {
+loadBookmarksData().catch((error) => {
 	console.error("加载书签数据失败:", error);
 	revealApp();
 });
@@ -35,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	let searchWorkerReady = false;
 	try {
-		initSearchWorker(renderMainContent);
+		initSearchWorker();
 		searchWorkerReady = true;
 	} catch (error) {
 		console.error("搜索和分页功能初始化失败:", error);
