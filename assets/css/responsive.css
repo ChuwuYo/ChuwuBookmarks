@@ -232,7 +232,7 @@
 		background-color: var(--button-bg);
 	}
 
-	.breadcrumb-item:last-child {
+	.breadcrumb-item[aria-current] {
 		background-color: var(--button-bg);
 		opacity: 0.8;
 		pointer-events: none;

@@ -200,13 +200,13 @@ button.breadcrumb-item {
 	user-select: none;
 }
 
-.breadcrumb-item:last-child {
+.breadcrumb-item[aria-current] {
 	color: var(--text-color);
 	font-weight: bold;
 	cursor: default;
 }
 
-.breadcrumb-item:last-child:hover {
+.breadcrumb-item[aria-current]:hover {
 	background: transparent;
 	text-decoration: none;
 }
