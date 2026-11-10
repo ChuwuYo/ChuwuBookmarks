@@ -15,9 +15,11 @@ assets/components/<name>/
   <name>.css   # 颜色取自设计令牌（CSS 变量），不在规则里写死
 ```
 
-`<bm-icon>` 是唯一的共享依赖：`bm-card` 与 `bm-breadcrumbs` 通过
+`<bm-icon>` 是组件间唯一的共享依赖：`bm-card` 与 `bm-breadcrumbs` 通过
 `../bm-icon/bm-icon.js` 创建图标，复制这两个组件时需连同 `bm-icon/` 目录与
-`assets/images/icons.svg` 一起复制。其余组件可单独复制。
+`assets/images/icons.svg` 一起复制。`bm-sidebar` 依赖
+`assets/js/modules/utils/scroll-activity.js`（及其导入的 `motion.js`），复制时一并带上。
+其余组件可单独复制。
 
 组件 CSS 由 `index.html` 用 `<link rel="stylesheet">` 统一引入；组件 JS 由 `assets/components/index.js` 统一注册。
 
@@ -49,7 +51,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
   胶囊 `--radius-full`（999px）。
 - **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
-  `--z-sidebar-raised`、`--z-sidebar-toggle`、`--z-scroll-indicator`；元素内部的局部叠放用
+  `--z-sidebar-raised`、`--z-sidebar-toggle`；元素内部的局部叠放用
   `--z-local-below`、`--z-local-1`…`--z-local-3`。
 - **断点与输入方式**：布局只按宽度判断，用范围语法写媒体查询：窄屏 `(width < 480px)`、
   平板 `(480px <= width < 1024px)`、桌面 `(width >= 1024px)`（侧边栏常驻），数值记录在
@@ -65,7 +67,8 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
 （100/150/200/300/400ms）、`--duration-loop`、`--duration-spin`、
-`--duration-theme-expand/collapse`、`--stagger-step`，循环次数 `--loop-count`，缓动
+`--duration-theme-expand/collapse`、`--stagger-step`、`--scroll-idle`（600ms，滚动停止到滚动条开始淡出），
+循环次数 `--loop-count`，缓动
 `--ease-out`、`--ease-in-out`、`--ease-standard`、`--ease-linear`、`--ease-spring`、
 `--ease-spring-soft`。`transition` 必须逐项写出属性，不写 `all`；被过渡的自定义属性要用
 `@property` 注册。入场动画用 `backwards` 填充，结束后不再锁住 `transform`/`opacity`，
@@ -77,6 +80,27 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 例外：首页标题动画的编排节拍（`render/home.js` 的 `INTRO`）只属于这一段动画，
 留在 home.js 中，减弱动态效果时由 motion.js 统一调整 GSAP 全局时间缩放；
 主题切换的兜底超时（`render/theme.js` 的 `SAFETY_MARGIN`）不是动效时长。
+
+### 滚动条
+
+页面与侧边栏使用同一套原生滚动条，不用 JS 绘制滚动指示器：
+
+- 滚动容器加 `class="autohide-scrollbar"`（目前是 `<html>` 与 `#sidebar-folders`），
+  样式集中在 `base.css`：`scrollbar-width: thin`，滑块颜色取已注册的
+  `--scrollbar-thumb`（`<color>`，静止时透明，显示时为 `--scrollbar-thumb-color`）。
+  Chromium 不会在样式变化时重绘视口上的 `::-webkit-scrollbar`，所以统一用
+  `scrollbar-color`；只有不支持 `scrollbar-color` 的浏览器退回 `::-webkit-scrollbar`。
+- 只在 `(pointer: fine)` 下隐藏与淡入淡出；触屏保留系统自带的悬浮滚动条。
+  `<html>` 设 `scrollbar-gutter: stable`，页面长短切换时内容不左右跳动。
+- 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）悬停时也显示。显示用
+  `--duration-1` `--ease-out` 淡入，隐藏用 `--duration-3` `--ease-linear` 淡出。
+  不可滚动时浏览器本身不画滚动条。减弱动态效果时只缩短淡出，仍只改颜色、不移动。
+- `data-scrolling` 只由 `assets/js/modules/utils/scroll-activity.js` 的
+  `trackScrollActivity(root, { idle })` 设置：滚动时加上，停止 `idle`（默认
+  `--scroll-idle`）毫秒后移除；用鼠标或笔按住滚动条拖动期间保留，松开后重新计时。
+  `root` 为 `document.documentElement` 时跟踪页面滚动（由 `script.js` 调用）；
+  传其他元素时用捕获监听跟踪它及其后代中的任意滚动容器。返回取消跟踪的函数。
+- 面包屑与窄屏分页条等横向滚动条带仍隐藏滚动条（`scrollbar-width: none`）。
 
 ### 公开接口
 
@@ -95,6 +119,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | 当前项 | `aria-current="page"` / `aria-current="location"` |
 | 禁用 | 原生 `disabled` 或 `aria-disabled="true"` |
 | 展开/收起 | `aria-expanded` / `data-state="collapsed"` |
+| 滚动中 | 滚动容器上的 `data-scrolling`（见“滚动条”） |
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
 
 ### 可访问性
@@ -208,7 +233,7 @@ DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示�
 | `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
 | `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
 | `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
-| `data-scrolling` attribute | 加在正在滚动的子元素上，停止 600ms 后移除 |
+| `data-scrolling` attribute | 由 `trackScrollActivity(this)` 加在正在滚动的子元素上（如 `#sidebar-folders`），规则见“滚动条” |
 
 切换按钮的 `aria-expanded` 随侧边栏状态自动更新。页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
