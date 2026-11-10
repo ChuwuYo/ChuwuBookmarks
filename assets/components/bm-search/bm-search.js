@@ -14,10 +14,6 @@ export class BmSearch extends HTMLElement {
 	#input = null;
 	#pendingValue = null;
 
-	get input() {
-		return this.#input;
-	}
-
 	get value() {
 		return this.#input?.value ?? this.#pendingValue ?? "";
 	}
@@ -31,7 +27,7 @@ export class BmSearch extends HTMLElement {
 		this.#input = this.querySelector("input");
 		if (!this.#input) {
 			this.#input = document.createElement("input");
-			this.#input.type = "search";
+			this.#input.type = "text";
 			this.prepend(this.#input);
 		}
 		if (this.#pendingValue !== null) {

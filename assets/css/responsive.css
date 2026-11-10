@@ -164,16 +164,6 @@
 		justify-content: center;
 	}
 
-	.shortcut-hint {
-		display: none;
-	}
-
-	#search-input {
-		width: 200px;
-		max-width: calc(100vw - 40px);
-		margin: 0;
-	}
-
 	#theme-toggle {
 		margin-left: 10px;
 		flex-shrink: 0;
