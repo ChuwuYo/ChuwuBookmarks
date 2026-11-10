@@ -23,21 +23,6 @@
 		transform: rotate(360deg);
 	}
 }
-@keyframes pulseRight {
-	0% {
-		opacity: 0.3;
-		transform: translate(0, -50%);
-	}
-	50% {
-		opacity: 0.15;
-		transform: translate(calc(var(--motion-distance) / 2), -50%);
-	}
-	100% {
-		opacity: 0.3;
-		transform: translate(0, -50%);
-	}
-}
-
 .theme-switching *:not(.theme-toggle, .theme-toggle *),
 .theme-switching *:not(.theme-toggle, .theme-toggle *)::before,
 .theme-switching *:not(.theme-toggle, .theme-toggle *)::after {

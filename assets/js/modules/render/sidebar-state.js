@@ -1,11 +1,7 @@
 import { durationS, GSAP_EASE } from "../utils/motion.js";
 import { isSidebarOverlay, onChange } from "../utils/viewport.js";
 
-const updateSidebarVisibility = (
-	sidebar,
-	isCollapsed,
-	skipAnimation = false,
-) => {
+const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 	sidebar.classList.toggle("collapsed", isCollapsed);
 
 	const folderElements = sidebar.querySelectorAll(".folder");
@@ -30,19 +26,6 @@ const updateSidebarVisibility = (
 	}
 };
 
-const checkBreadcrumbsScroll = () => {
-	const breadcrumbs = document.getElementById("breadcrumbs");
-	if (!breadcrumbs) return;
-
-	const isScrollable = breadcrumbs.scrollWidth > breadcrumbs.clientWidth;
-	breadcrumbs.classList.toggle("scrollable", isScrollable);
-};
-
-const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
-	updateSidebarVisibility(sidebar, isCollapsed, skipAnimation);
-	checkBreadcrumbsScroll();
-};
-
 /**
  * 按侧边栏断点设定初始收起状态；之后只在跨过断点时自动收起或展开，
  * 同一布局内的手动切换不受窗口尺寸变化影响。
@@ -56,11 +39,6 @@ const initSidebarState = () => {
 	onChange("sidebarOverlay", (overlay) =>
 		updateSidebarState(sidebar, overlay, true),
 	);
-
-	const breadcrumbs = document.getElementById("breadcrumbs");
-	if (breadcrumbs && typeof ResizeObserver !== "undefined") {
-		new ResizeObserver(checkBreadcrumbsScroll).observe(breadcrumbs);
-	}
 };
 
 export { initSidebarState, updateSidebarState };
