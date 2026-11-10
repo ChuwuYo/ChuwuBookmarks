@@ -117,15 +117,27 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 
 ### 状态
 
-统一用 attribute 表示，便于 CSS 选择与测试断言：
+组件与页面的状态一律用 attribute 表示，CSS 与测试按 attribute 选择：
+
+- **ARIA**：有语义的状态用 ARIA 或原生属性，并直接作为样式钩子，例如
+  `aria-current`、`aria-expanded`、`aria-pressed`、`aria-busy`、原生 `disabled`。
+- **`data-*`**：纯视觉或界面状态，例如 `data-state`、`data-scrolling`、`data-loaded`。
+- **class**：只表示身份与类型（`.folder`、`.bookmark`、`.breadcrumb-item`），不随状态增删。
+- **内联样式**：只用 `style.setProperty()` 写每个实例的数值自定义属性（如 `--item-index`、`--theme-turn`）。
 
 | 状态 | 表示方式 |
 | --- | --- |
-| 当前项 | `aria-current="page"` / `aria-current="location"` |
-| 禁用 | 原生 `disabled` 或 `aria-disabled="true"` |
-| 展开/收起 | `aria-expanded` / `data-state="collapsed"` |
+| 当前项 | `aria-current="page"`（分页）/ `aria-current="location"`（面包屑） |
+| 禁用 | 原生 `disabled` |
+| 展开/收起 | 切换按钮的 `aria-expanded` + 侧边栏的 `data-state="expanded" / "collapsed"` |
 | 滚动中 | 滚动容器上的 `data-scrolling`（见“滚动条”） |
+| 图标已加载 | `bm-card` 的 `.bookmark-icon[data-loaded]` |
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
+
+页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
+`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
+`data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
+`data-page-changing` 与 `data-results-fade="dim" / "full"`（搜索翻页反馈）。
 
 ### 可访问性
 

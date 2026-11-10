@@ -246,7 +246,9 @@ test.describe("smoke", () => {
 			await new Promise((resolve) => setTimeout(resolve, 600));
 			return {
 				colours: seen.size,
-				classes: document.documentElement.className,
+				switching: document.documentElement.hasAttribute(
+					"data-theme-switching",
+				),
 				themeColor: document
 					.querySelector('meta[name="theme-color"]')
 					.getAttribute("content"),
@@ -254,7 +256,7 @@ test.describe("smoke", () => {
 			};
 		});
 		expect(result.colours).toBe(2);
-		expect(result.classes).not.toContain("theme-switching");
+		expect(result.switching).toBe(false);
 		expect(result.themeColor).toBe(
 			result.theme === "dark" ? "#74ceff" : "#23d6e3",
 		);

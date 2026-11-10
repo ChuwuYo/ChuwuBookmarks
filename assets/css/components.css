@@ -170,24 +170,24 @@
 	font-size: 1rem;
 }
 
-.search-results-fade {
+[data-results-fade] {
 	transition: opacity var(--duration-4) var(--ease-standard);
 }
 
-.search-results-fade-dim {
+[data-results-fade="dim"] {
 	opacity: 0.8;
 }
 
-.search-results-fade-full {
+[data-results-fade="full"] {
 	opacity: 1;
 }
 
-.page-changing {
+[data-page-changing] {
 	opacity: 0.8;
 	transition: opacity var(--duration-3) var(--ease-standard);
 }
 
-.page-changing .results-container {
+[data-page-changing] .results-container {
 	pointer-events: none;
 }
 
