@@ -26,7 +26,8 @@ Project conventions
 - Use passive scroll listeners and requestAnimationFrame for any other scroll/resize UI updates.
 - Colours, shadows, focus ring, radii and z-index are tokens in `assets/css/base.css`: colours use `light-dark()` (`color-scheme` follows `data-theme`), every control gets the global `:focus-visible` ring (`--focus-ring-*`), and rules use `--radius-*` / `--z-*` instead of literals.
 - Motion durations and easings are tokens in `assets/css/base.css`; JS reads them (and `prefers-reduced-motion`) through `assets/js/modules/utils/motion.js` instead of hard-coding values.
-- Accessibility: keep ARIA roles/labels on interactive elements (see render/sidebar.js).
+- Components (`assets/components/<name>/`, spec in `docs/components.md`) own their styles in `<name>.css`; global CSS keeps tokens and page layout. State is ARIA for semantics, `data-*` for visuals, classes for identity only, and inline style only for numeric custom properties. Render modules never attach listeners to components: every `bm-*` event is delegated in `listener/component-listener.js`.
+- Accessibility: keep ARIA roles/labels on interactive elements (see components/bm-card).
 
 Data/SEO workflow
 - bookmarks.json and structure.json live in repo root; structure.json enables faster initial render.
@@ -36,5 +37,5 @@ Formatting/linting
 - Biome is configured in biome.json (tabs, double quotes); vendor files are excluded. Run `npm run lint` in tests/.
 
 Common edit paths
-- Add UI control: index.html markup -> listener/index.js wiring -> render/* updates.
+- Add UI control: index.html markup -> listener/ wiring (bm-* events in component-listener.js) -> render/* updates.
 - Change search behavior: update both modules/search/index.js and assets/js/search-worker.js.
