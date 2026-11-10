@@ -132,8 +132,7 @@
 	}
 }
 
-/* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
-@media screen and (max-width: 1023px) {
+@media screen and (width < 1024px) {
 	.sidebar:not(.js-initialized) {
 		width: 0;
 		padding: 0;
@@ -231,7 +230,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (width < 1024px) {
 	.main-content {
 		margin-left: 120px;
 		margin-right: 120px;

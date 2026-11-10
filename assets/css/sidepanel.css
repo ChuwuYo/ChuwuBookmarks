@@ -71,18 +71,16 @@
 	border-radius: 0 var(--radius-7) var(--radius-7) 0;
 }
 
-/* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
-@media screen and (max-width: 1023px) {
+@media screen and (width < 1024px) {
 	.sidebar:not(.js-initialized) #toggle-sidebar {
 		transform: translateZ(0);
 		border-radius: 0 var(--radius-7) var(--radius-7) 0;
 	}
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media not ((hover: hover) and (pointer: fine)) {
 	#toggle-sidebar:focus,
 	#toggle-sidebar:active {
-		background: var(--button-hover);
-		border: 1.5px solid var(--accent-border);
+		border-width: 1.5px;
 	}
 }

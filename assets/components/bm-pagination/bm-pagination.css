@@ -26,7 +26,7 @@ bm-pagination .pagination-container[hidden] {
 	--pagination-shadow-focus: 0 0 0 4px var(--focus-halo-color);
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (width < 480px) {
 	:root {
 		--pagination-spacing: 4px;
 		--pagination-button-size: 32px;
@@ -214,7 +214,7 @@ bm-pagination .pagination-container[hidden] {
 	text-shadow: 0 1px 2px var(--shadow-color);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.pagination-container {
 		transform: translateX(calc(-50% + var(--desktop-base-offset)));
 	}
@@ -224,7 +224,7 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (width < 480px) {
 	.pagination-container {
 		bottom: 10px;
 		padding: 0.1rem;
@@ -234,14 +234,14 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-@media screen and (min-width: 480px) and (max-width: 1023px) {
+@media screen and (480px <= width < 1024px) {
 	.pagination-container {
 		margin: 0.4rem 0;
 		padding: 0.2rem;
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.pagination-container {
 		margin: 0.5rem 0;
 		padding: 0.3rem;

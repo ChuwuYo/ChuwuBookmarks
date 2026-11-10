@@ -221,7 +221,7 @@ body::after {
 	z-index: var(--z-content);
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.custom-scroll-indicator {
 		position: fixed;
 		top: 0;
@@ -279,7 +279,7 @@ body::after {
 		box-shadow: var(--shadow-md);
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (width >= 1024px) {
 		.custom-scroll-indicator {
 			right: 2px;
 		}
