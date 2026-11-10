@@ -31,6 +31,14 @@ assets/components/<name>/
 bm-icon { width: var(--bm-icon-size, 1em); }
 ```
 
+动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
+（100/150/200/300/400ms）、`--duration-loop`、`--duration-theme-expand/collapse`、
+`--stagger-step`，缓动 `--ease-out`、`--ease-in-out`、`--ease-standard`、
+`--ease-linear`、`--ease-spring`、`--ease-spring-soft`。`transition` 必须逐项写出属性，
+不写 `all`；被过渡的自定义属性要用 `@property` 注册。减弱动态效果统一由 `base.css`
+的 `prefers-reduced-motion` 块处理，组件不另写。JS 需要的时长、缓动与减弱动态效果判断
+一律经 `assets/js/modules/utils/motion.js` 从这些令牌读取，不在 JS 里重复数值。
+
 ### 公开接口
 
 - **Attributes**：字符串/布尔配置，均有默认值；需要响应变化的写进 `observedAttributes`。
