@@ -68,7 +68,7 @@ export async function openSidebarFolder(page, testInfo, title) {
 export async function closeSidebar(page) {
 	const open = await page
 		.locator(".sidebar")
-		.evaluate((el) => !el.classList.contains("collapsed"));
+		.evaluate((el) => el.dataset.state !== "collapsed");
 	if (open) {
 		await page.locator("#toggle-sidebar").click();
 		await settle(page, 500);

@@ -18,7 +18,7 @@
 		transform: translateX(calc(-50% + var(--desktop-base-offset)));
 	}
 
-	.sidebar.collapsed + .main-content .centered-element {
+	.sidebar[data-state="collapsed"] + .main-content .centered-element {
 		transform: translateX(-50%);
 	}
 }
@@ -38,7 +38,9 @@
 		transform: translate(calc(-50% + var(--desktop-base-offset)), -50%);
 	}
 
-	.sidebar.collapsed + .main-content .centered-element.vertical-center {
+	.sidebar[data-state="collapsed"]
+		+ .main-content
+		.centered-element.vertical-center {
 		transform: translate(-50%, -50%);
 	}
 }
@@ -97,39 +99,27 @@
 		transform: translate(calc(-50% + var(--desktop-base-offset)), -50%);
 	}
 
-	.sidebar.collapsed + .main-content .search-container.centered-element {
+	.sidebar[data-state="collapsed"]
+		+ .main-content
+		.search-container.centered-element {
 		transform: translateX(-50%);
 	}
 
-	.sidebar.collapsed + .main-content .home-message.centered-element,
-	.sidebar.collapsed + .main-content .no-results.centered-element,
-	.sidebar.collapsed + .main-content .error-message.centered-element {
+	.sidebar[data-state="collapsed"]
+		+ .main-content
+		.home-message.centered-element,
+	.sidebar[data-state="collapsed"] + .main-content .no-results.centered-element,
+	.sidebar[data-state="collapsed"]
+		+ .main-content
+		.error-message.centered-element {
 		transform: translate(-50%, -50%);
 	}
 }
 
 @media screen and (width < 480px) {
-	.sidebar {
-		z-index: var(--z-sidebar-raised);
-		left: calc(-1 * var(--sidebar-width));
-		transition: left var(--duration-1) var(--ease-standard);
-	}
-
-	/* 收起时先滑出，滑完再收宽度；否则宽度先归零，滑动看不见 */
-	.sidebar.collapsed {
-		transition:
-			left var(--duration-1) var(--ease-standard),
-			width 0s var(--duration-1),
-			padding 0s var(--duration-1);
-	}
-
-	.sidebar:not(.collapsed) {
-		left: 0;
-	}
-
 	.main-content,
-	.sidebar.collapsed + .main-content,
-	.sidebar:not(.collapsed) + .main-content {
+	.sidebar[data-state="collapsed"] + .main-content,
+	.sidebar:not([data-state="collapsed"]) + .main-content {
 		margin: 0 auto;
 		width: 100%;
 		max-width: 600px;

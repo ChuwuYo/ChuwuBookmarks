@@ -49,9 +49,8 @@ const setupHomeButton = () => {
 
 			if (isCompact()) {
 				const sidebar = document.querySelector(".sidebar");
-				if (sidebar && !sidebar.classList.contains("collapsed")) {
-					updateSidebarState(sidebar, true);
-				}
+				const panel = sidebar?.querySelector("bm-sidebar");
+				if (panel && !panel.collapsed) updateSidebarState(sidebar, true);
 			}
 
 			requestAnimationFrame(() => {

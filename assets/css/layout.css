@@ -1,106 +1,3 @@
-.sidebar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: var(--sidebar-width);
-	background: var(--sidebar-bg);
-	box-shadow: var(--shadow-md);
-	padding: 20px 20px 0;
-	display: flex;
-	flex-direction: column;
-	transition:
-		width var(--duration-1) var(--ease-standard),
-		padding var(--duration-1) var(--ease-standard),
-		background-color var(--duration-1) var(--ease-out);
-	overflow: hidden;
-	height: 100dvh;
-	z-index: var(--z-sidebar);
-	box-sizing: border-box;
-	border-radius: 0 var(--radius-7) var(--radius-7) 0;
-}
-
-#sidebar-folders {
-	--edge-fade-size: 2.5rem;
-	flex: 1 1 auto;
-	min-height: 0;
-	margin: 0 -20px 12px;
-	padding: 0 20px calc(1.5rem + env(safe-area-inset-bottom, 0px));
-	overflow: hidden auto;
-	overscroll-behavior: contain;
-	scrollbar-gutter: stable;
-	mask-image: linear-gradient(
-		to bottom,
-		transparent,
-		#000 var(--edge-fade-start),
-		#000 calc(100% - var(--edge-fade-end)),
-		transparent
-	);
-}
-
-/* 不支持滚动驱动动画时，动画会按 0 秒播完停在终态，顶部被一直遮住 */
-@supports (animation-timeline: scroll()) {
-	#sidebar-folders {
-		animation:
-			edge-fade-start var(--ease-linear) both,
-			edge-fade-end var(--ease-linear) both;
-		animation-timeline: scroll(self), scroll(self);
-		animation-range:
-			0 var(--edge-fade-size),
-			calc(100% - var(--edge-fade-size)) 100%;
-	}
-}
-
-@media (pointer: fine) {
-	/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */
-	@supports not (animation-timeline: scroll()) {
-		#sidebar-folders {
-			--scrollbar-thumb: var(--scrollbar-thumb-color);
-		}
-	}
-}
-
-@media screen and (width < 1024px) {
-	.sidebar:not(.js-initialized) {
-		width: 0;
-		padding: 0;
-		overflow: hidden;
-	}
-}
-
-.sidebar.collapsed {
-	width: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.sidebar.collapsed .home-button,
-.sidebar.collapsed .folder {
-	opacity: 0;
-	visibility: hidden;
-	transition: none;
-}
-.sidebar-header {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	flex: none;
-	margin-bottom: 20px;
-	padding: 0 5px;
-	flex-wrap: nowrap;
-	min-height: 40px;
-}
-
-.home-button {
-	border: none;
-	background: none;
-	padding: 0;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	align-self: flex-start;
-}
 .main-content {
 	margin-left: calc(var(--sidebar-width) + 20px);
 	margin-right: 120px;
@@ -129,7 +26,7 @@
 	}
 }
 
-.sidebar.collapsed + .main-content {
+.sidebar[data-state="collapsed"] + .main-content {
 	margin-left: 120px;
 	margin-right: 120px;
 	padding: 20px;
@@ -141,7 +38,7 @@
 		--bm-pagination-offset: var(--desktop-base-offset);
 	}
 
-	.sidebar.collapsed + .main-content {
+	.sidebar[data-state="collapsed"] + .main-content {
 		--bm-pagination-offset: 0px;
 	}
 }
