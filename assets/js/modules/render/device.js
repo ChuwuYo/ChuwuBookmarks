@@ -1,5 +1,5 @@
 import { RENDER_CONSTANTS } from "../utils/constants.js";
-import { animationConfig } from "./theme.js";
+import { durationS, GSAP_EASE } from "../utils/motion.js";
 
 const BREAKPOINT_MOBILE = 480;
 const BREAKPOINT_SIDEBAR = 1024;
@@ -43,12 +43,14 @@ const updateSidebarVisibility = (
 			gsap.set(folderElements, { opacity: 0, visibility: "hidden" });
 		} else if (!skipAnimation) {
 			gsap.set(folderElements, { opacity: 0, visibility: "visible" });
+			const stagger = durationS("--stagger-step");
+			const duration = durationS("--duration-4");
 			folderElements.forEach((folder, index) => {
 				gsap.to(folder, {
 					opacity: 1,
-					delay: index * RENDER_CONSTANTS.SIDEBAR_ANIMATION_STAGGER,
-					duration: animationConfig.duration.medium,
-					ease: animationConfig.ease.outQuad,
+					delay: index * stagger,
+					duration,
+					ease: GSAP_EASE.out,
 				});
 			});
 		} else {
