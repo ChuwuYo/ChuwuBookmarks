@@ -64,7 +64,7 @@
 	padding: 6px;
 	padding-right: 56px;
 	font-size: 1rem;
-	border: 2px solid #a4d1c4;
+	border: 2px solid var(--accent-border);
 	border-radius: var(--radius-4);
 	width: 230px;
 	max-width: calc(100vw - 120px);
@@ -287,7 +287,7 @@ button.breadcrumb-item {
 
 	#content .folder:hover .folder-name {
 		color: var(--link-color);
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+		text-shadow: var(--text-shadow);
 		box-shadow: var(--shadow-sm);
 	}
 

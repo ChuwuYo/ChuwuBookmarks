@@ -17,9 +17,7 @@
 		opacity var(--duration-3) var(--ease-standard);
 	user-select: none;
 	outline: none;
-	box-shadow:
-		0 4px 6px rgba(0, 0, 0, 0.1),
-		inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+	box-shadow: var(--home-button-shadow);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -31,9 +29,7 @@
 
 @media (hover: hover) and (pointer: fine) {
 	.home-button:hover {
-		box-shadow:
-			0 6px 8px rgba(0, 0, 0, 0.15),
-			inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+		box-shadow: var(--home-button-shadow-hover);
 		border-radius: var(--radius-8);
 		transform: translateY(-2px);
 		transition:
@@ -72,9 +68,7 @@
 			var(--home-button-bg-start),
 			var(--home-button-bg-end)
 		);
-		box-shadow:
-			0 4px 6px rgba(0, 0, 0, 0.1),
-			inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+		box-shadow: var(--home-button-shadow);
 		outline: none;
 	}
 }
