@@ -14,8 +14,8 @@
 	transition:
 		transform var(--duration-1) var(--ease-out),
 		background-color var(--duration-1) var(--ease-out),
-		box-shadow var(--duration-1) var(--ease-out);
-	will-change: transform;
+		box-shadow var(--duration-1) var(--ease-out),
+		border-radius var(--duration-1) var(--ease-out);
 	contain: layout size style;
 	transform: translateZ(0);
 	box-sizing: border-box;
@@ -37,7 +37,6 @@
 		transform var(--duration-1) var(--ease-out);
 	display: none;
 	flex-shrink: 0;
-	will-change: transform;
 }
 
 .sidebar.collapsed #toggle-sidebar .show-panel {
@@ -56,7 +55,6 @@
 
 	#toggle-sidebar:hover img {
 		transform: scale(1.1);
-		transition: transform var(--duration-1) var(--ease-out);
 	}
 
 	.sidebar:not(.collapsed) #toggle-sidebar:hover {

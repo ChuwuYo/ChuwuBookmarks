@@ -7,6 +7,7 @@
 	gap: 2px;
 	opacity: 0.7;
 	pointer-events: none;
+	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 .shortcut-hint kbd {
@@ -37,7 +38,6 @@
 
 #search-input:not(:placeholder-shown) ~ .shortcut-hint {
 	opacity: 0;
-	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 .search-container {
@@ -47,7 +47,6 @@
 	white-space: nowrap;
 	user-select: none;
 	height: calc(1rem + 16px + 6px);
-	will-change: transform;
 	contain: layout;
 	outline: none;
 	backface-visibility: hidden;
@@ -128,10 +127,10 @@
 	overflow-x: auto;
 	user-select: none;
 	opacity: 0;
-	animation: slideDown 0.3s ease forwards;
+	animation: slideDown var(--duration-4) var(--ease-out) forwards;
 	outline: none;
 	scroll-behavior: smooth;
-	transition: mask-image 0.3s ease;
+	transition: mask-image var(--duration-4) var(--ease-standard);
 	contain: layout style;
 }
 
@@ -155,7 +154,6 @@
 		box-shadow var(--duration-2) var(--ease-out),
 		text-decoration var(--duration-2) var(--ease-out);
 	outline: none;
-	will-change: transform, background;
 	border: none;
 	background: transparent;
 	font-family: inherit;
@@ -261,9 +259,8 @@ button.breadcrumb-item {
 	margin: 1.2rem 0;
 	padding: 0.25rem 0.5rem;
 	opacity: 0;
-	animation: fadeInUp 0.3s ease forwards;
-	animation-delay: calc(var(--item-index, 0) * 0.05s);
-	will-change: transform;
+	animation: fadeInUp var(--duration-4) var(--ease-out) forwards;
+	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
 	outline: none;
 	box-sizing: border-box;
 	contain: layout;
@@ -315,7 +312,10 @@ button.breadcrumb-item {
 	font-size: 1rem;
 	padding: 0.25rem 0.5rem;
 	cursor: pointer;
-	transition: all var(--duration-2) var(--ease-out);
+	transition:
+		color var(--duration-2) var(--ease-out),
+		text-shadow var(--duration-2) var(--ease-out),
+		box-shadow var(--duration-2) var(--ease-out);
 	border-radius: 4px;
 	display: flex;
 	align-items: center;
@@ -326,8 +326,6 @@ button.breadcrumb-item {
 	flex-shrink: 0;
 	display: inline-block;
 	user-select: none;
-	transition: transform 0.2s ease;
-	will-change: transform;
 	width: 16px;
 	height: 16px;
 	font-size: 16px;
@@ -356,7 +354,7 @@ button.breadcrumb-item {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
-	transition: opacity 0.3s ease;
+	transition: opacity var(--duration-4) var(--ease-out);
 	display: block;
 	min-width: 16px;
 	min-height: 16px;
@@ -386,8 +384,8 @@ button.breadcrumb-item {
 	user-select: text;
 	font-size: 1rem;
 	transition:
-		color 0.15s ease,
-		box-shadow 0.15s ease;
+		color var(--duration-2) var(--ease-standard),
+		box-shadow var(--duration-2) var(--ease-standard);
 	border-radius: 4px;
 }
 
@@ -400,8 +398,8 @@ button.breadcrumb-item {
 	display: flex;
 	align-items: center;
 	transition:
-		transform 0.2s,
-		color 0.2s;
+		transform var(--duration-3) var(--ease-out),
+		color var(--duration-3) var(--ease-out);
 }
 
 .home-message .chinese-text {
@@ -423,7 +421,6 @@ button.breadcrumb-item {
 	opacity: 0;
 	perspective: 1000px;
 	transform-style: preserve-3d;
-	will-change: opacity, transform;
 	content-visibility: auto;
 	outline: none;
 }
@@ -480,7 +477,7 @@ button.breadcrumb-item:focus-visible {
 	border: 4px solid var(--hover-bg);
 	border-top: 4px solid var(--link-color);
 	border-radius: 50%;
-	animation: spin 1s linear infinite;
+	animation: spin var(--duration-loop) var(--ease-linear) infinite;
 }
 
 .centered-message {
@@ -514,7 +511,7 @@ button.breadcrumb-item:focus-visible {
 }
 
 .search-results-fade {
-	transition: opacity 0.3s ease;
+	transition: opacity var(--duration-4) var(--ease-standard);
 }
 
 .search-results-fade-dim {
@@ -548,7 +545,7 @@ button.breadcrumb-item:focus-visible {
 
 .search-result-item {
 	opacity: 0;
-	animation: fadeInUp 0.15s ease-out forwards;
+	animation: fadeInUp var(--duration-2) var(--ease-out) forwards;
 	margin-bottom: 0.5rem;
 }
 
