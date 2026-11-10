@@ -23,11 +23,7 @@ const button = ({ className, label, content, page, disabled }) => {
 	el.className = `pagination-button ${className}`;
 	el.setAttribute("aria-label", label);
 	if (page) el.dataset.page = String(page);
-	if (disabled) {
-		el.disabled = true;
-		el.setAttribute("aria-disabled", "true");
-	}
-	el.tabIndex = disabled ? -1 : 0;
+	if (disabled) el.disabled = true;
 	el.append(content);
 	return el;
 };
@@ -59,7 +55,7 @@ export class BmPagination extends HTMLElement {
 	connectedCallback() {
 		if (!this.#nav) {
 			this.#nav = document.createElement("nav");
-			this.#nav.className = "pagination-container centered-element";
+			this.#nav.className = "pagination-container";
 			this.#nav.tabIndex = -1;
 			this.#nav.addEventListener("click", this.#onClick);
 			this.#nav.addEventListener("keydown", this.#onKeydown);
@@ -101,7 +97,7 @@ export class BmPagination extends HTMLElement {
 			}
 			const active = item === current;
 			const el = button({
-				className: `pagination-page${active ? " active" : ""}`,
+				className: "pagination-page",
 				label: active ? `第${item}页，当前页` : `第${item}页`,
 				content: String(item),
 				page: item,

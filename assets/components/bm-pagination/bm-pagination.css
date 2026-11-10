@@ -53,7 +53,7 @@ bm-pagination .pagination-container[hidden] {
 	bottom: 20px;
 	z-index: var(--z-float);
 
-	transform: translateX(-50%);
+	transform: translateX(calc(-50% + var(--bm-pagination-offset, 0px)));
 
 	transition:
 		transform var(--duration-2) var(--ease-standard),
@@ -99,7 +99,7 @@ bm-pagination .pagination-container[hidden] {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.pagination-button:hover:not(:disabled):not(.active) {
+	.pagination-button:hover:not(:disabled):not([aria-current="page"]) {
 		background: var(--pagination-hover-bg);
 		box-shadow:
 			var(--pagination-shadow-hover),
@@ -111,7 +111,7 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-.pagination-button.active {
+.pagination-button[aria-current="page"] {
 	background: var(--pagination-active-bg);
 	color: var(--pagination-active-text);
 	border-color: var(--pagination-active-bg);
@@ -125,7 +125,7 @@ bm-pagination .pagination-container[hidden] {
 	transform: translateZ(0) scale(1);
 }
 
-.pagination-button.active::before {
+.pagination-button[aria-current="page"]::before {
 	content: "";
 	position: absolute;
 	top: -2px;
@@ -140,12 +140,12 @@ bm-pagination .pagination-container[hidden] {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.pagination-button.active:hover {
+	.pagination-button[aria-current="page"]:hover {
 		transform: translateZ(0) scale(1.05);
 		filter: brightness(1.05);
 	}
 
-	.pagination-button.active:hover::before {
+	.pagination-button[aria-current="page"]:hover::before {
 		opacity: 0.3;
 	}
 }
@@ -214,16 +214,6 @@ bm-pagination .pagination-container[hidden] {
 	text-shadow: 0 1px 2px var(--shadow-color);
 }
 
-@media screen and (width >= 1024px) {
-	.pagination-container {
-		transform: translateX(calc(-50% + var(--desktop-base-offset)));
-	}
-
-	.sidebar.collapsed + .main-content .pagination-container {
-		transform: translateX(-50%);
-	}
-}
-
 @media screen and (width < 480px) {
 	.pagination-container {
 		bottom: 10px;
@@ -254,7 +244,7 @@ bm-pagination .pagination-container[hidden] {
 		font-weight: 600;
 	}
 
-	.pagination-button.active {
+	.pagination-button[aria-current="page"] {
 		border-width: 4px;
 		font-weight: 700;
 		box-shadow:
@@ -274,16 +264,7 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-.page-changing {
-	opacity: 0.8;
-	transition: opacity var(--duration-3) var(--ease-standard);
-}
-
-.page-changing .results-container {
-	pointer-events: none;
-}
-
-.pagination-button:not(:disabled):not(.active) {
+.pagination-button:not(:disabled):not([aria-current="page"]) {
 	box-shadow:
 		inset 0 1px 0 var(--highlight-soft),
 		var(--pagination-shadow);
@@ -296,7 +277,7 @@ bm-pagination .pagination-container[hidden] {
 		color: ButtonText;
 	}
 
-	.pagination-button.active {
+	.pagination-button[aria-current="page"] {
 		background: Highlight;
 		color: HighlightText;
 		border-color: Highlight;

@@ -170,3 +170,14 @@
 	margin-right: 120px;
 	padding: 20px;
 }
+
+/* 桌面端侧边栏展开时，固定定位的分页条随内容区右移 */
+@media screen and (width >= 1024px) {
+	.main-content {
+		--bm-pagination-offset: var(--desktop-base-offset);
+	}
+
+	.sidebar.collapsed + .main-content {
+		--bm-pagination-offset: 0px;
+	}
+}
