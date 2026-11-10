@@ -48,18 +48,6 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-@media screen and (min-width: 480px) and (max-width: 1023px) {
-	:root {
-		--pagination-spacing: 8px;
-		--pagination-button-size: 40px;
-		--pagination-font-size: 14px;
-	}
-
-	.pagination-container {
-		bottom: 20px;
-	}
-}
-
 :root[data-theme="dark"] {
 	--pagination-disabled-text: rgba(249, 241, 213, 0.4);
 	--pagination-shadow-focus: 0 0 0 4px rgba(116, 206, 255, 0.2);
