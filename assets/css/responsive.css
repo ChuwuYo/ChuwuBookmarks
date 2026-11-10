@@ -109,27 +109,6 @@
 }
 
 @media screen and (width < 480px) {
-	body {
-		overflow-y: auto;
-		scrollbar-width: none;
-	}
-
-	body::-webkit-scrollbar {
-		display: none;
-	}
-
-	.main-content {
-		scrollbar-width: none;
-	}
-
-	.main-content::-webkit-scrollbar {
-		display: none;
-	}
-
-	.custom-scroll-indicator {
-		display: none;
-	}
-
 	.sidebar {
 		z-index: var(--z-sidebar-raised);
 		left: calc(-1 * var(--sidebar-width));
