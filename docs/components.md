@@ -167,7 +167,12 @@ JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中
 | `bm-page-change` event | `detail: { page }`；组件已先更新 `current` |
 | 键盘 | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
 
-DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page(.active[aria-current=page]), .pagination-ellipsis, .pagination-next`
+DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page, .pagination-ellipsis, .pagination-next`。
+当前页只用 `aria-current="page"` 表示（样式按它选择），首尾按钮用原生 `disabled`。
+
+定位：导航条由组件自己 `position: fixed` 在视口底部水平居中，不使用页面的布局类。
+`--bm-pagination-offset`（默认 `0px`）是居中后的水平偏移，由页面布局设置：
+`layout.css` 在桌面端侧边栏展开时把 `.main-content` 上的它设为 `--desktop-base-offset`。
 
 尺寸变量：`--pagination-button-size`、`--pagination-spacing`、`--pagination-font-size`、
 `--pagination-button-padding`（移动端 6px，补足 44px 触控区域）。

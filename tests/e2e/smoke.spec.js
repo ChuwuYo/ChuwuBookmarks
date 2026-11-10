@@ -66,7 +66,9 @@ test.describe("smoke", () => {
 
 	test("search restores the page number from the URL", async ({ page }) => {
 		await openApp(page, "/?q=demo&page=3", undefined, { waitForHome: false });
-		await expect(page.locator(".pagination-page.active")).toHaveText("3");
+		await expect(
+			page.locator('.pagination-page[aria-current="page"]'),
+		).toHaveText("3");
 		await expect(page.locator(".search-result-item")).toHaveCount(5);
 	});
 
@@ -78,7 +80,9 @@ test.describe("smoke", () => {
 		const next = page.locator(".pagination-next");
 		await expect(next).toBeVisible();
 		await next.click();
-		await expect(page.locator(".pagination-page.active")).toHaveText("2");
+		await expect(
+			page.locator('.pagination-page[aria-current="page"]'),
+		).toHaveText("2");
 		await page.locator(".pagination-page", { hasText: "3" }).click();
 		await expect(page.locator(".search-result-item")).toHaveCount(5);
 	});

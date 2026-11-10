@@ -371,6 +371,15 @@ button.breadcrumb-item {
 	opacity: 1;
 }
 
+.page-changing {
+	opacity: 0.8;
+	transition: opacity var(--duration-3) var(--ease-standard);
+}
+
+.page-changing .results-container {
+	pointer-events: none;
+}
+
 .no-results {
 	width: 90%;
 	max-width: 400px;
