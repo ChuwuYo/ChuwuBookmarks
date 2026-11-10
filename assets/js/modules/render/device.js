@@ -1,34 +1,5 @@
-import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { durationS, GSAP_EASE } from "../utils/motion.js";
-
-const BREAKPOINT_MOBILE = 480;
-const BREAKPOINT_SIDEBAR = 1024;
-
-const getDeviceType = () => {
-	const width = window.innerWidth;
-	const height = window.innerHeight;
-	const isTouchDevice =
-		"ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-	if (
-		isTouchDevice &&
-		(width < BREAKPOINT_MOBILE ||
-			height < RENDER_CONSTANTS.MOBILE_HEIGHT_BREAKPOINT)
-	) {
-		return "mobile";
-	}
-
-	if (width < BREAKPOINT_MOBILE) {
-		return "mobile";
-	} else if (width < BREAKPOINT_SIDEBAR) {
-		return "tablet";
-	} else {
-		return "desktop";
-	}
-};
-
-const isMobileDevice = () => getDeviceType() === "mobile";
-const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
+import { isSidebarOverlay } from "../utils/viewport.js";
 
 const updateSidebarVisibility = (
 	sidebar,
@@ -74,25 +45,10 @@ const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 
 const handleDeviceView = () => {
 	const sidebar = document.querySelector(".sidebar");
-	const deviceType = getDeviceType();
-	const shouldCollapse = shouldCollapseSidebar();
+	if (!sidebar) return;
 
-	document.body.classList.toggle("mobile-device", deviceType === "mobile");
-
-	if (sidebar) {
-		sidebar.classList.add("js-initialized");
-	}
-
-	if (sidebar) {
-		updateSidebarState(sidebar, shouldCollapse, true);
-	}
+	sidebar.classList.add("js-initialized");
+	updateSidebarState(sidebar, isSidebarOverlay(), true);
 };
 
-export {
-	BREAKPOINT_MOBILE,
-	getDeviceType,
-	handleDeviceView,
-	isMobileDevice,
-	shouldCollapseSidebar,
-	updateSidebarState,
-};
+export { handleDeviceView, updateSidebarState };
