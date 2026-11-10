@@ -80,7 +80,7 @@ let searchGeneration = 0;
 
 let workersWired = false;
 
-const initSearchWorker = (renderMainContent) => {
+const initSearchWorker = () => {
 	if (!isWorkerSupported()) {
 		console.warn(
 			"[Search] Web Worker not supported, search functionality unavailable",
@@ -97,7 +97,7 @@ const initSearchWorker = (renderMainContent) => {
 		const { action, id, positions, message } = e.data;
 		if (action === "searchResults") {
 			if (id !== searchGeneration) return;
-			renderSearchResults(toResults(positions), renderMainContent);
+			renderSearchResults(toResults(positions));
 		} else if (action === "error") {
 			console.error("[Search] Worker error:", message);
 		}

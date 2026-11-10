@@ -4,13 +4,6 @@ import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
 import { isCompact } from "../utils/viewport.js";
 
-const setupSidebarToggle = () => {
-	document.addEventListener("bm-sidebar-toggle", (event) => {
-		const sidebar = document.querySelector(".sidebar");
-		if (sidebar) updateSidebarState(sidebar, event.detail.collapsed);
-	});
-};
-
 const setupThemeToggle = () => {
 	const themeToggle = document.getElementById("theme-toggle");
 	if (themeToggle) {
@@ -84,7 +77,6 @@ const setupHomeButton = () => {
 };
 
 const initUIListeners = () => {
-	setupSidebarToggle();
 	setupThemeToggle();
 	setupHomeButton();
 };

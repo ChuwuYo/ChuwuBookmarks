@@ -109,7 +109,10 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - **Attributes**：字符串/布尔配置，均有默认值；需要响应变化的写进 `observedAttributes`。
 - **Properties**：结构化数据（数组、对象）只通过 property 传入，不序列化进 attribute。
 - **Events**：`bm-<动作>` 命名的 `CustomEvent`，`bubbles: true`，数据放在 `detail`。
-  组件不直接调用应用模块，由监听层处理事件。
+  组件不直接调用应用模块。应用在一处处理所有 `bm-*` 事件：
+  `assets/js/modules/listener/component-listener.js` 在 `document` 上委托监听，
+  按 `event.target` 的位置区分来源（例如侧边栏 `#sidebar-folders` 中的 `bm-open-folder`）；
+  渲染模块只渲染，不给组件挂监听。
 - **DOM 契约**：组件渲染出的 class 名与结构写在下面各节，测试与样式只依赖这些契约。
 
 ### 状态
