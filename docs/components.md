@@ -220,10 +220,16 @@ DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.b
 状态与可访问性：`folder` 自动设置 `tabindex="0"`、`role="button"`、`aria-label="文件夹: 名称"`。
 标题为空时，文件夹显示“未命名文件夹”，书签依次回退到域名、“未命名书签”。
 
-DOM 契约：元素自身带 `.folder` / `.bookmark` 类；
+DOM 契约：元素自身带 `.folder` / `.bookmark` 类（类只表示条目类型）；
 文件夹 `.folder-icon > bm-icon` + `.folder-name`；
 书签 `.bookmark-icon > (.bookmark-icon-emoji > bm-icon, img.bookmark-icon-img)` + `a`。
-favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon--img-loaded`。
+
+图标加载由组件完成：`img` 按 `item.icon` 排序后的地址依次尝试，加载失败或图片宽高不超过 1px
+时换下一个地址；第一张有效图片加载后组件给 `.bookmark-icon` 加 `data-loaded`，CSS 据此隐藏
+占位图标并淡入图片；全部失败时移除 `img`，保留占位图标。
+
+样式全部在 `bm-card.css`，按所在位置区分：内容区 `#content .folder` / `#content .bookmark`，
+侧边栏 `.sidebar .folder`（侧边栏收起时隐藏条目的规则属于 `bm-sidebar.css`）。
 
 ## `<bm-search>`
 

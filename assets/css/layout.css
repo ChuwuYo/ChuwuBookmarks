@@ -79,42 +79,6 @@
 	visibility: hidden;
 	transition: none;
 }
-.sidebar .folder {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	margin: 1.1rem 0;
-	margin-left: 10px;
-	border-radius: var(--radius-2);
-	user-select: none;
-	-webkit-user-drag: none;
-	-webkit-touch-callout: none;
-	line-height: 1;
-}
-
-.sidebar #sidebar-folders .folder:first-child {
-	margin-top: 2rem;
-}
-.sidebar .folder-name {
-	font-size: 1.1rem;
-	padding: 0.5rem 1rem;
-	cursor: pointer;
-	transition:
-		background var(--duration-2) var(--ease-out),
-		transform var(--duration-2) var(--ease-out),
-		box-shadow var(--duration-2) var(--ease-out);
-	border-radius: var(--radius-2);
-	display: flex;
-	align-items: center;
-	line-height: 1;
-}
-@media (hover: hover) and (pointer: fine) {
-	.sidebar .folder-name:hover {
-		background: var(--sidebar-folder-hover-bg);
-		box-shadow: var(--sidebar-folder-hover-shadow);
-		transform: translateY(-2px) scale(1.05);
-	}
-}
 .sidebar-header {
 	display: flex;
 	align-items: center;

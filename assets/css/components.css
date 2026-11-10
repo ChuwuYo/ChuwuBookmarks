@@ -70,141 +70,11 @@
 	transition: transform var(--duration-2) var(--ease-standard);
 }
 
-#content .folder,
-#content .bookmark {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	margin: 1.2rem 0;
-	padding: 0.25rem 0.5rem;
-	animation: fadeInUp var(--duration-4) var(--ease-out) backwards;
-	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
-	border-radius: var(--radius-2);
-	box-sizing: border-box;
-	contain: layout;
-}
-
-#content .folder {
-	user-select: none;
-	-webkit-user-drag: none;
-	-webkit-touch-callout: none;
-	backface-visibility: hidden;
-	transform: translateZ(0);
-	transition:
-		transform var(--duration-2) var(--ease-out),
-		background var(--duration-2) var(--ease-standard),
-		box-shadow var(--duration-2) var(--ease-out);
-	width: fit-content;
-	min-width: 120px;
-	line-height: 1;
-}
-
 @media (hover: hover) and (pointer: fine) {
-	#content .folder:hover {
-		transform: translateY(-1px);
-		cursor: pointer;
-	}
-
-	#content .folder:hover .folder-name {
-		color: var(--link-color);
-		text-shadow: var(--text-shadow);
-		box-shadow: var(--shadow-sm);
-	}
-
-	#content .bookmark:hover {
-		transform: translateY(-1px);
-	}
-
-	#content .bookmark a:hover {
-		color: var(--link-color);
-		box-shadow: var(--shadow-sm);
-	}
-
 	.github-link:hover {
 		transform: scale(1.1);
 		color: var(--link-color);
 	}
-}
-
-#content .folder .folder-name {
-	font-size: 1rem;
-	padding: 0.25rem 0.5rem;
-	cursor: pointer;
-	transition:
-		color var(--duration-2) var(--ease-out),
-		text-shadow var(--duration-2) var(--ease-out),
-		box-shadow var(--duration-2) var(--ease-out);
-	border-radius: var(--radius-2);
-	display: flex;
-	align-items: center;
-	line-height: 1;
-}
-
-#content .bookmark .bookmark-icon {
-	flex-shrink: 0;
-	display: inline-block;
-	user-select: none;
-	width: 16px;
-	height: 16px;
-	font-size: 16px;
-	line-height: 16px;
-	min-width: 16px;
-	min-height: 16px;
-	font-feature-settings: "zero" 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	overflow: hidden;
-	position: relative;
-	padding: 0;
-	margin: 0;
-}
-
-.bookmark-icon-emoji {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	line-height: 1;
-}
-
-.bookmark-icon .bookmark-icon-img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	transition: opacity var(--duration-4) var(--ease-out);
-	display: block;
-	min-width: 16px;
-	min-height: 16px;
-	box-sizing: border-box;
-	opacity: 0;
-	visibility: hidden;
-}
-
-.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-emoji {
-	display: none;
-}
-
-.bookmark-icon.bookmark-icon--img-loaded .bookmark-icon-img {
-	opacity: 1;
-	visibility: visible;
-}
-
-#content .bookmark a {
-	color: var(--text-color);
-	text-decoration: none;
-	display: inline-block;
-	padding: 0.25rem 0.5rem;
-	max-width: calc(100% - 16px - 8px);
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	user-select: text;
-	font-size: 1rem;
-	transition:
-		color var(--duration-2) var(--ease-standard),
-		box-shadow var(--duration-2) var(--ease-standard);
-	border-radius: var(--radius-2);
 }
 
 .github-link {
@@ -345,9 +215,4 @@
 .search-result-item {
 	animation: fadeInUp var(--duration-2) var(--ease-out) backwards;
 	margin-bottom: 0.5rem;
-}
-
-/* 图标占位与原 emoji 字形宽度一致，避免文字位移 */
-.folder-icon > bm-icon {
-	width: 1.2em;
 }
