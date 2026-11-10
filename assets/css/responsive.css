@@ -2,8 +2,8 @@
 	position: fixed;
 	left: 50%;
 	transition:
-		transform var(--duration-base) var(--ease-in-out-cubic),
-		opacity var(--duration-base) var(--ease-default);
+		transform var(--duration-2) var(--ease-standard),
+		opacity var(--duration-2) var(--ease-out);
 	will-change: transform, opacity;
 	backface-visibility: hidden;
 }
@@ -137,7 +137,7 @@
 	.sidebar {
 		z-index: 1001;
 		left: -220px;
-		transition: left var(--duration-short) var(--ease-in-out-cubic);
+		transition: left var(--duration-1) var(--ease-standard);
 	}
 
 	.sidebar:not(.collapsed) {

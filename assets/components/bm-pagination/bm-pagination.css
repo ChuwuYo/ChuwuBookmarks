@@ -25,13 +25,13 @@ bm-pagination .pagination-container[hidden] {
 	--pagination-shadow-active: var(--button-shadow);
 	--pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
 
-	--pagination-transition-base: all var(--duration-base) var(--ease-default);
-	--pagination-transition-transform: transform var(--duration-base)
-		var(--ease-out-quad);
+	--pagination-transition-base: all var(--duration-2) var(--ease-out);
+	--pagination-transition-transform: transform var(--duration-2)
+		var(--ease-out);
 	--pagination-transition-colors:
-		background-color var(--duration-short) var(--ease-default),
-		color var(--duration-short) var(--ease-default),
-		border-color var(--duration-short) var(--ease-default);
+		background-color var(--duration-1) var(--ease-out),
+		color var(--duration-1) var(--ease-out),
+		border-color var(--duration-1) var(--ease-out);
 }
 
 @media screen and (max-width: 479px) {
@@ -73,8 +73,8 @@ bm-pagination .pagination-container[hidden] {
 	transform: translateX(-50%);
 
 	transition:
-		transform var(--duration-base) var(--ease-in-out-cubic),
-		opacity var(--duration-base) var(--ease-default);
+		transform var(--duration-2) var(--ease-standard),
+		opacity var(--duration-2) var(--ease-out);
 	will-change: transform, opacity;
 	backface-visibility: hidden;
 
@@ -155,7 +155,7 @@ bm-pagination .pagination-container[hidden] {
 	border-radius: calc(var(--pagination-border-radius) + 2px);
 	opacity: 0.2;
 	z-index: -1;
-	transition: opacity var(--duration-base) var(--ease-default);
+	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -199,8 +199,8 @@ bm-pagination .pagination-container[hidden] {
 	box-shadow: var(--pagination-shadow-focus);
 	border-radius: var(--pagination-border-radius);
 	transition:
-		outline-color var(--duration-short) var(--ease-default),
-		box-shadow var(--duration-short) var(--ease-default);
+		outline-color var(--duration-1) var(--ease-out),
+		box-shadow var(--duration-1) var(--ease-out);
 }
 
 :root[data-theme="dark"] .pagination-button:focus-visible {
@@ -249,8 +249,8 @@ bm-pagination .pagination-container[hidden] {
 	cursor: default;
 	opacity: 0.7;
 	transition:
-		color var(--duration-short) var(--ease-default),
-		opacity var(--duration-short) var(--ease-default);
+		color var(--duration-1) var(--ease-out),
+		opacity var(--duration-1) var(--ease-out);
 }
 
 :root[data-theme="light"] .pagination-ellipsis {
@@ -380,9 +380,9 @@ bm-pagination .pagination-container[hidden] {
 	.pagination-container,
 	.pagination-button {
 		transition:
-			color var(--duration-short) var(--ease-default),
-			background-color var(--duration-short) var(--ease-default),
-			border-color var(--duration-short) var(--ease-default);
+			color var(--duration-1) var(--ease-out),
+			background-color var(--duration-1) var(--ease-out),
+			border-color var(--duration-1) var(--ease-out);
 		animation: none;
 	}
 
@@ -399,8 +399,8 @@ bm-pagination .pagination-container[hidden] {
 .pagination-container .pagination-ellipsis {
 	transition-property:
 		background-color, color, border-color, box-shadow, opacity;
-	transition-duration: var(--duration-short);
-	transition-timing-function: var(--ease-default);
+	transition-duration: var(--duration-1);
+	transition-timing-function: var(--ease-out);
 }
 
 @media (forced-colors: active) {

@@ -12,9 +12,9 @@
 	user-select: none;
 	outline: none;
 	transition:
-		transform var(--duration-short) var(--ease-out-quad),
-		background-color var(--duration-short) var(--ease-out-quad),
-		box-shadow var(--duration-short) var(--ease-out-quad);
+		transform var(--duration-1) var(--ease-out),
+		background-color var(--duration-1) var(--ease-out),
+		box-shadow var(--duration-1) var(--ease-out);
 	will-change: transform;
 	contain: layout size style;
 	transform: translateZ(0);
@@ -33,8 +33,8 @@
 	height: 24px;
 	color: var(--text-color);
 	transition:
-		color var(--duration-short) var(--ease-default),
-		transform var(--duration-short) var(--ease-default);
+		color var(--duration-1) var(--ease-out),
+		transform var(--duration-1) var(--ease-out);
 	display: none;
 	flex-shrink: 0;
 	will-change: transform;
@@ -56,7 +56,7 @@
 
 	#toggle-sidebar:hover img {
 		transform: scale(1.1);
-		transition: transform var(--duration-short) var(--ease-out-quad);
+		transition: transform var(--duration-1) var(--ease-out);
 	}
 
 	.sidebar:not(.collapsed) #toggle-sidebar:hover {

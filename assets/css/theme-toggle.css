@@ -41,7 +41,7 @@
 }
 
 .theme-toggle {
-	--speed: var(--duration-base);
+	--speed: var(--duration-2);
 	--toggle-speed: 600ms;
 	--toggle-orbit: calc(var(--theme-turn, 0) * 180deg);
 	--toggle-border: #a4d1c4;
@@ -80,11 +80,11 @@
 	overflow: hidden;
 	transition:
 		--toggle-orbit var(--toggle-speed) cubic-bezier(0.65, 0, 0.35, 1) 40ms,
-		--toggle-light var(--toggle-speed) var(--ease-default),
-		--toggle-glow var(--toggle-speed) var(--ease-default),
-		--toggle-fill var(--duration-medium) var(--ease-out-quad),
-		--toggle-hover-shadow var(--duration-medium) var(--ease-out-quad),
-		transform var(--duration-base) var(--ease-default);
+		--toggle-light var(--toggle-speed) var(--ease-out),
+		--toggle-glow var(--toggle-speed) var(--ease-out),
+		--toggle-fill var(--duration-3) var(--ease-out),
+		--toggle-hover-shadow var(--duration-3) var(--ease-out),
+		transform var(--duration-2) var(--ease-out);
 }
 
 [data-theme="dark"] .theme-toggle {
@@ -102,7 +102,7 @@
 	width: calc(1rem + 5px);
 	height: calc(1rem + 5px);
 	overflow: visible;
-	transition: transform var(--duration-medium) var(--ease-out-quad);
+	transition: transform var(--duration-3) var(--ease-out);
 }
 
 .theme-icon
@@ -117,14 +117,14 @@
 }
 
 .theme-icon-rays {
-	transition: transform var(--duration-medium) var(--ease-out-quad);
+	transition: transform var(--duration-3) var(--ease-out);
 }
 
 .theme-icon-rays line {
 	transition:
 		transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1)
 		calc(200ms + var(--i) * 30ms),
-		opacity 160ms var(--ease-default) calc(200ms + var(--i) * 30ms);
+		opacity 160ms var(--ease-out) calc(200ms + var(--i) * 30ms);
 }
 
 .theme-icon-core {
@@ -142,8 +142,8 @@
 	transform: scale(0.4) rotate(-45deg);
 	transform-origin: 19.5px 4.5px;
 	transition:
-		opacity 120ms var(--ease-default),
-		transform 120ms var(--ease-default);
+		opacity 120ms var(--ease-out),
+		transform 120ms var(--ease-out);
 }
 
 [data-theme="dark"] .theme-icon-rays line {
@@ -151,7 +151,7 @@
 	transform: scale(0.3);
 	transition:
 		transform 220ms cubic-bezier(0.55, 0, 0.75, 0) calc(var(--i) * 25ms),
-		opacity 180ms var(--ease-default) calc(60ms + var(--i) * 25ms);
+		opacity 180ms var(--ease-out) calc(60ms + var(--i) * 25ms);
 }
 
 [data-theme="dark"] .theme-icon-core {
@@ -168,7 +168,7 @@
 	opacity: 1;
 	transform: none;
 	transition:
-		opacity 200ms var(--ease-default) 400ms,
+		opacity 200ms var(--ease-out) 400ms,
 		transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1) 400ms;
 	animation: theme-star-twinkle 2.8s ease-in-out 900ms infinite;
 }
@@ -236,8 +236,8 @@
 	opacity: 0;
 	transform: translate(0, 100%);
 	transition:
-		transform var(--speed) var(--ease-out-quad),
-		opacity var(--speed) var(--ease-out-quad);
+		transform var(--speed) var(--ease-out),
+		opacity var(--speed) var(--ease-out);
 }
 
 .theme-toggle::after {
@@ -288,10 +288,10 @@
 		);
 	transform: translate(0, 65%);
 	transition:
-		transform var(--speed) var(--ease-out-quad),
-		box-shadow var(--speed) var(--ease-out-quad),
-		--sunray1 var(--speed) var(--ease-out-quad),
-		--sunlight var(--speed) var(--ease-out-quad);
+		transform var(--speed) var(--ease-out),
+		box-shadow var(--speed) var(--ease-out),
+		--sunray1 var(--speed) var(--ease-out),
+		--sunlight var(--speed) var(--ease-out);
 }
 
 [data-theme="light"] .theme-toggle::before {
@@ -347,11 +347,11 @@
 .theme-toggle::before,
 .theme-toggle::after {
 	transition:
-		transform var(--speed) var(--ease-default),
-		opacity var(--speed) var(--ease-default),
-		--sunray1 var(--speed) var(--ease-default),
-		--sunlight var(--speed) var(--ease-default),
-		box-shadow var(--speed) var(--ease-default);
+		transform var(--speed) var(--ease-out),
+		opacity var(--speed) var(--ease-out),
+		--sunray1 var(--speed) var(--ease-out),
+		--sunlight var(--speed) var(--ease-out),
+		box-shadow var(--speed) var(--ease-out);
 }
 
 @media (hover: none) and (pointer: coarse) {
