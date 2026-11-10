@@ -31,7 +31,7 @@ const renderPage = (container, results, page) => {
 				item.type === "folder" ? "folder" : "bookmark",
 				item,
 			);
-			element.style.cssText = `--item-index: ${index}`;
+			element.style.setProperty("--item-index", index);
 			element.classList.add("search-result-item");
 			fragment.appendChild(element);
 		});
@@ -41,9 +41,9 @@ const renderPage = (container, results, page) => {
 };
 
 const playPageTransition = (content) => {
-	content.classList.add("page-changing");
+	content.toggleAttribute("data-page-changing", true);
 	later(
-		() => content.classList.remove("page-changing"),
+		() => content.removeAttribute("data-page-changing"),
 		durationMs("--duration-3"),
 	);
 
@@ -52,16 +52,12 @@ const playPageTransition = (content) => {
 			top: 0,
 			behavior: prefersReducedMotion() ? "auto" : "smooth",
 		});
-		content.classList.add("search-results-fade", "search-results-fade-dim");
+		content.dataset.resultsFade = "dim";
 		later(() => {
-			content.classList.remove("search-results-fade-dim");
-			content.classList.add("search-results-fade-full");
+			content.dataset.resultsFade = "full";
 		}, durationMs("--duration-2"));
 		later(() => {
-			content.classList.remove(
-				"search-results-fade",
-				"search-results-fade-full",
-			);
+			content.removeAttribute("data-results-fade");
 			content.querySelector('.search-result-item[tabindex="0"]')?.focus();
 		}, durationMs("--duration-4"));
 	}, 16);
@@ -81,14 +77,9 @@ const resetSearchPagination = () => {
 	view = null;
 	for (const id of timers) clearTimeout(id);
 	timers.clear();
-	document
-		.getElementById("content")
-		?.classList.remove(
-			"page-changing",
-			"search-results-fade",
-			"search-results-fade-dim",
-			"search-results-fade-full",
-		);
+	const content = document.getElementById("content");
+	content?.removeAttribute("data-page-changing");
+	content?.removeAttribute("data-results-fade");
 };
 
 const pageFromUrl = (total) => {

@@ -31,8 +31,10 @@
             for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
                 meta.setAttribute("content", color);
             }
-            root.classList.add("app-loading");
-            setTimeout(() => root.classList.remove("app-loading"), 3000);
+            root.dataset.reveal = "loading";
+            setTimeout(() => {
+                if (root.dataset.reveal === "loading") root.removeAttribute("data-reveal");
+            }, 3000);
         })();
     </script>
     <meta name="application-name" content="ChuwuBookmarks" />
