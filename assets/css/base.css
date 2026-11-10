@@ -137,6 +137,11 @@
 	-webkit-tap-highlight-color: transparent;
 }
 
+:focus-visible {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	:root {
 		--duration-3: var(--duration-2);

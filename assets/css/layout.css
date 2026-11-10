@@ -159,6 +159,7 @@
 	gap: 8px;
 	margin: 1.1rem 0;
 	margin-left: 10px;
+	border-radius: var(--radius-2);
 	user-select: none;
 	-webkit-user-drag: none;
 	-webkit-touch-callout: none;
