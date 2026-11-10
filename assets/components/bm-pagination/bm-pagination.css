@@ -48,7 +48,7 @@ bm-pagination .pagination-container[hidden] {
 	margin: 0;
 	padding: 0.5rem;
 	user-select: none;
-	outline: none;
+	border-radius: var(--pagination-border-radius);
 	width: 100%;
 	max-width: 500px;
 
@@ -79,7 +79,6 @@ bm-pagination .pagination-container[hidden] {
 	font-family: "DingTalk JinBuTi", sans-serif;
 
 	cursor: pointer;
-	outline: none;
 	appearance: none;
 	padding: var(--pagination-button-padding, 0);
 	margin: 0;
@@ -172,29 +171,14 @@ bm-pagination .pagination-container[hidden] {
 	filter: none;
 }
 
-.pagination-button:disabled:focus-visible {
-	outline: none;
-	box-shadow: none;
-}
-
 .pagination-button:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
 	box-shadow: var(--pagination-shadow-focus);
-	border-radius: var(--pagination-border-radius);
 	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
 		var(--loop-count);
 }
 
-:root[data-theme="dark"] .pagination-button:focus-visible {
-	outline-color: var(--link-color);
-}
-
 .pagination-container:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
 	box-shadow: var(--pagination-shadow-focus);
-	border-radius: var(--pagination-border-radius);
 }
 
 .pagination-button:focus {
@@ -281,13 +265,9 @@ bm-pagination .pagination-container[hidden] {
 			0 0 0 2px var(--pagination-active-bg);
 	}
 
-	.pagination-button:focus-visible {
-		outline-width: 4px;
-		box-shadow: 0 0 0 8px var(--focus-halo-color-strong);
-	}
-
+	.pagination-button:focus-visible,
 	.pagination-container:focus-visible {
-		outline-width: 4px;
+		outline-width: calc(var(--focus-ring-width) * 2);
 		box-shadow: 0 0 0 8px var(--focus-halo-color-strong);
 	}
 
@@ -328,11 +308,6 @@ bm-pagination .pagination-container[hidden] {
 	.pagination-button:disabled {
 		color: GrayText;
 		border-color: GrayText;
-	}
-
-	.pagination-button:focus-visible {
-		outline: 2px solid Highlight;
-		outline-offset: 2px;
 	}
 }
 

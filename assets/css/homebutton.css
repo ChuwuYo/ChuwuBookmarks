@@ -16,7 +16,6 @@
 		border-radius var(--duration-4) var(--ease-out),
 		opacity var(--duration-3) var(--ease-standard);
 	user-select: none;
-	outline: none;
 	box-shadow: var(--home-button-shadow);
 	display: flex;
 	align-items: center;
@@ -53,13 +52,6 @@
 	transform: translateZ(0);
 }
 
-.home-button:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: var(--radius-2);
-}
-
 @media (hover: none) and (pointer: coarse) {
 	.home-button:focus,
 	.home-button:active {
@@ -69,6 +61,5 @@
 			var(--home-button-bg-end)
 		);
 		box-shadow: var(--home-button-shadow);
-		outline: none;
 	}
 }

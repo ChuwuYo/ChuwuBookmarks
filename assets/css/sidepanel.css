@@ -10,7 +10,6 @@
 	z-index: var(--z-sidebar-toggle);
 	font-size: 1.3rem;
 	user-select: none;
-	outline: none;
 	transition:
 		transform var(--duration-1) var(--ease-out),
 		background-color var(--duration-1) var(--ease-out),
@@ -80,18 +79,10 @@
 	}
 }
 
-#toggle-sidebar:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: var(--radius-2);
-}
-
 @media (hover: none) and (pointer: coarse) {
 	#toggle-sidebar:focus,
 	#toggle-sidebar:active {
 		background: var(--button-hover);
 		border: 1.5px solid var(--accent-border);
-		outline: none;
 	}
 }

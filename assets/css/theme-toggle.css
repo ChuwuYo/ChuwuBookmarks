@@ -354,6 +354,5 @@
 	.theme-toggle:focus,
 	.theme-toggle:active {
 		--toggle-fill: var(--button-bg);
-		outline: none;
 	}
 }
