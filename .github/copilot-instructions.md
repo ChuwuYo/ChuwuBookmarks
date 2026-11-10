@@ -6,7 +6,7 @@ Purpose
 - Guide AI agents to be productive in this ES-module, no-build, static web app.
 
 Big picture
-- Entry flow: index.html loads script.js, which initializes theme, device view, workers, listeners, and restores search state.
+- Entry flow: index.html loads script.js, which initializes theme, sidebar state, workers, listeners, and restores search state.
 - Data pipeline: data-worker.js fetches structure.json first (lazy folder tree), then bookmarks.json in background; loader/index.js merges, caches, and re-renders.
 - Search pipeline: search/index.js posts cached data + index hash to search-worker.js; worker does LRU-cached search and returns results for render/search.js.
 
@@ -21,7 +21,7 @@ Key files
 
 Project conventions
 - ES modules with named exports; keep functions short and single-responsibility.
-- Mobile detection: use window.innerWidth < 480 or getDeviceType() for consistency.
+- Breakpoints and input: layout uses width media queries only (range syntax, 480px / 1024px, documented in `assets/css/breakpoints.css`); hover styles go in `(hover: hover) and (pointer: fine)`, everything else in its complement. JS reads the same queries from `assets/js/modules/utils/viewport.js` (`isNarrow()`, `isCompact()`, `isSidebarOverlay()`, `onChange()`); never compare `window.innerWidth`, sniff touch or the user agent, or set device classes.
 - Use requestAnimationFrame for scroll/resize UI updates and passive scroll listeners where applicable.
 - Colours, shadows, focus ring, radii and z-index are tokens in `assets/css/base.css`: colours use `light-dark()` (`color-scheme` follows `data-theme`), every control gets the global `:focus-visible` ring (`--focus-ring-*`), and rules use `--radius-*` / `--z-*` instead of literals.
 - Motion durations and easings are tokens in `assets/css/base.css`; JS reads them (and `prefers-reduced-motion`) through `assets/js/modules/utils/motion.js` instead of hard-coding values.
