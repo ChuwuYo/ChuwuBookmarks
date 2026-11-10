@@ -9,9 +9,9 @@
 	display: flex;
 	flex-direction: column;
 	transition:
-		width var(--duration-short) var(--ease-in-out-cubic),
-		padding var(--duration-short) var(--ease-in-out-cubic),
-		background-color var(--duration-short) var(--ease-default);
+		width var(--duration-1) var(--ease-standard),
+		padding var(--duration-1) var(--ease-standard),
+		background-color var(--duration-1) var(--ease-out);
 	overflow: hidden;
 	height: 100dvh;
 	z-index: 1000;
@@ -173,9 +173,9 @@
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	transition:
-		background var(--duration-base) var(--ease-default),
-		transform var(--duration-base) var(--ease-default),
-		box-shadow var(--duration-base) var(--ease-default);
+		background var(--duration-2) var(--ease-out),
+		transform var(--duration-2) var(--ease-out),
+		box-shadow var(--duration-2) var(--ease-out);
 	border-radius: 4px;
 	display: flex;
 	align-items: center;
@@ -222,8 +222,8 @@
 	flex: 1;
 	box-sizing: border-box;
 	transition:
-		margin-left var(--duration-short) var(--ease-in-out-cubic),
-		padding var(--duration-short) var(--ease-in-out-cubic);
+		margin-left var(--duration-1) var(--ease-standard),
+		padding var(--duration-1) var(--ease-standard);
 	position: relative;
 	z-index: 2;
 	overflow-y: auto;

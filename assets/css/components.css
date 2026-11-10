@@ -37,7 +37,7 @@
 
 #search-input:not(:placeholder-shown) ~ .shortcut-hint {
 	opacity: 0;
-	transition: opacity var(--duration-base) var(--ease-default);
+	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 .search-container {
@@ -80,8 +80,8 @@
 	font-synthesis: none;
 	outline: none;
 	transition:
-		border-color var(--duration-base) var(--ease-default),
-		box-shadow var(--duration-base) var(--ease-default);
+		border-color var(--duration-2) var(--ease-out),
+		box-shadow var(--duration-2) var(--ease-out);
 }
 
 #search-input::placeholder {
@@ -150,10 +150,10 @@
 	margin: 0 4px 4px 0;
 	user-select: none;
 	transition:
-		background var(--duration-base) var(--ease-default),
-		transform var(--duration-base) var(--ease-default),
-		box-shadow var(--duration-base) var(--ease-default),
-		text-decoration var(--duration-base) var(--ease-default);
+		background var(--duration-2) var(--ease-out),
+		transform var(--duration-2) var(--ease-out),
+		box-shadow var(--duration-2) var(--ease-out),
+		text-decoration var(--duration-2) var(--ease-out);
 	outline: none;
 	will-change: transform, background;
 	border: none;
@@ -242,7 +242,7 @@ button.breadcrumb-item {
 }
 
 #content {
-	transition: transform var(--duration-base) var(--ease-in-out-cubic);
+	transition: transform var(--duration-2) var(--ease-standard);
 }
 
 #content.mobile-content-layout {
@@ -276,9 +276,9 @@ button.breadcrumb-item {
 	backface-visibility: hidden;
 	transform: translateZ(0);
 	transition:
-		transform var(--duration-base) var(--ease-default),
-		background var(--duration-base) var(--ease-in-out-cubic),
-		box-shadow var(--duration-base) var(--ease-default);
+		transform var(--duration-2) var(--ease-out),
+		background var(--duration-2) var(--ease-standard),
+		box-shadow var(--duration-2) var(--ease-out);
 	width: fit-content;
 	min-width: 120px;
 	line-height: 1;
@@ -315,7 +315,7 @@ button.breadcrumb-item {
 	font-size: 1rem;
 	padding: 0.25rem 0.5rem;
 	cursor: pointer;
-	transition: all var(--duration-base) var(--ease-default);
+	transition: all var(--duration-2) var(--ease-out);
 	border-radius: 4px;
 	display: flex;
 	align-items: center;
