@@ -2,7 +2,8 @@ import { durationS, GSAP_EASE } from "../utils/motion.js";
 import { isSidebarOverlay, onChange } from "../utils/viewport.js";
 
 const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
-	sidebar.classList.toggle("collapsed", isCollapsed);
+	const panel = sidebar.querySelector("bm-sidebar");
+	if (panel) panel.collapsed = isCollapsed;
 
 	const folderElements = sidebar.querySelectorAll(".folder");
 	if (folderElements && folderElements.length > 0) {
@@ -34,7 +35,6 @@ const initSidebarState = () => {
 	const sidebar = document.querySelector(".sidebar");
 	if (!sidebar) return;
 
-	sidebar.classList.add("js-initialized");
 	updateSidebarState(sidebar, isSidebarOverlay(), true);
 	onChange("sidebarOverlay", (overlay) =>
 		updateSidebarState(sidebar, overlay, true),

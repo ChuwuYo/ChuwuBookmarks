@@ -253,16 +253,23 @@ DOM 契约：内含 `input#search-input`（没有时组件创建一个 `type="te
 ## `<bm-sidebar>`
 
 放在 `<aside class="sidebar">` 内，包裹侧边栏头部与 `#sidebar-folders`，自身 `display: contents`。
+`<aside>` 是组件的宿主：组件自身不生成盒子，收起状态与样式都落在 `<aside>` 上。
 
 | 接口 | 说明 |
 | --- | --- |
 | `[data-sidebar-toggle]` | 子元素中的切换按钮 |
-| `collapsed` property | 只读，侧边栏是否收起（`.sidebar.collapsed`） |
-| `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
-| `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
-| `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
+| `collapsed` property | 读写。读取 `<aside>` 的 `data-state`；写入时把 `<aside>` 与元素自身的 `data-state` 设为 `collapsed` / `expanded`，并更新切换按钮的 `aria-expanded` |
+| `toggle()` | 请求切换，触发 `bm-sidebar-toggle`，不直接改变状态 |
+| `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；应用决定是否执行，执行时写 `collapsed` |
+| `data-state` attribute | `<aside>` 与 `<bm-sidebar>` 上的 `expanded` / `collapsed`，由 `collapsed` 写入；首次写入前没有该属性 |
 | `data-scrolling` attribute | 由 `trackScrollActivity(this)` 加在正在滚动的子元素上（如 `#sidebar-folders`），规则见“滚动条” |
 
-切换按钮的 `aria-expanded` 随侧边栏状态自动更新。页面加载时宽度小于 1024px 则收起；
+样式全部在 `bm-sidebar.css`，按 `.sidebar[data-state="collapsed"]` 选择收起状态。
+脚本写入状态之前（`.sidebar:not([data-state])`），宽度小于 1024px 时侧边栏按收起样式显示，
+避免加载时先展开再收起。收起时隐藏头部的 `.home-button` 与侧边栏中的 `bm-card`。
+页面布局（`.main-content` 的边距、居中元素与分页条的偏移）在全局样式中按
+`.sidebar[data-state="collapsed"] + .main-content` 跟随。
+
+页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
 同一布局内调整窗口大小不会覆盖手动切换的状态。

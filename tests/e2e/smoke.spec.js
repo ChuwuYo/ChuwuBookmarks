@@ -20,16 +20,18 @@ test.describe("smoke", () => {
 		await openApp(page);
 		const sidebar = page.locator(".sidebar");
 		const toggle = page.locator("#toggle-sidebar");
-		const before = await sidebar.evaluate((el) =>
-			el.classList.contains("collapsed"),
+		const before = await sidebar.evaluate(
+			(el) => el.dataset.state === "collapsed",
 		);
 		await toggle.click();
-		await expect(sidebar).toHaveClass(
-			before ? /^(?!.*collapsed)/ : /collapsed/,
+		await expect(sidebar).toHaveAttribute(
+			"data-state",
+			before ? "expanded" : "collapsed",
 		);
 		await toggle.click();
-		await expect(sidebar).toHaveClass(
-			before ? /collapsed/ : /^(?!.*collapsed)/,
+		await expect(sidebar).toHaveAttribute(
+			"data-state",
+			before ? "collapsed" : "expanded",
 		);
 	});
 
@@ -165,8 +167,8 @@ test.describe("smoke", () => {
 		await openApp(page);
 		const toggle = page.locator("#toggle-sidebar");
 		const sidebar = page.locator(".sidebar");
-		const expanded = !(await sidebar.evaluate((el) =>
-			el.classList.contains("collapsed"),
+		const expanded = !(await sidebar.evaluate(
+			(el) => el.dataset.state === "collapsed",
 		));
 		await expect(toggle).toHaveAttribute("aria-expanded", String(expanded));
 		await toggle.click();
