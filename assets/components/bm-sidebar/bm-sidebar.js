@@ -3,16 +3,16 @@
  * - 点击 [data-sidebar-toggle] 按钮时触发 bm-sidebar-toggle（detail: { collapsed }），
  *   由应用决定如何收起/展开（动画、断点等）。
  * - 侧边栏状态（.collapsed 类）同步到 data-state 与切换按钮的 aria-expanded。
- * - 子元素滚动期间带 data-scrolling，停止 600ms 后移除。
+ * - 子元素滚动期间带 data-scrolling，停止 --scroll-idle 后移除。
  * 规范见 docs/components.md。
  */
 
-const SCROLL_IDLE = 600;
+import { trackScrollActivity } from "../../js/modules/utils/scroll-activity.js";
 
 export class BmSidebar extends HTMLElement {
 	#aside = null;
 	#observer = null;
-	#scrollTimers = new WeakMap();
+	#untrackScroll = null;
 
 	get collapsed() {
 		return this.#aside?.classList.contains("collapsed") ?? false;
@@ -21,10 +21,7 @@ export class BmSidebar extends HTMLElement {
 	connectedCallback() {
 		this.#aside = this.closest(".sidebar") ?? this.parentElement;
 		this.addEventListener("click", this.#onClick);
-		this.addEventListener("scroll", this.#onScroll, {
-			capture: true,
-			passive: true,
-		});
+		this.#untrackScroll = trackScrollActivity(this);
 		this.#observer = new MutationObserver(() => this.#sync());
 		this.#observer.observe(this.#aside, {
 			attributes: true,
@@ -35,7 +32,8 @@ export class BmSidebar extends HTMLElement {
 
 	disconnectedCallback() {
 		this.removeEventListener("click", this.#onClick);
-		this.removeEventListener("scroll", this.#onScroll, { capture: true });
+		this.#untrackScroll?.();
+		this.#untrackScroll = null;
 		this.#observer?.disconnect();
 		this.#observer = null;
 	}
@@ -56,17 +54,6 @@ export class BmSidebar extends HTMLElement {
 		event.preventDefault();
 		event.stopPropagation();
 		this.toggle();
-	};
-
-	#onScroll = (event) => {
-		const target = event.target;
-		if (!(target instanceof HTMLElement)) return;
-		target.dataset.scrolling = "";
-		clearTimeout(this.#scrollTimers.get(target));
-		this.#scrollTimers.set(
-			target,
-			setTimeout(() => delete target.dataset.scrolling, SCROLL_IDLE),
-		);
 	};
 
 	#sync() {

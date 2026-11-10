@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN" data-theme="light" class="autohide-scrollbar">
 
 <head>
     <meta charset="UTF-8">
@@ -90,6 +90,7 @@
     <link rel="modulepreload" href="assets/js/modules/render/sidebar-state.js">
     <link rel="modulepreload" href="assets/js/modules/utils/viewport.js">
     <link rel="modulepreload" href="assets/js/modules/utils/motion.js">
+    <link rel="modulepreload" href="assets/js/modules/utils/scroll-activity.js">
     <link rel="modulepreload" href="assets/js/modules/utils/constants.js">
     <link rel="modulepreload" href="assets/js/modules/render/theme.js">
     <link rel="modulepreload" href="assets/js/modules/utils/index.js">
@@ -110,7 +111,6 @@
     <link rel="modulepreload" href="assets/js/modules/worker/index.js">
     <link rel="modulepreload" href="assets/js/modules/render/content.js">
     <link rel="modulepreload" href="assets/js/modules/search/index.js">
-    <link rel="modulepreload" href="assets/js/modules/utils/scroll-indicator.js">
 
     <script src="assets/js/vendor/gsap.min.js" defer></script>
 </head>
@@ -155,7 +155,7 @@
                     height="24" aria-hidden="true">
             </button>
         </header>
-        <nav id="sidebar-folders" aria-label="书签导航"></nav>
+        <nav id="sidebar-folders" class="autohide-scrollbar" aria-label="书签导航"></nav>
         </bm-sidebar>
     </aside>
     <main class="main-content" id="main-content">
