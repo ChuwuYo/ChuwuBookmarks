@@ -34,10 +34,6 @@ bm-pagination .pagination-container[hidden] {
 		/* 补足 44px 触控区域 */
 		--pagination-button-padding: 6px;
 	}
-
-	.pagination-container {
-		bottom: 10px;
-	}
 }
 
 .pagination-container {
@@ -230,6 +226,7 @@ bm-pagination .pagination-container[hidden] {
 
 @media screen and (max-width: 479px) {
 	.pagination-container {
+		bottom: 10px;
 		padding: 0.1rem;
 		overflow-x: auto;
 		scrollbar-width: none;
