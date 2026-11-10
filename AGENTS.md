@@ -23,6 +23,10 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
   `assets/js/modules/utils/viewport.js`; no `innerWidth` comparisons, touch or
   UA sniffing (except the ⌘ / Ctrl shortcut label in `<bm-search>`), or
   JS-set device classes.
+- Scrollbars are native. Scroll containers carry `.autohide-scrollbar`
+  (styled once in `base.css`) and get `data-scrolling` only from
+  `trackScrollActivity()` in `assets/js/modules/utils/scroll-activity.js`;
+  no JS-drawn scroll indicators.
 
 ## Layout
 
