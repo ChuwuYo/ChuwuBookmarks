@@ -35,9 +35,6 @@
 			},
 			"complexity": {
 				"noImportantStyles": "off"
-			},
-			"suspicious": {
-				"noDuplicateProperties": "off"
 			}
 		}
 	},
