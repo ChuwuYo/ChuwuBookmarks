@@ -5,7 +5,7 @@
  */
 
 const IS_APPLE = /mac|ios|iphone|ipad|ipod/i.test(
-	navigator.userAgentData?.platform ?? navigator.platform ?? "",
+	navigator.userAgentData?.platform || navigator.userAgent,
 );
 const MODIFIER_LABEL = IS_APPLE ? "⌘" : "Ctrl";
 const SHORTCUT_ARIA = IS_APPLE ? "Meta+K" : "Control+K";
