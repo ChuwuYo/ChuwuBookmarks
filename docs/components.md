@@ -28,7 +28,9 @@ assets/components/<name>/
 `--bm-<组件>-*` 变量，默认值回落到全局令牌，例如：
 
 ```css
-bm-icon { width: var(--bm-icon-size, 1em); }
+bm-icon {
+	width: var(--bm-icon-size, 1em);
+}
 ```
 
 ### 公开接口
@@ -43,12 +45,12 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 
 统一用 attribute 表示，便于 CSS 选择与测试断言：
 
-| 状态 | 表示方式 |
-| --- | --- |
-| 当前项 | `aria-current="page"` / `aria-current="location"` |
-| 禁用 | 原生 `disabled` 或 `aria-disabled="true"` |
-| 展开/收起 | `aria-expanded` / `data-state="collapsed"` |
-| 空结果 | 渲染空状态文本节点，不渲染列表 |
+| 状态      | 表示方式                                          |
+| --------- | ------------------------------------------------- |
+| 当前项    | `aria-current="page"` / `aria-current="location"` |
+| 禁用      | 原生 `disabled` 或 `aria-disabled="true"`         |
+| 展开/收起 | `aria-expanded` / `data-state="collapsed"`        |
+| 空结果    | 渲染空状态文本节点，不渲染列表                    |
 
 ### 可访问性
 
@@ -67,12 +69,12 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 
 内联 SVG 图标，引用 `assets/images/icons.svg` 中的 `<symbol>`。
 
-| 接口 | 说明 |
-| --- | --- |
-| `name` attribute | 图标 id：`folder`、`link`、`search`、`breadcrumb` |
+| 接口              | 说明                                                                     |
+| ----------------- | ------------------------------------------------------------------------ |
+| `name` attribute  | 图标 id：`folder`、`link`、`search`、`breadcrumb`                        |
 | `label` attribute | 可选；提供时设置 `role="img"` 与 `aria-label`，否则 `aria-hidden="true"` |
-| `--bm-icon-size` | 尺寸，默认 `1em` |
-| `--bm-icon-align` | `vertical-align`，默认 `-0.125em` |
+| `--bm-icon-size`  | 尺寸，默认 `1em`                                                         |
+| `--bm-icon-align` | `vertical-align`，默认 `-0.125em`                                        |
 
 DOM 契约：`<bm-icon name="folder" aria-hidden="true"><svg><use href="…/icons.svg#folder"></use></svg></bm-icon>`
 
@@ -85,13 +87,13 @@ JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中
 搜索结果分页导航。页码由纯函数 `getPageRange(current, total, windowSize = 3)`
 （`page-range.js`）计算：以当前页为中心显示 3 个连续页码，始终显示首末页，缺页处显示省略号。
 
-| 接口 | 说明 |
-| --- | --- |
-| `total` attribute | 总页数，默认 `1`；不足两页时导航隐藏 |
-| `current` attribute | 当前页，从 1 开始，默认 `1`，超出范围时取边界值 |
-| `label` attribute | 导航的 `aria-label`，默认 `分页导航` |
-| `bm-page-change` event | `detail: { page }`；组件已先更新 `current` |
-| 键盘 | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
+| 接口                   | 说明                                                    |
+| ---------------------- | ------------------------------------------------------- |
+| `total` attribute      | 总页数，默认 `1`；不足两页时导航隐藏                    |
+| `current` attribute    | 当前页，从 1 开始，默认 `1`，超出范围时取边界值         |
+| `label` attribute      | 导航的 `aria-label`，默认 `分页导航`                    |
+| `bm-page-change` event | `detail: { page }`；组件已先更新 `current`              |
+| 键盘                   | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
 
 DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page(.active[aria-current=page]), .pagination-ellipsis, .pagination-next`
 
@@ -104,9 +106,9 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 
 ## `<bm-breadcrumbs>`
 
-| 接口 | 说明 |
-| --- | --- |
-| `path` property | `Array<{ title: string }>`，从根到当前文件夹 |
+| 接口                | 说明                                                   |
+| ------------------- | ------------------------------------------------------ |
+| `path` property     | `Array<{ title: string }>`，从根到当前文件夹           |
 | `bm-navigate` event | `detail: { index }`，`-1` 表示主页，其余为 `path` 下标 |
 
 元素为 `display: contents`，父元素（`#breadcrumbs`）作为横向滚动容器；组件为父元素维护
@@ -119,10 +121,10 @@ DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.b
 
 文件夹或书签条目，由 `createCard(type, item)` 创建。
 
-| 接口 | 说明 |
-| --- | --- |
-| `type` attribute | `bookmark`（默认）或 `folder` |
-| `item` property | `{ title, url?, icon? }`；`icon` 可为字符串或数组，`favicon.im` 优先 |
+| 接口                   | 说明                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| `type` attribute       | `bookmark`（默认）或 `folder`                                                     |
+| `item` property        | `{ title, url?, icon? }`；`icon` 可为字符串或数组，`favicon.im` 优先              |
 | `bm-open-folder` event | `folder` 类型被点击或按下 Enter / Space 时触发，`detail: { item, originalEvent }` |
 
 状态与可访问性：`folder` 自动设置 `tabindex="0"`、`role="button"`、`aria-label="文件夹: 名称"`。
@@ -137,12 +139,12 @@ favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon
 
 渐进增强页面中已有的搜索输入框（无 JS 时输入框仍可见）。
 
-| 接口 | 说明 |
-| --- | --- |
-| `placeholder` attribute | 可选，覆盖内部输入框的占位文本 |
-| `value` property | 输入框当前值 |
-| `bm-search` event | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`；防抖由应用处理 |
-| 快捷键 | Apple 平台 `⌘ + K`，其他平台 `Ctrl + K` 聚焦输入框；按住 Shift、Alt 或输入法组字（`isComposing`）时不触发，Apple 平台不拦截 `Ctrl + K`（保留输入框的删除到行尾）；`.shortcut-hint` 内的按键提示与输入框的 `aria-keyshortcuts` 由组件按平台生成 |
+| 接口                    | 说明                                                                                                                                                                                                                                           |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placeholder` attribute | 可选，覆盖内部输入框的占位文本                                                                                                                                                                                                                 |
+| `value` property        | 输入框当前值                                                                                                                                                                                                                                   |
+| `bm-search` event       | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`；防抖由应用处理                                                                                                                                                                  |
+| 快捷键                  | Apple 平台 `⌘ + K`，其他平台 `Ctrl + K` 聚焦输入框；按住 Shift、Alt 或输入法组字（`isComposing`）时不触发，Apple 平台不拦截 `Ctrl + K`（保留输入框的删除到行尾）；`.shortcut-hint` 内的按键提示与输入框的 `aria-keyshortcuts` 由组件按平台生成 |
 
 DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示占位符时可见）、
 `.shortcut-hint`。
@@ -151,12 +153,12 @@ DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示�
 
 放在 `<aside class="sidebar">` 内，包裹侧边栏头部与 `#sidebar-folders`，自身 `display: contents`。
 
-| 接口 | 说明 |
-| --- | --- |
-| `[data-sidebar-toggle]` | 子元素中的切换按钮 |
-| `collapsed` property | 只读，侧边栏是否收起（`.sidebar.collapsed`） |
-| `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
+| 接口                      | 说明                                                       |
+| ------------------------- | ---------------------------------------------------------- |
+| `[data-sidebar-toggle]`   | 子元素中的切换按钮                                         |
+| `collapsed` property      | 只读，侧边栏是否收起（`.sidebar.collapsed`）               |
+| `toggle()`                | 请求切换，触发 `bm-sidebar-toggle`                         |
 | `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
-| `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
+| `data-state` attribute    | 自动同步为 `expanded` / `collapsed`                        |
 
 切换按钮的 `aria-expanded` 随侧边栏状态自动更新。
