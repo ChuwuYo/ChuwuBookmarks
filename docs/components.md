@@ -85,6 +85,24 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 留在 home.js 中，减弱动态效果时由 motion.js 统一调整 GSAP 全局时间缩放；
 主题切换的兜底超时（`render/theme.js` 的 `SAFETY_MARGIN`）不是动效时长。
 
+入场与依次出现只用 CSS：`animations.css` 的 `@keyframes enter`（淡入并位移
+`--enter-offset`，默认 `--motion-distance` 自下而上；面包屑取负值自上而下，侧边栏设为 `0px`
+只淡入），依次出现的延迟统一为 `calc(var(--item-index) * var(--stagger-step))`，
+`--item-index` 由渲染模块用 `style.setProperty()` 写在每一项上。GSAP 只用于首页标题的编排。
+侧边栏展开时 `.sidebar` 带 `data-entering`，其中的文件夹播放入场动画，播完后移除。
+搜索翻页时 `#content` 带 `data-page-changing`，播放一次 `@keyframes dim-and-restore`
+（先变暗再恢复），`animationend` 时移除并聚焦第一项结果。
+
+### 加载与地址栏
+
+- 加载提示只用 `render/message.js` 的 `renderLoading(container, text)`：以
+  `.loading`（`role="status"`）替换容器内容，内含 `.loading-spinner` 与 `.loading-text`。
+  转圈尺寸取令牌 `--spinner-size` 与 `--spinner-width`。首屏、懒加载文件夹与搜索共用它。
+- 清空或整体替换容器内容一律用 `replaceChildren()`，不写 `innerHTML = ""`。
+- 地址栏中的搜索状态（`q`、`page`）只经 `assets/js/modules/utils/url-state.js` 读写：
+  `readSearchState()` 返回 `{ query, page }`，`writeSearchState({ query?, page? })`
+  只改动传入的字段，用 `history.replaceState` 写入，失败时只记录错误。
+
 ### 滚动条
 
 页面与侧边栏使用同一套原生滚动条，不用 JS 绘制滚动指示器：
@@ -141,7 +159,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
 `data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
 `data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
-`data-page-changing` 与 `data-results-fade="dim" / "full"`（搜索翻页反馈）。
+`data-page-changing`（搜索翻页反馈）、`.sidebar` 的 `data-entering`（展开时文件夹入场）。
 
 ### 可访问性
 
