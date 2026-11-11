@@ -7,8 +7,7 @@
 
 ---
 
-Project Overview
----
+## Project Overview
 
 This browser-based bookmark navigation template transforms JSON bookmark data into a visually appealing and feature-rich web application. It supports multi-level folders, search functionality, breadcrumb navigation, and more, but does not include bookmark management capabilities.
 
@@ -24,12 +23,12 @@ You can also visit the following links to experience the service:
 
 [GithubPages](https://chuwuyo.github.io/ChuwuBookmarks/)
 
-***
+---
 
 ## Quick Start
 
 1. **Get the Project**: Fork or clone this repository locally
-   
+
    ```bash
    git clone https://github.com/ChuwuYo/ChuwuBookmarks.git
    ```
@@ -50,9 +49,10 @@ You can also visit the following links to experience the service:
    - `structured-data.json`: Structured Data
    - All configuration files contain clear comment prompts indicating required and optional fields
 
-***
+---
 
 ## Screenshots
+
 ### PC:
 
 <div align="center">
@@ -78,77 +78,70 @@ You can also visit the following links to experience the service:
 ### **Core Features**
 
 1. **Sidebar Navigation**:
-   
-   * Displays first-level folders
-   
-   * Clicking a first-level folder displays subfolders and bookmarks in the main content area
-   
-   * Supports expanding and collapsing nested multi-level folders
+   - Displays first-level folders
+
+   - Clicking a first-level folder displays subfolders and bookmarks in the main content area
+
+   - Supports expanding and collapsing nested multi-level folders
 
 2. **Main Content Area**:
-   
-   * Displays subfolders and bookmarks of the current folder
+   - Displays subfolders and bookmarks of the current folder
 
-   * Bookmarks are displayed as cards, supporting click-to-navigate
-   
-   * Folders are displayed as icons, supporting click-to-enter subfolders
+   - Bookmarks are displayed as cards, supporting click-to-navigate
+
+   - Folders are displayed as icons, supporting click-to-enter subfolders
 
 3. **Breadcrumb Navigation**:
-   
-   * Displays the current path (folder hierarchy)
-   
-   * Supports returning to the previous level via breadcrumb navigation
+   - Displays the current path (folder hierarchy)
+
+   - Supports returning to the previous level via breadcrumb navigation
 
 4. **Search Functionality**:
-   
-   * Supports searching bookmarks by title or URL
-   
-   * Search results replace the content in the main content area
-   
-   * Real-time search results
+   - Supports searching bookmarks by title or URL
 
-   * Pagination of search results
-  
-   * Folder-type results display the full path
+   - Search results replace the content in the main content area
+
+   - Real-time search results
+
+   - Pagination of search results
+
+   - Folder-type results display the full path
 
 5. **Theme Switching**:
-   
-   * Supports switching between dark and light modes
-   
-   * Follows the system color scheme until you pick one, then remembers your choice
+   - Supports switching between dark and light modes
 
-   * The saved theme is applied before the first paint, so the page does not flash
-   
-   * In browsers that support View Transitions (with reduced motion off), switching uses a circular transition centered on the toggle button: switching to dark expands from it, switching to light shrinks back into it
-   
-   * PC supports hover effects, mobile optimization for touch interaction
+   - Follows the system color scheme until you pick one, then remembers your choice
+
+   - The saved theme is applied before the first paint, so the page does not flash
+
+   - In browsers that support View Transitions (with reduced motion off), switching uses a circular transition centered on the toggle button: switching to dark expands from it, switching to light shrinks back into it
+
+   - PC supports hover effects, mobile optimization for touch interaction
 
 6. **Responsive Design**:
-    
-    * Supports responsive layout for mobile(<480px), tablet(480px-1023px), and desktop(≥1024px) devices
-    
-    * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
+   - Supports responsive layout for mobile(<480px), tablet(480px-1023px), and desktop(≥1024px) devices
+
+   - Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
 
 7. **GSAP Animation Support**:
-
-   * Homepage messages incorporate GSAP animation content
+   - Homepage messages incorporate GSAP animation content
 
 8. **Keyboard Focus Support**:
+   - Supports focusing on webpage content using the `Tab` key
 
-   * Supports focusing on webpage content using the `Tab` key
-
-   * Supports focusing on the search box using the `Ctrl + K` shortcut (`⌘ + K` on macOS)
+   - Supports focusing on the search box using the `Ctrl + K` shortcut (`⌘ + K` on macOS)
 
 ---
 
 ## Thanks to all contributors for their efforts
+
 <a href="https://github.com/ChuwuYo/ChuwuBookmarks/graphs/contributors" target="_blank">
   <img src="https://contrib.rocks/image?repo=ChuwuYo/ChuwuBookmarks" />
 </a>
 
 ### Anyone Can Become a "Creator"
 
-***
+---
 
 ## Other Reference Projects
 
