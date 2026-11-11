@@ -5,6 +5,7 @@ import {
 	waitForFullData,
 } from "../loader/index.js";
 import { isSidebarOverlay } from "../utils/viewport.js";
+import { renderLoading } from "./message.js";
 import { updateSidebarState } from "./sidebar-state.js";
 
 /**
@@ -53,22 +54,6 @@ const findFolderById = (folderId, data, title) => {
 	return search(data) ?? findFolderByPath(folderId, title, data);
 };
 
-const showFolderLoading = (content, folderTitle) => {
-	const wrapper = document.createElement("div");
-	wrapper.className = "folder-loading";
-
-	const spinner = document.createElement("div");
-	spinner.className = "loading-spinner";
-
-	const text = document.createElement("p");
-	text.className = "folder-loading-text";
-	text.textContent = `正在加载「${folderTitle}」...`;
-
-	wrapper.append(spinner, text);
-	content.innerHTML = "";
-	content.appendChild(wrapper);
-};
-
 const renderMainContent = async (folder, fromSidebar = false) => {
 	const existingHomeMessage = document.querySelector(".home-message");
 	if (existingHomeMessage) {
@@ -98,7 +83,7 @@ const renderMainContent = async (folder, fromSidebar = false) => {
 		breadcrumbs.replaceChildren(crumbs);
 
 		if (folder._lazyLoad && folder.id) {
-			showFolderLoading(content, folder.title);
+			renderLoading(content, `正在加载「${folder.title}」...`);
 
 			if (!isFullDataReady()) {
 				await waitForFullData();
