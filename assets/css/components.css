@@ -153,21 +153,8 @@
 	font-size: 1rem;
 }
 
-[data-results-fade] {
-	transition: opacity var(--duration-4) var(--ease-standard);
-}
-
-[data-results-fade="dim"] {
-	opacity: 0.8;
-}
-
-[data-results-fade="full"] {
-	opacity: 1;
-}
-
 [data-page-changing] {
-	opacity: 0.8;
-	transition: opacity var(--duration-3) var(--ease-standard);
+	animation: dim-and-restore var(--duration-5) var(--ease-standard);
 }
 
 [data-page-changing] .results-container {
