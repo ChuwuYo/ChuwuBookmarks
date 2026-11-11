@@ -180,13 +180,13 @@ const renderHome = () => {
 	const { fragment, homeMessage, chineseText, englishText } =
 		createHomeStructure();
 
-	content.innerHTML = "";
-	breadcrumbs.innerHTML = "";
+	breadcrumbs.replaceChildren();
 
 	if (isCompact()) {
+		content.replaceChildren();
 		document.body.appendChild(fragment);
 	} else {
-		content.appendChild(fragment);
+		content.replaceChildren(fragment);
 	}
 
 	setupHomeTextAnimation(homeMessage, chineseText, englishText);
@@ -195,14 +195,12 @@ const renderHome = () => {
 	requestAnimationFrame(() => {
 		const { fragment: chineseFragment, spans: chineseSpans } =
 			createCharacterSpans(site.title);
-		chineseText.textContent = "";
-		chineseText.appendChild(chineseFragment);
+		chineseText.replaceChildren(chineseFragment);
 		setupChineseCharacterAnimation(chineseSpans);
 
 		const { fragment: englishFragment, spans: englishSpans } =
 			createCharacterSpans(site.subtitle);
-		englishText.textContent = "";
-		englishText.appendChild(englishFragment);
+		englishText.replaceChildren(englishFragment);
 		setupEnglishCharacterAnimation(englishSpans);
 	});
 };

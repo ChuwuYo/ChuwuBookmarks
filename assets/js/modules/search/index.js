@@ -182,12 +182,11 @@ const createSearchHandler = () => {
 			errorMessage.className =
 				"centered-message error-message centered-element vertical-center";
 			errorMessage.textContent = "浏览器不支持Web Worker，无法进行搜索";
-			content.innerHTML = "";
-
 			if (isCompact()) {
+				content.replaceChildren();
 				document.body.appendChild(errorMessage);
 			} else {
-				content.appendChild(errorMessage);
+				content.replaceChildren(errorMessage);
 			}
 		}
 	};

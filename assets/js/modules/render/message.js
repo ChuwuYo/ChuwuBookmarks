@@ -82,8 +82,7 @@ const showNoResultsMessage = (contentEl) => {
 		"centered-message no-results centered-element vertical-center";
 	noResults.textContent = "未找到匹配的书签";
 
-	contentEl.innerHTML = "";
-	contentEl.appendChild(noResults);
+	contentEl.replaceChildren(noResults);
 };
 
 export {
