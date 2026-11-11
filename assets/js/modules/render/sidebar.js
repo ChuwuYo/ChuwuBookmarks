@@ -49,6 +49,9 @@ const renderSidebar = (data) => {
 		});
 	}
 
+	[...fragment.children].forEach((card, index) => {
+		card.style.setProperty("--item-index", index);
+	});
 	sidebar.appendChild(fragment);
 };
 

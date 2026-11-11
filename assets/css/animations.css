@@ -1,17 +1,8 @@
-@keyframes fadeInUp {
+/* 统一的入场动画：默认自下而上，--enter-offset 可改方向或设为 0 只淡入 */
+@keyframes enter {
 	from {
 		opacity: 0;
-		transform: translateY(var(--motion-distance));
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@keyframes slideDown {
-	from {
-		opacity: 0;
-		transform: translateY(calc(-1 * var(--motion-distance)));
+		transform: translateY(var(--enter-offset, var(--motion-distance)));
 	}
 	to {
 		opacity: 1;
