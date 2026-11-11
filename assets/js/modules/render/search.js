@@ -1,17 +1,8 @@
 import { createCard } from "../../../components/bm-card/bm-card.js";
-import { durationMs, prefersReducedMotion } from "../utils/motion.js";
+import { prefersReducedMotion } from "../utils/motion.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
 
 const ITEMS_PER_PAGE = 20;
-
-const timers = new Set();
-const later = (fn, ms) => {
-	const id = setTimeout(() => {
-		timers.delete(id);
-		fn();
-	}, ms);
-	timers.add(id);
-};
 
 const sortFoldersFirst = (results) =>
 	[...results].sort((a, b) => (b.type === "folder") - (a.type === "folder"));
@@ -40,27 +31,25 @@ const renderPage = (container, results, page) => {
 	});
 };
 
-const playPageTransition = (content) => {
-	content.toggleAttribute("data-page-changing", true);
-	later(
-		() => content.removeAttribute("data-page-changing"),
-		durationMs("--duration-3"),
-	);
+const PAGE_CHANGE_ANIMATION = "dim-and-restore";
 
-	later(() => {
+const onPageChanged = (event) => {
+	const content = event.currentTarget;
+	if (event.target !== content) return;
+	if (event.animationName !== PAGE_CHANGE_ANIMATION) return;
+	content.removeAttribute("data-page-changing");
+	content.querySelector('.search-result-item[tabindex="0"]')?.focus();
+};
+
+const playPageTransition = (content) => {
+	content.addEventListener("animationend", onPageChanged);
+	content.toggleAttribute("data-page-changing", true);
+	requestAnimationFrame(() =>
 		window.scrollTo({
 			top: 0,
 			behavior: prefersReducedMotion() ? "auto" : "smooth",
-		});
-		content.dataset.resultsFade = "dim";
-		later(() => {
-			content.dataset.resultsFade = "full";
-		}, durationMs("--duration-2"));
-		later(() => {
-			content.removeAttribute("data-results-fade");
-			content.querySelector('.search-result-item[tabindex="0"]')?.focus();
-		}, durationMs("--duration-4"));
-	}, 16);
+		}),
+	);
 };
 
 const updateHistory = (page) => {
@@ -75,11 +64,7 @@ const updateHistory = (page) => {
 
 const resetSearchPagination = () => {
 	view = null;
-	for (const id of timers) clearTimeout(id);
-	timers.clear();
-	const content = document.getElementById("content");
-	content?.removeAttribute("data-page-changing");
-	content?.removeAttribute("data-results-fade");
+	document.getElementById("content")?.removeAttribute("data-page-changing");
 };
 
 const pageFromUrl = (total) => {
@@ -128,8 +113,8 @@ const renderSearchResults = (results) => {
 /** 切换到已渲染搜索结果的第 page 页（响应 bm-page-change） */
 const showSearchPage = (page) => {
 	if (!view) return;
-	playPageTransition(view.content);
 	renderPage(view.container, view.results, page);
+	playPageTransition(view.content);
 	updateHistory(page);
 };
 

@@ -9,6 +9,12 @@
 		transform: translateY(0);
 	}
 }
+/* 搜索翻页反馈：先变暗再恢复 */
+@keyframes dim-and-restore {
+	50% {
+		opacity: 0.8;
+	}
+}
 @keyframes spin {
 	to {
 		transform: rotate(360deg);
