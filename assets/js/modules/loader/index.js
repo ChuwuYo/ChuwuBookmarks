@@ -1,5 +1,5 @@
 import { renderHome } from "../render/home.js";
-import { showErrorMessage, showLoadingMessage } from "../render/message.js";
+import { renderLoading, showErrorMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
@@ -40,7 +40,8 @@ const showLoadingIndicator = () => {
 	const content = document.getElementById("content");
 	const breadcrumbs = document.getElementById("breadcrumbs");
 	if (!content || !breadcrumbs) return;
-	showLoadingMessage(content, breadcrumbs);
+	breadcrumbs.replaceChildren();
+	renderLoading(content, "正在加载书签······");
 };
 
 const render = (data, { home = true } = {}) => {

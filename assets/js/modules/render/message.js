@@ -2,6 +2,7 @@ const SELECTORS = {
 	HOME_MESSAGE: ".home-message",
 	NO_RESULTS: ".no-results",
 	ERROR_MESSAGE: ".error-message",
+	LOADING: ".loading",
 };
 
 const clearElements = (selectors) => {
@@ -18,29 +19,36 @@ const clearAllMessages = () => {
 		SELECTORS.HOME_MESSAGE,
 		SELECTORS.NO_RESULTS,
 		SELECTORS.ERROR_MESSAGE,
+		SELECTORS.LOADING,
 	]);
 };
 
-const showLoadingMessage = (contentEl, breadcrumbsEl) => {
-	if (!contentEl || !breadcrumbsEl) return;
+/** 用统一的加载提示替换 container 的内容 */
+const renderLoading = (container, text) => {
+	if (!container) return;
 
-	clearAllMessages();
-	contentEl.innerHTML = "";
-	breadcrumbsEl.innerHTML = "";
+	const loading = document.createElement("div");
+	loading.className = "loading";
+	loading.setAttribute("role", "status");
 
-	const loadingMessage = document.createElement("div");
-	loadingMessage.className = "home-message loading-message";
+	const spinner = document.createElement("div");
+	spinner.className = "loading-spinner";
+	spinner.setAttribute("aria-hidden", "true");
 
-	const loadingText = document.createElement("div");
-	loadingText.className = "chinese-text message-title";
-	loadingText.textContent = "正在加载书签······";
+	const label = document.createElement("p");
+	label.className = "loading-text";
+	label.textContent = text;
 
-	loadingMessage.appendChild(loadingText);
-	contentEl.appendChild(loadingMessage);
+	loading.append(spinner, label);
+	container.replaceChildren(loading);
 };
 
 const showErrorMessage = (error) => {
-	clearElements([SELECTORS.HOME_MESSAGE, SELECTORS.NO_RESULTS]);
+	clearElements([
+		SELECTORS.HOME_MESSAGE,
+		SELECTORS.NO_RESULTS,
+		SELECTORS.LOADING,
+	]);
 
 	const message = document.createElement("div");
 	message.className =
@@ -80,7 +88,7 @@ const showNoResultsMessage = (contentEl) => {
 
 export {
 	clearAllMessages,
+	renderLoading,
 	showErrorMessage,
-	showLoadingMessage,
 	showNoResultsMessage,
 };

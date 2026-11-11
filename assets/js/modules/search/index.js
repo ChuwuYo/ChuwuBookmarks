@@ -4,6 +4,7 @@ import {
 	waitForFullData,
 } from "../loader/index.js";
 import { renderHome } from "../render/home.js";
+import { renderLoading } from "../render/message.js";
 import {
 	renderSearchResults,
 	resetSearchPagination,
@@ -173,20 +174,7 @@ const createSearchHandler = () => {
 		resetPaginationState();
 
 		const content = document.getElementById("content");
-		const loadingIndicator = document.createElement("div");
-		loadingIndicator.className = "loading-indicator search-loading";
-
-		const heading = document.createElement("h2");
-		heading.textContent = "正在搜索...";
-
-		const spinner = document.createElement("div");
-		spinner.className = "loading-spinner";
-
-		loadingIndicator.appendChild(heading);
-		loadingIndicator.appendChild(spinner);
-
-		content.innerHTML = "";
-		content.appendChild(loadingIndicator);
+		renderLoading(content, "正在搜索...");
 
 		const posted = postSearchToWorker(keyword);
 		if (!posted) {
