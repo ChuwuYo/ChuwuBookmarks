@@ -37,6 +37,11 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
   `assets/js/modules/utils/scroll-activity.js`; horizontal strips such as
   the breadcrumbs and pagination hide theirs with `scrollbar-width: none`;
   no JS-drawn scroll indicators.
+- Entrances and staggers are CSS only: the shared `@keyframes enter` with
+  `--item-index` × `--stagger-step`; GSAP is used for the home title only.
+  Loading states go through `renderLoading()` in `render/message.js`,
+  containers are cleared with `replaceChildren()`, and the `q`/`page` URL
+  state is read and written only through `assets/js/modules/utils/url-state.js`.
 
 ## Layout
 

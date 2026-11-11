@@ -15,7 +15,8 @@ Key files
 - assets/js/modules/loader/index.js: data loading, localStorage caching, and background full-data hydration.
 - assets/js/data-worker.js: structure.json -> bookmarks shape, full data fetch, index building, hash.
 - assets/js/modules/worker/index.js: singleton worker manager; add/remove listeners through wrappers.
-- assets/js/modules/search/index.js + assets/js/search-worker.js: search flow, debounce, cache, URL state.
+- assets/js/modules/search/index.js + assets/js/search-worker.js: search flow, debounce, cache.
+- assets/js/modules/utils/url-state.js: the only reader/writer of the q/page URL state (`readSearchState()`, `writeSearchState()`).
 - assets/js/modules/render/: all DOM rendering (sidebar, content, home, theme).
 - assets/js/modules/listener/index.js: central event wiring.
 
@@ -26,6 +27,7 @@ Project conventions
 - Use passive scroll listeners and requestAnimationFrame for any other scroll/resize UI updates.
 - Colours, shadows, focus ring, radii and z-index are tokens in `assets/css/base.css`: colours use `light-dark()` (`color-scheme` follows `data-theme`), every control gets the global `:focus-visible` ring (`--focus-ring-*`), and rules use `--radius-*` / `--z-*` instead of literals.
 - Motion durations and easings are tokens in `assets/css/base.css`; JS reads them (and `prefers-reduced-motion`) through `assets/js/modules/utils/motion.js` instead of hard-coding values.
+- Entrances and staggers use the shared CSS `@keyframes enter` with `--item-index` (set via `style.setProperty`) × `--stagger-step`; GSAP is reserved for the home title. Loading states use `renderLoading(container, text)` from `render/message.js`; clear containers with `replaceChildren()`.
 - Components (`assets/components/<name>/`, spec in `docs/components.md`) own their styles in `<name>.css`; global CSS keeps tokens and page layout. State is ARIA for semantics, `data-*` for visuals, classes for identity only, and inline style only for numeric custom properties. Render modules never attach listeners to components: every `bm-*` event is delegated in `listener/component-listener.js`.
 - Accessibility: keep ARIA roles/labels on interactive elements (see components/bm-card).
 
