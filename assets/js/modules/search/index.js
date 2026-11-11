@@ -11,6 +11,7 @@ import {
 } from "../render/search.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
+import { readSearchState, writeSearchState } from "../utils/url-state.js";
 import { isCompact } from "../utils/viewport.js";
 import { getSearchWorkerWrapper, isWorkerSupported } from "../worker/index.js";
 
@@ -206,20 +207,12 @@ const createSearchHandler = () => {
 };
 
 const resetPaginationState = () => {
-	try {
-		resetSearchPagination();
-
-		const url = new URL(window.location);
-		url.searchParams.delete("page");
-		window.history.replaceState({}, document.title, url.toString());
-	} catch (error) {
-		console.error("[Search] Failed to reset pagination state:", error);
-	}
+	resetSearchPagination();
+	writeSearchState({ page: null });
 };
 
 const restoreSearchStateFromURL = () => {
-	const url = new URL(window.location);
-	const keyword = url.searchParams.get("q");
+	const { query: keyword } = readSearchState();
 
 	if (keyword) {
 		const search = document.querySelector("bm-search");
