@@ -64,7 +64,8 @@ const renderMainContent = async (folder, fromSidebar = false) => {
 	const breadcrumbs = document.getElementById("breadcrumbs");
 	if (!content || !breadcrumbs) return;
 
-	content.innerHTML = breadcrumbs.innerHTML = "";
+	content.replaceChildren();
+	breadcrumbs.replaceChildren();
 
 	if (fromSidebar && isSidebarOverlay()) {
 		updateSidebarState(document.querySelector(".sidebar"), true);
@@ -104,8 +105,7 @@ const renderMainContent = async (folder, fromSidebar = false) => {
 				errorText.textContent = `无法加载「${folder.title}」的内容`;
 
 				errorWrapper.appendChild(errorText);
-				content.innerHTML = "";
-				content.appendChild(errorWrapper);
+				content.replaceChildren(errorWrapper);
 				return;
 			}
 		}

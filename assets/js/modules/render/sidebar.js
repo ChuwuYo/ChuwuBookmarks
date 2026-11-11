@@ -13,7 +13,6 @@ const renderSidebar = (data) => {
 	const sidebar = document.getElementById("sidebar-folders");
 	if (!sidebar) return;
 
-	sidebar.innerHTML = "";
 	const fragment = document.createDocumentFragment();
 
 	const possibleRootNames = [
@@ -52,7 +51,7 @@ const renderSidebar = (data) => {
 	[...fragment.children].forEach((card, index) => {
 		card.style.setProperty("--item-index", index);
 	});
-	sidebar.appendChild(fragment);
+	sidebar.replaceChildren(fragment);
 };
 
 export { renderSidebar };

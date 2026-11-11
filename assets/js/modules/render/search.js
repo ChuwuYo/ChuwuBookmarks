@@ -11,10 +11,12 @@ let view = null;
 
 const renderPage = (container, results, page) => {
 	requestAnimationFrame(() => {
-		container.innerHTML = "";
 		const start = (page - 1) * ITEMS_PER_PAGE;
 		const items = results.slice(start, start + ITEMS_PER_PAGE);
-		if (!items.length) return;
+		if (!items.length) {
+			container.replaceChildren();
+			return;
+		}
 
 		const fragment = document.createDocumentFragment();
 		items.forEach((item, index) => {
@@ -26,7 +28,7 @@ const renderPage = (container, results, page) => {
 			element.classList.add("search-result-item");
 			fragment.appendChild(element);
 		});
-		container.appendChild(fragment);
+		container.replaceChildren(fragment);
 		container.firstElementChild?.setAttribute("tabindex", "0");
 	});
 };
@@ -81,8 +83,8 @@ const renderSearchResults = (results) => {
 
 	clearAllMessages();
 	resetSearchPagination();
-	content.innerHTML = "";
-	breadcrumbs.innerHTML = "";
+	content.replaceChildren();
+	breadcrumbs.replaceChildren();
 
 	if (!results?.length) {
 		showNoResultsMessage(content);
