@@ -1,5 +1,6 @@
 import { createCard } from "../../../components/bm-card/bm-card.js";
 import { prefersReducedMotion } from "../utils/motion.js";
+import { readSearchState, writeSearchState } from "../utils/url-state.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
 
 const ITEMS_PER_PAGE = 20;
@@ -57,11 +58,7 @@ const playPageTransition = (content) => {
 const updateHistory = (page) => {
 	const keyword = document.querySelector("bm-search")?.value.trim();
 	if (!keyword) return;
-	const url = new URL(window.location);
-	url.searchParams.set("q", keyword);
-	if (page > 1) url.searchParams.set("page", page);
-	else url.searchParams.delete("page");
-	window.history.replaceState({ page, keyword }, "", url.toString());
+	writeSearchState({ query: keyword, page });
 };
 
 const resetSearchPagination = () => {
@@ -70,8 +67,7 @@ const resetSearchPagination = () => {
 };
 
 const pageFromUrl = (total) => {
-	const raw = new URL(window.location).searchParams.get("page");
-	const page = Number.parseInt(raw ?? "", 10);
+	const { page } = readSearchState();
 	if (!Number.isFinite(page) || page < 1) return 1;
 	return Math.min(page, total);
 };
@@ -100,7 +96,7 @@ const renderSearchResults = (results) => {
 	const page = pageFromUrl(total);
 	renderPage(container, sorted, page);
 	if (page > 1) updateHistory(page);
-	else if (new URL(window.location).searchParams.has("page")) updateHistory(1);
+	else if (readSearchState().page !== null) updateHistory(1);
 
 	if (total > 1) {
 		const pagination = document.createElement("bm-pagination");

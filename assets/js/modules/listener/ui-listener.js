@@ -2,6 +2,7 @@ import { renderHome } from "../render/home.js";
 import { showErrorMessage } from "../render/message.js";
 import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
+import { writeSearchState } from "../utils/url-state.js";
 import { isCompact } from "../utils/viewport.js";
 
 const setupThemeToggle = () => {
@@ -35,10 +36,7 @@ const setupHomeButton = () => {
 			const search = document.querySelector("bm-search");
 			if (search) search.value = "";
 
-			const url = new URL(window.location);
-			url.searchParams.delete("q");
-			url.searchParams.delete("page");
-			window.history.replaceState({}, document.title, url.toString());
+			writeSearchState({ query: "", page: null });
 
 			if (isCompact()) {
 				const sidebar = document.querySelector(".sidebar");
