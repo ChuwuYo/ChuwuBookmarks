@@ -21,14 +21,89 @@
 	--bg-color: light-dark(#fcfced, #1c1c1c);
 	--sidebar-bg: light-dark(#e2f5f5, #161515);
 	--text-color: light-dark(#0e141a, #f9f1d5e6);
+	--text-muted: light-dark(rgb(14 20 26 / 0.4), rgb(249 241 213 / 0.4));
 	--link-color: light-dark(#23d6e3, #74ceff);
+	--link-glow: light-dark(
+		color-mix(in srgb, var(--link-color) 20%, transparent),
+		color-mix(in srgb, var(--link-color) 30%, transparent)
+	);
+	--accent-border: #a4d1c4;
 	--hover-bg: light-dark(#dfe6e9, #2d3436);
+	--sidebar-folder-hover-bg: light-dark(
+		var(--hover-bg),
+		rgb(255 255 255 / 0.1)
+	);
 	--button-bg: light-dark(#a1dcf5, #5d6687);
 	--button-hover: light-dark(#faeaf4, rgb(201, 207, 159));
-	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-	--shadow-md: 2px 0 5px rgba(0, 0, 0, 0.2);
-	--button-shadow: 3px 0 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
-	--theme-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
+	--toggle-sun: #ffa82e;
+	--toggle-moon: #6f86ff;
+
+	--focus-ring-color: light-dark(#0a7f88, var(--link-color));
+	--focus-ring-width: 2px;
+	--focus-ring-offset: 2px;
+	--focus-halo-color: color-mix(
+		in srgb,
+		var(--focus-ring-color) 20%,
+		transparent
+	);
+	--focus-halo-color-strong: color-mix(
+		in srgb,
+		var(--focus-ring-color) 40%,
+		transparent
+	);
+
+	--shadow-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1));
+	--shadow-color-strong: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2));
+	--shadow-color-button: light-dark(rgb(0 0 0 / 0.25), rgb(255 255 255 / 0.15));
+	--shadow-color-button-soft: light-dark(
+		rgb(0 0 0 / 0.15),
+		rgb(255 255 255 / 0.1)
+	);
+	--glow-color: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.3));
+	--highlight-color: rgb(255 255 255 / 0.5);
+	--highlight-faint: rgb(255 255 255 / 0.1);
+	--highlight-soft: light-dark(rgb(255 255 255 / 0.2), rgb(255 255 255 / 0.1));
+	--highlight-strong: light-dark(
+		rgb(255 255 255 / 0.3),
+		rgb(255 255 255 / 0.2)
+	);
+
+	--shadow-sm: 0 2px 4px var(--shadow-color);
+	--shadow-md: 2px 0 5px var(--shadow-color-strong);
+	--button-shadow:
+		3px 0 8px var(--shadow-color-button),
+		0 2px 4px var(--shadow-color-button-soft);
+	--theme-shadow-hover:
+		0 0 10px light-dark(var(--glow-color), transparent),
+		0 0 12px light-dark(transparent, var(--glow-color));
+	--text-shadow: 1px 1px 2px var(--shadow-color);
+	--sidebar-folder-hover-shadow:
+		16px 6px 12px light-dark(rgb(0 0 0 / 0.3), transparent),
+		0 6px 12px light-dark(transparent, rgb(255 255 255 / 0.2));
+
+	--radius-1: 3px;
+	--radius-2: 4px;
+	--radius-3: 6px;
+	--radius-4: 8px;
+	--radius-5: 10px;
+	--radius-6: 12px;
+	--radius-7: 15px;
+	--radius-8: 18px;
+	--radius-round: 50%;
+	--radius-full: 999px;
+
+	--z-local-below: -1;
+	--z-local-1: 1;
+	--z-local-2: 2;
+	--z-local-3: 3;
+	--z-decor: 1;
+	--z-content: 2;
+	--z-message: 10;
+	--z-float: 999;
+	--z-sidebar: 1000;
+	--z-sidebar-raised: 1001;
+	--z-sidebar-toggle: 1002;
+	--z-scroll-indicator: 1003;
 
 	--desktop-base-offset: 110px;
 
@@ -36,10 +111,10 @@
 		rgba(161, 220, 245, 0.3),
 		rgba(93, 102, 135, 0.3)
 	);
-	--scroll-indicator-thumb: light-dark(#23d6e3, #74ceff);
+	--scroll-indicator-thumb: var(--link-color);
 	--scroll-indicator-thumb-hover: light-dark(#88dcfa, #ffffff4b);
 	--scroll-indicator-width: 5px;
-	--scroll-indicator-border-radius: 4px;
+	--scroll-indicator-border-radius: var(--radius-2);
 	--sidebar-thumb-color: light-dark(
 		rgb(20 70 80 / 0.22),
 		rgb(255 255 255 / 0.16)
@@ -48,19 +123,23 @@
 	--home-button-bg-start: light-dark(#9ee9f4d8, #5d6687d8);
 	--home-button-bg-end: light-dark(#d1d1f3a5, #3d4663a5);
 	--home-button-text: light-dark(#333, #f9f1d5e6);
+	--home-button-shadow:
+		0 4px 6px rgb(0 0 0 / 0.1), inset 0 0 0 1px var(--highlight-color);
+	--home-button-shadow-hover:
+		0 6px 8px rgb(0 0 0 / 0.15), inset 0 0 0 1px var(--highlight-color);
 }
 
 :root[data-theme="dark"] {
 	color-scheme: dark;
-	--shadow-sm: 0 2px 4px rgba(255, 255, 255, 0.1);
-	--shadow-md: 2px 0 5px rgba(255, 255, 255, 0.2);
-	--button-shadow:
-		3px 0 8px rgba(255, 255, 255, 0.15), 0 2px 4px rgba(255, 255, 255, 0.1);
-	--theme-shadow-hover: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 * {
 	-webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -129,7 +208,7 @@ body::after {
 	height: 1000px;
 	background: url("../images/moecat.gif") no-repeat right bottom;
 	background-size: contain;
-	z-index: 1;
+	z-index: var(--z-decor);
 	pointer-events: none;
 }
 
@@ -139,7 +218,7 @@ body::after {
 .github-link,
 #theme-toggle {
 	position: relative;
-	z-index: 2;
+	z-index: var(--z-content);
 }
 
 @media screen and (min-width: 480px) {
@@ -151,7 +230,7 @@ body::after {
 		height: 100vh;
 		background: var(--scroll-indicator-bg);
 		border-radius: var(--scroll-indicator-border-radius);
-		z-index: 9999;
+		z-index: var(--z-scroll-indicator);
 		opacity: 0;
 		transition: opacity var(--duration-1) var(--ease-out);
 		pointer-events: none;

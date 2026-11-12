@@ -23,13 +23,34 @@ assets/components/<name>/
 
 ### 设计令牌
 
-颜色、阴影、圆角、时长等定义在 `assets/css/base.css` 的 `:root` 与
-`:root[data-theme="dark"]` 中。组件只读这些变量，并为自身可调部分暴露
+颜色、阴影、焦点环、圆角、层级、时长等只定义在 `assets/css/base.css` 的 `:root` 中，
+规则里不写颜色、`z-index` 或圆角字面量；由令牌推导的 `calc()`（如分页按钮伪元素的
+`calc(var(--pagination-border-radius) + 2px)`）不算字面量。颜色字面量的例外只有两处：
+遮罩渐变里只取透明度的 `#000`，以及 `theme-toggle.css` 中日月图案的固定配色。
+组件只读这些变量，并为自身可调部分暴露
 `--bm-<组件>-*` 变量，默认值回落到全局令牌，例如：
 
 ```css
 bm-icon { width: var(--bm-icon-size, 1em); }
 ```
+
+- **颜色**：一律用 `light-dark(浅色, 深色)`。`:root` 的 `color-scheme` 由
+  `data-theme` 决定（`:root[data-theme="dark"]` 只设置 `color-scheme: dark`），
+  `light-dark()` 随之取值，不再按主题重复声明令牌。阴影由颜色令牌拼成
+  （`--shadow-color`、`--shadow-color-strong`、`--glow-color`、`--highlight-*` 等）；
+  浅色与深色的偏移或模糊不同时，写成两层阴影，各自用 `light-dark(颜色, transparent)`
+  只在一个主题下显示。`[data-theme]` 选择器只留给 `light-dark()` 表达不了的情况：
+  主题按钮的图标变形与长度值，以及图片。
+- **焦点**：`base.css` 的全局 `:focus-visible` 用 `--focus-ring-width`、`--focus-ring-color`、
+  `--focus-ring-offset` 画 `outline`，所有可交互元素共用，组件不再写自己的 outline，
+  也不在静止状态或触屏下写 `outline: none`。焦点环跟随元素自身的圆角，聚焦时不改形状。
+  需要外圈光晕的组件用 `--focus-halo-color` / `--focus-halo-color-strong` 加 `box-shadow`，
+  但不能只靠 `box-shadow`。`forced-colors: active` 下不覆盖 outline 颜色。
+- **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
+  胶囊 `--radius-full`（999px）。
+- **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
+  `--z-sidebar-raised`、`--z-sidebar-toggle`、`--z-scroll-indicator`；元素内部的局部叠放用
+  `--z-local-below`、`--z-local-1`…`--z-local-3`。
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
 （100/150/200/300/400ms）、`--duration-loop`、`--duration-spin`、
@@ -114,8 +135,11 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 `--pagination-button-padding`（移动端 6px，补足 44px 触控区域）。
 
 例外：分页沿用旧版公开的 `--pagination-*` 变量名（不改名，避免破坏已有的自定义样式），
-并在 `bm-pagination.css` 的 `:root` 中用 `rgba(...)` 定义自身的颜色与阴影令牌；
-省略号的文字阴影仍直接写在规则中。
+在 `bm-pagination.css` 的 `:root` 中定义，值全部引用 `base.css` 的全局令牌：
+颜色 `--pagination-bg`、`--pagination-border`、`--pagination-text`、`--pagination-active-bg`、
+`--pagination-active-text`、`--pagination-hover-bg`、`--pagination-disabled-text`，
+圆角 `--pagination-border-radius`，阴影 `--pagination-shadow`、`--pagination-shadow-hover`、
+`--pagination-shadow-active`、`--pagination-shadow-focus`。
 
 ## `<bm-breadcrumbs>`
 

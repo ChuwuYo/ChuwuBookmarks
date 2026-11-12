@@ -50,15 +50,18 @@
 	--toggle-speed: var(--duration-theme-expand);
 	--ray-step: calc(var(--stagger-step) / 2);
 	--toggle-orbit: calc(var(--theme-turn, 0) * 180deg);
-	--toggle-border: #a4d1c4;
-	--toggle-light: #ffa82e;
-	--toggle-glow: color-mix(in oklch, var(--toggle-light) 70%, transparent);
+	--toggle-border: var(--accent-border);
+	--toggle-light: light-dark(var(--toggle-sun), var(--toggle-moon));
+	--toggle-glow: light-dark(
+		color-mix(in oklch, var(--toggle-light) 70%, transparent),
+		color-mix(in oklch, var(--toggle-light) 85%, transparent)
+	);
 	--toggle-fill: var(--button-bg);
 	appearance: none;
 	padding: 0;
 	font-size: 1rem;
 	border: 2px solid transparent;
-	border-radius: 10px;
+	border-radius: var(--radius-5);
 	background:
 		linear-gradient(var(--toggle-fill), var(--toggle-fill)) padding-box,
 		conic-gradient(
@@ -94,18 +97,13 @@
 		transform var(--duration-2) var(--ease-out);
 }
 
-[data-theme="dark"] .theme-toggle {
-	--toggle-light: #6f86ff;
-	--toggle-glow: color-mix(in oklch, var(--toggle-light) 85%, transparent);
-}
-
 [data-theme="light"] .theme-toggle {
 	--toggle-speed: var(--duration-theme-collapse);
 }
 
 .theme-icon {
 	position: relative;
-	z-index: 3;
+	z-index: var(--z-local-3);
 	width: calc(1rem + 5px);
 	height: calc(1rem + 5px);
 	overflow: visible;
@@ -201,7 +199,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: var(--z-local-1);
 	background:
 		radial-gradient(
 			circle at 50% calc(100% - 0.3em),
@@ -256,8 +254,8 @@
 	left: 0;
 	width: 100%;
 	height: 120%;
-	z-index: 2;
-	border-radius: 50%;
+	z-index: var(--z-local-2);
+	border-radius: var(--radius-round);
 	box-shadow: 0 -0.15em 0.3em -0.1em rgba(255, 255, 255, 0.8);
 	background:
 		radial-gradient(
@@ -328,7 +326,7 @@
 @media (hover: hover) and (pointer: fine) {
 	.theme-toggle:hover {
 		--toggle-fill: var(--button-hover);
-		--toggle-hover-shadow: rgba(0, 0, 0, 0.2);
+		--toggle-hover-shadow: var(--glow-color);
 	}
 
 	.theme-toggle:hover .theme-icon {
@@ -337,7 +335,6 @@
 
 	[data-theme="dark"] .theme-toggle:hover {
 		--toggle-hover-blur: 12px;
-		--toggle-hover-shadow: rgba(255, 255, 255, 0.3);
 	}
 
 	[data-theme="light"] .theme-toggle:hover .theme-icon-rays {
@@ -357,6 +354,5 @@
 	.theme-toggle:focus,
 	.theme-toggle:active {
 		--toggle-fill: var(--button-bg);
-		outline: none;
 	}
 }
