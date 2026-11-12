@@ -1,12 +1,9 @@
 import { createCard } from "../../../components/bm-card/bm-card.js";
-import {
-	getFullBookmarksData,
-	isFullDataReady,
-	waitForFullData,
-} from "../loader/index.js";
+import { waitForFullData } from "../loader/index.js";
 import { isSidebarOverlay } from "../utils/viewport.js";
-import { renderLoading } from "./message.js";
+import { folderErrorMessage, loadingMessage } from "./message.js";
 import { updateSidebarState } from "./sidebar-state.js";
+import { showView, updateView } from "./view.js";
 
 /**
  * structure.json 的文件夹 id 是层级下标路径（如 "0_1_0"），而 bookmarks.json
@@ -54,18 +51,20 @@ const findFolderById = (folderId, data, title) => {
 	return search(data) ?? findFolderByPath(folderId, title, data);
 };
 
-const renderMainContent = async (folder, fromSidebar = false) => {
-	const existingHomeMessage = document.querySelector(".home-message");
-	if (existingHomeMessage) {
-		existingHomeMessage.remove();
-	}
+const folderCards = (folder) => {
+	const children = folder.children ?? [];
+	const cards = (type) =>
+		children.flatMap((item, index) => {
+			if ((item.type === "folder") !== (type === "folder")) return [];
+			const card = createCard(type, item);
+			card.style.setProperty("--item-index", index);
+			return [card];
+		});
+	return [...cards("folder"), ...cards("bookmark")];
+};
 
-	const content = document.getElementById("content");
-	const breadcrumbs = document.getElementById("breadcrumbs");
-	if (!content || !breadcrumbs) return;
-
-	content.replaceChildren();
-	breadcrumbs.replaceChildren();
+const renderMainContent = (folder, fromSidebar = false) => {
+	const view = showView();
 
 	if (fromSidebar && isSidebarOverlay()) {
 		updateSidebarState(document.querySelector(".sidebar"), true);
@@ -81,64 +80,30 @@ const renderMainContent = async (folder, fromSidebar = false) => {
 
 		const crumbs = document.createElement("bm-breadcrumbs");
 		crumbs.path = breadcrumbPath;
-		breadcrumbs.replaceChildren(crumbs);
 
-		if (folder._lazyLoad && folder.id) {
-			renderLoading(content, `正在加载「${folder.title}」...`);
-
-			if (!isFullDataReady()) {
-				await waitForFullData();
-			}
-
-			const fullData = getFullBookmarksData();
-			const fullFolder = findFolderById(folder.id, fullData, folder.title);
-
-			if (fullFolder) {
-				Object.assign(folder, fullFolder);
-				folder._lazyLoad = false;
-			} else {
-				const errorWrapper = document.createElement("div");
-				errorWrapper.className = "folder-error";
-
-				const errorText = document.createElement("p");
-				errorText.className = "folder-error-text";
-				errorText.textContent = `无法加载「${folder.title}」的内容`;
-
-				errorWrapper.appendChild(errorText);
-				content.replaceChildren(errorWrapper);
-				return;
-			}
+		if (!folder._lazyLoad || !folder.id) {
+			updateView(view, { content: folderCards(folder), breadcrumbs: [crumbs] });
+			return;
 		}
 
-		if (folder.children && folder.children.length > 0) {
-			const folderItems = [];
-			const bookmarkItems = [];
+		const loading = loadingMessage(`正在加载「${folder.title}」...`);
+		if (!updateView(view, { content: [loading], breadcrumbs: [crumbs] }))
+			return;
 
-			folder.children.forEach((item, index) => {
-				if (item.type === "folder") {
-					folderItems.push({ item, index });
-				} else {
-					bookmarkItems.push({ item, index });
-				}
-			});
-
-			const contentFragment = document.createDocumentFragment();
-
-			folderItems.forEach(({ item, index }) => {
-				const element = createCard("folder", item);
-
-				element.style.setProperty("--item-index", index);
-				contentFragment.appendChild(element);
-			});
-
-			bookmarkItems.forEach(({ item, index }) => {
-				const element = createCard("bookmark", item);
-				element.style.setProperty("--item-index", index);
-				contentFragment.appendChild(element);
-			});
-
-			content.appendChild(contentFragment);
+		const fullFolder = findFolderById(
+			folder.id,
+			await waitForFullData(),
+			folder.title,
+		);
+		if (fullFolder) {
+			Object.assign(folder, fullFolder);
+			folder._lazyLoad = false;
 		}
+		updateView(view, {
+			content: fullFolder
+				? folderCards(folder)
+				: [folderErrorMessage(folder.title)],
+		});
 	});
 };
 

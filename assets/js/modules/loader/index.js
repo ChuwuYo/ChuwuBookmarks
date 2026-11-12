@@ -1,7 +1,8 @@
 import { renderHome } from "../render/home.js";
-import { renderLoading, showErrorMessage } from "../render/message.js";
+import { dataErrorMessage, loadingMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
+import { showView } from "../render/view.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
 import {
@@ -18,7 +19,6 @@ let fullDataLoadPromise = null;
 let fullDataPending = false;
 let fullDataWaiters = [];
 
-const getFullBookmarksData = () => state.full;
 const isFullDataReady = () => state.full !== null;
 
 const settleFullData = (data) => {
@@ -37,11 +37,7 @@ const waitForFullData = () => {
 const getSearchSource = () => state.full ?? state.data ?? [];
 
 const showLoadingIndicator = () => {
-	const content = document.getElementById("content");
-	const breadcrumbs = document.getElementById("breadcrumbs");
-	if (!content || !breadcrumbs) return;
-	breadcrumbs.replaceChildren();
-	renderLoading(content, "正在加载书签······");
+	showView({ content: [loadingMessage("正在加载书签······")] });
 };
 
 const render = (data, { home = true } = {}) => {
@@ -91,7 +87,7 @@ const loadBookmarksData = async () => {
 		stop();
 		cancelFullDataLoad();
 		if (hasCachedData) renderHome();
-		else setTimeout(() => showErrorMessage(new Error(error)), 10);
+		else showView({ content: [dataErrorMessage(new Error(error))] });
 	};
 
 	function onMessage(event) {
@@ -194,7 +190,6 @@ const loadFullDataInBackground = (worker, onDone) => {
 };
 
 export {
-	getFullBookmarksData,
 	getSearchSource,
 	isFullDataReady,
 	loadBookmarksData,
