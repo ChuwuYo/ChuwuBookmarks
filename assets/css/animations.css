@@ -23,46 +23,57 @@
 		transform: rotate(360deg);
 	}
 }
-.theme-switching *:not(.theme-toggle, .theme-toggle *),
-.theme-switching *:not(.theme-toggle, .theme-toggle *)::before,
-.theme-switching *:not(.theme-toggle, .theme-toggle *)::after {
+[data-theme-switching] *:not(.theme-toggle, .theme-toggle *),
+[data-theme-switching] *:not(.theme-toggle, .theme-toggle *)::before,
+[data-theme-switching] *:not(.theme-toggle, .theme-toggle *)::after {
 	transition: none !important;
 }
 
 /* 圆形展开/收缩由 JS 驱动，去掉浏览器默认的交叉淡入 */
-.theme-switching-circle::view-transition-old(root),
-.theme-switching-circle::view-transition-new(root) {
+[data-theme-transition~="circle"]::view-transition-old(root),
+[data-theme-transition~="circle"]::view-transition-new(root) {
 	animation: none;
 }
 
 /* 按钮单独成组并盖在根快照之上，收缩动画期间也能看到图标变形 */
-.theme-switching-circle .theme-toggle {
+[data-theme-transition~="circle"] .theme-toggle {
 	view-transition-name: theme-toggle;
 }
 
-.theme-switching-circle::view-transition-group(theme-toggle) {
+[data-theme-transition~="circle"]::view-transition-group(theme-toggle) {
 	z-index: var(--z-local-3);
 	animation: none;
 }
 
-.theme-switching-circle::view-transition-old(theme-toggle) {
+[data-theme-transition~="circle"]::view-transition-old(theme-toggle) {
 	display: none;
 }
 
-.theme-switching-circle::view-transition-new(theme-toggle) {
+[data-theme-transition~="circle"]::view-transition-new(theme-toggle) {
 	animation: none;
 }
 
-.theme-switching-reverse::view-transition-old(root) {
+/* 视口左上角的定位探针，名称须与 theme.js 的 PROBE_NAME 一致 */
+[data-theme-origin-probe] {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	pointer-events: none;
+	view-transition-name: theme-origin-probe;
+}
+
+[data-theme-transition~="reverse"]::view-transition-old(root) {
 	background: none;
 	z-index: var(--z-local-2);
 }
 
-.app-loading body > * {
+[data-reveal="loading"] body > * {
 	opacity: 0;
 	visibility: hidden;
 }
 
-.app-entering body > * {
+[data-reveal="entering"] body > * {
 	transition: opacity var(--duration-3) var(--ease-out);
 }

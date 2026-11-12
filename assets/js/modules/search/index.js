@@ -80,7 +80,7 @@ let searchGeneration = 0;
 
 let workersWired = false;
 
-const initSearchWorker = (renderMainContent) => {
+const initSearchWorker = () => {
 	if (!isWorkerSupported()) {
 		console.warn(
 			"[Search] Web Worker not supported, search functionality unavailable",
@@ -97,7 +97,7 @@ const initSearchWorker = (renderMainContent) => {
 		const { action, id, positions, message } = e.data;
 		if (action === "searchResults") {
 			if (id !== searchGeneration) return;
-			renderSearchResults(toResults(positions), renderMainContent);
+			renderSearchResults(toResults(positions));
 		} else if (action === "error") {
 			console.error("[Search] Worker error:", message);
 		}
@@ -162,8 +162,7 @@ const createSearchHandler = () => {
 		return Math.max(MIN_MS, Math.min(MAX_MS, ms));
 	};
 
-	const runSearch = (event) => {
-		const keyword = event.target.value.trim();
+	const runSearch = (keyword) => {
 		if (!keyword) {
 			cancelPendingSearch();
 			renderHome();
@@ -207,7 +206,7 @@ const createSearchHandler = () => {
 
 	let debounceMs = 0;
 	let debounced = null;
-	return (event) => {
+	return (keyword) => {
 		cancelPendingSearch();
 		const ms = computeDebounceMs(getBookmarksCount());
 		if (!debounced || ms !== debounceMs) {
@@ -215,7 +214,7 @@ const createSearchHandler = () => {
 			debounceMs = ms;
 			debounced = debounce(runSearch, ms);
 		}
-		debounced(event);
+		debounced(keyword);
 	};
 };
 
@@ -236,9 +235,9 @@ const restoreSearchStateFromURL = () => {
 	const keyword = url.searchParams.get("q");
 
 	if (keyword) {
-		const searchInput = document.getElementById("search-input");
-		if (searchInput) {
-			searchInput.value = keyword;
+		const search = document.querySelector("bm-search");
+		if (search) {
+			search.value = keyword;
 			triggerSearch(keyword);
 		}
 	}

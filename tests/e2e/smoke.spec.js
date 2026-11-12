@@ -20,16 +20,18 @@ test.describe("smoke", () => {
 		await openApp(page);
 		const sidebar = page.locator(".sidebar");
 		const toggle = page.locator("#toggle-sidebar");
-		const before = await sidebar.evaluate((el) =>
-			el.classList.contains("collapsed"),
+		const before = await sidebar.evaluate(
+			(el) => el.dataset.state === "collapsed",
 		);
 		await toggle.click();
-		await expect(sidebar).toHaveClass(
-			before ? /^(?!.*collapsed)/ : /collapsed/,
+		await expect(sidebar).toHaveAttribute(
+			"data-state",
+			before ? "expanded" : "collapsed",
 		);
 		await toggle.click();
-		await expect(sidebar).toHaveClass(
-			before ? /collapsed/ : /^(?!.*collapsed)/,
+		await expect(sidebar).toHaveAttribute(
+			"data-state",
+			before ? "collapsed" : "expanded",
 		);
 	});
 
@@ -66,7 +68,9 @@ test.describe("smoke", () => {
 
 	test("search restores the page number from the URL", async ({ page }) => {
 		await openApp(page, "/?q=demo&page=3", undefined, { waitForHome: false });
-		await expect(page.locator(".pagination-page.active")).toHaveText("3");
+		await expect(
+			page.locator('.pagination-page[aria-current="page"]'),
+		).toHaveText("3");
 		await expect(page.locator(".search-result-item")).toHaveCount(5);
 	});
 
@@ -78,7 +82,9 @@ test.describe("smoke", () => {
 		const next = page.locator(".pagination-next");
 		await expect(next).toBeVisible();
 		await next.click();
-		await expect(page.locator(".pagination-page.active")).toHaveText("2");
+		await expect(
+			page.locator('.pagination-page[aria-current="page"]'),
+		).toHaveText("2");
 		await page.locator(".pagination-page", { hasText: "3" }).click();
 		await expect(page.locator(".search-result-item")).toHaveCount(5);
 	});
@@ -161,8 +167,8 @@ test.describe("smoke", () => {
 		await openApp(page);
 		const toggle = page.locator("#toggle-sidebar");
 		const sidebar = page.locator(".sidebar");
-		const expanded = !(await sidebar.evaluate((el) =>
-			el.classList.contains("collapsed"),
+		const expanded = !(await sidebar.evaluate(
+			(el) => el.dataset.state === "collapsed",
 		));
 		await expect(toggle).toHaveAttribute("aria-expanded", String(expanded));
 		await toggle.click();
@@ -240,7 +246,9 @@ test.describe("smoke", () => {
 			await new Promise((resolve) => setTimeout(resolve, 600));
 			return {
 				colours: seen.size,
-				classes: document.documentElement.className,
+				switching: document.documentElement.hasAttribute(
+					"data-theme-switching",
+				),
 				themeColor: document
 					.querySelector('meta[name="theme-color"]')
 					.getAttribute("content"),
@@ -248,7 +256,7 @@ test.describe("smoke", () => {
 			};
 		});
 		expect(result.colours).toBe(2);
-		expect(result.classes).not.toContain("theme-switching");
+		expect(result.switching).toBe(false);
 		expect(result.themeColor).toBe(
 			result.theme === "dark" ? "#74ceff" : "#23d6e3",
 		);

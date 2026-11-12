@@ -1,15 +1,11 @@
-import "../../../components/bm-breadcrumbs/bm-breadcrumbs.js";
+import { createCard } from "../../../components/bm-card/bm-card.js";
 import {
 	getFullBookmarksData,
 	isFullDataReady,
 	waitForFullData,
 } from "../loader/index.js";
 import { isSidebarOverlay } from "../utils/viewport.js";
-import { createElement } from "./elements.js";
-import { loadIconsForElements } from "./icon-loader.js";
 import { updateSidebarState } from "./sidebar-state.js";
-
-// 避免循环依赖，renderHome 将通过参数传递
 
 /**
  * structure.json 的文件夹 id 是层级下标路径（如 "0_1_0"），而 bookmarks.json
@@ -73,11 +69,7 @@ const showFolderLoading = (content, folderTitle) => {
 	content.appendChild(wrapper);
 };
 
-const renderMainContent = async (
-	folder,
-	fromSidebar = false,
-	renderHomeFn = null,
-) => {
+const renderMainContent = async (folder, fromSidebar = false) => {
 	const existingHomeMessage = document.querySelector(".home-message");
 	if (existingHomeMessage) {
 		existingHomeMessage.remove();
@@ -103,10 +95,6 @@ const renderMainContent = async (
 
 		const crumbs = document.createElement("bm-breadcrumbs");
 		crumbs.path = breadcrumbPath;
-		crumbs.addEventListener("bm-navigate", ({ detail: { index } }) => {
-			if (index < 0) renderHomeFn?.();
-			else renderMainContent(breadcrumbPath[index], true, renderHomeFn);
-		});
 		breadcrumbs.replaceChildren(crumbs);
 
 		if (folder._lazyLoad && folder.id) {
@@ -152,25 +140,19 @@ const renderMainContent = async (
 			const contentFragment = document.createDocumentFragment();
 
 			folderItems.forEach(({ item, index }) => {
-				const element = createElement("folder", item, () =>
-					renderMainContent(item, false, renderHomeFn),
-				);
+				const element = createCard("folder", item);
 
 				element.style.setProperty("--item-index", index);
 				contentFragment.appendChild(element);
 			});
 
-			const bookmarkElements = [];
 			bookmarkItems.forEach(({ item, index }) => {
-				const element = createElement("bookmark", item, null);
+				const element = createCard("bookmark", item);
 				element.style.setProperty("--item-index", index);
 				contentFragment.appendChild(element);
-				bookmarkElements.push(element);
 			});
 
 			content.appendChild(contentFragment);
-
-			loadIconsForElements(bookmarkElements);
 		}
 	});
 };

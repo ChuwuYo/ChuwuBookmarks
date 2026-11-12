@@ -4,13 +4,6 @@ import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
 import { isCompact } from "../utils/viewport.js";
 
-const setupSidebarToggle = () => {
-	document.addEventListener("bm-sidebar-toggle", (event) => {
-		const sidebar = document.querySelector(".sidebar");
-		if (sidebar) updateSidebarState(sidebar, event.detail.collapsed);
-	});
-};
-
 const setupThemeToggle = () => {
 	const themeToggle = document.getElementById("theme-toggle");
 	if (themeToggle) {
@@ -39,10 +32,8 @@ const setupHomeButton = () => {
 
 			isProcessing = true;
 
-			const searchInput = document.getElementById("search-input");
-			if (searchInput) {
-				searchInput.value = "";
-			}
+			const search = document.querySelector("bm-search");
+			if (search) search.value = "";
 
 			const url = new URL(window.location);
 			url.searchParams.delete("q");
@@ -51,9 +42,8 @@ const setupHomeButton = () => {
 
 			if (isCompact()) {
 				const sidebar = document.querySelector(".sidebar");
-				if (sidebar && !sidebar.classList.contains("collapsed")) {
-					updateSidebarState(sidebar, true);
-				}
+				const panel = sidebar?.querySelector("bm-sidebar");
+				if (panel && !panel.collapsed) updateSidebarState(sidebar, true);
 			}
 
 			requestAnimationFrame(() => {
@@ -87,7 +77,6 @@ const setupHomeButton = () => {
 };
 
 const initUIListeners = () => {
-	setupSidebarToggle();
 	setupThemeToggle();
 	setupHomeButton();
 };

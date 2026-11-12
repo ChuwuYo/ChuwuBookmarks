@@ -1,3 +1,115 @@
 bm-search {
+	position: relative;
 	display: inline-block;
+}
+
+bm-search > .shortcut-hint {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	gap: 2px;
+	opacity: 0.7;
+	pointer-events: none;
+	transition: opacity var(--duration-2) var(--ease-out);
+}
+
+bm-search > .shortcut-hint kbd {
+	font-family: inherit;
+	background: var(--button-bg);
+	color: var(--text-color);
+	padding: 2px 4px;
+	border-radius: var(--radius-1);
+	font-size: 12px;
+}
+
+bm-search > .search-icon {
+	position: absolute;
+	left: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	--bm-icon-size: 1em;
+	pointer-events: none;
+}
+
+bm-search > input:placeholder-shown {
+	padding-left: calc(8px + 1.3em);
+}
+
+bm-search > input:not(:placeholder-shown) ~ .search-icon {
+	display: none;
+}
+
+bm-search > input:not(:placeholder-shown) ~ .shortcut-hint {
+	opacity: 0;
+}
+
+bm-search > input {
+	padding: 6px;
+	padding-right: 56px;
+	font-size: 1rem;
+	border: 2px solid var(--accent-border);
+	border-radius: var(--radius-4);
+	width: 230px;
+	max-width: calc(100vw - 120px);
+	box-sizing: border-box;
+	background: var(--bg-color);
+	color: var(--text-color);
+	user-select: text;
+	font-family: "DingTalk JinBuTi", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-synthesis: none;
+	transition:
+		border-color var(--duration-2) var(--ease-out),
+		box-shadow var(--duration-2) var(--ease-out);
+}
+
+bm-search > input::placeholder {
+	font-family: "DingTalk JinBuTi", sans-serif;
+	color: var(--text-color);
+	opacity: 0.8;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-synthesis: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	bm-search > input:hover {
+		border-color: var(--link-color);
+		box-shadow:
+			0 0 0 1px var(--link-color),
+			var(--shadow-sm);
+	}
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+	bm-search > input:active {
+		border-color: var(--link-color);
+		box-shadow:
+			0 0 0 1px var(--link-color),
+			var(--shadow-sm);
+	}
+}
+
+bm-search > input:focus-visible {
+	border-color: var(--link-color);
+	box-shadow:
+		0 0 0 1px var(--link-color),
+		var(--shadow-sm);
+}
+
+@media screen and (width < 480px) {
+	bm-search > .shortcut-hint {
+		display: none;
+	}
+
+	bm-search > input {
+		width: 200px;
+		max-width: calc(100vw - 40px);
+		margin: 0;
+	}
 }

@@ -31,8 +31,10 @@
             for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
                 meta.setAttribute("content", color);
             }
-            root.classList.add("app-loading");
-            setTimeout(() => root.classList.remove("app-loading"), 3000);
+            root.dataset.reveal = "loading";
+            setTimeout(() => {
+                if (root.dataset.reveal === "loading") root.removeAttribute("data-reveal");
+            }, 3000);
         })();
     </script>
     <meta name="application-name" content="ChuwuBookmarks" />
@@ -68,7 +70,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
-    <link rel="stylesheet" href="assets/css/sidepanel.css">
     <link rel="stylesheet" href="assets/css/homebutton.css">
     <link rel="stylesheet" href="assets/components/bm-icon/bm-icon.css">
     <link rel="stylesheet" href="assets/components/bm-pagination/bm-pagination.css">
@@ -94,14 +95,12 @@
     <link rel="modulepreload" href="assets/js/modules/utils/constants.js">
     <link rel="modulepreload" href="assets/js/modules/render/theme.js">
     <link rel="modulepreload" href="assets/js/modules/utils/index.js">
-    <link rel="modulepreload" href="assets/js/modules/listener/search-listener.js">
+    <link rel="modulepreload" href="assets/js/modules/listener/component-listener.js">
     <link rel="modulepreload" href="assets/js/modules/listener/title-listener.js">
     <link rel="modulepreload" href="assets/js/modules/listener/ui-listener.js">
     <link rel="modulepreload" href="assets/js/modules/render/home.js">
     <link rel="modulepreload" href="site.config.js">
     <link rel="modulepreload" href="assets/js/modules/render/search.js">
-    <link rel="modulepreload" href="assets/js/modules/render/elements.js">
-    <link rel="modulepreload" href="assets/js/modules/render/icon-loader.js">
     <link rel="modulepreload" href="assets/js/modules/render/message.js">
     <link rel="modulepreload" href="assets/js/modules/loader/index.js">
     <link rel="modulepreload" href="assets/js/modules/loader/font-slices.js">
@@ -160,7 +159,7 @@
     </aside>
     <main class="main-content" id="main-content">
         <search class="search-container centered-element">
-            <bm-search class="search-input-wrapper">
+            <bm-search>
                 <input type="text" id="search-input" name="query" placeholder="搜索 ( title / url )" aria-label="搜索书签" />
                 <bm-icon name="search" class="search-icon"></bm-icon>
                 <div class="shortcut-hint" aria-hidden="true"></div>

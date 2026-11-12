@@ -1,4 +1,4 @@
-import { createElement } from "./elements.js";
+import { createCard } from "../../../components/bm-card/bm-card.js";
 
 const setParentReferences = (items, parent) => {
 	items.forEach((item) => {
@@ -9,7 +9,7 @@ const setParentReferences = (items, parent) => {
 	});
 };
 
-const renderSidebar = (data, renderMainContent) => {
+const renderSidebar = (data) => {
 	const sidebar = document.getElementById("sidebar-folders");
 	if (!sidebar) return;
 
@@ -39,28 +39,13 @@ const renderSidebar = (data, renderMainContent) => {
 			if (item.children) setParentReferences(item.children, item);
 		});
 
-		const folderElements = folders.map((item) => {
-			const folderElement = createElement("folder", item, (e) => {
-				e.stopPropagation();
-				renderMainContent(item, true);
-			});
-
-			return folderElement;
-		});
-
-		folderElements.forEach((element) => {
-			fragment.appendChild(element);
-		});
+		for (const item of folders)
+			fragment.appendChild(createCard("folder", item));
 	} else if (matchedRootFolders.length > 1) {
 		matchedRootFolders.forEach((rootItem) => {
 			if (rootItem.children) setParentReferences(rootItem.children, rootItem);
 
-			const folderElement = createElement("folder", rootItem, (e) => {
-				e.stopPropagation();
-				renderMainContent(rootItem, true);
-			});
-
-			fragment.appendChild(folderElement);
+			fragment.appendChild(createCard("folder", rootItem));
 		});
 	}
 

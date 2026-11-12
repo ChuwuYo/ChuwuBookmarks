@@ -23,13 +23,16 @@ const button = ({ className, label, content, page, disabled }) => {
 	el.className = `pagination-button ${className}`;
 	el.setAttribute("aria-label", label);
 	if (page) el.dataset.page = String(page);
-	if (disabled) {
-		el.disabled = true;
-		el.setAttribute("aria-disabled", "true");
-	}
-	el.tabIndex = disabled ? -1 : 0;
+	if (disabled) el.disabled = true;
 	el.append(content);
 	return el;
+};
+
+const focusKeyOf = (el) => {
+	if (el.dataset.page) return el.dataset.page;
+	if (el.classList.contains("pagination-prev")) return "prev";
+	if (el.classList.contains("pagination-next")) return "next";
+	return null;
 };
 
 export class BmPagination extends HTMLElement {
@@ -59,7 +62,7 @@ export class BmPagination extends HTMLElement {
 	connectedCallback() {
 		if (!this.#nav) {
 			this.#nav = document.createElement("nav");
-			this.#nav.className = "pagination-container centered-element";
+			this.#nav.className = "pagination-container";
 			this.#nav.tabIndex = -1;
 			this.#nav.addEventListener("click", this.#onClick);
 			this.#nav.addEventListener("keydown", this.#onKeydown);
@@ -76,6 +79,9 @@ export class BmPagination extends HTMLElement {
 		const nav = this.#nav;
 		nav.setAttribute("aria-label", this.getAttribute("label") || "分页导航");
 		const { current, total } = this;
+		const focused = nav.contains(document.activeElement)
+			? focusKeyOf(document.activeElement)
+			: null;
 		nav.hidden = total <= 1;
 		if (nav.hidden) {
 			nav.replaceChildren();
@@ -101,7 +107,7 @@ export class BmPagination extends HTMLElement {
 			}
 			const active = item === current;
 			const el = button({
-				className: `pagination-page${active ? " active" : ""}`,
+				className: "pagination-page",
 				label: active ? `第${item}页，当前页` : `第${item}页`,
 				content: String(item),
 				page: item,
@@ -118,6 +124,12 @@ export class BmPagination extends HTMLElement {
 			}),
 		);
 		nav.replaceChildren(...items);
+		if (focused === null) return;
+		const buttons = items.filter((el) => el.matches(".pagination-button"));
+		(
+			buttons.find((el) => !el.disabled && focusKeyOf(el) === focused) ??
+			buttons.find((el) => el.hasAttribute("aria-current"))
+		)?.focus();
 	}
 
 	#onClick = (event) => {
