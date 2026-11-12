@@ -49,9 +49,8 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   主题按钮的图标变形与长度值，以及图片。
 - **焦点**：`base.css` 的全局 `:focus-visible` 用 `--focus-ring-width`、`--focus-ring-color`、
   `--focus-ring-offset` 画 `outline`，所有可交互元素共用，组件不再写自己的 outline，
-  也不在静止状态或触屏下写 `outline: none`。焦点环跟随元素自身的圆角，聚焦时不改形状。
-  需要外圈光晕的组件用 `--focus-halo-color` / `--focus-halo-color-strong` 加 `box-shadow`，
-  但不能只靠 `box-shadow`。`forced-colors: active` 下不覆盖 outline 颜色。
+  也不在静止状态或触屏下写 `outline: none`，也不另加光晕或循环动画。焦点环跟随元素自身的圆角，
+  聚焦时不改形状。`forced-colors: active` 下不覆盖 outline 颜色。
 - **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
   胶囊 `--radius-full`（999px）。
 - **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
@@ -229,7 +228,7 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 颜色 `--pagination-bg`、`--pagination-border`、`--pagination-text`、`--pagination-active-bg`、
 `--pagination-active-text`、`--pagination-hover-bg`、`--pagination-disabled-text`，
 圆角 `--pagination-border-radius`，阴影 `--pagination-shadow`、`--pagination-shadow-hover`、
-`--pagination-shadow-active`、`--pagination-shadow-focus`。
+`--pagination-shadow-active`。
 
 ## `<bm-breadcrumbs>`
 
