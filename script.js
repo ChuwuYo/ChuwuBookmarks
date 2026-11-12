@@ -25,19 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	initSidebarState();
 	trackScrollActivity(document.documentElement);
 
-	let searchWorkerReady = false;
-	try {
-		initSearchWorker();
-		searchWorkerReady = true;
-	} catch (error) {
-		console.error("搜索和分页功能初始化失败:", error);
-	}
-
-	const debounceSearch = createSearchHandler();
-
-	initEventListeners(debounceSearch);
-
-	if (searchWorkerReady) {
-		restoreSearchStateFromURL();
-	}
+	initSearchWorker();
+	initEventListeners(createSearchHandler());
+	restoreSearchStateFromURL();
 });

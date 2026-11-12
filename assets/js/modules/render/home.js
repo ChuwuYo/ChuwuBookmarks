@@ -85,15 +85,10 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 };
 
 /** 按字素簇切分，emoji 与组合字符不会被拆开 */
-const splitGraphemes = (text) => {
-	if (typeof Intl !== "undefined" && Intl.Segmenter) {
-		const segmenter = new Intl.Segmenter(undefined, {
-			granularity: "grapheme",
-		});
-		return Array.from(segmenter.segment(text), ({ segment }) => segment);
-	}
-	return Array.from(text);
-};
+const graphemes = new Intl.Segmenter(undefined, { granularity: "grapheme" });
+
+const splitGraphemes = (text) =>
+	Array.from(graphemes.segment(text), ({ segment }) => segment);
 
 const createCharacterSpans = (chars) => {
 	const fragment = document.createDocumentFragment();

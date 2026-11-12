@@ -97,10 +97,9 @@ const applyTheme = (theme) => {
 };
 
 const getOrigin = () => {
-	const button = document.getElementById("theme-toggle");
-	const target = button?.querySelector(".theme-icon") ?? button;
-	if (!target) return { x: window.innerWidth / 2, y: 0 };
-	const rect = target.getBoundingClientRect();
+	const rect = document
+		.querySelector("#theme-toggle .theme-icon")
+		.getBoundingClientRect();
 	return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
 };
 

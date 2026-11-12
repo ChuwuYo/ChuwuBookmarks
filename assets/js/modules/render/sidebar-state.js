@@ -16,8 +16,7 @@ const playFolderEntrance = (sidebar) => {
 };
 
 const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
-	const panel = sidebar.querySelector("bm-sidebar");
-	if (panel) panel.collapsed = isCollapsed;
+	sidebar.querySelector("bm-sidebar").collapsed = isCollapsed;
 
 	if (isCollapsed || skipAnimation) {
 		entrance++;
@@ -39,8 +38,6 @@ const closeSidebarOverlay = () => {
  */
 const initSidebarState = () => {
 	const sidebar = document.querySelector(".sidebar");
-	if (!sidebar) return;
-
 	updateSidebarState(sidebar, isSidebarOverlay(), true);
 	onChange("sidebarOverlay", (overlay) =>
 		updateSidebarState(sidebar, overlay, true),
