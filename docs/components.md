@@ -50,7 +50,8 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - **焦点**：`base.css` 的全局 `:focus-visible` 用 `--focus-ring-width`、`--focus-ring-color`、
   `--focus-ring-offset` 画 `outline`，所有可交互元素共用，组件不再写自己的 outline，
   也不在静止状态或触屏下写 `outline: none`，也不另加光晕或循环动画。焦点环跟随元素自身的圆角，
-  聚焦时不改形状。`forced-colors: active` 下不覆盖 outline 颜色。
+  聚焦时不改形状。`prefers-contrast: more` 时 `base.css` 把 `--focus-ring-width` 加粗到 4px；
+  `forced-colors: active` 下不覆盖 outline 颜色。
 - **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
   胶囊 `--radius-full`（999px）。
 - **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
@@ -69,7 +70,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
 （100/150/200/300/400ms）、`--duration-loop`、`--duration-spin`、
-`--duration-theme-expand/collapse`、`--stagger-step`、`--scroll-idle`（600ms，滚动停止到滚动条开始淡出），
+`--duration-theme-expand/collapse`、`--duration-reveal`（首屏显现的淡入，默认同 `--duration-3`，减弱动态效果时为 0）、`--stagger-step`、`--scroll-idle`（600ms，滚动停止到滚动条开始淡出），
 循环次数 `--loop-count`，缓动
 `--ease-out`、`--ease-in-out`、`--ease-standard`、`--ease-linear`、`--ease-spring`、
 `--ease-spring-soft`。`transition` 必须逐项写出属性，不写 `all`；被过渡的自定义属性要用

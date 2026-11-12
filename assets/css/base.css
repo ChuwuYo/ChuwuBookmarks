@@ -10,6 +10,7 @@
 	--loop-count: infinite;
 	--duration-theme-expand: 600ms;
 	--duration-theme-collapse: 500ms;
+	--duration-reveal: var(--duration-3);
 	--stagger-step: 50ms;
 	--scroll-idle: 600ms;
 	--motion-distance: 10px;
@@ -108,9 +109,16 @@
 	--home-button-bg-end: light-dark(#d1d1f3a5, #3d4663a5);
 	--home-button-text: light-dark(#333, #f9f1d5e6);
 	--home-button-shadow:
-		0 4px 6px rgb(0 0 0 / 0.1), inset 0 0 0 1px var(--highlight-color);
+		0 4px 6px var(--shadow-color), inset 0 0 0 1px var(--highlight-color);
 	--home-button-shadow-hover:
-		0 6px 8px rgb(0 0 0 / 0.15), inset 0 0 0 1px var(--highlight-color);
+		0 6px 8px var(--shadow-color-button-soft), inset 0 0 0 1px
+		var(--highlight-color);
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--focus-ring-width: 4px;
+	}
 }
 
 :root[data-theme="dark"] {
@@ -133,6 +141,7 @@
 		--duration-5: var(--duration-2);
 		--duration-theme-expand: 0ms;
 		--duration-theme-collapse: 0ms;
+		--duration-reveal: 0ms;
 		--stagger-step: 0ms;
 		--motion-distance: 0px;
 		--duration-spin: calc(var(--duration-loop) * 2);
