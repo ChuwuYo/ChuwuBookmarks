@@ -39,9 +39,12 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
   no JS-drawn scroll indicators.
 - Entrances and staggers are CSS only: the shared `@keyframes enter` with
   `--item-index` × `--stagger-step`; GSAP is used for the home title only.
-  Loading states go through `renderLoading()` in `render/message.js`,
-  containers are cleared with `replaceChildren()`, and the `q`/`page` URL
-  state is read and written only through `assets/js/modules/utils/url-state.js`.
+  `#content` and `#breadcrumbs` are written only through `showView()` /
+  `updateView()` in `render/view.js`; async work checks its view id with
+  `isCurrentView()` before writing. Loading, empty and error nodes are built by
+  `render/message.js`, containers are cleared with `replaceChildren()`, and the
+  `q`/`page` URL state is read and written only through
+  `assets/js/modules/utils/url-state.js`.
 
 ## Layout
 
@@ -88,6 +91,9 @@ and after layout work and only refresh baselines for intended changes.
 
 ## Page loading
 
+- `script.js` renders the home view at startup (it needs only
+  `site.config.js`); bookmark data loads only fill the sidebar and never
+  re-render the main view.
 - `index.html` links every stylesheet directly, in cascade order. Add a new
   stylesheet there; there is no CSS entry file.
 - `index.html` has a `<link rel="modulepreload">` for every ES module that
