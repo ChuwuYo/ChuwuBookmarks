@@ -1,10 +1,9 @@
 import { renderHome } from "../render/home.js";
 import { dataErrorMessage } from "../render/message.js";
-import { updateSidebarState } from "../render/sidebar-state.js";
+import { closeSidebarOverlay } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
 import { showView } from "../render/view.js";
 import { writeSearchState } from "../utils/url-state.js";
-import { isCompact } from "../utils/viewport.js";
 
 const setupThemeToggle = () => {
 	const themeToggle = document.getElementById("theme-toggle");
@@ -39,11 +38,7 @@ const setupHomeButton = () => {
 
 			writeSearchState({ query: "", page: null });
 
-			if (isCompact()) {
-				const sidebar = document.querySelector(".sidebar");
-				const panel = sidebar?.querySelector("bm-sidebar");
-				if (panel && !panel.collapsed) updateSidebarState(sidebar, true);
-			}
+			closeSidebarOverlay();
 
 			requestAnimationFrame(() => {
 				try {
