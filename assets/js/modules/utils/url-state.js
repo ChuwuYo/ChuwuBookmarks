@@ -11,7 +11,10 @@ const readSearchState = () => {
 	const page = params.get("page") ?? "";
 	return {
 		query: params.get("q") ?? "",
-		page: POSITIVE_INTEGER.test(page) ? Number(page) : null,
+		page:
+			POSITIVE_INTEGER.test(page) && Number.isSafeInteger(Number(page))
+				? Number(page)
+				: null,
 	};
 };
 
@@ -30,7 +33,11 @@ const writeSearchState = (changes) => {
 		else url.searchParams.delete("page");
 	}
 	if (url.href === window.location.href) return;
-	window.history.replaceState(window.history.state, "", url.href);
+	try {
+		window.history.replaceState(window.history.state, "", url.href);
+	} catch (error) {
+		console.warn("[URLState] 地址栏同步失败:", error);
+	}
 };
 
 export { readSearchState, writeSearchState };

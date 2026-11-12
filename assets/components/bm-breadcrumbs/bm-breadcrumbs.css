@@ -65,6 +65,7 @@ bm-breadcrumbs,
 		transform: none;
 		contain: layout;
 		padding: 8px 12px;
+		margin: 0;
 		background: var(--bg-color);
 		border-radius: var(--radius-4);
 		box-shadow: var(--shadow-sm);

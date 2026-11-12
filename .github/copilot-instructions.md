@@ -32,7 +32,7 @@ Project conventions
 - Accessibility: keep ARIA roles/labels on interactive elements (see components/bm-card).
 
 Security
-- index.html's meta CSP allows the inline theme script only by its sha256 hash (no 'unsafe-inline' in script-src); recompute the hash after editing that script and keep it in sync with render/theme.js. _headers and vercel.json send frame-ancestors 'none', X-Frame-Options, nosniff and Referrer-Policy.
+- index.html's meta CSP allows the inline theme script only by its sha256 hash (no 'unsafe-inline' in script-src); the CSP meta sits before that script so the policy covers it; recompute the hash whenever the script changes. Separately, the script's THEME_KEY / THEME_COLOR values must match render/theme.js. _headers and vercel.json send frame-ancestors 'none', X-Frame-Options, nosniff and Referrer-Policy.
 
 Data/SEO workflow
 - bookmarks.json and structure.json live in repo root; structure.json enables faster initial render.

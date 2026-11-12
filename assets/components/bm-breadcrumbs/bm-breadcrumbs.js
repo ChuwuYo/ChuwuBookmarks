@@ -37,6 +37,7 @@ const separator = () => {
 
 const listItem = (...children) => {
 	const li = document.createElement("li");
+	li.setAttribute("role", "listitem");
 	li.append(...children);
 	return li;
 };
@@ -69,6 +70,8 @@ export class BmBreadcrumbs extends HTMLElement {
 
 		const list = document.createElement("ol");
 		list.className = "breadcrumb-list";
+		// WebKit 会从无障碍树中去掉 display: contents 列表的语义，显式 role 补回
+		list.setAttribute("role", "list");
 		list.append(listItem(crumbButton("主页", "返回主页", -1)));
 		this.#path.forEach((crumb, index, all) => {
 			const item =
