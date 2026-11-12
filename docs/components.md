@@ -85,6 +85,33 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 留在 home.js 中，减弱动态效果时由 motion.js 统一调整 GSAP 全局时间缩放；
 主题切换的兜底超时（`render/theme.js` 的 `SAFETY_MARGIN`）不是动效时长。
 
+入场与依次出现只用 CSS：`animations.css` 的 `@keyframes enter`（淡入并位移
+`--enter-offset`，默认 `--motion-distance` 自下而上；面包屑取负值自上而下，侧边栏设为 `0px`
+只淡入），依次出现的延迟统一为 `calc(var(--item-index) * var(--stagger-step))`，
+`--item-index` 由渲染模块用 `style.setProperty()` 写在每一项上。GSAP 只用于首页标题的编排。
+侧边栏展开时 `.sidebar` 带 `data-entering`，其中的文件夹播放入场动画，播完后移除。
+搜索翻页时 `#content` 带 `data-page-changing`，播放一次 `@keyframes dim-and-restore`
+（先变暗再恢复），`animationend` 时移除并聚焦第一项结果（书签的链接或文件夹卡片，`preventScroll`）。
+
+### 加载与地址栏
+
+- `#content` 与 `#breadcrumbs` 只由 `render/view.js` 写入：`showView({ content, breadcrumbs })`
+  开始一个新视图（两者整体替换，缺省为空，同时移除 `data-page-changing`）并返回视图 id；
+  `updateView(view, { content?, breadcrumbs? })` 只在该视图仍是当前视图时替换给出的部分；
+  `isCurrentView(view)` 供异步续写（懒加载文件夹、搜索结果、首页标题逐字动画）在每个
+  `await` 之后核对；`leaveView()` 让当前视图的待完成续写失效（搜索输入变化时调用）。
+  首页、文件夹、搜索、空结果与错误都在 `#content` 内渲染，各布局只有这一条路径。
+- 首页视图在 `script.js` 启动时直接渲染（只依赖 `site.config.js`）；地址栏带 `q` 时改为显示
+  搜索加载提示。书签数据到达后只渲染侧边栏，不重新渲染主视图。
+- 加载提示、空结果与错误的节点由 `render/message.js` 构建：`loadingMessage(text)` 返回
+  `.loading`（`role="status"`），内含 `.loading-spinner` 与 `.loading-text`，转圈尺寸取令牌
+  `--spinner-size` 与 `--spinner-width`；另有 `noResultsMessage()`、`dataErrorMessage(error)`、
+  `searchUnavailableMessage()`、`folderErrorMessage(title)`。懒加载文件夹与搜索共用同一加载提示。
+- 清空或整体替换容器内容一律用 `replaceChildren()`，不写 `innerHTML = ""`。
+- 地址栏中的搜索状态（`q`、`page`）只经 `assets/js/modules/utils/url-state.js` 读写：
+  `readSearchState()` 返回 `{ query, page }`，`writeSearchState({ query?, page? })`
+  只改动传入的字段，用 `history.replaceState` 写入，失败时只记录错误。
+
 ### 滚动条
 
 页面与侧边栏使用同一套原生滚动条，不用 JS 绘制滚动指示器：
@@ -141,7 +168,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
 `data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
 `data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
-`data-page-changing` 与 `data-results-fade="dim" / "full"`（搜索翻页反馈）。
+`data-page-changing`（搜索翻页反馈）、`.sidebar` 的 `data-entering`（展开时文件夹入场）。
 
 ### 可访问性
 

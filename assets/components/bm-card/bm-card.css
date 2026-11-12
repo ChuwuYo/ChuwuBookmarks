@@ -48,7 +48,7 @@ bm-card {
 	gap: 8px;
 	margin: 1.2rem 0;
 	padding: 0.25rem 0.5rem;
-	animation: fadeInUp var(--duration-4) var(--ease-out) backwards;
+	animation: enter var(--duration-4) var(--ease-out) backwards;
 	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
 	border-radius: var(--radius-2);
 	box-sizing: border-box;

@@ -1,10 +1,8 @@
 import site from "../../../../site.config.js";
 import { durationS, GSAP_EASE } from "../utils/motion.js";
-import { isCompact } from "../utils/viewport.js";
-import { resetSearchPagination } from "./search.js";
+import { isCurrentView, showView } from "./view.js";
 
 const createHomeStructure = () => {
-	const fragment = document.createDocumentFragment();
 	const homeMessage = document.createElement("div");
 	homeMessage.className = "home-message centered-element vertical-center";
 	homeMessage.setAttribute("role", "status");
@@ -16,11 +14,9 @@ const createHomeStructure = () => {
 	const englishText = document.createElement("div");
 	englishText.className = "english-text";
 
-	homeMessage.appendChild(chineseText);
-	homeMessage.appendChild(englishText);
-	fragment.appendChild(homeMessage);
+	homeMessage.append(chineseText, englishText);
 
-	return { fragment, homeMessage, chineseText, englishText };
+	return { homeMessage, chineseText, englishText };
 };
 
 const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
@@ -165,44 +161,23 @@ const setupEnglishCharacterAnimation = (spans) => {
 	});
 };
 
-import { clearAllMessages } from "./message.js";
-
 const renderHome = () => {
-	const content = document.getElementById("content");
-	const breadcrumbs = document.getElementById("breadcrumbs");
-
-	if (!content || !breadcrumbs) return;
-
-	resetSearchPagination();
-
-	clearAllMessages();
-
-	const { fragment, homeMessage, chineseText, englishText } =
-		createHomeStructure();
-
-	content.innerHTML = "";
-	breadcrumbs.innerHTML = "";
-
-	if (isCompact()) {
-		document.body.appendChild(fragment);
-	} else {
-		content.appendChild(fragment);
-	}
+	const { homeMessage, chineseText, englishText } = createHomeStructure();
+	const view = showView({ content: [homeMessage] });
 
 	setupHomeTextAnimation(homeMessage, chineseText, englishText);
 	createHomeTextTimeline(homeMessage, chineseText, englishText);
 
 	requestAnimationFrame(() => {
+		if (!isCurrentView(view)) return;
 		const { fragment: chineseFragment, spans: chineseSpans } =
 			createCharacterSpans(site.title);
-		chineseText.textContent = "";
-		chineseText.appendChild(chineseFragment);
+		chineseText.replaceChildren(chineseFragment);
 		setupChineseCharacterAnimation(chineseSpans);
 
 		const { fragment: englishFragment, spans: englishSpans } =
 			createCharacterSpans(site.subtitle);
-		englishText.textContent = "";
-		englishText.appendChild(englishFragment);
+		englishText.replaceChildren(englishFragment);
 		setupEnglishCharacterAnimation(englishSpans);
 	});
 };
