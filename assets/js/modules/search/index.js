@@ -99,7 +99,7 @@ const initSearchWorker = () => {
 	getSearchWorkerWrapper().addMessageListener((e) => {
 		const { action, id, positions, message } = e.data;
 		if (action === "searchResults") {
-			renderSearchResults(id, toResults(positions));
+			if (isCurrentView(id)) renderSearchResults(id, toResults(positions));
 		} else if (action === "error") {
 			console.error("[Search] Worker error:", message);
 		}
@@ -157,7 +157,7 @@ const createSearchHandler = () => {
 	};
 
 	const runSearch = (keyword) => {
-		writeSearchState({ page: null });
+		writeSearchState({ query: keyword, page: null });
 		if (keyword) startSearch(keyword);
 		else renderHome();
 	};
