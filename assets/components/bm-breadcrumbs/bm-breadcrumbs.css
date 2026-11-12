@@ -1,4 +1,6 @@
-bm-breadcrumbs {
+bm-breadcrumbs,
+.breadcrumb-list,
+.breadcrumb-list > li {
 	display: contents;
 }
 
@@ -26,17 +28,14 @@ bm-breadcrumbs {
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: inherit;
-}
-
-button.breadcrumb-item {
 	appearance: none;
 	line-height: normal;
-	margin: 0 4px 4px 0;
 	min-height: 24px;
+	box-sizing: border-box;
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.breadcrumb-item:hover {
+	.breadcrumb-item:not([aria-current]):hover {
 		background: var(--hover-bg);
 		box-shadow: var(--shadow-sm);
 		transform: scale(1.05);
@@ -56,11 +55,6 @@ button.breadcrumb-item {
 	cursor: default;
 }
 
-.breadcrumb-item[aria-current]:hover {
-	background: transparent;
-	text-decoration: none;
-}
-
 .breadcrumb-icon > bm-icon {
 	--bm-icon-size: 1.15em;
 	width: 1.3em;
@@ -71,7 +65,6 @@ button.breadcrumb-item {
 		transform: none;
 		contain: layout;
 		padding: 8px 12px;
-		margin: 0;
 		background: var(--bg-color);
 		border-radius: var(--radius-4);
 		box-shadow: var(--shadow-sm);
@@ -92,7 +85,7 @@ button.breadcrumb-item {
 		transform: scale(0.9);
 	}
 
-	button.breadcrumb-item {
+	.breadcrumb-item {
 		min-height: 40px;
 		min-width: 44px;
 		display: inline-flex;
