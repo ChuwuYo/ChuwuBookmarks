@@ -1,20 +1,16 @@
 const animationConfig = {
 	duration: {
-		short: 0.15,
-		base: 0.2,
 		medium: 0.3,
 		long: 0.5,
 	},
 	ease: {
-		inOutCubic: "cubic-bezier(0.4, 0, 0.2, 1)",
 		outQuad: "power1.out",
-		default: "ease",
 	},
 };
 
 const applyReducedMotion = () => {
-	const query = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-	if (!query || typeof gsap === "undefined") return;
+	if (typeof gsap === "undefined") return;
+	const query = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const apply = () => gsap.globalTimeline.timeScale(query.matches ? 100 : 1);
 	apply();
 	query.addEventListener("change", apply);
@@ -52,9 +48,9 @@ const readStoredTheme = () => {
 };
 
 const systemThemeQuery = () =>
-	window.matchMedia?.("(prefers-color-scheme: dark)") ?? null;
+	window.matchMedia("(prefers-color-scheme: dark)");
 
-const getSystemTheme = () => (systemThemeQuery()?.matches ? "dark" : "light");
+const getSystemTheme = () => (systemThemeQuery().matches ? "dark" : "light");
 
 const initTheme = () => {
 	applyReducedMotion();
@@ -63,7 +59,7 @@ const initTheme = () => {
 	setRootTheme(theme);
 	syncThemeColor(theme);
 
-	systemThemeQuery()?.addEventListener("change", () => {
+	systemThemeQuery().addEventListener("change", () => {
 		if (manualTheme || readStoredTheme()) return;
 		const next = getSystemTheme();
 		root.classList.add(SWITCH_CLASS);
@@ -90,7 +86,7 @@ const PROBE_NAME = "theme-origin-probe";
 let switchId = 0;
 
 const prefersReducedMotion = () =>
-	window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+	window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const applyTheme = (theme) => {
 	manualTheme = theme;
@@ -135,7 +131,7 @@ const getProbeOffset = () => {
 		document.documentElement,
 		`::view-transition-group(${PROBE_NAME})`,
 	);
-	if (!transform || transform === "none" || typeof DOMMatrix !== "function") {
+	if (!transform || transform === "none") {
 		return { x: 0, y: 0 };
 	}
 	const matrix = new DOMMatrix(transform);
@@ -201,7 +197,7 @@ const toggleTheme = () => {
 	const armSafety = (duration) => {
 		clearTimeout(safety);
 		safety = setTimeout(
-			() => transition.skipTransition?.(),
+			() => transition.skipTransition(),
 			duration + SAFETY_MARGIN,
 		);
 	};

@@ -131,10 +131,7 @@
 	animation: slideDown 0.3s ease forwards;
 	outline: none;
 	scroll-behavior: smooth;
-	-webkit-overflow-scrolling: touch;
-	transition:
-		mask-image 0.3s ease,
-		-webkit-mask-image 0.3s ease;
+	transition: mask-image 0.3s ease;
 	contain: layout style;
 }
 
@@ -242,15 +239,6 @@ button.breadcrumb-item {
 .folder-loading-text,
 .folder-error-text {
 	margin: 0;
-}
-
-.folder-loading-spinner {
-	width: 24px;
-	height: 24px;
-	border: 2px solid currentColor;
-	border-top-color: transparent;
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
 }
 
 #content {
@@ -419,18 +407,12 @@ button.breadcrumb-item {
 .home-message .chinese-text {
 	font-family: "DingTalk JinBuTi", sans-serif;
 	color: var(--text-color);
+	font-size: 3rem;
 }
 
 .home-message .english-text {
 	font-family: "DingTalk JinBuTi", sans-serif;
 	color: var(--link-color);
-}
-
-.home-message .chinese-text {
-	font-size: 3rem;
-}
-
-.home-message .english-text {
 	font-size: 2rem;
 }
 

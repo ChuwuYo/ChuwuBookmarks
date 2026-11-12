@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light" class="no-js">
+<html lang="zh-CN" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
                 theme = localStorage.getItem("theme");
             } catch {}
             if (theme !== "light" && theme !== "dark") {
-                theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             }
             root.setAttribute("data-theme", theme);
             root.style.setProperty("--theme-turn", theme === "dark" ? 1 : 0);

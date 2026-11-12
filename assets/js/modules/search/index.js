@@ -134,9 +134,8 @@ const createSearchHandler = () => {
 	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
 	const getBookmarksCount = () => ensureEntries().length;
 
-	const computeDebounceMsSafe = (count) => {
+	const computeDebounceMs = (count) => {
 		const {
-			DEFAULT_MS,
 			MIN_MS,
 			MAX_MS,
 			SMALL_DATA_THRESHOLD,
@@ -151,21 +150,16 @@ const createSearchHandler = () => {
 			EXTRA_LARGE_DATA_MS,
 		} = SEARCH_DEBOUNCE_CONSTANTS;
 
-		try {
-			const isMobile = getDeviceType() === "mobile";
-			let ms;
-			if (!count || count < SMALL_DATA_THRESHOLD)
-				ms = isMobile ? SMALL_DATA_MOBILE_MS : SMALL_DATA_DESKTOP_MS;
-			else if (count < MEDIUM_DATA_THRESHOLD)
-				ms = isMobile ? MEDIUM_DATA_MOBILE_MS : MEDIUM_DATA_DESKTOP_MS;
-			else if (count < LARGE_DATA_THRESHOLD)
-				ms = isMobile ? LARGE_DATA_MOBILE_MS : LARGE_DATA_DESKTOP_MS;
-			else ms = EXTRA_LARGE_DATA_MS;
-			ms = Math.max(MIN_MS, Math.min(MAX_MS, ms));
-			return ms;
-		} catch (_e) {
-			return DEFAULT_MS;
-		}
+		const isMobile = getDeviceType() === "mobile";
+		let ms;
+		if (!count || count < SMALL_DATA_THRESHOLD)
+			ms = isMobile ? SMALL_DATA_MOBILE_MS : SMALL_DATA_DESKTOP_MS;
+		else if (count < MEDIUM_DATA_THRESHOLD)
+			ms = isMobile ? MEDIUM_DATA_MOBILE_MS : MEDIUM_DATA_DESKTOP_MS;
+		else if (count < LARGE_DATA_THRESHOLD)
+			ms = isMobile ? LARGE_DATA_MOBILE_MS : LARGE_DATA_DESKTOP_MS;
+		else ms = EXTRA_LARGE_DATA_MS;
+		return Math.max(MIN_MS, Math.min(MAX_MS, ms));
 	};
 
 	const runSearch = (event) => {
@@ -216,7 +210,7 @@ const createSearchHandler = () => {
 	let debounced = null;
 	return (event) => {
 		cancelPendingSearch();
-		const ms = computeDebounceMsSafe(getBookmarksCount());
+		const ms = computeDebounceMs(getBookmarksCount());
 		if (!debounced || ms !== debounceMs) {
 			debounced?.cancel();
 			debounceMs = ms;
@@ -258,10 +252,4 @@ const triggerSearch = (keyword) => {
 	}
 };
 
-export {
-	createSearchHandler,
-	initSearchWorker,
-	resetPaginationState,
-	restoreSearchStateFromURL,
-	triggerSearch,
-};
+export { createSearchHandler, initSearchWorker, restoreSearchStateFromURL };

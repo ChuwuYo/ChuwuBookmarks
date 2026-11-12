@@ -158,11 +158,7 @@ const renderHome = () => {
 
 	if (!content || !breadcrumbs) return;
 
-	try {
-		resetSearchPagination();
-	} catch (error) {
-		console.error("[Home] Failed to cleanup pagination:", error);
-	}
+	resetSearchPagination();
 
 	clearAllMessages();
 
