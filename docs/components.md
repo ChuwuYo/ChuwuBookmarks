@@ -320,4 +320,5 @@ DOM 契约：内含 `input#search-input`（没有时组件创建一个 `type="te
 
 页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
-同一布局内调整窗口大小不会覆盖手动切换的状态。
+同一布局内调整窗口大小不会覆盖手动切换的状态。侧边栏覆盖内容时（宽度小于 1024px），返回主页、打开文件夹或点击面包屑后
+由 `render/sidebar-state.js` 的 `closeSidebarOverlay()` 收起，各入口共用这一条规则。
