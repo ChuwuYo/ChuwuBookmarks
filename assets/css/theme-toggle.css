@@ -184,7 +184,8 @@
 		transform var(--duration-4) var(--ease-spring) var(--duration-5);
 	animation: theme-star-twinkle calc(var(--duration-loop) * 2.8)
 		var(--ease-in-out)
-		calc(var(--duration-5) + var(--duration-4) + var(--duration-3)) infinite;
+		calc(var(--duration-5) + var(--duration-4) + var(--duration-3))
+		var(--loop-count);
 }
 
 @keyframes theme-star-twinkle {

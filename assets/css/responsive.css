@@ -293,7 +293,7 @@
 		transform: translateY(-50%);
 		pointer-events: none;
 		animation: pulseRight calc(var(--duration-loop) * 1.5) var(--ease-in-out)
-			infinite;
+			var(--loop-count);
 	}
 
 	#breadcrumbs:not(.scrollable)::after {

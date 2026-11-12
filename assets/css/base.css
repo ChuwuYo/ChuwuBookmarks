@@ -6,6 +6,8 @@
 	--duration-4: 300ms;
 	--duration-5: 400ms;
 	--duration-loop: 1s;
+	--duration-spin: var(--duration-loop);
+	--loop-count: infinite;
 	--duration-theme-expand: 600ms;
 	--duration-theme-collapse: 500ms;
 	--stagger-step: 50ms;
@@ -70,6 +72,8 @@
 		--duration-theme-collapse: 0ms;
 		--stagger-step: 0ms;
 		--motion-distance: 0px;
+		--duration-spin: calc(var(--duration-loop) * 2);
+		--loop-count: 1;
 	}
 
 	*,
@@ -77,7 +81,6 @@
 	*::after {
 		transition-delay: 0s !important;
 		animation-delay: 0s !important;
-		animation-iteration-count: 1 !important;
 		scroll-behavior: auto !important;
 	}
 
