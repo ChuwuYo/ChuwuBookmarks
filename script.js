@@ -14,8 +14,7 @@ import {
 	initSearchWorker,
 	restoreSearchStateFromURL,
 } from "./assets/js/modules/search/index.js";
-import { customScrollIndicator } from "./assets/js/modules/utils/scroll-indicator.js";
-import { isNarrow } from "./assets/js/modules/utils/viewport.js";
+import { trackScrollActivity } from "./assets/js/modules/utils/scroll-activity.js";
 
 // 创建包装函数解决循环依赖
 const renderMainContent = (folder, fromSidebar = false) => {
@@ -32,10 +31,7 @@ setTimeout(revealApp, REVEAL_FALLBACK_DELAY);
 document.addEventListener("DOMContentLoaded", async () => {
 	initTheme();
 	initSidebarState();
-
-	if (!isNarrow()) {
-		customScrollIndicator.init();
-	}
+	trackScrollActivity(document.documentElement);
 
 	let searchWorkerReady = false;
 	try {

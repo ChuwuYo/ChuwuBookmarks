@@ -11,6 +11,7 @@
 	--duration-theme-expand: 600ms;
 	--duration-theme-collapse: 500ms;
 	--stagger-step: 50ms;
+	--scroll-idle: 600ms;
 	--motion-distance: 10px;
 	--ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -103,19 +104,10 @@
 	--z-sidebar: 1000;
 	--z-sidebar-raised: 1001;
 	--z-sidebar-toggle: 1002;
-	--z-scroll-indicator: 1003;
 
 	--desktop-base-offset: 110px;
 
-	--scroll-indicator-bg: light-dark(
-		rgba(161, 220, 245, 0.3),
-		rgba(93, 102, 135, 0.3)
-	);
-	--scroll-indicator-thumb: var(--link-color);
-	--scroll-indicator-thumb-hover: light-dark(#88dcfa, #ffffff4b);
-	--scroll-indicator-width: 5px;
-	--scroll-indicator-border-radius: var(--radius-2);
-	--sidebar-thumb-color: light-dark(
+	--scrollbar-thumb-color: light-dark(
 		rgb(20 70 80 / 0.22),
 		rgb(255 255 255 / 0.16)
 	);
@@ -174,18 +166,6 @@ html {
 	font-size: 13px;
 }
 
-html,
-body {
-	scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-	display: none;
-}
-
 body {
 	font-family: "LXGW WenKai", Arial, sans-serif;
 	background-color: var(--bg-color);
@@ -221,67 +201,56 @@ body::after {
 	z-index: var(--z-content);
 }
 
-@media screen and (width >= 480px) {
-	.custom-scroll-indicator {
-		position: fixed;
-		top: 0;
-		right: 1px;
-		width: var(--scroll-indicator-width);
-		height: 100vh;
-		background: var(--scroll-indicator-bg);
-		border-radius: var(--scroll-indicator-border-radius);
-		z-index: var(--z-scroll-indicator);
-		opacity: 0;
-		transition: opacity var(--duration-1) var(--ease-out);
-		pointer-events: none;
-		background: rgba(161, 220, 245, 0.6);
-		box-shadow: var(--shadow-sm);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+@property --scrollbar-thumb {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: transparent;
+}
+
+.autohide-scrollbar {
+	--scrollbar-thumb: transparent;
+	transition: --scrollbar-thumb var(--duration-3) var(--ease-linear);
+}
+
+/* 这两个属性会继承：在 <html> 的子元素处截断，页面滚动条渐变时不必逐帧重算整页样式 */
+:root.autohide-scrollbar > * {
+	--scrollbar-thumb: transparent;
+	scrollbar-color: auto;
+}
+
+/* 触屏保留系统自带的悬浮滚动条 */
+@media (pointer: fine) {
+	:root.autohide-scrollbar {
+		scrollbar-gutter: stable;
 	}
 
-	@supports not (backdrop-filter: blur(2px)) {
-		.custom-scroll-indicator {
-			background: var(--scroll-indicator-bg);
-			background: rgba(161, 220, 245, 0.6);
+	.autohide-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: var(--scrollbar-thumb) transparent;
+	}
+
+	.autohide-scrollbar[data-scrolling],
+	.autohide-scrollbar:not(:root):hover {
+		--scrollbar-thumb: var(--scrollbar-thumb-color);
+		transition: --scrollbar-thumb var(--duration-1) var(--ease-out);
+	}
+
+	/* 不支持 scrollbar-color 的浏览器（Safari）退回 ::-webkit-scrollbar */
+	@supports not (scrollbar-color: auto) {
+		.autohide-scrollbar::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
 		}
 
-		[data-theme="dark"] .custom-scroll-indicator {
-			background: rgba(93, 102, 135, 0.6);
+		.autohide-scrollbar::-webkit-scrollbar-track,
+		.autohide-scrollbar::-webkit-scrollbar-corner {
+			background: transparent;
 		}
-	}
 
-	.custom-scroll-thumb {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		background: var(--scroll-indicator-thumb);
-		border-radius: var(--scroll-indicator-border-radius);
-		transition:
-			background-color var(--duration-1) var(--ease-out),
-			box-shadow var(--duration-1) var(--ease-out);
-		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-		min-height: 20px;
-	}
-
-	body.scrolling .custom-scroll-indicator {
-		opacity: 1;
-	}
-
-	.custom-scroll-indicator:hover {
-		opacity: 1;
-		transform: scaleX(1.2);
-		transform-origin: right center;
-	}
-
-	.custom-scroll-indicator:hover .custom-scroll-thumb {
-		background: var(--scroll-indicator-thumb-hover);
-		box-shadow: var(--shadow-md);
-	}
-
-	@media screen and (width >= 1024px) {
-		.custom-scroll-indicator {
-			right: 2px;
+		.autohide-scrollbar::-webkit-scrollbar-thumb {
+			border: 3px solid transparent;
+			border-radius: var(--radius-full);
+			background: var(--scrollbar-thumb) padding-box;
 		}
 	}
 }
