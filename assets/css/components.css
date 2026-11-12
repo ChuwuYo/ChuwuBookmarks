@@ -110,7 +110,6 @@
 	opacity: 0;
 	perspective: 1000px;
 	transform-style: preserve-3d;
-	content-visibility: auto;
 }
 
 .home-char {
