@@ -232,7 +232,7 @@
 		background-color: var(--button-bg);
 	}
 
-	.breadcrumb-item:last-child {
+	.breadcrumb-item[aria-current] {
 		background-color: var(--button-bg);
 		opacity: 0.8;
 		pointer-events: none;
@@ -242,7 +242,6 @@
 		overflow-x: auto;
 		scrollbar-width: none;
 		padding-bottom: 5px;
-		position: relative;
 		scroll-padding: 0 20px;
 		scroll-snap-type: x proximity;
 	}
@@ -253,26 +252,6 @@
 	}
 
 	#breadcrumbs::-webkit-scrollbar {
-		display: none;
-	}
-
-	#breadcrumbs::after {
-		content: "";
-		position: absolute;
-		right: 0;
-		top: 50%;
-		width: 20px;
-		height: 20px;
-		background: var(--text-color);
-		opacity: 0.3;
-		border-radius: var(--radius-round);
-		transform: translateY(-50%);
-		pointer-events: none;
-		animation: pulseRight calc(var(--duration-loop) * 1.5) var(--ease-in-out)
-			var(--loop-count);
-	}
-
-	#breadcrumbs:not(.scrollable)::after {
 		display: none;
 	}
 
