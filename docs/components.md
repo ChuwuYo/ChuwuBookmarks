@@ -122,7 +122,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   `scrollbar-color`；只有不支持 `scrollbar-color` 的浏览器退回 `::-webkit-scrollbar`。
 - 只在 `(pointer: fine)` 下隐藏与淡入淡出；触屏保留系统自带的悬浮滚动条。
   `<html>` 设 `scrollbar-gutter: stable`，页面长短切换时内容不左右跳动。
-- 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）悬停时也显示。显示用
+- 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）在 `(hover: hover) and (pointer: fine)` 下悬停时也显示。显示用
   `--duration-1` `--ease-out` 淡入，隐藏用 `--duration-3` `--ease-linear` 淡出。
   不可滚动时浏览器本身不画滚动条。减弱动态效果时只缩短淡出，仍只改颜色、不移动。
 - 不支持滚动驱动动画的浏览器（如 Firefox 默认）看不到侧边栏上下渐隐，

@@ -256,8 +256,7 @@ body::after {
 		scrollbar-color: var(--scrollbar-thumb) transparent;
 	}
 
-	.autohide-scrollbar[data-scrolling],
-	.autohide-scrollbar:not(:root):hover {
+	.autohide-scrollbar[data-scrolling] {
 		--scrollbar-thumb: var(--scrollbar-thumb-color);
 		transition: --scrollbar-thumb var(--duration-1) var(--ease-out);
 	}
@@ -279,5 +278,12 @@ body::after {
 			border-radius: var(--radius-full);
 			background: var(--scrollbar-thumb) padding-box;
 		}
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.autohide-scrollbar:not(:root):hover {
+		--scrollbar-thumb: var(--scrollbar-thumb-color);
+		transition: --scrollbar-thumb var(--duration-1) var(--ease-out);
 	}
 }
