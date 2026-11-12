@@ -185,6 +185,7 @@ JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中
 | `label` attribute | 导航的 `aria-label`，默认 `分页导航` |
 | `bm-page-change` event | `detail: { page }`；组件已先更新 `current` |
 | 键盘 | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
+| 焦点 | 重新渲染时若焦点在导航内，焦点留在对应的新按钮上；该按钮被禁用（如末页的下一页）时移到当前页按钮 |
 
 DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page, .pagination-ellipsis, .pagination-next`。
 当前页只用 `aria-current="page"` 表示（样式按它选择），首尾按钮用原生 `disabled`。

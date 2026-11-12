@@ -28,6 +28,10 @@ const button = ({ className, label, content, page, disabled }) => {
 	return el;
 };
 
+const focusKeyOf = (el) =>
+	el.dataset.page ??
+	(el.classList.contains("pagination-prev") ? "prev" : "next");
+
 export class BmPagination extends HTMLElement {
 	static observedAttributes = ["total", "current", "label"];
 
@@ -72,6 +76,9 @@ export class BmPagination extends HTMLElement {
 		const nav = this.#nav;
 		nav.setAttribute("aria-label", this.getAttribute("label") || "分页导航");
 		const { current, total } = this;
+		const focused = nav.contains(document.activeElement)
+			? focusKeyOf(document.activeElement)
+			: null;
 		nav.hidden = total <= 1;
 		if (nav.hidden) {
 			nav.replaceChildren();
@@ -114,6 +121,12 @@ export class BmPagination extends HTMLElement {
 			}),
 		);
 		nav.replaceChildren(...items);
+		if (focused === null) return;
+		const buttons = items.filter((el) => el.matches(".pagination-button"));
+		(
+			buttons.find((el) => !el.disabled && focusKeyOf(el) === focused) ??
+			buttons.find((el) => el.hasAttribute("aria-current"))
+		)?.focus();
 	}
 
 	#onClick = (event) => {
