@@ -141,7 +141,7 @@
 @supports (animation-timeline: scroll()) {
 	#breadcrumbs {
 		animation:
-			slideDown var(--duration-4) var(--ease-out) forwards,
+			slideDown var(--duration-4) var(--ease-out) backwards,
 			edge-fade-start var(--ease-linear) both,
 			edge-fade-end var(--ease-linear) both;
 		animation-timeline: auto, scroll(self inline), scroll(self inline);
