@@ -1,6 +1,7 @@
 /**
  * 视口与输入方式的唯一来源。断点与 assets/css/breakpoints.css 中记录的一致：
- * 布局只按宽度判断，悬停效果只按 (hover: hover) and (pointer: fine) 判断。
+ * 布局按宽度判断，唯一例外是并入手机布局的横屏手机 (any-pointer: coarse) and (height < 600px)；
+ * 悬停效果只按 (hover: hover) and (pointer: fine) 判断。
  */
 
 const BREAKPOINTS = Object.freeze({ narrow: 480, sidebar: 1024 });

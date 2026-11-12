@@ -21,7 +21,7 @@ Key files
 
 Project conventions
 - ES modules with named exports; keep functions short and single-responsibility.
-- Breakpoints and input: layout uses width media queries only (range syntax, 480px / 1024px, documented in `assets/css/breakpoints.css`); hover styles go in `(hover: hover) and (pointer: fine)`, everything else in its complement. JS reads the same queries from `assets/js/modules/utils/viewport.js` (`isNarrow()`, `isCompact()`, `isSidebarOverlay()`, `onChange()`); never compare `window.innerWidth`, sniff touch or the user agent, or set device classes.
+- Breakpoints and input: layout uses width media queries (range syntax, 480px / 1024px, documented in `assets/css/breakpoints.css`), plus the landscape-phone exception `(any-pointer: coarse) and (height < 600px)` that joins the narrow layout; hover styles go in `(hover: hover) and (pointer: fine)`, everything else in its complement. JS reads the same queries from `assets/js/modules/utils/viewport.js` (`isNarrow()`, `isCompact()`, `isSidebarOverlay()`, `onChange()`); never compare `window.innerWidth`, sniff touch or the user agent (the only exception is the ⌘ / Ctrl shortcut label in `<bm-search>`), or set device classes.
 - Use requestAnimationFrame for scroll/resize UI updates and passive scroll listeners where applicable.
 - Colours, shadows, focus ring, radii and z-index are tokens in `assets/css/base.css`: colours use `light-dark()` (`color-scheme` follows `data-theme`), every control gets the global `:focus-visible` ring (`--focus-ring-*`), and rules use `--radius-*` / `--z-*` instead of literals.
 - Motion durations and easings are tokens in `assets/css/base.css`; JS reads them (and `prefers-reduced-motion`) through `assets/js/modules/utils/motion.js` instead of hard-coding values.
