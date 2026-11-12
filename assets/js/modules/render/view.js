@@ -4,12 +4,17 @@ const fill = (id, nodes) => {
 	if (nodes) document.getElementById(id)?.replaceChildren(...nodes);
 };
 
-const showView = ({ content = [], breadcrumbs = [] } = {}) => {
+const nextView = () => {
 	current += 1;
 	document.getElementById("content")?.removeAttribute("data-page-changing");
+	return current;
+};
+
+const showView = ({ content = [], breadcrumbs = [] } = {}) => {
+	const view = nextView();
 	fill("content", content);
 	fill("breadcrumbs", breadcrumbs);
-	return current;
+	return view;
 };
 
 const isCurrentView = (view) => view === current;
@@ -21,8 +26,6 @@ const updateView = (view, { content, breadcrumbs }) => {
 	return true;
 };
 
-const leaveView = () => {
-	current += 1;
-};
+const leaveView = nextView;
 
 export { isCurrentView, leaveView, showView, updateView };

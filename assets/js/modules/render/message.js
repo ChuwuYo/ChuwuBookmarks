@@ -48,6 +48,7 @@ const dataErrorMessage = (error) => {
 
 const searchUnavailableMessage = () => {
 	const message = centeredMessage("error-message");
+	message.setAttribute("role", "alert");
 	message.textContent = "浏览器不支持Web Worker，无法进行搜索";
 	return message;
 };
@@ -61,6 +62,7 @@ const noResultsMessage = () => {
 const folderErrorMessage = (title) => {
 	const wrapper = document.createElement("div");
 	wrapper.className = "folder-error";
+	wrapper.setAttribute("role", "alert");
 	const text = document.createElement("p");
 	text.className = "folder-error-text";
 	text.textContent = `无法加载「${title}」的内容`;
