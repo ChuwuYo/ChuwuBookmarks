@@ -42,6 +42,9 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 `prefers-reduced-motion` 块改写这些令牌（缩短时长、取消错峰、装饰循环只播一次、加载
 指示器放慢但继续转动），组件不另写。JS 需要的时长、缓动与减弱动态效果判断
 一律经 `assets/js/modules/utils/motion.js` 从这些令牌读取，不在 JS 里重复数值。
+例外：首页标题动画的编排节拍（`render/home.js` 的 `INTRO`）只属于这一段动画，
+留在 home.js 中，减弱动态效果时由 motion.js 统一调整 GSAP 全局时间缩放；
+主题切换的兜底超时（`render/theme.js` 的 `SAFETY_MARGIN`）不是动效时长。
 
 ### 公开接口
 
