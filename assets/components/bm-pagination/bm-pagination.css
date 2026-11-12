@@ -159,14 +159,6 @@ bm-pagination .pagination-container[hidden] {
 	transform: translateZ(0) scale(1);
 }
 
-.pagination-button:disabled:hover {
-	transform: translateZ(0) scale(1);
-	box-shadow: none;
-	background: var(--pagination-bg);
-	text-shadow: none;
-	filter: none;
-}
-
 .pagination-button:focus-visible {
 	box-shadow: var(--pagination-shadow-focus);
 	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
