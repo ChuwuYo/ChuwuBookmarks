@@ -1,6 +1,6 @@
 /**
  * <bm-breadcrumbs>：面包屑导航。
- * 通过 `path` 属性传入 [{ title }]（从根到当前文件夹），点击时触发
+ * 通过 `path` 属性传入 [{ title }]（从根到当前文件夹），点击祖先项时触发
  * bm-navigate（detail: { index }，-1 表示主页）。
  * 元素本身 display: contents，父元素作为横向滚动容器；边缘渐隐完全由父元素的
  * CSS 完成，组件不读写父元素。
@@ -9,13 +9,37 @@
 
 import { createIcon } from "../bm-icon/bm-icon.js";
 
-const crumbButton = (text, label) => {
+const crumbButton = (text, label, index) => {
 	const button = document.createElement("button");
 	button.type = "button";
 	button.className = "breadcrumb-item";
 	button.textContent = text;
-	if (label) button.setAttribute("aria-label", label);
+	button.setAttribute("aria-label", label);
+	button.dataset.index = String(index);
 	return button;
+};
+
+const currentCrumb = (text) => {
+	const item = document.createElement("span");
+	item.className = "breadcrumb-item";
+	item.textContent = text;
+	item.setAttribute("aria-current", "location");
+	return item;
+};
+
+const separator = () => {
+	const span = document.createElement("span");
+	span.className = "breadcrumb-separator";
+	span.setAttribute("aria-hidden", "true");
+	span.textContent = " > ";
+	return span;
+};
+
+const listItem = (...children) => {
+	const li = document.createElement("li");
+	li.setAttribute("role", "listitem");
+	li.append(...children);
+	return li;
 };
 
 export class BmBreadcrumbs extends HTMLElement {
@@ -44,25 +68,19 @@ export class BmBreadcrumbs extends HTMLElement {
 		icon.className = "breadcrumb-icon";
 		icon.append(createIcon("breadcrumb"));
 
-		const home = crumbButton("主页", "返回主页");
-		home.dataset.index = "-1";
-
-		const nodes = [icon, home];
+		const list = document.createElement("ol");
+		list.className = "breadcrumb-list";
+		// WebKit 会从无障碍树中去掉 display: contents 列表的语义，显式 role 补回
+		list.setAttribute("role", "list");
+		list.append(listItem(crumbButton("主页", "返回主页", -1)));
 		this.#path.forEach((crumb, index, all) => {
-			const separator = document.createElement("span");
-			separator.className = "breadcrumb-separator";
-			separator.textContent = " > ";
-
-			const isLast = index === all.length - 1;
-			const item = crumbButton(
-				crumb.title,
-				isLast ? "" : `导航到${crumb.title}`,
-			);
-			if (isLast) item.setAttribute("aria-current", "location");
-			else item.dataset.index = String(index);
-			nodes.push(separator, item);
+			const item =
+				index === all.length - 1
+					? currentCrumb(crumb.title)
+					: crumbButton(crumb.title, `导航到${crumb.title}`, index);
+			list.append(listItem(separator(), item));
 		});
-		this.replaceChildren(...nodes);
+		this.replaceChildren(icon, list);
 	}
 
 	#onClick = (event) => {

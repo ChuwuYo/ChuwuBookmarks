@@ -1,8 +1,6 @@
 import { createCard } from "../../../components/bm-card/bm-card.js";
 import { waitForFullData } from "../loader/index.js";
-import { isSidebarOverlay } from "../utils/viewport.js";
 import { folderErrorMessage, loadingMessage } from "./message.js";
-import { updateSidebarState } from "./sidebar-state.js";
 import { showView, updateView } from "./view.js";
 
 /**
@@ -63,12 +61,8 @@ const folderCards = (folder) => {
 	return [...cards("folder"), ...cards("bookmark")];
 };
 
-const renderMainContent = (folder, fromSidebar = false) => {
+const renderMainContent = (folder) => {
 	const view = showView();
-
-	if (fromSidebar && isSidebarOverlay()) {
-		updateSidebarState(document.querySelector(".sidebar"), true);
-	}
 
 	requestAnimationFrame(async () => {
 		const breadcrumbPath = [];

@@ -16,7 +16,7 @@ import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
 import { readSearchState, writeSearchState } from "../utils/url-state.js";
 import { isCompact } from "../utils/viewport.js";
-import { getSearchWorkerWrapper, isWorkerSupported } from "../worker/index.js";
+import { getSearchWorkerWrapper } from "../worker/index.js";
 
 const searchIndex = {
 	source: null,
@@ -84,16 +84,7 @@ const toResults = (positions) =>
 let workersWired = false;
 
 const initSearchWorker = () => {
-	if (!isWorkerSupported()) {
-		console.warn(
-			"[Search] Web Worker not supported, search functionality unavailable",
-		);
-		return;
-	}
-
-	if (workersWired) {
-		return;
-	}
+	if (workersWired) return;
 	workersWired = true;
 
 	getSearchWorkerWrapper().addMessageListener((e) => {
@@ -107,7 +98,6 @@ const initSearchWorker = () => {
 };
 
 const postSearchToWorker = (keyword, view) => {
-	if (!isWorkerSupported()) return false;
 	const wrapper = getSearchWorkerWrapper();
 	const worker = wrapper.getInstance();
 	if (!worker || !syncIndex(worker)) return false;
@@ -116,7 +106,6 @@ const postSearchToWorker = (keyword, view) => {
 
 const startSearch = async (keyword) => {
 	const view = showView({ content: [loadingMessage("正在搜索...")] });
-	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
 	if (!isFullDataReady()) await waitForFullData();
 	if (!isCurrentView(view)) return;
 	if (!postSearchToWorker(keyword, view)) {
@@ -125,7 +114,6 @@ const startSearch = async (keyword) => {
 };
 
 const createSearchHandler = () => {
-	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
 	const getBookmarksCount = () => ensureEntries().length;
 
 	const computeDebounceMs = (count) => {
@@ -178,12 +166,9 @@ const createSearchHandler = () => {
 
 const restoreSearchStateFromURL = () => {
 	const { query: keyword } = readSearchState();
-	if (!keyword) return false;
-	const search = document.querySelector("bm-search");
-	if (!search) return false;
-	search.value = keyword;
+	if (!keyword) return;
+	document.querySelector("bm-search").value = keyword;
 	startSearch(keyword);
-	return true;
 };
 
 export { createSearchHandler, initSearchWorker, restoreSearchStateFromURL };

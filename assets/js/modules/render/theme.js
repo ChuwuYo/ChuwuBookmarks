@@ -14,7 +14,6 @@ const syncThemeColor = (theme) => {
 
 const THEME_KEY = "theme";
 
-/** 每次切换加一，按钮的光条和图标据此始终朝同一方向转 */
 let themeTurn = 0;
 
 const setRootTheme = (theme) => {
@@ -22,9 +21,11 @@ const setRootTheme = (theme) => {
 	root.setAttribute("data-theme", theme);
 	themeTurn += (themeTurn % 2 === 1) === (theme === "dark") ? 0 : 1;
 	root.style.setProperty("--theme-turn", themeTurn);
+	document
+		.getElementById("theme-toggle")
+		.setAttribute("aria-pressed", String(theme === "dark"));
 };
 
-/** 本次会话中手动选择的主题；存储不可用时也能保住用户的选择 */
 let manualTheme = null;
 
 const readStoredTheme = () => {
@@ -41,20 +42,30 @@ const systemThemeQuery = () =>
 
 const getSystemTheme = () => (systemThemeQuery().matches ? "dark" : "light");
 
+const preferredTheme = () =>
+	manualTheme ?? readStoredTheme() ?? getSystemTheme();
+
+const followPreference = () => {
+	const root = document.documentElement;
+	const next = preferredTheme();
+	if (root.getAttribute("data-theme") === next) return;
+	root.setAttribute(SWITCHING_ATTR, "");
+	setRootTheme(next);
+	syncThemeColor(next);
+	afterStyleCommit(() => root.removeAttribute(SWITCHING_ATTR));
+};
+
 const initTheme = () => {
 	syncGsapWithReducedMotion();
-	const root = document.documentElement;
-	const theme = readStoredTheme() ?? getSystemTheme();
+	const theme = preferredTheme();
 	setRootTheme(theme);
 	syncThemeColor(theme);
 
-	systemThemeQuery().addEventListener("change", () => {
-		if (manualTheme || readStoredTheme()) return;
-		const next = getSystemTheme();
-		root.setAttribute(SWITCHING_ATTR, "");
-		setRootTheme(next);
-		syncThemeColor(next);
-		afterStyleCommit(() => root.removeAttribute(SWITCHING_ATTR));
+	systemThemeQuery().addEventListener("change", followPreference);
+	window.addEventListener("storage", (event) => {
+		if (event.key !== null && event.key !== THEME_KEY) return;
+		manualTheme = readStoredTheme();
+		followPreference();
 	});
 };
 
@@ -71,22 +82,26 @@ let switchId = 0;
 const afterStyleCommit = (callback) =>
 	requestAnimationFrame(() => requestAnimationFrame(callback));
 
-const applyTheme = (theme) => {
-	manualTheme = theme;
-	setRootTheme(theme);
+const storeOverride = (theme) => {
 	try {
-		localStorage.setItem(THEME_KEY, theme);
+		if (theme) localStorage.setItem(THEME_KEY, theme);
+		else localStorage.removeItem(THEME_KEY);
 	} catch {
 		// 存储不可用（如隐私模式）时只切换本次会话
 	}
+};
+
+const applyTheme = (theme) => {
+	manualTheme = theme === getSystemTheme() ? null : theme;
+	storeOverride(manualTheme);
+	setRootTheme(theme);
 	syncThemeColor(theme);
 };
 
 const getOrigin = () => {
-	const button = document.getElementById("theme-toggle");
-	const target = button?.querySelector(".theme-icon") ?? button;
-	if (!target) return { x: window.innerWidth / 2, y: 0 };
-	const rect = target.getBoundingClientRect();
+	const rect = document
+		.querySelector("#theme-toggle .theme-icon")
+		.getBoundingClientRect();
 	return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
 };
 

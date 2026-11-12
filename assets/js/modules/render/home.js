@@ -37,7 +37,6 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 	});
 };
 
-/** 首页标题的编排时间（秒），只在这里使用，没有对应的 CSS 值 */
 const INTRO = {
 	textDuration: 0.5,
 	dropDuration: 0.8,
@@ -84,16 +83,15 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	return masterTimeline;
 };
 
-/** 按字素簇切分，emoji 与组合字符不会被拆开 */
-const splitGraphemes = (text) => {
-	if (typeof Intl !== "undefined" && Intl.Segmenter) {
-		const segmenter = new Intl.Segmenter(undefined, {
-			granularity: "grapheme",
-		});
-		return Array.from(segmenter.segment(text), ({ segment }) => segment);
-	}
-	return Array.from(text);
-};
+const graphemes =
+	typeof Intl.Segmenter === "function"
+		? new Intl.Segmenter(undefined, { granularity: "grapheme" })
+		: null;
+
+const splitGraphemes = (text) =>
+	graphemes
+		? Array.from(graphemes.segment(text), ({ segment }) => segment)
+		: Array.from(text);
 
 const createCharacterSpans = (chars) => {
 	const fragment = document.createDocumentFragment();

@@ -49,7 +49,7 @@ const dataErrorMessage = (error) => {
 const searchUnavailableMessage = () => {
 	const message = centeredMessage("error-message");
 	message.setAttribute("role", "alert");
-	message.textContent = "浏览器不支持Web Worker，无法进行搜索";
+	message.textContent = "无法启动搜索线程，搜索不可用";
 	return message;
 };
 

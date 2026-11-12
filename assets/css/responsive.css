@@ -83,6 +83,7 @@
 		max-width: 600px;
 		position: relative;
 		padding-left: 5px;
+		box-sizing: border-box;
 	}
 }
 
@@ -132,18 +133,9 @@
 		min-height: 100vh;
 	}
 
-	#breadcrumbs {
-		transform: none;
-		transition: opacity var(--duration-3) var(--ease-out);
-		contain: layout;
-	}
-
 	#content {
 		min-height: 200px;
-	}
-
-	#content:not(:has(> .home-message, > .error-message)) {
-		contain: layout style;
+		display: flow-root;
 	}
 
 	.search-container {
@@ -160,7 +152,8 @@
 	}
 
 	#breadcrumbs {
-		padding: 50px 25px 0;
+		transform: none;
+		padding: 50px 25px 5px;
 		font-size: clamp(1rem, 5vw, 1.2rem);
 		width: 100%;
 		max-width: 600px;
@@ -173,12 +166,8 @@
 		box-sizing: border-box;
 		contain: layout;
 		min-height: 40px;
-	}
-
-	#breadcrumbs {
 		overflow-x: auto;
 		scrollbar-width: none;
-		padding-bottom: 5px;
 		scroll-padding: 0 20px;
 		scroll-snap-type: x proximity;
 	}

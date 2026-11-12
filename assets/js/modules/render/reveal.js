@@ -12,7 +12,7 @@ const revealApp = () => {
 		setTimeout(() => {
 			if (root.dataset.reveal === "entering")
 				root.removeAttribute("data-reveal");
-		}, durationMs("--duration-3"));
+		}, durationMs("--duration-reveal"));
 	});
 };
 

@@ -173,7 +173,6 @@ bm-card {
 	border-radius: var(--radius-2);
 }
 
-/* 图标占位与原 emoji 字形宽度一致，避免文字位移 */
 .folder-icon > bm-icon {
 	width: 1.2em;
 }
