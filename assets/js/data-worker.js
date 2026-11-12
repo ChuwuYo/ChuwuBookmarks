@@ -86,7 +86,9 @@ self.onmessage = async (event) => {
 		const bookmarksUrl = new URL("../../bookmarks.json", self.location.href)
 			.href;
 		try {
-			const response = await fetch(bookmarksUrl);
+			const response = await fetch(bookmarksUrl, {
+				priority: action === ACTIONS.LOAD_FULL_DATA ? "low" : "auto",
+			});
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
