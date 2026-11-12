@@ -36,7 +36,12 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
   animations) and get `data-scrolling` only from `trackScrollActivity()` in
   `assets/js/modules/utils/scroll-activity.js`; horizontal strips such as
   the breadcrumbs and pagination hide theirs with `scrollbar-width: none`;
-  no JS-drawn scroll indicators.
+  no JS-drawn scroll indicators. The vertical scrollers are the document
+  (main page) and `#sidebar-folders` (sidebar); the search bar, GitHub link
+  and `.top-bar` (breadcrumbs) stay on top at all times, so no ancestor of a
+  fixed or sticky element may carry `transform`, `contain`, `filter` or a
+  non-visible `overflow`. Top-row
+  offsets derive from the `--top-row-*` / `--top-bar-*` tokens in `base.css`.
 - Entrances and staggers are CSS only: the shared `@keyframes enter` with
   `--item-index` × `--stagger-step`; GSAP is used for the home title only.
   `#content` and `#breadcrumbs` are written only through `showView()` /
