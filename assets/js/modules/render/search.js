@@ -1,7 +1,5 @@
-import "../../../components/bm-pagination/bm-pagination.js";
+import { createCard } from "../../../components/bm-card/bm-card.js";
 import { durationMs, prefersReducedMotion } from "../utils/motion.js";
-import { createElement } from "./elements.js";
-import { loadIconsForElements } from "./icon-loader.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
 
 const ITEMS_PER_PAGE = 20;
@@ -18,7 +16,9 @@ const later = (fn, ms) => {
 const sortFoldersFirst = (results) =>
 	[...results].sort((a, b) => (b.type === "folder") - (a.type === "folder"));
 
-const renderPage = (container, results, page, renderMainContent) => {
+let view = null;
+
+const renderPage = (container, results, page) => {
 	requestAnimationFrame(() => {
 		container.innerHTML = "";
 		const start = (page - 1) * ITEMS_PER_PAGE;
@@ -26,29 +26,24 @@ const renderPage = (container, results, page, renderMainContent) => {
 		if (!items.length) return;
 
 		const fragment = document.createDocumentFragment();
-		const bookmarks = [];
 		items.forEach((item, index) => {
-			const isFolder = item.type === "folder";
-			const element = createElement(
-				isFolder ? "folder" : "bookmark",
+			const element = createCard(
+				item.type === "folder" ? "folder" : "bookmark",
 				item,
-				isFolder ? () => renderMainContent(item) : null,
 			);
-			element.style.cssText = `--item-index: ${index}`;
+			element.style.setProperty("--item-index", index);
 			element.classList.add("search-result-item");
 			fragment.appendChild(element);
-			if (!isFolder) bookmarks.push(element);
 		});
 		container.appendChild(fragment);
-		loadIconsForElements(bookmarks);
 		container.firstElementChild?.setAttribute("tabindex", "0");
 	});
 };
 
 const playPageTransition = (content) => {
-	content.classList.add("page-changing");
+	content.toggleAttribute("data-page-changing", true);
 	later(
-		() => content.classList.remove("page-changing"),
+		() => content.removeAttribute("data-page-changing"),
 		durationMs("--duration-3"),
 	);
 
@@ -57,23 +52,19 @@ const playPageTransition = (content) => {
 			top: 0,
 			behavior: prefersReducedMotion() ? "auto" : "smooth",
 		});
-		content.classList.add("search-results-fade", "search-results-fade-dim");
+		content.dataset.resultsFade = "dim";
 		later(() => {
-			content.classList.remove("search-results-fade-dim");
-			content.classList.add("search-results-fade-full");
+			content.dataset.resultsFade = "full";
 		}, durationMs("--duration-2"));
 		later(() => {
-			content.classList.remove(
-				"search-results-fade",
-				"search-results-fade-full",
-			);
+			content.removeAttribute("data-results-fade");
 			content.querySelector('.search-result-item[tabindex="0"]')?.focus();
 		}, durationMs("--duration-4"));
 	}, 16);
 };
 
 const updateHistory = (page) => {
-	const keyword = document.getElementById("search-input")?.value.trim();
+	const keyword = document.querySelector("bm-search")?.value.trim();
 	if (!keyword) return;
 	const url = new URL(window.location);
 	url.searchParams.set("q", keyword);
@@ -83,16 +74,12 @@ const updateHistory = (page) => {
 };
 
 const resetSearchPagination = () => {
+	view = null;
 	for (const id of timers) clearTimeout(id);
 	timers.clear();
-	document
-		.getElementById("content")
-		?.classList.remove(
-			"page-changing",
-			"search-results-fade",
-			"search-results-fade-dim",
-			"search-results-fade-full",
-		);
+	const content = document.getElementById("content");
+	content?.removeAttribute("data-page-changing");
+	content?.removeAttribute("data-results-fade");
 };
 
 const pageFromUrl = (total) => {
@@ -102,7 +89,7 @@ const pageFromUrl = (total) => {
 	return Math.min(page, total);
 };
 
-const renderSearchResults = (results, renderMainContent) => {
+const renderSearchResults = (results) => {
 	const content = document.getElementById("content");
 	const breadcrumbs = document.getElementById("breadcrumbs");
 	if (!content || !breadcrumbs) return;
@@ -124,7 +111,7 @@ const renderSearchResults = (results, renderMainContent) => {
 
 	const total = Math.ceil(sorted.length / ITEMS_PER_PAGE);
 	const page = pageFromUrl(total);
-	renderPage(container, sorted, page, renderMainContent);
+	renderPage(container, sorted, page);
 	if (page > 1) updateHistory(page);
 	else if (new URL(window.location).searchParams.has("page")) updateHistory(1);
 
@@ -133,13 +120,17 @@ const renderSearchResults = (results, renderMainContent) => {
 		pagination.setAttribute("label", "搜索结果分页导航");
 		pagination.setAttribute("total", String(total));
 		pagination.setAttribute("current", String(page));
-		pagination.addEventListener("bm-page-change", ({ detail: { page } }) => {
-			playPageTransition(content);
-			renderPage(container, sorted, page, renderMainContent);
-			updateHistory(page);
-		});
 		content.appendChild(pagination);
+		view = { content, container, results: sorted };
 	}
 };
 
-export { renderSearchResults, resetSearchPagination };
+/** 切换到已渲染搜索结果的第 page 页（响应 bm-page-change） */
+const showSearchPage = (page) => {
+	if (!view) return;
+	playPageTransition(view.content);
+	renderPage(view.container, view.results, page);
+	updateHistory(page);
+};
+
+export { renderSearchResults, resetSearchPagination, showSearchPage };

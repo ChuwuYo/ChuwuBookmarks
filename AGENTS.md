@@ -23,6 +23,13 @@ GitHub Pages, Vercel, Netlify or Cloudflare Pages.
   `assets/js/modules/utils/viewport.js`; no `innerWidth` comparisons, touch or
   UA sniffing (except the ⌘ / Ctrl shortcut label in `<bm-search>`), or
   JS-set device classes.
+- Each component's styles live in its own `assets/components/<name>/<name>.css`;
+  global stylesheets hold tokens, page layout and non-component page elements
+  only. State follows one policy: ARIA (`aria-current`, `aria-expanded`,
+  `disabled`, …) for semantic state, `data-*` for visual state, classes for
+  identity only, inline style only for numeric custom properties. Every
+  `bm-*` event is handled by delegation in
+  `assets/js/modules/listener/component-listener.js`.
 - Scrollbars are native. Scroll containers that auto-hide their scrollbar
   carry `.autohide-scrollbar` (styled in `base.css`; the sidebar adds only
   its gutter and an always-on thumb for browsers without scroll-driven

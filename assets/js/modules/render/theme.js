@@ -51,19 +51,18 @@ const initTheme = () => {
 	systemThemeQuery().addEventListener("change", () => {
 		if (manualTheme || readStoredTheme()) return;
 		const next = getSystemTheme();
-		root.classList.add(SWITCH_CLASS);
+		root.setAttribute(SWITCHING_ATTR, "");
 		setRootTheme(next);
 		syncThemeColor(next);
-		afterStyleCommit(() => root.classList.remove(SWITCH_CLASS));
+		afterStyleCommit(() => root.removeAttribute(SWITCHING_ATTR));
 	});
 };
 
 /**
  * 切换期间暂停全站 CSS 过渡：子元素继承的颜色会在父元素过渡中途反复重启，造成卡顿和多次闪烁。
  */
-const SWITCH_CLASS = "theme-switching";
-const CIRCLE_CLASS = "theme-switching-circle";
-const REVERSE_CLASS = "theme-switching-reverse";
+const SWITCHING_ATTR = "data-theme-switching";
+const TRANSITION_ATTR = "data-theme-transition";
 const SAFETY_MARGIN = 2000;
 const PROBE_NAME = "theme-origin-probe";
 let switchId = 0;
@@ -105,7 +104,6 @@ const createProbe = () => {
 	const probe = document.createElement("div");
 	probe.dataset.themeOriginProbe = "";
 	probe.setAttribute("aria-hidden", "true");
-	probe.style.cssText = `position:fixed;top:0;left:0;width:1px;height:1px;pointer-events:none;view-transition-name:${PROBE_NAME}`;
 	document.body.append(probe);
 	return probe;
 };
@@ -154,12 +152,12 @@ const toggleTheme = () => {
 	const id = ++switchId;
 	const isCurrent = () => id === switchId;
 
-	root.classList.add(SWITCH_CLASS);
+	root.setAttribute(SWITCHING_ATTR, "");
 
 	if (typeof document.startViewTransition !== "function") {
 		applyTheme(next);
 		afterStyleCommit(() => {
-			if (isCurrent()) root.classList.remove(SWITCH_CLASS);
+			if (isCurrent()) root.removeAttribute(SWITCHING_ATTR);
 		});
 		return;
 	}
@@ -168,9 +166,12 @@ const toggleTheme = () => {
 	const reverse = next === "light";
 	const origin = circle ? getOrigin() : null;
 	const probe = circle ? createProbe() : null;
-	root.classList.toggle(CIRCLE_CLASS, circle);
-	root.classList.toggle(REVERSE_CLASS, circle && reverse);
-	void root.offsetLeft; // 先让类名生效，再拍旧快照
+	if (circle) {
+		root.setAttribute(TRANSITION_ATTR, reverse ? "circle reverse" : "circle");
+	} else {
+		root.removeAttribute(TRANSITION_ATTR);
+	}
+	void root.offsetLeft; // 先让属性生效，再拍旧快照
 
 	const transition = document.startViewTransition(() => applyTheme(next));
 	setGsapPaused(true);
@@ -228,7 +229,8 @@ const toggleTheme = () => {
 			probe?.remove();
 			if (!isCurrent()) return;
 			setGsapPaused(false);
-			root.classList.remove(SWITCH_CLASS, CIRCLE_CLASS, REVERSE_CLASS);
+			root.removeAttribute(SWITCHING_ATTR);
+			root.removeAttribute(TRANSITION_ATTR);
 		});
 };
 

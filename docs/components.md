@@ -15,6 +15,10 @@ assets/components/<name>/
   <name>.css   # 颜色取自设计令牌（CSS 变量），不在规则里写死
 ```
 
+组件的全部样式都在自己的 `<name>.css` 里，包括在页面不同位置的变体（如内容区与侧边栏中的
+`bm-card`）、窄屏规则与悬停效果；`assets/css/` 下的全局样式表只放令牌、页面布局与不属于任何组件的页面元素。
+组件 CSS 在 `index.html` 中排在全局样式表之后。
+
 `<bm-icon>` 是组件间唯一的共享依赖：`bm-card` 与 `bm-breadcrumbs` 通过
 `../bm-icon/bm-icon.js` 创建图标，复制这两个组件时需连同 `bm-icon/` 目录与
 `assets/images/icons.svg` 一起复制。`bm-sidebar` 依赖
@@ -109,20 +113,35 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - **Attributes**：字符串/布尔配置，均有默认值；需要响应变化的写进 `observedAttributes`。
 - **Properties**：结构化数据（数组、对象）只通过 property 传入，不序列化进 attribute。
 - **Events**：`bm-<动作>` 命名的 `CustomEvent`，`bubbles: true`，数据放在 `detail`。
-  组件不直接调用应用模块，由监听层处理事件。
+  组件不直接调用应用模块。应用在一处处理所有 `bm-*` 事件：
+  `assets/js/modules/listener/component-listener.js` 在 `document` 上委托监听，
+  按 `event.target` 的位置区分来源（例如侧边栏 `#sidebar-folders` 中的 `bm-open-folder`）；
+  渲染模块只渲染，不给组件挂监听。
 - **DOM 契约**：组件渲染出的 class 名与结构写在下面各节，测试与样式只依赖这些契约。
 
 ### 状态
 
-统一用 attribute 表示，便于 CSS 选择与测试断言：
+组件与页面的状态一律用 attribute 表示，CSS 与测试按 attribute 选择：
+
+- **ARIA**：有语义的状态用 ARIA 或原生属性，并直接作为样式钩子，例如
+  `aria-current`、`aria-expanded`、`aria-pressed`、`aria-busy`、原生 `disabled`。
+- **`data-*`**：纯视觉或界面状态，例如 `data-state`、`data-scrolling`、`data-loaded`。
+- **class**：只表示身份与类型（`.folder`、`.bookmark`、`.breadcrumb-item`），不随状态增删。
+- **内联样式**：只用 `style.setProperty()` 写每个实例的数值自定义属性（如 `--item-index`、`--theme-turn`）。
 
 | 状态 | 表示方式 |
 | --- | --- |
-| 当前项 | `aria-current="page"` / `aria-current="location"` |
-| 禁用 | 原生 `disabled` 或 `aria-disabled="true"` |
-| 展开/收起 | `aria-expanded` / `data-state="collapsed"` |
+| 当前项 | `aria-current="page"`（分页）/ `aria-current="location"`（面包屑） |
+| 禁用 | 原生 `disabled` |
+| 展开/收起 | 切换按钮的 `aria-expanded` + 侧边栏的 `data-state="expanded" / "collapsed"` |
 | 滚动中 | 滚动容器上的 `data-scrolling`（见“滚动条”） |
+| 图标已加载 | `bm-card` 的 `.bookmark-icon[data-loaded]` |
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
+
+页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
+`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
+`data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
+`data-page-changing` 与 `data-results-fade="dim" / "full"`（搜索翻页反馈）。
 
 ### 可访问性
 
@@ -166,8 +185,14 @@ JS 中用 `createIcon(name, label?)` 创建。新增图标：在 `icons.svg` 中
 | `label` attribute | 导航的 `aria-label`，默认 `分页导航` |
 | `bm-page-change` event | `detail: { page }`；组件已先更新 `current` |
 | 键盘 | `←` / `→` 在按钮间移动焦点，`Home` / `End` 跳到首尾按钮 |
+| 焦点 | 重新渲染时若焦点在导航内，焦点留在对应的新按钮上；该按钮被禁用（如末页的下一页）时移到当前页按钮 |
 
-DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page(.active[aria-current=page]), .pagination-ellipsis, .pagination-next`
+DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagination-page, .pagination-ellipsis, .pagination-next`。
+当前页只用 `aria-current="page"` 表示（样式按它选择），首尾按钮用原生 `disabled`。
+
+定位：导航条由组件自己 `position: fixed` 在视口底部水平居中，不使用页面的布局类。
+`--bm-pagination-offset`（默认 `0px`）是居中后的水平偏移，由页面布局设置：
+`layout.css` 在桌面端侧边栏展开时把 `.main-content` 上的它设为 `--desktop-base-offset`。
 
 尺寸变量：`--pagination-button-size`、`--pagination-spacing`、`--pagination-font-size`、
 `--pagination-button-padding`（移动端 6px，补足 44px 触控区域）。
@@ -199,6 +224,9 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
 最后一项为当前位置，带 `aria-current="location"` 且不触发导航，样式按 `[aria-current]` 选择。
 
+面包屑项、分隔符与图标的样式（含窄屏的胶囊样式）都在 `bm-breadcrumbs.css`；
+父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
+
 ## `<bm-card>`
 
 文件夹或书签条目，由 `createCard(type, item)` 创建。
@@ -212,10 +240,16 @@ DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.b
 状态与可访问性：`folder` 自动设置 `tabindex="0"`、`role="button"`、`aria-label="文件夹: 名称"`。
 标题为空时，文件夹显示“未命名文件夹”，书签依次回退到域名、“未命名书签”。
 
-DOM 契约：元素自身带 `.folder` / `.bookmark` 类；
+DOM 契约：元素自身带 `.folder` / `.bookmark` 类（类只表示条目类型）；
 文件夹 `.folder-icon > bm-icon` + `.folder-name`；
 书签 `.bookmark-icon > (.bookmark-icon-emoji > bm-icon, img.bookmark-icon-img)` + `a`。
-favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon--img-loaded`。
+
+图标加载由组件完成：`img` 按 `item.icon` 排序后的地址依次尝试，加载失败或图片宽高不超过 1px
+时换下一个地址；第一张有效图片加载后组件给 `.bookmark-icon` 加 `data-loaded`，CSS 据此隐藏
+占位图标并淡入图片；全部失败时移除 `img`，保留占位图标。
+
+样式全部在 `bm-card.css`，按所在位置区分：内容区 `#content .folder` / `#content .bookmark`，
+侧边栏 `.sidebar .folder`（侧边栏收起时隐藏条目的规则属于 `bm-sidebar.css`）。
 
 ## `<bm-search>`
 
@@ -224,26 +258,39 @@ favicon 加载成功后 `icon-loader.js` 给 `.bookmark-icon` 加 `bookmark-icon
 | 接口 | 说明 |
 | --- | --- |
 | `placeholder` attribute | 可选，覆盖内部输入框的占位文本 |
-| `value` property | 输入框当前值 |
-| `bm-search` event | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`；防抖由应用处理 |
+| `value` property | 输入框当前值（未修剪）；赋值不触发 `bm-search`。元素升级前赋的值在连接时写入输入框 |
+| `focus()` | 聚焦内部输入框 |
+| `bm-search` event | 每次输入或按 Enter 时触发，`detail: { query, originalEvent }`，`query` 为去掉首尾空白的值；防抖由应用处理 |
 | 快捷键 | Apple 平台 `⌘ + K`，其他平台 `Ctrl + K` 聚焦输入框；按住 Shift、Alt 或输入法组字（`isComposing`）时不触发，Apple 平台不拦截 `Ctrl + K`（保留输入框的删除到行尾）；`.shortcut-hint` 内的按键提示与输入框的 `aria-keyshortcuts` 由组件按平台生成 |
 
-DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示占位符时可见）、
-`.shortcut-hint`。
+应用只通过 `value`、`focus()` 与 `bm-search` 事件使用搜索框，不直接读写内部输入框；
+需要知道搜索框是否获得焦点时监听元素自身的 `focusin`。
+
+DOM 契约：内含 `input#search-input`（没有时组件创建一个 `type="text"` 的输入框）、
+`bm-icon.search-icon`（仅在显示占位符时可见）、`.shortcut-hint`（窄屏隐藏）。
+样式全部在 `bm-search.css`，只用 `bm-search > …` 选择器，不依赖页面上的 `id` 或类：元素自身是定位容器，
+组件创建的输入框与页面已有的输入框样式相同。
 
 ## `<bm-sidebar>`
 
 放在 `<aside class="sidebar">` 内，包裹侧边栏头部与 `#sidebar-folders`，自身 `display: contents`。
+`<aside>` 是组件的宿主：组件自身不生成盒子，收起状态与样式都落在 `<aside>` 上。
 
 | 接口 | 说明 |
 | --- | --- |
 | `[data-sidebar-toggle]` | 子元素中的切换按钮 |
-| `collapsed` property | 只读，侧边栏是否收起（`.sidebar.collapsed`） |
-| `toggle()` | 请求切换，触发 `bm-sidebar-toggle` |
-| `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
-| `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
+| `collapsed` property | 读写。读取 `<aside>` 的 `data-state`；写入时把 `<aside>` 与元素自身的 `data-state` 设为 `collapsed` / `expanded`，并更新切换按钮的 `aria-expanded` |
+| `toggle()` | 请求切换，触发 `bm-sidebar-toggle`，不直接改变状态 |
+| `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；应用决定是否执行，执行时写 `collapsed` |
+| `data-state` attribute | `<aside>` 与 `<bm-sidebar>` 上的 `expanded` / `collapsed`，由 `collapsed` 写入；首次写入前没有该属性 |
 | `data-scrolling` attribute | 由 `trackScrollActivity(this)` 加在正在滚动的子元素上（如 `#sidebar-folders`），规则见“滚动条” |
 
-切换按钮的 `aria-expanded` 随侧边栏状态自动更新。页面加载时宽度小于 1024px 则收起；
+样式全部在 `bm-sidebar.css`，按 `.sidebar[data-state="collapsed"]` 选择收起状态。
+脚本写入状态之前（`.sidebar:not([data-state])`），宽度小于 1024px 时侧边栏按收起样式显示，
+避免加载时先展开再收起。收起时隐藏头部的 `.home-button` 与侧边栏中的 `bm-card`。
+页面布局（`.main-content` 的边距、居中元素与分页条的偏移）在全局样式中按
+`.sidebar[data-state="collapsed"] + .main-content` 跟随。
+
+页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
 同一布局内调整窗口大小不会覆盖手动切换的状态。

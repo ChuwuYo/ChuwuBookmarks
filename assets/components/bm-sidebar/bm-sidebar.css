@@ -1,3 +1,203 @@
 bm-sidebar {
 	display: contents;
 }
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: var(--sidebar-width);
+	background: var(--sidebar-bg);
+	box-shadow: var(--shadow-md);
+	padding: 20px 20px 0;
+	display: flex;
+	flex-direction: column;
+	transition:
+		width var(--duration-1) var(--ease-standard),
+		padding var(--duration-1) var(--ease-standard),
+		background-color var(--duration-1) var(--ease-out);
+	overflow: hidden;
+	height: 100dvh;
+	z-index: var(--z-sidebar);
+	box-sizing: border-box;
+	border-radius: 0 var(--radius-7) var(--radius-7) 0;
+}
+
+#sidebar-folders {
+	--edge-fade-size: 2.5rem;
+	flex: 1 1 auto;
+	min-height: 0;
+	margin: 0 -20px 12px;
+	padding: 0 20px calc(1.5rem + env(safe-area-inset-bottom, 0px));
+	overflow: hidden auto;
+	overscroll-behavior: contain;
+	scrollbar-gutter: stable;
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		#000 var(--edge-fade-start),
+		#000 calc(100% - var(--edge-fade-end)),
+		transparent
+	);
+}
+
+/* 不支持滚动驱动动画时，动画会按 0 秒播完停在终态，顶部被一直遮住 */
+@supports (animation-timeline: scroll()) {
+	#sidebar-folders {
+		animation:
+			edge-fade-start var(--ease-linear) both,
+			edge-fade-end var(--ease-linear) both;
+		animation-timeline: scroll(self), scroll(self);
+		animation-range:
+			0 var(--edge-fade-size),
+			calc(100% - var(--edge-fade-size)) 100%;
+	}
+}
+
+@media (pointer: fine) {
+	/* Firefox 默认不支持滚动驱动动画，渐隐不会出现，改用常显的滚动条提示 */
+	@supports not (animation-timeline: scroll()) {
+		#sidebar-folders {
+			--scrollbar-thumb: var(--scrollbar-thumb-color);
+		}
+	}
+}
+
+@media screen and (width < 1024px) {
+	.sidebar:not([data-state]) {
+		width: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+}
+
+.sidebar[data-state="collapsed"] {
+	width: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.sidebar[data-state="collapsed"] .home-button,
+.sidebar[data-state="collapsed"] .folder {
+	opacity: 0;
+	visibility: hidden;
+	transition: none;
+}
+
+.sidebar-header {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	flex: none;
+	margin-bottom: 20px;
+	padding: 0 5px;
+	flex-wrap: nowrap;
+	min-height: 40px;
+}
+
+@media screen and (width < 480px) {
+	.sidebar {
+		z-index: var(--z-sidebar-raised);
+		left: calc(-1 * var(--sidebar-width));
+		transition: left var(--duration-1) var(--ease-standard);
+	}
+
+	/* 收起时先滑出，滑完再收宽度；否则宽度先归零，滑动看不见 */
+	.sidebar[data-state="collapsed"] {
+		transition:
+			left var(--duration-1) var(--ease-standard),
+			width 0s var(--duration-1),
+			padding 0s var(--duration-1);
+	}
+
+	.sidebar:not([data-state="collapsed"]) {
+		left: 0;
+	}
+}
+
+#toggle-sidebar {
+	position: fixed;
+	left: 0;
+	top: 20px;
+	background: var(--button-hover);
+	border: 2px solid var(--accent-border);
+	border-radius: 0 var(--radius-7) var(--radius-7) 0;
+	padding: 8px 12px;
+	cursor: pointer;
+	z-index: var(--z-sidebar-toggle);
+	font-size: 1.3rem;
+	user-select: none;
+	transition:
+		transform var(--duration-1) var(--ease-out),
+		background-color var(--duration-1) var(--ease-out),
+		box-shadow var(--duration-1) var(--ease-out),
+		border-radius var(--duration-1) var(--ease-out);
+	contain: layout size style;
+	transform: translateZ(0);
+	box-sizing: border-box;
+	transform-origin: left center;
+	width: 48px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backface-visibility: hidden;
+}
+
+#toggle-sidebar img {
+	width: 24px;
+	height: 24px;
+	color: var(--text-color);
+	transition:
+		color var(--duration-1) var(--ease-out),
+		transform var(--duration-1) var(--ease-out);
+	display: none;
+	flex-shrink: 0;
+}
+
+.sidebar[data-state="collapsed"] #toggle-sidebar .show-panel {
+	display: block;
+}
+
+.sidebar:not([data-state="collapsed"]) #toggle-sidebar .hide-panel {
+	display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	#toggle-sidebar:hover {
+		background-color: var(--button-hover);
+		box-shadow: var(--theme-shadow-hover);
+	}
+
+	#toggle-sidebar:hover img {
+		transform: scale(1.1);
+	}
+
+	.sidebar:not([data-state="collapsed"]) #toggle-sidebar:hover {
+		transform: translateX(160px) translateZ(0);
+	}
+}
+
+.sidebar:not([data-state="collapsed"]) #toggle-sidebar {
+	transform: translateX(160px) translateZ(0);
+	border-radius: var(--radius-7);
+}
+
+.sidebar[data-state="collapsed"] #toggle-sidebar {
+	transform: translateZ(0);
+	border-radius: 0 var(--radius-7) var(--radius-7) 0;
+}
+
+@media screen and (width < 1024px) {
+	.sidebar:not([data-state]) #toggle-sidebar {
+		transform: translateZ(0);
+		border-radius: 0 var(--radius-7) var(--radius-7) 0;
+	}
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+	#toggle-sidebar:focus,
+	#toggle-sidebar:active {
+		border-width: 1.5px;
+	}
+}

@@ -60,10 +60,10 @@ const preloadFontSlices = (bookmarks) =>
 
 // 搜索输入可能用到任意字符，聚焦搜索框时再下载搜索字体的全部分片。
 const loadSearchFontOnFocus = () => {
-	const input = document.getElementById("search-input");
-	if (!input) return;
-	if (document.activeElement === input) loadSearchFont();
-	else input.addEventListener("focus", loadSearchFont, { once: true });
+	const search = document.querySelector("bm-search");
+	if (!search) return;
+	if (search.contains(document.activeElement)) loadSearchFont();
+	else search.addEventListener("focusin", loadSearchFont, { once: true });
 };
 
 export { loadFirstScreenFonts, loadSearchFontOnFocus, preloadFontSlices };
