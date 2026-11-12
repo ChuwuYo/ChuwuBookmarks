@@ -108,7 +108,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   `searchUnavailableMessage()`、`folderErrorMessage(title)`。懒加载文件夹与搜索共用同一加载提示。
 - 清空或整体替换容器内容一律用 `replaceChildren()`，不写 `innerHTML = ""`。
 - 地址栏中的搜索状态（`q`、`page`）只经 `assets/js/modules/utils/url-state.js` 读写：
-  `readSearchState()` 返回 `{ query, page }`，`writeSearchState({ query?, page? })`
+  `readSearchState()` 返回 `{ query, page }`（`page` 只会是正整数或 `null`，在这里解析），`writeSearchState({ query?, page? })`
   只改动传入的字段，用 `history.replaceState` 写入。
 
 ### 滚动条

@@ -3,14 +3,15 @@
  * 只用 history.replaceState，不新增历史记录。
  */
 
-/** 当前地址中的搜索状态：query 无则为 ""，page 无则为 null，否则为解析出的整数（可能是 NaN） */
+const POSITIVE_INTEGER = /^[1-9]\d*$/;
+
+/** 当前地址中的搜索状态：query 无则为 ""；page 为正整数，缺失或无效时为 null */
 const readSearchState = () => {
 	const params = new URLSearchParams(window.location.search);
+	const page = params.get("page") ?? "";
 	return {
 		query: params.get("q") ?? "",
-		page: params.has("page")
-			? Number.parseInt(params.get("page") ?? "", 10)
-			: null,
+		page: POSITIVE_INTEGER.test(page) ? Number(page) : null,
 	};
 };
 
