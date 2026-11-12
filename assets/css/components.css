@@ -126,8 +126,7 @@
 	white-space: normal;
 	overflow-x: auto;
 	user-select: none;
-	opacity: 0;
-	animation: slideDown var(--duration-4) var(--ease-out) forwards;
+	animation: slideDown var(--duration-4) var(--ease-out) backwards;
 	outline: none;
 	scroll-behavior: smooth;
 	transition: mask-image var(--duration-4) var(--ease-standard);
@@ -258,8 +257,7 @@ button.breadcrumb-item {
 	gap: 8px;
 	margin: 1.2rem 0;
 	padding: 0.25rem 0.5rem;
-	opacity: 0;
-	animation: fadeInUp var(--duration-4) var(--ease-out) forwards;
+	animation: fadeInUp var(--duration-4) var(--ease-out) backwards;
 	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
 	outline: none;
 	box-sizing: border-box;
@@ -477,7 +475,7 @@ button.breadcrumb-item:focus-visible {
 	border: 4px solid var(--hover-bg);
 	border-top: 4px solid var(--link-color);
 	border-radius: 50%;
-	animation: spin var(--duration-loop) var(--ease-linear) infinite;
+	animation: spin var(--duration-spin) var(--ease-linear) infinite;
 }
 
 .centered-message {
@@ -544,8 +542,7 @@ button.breadcrumb-item:focus-visible {
 }
 
 .search-result-item {
-	opacity: 0;
-	animation: fadeInUp var(--duration-2) var(--ease-out) forwards;
+	animation: fadeInUp var(--duration-2) var(--ease-out) backwards;
 	margin-bottom: 0.5rem;
 }
 

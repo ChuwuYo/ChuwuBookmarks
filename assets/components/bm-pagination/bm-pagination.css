@@ -188,7 +188,7 @@ bm-pagination .pagination-container[hidden] {
 	box-shadow: var(--pagination-shadow-focus);
 	border-radius: var(--pagination-border-radius);
 	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
-		infinite;
+		var(--loop-count);
 }
 
 :root[data-theme="dark"] .pagination-button:focus-visible {
