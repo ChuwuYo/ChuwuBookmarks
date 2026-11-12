@@ -48,6 +48,7 @@ export const trackScrollActivity = (root, { idle } = {}) => {
 	const scrollOptions = { capture: !isPage, passive: true };
 	let delay = idle;
 	let held = null;
+	let heldPointer = null;
 
 	const getDelay = () => {
 		delay ??= durationMs("--scroll-idle");
@@ -62,11 +63,16 @@ export const trackScrollActivity = (root, { idle } = {}) => {
 		if (target !== held) hideAfter(target, getDelay());
 	};
 
-	const onPointerUp = () => {
+	const release = () => {
 		window.removeEventListener("pointerup", onPointerUp);
 		window.removeEventListener("pointercancel", onPointerUp);
 		if (held) hideAfter(held, getDelay());
 		held = null;
+		heldPointer = null;
+	};
+
+	const onPointerUp = (event) => {
+		if (event.pointerId === heldPointer) release();
 	};
 
 	const onPointerDown = (event) => {
@@ -76,6 +82,7 @@ export const trackScrollActivity = (root, { idle } = {}) => {
 		if (isPage && event.target !== target) return;
 		if (!isOnScrollbar(target, event)) return;
 		held = target;
+		heldPointer = event.pointerId;
 		show(target);
 		window.addEventListener("pointerup", onPointerUp);
 		window.addEventListener("pointercancel", onPointerUp);
@@ -86,6 +93,6 @@ export const trackScrollActivity = (root, { idle } = {}) => {
 	return () => {
 		source.removeEventListener("scroll", onScroll, scrollOptions);
 		source.removeEventListener("pointerdown", onPointerDown);
-		onPointerUp();
+		release();
 	};
 };
