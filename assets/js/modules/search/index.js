@@ -106,7 +106,6 @@ const postSearchToWorker = (keyword, view) => {
 
 const startSearch = async (keyword) => {
 	const view = showView({ content: [loadingMessage("正在搜索...")] });
-	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
 	if (!isFullDataReady()) await waitForFullData();
 	if (!isCurrentView(view)) return;
 	if (!postSearchToWorker(keyword, view)) {
@@ -115,7 +114,6 @@ const startSearch = async (keyword) => {
 };
 
 const createSearchHandler = () => {
-	// 防抖时长按数据量与设备类型分档；数据加载后档位可能变化，届时才换用新的防抖函数
 	const getBookmarksCount = () => ensureEntries().length;
 
 	const computeDebounceMs = (count) => {

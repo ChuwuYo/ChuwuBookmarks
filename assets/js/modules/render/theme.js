@@ -14,7 +14,6 @@ const syncThemeColor = (theme) => {
 
 const THEME_KEY = "theme";
 
-/** 每次切换加一，按钮的光条和图标据此始终朝同一方向转 */
 let themeTurn = 0;
 
 const setRootTheme = (theme) => {

@@ -31,7 +31,6 @@ bm-pagination .pagination-container[hidden] {
 		--pagination-spacing: 4px;
 		--pagination-button-size: 32px;
 		--pagination-font-size: 12px;
-		/* 补足 44px 触控区域 */
 		--pagination-button-padding: 6px;
 	}
 }

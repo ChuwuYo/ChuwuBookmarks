@@ -220,8 +220,6 @@ body::after {
 	initial-value: 0px;
 }
 
-/* 边缘渐隐：滚动容器的 mask-image 读这两个长度，由 animation-timeline: scroll(self …) 驱动；
-   起始边在滚离起点的前 --edge-fade-size 内渐入，末端边在最后 --edge-fade-size 内渐出 */
 @keyframes edge-fade-start {
 	to {
 		--edge-fade-start: var(--edge-fade-size);
@@ -245,7 +243,6 @@ body::after {
 	scrollbar-color: auto;
 }
 
-/* 触屏保留系统自带的悬浮滚动条 */
 @media (pointer: fine) {
 	:root.autohide-scrollbar {
 		scrollbar-gutter: stable;
