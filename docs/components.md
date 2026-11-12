@@ -95,9 +95,11 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）悬停时也显示。显示用
   `--duration-1` `--ease-out` 淡入，隐藏用 `--duration-3` `--ease-linear` 淡出。
   不可滚动时浏览器本身不画滚动条。减弱动态效果时只缩短淡出，仍只改颜色、不移动。
+- 不支持滚动驱动动画的浏览器（如 Firefox 默认）看不到侧边栏上下渐隐，
+  `#sidebar-folders` 改为常显滑块。
 - `data-scrolling` 只由 `assets/js/modules/utils/scroll-activity.js` 的
   `trackScrollActivity(root, { idle })` 设置：滚动时加上，停止 `idle`（默认
-  `--scroll-idle`）毫秒后移除；用鼠标或笔按住滚动条拖动期间保留，松开后重新计时。
+  `--scroll-idle`）毫秒后移除；用鼠标或笔按住滚动条拖动期间保留，同一指针松开后重新计时。
   `root` 为 `document.documentElement` 时跟踪页面滚动（由 `script.js` 调用）；
   传其他元素时用捕获监听跟踪它及其后代中的任意滚动容器。返回取消跟踪的函数。
 - 面包屑与窄屏分页条等横向滚动条带仍隐藏滚动条（`scrollbar-width: none`）。
