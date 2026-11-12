@@ -15,7 +15,7 @@
 	background: var(--button-bg);
 	color: var(--text-color);
 	padding: 2px 4px;
-	border-radius: 3px;
+	border-radius: var(--radius-1);
 	font-size: 12px;
 }
 
@@ -43,12 +43,11 @@
 .search-container {
 	display: flex;
 	align-items: center;
-	z-index: 999;
+	z-index: var(--z-float);
 	white-space: nowrap;
 	user-select: none;
 	height: calc(1rem + 16px + 6px);
 	contain: layout;
-	outline: none;
 	backface-visibility: hidden;
 	overflow: visible;
 
@@ -64,8 +63,8 @@
 	padding: 6px;
 	padding-right: 56px;
 	font-size: 1rem;
-	border: 2px solid #a4d1c4;
-	border-radius: 8px;
+	border: 2px solid var(--accent-border);
+	border-radius: var(--radius-4);
 	width: 230px;
 	max-width: calc(100vw - 120px);
 	box-sizing: border-box;
@@ -77,7 +76,6 @@
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
 	font-synthesis: none;
-	outline: none;
 	transition:
 		border-color var(--duration-2) var(--ease-out),
 		box-shadow var(--duration-2) var(--ease-out);
@@ -127,7 +125,6 @@
 	overflow-x: auto;
 	user-select: none;
 	animation: slideDown var(--duration-4) var(--ease-out) backwards;
-	outline: none;
 	scroll-behavior: smooth;
 	transition: mask-image var(--duration-4) var(--ease-standard);
 	contain: layout style;
@@ -143,7 +140,7 @@
 	cursor: pointer;
 	color: var(--link-color);
 	padding: 8px 8px;
-	border-radius: 4px;
+	border-radius: var(--radius-2);
 	display: inline-block;
 	margin: 0 4px 4px 0;
 	user-select: none;
@@ -152,7 +149,6 @@
 		transform var(--duration-2) var(--ease-out),
 		box-shadow var(--duration-2) var(--ease-out),
 		text-decoration var(--duration-2) var(--ease-out);
-	outline: none;
 	border: none;
 	background: transparent;
 	font-family: inherit;
@@ -217,7 +213,7 @@ button.breadcrumb-item {
 	background: linear-gradient(to left, transparent, var(--bg-color));
 	pointer-events: none;
 	opacity: 0.8;
-	z-index: 1;
+	z-index: var(--z-local-1);
 }
 
 .folder-loading,
@@ -259,7 +255,7 @@ button.breadcrumb-item {
 	padding: 0.25rem 0.5rem;
 	animation: fadeInUp var(--duration-4) var(--ease-out) backwards;
 	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
-	outline: none;
+	border-radius: var(--radius-2);
 	box-sizing: border-box;
 	contain: layout;
 }
@@ -287,7 +283,7 @@ button.breadcrumb-item {
 
 	#content .folder:hover .folder-name {
 		color: var(--link-color);
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+		text-shadow: var(--text-shadow);
 		box-shadow: var(--shadow-sm);
 	}
 
@@ -314,7 +310,7 @@ button.breadcrumb-item {
 		color var(--duration-2) var(--ease-out),
 		text-shadow var(--duration-2) var(--ease-out),
 		box-shadow var(--duration-2) var(--ease-out);
-	border-radius: 4px;
+	border-radius: var(--radius-2);
 	display: flex;
 	align-items: center;
 	line-height: 1;
@@ -384,14 +380,14 @@ button.breadcrumb-item {
 	transition:
 		color var(--duration-2) var(--ease-standard),
 		box-shadow var(--duration-2) var(--ease-standard);
-	border-radius: 4px;
+	border-radius: var(--radius-2);
 }
 
 .github-link {
 	position: fixed;
 	top: 20px;
 	right: 20px;
-	z-index: 999;
+	z-index: var(--z-float);
 	color: var(--text-color);
 	display: flex;
 	align-items: center;
@@ -420,7 +416,6 @@ button.breadcrumb-item {
 	perspective: 1000px;
 	transform-style: preserve-3d;
 	content-visibility: auto;
-	outline: none;
 }
 
 .home-char {
@@ -439,20 +434,6 @@ button.breadcrumb-item {
 
 .mobile-home-message .english-text {
 	font-size: clamp(1rem, 6vw, 1.5rem);
-}
-
-#content .folder:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: 4px;
-}
-
-button.breadcrumb-item:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: 4px;
 }
 
 .loading-indicator {
@@ -474,12 +455,12 @@ button.breadcrumb-item:focus-visible {
 	height: 40px;
 	border: 4px solid var(--hover-bg);
 	border-top: 4px solid var(--link-color);
-	border-radius: 50%;
+	border-radius: var(--radius-round);
 	animation: spin var(--duration-spin) var(--ease-linear) infinite;
 }
 
 .centered-message {
-	z-index: 10;
+	z-index: var(--z-message);
 	text-align: center;
 	color: var(--text-color);
 }
@@ -544,13 +525,6 @@ button.breadcrumb-item:focus-visible {
 .search-result-item {
 	animation: fadeInUp var(--duration-2) var(--ease-out) backwards;
 	margin-bottom: 0.5rem;
-}
-
-.search-result-item:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: 4px;
 }
 
 /* 图标占位与原 emoji 字形宽度一致，避免文字位移 */

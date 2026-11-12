@@ -13,17 +13,17 @@ bm-pagination .pagination-container[hidden] {
 	--pagination-active-bg: var(--link-color);
 	--pagination-active-text: var(--bg-color);
 	--pagination-hover-bg: var(--hover-bg);
-	--pagination-disabled-text: rgba(14, 20, 26, 0.4);
+	--pagination-disabled-text: var(--text-muted);
 
 	--pagination-spacing: 8px;
 	--pagination-button-size: 40px;
-	--pagination-border-radius: 6px;
+	--pagination-border-radius: var(--radius-3);
 	--pagination-font-size: 14px;
 
 	--pagination-shadow: var(--shadow-sm);
 	--pagination-shadow-hover: var(--shadow-md);
 	--pagination-shadow-active: var(--button-shadow);
-	--pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
+	--pagination-shadow-focus: 0 0 0 4px var(--focus-halo-color);
 }
 
 @media screen and (max-width: 479px) {
@@ -34,15 +34,6 @@ bm-pagination .pagination-container[hidden] {
 		/* 补足 44px 触控区域 */
 		--pagination-button-padding: 6px;
 	}
-
-	.pagination-container {
-		bottom: 10px;
-	}
-}
-
-:root[data-theme="dark"] {
-	--pagination-disabled-text: rgba(249, 241, 213, 0.4);
-	--pagination-shadow-focus: 0 0 0 4px rgba(116, 206, 255, 0.2);
 }
 
 .pagination-container {
@@ -53,14 +44,14 @@ bm-pagination .pagination-container[hidden] {
 	margin: 0;
 	padding: 0.5rem;
 	user-select: none;
-	outline: none;
+	border-radius: var(--pagination-border-radius);
 	width: 100%;
 	max-width: 500px;
 
 	position: fixed;
 	left: 50%;
 	bottom: 20px;
-	z-index: 999;
+	z-index: var(--z-float);
 
 	transform: translateX(-50%);
 
@@ -84,7 +75,6 @@ bm-pagination .pagination-container[hidden] {
 	font-family: "DingTalk JinBuTi", sans-serif;
 
 	cursor: pointer;
-	outline: none;
 	appearance: none;
 	padding: var(--pagination-button-padding, 0);
 	margin: 0;
@@ -111,15 +101,13 @@ bm-pagination .pagination-container[hidden] {
 @media (hover: hover) and (pointer: fine) {
 	.pagination-button:hover:not(:disabled):not(.active) {
 		background: var(--pagination-hover-bg);
-		box-shadow: var(--pagination-shadow-hover);
+		box-shadow:
+			var(--pagination-shadow-hover),
+			0 0 12px var(--link-glow),
+			inset 0 1px 0 var(--highlight-strong);
 		transform: translateZ(0) scale(1.05);
 		border-color: var(--link-color);
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-	}
-
-	:root[data-theme="dark"]
-		.pagination-button:hover:not(:disabled):not(.active) {
-		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
+		text-shadow: var(--text-shadow);
 	}
 }
 
@@ -127,7 +115,10 @@ bm-pagination .pagination-container[hidden] {
 	background: var(--pagination-active-bg);
 	color: var(--pagination-active-text);
 	border-color: var(--pagination-active-bg);
-	box-shadow: var(--pagination-shadow-active);
+	box-shadow:
+		var(--pagination-shadow-active),
+		0 0 8px light-dark(transparent, var(--link-glow)),
+		inset 0 1px 0 var(--highlight-faint);
 	font-weight: 600;
 	position: relative;
 
@@ -144,14 +135,13 @@ bm-pagination .pagination-container[hidden] {
 	background: var(--pagination-active-bg);
 	border-radius: calc(var(--pagination-border-radius) + 2px);
 	opacity: 0.2;
-	z-index: -1;
+	z-index: var(--z-local-below);
 	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
 	.pagination-button.active:hover {
 		transform: translateZ(0) scale(1.05);
-		box-shadow: var(--pagination-shadow-active);
 		filter: brightness(1.05);
 	}
 
@@ -177,44 +167,29 @@ bm-pagination .pagination-container[hidden] {
 	filter: none;
 }
 
-.pagination-button:disabled:focus-visible {
-	outline: none;
-	box-shadow: none;
-}
-
 .pagination-button:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
 	box-shadow: var(--pagination-shadow-focus);
-	border-radius: var(--pagination-border-radius);
 	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
 		var(--loop-count);
 }
 
-:root[data-theme="dark"] .pagination-button:focus-visible {
-	outline-color: var(--link-color);
-}
-
 .pagination-container:focus-visible {
-	outline: 2px solid var(--link-color);
-	outline-offset: 2px;
-	box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
-	border-radius: var(--pagination-border-radius);
+	box-shadow: var(--pagination-shadow-focus);
 }
 
 .pagination-button:focus {
 	position: relative;
-	z-index: 1;
+	z-index: var(--z-local-1);
 }
 
 @keyframes focusPulse {
 	0%,
 	100% {
-		box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.2);
+		box-shadow: var(--pagination-shadow-focus);
 	}
 
 	50% {
-		box-shadow: 0 0 0 4px rgba(43, 195, 206, 0.4);
+		box-shadow: 0 0 0 4px var(--focus-halo-color-strong);
 	}
 }
 
@@ -235,12 +210,8 @@ bm-pagination .pagination-container[hidden] {
 		opacity var(--duration-1) var(--ease-out);
 }
 
-:root[data-theme="light"] .pagination-ellipsis {
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-:root[data-theme="dark"] .pagination-ellipsis {
-	text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+.pagination-ellipsis {
+	text-shadow: 0 1px 2px var(--shadow-color);
 }
 
 @media screen and (min-width: 1024px) {
@@ -255,6 +226,7 @@ bm-pagination .pagination-container[hidden] {
 
 @media screen and (max-width: 479px) {
 	.pagination-container {
+		bottom: 10px;
 		padding: 0.1rem;
 		overflow-x: auto;
 		scrollbar-width: none;
@@ -290,14 +262,10 @@ bm-pagination .pagination-container[hidden] {
 			0 0 0 2px var(--pagination-active-bg);
 	}
 
-	.pagination-button:focus-visible {
-		outline-width: 4px;
-		box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
-	}
-
+	.pagination-button:focus-visible,
 	.pagination-container:focus-visible {
-		outline-width: 4px;
-		box-shadow: 0 0 0 8px rgba(43, 195, 206, 0.4);
+		outline-width: calc(var(--focus-ring-width) * 2);
+		box-shadow: 0 0 0 8px var(--focus-halo-color-strong);
 	}
 
 	.pagination-ellipsis {
@@ -315,47 +283,10 @@ bm-pagination .pagination-container[hidden] {
 	pointer-events: none;
 }
 
-:root[data-theme="light"] .pagination-button:not(:disabled):not(.active) {
+.pagination-button:not(:disabled):not(.active) {
 	box-shadow:
-		inset 0 1px 0 rgba(255, 255, 255, 0.2),
+		inset 0 1px 0 var(--highlight-soft),
 		var(--pagination-shadow);
-}
-
-:root[data-theme="light"] .pagination-button.active {
-	box-shadow:
-		var(--pagination-shadow-active),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-:root[data-theme="dark"] .pagination-button:not(:disabled):not(.active) {
-	box-shadow:
-		inset 0 1px 0 rgba(255, 255, 255, 0.1),
-		var(--pagination-shadow);
-}
-
-:root[data-theme="dark"] .pagination-button.active {
-	box-shadow:
-		var(--pagination-shadow-active),
-		0 0 8px rgba(116, 206, 255, 0.3),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-	:root[data-theme="light"]
-		.pagination-button:hover:not(:disabled):not(.active) {
-		box-shadow:
-			var(--pagination-shadow-hover),
-			0 0 12px rgba(35, 214, 227, 0.2),
-			inset 0 1px 0 rgba(255, 255, 255, 0.3);
-	}
-
-	:root[data-theme="dark"]
-		.pagination-button:hover:not(:disabled):not(.active) {
-		box-shadow:
-			var(--pagination-shadow-hover),
-			0 0 12px rgba(116, 206, 255, 0.3),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
-	}
 }
 
 @media (forced-colors: active) {
@@ -374,11 +305,6 @@ bm-pagination .pagination-container[hidden] {
 	.pagination-button:disabled {
 		color: GrayText;
 		border-color: GrayText;
-	}
-
-	.pagination-button:focus-visible {
-		outline: 2px solid Highlight;
-		outline-offset: 2px;
 	}
 }
 

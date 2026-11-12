@@ -23,6 +23,7 @@ Project conventions
 - ES modules with named exports; keep functions short and single-responsibility.
 - Mobile detection: use window.innerWidth < 480 or getDeviceType() for consistency.
 - Use requestAnimationFrame for scroll/resize UI updates and passive scroll listeners where applicable.
+- Colours, shadows, focus ring, radii and z-index are tokens in `assets/css/base.css`: colours use `light-dark()` (`color-scheme` follows `data-theme`), every control gets the global `:focus-visible` ring (`--focus-ring-*`), and rules use `--radius-*` / `--z-*` instead of literals.
 - Motion durations and easings are tokens in `assets/css/base.css`; JS reads them (and `prefers-reduced-motion`) through `assets/js/modules/utils/motion.js` instead of hard-coding values.
 - Accessibility: keep ARIA roles/labels on interactive elements (see render/sidebar.js).
 
