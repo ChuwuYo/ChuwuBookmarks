@@ -13,7 +13,6 @@
 		padding var(--duration-short) var(--ease-in-out-cubic),
 		background-color var(--duration-short) var(--ease-default);
 	overflow: hidden;
-	height: 100vh;
 	height: 100dvh;
 	z-index: 1000;
 	box-sizing: border-box;
@@ -229,7 +228,6 @@
 	z-index: 2;
 	overflow-y: auto;
 	scrollbar-width: none;
-	-ms-overflow-style: none;
 }
 
 .main-content::-webkit-scrollbar {

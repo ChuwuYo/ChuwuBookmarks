@@ -28,8 +28,6 @@ const getDeviceType = () => {
 };
 
 const isMobileDevice = () => getDeviceType() === "mobile";
-const isTabletDevice = () => getDeviceType() === "tablet";
-const isDesktopDevice = () => getDeviceType() === "desktop";
 const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
 
 const updateSidebarVisibility = (
@@ -74,19 +72,13 @@ const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 
 const handleDeviceView = () => {
 	const sidebar = document.querySelector(".sidebar");
-	const toggleButton = document.getElementById("toggle-sidebar");
 	const deviceType = getDeviceType();
 	const shouldCollapse = shouldCollapseSidebar();
 
 	document.body.classList.toggle("mobile-device", deviceType === "mobile");
-	document.body.classList.toggle("tablet-device", deviceType === "tablet");
-	document.body.classList.toggle("desktop-device", deviceType === "desktop");
 
 	if (sidebar) {
 		sidebar.classList.add("js-initialized");
-	}
-	if (toggleButton) {
-		toggleButton.classList.add("js-initialized");
 	}
 
 	if (sidebar) {
@@ -96,14 +88,9 @@ const handleDeviceView = () => {
 
 export {
 	BREAKPOINT_MOBILE,
-	BREAKPOINT_SIDEBAR,
-	checkBreadcrumbsScroll,
 	getDeviceType,
 	handleDeviceView,
-	isDesktopDevice,
 	isMobileDevice,
-	isTabletDevice,
 	shouldCollapseSidebar,
 	updateSidebarState,
-	updateSidebarVisibility,
 };

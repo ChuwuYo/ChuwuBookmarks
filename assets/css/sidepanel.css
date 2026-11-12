@@ -28,12 +28,6 @@
 	backface-visibility: hidden;
 }
 
-.sidebar:not(.js-initialized) #toggle-sidebar,
-.sidebar:not(.js-initialized).collapsed #toggle-sidebar {
-	transform: translateZ(0);
-	border-radius: 0 15px 15px 0;
-}
-
 #toggle-sidebar img {
 	width: 24px;
 	height: 24px;
@@ -82,7 +76,6 @@
 
 /* 注意: 1023px 对应 BREAKPOINT_SIDEBAR (1024px) - 1 */
 @media screen and (max-width: 1023px) {
-	.sidebar.collapsed #toggle-sidebar,
 	.sidebar:not(.js-initialized) #toggle-sidebar {
 		transform: translateZ(0);
 		border-radius: 0 15px 15px 0;

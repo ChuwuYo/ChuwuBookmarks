@@ -1,10 +1,10 @@
 .home-button {
 	background: linear-gradient(
 		to bottom,
-		var(--home-button-bg-start, #9ee9f4d8),
-		var(--home-button-bg-end, #d1d1f3a5)
+		var(--home-button-bg-start),
+		var(--home-button-bg-end)
 	);
-	color: var(--home-button-text, #333);
+	color: var(--home-button-text);
 	padding: 10px 25px;
 	border-radius: 12px;
 	cursor: pointer;
@@ -20,11 +20,9 @@
 	box-shadow:
 		0 4px 6px rgba(0, 0, 0, 0.1),
 		inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-	transform: translateY(0);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
 	will-change: transform, box-shadow, border-radius;
 	backface-visibility: hidden;
 	transform: translateZ(0);
@@ -69,8 +67,8 @@
 	.home-button:active {
 		background: linear-gradient(
 			to bottom,
-			var(--home-button-bg-start, #9ee9f4d8),
-			var(--home-button-bg-end, #d1d1f3a5)
+			var(--home-button-bg-start),
+			var(--home-button-bg-end)
 		);
 		box-shadow:
 			0 4px 6px rgba(0, 0, 0, 0.1),

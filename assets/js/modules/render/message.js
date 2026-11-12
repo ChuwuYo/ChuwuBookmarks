@@ -8,9 +8,6 @@ const clearElements = (selectors) => {
 	const list = Array.isArray(selectors) ? selectors : [selectors];
 	list.forEach((selector) => {
 		document.querySelectorAll(selector).forEach((el) => {
-			if (el.observer && typeof el.observer.disconnect === "function") {
-				el.observer.disconnect();
-			}
 			el.remove();
 		});
 	});
