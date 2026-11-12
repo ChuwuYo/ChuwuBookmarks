@@ -3,12 +3,16 @@
  * - 点击 [data-sidebar-toggle] 按钮时触发 bm-sidebar-toggle（detail: { collapsed }），
  *   由应用决定如何收起/展开（动画、断点等）。
  * - 侧边栏状态（.collapsed 类）同步到 data-state 与切换按钮的 aria-expanded。
+ * - 子元素滚动期间带 data-scrolling，停止 --scroll-idle 后移除。
  * 规范见 docs/components.md。
  */
+
+import { trackScrollActivity } from "../../js/modules/utils/scroll-activity.js";
 
 export class BmSidebar extends HTMLElement {
 	#aside = null;
 	#observer = null;
+	#untrackScroll = null;
 
 	get collapsed() {
 		return this.#aside?.classList.contains("collapsed") ?? false;
@@ -17,6 +21,7 @@ export class BmSidebar extends HTMLElement {
 	connectedCallback() {
 		this.#aside = this.closest(".sidebar") ?? this.parentElement;
 		this.addEventListener("click", this.#onClick);
+		this.#untrackScroll = trackScrollActivity(this);
 		this.#observer = new MutationObserver(() => this.#sync());
 		this.#observer.observe(this.#aside, {
 			attributes: true,
@@ -27,6 +32,8 @@ export class BmSidebar extends HTMLElement {
 
 	disconnectedCallback() {
 		this.removeEventListener("click", this.#onClick);
+		this.#untrackScroll?.();
+		this.#untrackScroll = null;
 		this.#observer?.disconnect();
 		this.#observer = null;
 	}
