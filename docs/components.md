@@ -91,13 +91,22 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 `--item-index` 由渲染模块用 `style.setProperty()` 写在每一项上。GSAP 只用于首页标题的编排。
 侧边栏展开时 `.sidebar` 带 `data-entering`，其中的文件夹播放入场动画，播完后移除。
 搜索翻页时 `#content` 带 `data-page-changing`，播放一次 `@keyframes dim-and-restore`
-（先变暗再恢复），`animationend` 时移除并聚焦第一项结果。
+（先变暗再恢复），`animationend` 时移除并聚焦第一项结果（书签的链接或文件夹卡片，`preventScroll`）。
 
 ### 加载与地址栏
 
-- 加载提示只用 `render/message.js` 的 `renderLoading(container, text)`：以
-  `.loading`（`role="status"`）替换容器内容，内含 `.loading-spinner` 与 `.loading-text`。
-  转圈尺寸取令牌 `--spinner-size` 与 `--spinner-width`。首屏、懒加载文件夹与搜索共用它。
+- `#content` 与 `#breadcrumbs` 只由 `render/view.js` 写入：`showView({ content, breadcrumbs })`
+  开始一个新视图（两者整体替换，缺省为空，同时移除 `data-page-changing`）并返回视图 id；
+  `updateView(view, { content?, breadcrumbs? })` 只在该视图仍是当前视图时替换给出的部分；
+  `isCurrentView(view)` 供异步续写（懒加载文件夹、搜索结果、首页标题逐字动画）在每个
+  `await` 之后核对；`leaveView()` 让当前视图的待完成续写失效（搜索输入变化时调用）。
+  首页、文件夹、搜索、空结果与错误都在 `#content` 内渲染，各布局只有这一条路径。
+- 首页视图在 `script.js` 启动时直接渲染（只依赖 `site.config.js`）；地址栏带 `q` 时改为显示
+  搜索加载提示。书签数据到达后只渲染侧边栏，不重新渲染主视图。
+- 加载提示、空结果与错误的节点由 `render/message.js` 构建：`loadingMessage(text)` 返回
+  `.loading`（`role="status"`），内含 `.loading-spinner` 与 `.loading-text`，转圈尺寸取令牌
+  `--spinner-size` 与 `--spinner-width`；另有 `noResultsMessage()`、`dataErrorMessage(error)`、
+  `searchUnavailableMessage()`、`folderErrorMessage(title)`。懒加载文件夹与搜索共用同一加载提示。
 - 清空或整体替换容器内容一律用 `replaceChildren()`，不写 `innerHTML = ""`。
 - 地址栏中的搜索状态（`q`、`page`）只经 `assets/js/modules/utils/url-state.js` 读写：
   `readSearchState()` 返回 `{ query, page }`，`writeSearchState({ query?, page? })`
