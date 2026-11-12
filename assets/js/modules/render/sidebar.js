@@ -11,8 +11,6 @@ const setParentReferences = (items, parent) => {
 
 const renderSidebar = (data) => {
 	const sidebar = document.getElementById("sidebar-folders");
-	if (!sidebar) return;
-
 	const fragment = document.createDocumentFragment();
 
 	const possibleRootNames = [

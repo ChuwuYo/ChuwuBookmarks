@@ -57,16 +57,12 @@ const playPageTransition = (content) => {
 };
 
 const updateHistory = (page) => {
-	const keyword = document.querySelector("bm-search")?.value.trim();
+	const keyword = document.querySelector("bm-search").value.trim();
 	if (!keyword) return;
 	writeSearchState({ query: keyword, page });
 };
 
-const pageFromUrl = (total) => {
-	const { page } = readSearchState();
-	if (!Number.isFinite(page) || page < 1) return 1;
-	return Math.min(page, total);
-};
+const pageFromUrl = (total) => Math.min(readSearchState().page ?? 1, total);
 
 const renderSearchResults = (view, results) => {
 	if (!isCurrentView(view)) return;
@@ -84,8 +80,7 @@ const renderSearchResults = (view, results) => {
 	const total = Math.ceil(sorted.length / ITEMS_PER_PAGE);
 	const page = pageFromUrl(total);
 	renderPage(container, sorted, page);
-	if (page > 1) updateHistory(page);
-	else if (readSearchState().page !== null) updateHistory(1);
+	updateHistory(page);
 
 	if (total <= 1) {
 		updateView(view, { content: [container] });

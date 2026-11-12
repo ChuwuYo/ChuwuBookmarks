@@ -115,7 +115,7 @@ You can also visit the following links to experience the service:
    
    * Supports switching between dark and light modes
    
-   * Follows the system color scheme until you pick one, then remembers your choice
+   * Follows the system color scheme until you pick a different one, then remembers that choice; switching back to the system's scheme returns to following the system, and other open tabs update to match
 
    * The saved theme is applied before the first paint, so the page does not flash
    

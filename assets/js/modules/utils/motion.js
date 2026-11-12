@@ -7,12 +7,6 @@ const getReducedMotionQuery = () => {
 
 const prefersReducedMotion = () => getReducedMotionQuery().matches;
 
-const onReducedMotionChange = (callback) => {
-	getReducedMotionQuery().addEventListener("change", () =>
-		callback(prefersReducedMotion()),
-	);
-};
-
 const readToken = (name) =>
 	getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
@@ -34,15 +28,16 @@ const easing = (name) => readToken(name) || "ease";
 /** GSAP 核心不解析 cubic-bezier()；power1.out 即 --ease-out 所用的二次缓出曲线 */
 const GSAP_EASE = { out: "power1.out", bounce: "bounce.out" };
 
-/** 减弱动态效果时保留 GSAP 时间线，但几乎瞬间播完 */
 const REDUCED_GSAP_TIME_SCALE = 100;
 
 const syncGsapWithReducedMotion = () => {
 	if (typeof gsap === "undefined") return;
-	const apply = (reduce) =>
-		gsap.globalTimeline.timeScale(reduce ? REDUCED_GSAP_TIME_SCALE : 1);
-	apply(prefersReducedMotion());
-	onReducedMotionChange(apply);
+	const apply = () =>
+		gsap.globalTimeline.timeScale(
+			prefersReducedMotion() ? REDUCED_GSAP_TIME_SCALE : 1,
+		);
+	apply();
+	getReducedMotionQuery().addEventListener("change", apply);
 };
 
 export {
@@ -50,7 +45,6 @@ export {
 	durationS,
 	easing,
 	GSAP_EASE,
-	onReducedMotionChange,
 	prefersReducedMotion,
 	syncGsapWithReducedMotion,
 };

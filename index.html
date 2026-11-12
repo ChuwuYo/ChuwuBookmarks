@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TXBClobJfJUYUBKHOWQF4buljVqeStzfT23hdWAOhqQ=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://favicon.im https://*.google.com https://*.gstatic.com https://*.favicon.im; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'" />
     <meta name="description" content="ChuwuBookmarks - 基于浏览器的书签导航网页，将JSON书签数据转换为美观且功能丰富的网页应用。支持多级文件夹、智能搜索、面包屑导航、主题切换和响应式设计，但不提供书签管理功能" />
     <meta name="keywords" content="书签导航,书签展示,JSON书签,网页书签,书签整理,浏览器书签,多级文件夹,ChuwuBookmarks" />
     <meta name="author" content="ChuwuYo" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#23d6e3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#74ceff" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
     <!--
       在样式表之前同步执行，第一帧就确定主题，避免先亮后暗。
       须与 assets/js/modules/render/theme.js 中的 THEME_KEY / THEME_COLOR 保持一致。
+      脚本内容一旦改动，须重新计算上方 Content-Security-Policy 中 script-src 的 sha256。
       manifest.json 的 theme_color / background_color 取浅色主题的 --link-color / --bg-color。
     -->
     <script>
@@ -56,7 +59,6 @@
     <!-- 部署时请替换为你的实际网站URL -->
     <meta name="google-site-verification" content="8zsmuQx-SCbThZFJLAlFobIQTPTA9vFTRurjk71uZRk" />
     <!-- 部署时请替换为你的Google验证码 -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://favicon.im https://*.google.com https://*.gstatic.com https://*.favicon.im; font-src 'self'; connect-src 'self' https://cloudflareinsights.com" />
     
     <title>初五的书签回廊</title>
     <link rel="icon" type="image/webp" href="assets/icon/bocchi.webp">
@@ -166,7 +168,7 @@
                 <bm-icon name="search" class="search-icon"></bm-icon>
                 <div class="shortcut-hint" aria-hidden="true"></div>
             </bm-search>
-            <button id="theme-toggle" type="button" class="theme-toggle" aria-label="切换主题">
+            <button id="theme-toggle" type="button" class="theme-toggle" aria-label="深色主题" aria-pressed="false">
                 <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <mask id="theme-icon-mask">
                         <rect width="24" height="24" fill="#fff"></rect>
@@ -196,7 +198,6 @@
         <section id="content" aria-label="书签内容区域"></section>
     </main>
     <script type="module" src="script.js"></script>
-    <script src="assets/js/vendor/instant.page_v5.2.0.js" defer></script>
     <!-- 结构化数据（JSON-LD） - 使用根目录 structured-data.json 的内容，已内联以便搜索引擎抓取 -->
     <script type="application/ld+json">
     {

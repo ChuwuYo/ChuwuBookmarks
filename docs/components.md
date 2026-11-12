@@ -49,9 +49,9 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   主题按钮的图标变形与长度值，以及图片。
 - **焦点**：`base.css` 的全局 `:focus-visible` 用 `--focus-ring-width`、`--focus-ring-color`、
   `--focus-ring-offset` 画 `outline`，所有可交互元素共用，组件不再写自己的 outline，
-  也不在静止状态或触屏下写 `outline: none`。焦点环跟随元素自身的圆角，聚焦时不改形状。
-  需要外圈光晕的组件用 `--focus-halo-color` / `--focus-halo-color-strong` 加 `box-shadow`，
-  但不能只靠 `box-shadow`。`forced-colors: active` 下不覆盖 outline 颜色。
+  也不在静止状态或触屏下写 `outline: none`，也不另加光晕或循环动画。焦点环跟随元素自身的圆角，
+  聚焦时不改形状。`prefers-contrast: more` 时 `base.css` 把 `--focus-ring-width` 加粗到 4px；
+  `forced-colors: active` 下不覆盖 outline 颜色。
 - **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
   胶囊 `--radius-full`（999px）。
 - **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
@@ -64,14 +64,13 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   其余设备（触屏、触控笔、混合设备）统一走它的补集
   `not ((hover: hover) and (pointer: fine))`，触屏专用的样式用 `(any-pointer: coarse)`。
   不用 JS 给 `body` 或容器加设备类。JS 需要的断点与输入判断一律从
-  `assets/js/modules/utils/viewport.js` 读取（`isNarrow()`、`isCompact()`、
-  `isSidebarOverlay()`、`canHover()`、`hasCoarsePointer()`，以及 `onChange(name, cb)`
-  订阅 `MediaQueryList` 的变化），不比较 `window.innerWidth`，不检测 `ontouchstart`
+  `assets/js/modules/utils/viewport.js` 读取（`isCompact()`、`isSidebarOverlay()`，
+  以及 `onChange(name, cb)` 订阅 `MediaQueryList` 的变化；需要新的判断时在这里加查询），不比较 `window.innerWidth`，不检测 `ontouchstart`
   或 User-Agent（`<bm-search>` 的快捷键标签除外）。
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
 （100/150/200/300/400ms）、`--duration-loop`、`--duration-spin`、
-`--duration-theme-expand/collapse`、`--stagger-step`、`--scroll-idle`（600ms，滚动停止到滚动条开始淡出），
+`--duration-theme-expand/collapse`、`--duration-reveal`（首屏显现的淡入，默认同 `--duration-3`，减弱动态效果时为 0）、`--stagger-step`、`--scroll-idle`（600ms，滚动停止到滚动条开始淡出），
 循环次数 `--loop-count`，缓动
 `--ease-out`、`--ease-in-out`、`--ease-standard`、`--ease-linear`、`--ease-spring`、
 `--ease-spring-soft`。`transition` 必须逐项写出属性，不写 `all`；被过渡的自定义属性要用
@@ -109,8 +108,8 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   `searchUnavailableMessage()`、`folderErrorMessage(title)`。懒加载文件夹与搜索共用同一加载提示。
 - 清空或整体替换容器内容一律用 `replaceChildren()`，不写 `innerHTML = ""`。
 - 地址栏中的搜索状态（`q`、`page`）只经 `assets/js/modules/utils/url-state.js` 读写：
-  `readSearchState()` 返回 `{ query, page }`，`writeSearchState({ query?, page? })`
-  只改动传入的字段，用 `history.replaceState` 写入，失败时只记录错误。
+  `readSearchState()` 返回 `{ query, page }`（`page` 只会是正整数或 `null`，在这里解析），`writeSearchState({ query?, page? })`
+  只改动传入的字段，用 `history.replaceState` 写入。
 
 ### 滚动条
 
@@ -123,7 +122,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   `scrollbar-color`；只有不支持 `scrollbar-color` 的浏览器退回 `::-webkit-scrollbar`。
 - 只在 `(pointer: fine)` 下隐藏与淡入淡出；触屏保留系统自带的悬浮滚动条。
   `<html>` 设 `scrollbar-gutter: stable`，页面长短切换时内容不左右跳动。
-- 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）悬停时也显示。显示用
+- 容器带 `data-scrolling` 时显示；元素容器（不含 `<html>`）在 `(hover: hover) and (pointer: fine)` 下悬停时也显示。显示用
   `--duration-1` `--ease-out` 淡入，隐藏用 `--duration-3` `--ease-linear` 淡出。
   不可滚动时浏览器本身不画滚动条。减弱动态效果时只缩短淡出，仍只改颜色、不移动。
 - 不支持滚动驱动动画的浏览器（如 Firefox 默认）看不到侧边栏上下渐隐，
@@ -161,6 +160,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | 当前项 | `aria-current="page"`（分页）/ `aria-current="location"`（面包屑） |
 | 禁用 | 原生 `disabled` |
 | 展开/收起 | 切换按钮的 `aria-expanded` + 侧边栏的 `data-state="expanded" / "collapsed"` |
+| 深色主题 | 主题按钮（`aria-label="深色主题"`）的 `aria-pressed`，由 `render/theme.js` 随 `data-theme` 一起写入 |
 | 滚动中 | 滚动容器上的 `data-scrolling`（见“滚动条”） |
 | 图标已加载 | `bm-card` 的 `.bookmark-icon[data-loaded]` |
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
@@ -229,7 +229,7 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 颜色 `--pagination-bg`、`--pagination-border`、`--pagination-text`、`--pagination-active-bg`、
 `--pagination-active-text`、`--pagination-hover-bg`、`--pagination-disabled-text`，
 圆角 `--pagination-border-radius`，阴影 `--pagination-shadow`、`--pagination-shadow-hover`、
-`--pagination-shadow-active`、`--pagination-shadow-focus`。
+`--pagination-shadow-active`。
 
 ## `<bm-breadcrumbs>`
 
@@ -248,8 +248,12 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 `scroll(self)`）驱动。有隐藏内容的一侧才渐隐：在起点只有右侧，滚动中两侧，到末端只有左侧；
 内容不溢出时滚动时间线无效，两侧都不渐隐。不支持滚动驱动动画的浏览器不加渐隐动画，遮罩保持全显。
 
-DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
-最后一项为当前位置，带 `aria-current="location"` 且不触发导航，样式按 `[aria-current]` 选择。
+DOM 契约：`.breadcrumb-icon > bm-icon` + `ol.breadcrumb-list > li`；每个 `li` 内是
+`.breadcrumb-item`，第一项以外前面还有 `.breadcrumb-separator`（`aria-hidden="true"`）。
+主页与祖先项是带 `data-index` 的按钮；最后一项为当前位置，是带 `aria-current="location"`
+的 `span`，不可聚焦、不触发导航，也没有悬停效果，样式按 `[aria-current]` 选择。
+`ol`、`li` 与元素自身都是 `display: contents`，各项直接参与 `#breadcrumbs` 的行内或 flex 布局；
+`ol` 与 `li` 显式带 `role="list"` / `role="listitem"`，保证列表语义留在无障碍树中。
 
 面包屑项、分隔符与图标的样式（含窄屏的胶囊样式）都在 `bm-breadcrumbs.css`；
 父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
@@ -320,4 +324,5 @@ DOM 契约：内含 `input#search-input`（没有时组件创建一个 `type="te
 
 页面加载时宽度小于 1024px 则收起；
 之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
-同一布局内调整窗口大小不会覆盖手动切换的状态。
+同一布局内调整窗口大小不会覆盖手动切换的状态。侧边栏覆盖内容时（宽度小于 1024px），返回主页、打开文件夹或点击面包屑后
+由 `render/sidebar-state.js` 的 `closeSidebarOverlay()` 收起，各入口共用这一条规则。

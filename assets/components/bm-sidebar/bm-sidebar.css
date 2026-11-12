@@ -9,12 +9,10 @@ bm-sidebar {
 	width: var(--sidebar-width);
 	background: var(--sidebar-bg);
 	box-shadow: var(--shadow-md);
-	padding: 20px 20px 0;
 	display: flex;
 	flex-direction: column;
 	transition:
 		width var(--duration-1) var(--ease-standard),
-		padding var(--duration-1) var(--ease-standard),
 		background-color var(--duration-1) var(--ease-out);
 	overflow: hidden;
 	height: 100dvh;
@@ -26,8 +24,10 @@ bm-sidebar {
 #sidebar-folders {
 	--edge-fade-size: 2.5rem;
 	flex: 1 1 auto;
+	box-sizing: border-box;
+	width: var(--sidebar-width);
 	min-height: 0;
-	margin: 0 -20px 12px;
+	margin-bottom: 12px;
 	padding: 0 20px calc(1.5rem + env(safe-area-inset-bottom, 0px));
 	overflow: hidden auto;
 	overscroll-behavior: contain;
@@ -66,14 +66,12 @@ bm-sidebar {
 @media screen and (width < 1024px) {
 	.sidebar:not([data-state]) {
 		width: 0;
-		padding: 0;
 		overflow: hidden;
 	}
 }
 
 .sidebar[data-state="collapsed"] {
 	width: 0;
-	padding: 0;
 	overflow: hidden;
 }
 
@@ -95,7 +93,9 @@ bm-sidebar {
 	align-items: center;
 	gap: 20px;
 	flex: none;
-	margin-bottom: 20px;
+	box-sizing: border-box;
+	width: calc(var(--sidebar-width) - 40px);
+	margin: 20px;
 	padding: 0 5px;
 	flex-wrap: nowrap;
 	min-height: 40px;
@@ -112,8 +112,7 @@ bm-sidebar {
 	.sidebar[data-state="collapsed"] {
 		transition:
 			left var(--duration-1) var(--ease-standard),
-			width 0s var(--duration-1),
-			padding 0s var(--duration-1);
+			width 0s var(--duration-1);
 	}
 
 	.sidebar:not([data-state="collapsed"]) {

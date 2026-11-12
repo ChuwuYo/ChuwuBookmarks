@@ -1,12 +1,12 @@
 let current = 0;
 
 const fill = (id, nodes) => {
-	if (nodes) document.getElementById(id)?.replaceChildren(...nodes);
+	if (nodes) document.getElementById(id).replaceChildren(...nodes);
 };
 
 const nextView = () => {
 	current += 1;
-	document.getElementById("content")?.removeAttribute("data-page-changing");
+	document.getElementById("content").removeAttribute("data-page-changing");
 	return current;
 };
 
