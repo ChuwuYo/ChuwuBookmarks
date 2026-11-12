@@ -24,14 +24,6 @@ bm-pagination .pagination-container[hidden] {
 	--pagination-shadow-hover: var(--shadow-md);
 	--pagination-shadow-active: var(--button-shadow);
 	--pagination-shadow-focus: 0 0 0 4px rgba(35, 214, 227, 0.2);
-
-	--pagination-transition-base: all var(--duration-base) var(--ease-default);
-	--pagination-transition-transform: transform var(--duration-base)
-		var(--ease-out-quad);
-	--pagination-transition-colors:
-		background-color var(--duration-short) var(--ease-default),
-		color var(--duration-short) var(--ease-default),
-		border-color var(--duration-short) var(--ease-default);
 }
 
 @media screen and (max-width: 479px) {
@@ -73,12 +65,10 @@ bm-pagination .pagination-container[hidden] {
 	transform: translateX(-50%);
 
 	transition:
-		transform var(--duration-base) var(--ease-in-out-cubic),
-		opacity var(--duration-base) var(--ease-default);
-	will-change: transform, opacity;
+		transform var(--duration-2) var(--ease-standard),
+		opacity var(--duration-2) var(--ease-out),
+		background-color var(--duration-2) var(--ease-out);
 	backface-visibility: hidden;
-
-	transition-property: transform, opacity, background-color;
 }
 
 .pagination-button {
@@ -105,17 +95,17 @@ bm-pagination .pagination-container[hidden] {
 	position: relative;
 
 	transition:
-		var(--pagination-transition-colors), var(--pagination-transition-transform);
-
-	will-change: transform, background-color, box-shadow, border-color;
+		background-color var(--duration-1) var(--ease-out),
+		color var(--duration-1) var(--ease-out),
+		border-color var(--duration-1) var(--ease-out),
+		box-shadow var(--duration-1) var(--ease-out),
+		opacity var(--duration-1) var(--ease-out),
+		transform var(--duration-2) var(--ease-out);
 	backface-visibility: hidden;
 	transform: translateZ(0);
 
 	touch-action: manipulation;
 	-webkit-tap-highlight-color: transparent;
-
-	transition-property:
-		background-color, color, border-color, transform, box-shadow, opacity;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -155,7 +145,7 @@ bm-pagination .pagination-container[hidden] {
 	border-radius: calc(var(--pagination-border-radius) + 2px);
 	opacity: 0.2;
 	z-index: -1;
-	transition: opacity var(--duration-base) var(--ease-default);
+	transition: opacity var(--duration-2) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -175,7 +165,6 @@ bm-pagination .pagination-container[hidden] {
 	cursor: not-allowed;
 	opacity: 0.6;
 	border-color: var(--pagination-disabled-text);
-	transition: var(--pagination-transition-colors);
 
 	transform: translateZ(0) scale(1);
 }
@@ -198,9 +187,8 @@ bm-pagination .pagination-container[hidden] {
 	outline-offset: 2px;
 	box-shadow: var(--pagination-shadow-focus);
 	border-radius: var(--pagination-border-radius);
-	transition:
-		outline-color var(--duration-short) var(--ease-default),
-		box-shadow var(--duration-short) var(--ease-default);
+	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
+		var(--loop-count);
 }
 
 :root[data-theme="dark"] .pagination-button:focus-visible {
@@ -217,12 +205,6 @@ bm-pagination .pagination-container[hidden] {
 .pagination-button:focus {
 	position: relative;
 	z-index: 1;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.pagination-button:focus-visible {
-		animation: focusPulse 2s ease-in-out infinite;
-	}
 }
 
 @keyframes focusPulse {
@@ -249,8 +231,8 @@ bm-pagination .pagination-container[hidden] {
 	cursor: default;
 	opacity: 0.7;
 	transition:
-		color var(--duration-short) var(--ease-default),
-		opacity var(--duration-short) var(--ease-default);
+		color var(--duration-1) var(--ease-out),
+		opacity var(--duration-1) var(--ease-out);
 }
 
 :root[data-theme="light"] .pagination-ellipsis {
@@ -326,7 +308,7 @@ bm-pagination .pagination-container[hidden] {
 
 .page-changing {
 	opacity: 0.8;
-	transition: opacity 0.2s ease;
+	transition: opacity var(--duration-3) var(--ease-standard);
 }
 
 .page-changing .results-container {
@@ -374,33 +356,6 @@ bm-pagination .pagination-container[hidden] {
 			0 0 12px rgba(116, 206, 255, 0.3),
 			inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.pagination-container,
-	.pagination-button {
-		transition:
-			color var(--duration-short) var(--ease-default),
-			background-color var(--duration-short) var(--ease-default),
-			border-color var(--duration-short) var(--ease-default);
-		animation: none;
-	}
-
-	.pagination-button:hover:not(:disabled) {
-		transform: translateZ(0);
-	}
-
-	.page-changing {
-		transition: none;
-	}
-}
-
-.pagination-container .pagination-button,
-.pagination-container .pagination-ellipsis {
-	transition-property:
-		background-color, color, border-color, box-shadow, opacity;
-	transition-duration: var(--duration-short);
-	transition-timing-function: var(--ease-default);
 }
 
 @media (forced-colors: active) {

@@ -1,20 +1,9 @@
-const animationConfig = {
-	duration: {
-		medium: 0.3,
-		long: 0.5,
-	},
-	ease: {
-		outQuad: "power1.out",
-	},
-};
-
-const applyReducedMotion = () => {
-	if (typeof gsap === "undefined") return;
-	const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-	const apply = () => gsap.globalTimeline.timeScale(query.matches ? 100 : 1);
-	apply();
-	query.addEventListener("change", apply);
-};
+import {
+	durationMs,
+	easing,
+	prefersReducedMotion,
+	syncGsapWithReducedMotion,
+} from "../utils/motion.js";
 
 const THEME_COLOR = { light: "#23d6e3", dark: "#74ceff" };
 const syncThemeColor = (theme) => {
@@ -53,7 +42,7 @@ const systemThemeQuery = () =>
 const getSystemTheme = () => (systemThemeQuery().matches ? "dark" : "light");
 
 const initTheme = () => {
-	applyReducedMotion();
+	syncGsapWithReducedMotion();
 	const root = document.documentElement;
 	const theme = readStoredTheme() ?? getSystemTheme();
 	setRootTheme(theme);
@@ -65,10 +54,7 @@ const initTheme = () => {
 		root.classList.add(SWITCH_CLASS);
 		setRootTheme(next);
 		syncThemeColor(next);
-		setTimeout(
-			() => root.classList.remove(SWITCH_CLASS),
-			ENABLE_TRANSITIONS_DELAY,
-		);
+		afterStyleCommit(() => root.classList.remove(SWITCH_CLASS));
 	});
 };
 
@@ -78,15 +64,13 @@ const initTheme = () => {
 const SWITCH_CLASS = "theme-switching";
 const CIRCLE_CLASS = "theme-switching-circle";
 const REVERSE_CLASS = "theme-switching-reverse";
-const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
-const DURATION = { expand: 600, collapse: 500 };
-const ENABLE_TRANSITIONS_DELAY = 500;
 const SAFETY_MARGIN = 2000;
 const PROBE_NAME = "theme-origin-probe";
 let switchId = 0;
 
-const prefersReducedMotion = () =>
-	window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/** 新主题的样式至少渲染过一帧后再执行，此时恢复过渡不会补播颜色变化 */
+const afterStyleCommit = (callback) =>
+	requestAnimationFrame(() => requestAnimationFrame(callback));
 
 const applyTheme = (theme) => {
 	manualTheme = theme;
@@ -174,9 +158,9 @@ const toggleTheme = () => {
 
 	if (typeof document.startViewTransition !== "function") {
 		applyTheme(next);
-		setTimeout(() => {
+		afterStyleCommit(() => {
 			if (isCurrent()) root.classList.remove(SWITCH_CLASS);
-		}, ENABLE_TRANSITIONS_DELAY);
+		});
 		return;
 	}
 
@@ -220,11 +204,13 @@ const toggleTheme = () => {
 					{ clipPath: toCircle(0, x, y) },
 					{ clipPath: toCircle(radius, x, y) },
 				];
-				const duration = reverse ? DURATION.collapse : DURATION.expand;
+				const duration = durationMs(
+					reverse ? "--duration-theme-collapse" : "--duration-theme-expand",
+				);
 				armSafety(duration);
 				clip = root.animate(reverse ? keyframes.reverse() : keyframes, {
 					duration,
-					easing: EASING,
+					easing: easing("--ease-standard"),
 					pseudoElement,
 					fill: "forwards", // 没有它，结束瞬间会闪一下
 				});
@@ -246,4 +232,4 @@ const toggleTheme = () => {
 		});
 };
 
-export { animationConfig, initTheme, toggleTheme };
+export { initTheme, toggleTheme };

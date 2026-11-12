@@ -12,10 +12,10 @@
 	user-select: none;
 	outline: none;
 	transition:
-		transform var(--duration-short) var(--ease-out-quad),
-		background-color var(--duration-short) var(--ease-out-quad),
-		box-shadow var(--duration-short) var(--ease-out-quad);
-	will-change: transform;
+		transform var(--duration-1) var(--ease-out),
+		background-color var(--duration-1) var(--ease-out),
+		box-shadow var(--duration-1) var(--ease-out),
+		border-radius var(--duration-1) var(--ease-out);
 	contain: layout size style;
 	transform: translateZ(0);
 	box-sizing: border-box;
@@ -33,11 +33,10 @@
 	height: 24px;
 	color: var(--text-color);
 	transition:
-		color var(--duration-short) var(--ease-default),
-		transform var(--duration-short) var(--ease-default);
+		color var(--duration-1) var(--ease-out),
+		transform var(--duration-1) var(--ease-out);
 	display: none;
 	flex-shrink: 0;
-	will-change: transform;
 }
 
 .sidebar.collapsed #toggle-sidebar .show-panel {
@@ -56,7 +55,6 @@
 
 	#toggle-sidebar:hover img {
 		transform: scale(1.1);
-		transition: transform var(--duration-short) var(--ease-out-quad);
 	}
 
 	.sidebar:not(.collapsed) #toggle-sidebar:hover {

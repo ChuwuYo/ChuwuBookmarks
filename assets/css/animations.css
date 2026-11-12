@@ -1,7 +1,7 @@
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
-		transform: translateY(10px);
+		transform: translateY(var(--motion-distance));
 	}
 	to {
 		opacity: 1;
@@ -11,7 +11,7 @@
 @keyframes slideDown {
 	from {
 		opacity: 0;
-		transform: translateY(-10px);
+		transform: translateY(calc(-1 * var(--motion-distance)));
 	}
 	to {
 		opacity: 1;
@@ -30,24 +30,11 @@
 	}
 	50% {
 		opacity: 0.15;
-		transform: translate(5px, -50%);
+		transform: translate(calc(var(--motion-distance) / 2), -50%);
 	}
 	100% {
 		opacity: 0.3;
 		transform: translate(0, -50%);
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-delay: 0s !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		transition-delay: 0s !important;
-		scroll-behavior: auto !important;
 	}
 }
 
@@ -92,11 +79,5 @@
 }
 
 .app-entering body > * {
-	transition: opacity 0.2s ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.app-entering body > * {
-		transition: none;
-	}
+	transition: opacity var(--duration-3) var(--ease-out);
 }

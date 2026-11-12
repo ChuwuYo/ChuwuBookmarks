@@ -1,5 +1,5 @@
 import "../../../components/bm-pagination/bm-pagination.js";
-import { RENDER_CONSTANTS } from "../utils/constants.js";
+import { durationMs, prefersReducedMotion } from "../utils/motion.js";
 import { createElement } from "./elements.js";
 import { loadIconsForElements } from "./icon-loader.js";
 import { clearAllMessages, showNoResultsMessage } from "./message.js";
@@ -49,26 +49,26 @@ const playPageTransition = (content) => {
 	content.classList.add("page-changing");
 	later(
 		() => content.classList.remove("page-changing"),
-		RENDER_CONSTANTS.PAGE_CHANGE_FEEDBACK_DURATION_MS,
+		durationMs("--duration-3"),
 	);
 
 	later(() => {
-		const reduce = window.matchMedia(
-			"(prefers-reduced-motion: reduce)",
-		).matches;
-		window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+		window.scrollTo({
+			top: 0,
+			behavior: prefersReducedMotion() ? "auto" : "smooth",
+		});
 		content.classList.add("search-results-fade", "search-results-fade-dim");
 		later(() => {
 			content.classList.remove("search-results-fade-dim");
 			content.classList.add("search-results-fade-full");
-		}, RENDER_CONSTANTS.SEARCH_FADE_IN_DELAY_MS);
+		}, durationMs("--duration-2"));
 		later(() => {
 			content.classList.remove(
 				"search-results-fade",
 				"search-results-fade-full",
 			);
 			content.querySelector('.search-result-item[tabindex="0"]')?.focus();
-		}, RENDER_CONSTANTS.SEARCH_FADE_TOTAL_DURATION_MS);
+		}, durationMs("--duration-4"));
 	}, 16);
 };
 
