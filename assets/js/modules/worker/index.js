@@ -5,7 +5,6 @@ const WORKER_PATHS = Object.freeze({
 
 const WorkerState = Object.freeze({
 	IDLE: "idle",
-	TERMINATED: "terminated",
 	ERROR: "error",
 });
 
@@ -20,16 +19,7 @@ class WorkerWrapper {
 	}
 
 	getInstance() {
-		if (!this._isWorkerSupported()) {
-			console.warn(`[WorkerManager] 浏览器不支持 Web Worker`);
-			return null;
-		}
-
-		if (
-			this._state === WorkerState.TERMINATED ||
-			this._state === WorkerState.ERROR ||
-			!this._worker
-		) {
+		if (this._state === WorkerState.ERROR || !this._worker) {
 			this._createWorker();
 		}
 
@@ -92,18 +82,6 @@ class WorkerWrapper {
 		}
 	}
 
-	terminate() {
-		if (this._worker) {
-			this._worker.terminate();
-			this._worker = null;
-			this._state = WorkerState.TERMINATED;
-		}
-	}
-
-	_isWorkerSupported() {
-		return typeof Worker !== "undefined";
-	}
-
 	_createWorker() {
 		try {
 			this._worker = new Worker(this._path);
@@ -140,6 +118,4 @@ const getSearchWorkerWrapper = () => workers.search;
 
 const getDataWorkerWrapper = () => workers.data;
 
-const isWorkerSupported = () => typeof Worker !== "undefined";
-
-export { getDataWorkerWrapper, getSearchWorkerWrapper, isWorkerSupported };
+export { getDataWorkerWrapper, getSearchWorkerWrapper };

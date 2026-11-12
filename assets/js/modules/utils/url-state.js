@@ -19,21 +19,17 @@ const readSearchState = () => {
  * query 为空时删除 q；page 不大于 1 或为 null 时删除 page。
  */
 const writeSearchState = (changes) => {
-	try {
-		const url = new URL(window.location.href);
-		if ("query" in changes) {
-			if (changes.query) url.searchParams.set("q", changes.query);
-			else url.searchParams.delete("q");
-		}
-		if ("page" in changes) {
-			if (changes.page > 1) url.searchParams.set("page", String(changes.page));
-			else url.searchParams.delete("page");
-		}
-		if (url.href === window.location.href) return;
-		window.history.replaceState(window.history.state, "", url.href);
-	} catch (error) {
-		console.error("[URL] Failed to update search state:", error);
+	const url = new URL(window.location.href);
+	if ("query" in changes) {
+		if (changes.query) url.searchParams.set("q", changes.query);
+		else url.searchParams.delete("q");
 	}
+	if ("page" in changes) {
+		if (changes.page > 1) url.searchParams.set("page", String(changes.page));
+		else url.searchParams.delete("page");
+	}
+	if (url.href === window.location.href) return;
+	window.history.replaceState(window.history.state, "", url.href);
 };
 
 export { readSearchState, writeSearchState };

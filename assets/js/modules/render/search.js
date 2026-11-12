@@ -57,7 +57,7 @@ const playPageTransition = (content) => {
 };
 
 const updateHistory = (page) => {
-	const keyword = document.querySelector("bm-search")?.value.trim();
+	const keyword = document.querySelector("bm-search").value.trim();
 	if (!keyword) return;
 	writeSearchState({ query: keyword, page });
 };

@@ -29,8 +29,10 @@ const initComponentListeners = (debounceSearch) => {
 	);
 
 	document.addEventListener("bm-sidebar-toggle", (event) => {
-		const sidebar = event.target.closest(".sidebar");
-		if (sidebar) updateSidebarState(sidebar, event.detail.collapsed);
+		updateSidebarState(
+			event.target.closest(".sidebar"),
+			event.detail.collapsed,
+		);
 	});
 };
 

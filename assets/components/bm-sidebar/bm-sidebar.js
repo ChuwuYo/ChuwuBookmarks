@@ -13,17 +13,17 @@ export class BmSidebar extends HTMLElement {
 	#untrackScroll = null;
 
 	get #host() {
-		return this.closest(".sidebar") ?? this.parentElement;
+		return this.closest(".sidebar");
 	}
 
 	get collapsed() {
-		return this.#host?.dataset.state === "collapsed";
+		return this.#host.dataset.state === "collapsed";
 	}
 
 	set collapsed(value) {
 		const state = value ? "collapsed" : "expanded";
 		const host = this.#host;
-		if (host && host.dataset.state !== state) host.dataset.state = state;
+		if (host.dataset.state !== state) host.dataset.state = state;
 		this.#sync();
 	}
 
@@ -58,7 +58,7 @@ export class BmSidebar extends HTMLElement {
 	};
 
 	#sync() {
-		const state = this.#host?.dataset.state;
+		const state = this.#host.dataset.state;
 		if (!state) return;
 		if (this.dataset.state !== state) this.dataset.state = state;
 		for (const button of this.querySelectorAll("[data-sidebar-toggle]")) {
