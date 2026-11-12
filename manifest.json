@@ -5,6 +5,7 @@
 	"name": "ChuwuBookmarks - 我的书签导航",
 	"short_name": "ChuwuBookmarks",
 	"description": "功能强大的个人书签导航，支持多级分类、智能搜索、响应式设计",
+	"id": "/",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#fcfced",
@@ -14,10 +15,22 @@
 	"lang": "zh-CN",
 	"icons": [
 		{
-			"src": "assets/icon/bocchi.webp",
+			"src": "assets/icon/bocchi-192.webp",
 			"sizes": "192x192",
 			"type": "image/webp",
-			"purpose": "any maskable"
+			"purpose": "any"
+		},
+		{
+			"src": "assets/icon/bocchi-512.webp",
+			"sizes": "512x512",
+			"type": "image/webp",
+			"purpose": "any"
+		},
+		{
+			"src": "assets/icon/bocchi-512.webp",
+			"sizes": "512x512",
+			"type": "image/webp",
+			"purpose": "maskable"
 		}
 	]
 }
