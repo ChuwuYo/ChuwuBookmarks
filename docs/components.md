@@ -160,6 +160,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | 当前项 | `aria-current="page"`（分页）/ `aria-current="location"`（面包屑） |
 | 禁用 | 原生 `disabled` |
 | 展开/收起 | 切换按钮的 `aria-expanded` + 侧边栏的 `data-state="expanded" / "collapsed"` |
+| 深色主题 | 主题按钮（`aria-label="深色主题"`）的 `aria-pressed`，由 `render/theme.js` 随 `data-theme` 一起写入 |
 | 滚动中 | 滚动容器上的 `data-scrolling`（见“滚动条”） |
 | 图标已加载 | `bm-card` 的 `.bookmark-icon[data-loaded]` |
 | 空结果 | 渲染空状态文本节点，不渲染列表 |

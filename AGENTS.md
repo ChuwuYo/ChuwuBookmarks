@@ -130,4 +130,7 @@ and after layout work and only refresh baselines for intended changes.
   Pages cannot set headers, so it only gets the meta policy.
 - The theme follows the system until the user picks the other theme; picking
   the theme that matches the system removes the stored value, and a `storage`
-  listener keeps other tabs in sync.
+  listener keeps other tabs in sync. `index.html` declares
+  `<meta name="color-scheme" content="light dark">`; the used scheme still
+  comes from `color-scheme` on `:root`, switched by `data-theme`. The toggle is
+  an `aria-pressed` button named "深色主题", updated together with `data-theme`.
