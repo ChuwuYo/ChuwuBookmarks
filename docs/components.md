@@ -51,6 +51,17 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 - **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
   `--z-sidebar-raised`、`--z-sidebar-toggle`、`--z-scroll-indicator`；元素内部的局部叠放用
   `--z-local-below`、`--z-local-1`…`--z-local-3`。
+- **断点与输入方式**：布局只按宽度判断，用范围语法写媒体查询：窄屏 `(width < 480px)`、
+  平板 `(480px <= width < 1024px)`、桌面 `(width >= 1024px)`（侧边栏常驻），数值记录在
+  `assets/css/breakpoints.css`。横屏手机的例外 `(any-pointer: coarse) and (height < 600px)`
+  只与窄屏一起组成“手机布局”。悬停效果只写在 `(hover: hover) and (pointer: fine)` 里；
+  其余设备（触屏、触控笔、混合设备）统一走它的补集
+  `not ((hover: hover) and (pointer: fine))`，触屏专用的样式用 `(any-pointer: coarse)`。
+  不用 JS 给 `body` 或容器加设备类。JS 需要的断点与输入判断一律从
+  `assets/js/modules/utils/viewport.js` 读取（`isNarrow()`、`isCompact()`、
+  `isSidebarOverlay()`、`canHover()`、`hasCoarsePointer()`，以及 `onChange(name, cb)`
+  订阅 `MediaQueryList` 的变化），不比较 `window.innerWidth`，不检测 `ontouchstart`
+  或 User-Agent（`<bm-search>` 的快捷键标签除外）。
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
 （100/150/200/300/400ms）、`--duration-loop`、`--duration-spin`、
@@ -198,4 +209,6 @@ DOM 契约：内含 `input#search-input`、`bm-icon.search-icon`（仅在显示�
 | `bm-sidebar-toggle` event | `detail: { collapsed }`，目标状态；收起/展开动画由应用执行 |
 | `data-state` attribute | 自动同步为 `expanded` / `collapsed` |
 
-切换按钮的 `aria-expanded` 随侧边栏状态自动更新。
+切换按钮的 `aria-expanded` 随侧边栏状态自动更新。页面加载时宽度小于 1024px 则收起；
+之后只在窗口跨过这一断点时自动收起或展开（`MediaQueryList` 的 `change` 事件），
+同一布局内调整窗口大小不会覆盖手动切换的状态。

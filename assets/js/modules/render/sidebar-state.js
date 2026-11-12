@@ -1,34 +1,5 @@
-import { RENDER_CONSTANTS } from "../utils/constants.js";
 import { durationS, GSAP_EASE } from "../utils/motion.js";
-
-const BREAKPOINT_MOBILE = 480;
-const BREAKPOINT_SIDEBAR = 1024;
-
-const getDeviceType = () => {
-	const width = window.innerWidth;
-	const height = window.innerHeight;
-	const isTouchDevice =
-		"ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-	if (
-		isTouchDevice &&
-		(width < BREAKPOINT_MOBILE ||
-			height < RENDER_CONSTANTS.MOBILE_HEIGHT_BREAKPOINT)
-	) {
-		return "mobile";
-	}
-
-	if (width < BREAKPOINT_MOBILE) {
-		return "mobile";
-	} else if (width < BREAKPOINT_SIDEBAR) {
-		return "tablet";
-	} else {
-		return "desktop";
-	}
-};
-
-const isMobileDevice = () => getDeviceType() === "mobile";
-const shouldCollapseSidebar = () => window.innerWidth < BREAKPOINT_SIDEBAR;
+import { isSidebarOverlay, onChange } from "../utils/viewport.js";
 
 const updateSidebarVisibility = (
 	sidebar,
@@ -72,27 +43,24 @@ const updateSidebarState = (sidebar, isCollapsed, skipAnimation = false) => {
 	checkBreadcrumbsScroll();
 };
 
-const handleDeviceView = () => {
+/**
+ * 按侧边栏断点设定初始收起状态；之后只在跨过断点时自动收起或展开，
+ * 同一布局内的手动切换不受窗口尺寸变化影响。
+ */
+const initSidebarState = () => {
 	const sidebar = document.querySelector(".sidebar");
-	const deviceType = getDeviceType();
-	const shouldCollapse = shouldCollapseSidebar();
+	if (!sidebar) return;
 
-	document.body.classList.toggle("mobile-device", deviceType === "mobile");
+	sidebar.classList.add("js-initialized");
+	updateSidebarState(sidebar, isSidebarOverlay(), true);
+	onChange("sidebarOverlay", (overlay) =>
+		updateSidebarState(sidebar, overlay, true),
+	);
 
-	if (sidebar) {
-		sidebar.classList.add("js-initialized");
-	}
-
-	if (sidebar) {
-		updateSidebarState(sidebar, shouldCollapse, true);
+	const breadcrumbs = document.getElementById("breadcrumbs");
+	if (breadcrumbs && typeof ResizeObserver !== "undefined") {
+		new ResizeObserver(checkBreadcrumbsScroll).observe(breadcrumbs);
 	}
 };
 
-export {
-	BREAKPOINT_MOBILE,
-	getDeviceType,
-	handleDeviceView,
-	isMobileDevice,
-	shouldCollapseSidebar,
-	updateSidebarState,
-};
+export { initSidebarState, updateSidebarState };

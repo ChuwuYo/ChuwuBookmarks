@@ -1,3 +1,14 @@
+/*
+ * 断点（自定义属性不能写进 @media，各样式表直接写数值，JS 从 assets/js/modules/utils/viewport.js 读取同一组值）：
+ *   窄屏（手机）        (width < 480px)
+ *   平板                (480px <= width < 1024px)
+ *   桌面，侧边栏常驻    (width >= 1024px)
+ *   横屏手机            (any-pointer: coarse) and (height < 600px)，只用于手机布局的例外
+ * 输入方式：
+ *   悬停效果            (hover: hover) and (pointer: fine)
+ *   其余（触屏、触控笔、混合设备）  not ((hover: hover) and (pointer: fine))
+ *   触屏专用            (any-pointer: coarse)
+ */
 :root {
 	--sidebar-width: 230px;
 }

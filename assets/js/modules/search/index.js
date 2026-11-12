@@ -3,7 +3,6 @@ import {
 	isFullDataReady,
 	waitForFullData,
 } from "../loader/index.js";
-import { getDeviceType } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import {
 	renderSearchResults,
@@ -11,6 +10,7 @@ import {
 } from "../render/search.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
+import { isCompact } from "../utils/viewport.js";
 import { getSearchWorkerWrapper, isWorkerSupported } from "../worker/index.js";
 
 const searchIndex = {
@@ -150,7 +150,7 @@ const createSearchHandler = () => {
 			EXTRA_LARGE_DATA_MS,
 		} = SEARCH_DEBOUNCE_CONSTANTS;
 
-		const isMobile = getDeviceType() === "mobile";
+		const isMobile = isCompact();
 		let ms;
 		if (!count || count < SMALL_DATA_THRESHOLD)
 			ms = isMobile ? SMALL_DATA_MOBILE_MS : SMALL_DATA_DESKTOP_MS;
@@ -197,8 +197,7 @@ const createSearchHandler = () => {
 			errorMessage.textContent = "浏览器不支持Web Worker，无法进行搜索";
 			content.innerHTML = "";
 
-			const deviceType = getDeviceType();
-			if (deviceType === "mobile") {
+			if (isCompact()) {
 				document.body.appendChild(errorMessage);
 			} else {
 				content.appendChild(errorMessage);

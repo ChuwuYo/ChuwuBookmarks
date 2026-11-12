@@ -51,15 +51,3 @@
 	backface-visibility: hidden;
 	transform: translateZ(0);
 }
-
-@media (hover: none) and (pointer: coarse) {
-	.home-button:focus,
-	.home-button:active {
-		background: linear-gradient(
-			to bottom,
-			var(--home-button-bg-start),
-			var(--home-button-bg-end)
-		);
-		box-shadow: var(--home-button-shadow);
-	}
-}

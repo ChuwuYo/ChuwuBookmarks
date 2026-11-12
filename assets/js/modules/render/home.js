@@ -1,6 +1,6 @@
 import site from "../../../../site.config.js";
 import { durationS, GSAP_EASE } from "../utils/motion.js";
-import { getDeviceType } from "./device.js";
+import { isCompact } from "../utils/viewport.js";
 import { resetSearchPagination } from "./search.js";
 
 const createHomeStructure = () => {
@@ -183,16 +183,10 @@ const renderHome = () => {
 	content.innerHTML = "";
 	breadcrumbs.innerHTML = "";
 
-	const deviceType = getDeviceType();
-
-	if (deviceType === "mobile") {
+	if (isCompact()) {
 		document.body.appendChild(fragment);
 	} else {
 		content.appendChild(fragment);
-	}
-
-	if (deviceType === "mobile") {
-		homeMessage.classList.add("mobile-home-message");
 	}
 
 	setupHomeTextAnimation(homeMessage, chineseText, englishText);
