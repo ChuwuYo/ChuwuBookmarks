@@ -28,9 +28,12 @@ const button = ({ className, label, content, page, disabled }) => {
 	return el;
 };
 
-const focusKeyOf = (el) =>
-	el.dataset.page ??
-	(el.classList.contains("pagination-prev") ? "prev" : "next");
+const focusKeyOf = (el) => {
+	if (el.dataset.page) return el.dataset.page;
+	if (el.classList.contains("pagination-prev")) return "prev";
+	if (el.classList.contains("pagination-next")) return "next";
+	return null;
+};
 
 export class BmPagination extends HTMLElement {
 	static observedAttributes = ["total", "current", "label"];
