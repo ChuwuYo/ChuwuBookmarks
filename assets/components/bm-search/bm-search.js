@@ -24,6 +24,11 @@ export class BmSearch extends HTMLElement {
 	}
 
 	connectedCallback() {
+		if (Object.hasOwn(this, "value")) {
+			const { value } = this;
+			delete this.value;
+			this.value = value;
+		}
 		this.#input = this.querySelector("input");
 		if (!this.#input) {
 			this.#input = document.createElement("input");

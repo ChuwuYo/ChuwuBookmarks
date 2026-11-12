@@ -1,8 +1,9 @@
 bm-search {
+	position: relative;
 	display: inline-block;
 }
 
-.shortcut-hint {
+bm-search > .shortcut-hint {
 	position: absolute;
 	right: 10px;
 	top: 50%;
@@ -14,7 +15,7 @@ bm-search {
 	transition: opacity var(--duration-2) var(--ease-out);
 }
 
-.shortcut-hint kbd {
+bm-search > .shortcut-hint kbd {
 	font-family: inherit;
 	background: var(--button-bg);
 	color: var(--text-color);
@@ -23,7 +24,7 @@ bm-search {
 	font-size: 12px;
 }
 
-.search-icon {
+bm-search > .search-icon {
 	position: absolute;
 	left: 8px;
 	top: 50%;
@@ -32,24 +33,19 @@ bm-search {
 	pointer-events: none;
 }
 
-#search-input:placeholder-shown {
+bm-search > input:placeholder-shown {
 	padding-left: calc(8px + 1.3em);
 }
 
-#search-input:not(:placeholder-shown) ~ .search-icon {
+bm-search > input:not(:placeholder-shown) ~ .search-icon {
 	display: none;
 }
 
-#search-input:not(:placeholder-shown) ~ .shortcut-hint {
+bm-search > input:not(:placeholder-shown) ~ .shortcut-hint {
 	opacity: 0;
 }
 
-.search-input-wrapper {
-	position: relative;
-	display: inline-block;
-}
-
-#search-input {
+bm-search > input {
 	padding: 6px;
 	padding-right: 56px;
 	font-size: 1rem;
@@ -71,7 +67,7 @@ bm-search {
 		box-shadow var(--duration-2) var(--ease-out);
 }
 
-#search-input::placeholder {
+bm-search > input::placeholder {
 	font-family: "DingTalk JinBuTi", sans-serif;
 	color: var(--text-color);
 	opacity: 0.8;
@@ -82,7 +78,7 @@ bm-search {
 }
 
 @media (hover: hover) and (pointer: fine) {
-	#search-input:hover {
+	bm-search > input:hover {
 		border-color: var(--link-color);
 		box-shadow:
 			0 0 0 1px var(--link-color),
@@ -91,7 +87,7 @@ bm-search {
 }
 
 @media not ((hover: hover) and (pointer: fine)) {
-	#search-input:active {
+	bm-search > input:active {
 		border-color: var(--link-color);
 		box-shadow:
 			0 0 0 1px var(--link-color),
@@ -99,7 +95,7 @@ bm-search {
 	}
 }
 
-#search-input:focus-visible {
+bm-search > input:focus-visible {
 	border-color: var(--link-color);
 	box-shadow:
 		0 0 0 1px var(--link-color),
@@ -107,11 +103,11 @@ bm-search {
 }
 
 @media screen and (width < 480px) {
-	.shortcut-hint {
+	bm-search > .shortcut-hint {
 		display: none;
 	}
 
-	#search-input {
+	bm-search > input {
 		width: 200px;
 		max-width: calc(100vw - 40px);
 		margin: 0;

@@ -268,7 +268,8 @@ DOM 契约：元素自身带 `.folder` / `.bookmark` 类（类只表示条目类
 
 DOM 契约：内含 `input#search-input`（没有时组件创建一个 `type="text"` 的输入框）、
 `bm-icon.search-icon`（仅在显示占位符时可见）、`.shortcut-hint`（窄屏隐藏）。
-样式全部在 `bm-search.css`：元素自身带 `.search-input-wrapper` 类作为定位容器。
+样式全部在 `bm-search.css`，只用 `bm-search > …` 选择器，不依赖页面上的 `id` 或类：元素自身是定位容器，
+组件创建的输入框与页面已有的输入框样式相同。
 
 ## `<bm-sidebar>`
 
