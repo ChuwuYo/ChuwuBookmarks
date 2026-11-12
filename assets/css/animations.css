@@ -70,5 +70,5 @@
 }
 
 [data-reveal="entering"] body > * {
-	transition: opacity var(--duration-3) var(--ease-out);
+	transition: opacity var(--duration-reveal) var(--ease-out);
 }

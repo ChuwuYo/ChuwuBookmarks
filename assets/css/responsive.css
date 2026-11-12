@@ -83,6 +83,7 @@
 		max-width: 600px;
 		position: relative;
 		padding-left: 5px;
+		box-sizing: border-box;
 	}
 }
 
@@ -134,10 +135,7 @@
 
 	#content {
 		min-height: 200px;
-	}
-
-	#content:not(:has(> .home-message, > .error-message)) {
-		contain: layout style;
+		display: flow-root;
 	}
 
 	.search-container {
@@ -155,7 +153,6 @@
 
 	#breadcrumbs {
 		transform: none;
-		transition: opacity var(--duration-3) var(--ease-out);
 		padding: 50px 25px 5px;
 		font-size: clamp(1rem, 5vw, 1.2rem);
 		width: 100%;

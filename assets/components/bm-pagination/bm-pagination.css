@@ -204,7 +204,7 @@ bm-pagination .pagination-container[hidden] {
 	}
 }
 
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
 	.pagination-button {
 		border-width: 3px;
 		font-weight: 600;
