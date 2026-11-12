@@ -247,8 +247,11 @@ DOM 契约：`bm-pagination > nav.pagination-container > .pagination-prev, .pagi
 `scroll(self)`）驱动。有隐藏内容的一侧才渐隐：在起点只有右侧，滚动中两侧，到末端只有左侧；
 内容不溢出时滚动时间线无效，两侧都不渐隐。不支持滚动驱动动画的浏览器不加渐隐动画，遮罩保持全显。
 
-DOM 契约：`.breadcrumb-icon > bm-icon`、`.breadcrumb-item`（按钮）、`.breadcrumb-separator`；
-最后一项为当前位置，带 `aria-current="location"` 且不触发导航，样式按 `[aria-current]` 选择。
+DOM 契约：`.breadcrumb-icon > bm-icon` + `ol.breadcrumb-list > li`；每个 `li` 内是
+`.breadcrumb-item`，第一项以外前面还有 `.breadcrumb-separator`（`aria-hidden="true"`）。
+主页与祖先项是带 `data-index` 的按钮；最后一项为当前位置，是带 `aria-current="location"`
+的 `span`，不可聚焦、不触发导航，也没有悬停效果，样式按 `[aria-current]` 选择。
+`ol`、`li` 与元素自身都是 `display: contents`，各项直接参与 `#breadcrumbs` 的行内或 flex 布局。
 
 面包屑项、分隔符与图标的样式（含窄屏的胶囊样式）都在 `bm-breadcrumbs.css`；
 父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
