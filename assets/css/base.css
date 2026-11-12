@@ -44,16 +44,6 @@
 	--focus-ring-color: light-dark(#0a7f88, var(--link-color));
 	--focus-ring-width: 2px;
 	--focus-ring-offset: 2px;
-	--focus-halo-color: color-mix(
-		in srgb,
-		var(--focus-ring-color) 20%,
-		transparent
-	);
-	--focus-halo-color-strong: color-mix(
-		in srgb,
-		var(--focus-ring-color) 40%,
-		transparent
-	);
 
 	--shadow-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1));
 	--shadow-color-strong: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2));

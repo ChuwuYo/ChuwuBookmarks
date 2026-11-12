@@ -23,7 +23,6 @@ bm-pagination .pagination-container[hidden] {
 	--pagination-shadow: var(--shadow-sm);
 	--pagination-shadow-hover: var(--shadow-md);
 	--pagination-shadow-active: var(--button-shadow);
-	--pagination-shadow-focus: 0 0 0 4px var(--focus-halo-color);
 }
 
 @media screen and (width < 480px) {
@@ -158,30 +157,9 @@ bm-pagination .pagination-container[hidden] {
 	transform: translateZ(0) scale(1);
 }
 
-.pagination-button:focus-visible {
-	box-shadow: var(--pagination-shadow-focus);
-	animation: focusPulse calc(var(--duration-loop) * 2) var(--ease-in-out)
-		var(--loop-count);
-}
-
-.pagination-container:focus-visible {
-	box-shadow: var(--pagination-shadow-focus);
-}
-
 .pagination-button:focus {
 	position: relative;
 	z-index: var(--z-local-1);
-}
-
-@keyframes focusPulse {
-	0%,
-	100% {
-		box-shadow: var(--pagination-shadow-focus);
-	}
-
-	50% {
-		box-shadow: 0 0 0 4px var(--focus-halo-color-strong);
-	}
 }
 
 .pagination-ellipsis {
@@ -238,12 +216,6 @@ bm-pagination .pagination-container[hidden] {
 		box-shadow:
 			var(--pagination-shadow-active),
 			0 0 0 2px var(--pagination-active-bg);
-	}
-
-	.pagination-button:focus-visible,
-	.pagination-container:focus-visible {
-		outline-width: calc(var(--focus-ring-width) * 2);
-		box-shadow: 0 0 0 8px var(--focus-halo-color-strong);
 	}
 
 	.pagination-ellipsis {
