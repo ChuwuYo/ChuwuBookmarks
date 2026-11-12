@@ -6,7 +6,6 @@ import {
 	updateSidebarState,
 } from "../render/sidebar-state.js";
 
-/** 组件的 bm-* 事件统一在 document 上委托处理 */
 const initComponentListeners = (debounceSearch) => {
 	document.addEventListener("bm-open-folder", (event) => {
 		closeSidebarOverlay();

@@ -1,4 +1,3 @@
-/* 统一的入场动画：默认自下而上，--enter-offset 可改方向或设为 0 只淡入 */
 @keyframes enter {
 	from {
 		opacity: 0;
@@ -9,7 +8,6 @@
 		transform: translateY(0);
 	}
 }
-/* 搜索翻页反馈：先变暗再恢复 */
 @keyframes dim-and-restore {
 	50% {
 		opacity: 0.8;

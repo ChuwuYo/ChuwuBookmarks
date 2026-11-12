@@ -51,14 +51,12 @@ const loadSearchFont = () => {
 	}
 };
 
-// 提前下载所有书签标题会用到的分片，之后的视图不会在分片下载期间显示回退字体。
 const preloadFontSlices = (bookmarks) =>
 	afterPageAndFontsLoad(() => {
 		const titleText = [...collectTitleCharacters(bookmarks)].join("");
 		document.fonts.load(`1em "${TITLE_FONT}"`, titleText).catch(ignoreFailure);
 	});
 
-// 搜索输入可能用到任意字符，聚焦搜索框时再下载搜索字体的全部分片。
 const loadSearchFontOnFocus = () => {
 	const search = document.querySelector("bm-search");
 	if (search.contains(document.activeElement)) loadSearchFont();

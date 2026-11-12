@@ -32,7 +32,6 @@ const setupHomeButton = () => {
 				console.error("Failed to render home:", error);
 				showView({ content: [dataErrorMessage(error)] });
 			} finally {
-				// 确保在下一帧重置状态，即使 renderHome 抛出异常
 				requestAnimationFrame(() => {
 					isProcessing = false;
 				});

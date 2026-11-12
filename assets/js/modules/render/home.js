@@ -37,7 +37,6 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 	});
 };
 
-/** 首页标题的编排时间（秒），只在这里使用，没有对应的 CSS 值 */
 const INTRO = {
 	textDuration: 0.5,
 	dropDuration: 0.8,
@@ -84,7 +83,6 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	return masterTimeline;
 };
 
-/** 按字素簇切分，emoji 与组合字符不会被拆开 */
 const graphemes = new Intl.Segmenter(undefined, { granularity: "grapheme" });
 
 const splitGraphemes = (text) =>

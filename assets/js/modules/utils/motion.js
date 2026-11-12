@@ -28,7 +28,6 @@ const easing = (name) => readToken(name) || "ease";
 /** GSAP 核心不解析 cubic-bezier()；power1.out 即 --ease-out 所用的二次缓出曲线 */
 const GSAP_EASE = { out: "power1.out", bounce: "bounce.out" };
 
-/** 减弱动态效果时保留 GSAP 时间线，但几乎瞬间播完 */
 const REDUCED_GSAP_TIME_SCALE = 100;
 
 const syncGsapWithReducedMotion = () => {
