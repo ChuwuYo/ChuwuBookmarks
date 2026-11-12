@@ -1,7 +1,7 @@
 import site from "../../../../site.config.js";
+import { durationS, GSAP_EASE } from "../utils/motion.js";
 import { getDeviceType } from "./device.js";
 import { resetSearchPagination } from "./search.js";
-import { animationConfig } from "./theme.js";
 
 const createHomeStructure = () => {
 	const fragment = document.createDocumentFragment();
@@ -41,13 +41,24 @@ const setupHomeTextAnimation = (homeMessage, chineseText, englishText) => {
 	});
 };
 
+/** 首页标题的编排时间（秒），只在这里使用，没有对应的 CSS 值 */
+const INTRO = {
+	textDuration: 0.5,
+	dropDuration: 0.8,
+	charDelay: { chinese: 0.5, english: 0.7 },
+	dropDelay: { chinese: 1.2, apostrophe: 1.5, s: 1.7 },
+	englishStaggerRatio: 0.8,
+};
+
 const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	const masterTimeline = gsap.timeline();
+	const fade = durationS("--duration-4");
+	const overlap = durationS("--duration-3");
 
 	masterTimeline.to(homeMessage, {
 		opacity: 1,
-		duration: animationConfig.duration.medium,
-		ease: animationConfig.ease.outQuad,
+		duration: fade,
+		ease: GSAP_EASE.out,
 	});
 
 	masterTimeline.to(
@@ -56,10 +67,10 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 			opacity: 1,
 			scale: 1,
 			x: 0,
-			duration: animationConfig.duration.long,
-			ease: animationConfig.ease.outQuad,
+			duration: INTRO.textDuration,
+			ease: GSAP_EASE.out,
 		},
-		"-=0.2",
+		`-=${overlap}`,
 	);
 
 	masterTimeline.to(
@@ -68,10 +79,10 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 			opacity: 1,
 			scale: 1,
 			x: 0,
-			duration: animationConfig.duration.long,
-			ease: animationConfig.ease.outQuad,
+			duration: INTRO.textDuration,
+			ease: GSAP_EASE.out,
 		},
-		"-=0.3",
+		`-=${fade}`,
 	);
 
 	return masterTimeline;
@@ -101,6 +112,8 @@ const createCharacterSpans = (chars) => {
 };
 
 const setupChineseCharacterAnimation = (spans) => {
+	const charDuration = durationS("--duration-3");
+	const stagger = durationS("--stagger-step");
 	spans.forEach((charSpan, index) => {
 		const char = charSpan.textContent;
 		if (char === "的") {
@@ -108,24 +121,26 @@ const setupChineseCharacterAnimation = (spans) => {
 			gsap.to(charSpan, {
 				y: 0,
 				opacity: 1,
-				duration: 0.8,
-				delay: 1.2,
-				ease: "bounce.out",
+				duration: INTRO.dropDuration,
+				delay: INTRO.dropDelay.chinese,
+				ease: GSAP_EASE.bounce,
 			});
 		} else {
 			gsap.set(charSpan, { opacity: 0, x: -10 });
 			gsap.to(charSpan, {
 				opacity: 1,
 				x: 0,
-				duration: 0.2,
-				delay: 0.5 + index * 0.05,
-				ease: "power1.out",
+				duration: charDuration,
+				delay: INTRO.charDelay.chinese + index * stagger,
+				ease: GSAP_EASE.out,
 			});
 		}
 	});
 };
 
 const setupEnglishCharacterAnimation = (spans) => {
+	const charDuration = durationS("--duration-3");
+	const stagger = durationS("--stagger-step") * INTRO.englishStaggerRatio;
 	spans.forEach((charSpan, index) => {
 		const char = charSpan.textContent;
 		if (char === "'" || char === "s") {
@@ -133,18 +148,18 @@ const setupEnglishCharacterAnimation = (spans) => {
 			gsap.to(charSpan, {
 				y: 0,
 				opacity: 1,
-				duration: 0.8,
-				delay: char === "'" ? 1.5 : 1.7,
-				ease: "bounce.out",
+				duration: INTRO.dropDuration,
+				delay: char === "'" ? INTRO.dropDelay.apostrophe : INTRO.dropDelay.s,
+				ease: GSAP_EASE.bounce,
 			});
 		} else {
 			gsap.set(charSpan, { opacity: 0, x: -10 });
 			gsap.to(charSpan, {
 				opacity: 1,
 				x: 0,
-				duration: 0.2,
-				delay: 0.7 + index * 0.04,
-				ease: "power1.out",
+				duration: charDuration,
+				delay: INTRO.charDelay.english + index * stagger,
+				ease: GSAP_EASE.out,
 			});
 		}
 	});
