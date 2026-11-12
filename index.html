@@ -13,6 +13,7 @@
     <!--
       在样式表之前同步执行，第一帧就确定主题，避免先亮后暗。
       须与 assets/js/modules/render/theme.js 中的 THEME_KEY / THEME_COLOR 保持一致。
+      脚本内容一旦改动，须重新计算下方 Content-Security-Policy 中 script-src 的 sha256。
       manifest.json 的 theme_color / background_color 取浅色主题的 --link-color / --bg-color。
     -->
     <script>
@@ -56,7 +57,7 @@
     <!-- 部署时请替换为你的实际网站URL -->
     <meta name="google-site-verification" content="8zsmuQx-SCbThZFJLAlFobIQTPTA9vFTRurjk71uZRk" />
     <!-- 部署时请替换为你的Google验证码 -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://favicon.im https://*.google.com https://*.gstatic.com https://*.favicon.im; font-src 'self'; connect-src 'self' https://cloudflareinsights.com" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TXBClobJfJUYUBKHOWQF4buljVqeStzfT23hdWAOhqQ=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://favicon.im https://*.google.com https://*.gstatic.com https://*.favicon.im; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'" />
     
     <title>初五的书签回廊</title>
     <link rel="icon" type="image/webp" href="assets/icon/bocchi.webp">
