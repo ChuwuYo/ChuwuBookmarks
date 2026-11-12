@@ -111,8 +111,8 @@
 	--home-button-shadow:
 		0 4px 6px var(--shadow-color), inset 0 0 0 1px var(--highlight-color);
 	--home-button-shadow-hover:
-		0 6px 8px var(--shadow-color-button-soft), inset 0 0 0 1px
-		var(--highlight-color);
+		0 6px 8px var(--shadow-color-button-soft),
+		inset 0 0 0 1px var(--highlight-color);
 }
 
 @media (prefers-contrast: more) {
