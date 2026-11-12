@@ -92,8 +92,10 @@ and after layout work and only refresh baselines for intended changes.
 ## Page loading
 
 - `script.js` renders the home view at startup (it needs only
-  `site.config.js`); bookmark data loads only fill the sidebar and never
-  re-render the main view.
+  `site.config.js`); when the URL carries `q` it restores that search
+  instead. A successful bookmark data load only fills the sidebar and never
+  re-renders the main view; when loading fails with no cache, the error
+  message replaces the main view.
 - When `structure.json` is present, `data-worker.js` fetches the full
   `bookmarks.json` in the background with `priority: "low"`; without it the
   full file is the first data request and keeps the default priority.

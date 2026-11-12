@@ -19,6 +19,7 @@ class WorkerWrapper {
 	}
 
 	getInstance() {
+		if (typeof Worker === "undefined") return null;
 		if (this._state === WorkerState.ERROR || !this._worker) {
 			this._createWorker();
 		}

@@ -83,10 +83,15 @@ const createHomeTextTimeline = (homeMessage, chineseText, englishText) => {
 	return masterTimeline;
 };
 
-const graphemes = new Intl.Segmenter(undefined, { granularity: "grapheme" });
+const graphemes =
+	typeof Intl.Segmenter === "function"
+		? new Intl.Segmenter(undefined, { granularity: "grapheme" })
+		: null;
 
 const splitGraphemes = (text) =>
-	Array.from(graphemes.segment(text), ({ segment }) => segment);
+	graphemes
+		? Array.from(graphemes.segment(text), ({ segment }) => segment)
+		: Array.from(text);
 
 const createCharacterSpans = (chars) => {
 	const fragment = document.createDocumentFragment();
