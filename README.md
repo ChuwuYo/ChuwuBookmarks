@@ -127,7 +127,7 @@ You can also visit the following links to experience the service:
     
     * Supports responsive layout for mobile(<480px), tablet(480px-1023px), and desktop(≥1024px) devices
     
-    * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above
+    * Automatically collapses sidebar on screens smaller than 1024px, keeps it expanded on screens 1024px and above; it only switches automatically when the window crosses 1024px, so a manual toggle survives other resizes
 
 7. **GSAP Animation Support**:
 

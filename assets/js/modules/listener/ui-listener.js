@@ -1,7 +1,8 @@
-import { isMobileDevice, updateSidebarState } from "../render/device.js";
 import { renderHome } from "../render/home.js";
 import { showErrorMessage } from "../render/message.js";
+import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
+import { isCompact } from "../utils/viewport.js";
 
 const setupSidebarToggle = () => {
 	document.addEventListener("bm-sidebar-toggle", (event) => {
@@ -48,7 +49,7 @@ const setupHomeButton = () => {
 			url.searchParams.delete("page");
 			window.history.replaceState({}, document.title, url.toString());
 
-			if (isMobileDevice()) {
+			if (isCompact()) {
 				const sidebar = document.querySelector(".sidebar");
 				if (sidebar && !sidebar.classList.contains("collapsed")) {
 					updateSidebarState(sidebar, true);
