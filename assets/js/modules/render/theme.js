@@ -21,6 +21,9 @@ const setRootTheme = (theme) => {
 	root.setAttribute("data-theme", theme);
 	themeTurn += (themeTurn % 2 === 1) === (theme === "dark") ? 0 : 1;
 	root.style.setProperty("--theme-turn", themeTurn);
+	document
+		.getElementById("theme-toggle")
+		.setAttribute("aria-pressed", String(theme === "dark"));
 };
 
 let manualTheme = null;
