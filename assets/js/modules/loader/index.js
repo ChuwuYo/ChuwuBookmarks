@@ -1,5 +1,4 @@
-import { renderHome } from "../render/home.js";
-import { dataErrorMessage, loadingMessage } from "../render/message.js";
+import { dataErrorMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
 import { showView } from "../render/view.js";
@@ -36,14 +35,9 @@ const waitForFullData = () => {
 
 const getSearchSource = () => state.full ?? state.data ?? [];
 
-const showLoadingIndicator = () => {
-	showView({ content: [loadingMessage("正在加载书签······")] });
-};
-
-const render = (data, { home = true } = {}) => {
+const render = (data) => {
 	state.data = data;
 	renderSidebar(data);
-	if (home) renderHome();
 	revealApp();
 };
 
@@ -86,8 +80,9 @@ const loadBookmarksData = async () => {
 		console.error("Worker failed to load data:", error);
 		stop();
 		cancelFullDataLoad();
-		if (hasCachedData) renderHome();
-		else showView({ content: [dataErrorMessage(new Error(error))] });
+		if (!hasCachedData) {
+			showView({ content: [dataErrorMessage(new Error(error))] });
+		}
 	};
 
 	function onMessage(event) {
@@ -165,7 +160,7 @@ const loadFullDataInBackground = (worker, onDone) => {
 			if (status === "success") {
 				setFullData({ data });
 				writeCache("bookmarks", { hash, data });
-				render(data, { home: false });
+				render(data);
 				onDone();
 				finish(data);
 				return;
@@ -189,10 +184,4 @@ const loadFullDataInBackground = (worker, onDone) => {
 	return promise;
 };
 
-export {
-	getSearchSource,
-	isFullDataReady,
-	loadBookmarksData,
-	showLoadingIndicator,
-	waitForFullData,
-};
+export { getSearchSource, isFullDataReady, loadBookmarksData, waitForFullData };
