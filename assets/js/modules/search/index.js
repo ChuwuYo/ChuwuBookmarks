@@ -4,11 +4,14 @@ import {
 	waitForFullData,
 } from "../loader/index.js";
 import { renderHome } from "../render/home.js";
-import { renderLoading } from "../render/message.js";
+import { loadingMessage, searchUnavailableMessage } from "../render/message.js";
+import { renderSearchResults } from "../render/search.js";
 import {
-	renderSearchResults,
-	resetSearchPagination,
-} from "../render/search.js";
+	isCurrentView,
+	leaveView,
+	showView,
+	updateView,
+} from "../render/view.js";
 import { SEARCH_DEBOUNCE_CONSTANTS } from "../utils/constants.js";
 import { debounce } from "../utils/index.js";
 import { readSearchState, writeSearchState } from "../utils/url-state.js";
@@ -78,8 +81,6 @@ const toResults = (positions) =>
 		return [entry.node];
 	});
 
-let searchGeneration = 0;
-
 let workersWired = false;
 
 const initSearchWorker = () => {
@@ -98,38 +99,29 @@ const initSearchWorker = () => {
 	getSearchWorkerWrapper().addMessageListener((e) => {
 		const { action, id, positions, message } = e.data;
 		if (action === "searchResults") {
-			if (id !== searchGeneration) return;
-			renderSearchResults(toResults(positions));
+			renderSearchResults(id, toResults(positions));
 		} else if (action === "error") {
 			console.error("[Search] Worker error:", message);
 		}
 	});
 };
 
-const cancelPendingSearch = () => {
-	searchGeneration++;
+const postSearchToWorker = (keyword, view) => {
+	if (!isWorkerSupported()) return false;
+	const wrapper = getSearchWorkerWrapper();
+	const worker = wrapper.getInstance();
+	if (!worker || !syncIndex(worker)) return false;
+	return wrapper.postMessage({ action: "search", id: view, keyword });
 };
 
-const postSearchToWorker = (keyword) => {
-	if (!isWorkerSupported()) return null;
-	const generation = ++searchGeneration;
-
-	const post = () => {
-		const wrapper = getSearchWorkerWrapper();
-		const worker = wrapper.getInstance();
-		if (!worker || !syncIndex(worker)) return false;
-		return wrapper.postMessage({ action: "search", id: generation, keyword });
-	};
-
+const startSearch = async (keyword) => {
+	const view = showView({ content: [loadingMessage("正在搜索...")] });
 	// 完整数据仍在后台加载时，等它就绪再搜索，避免只搜到目录结构
-	if (!isFullDataReady()) {
-		waitForFullData().then(() => {
-			if (generation !== searchGeneration) return;
-			post();
-		});
-		return true;
+	if (!isFullDataReady()) await waitForFullData();
+	if (!isCurrentView(view)) return;
+	if (!postSearchToWorker(keyword, view)) {
+		updateView(view, { content: [searchUnavailableMessage()] });
 	}
-	return post();
 };
 
 const createSearchHandler = () => {
@@ -165,37 +157,15 @@ const createSearchHandler = () => {
 	};
 
 	const runSearch = (keyword) => {
-		if (!keyword) {
-			cancelPendingSearch();
-			renderHome();
-			resetPaginationState();
-			return;
-		}
-
-		resetPaginationState();
-
-		const content = document.getElementById("content");
-		renderLoading(content, "正在搜索...");
-
-		const posted = postSearchToWorker(keyword);
-		if (!posted) {
-			const errorMessage = document.createElement("div");
-			errorMessage.className =
-				"centered-message error-message centered-element vertical-center";
-			errorMessage.textContent = "浏览器不支持Web Worker，无法进行搜索";
-			if (isCompact()) {
-				content.replaceChildren();
-				document.body.appendChild(errorMessage);
-			} else {
-				content.replaceChildren(errorMessage);
-			}
-		}
+		writeSearchState({ page: null });
+		if (keyword) startSearch(keyword);
+		else renderHome();
 	};
 
 	let debounceMs = 0;
 	let debounced = null;
 	return (keyword) => {
-		cancelPendingSearch();
+		leaveView();
 		const ms = computeDebounceMs(getBookmarksCount());
 		if (!debounced || ms !== debounceMs) {
 			debounced?.cancel();
@@ -206,28 +176,14 @@ const createSearchHandler = () => {
 	};
 };
 
-const resetPaginationState = () => {
-	resetSearchPagination();
-	writeSearchState({ page: null });
-};
-
 const restoreSearchStateFromURL = () => {
 	const { query: keyword } = readSearchState();
-
-	if (keyword) {
-		const search = document.querySelector("bm-search");
-		if (search) {
-			search.value = keyword;
-			triggerSearch(keyword);
-		}
-	}
-};
-
-const triggerSearch = (keyword) => {
-	const posted = postSearchToWorker(keyword);
-	if (!posted) {
-		console.warn("[Search] Failed to trigger search for keyword:", keyword);
-	}
+	if (!keyword) return false;
+	const search = document.querySelector("bm-search");
+	if (!search) return false;
+	search.value = keyword;
+	startSearch(keyword);
+	return true;
 };
 
 export { createSearchHandler, initSearchWorker, restoreSearchStateFromURL };
