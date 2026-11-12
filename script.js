@@ -1,9 +1,7 @@
 import "./assets/components/index.js";
 import { initEventListeners } from "./assets/js/modules/listener/index.js";
-import {
-	loadBookmarksData,
-	showLoadingIndicator,
-} from "./assets/js/modules/loader/index.js";
+import { loadBookmarksData } from "./assets/js/modules/loader/index.js";
+import { renderHome } from "./assets/js/modules/render/home.js";
 import { revealApp } from "./assets/js/modules/render/reveal.js";
 import { initSidebarState } from "./assets/js/modules/render/sidebar-state.js";
 import { initTheme } from "./assets/js/modules/render/theme.js";
@@ -13,8 +11,9 @@ import {
 	restoreSearchStateFromURL,
 } from "./assets/js/modules/search/index.js";
 import { trackScrollActivity } from "./assets/js/modules/utils/scroll-activity.js";
+import { readSearchState } from "./assets/js/modules/utils/url-state.js";
 
-showLoadingIndicator();
+if (!readSearchState().query) renderHome();
 loadBookmarksData().catch((error) => {
 	console.error("加载书签数据失败:", error);
 	revealApp();

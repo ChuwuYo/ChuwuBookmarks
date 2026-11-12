@@ -20,7 +20,8 @@
 	white-space: normal;
 	overflow-x: auto;
 	user-select: none;
-	animation: slideDown var(--duration-4) var(--ease-out) backwards;
+	--enter-offset: calc(-1 * var(--motion-distance));
+	animation: enter var(--duration-4) var(--ease-out) backwards;
 	scroll-behavior: smooth;
 	contain: layout style;
 	--edge-fade-size: 1.5rem;
@@ -37,7 +38,7 @@
 @supports (animation-timeline: scroll()) {
 	#breadcrumbs {
 		animation:
-			slideDown var(--duration-4) var(--ease-out) backwards,
+			enter var(--duration-4) var(--ease-out) backwards,
 			edge-fade-start var(--ease-linear) both,
 			edge-fade-end var(--ease-linear) both;
 		animation-timeline: auto, scroll(self inline), scroll(self inline);
@@ -48,7 +49,7 @@
 	}
 }
 
-.folder-loading,
+.loading,
 .folder-error {
 	display: flex;
 	flex-direction: column;
@@ -61,7 +62,7 @@
 	gap: 12px;
 }
 
-.folder-loading-text,
+.loading-text,
 .folder-error-text {
 	margin: 0;
 }
@@ -109,7 +110,6 @@
 	opacity: 0;
 	perspective: 1000px;
 	transform-style: preserve-3d;
-	content-visibility: auto;
 }
 
 .home-char {
@@ -117,25 +117,11 @@
 	position: relative;
 }
 
-.loading-indicator {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
-	min-height: 80px;
-}
-
-.loading-indicator.search-loading {
-	text-align: center;
-	margin-top: 50px;
-	color: var(--text-color);
-}
-
 .loading-spinner {
-	width: 40px;
-	height: 40px;
-	border: 4px solid var(--hover-bg);
-	border-top: 4px solid var(--link-color);
+	width: var(--spinner-size);
+	height: var(--spinner-size);
+	border: var(--spinner-width) solid var(--hover-bg);
+	border-top-color: var(--link-color);
 	border-radius: var(--radius-round);
 	animation: spin var(--duration-spin) var(--ease-linear) infinite;
 }
@@ -154,10 +140,6 @@
 	padding: 2rem;
 }
 
-.loading-message .message-title {
-	font-size: 2rem;
-}
-
 .error-message .message-title {
 	font-size: 2rem;
 }
@@ -170,21 +152,8 @@
 	font-size: 1rem;
 }
 
-[data-results-fade] {
-	transition: opacity var(--duration-4) var(--ease-standard);
-}
-
-[data-results-fade="dim"] {
-	opacity: 0.8;
-}
-
-[data-results-fade="full"] {
-	opacity: 1;
-}
-
 [data-page-changing] {
-	opacity: 0.8;
-	transition: opacity var(--duration-3) var(--ease-standard);
+	animation: dim-and-restore var(--duration-5) var(--ease-standard);
 }
 
 [data-page-changing] .results-container {
@@ -210,9 +179,4 @@
 	.results-container {
 		padding-bottom: 0.5rem;
 	}
-}
-
-.search-result-item {
-	animation: fadeInUp var(--duration-2) var(--ease-out) backwards;
-	margin-bottom: 0.5rem;
 }

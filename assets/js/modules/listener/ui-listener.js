@@ -1,7 +1,9 @@
 import { renderHome } from "../render/home.js";
-import { showErrorMessage } from "../render/message.js";
+import { dataErrorMessage } from "../render/message.js";
 import { updateSidebarState } from "../render/sidebar-state.js";
 import { toggleTheme } from "../render/theme.js";
+import { showView } from "../render/view.js";
+import { writeSearchState } from "../utils/url-state.js";
 import { isCompact } from "../utils/viewport.js";
 
 const setupThemeToggle = () => {
@@ -35,10 +37,7 @@ const setupHomeButton = () => {
 			const search = document.querySelector("bm-search");
 			if (search) search.value = "";
 
-			const url = new URL(window.location);
-			url.searchParams.delete("q");
-			url.searchParams.delete("page");
-			window.history.replaceState({}, document.title, url.toString());
+			writeSearchState({ query: "", page: null });
 
 			if (isCompact()) {
 				const sidebar = document.querySelector(".sidebar");
@@ -51,7 +50,7 @@ const setupHomeButton = () => {
 					renderHome();
 				} catch (error) {
 					console.error("Failed to render home:", error);
-					showErrorMessage(error);
+					showView({ content: [dataErrorMessage(error)] });
 				} finally {
 					// 确保在下一帧重置状态，即使 renderHome 抛出异常
 					requestAnimationFrame(() => {

@@ -84,6 +84,12 @@ bm-sidebar {
 	transition: none;
 }
 
+.sidebar[data-entering] .folder {
+	--enter-offset: 0px;
+	animation: enter var(--duration-4) var(--ease-out) backwards;
+	animation-delay: calc(var(--item-index, 0) * var(--stagger-step));
+}
+
 .sidebar-header {
 	display: flex;
 	align-items: center;

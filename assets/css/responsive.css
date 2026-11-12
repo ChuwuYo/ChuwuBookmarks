@@ -140,6 +140,9 @@
 
 	#content {
 		min-height: 200px;
+	}
+
+	#content:not(:has(> .home-message, > .error-message)) {
 		contain: layout style;
 	}
 

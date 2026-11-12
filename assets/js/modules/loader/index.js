@@ -1,7 +1,7 @@
-import { renderHome } from "../render/home.js";
-import { showErrorMessage, showLoadingMessage } from "../render/message.js";
+import { dataErrorMessage } from "../render/message.js";
 import { revealApp } from "../render/reveal.js";
 import { renderSidebar } from "../render/sidebar.js";
+import { showView } from "../render/view.js";
 import { readCache, removeLegacyCache, writeCache } from "../store.js";
 import { getDataWorkerWrapper } from "../worker/index.js";
 import {
@@ -18,7 +18,6 @@ let fullDataLoadPromise = null;
 let fullDataPending = false;
 let fullDataWaiters = [];
 
-const getFullBookmarksData = () => state.full;
 const isFullDataReady = () => state.full !== null;
 
 const settleFullData = (data) => {
@@ -36,17 +35,9 @@ const waitForFullData = () => {
 
 const getSearchSource = () => state.full ?? state.data ?? [];
 
-const showLoadingIndicator = () => {
-	const content = document.getElementById("content");
-	const breadcrumbs = document.getElementById("breadcrumbs");
-	if (!content || !breadcrumbs) return;
-	showLoadingMessage(content, breadcrumbs);
-};
-
-const render = (data, { home = true } = {}) => {
+const render = (data) => {
 	state.data = data;
 	renderSidebar(data);
-	if (home) renderHome();
 	revealApp();
 };
 
@@ -89,8 +80,9 @@ const loadBookmarksData = async () => {
 		console.error("Worker failed to load data:", error);
 		stop();
 		cancelFullDataLoad();
-		if (hasCachedData) renderHome();
-		else setTimeout(() => showErrorMessage(new Error(error)), 10);
+		if (!hasCachedData) {
+			showView({ content: [dataErrorMessage(new Error(error))] });
+		}
 	};
 
 	function onMessage(event) {
@@ -168,7 +160,7 @@ const loadFullDataInBackground = (worker, onDone) => {
 			if (status === "success") {
 				setFullData({ data });
 				writeCache("bookmarks", { hash, data });
-				render(data, { home: false });
+				render(data);
 				onDone();
 				finish(data);
 				return;
@@ -192,11 +184,4 @@ const loadFullDataInBackground = (worker, onDone) => {
 	return promise;
 };
 
-export {
-	getFullBookmarksData,
-	getSearchSource,
-	isFullDataReady,
-	loadBookmarksData,
-	showLoadingIndicator,
-	waitForFullData,
-};
+export { getSearchSource, isFullDataReady, loadBookmarksData, waitForFullData };
