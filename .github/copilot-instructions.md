@@ -31,6 +31,9 @@ Project conventions
 - Components (`assets/components/<name>/`, spec in `docs/components.md`) own their styles in `<name>.css`; global CSS keeps tokens and page layout. State is ARIA for semantics, `data-*` for visuals, classes for identity only, and inline style only for numeric custom properties. Render modules never attach listeners to components: every `bm-*` event is delegated in `listener/component-listener.js`.
 - Accessibility: keep ARIA roles/labels on interactive elements (see components/bm-card).
 
+Security
+- index.html's meta CSP allows the inline theme script only by its sha256 hash (no 'unsafe-inline' in script-src); recompute the hash after editing that script and keep it in sync with render/theme.js. _headers and vercel.json send frame-ancestors 'none', X-Frame-Options, nosniff and Referrer-Policy.
+
 Data/SEO workflow
 - bookmarks.json and structure.json live in repo root; structure.json enables faster initial render.
 - After editing structured-data.json, manually sync the inline JSON-LD block in index.html.

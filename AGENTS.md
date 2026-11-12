@@ -116,3 +116,17 @@ and after layout work and only refresh baselines for intended changes.
 - Slice file names carry a hash of their contents, so `_headers` (Netlify,
   Cloudflare Pages) and `vercel.json` cache `assets/fonts/` for a year as
   immutable. Never change a font file without regenerating its name.
+
+## Security headers
+
+- The meta Content-Security-Policy in `index.html` allows no inline script
+  except the theme script in `<head>`, which is allowed by its `sha256` hash.
+  Recompute the hash whenever that script changes (keep it in sync with
+  `render/theme.js`). `object-src` and `base-uri` are `'none'`.
+- `_headers` and `vercel.json` add `Content-Security-Policy: frame-ancestors
+  'none'`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff` and
+  `Referrer-Policy: strict-origin-when-cross-origin` for every path. GitHub
+  Pages cannot set headers, so it only gets the meta policy.
+- The theme follows the system until the user picks the other theme; picking
+  the theme that matches the system removes the stored value, and a `storage`
+  listener keeps other tabs in sync.
