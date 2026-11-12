@@ -64,9 +64,8 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   其余设备（触屏、触控笔、混合设备）统一走它的补集
   `not ((hover: hover) and (pointer: fine))`，触屏专用的样式用 `(any-pointer: coarse)`。
   不用 JS 给 `body` 或容器加设备类。JS 需要的断点与输入判断一律从
-  `assets/js/modules/utils/viewport.js` 读取（`isNarrow()`、`isCompact()`、
-  `isSidebarOverlay()`、`canHover()`、`hasCoarsePointer()`，以及 `onChange(name, cb)`
-  订阅 `MediaQueryList` 的变化），不比较 `window.innerWidth`，不检测 `ontouchstart`
+  `assets/js/modules/utils/viewport.js` 读取（`isCompact()`、`isSidebarOverlay()`，
+  以及 `onChange(name, cb)` 订阅 `MediaQueryList` 的变化；需要新的判断时在这里加查询），不比较 `window.innerWidth`，不检测 `ontouchstart`
   或 User-Agent（`<bm-search>` 的快捷键标签除外）。
 
 动效令牌同样只在 `base.css` 定义：时长 `--duration-1`…`--duration-5`
