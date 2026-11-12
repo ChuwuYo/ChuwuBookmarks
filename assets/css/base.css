@@ -207,6 +207,32 @@ body::after {
 	initial-value: transparent;
 }
 
+@property --edge-fade-start {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0px;
+}
+
+@property --edge-fade-end {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0px;
+}
+
+/* 边缘渐隐：滚动容器的 mask-image 读这两个长度，由 animation-timeline: scroll(self …) 驱动；
+   起始边在滚离起点的前 --edge-fade-size 内渐入，末端边在最后 --edge-fade-size 内渐出 */
+@keyframes edge-fade-start {
+	to {
+		--edge-fade-start: var(--edge-fade-size);
+	}
+}
+
+@keyframes edge-fade-end {
+	from {
+		--edge-fade-end: var(--edge-fade-size);
+	}
+}
+
 .autohide-scrollbar {
 	--scrollbar-thumb: transparent;
 	transition: --scrollbar-thumb var(--duration-3) var(--ease-linear);

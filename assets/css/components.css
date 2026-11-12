@@ -126,8 +126,30 @@
 	user-select: none;
 	animation: slideDown var(--duration-4) var(--ease-out) backwards;
 	scroll-behavior: smooth;
-	transition: mask-image var(--duration-4) var(--ease-standard);
 	contain: layout style;
+	--edge-fade-size: 1.5rem;
+	mask-image: linear-gradient(
+		to right,
+		transparent,
+		#000 var(--edge-fade-start),
+		#000 calc(100% - var(--edge-fade-end)),
+		transparent
+	);
+}
+
+/* 与侧边栏相同：不支持时不加渐隐动画，否则会按 0 秒播完停在终态，左侧被一直遮住 */
+@supports (animation-timeline: scroll()) {
+	#breadcrumbs {
+		animation:
+			slideDown var(--duration-4) var(--ease-out) backwards,
+			edge-fade-start var(--ease-linear) both,
+			edge-fade-end var(--ease-linear) both;
+		animation-timeline: auto, scroll(self inline), scroll(self inline);
+		animation-range:
+			normal,
+			0 var(--edge-fade-size),
+			calc(100% - var(--edge-fade-size)) 100%;
+	}
 }
 
 .breadcrumb-icon {
@@ -178,42 +200,15 @@ button.breadcrumb-item {
 	user-select: none;
 }
 
-.breadcrumb-item:last-child {
+.breadcrumb-item[aria-current] {
 	color: var(--text-color);
 	font-weight: bold;
 	cursor: default;
 }
 
-.breadcrumb-item:last-child:hover {
+.breadcrumb-item[aria-current]:hover {
 	background: transparent;
 	text-decoration: none;
-}
-
-#breadcrumbs.scrollable:not(.at-end)::after {
-	content: "";
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 24px;
-	height: 24px;
-	background: linear-gradient(to right, transparent, var(--bg-color));
-	pointer-events: none;
-	opacity: 0.8;
-}
-
-#breadcrumbs.scrollable:not(.at-start)::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 24px;
-	height: 24px;
-	background: linear-gradient(to left, transparent, var(--bg-color));
-	pointer-events: none;
-	opacity: 0.8;
-	z-index: var(--z-local-1);
 }
 
 .folder-loading,
