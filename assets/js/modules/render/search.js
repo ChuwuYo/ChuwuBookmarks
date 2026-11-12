@@ -26,8 +26,13 @@ const renderPage = (container, results, page) => {
 				return card;
 			});
 		container.replaceChildren(...cards);
-		container.firstElementChild?.setAttribute("tabindex", "0");
 	});
+};
+
+const focusFirstResult = (content) => {
+	const first = content.querySelector(".search-result-item");
+	const target = first?.type === "folder" ? first : first?.querySelector("a");
+	target?.focus({ preventScroll: true });
 };
 
 const PAGE_CHANGE_ANIMATION = "dim-and-restore";
@@ -37,7 +42,7 @@ const onPageChanged = (event) => {
 	if (event.target !== content) return;
 	if (event.animationName !== PAGE_CHANGE_ANIMATION) return;
 	content.removeAttribute("data-page-changing");
-	content.querySelector('.search-result-item[tabindex="0"]')?.focus();
+	focusFirstResult(content);
 };
 
 const playPageTransition = (content) => {
