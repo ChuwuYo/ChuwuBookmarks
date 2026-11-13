@@ -1,7 +1,7 @@
 .main-content {
 	margin-left: calc(var(--sidebar-width) + 20px);
 	margin-right: 120px;
-	min-height: 100vh;
+	min-height: 100dvh;
 	padding: 0 20px 20px 60px;
 	flex: 1;
 	box-sizing: border-box;
