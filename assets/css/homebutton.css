@@ -5,7 +5,9 @@
 		var(--home-button-bg-end)
 	);
 	color: var(--home-button-text);
-	padding: 10px 25px;
+	box-sizing: border-box;
+	height: var(--top-row-height);
+	padding: 0 25px;
 	border-radius: var(--radius-6);
 	cursor: pointer;
 	margin: 0;
