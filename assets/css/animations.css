@@ -18,10 +18,12 @@
 		transform: rotate(360deg);
 	}
 }
+/* 只改时长不改 transition-property：property 变为 none 会取消进行中的过渡（CSS Transitions 规范） */
 [data-theme-switching] *:not(.theme-toggle, .theme-toggle *),
 [data-theme-switching] *:not(.theme-toggle, .theme-toggle *)::before,
 [data-theme-switching] *:not(.theme-toggle, .theme-toggle *)::after {
-	transition: none !important;
+	transition-duration: 0s !important;
+	transition-delay: 0s !important;
 }
 
 /* 圆形展开/收缩由 JS 驱动，去掉浏览器默认的交叉淡入 */
