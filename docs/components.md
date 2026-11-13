@@ -166,7 +166,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
 
 页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
-`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
+`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间新过渡立即完成，进行中的过渡照常播完）、
 `data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
 `data-page-changing`（搜索翻页反馈）、`.sidebar` 的 `data-entering`（展开时文件夹入场）。
 
