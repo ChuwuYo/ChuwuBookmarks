@@ -4,7 +4,7 @@
 	z-index: var(--z-float);
 	white-space: nowrap;
 	user-select: none;
-	height: calc(1rem + 16px + 6px);
+	height: var(--top-row-height);
 	contain: layout;
 	backface-visibility: hidden;
 	overflow: visible;
@@ -12,12 +12,19 @@
 	padding-left: calc(1rem + 15px + 6px + 5px);
 }
 
+.top-bar {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-top-bar);
+	background-color: var(--bg-color);
+}
+
 #breadcrumbs {
 	font-weight: bold;
 	margin-bottom: 1rem;
-	padding: 60px 0 0 0;
+	padding: var(--top-bar-content-start) 0 0 0;
 	font-size: 1.5rem;
-	white-space: normal;
+	white-space: nowrap;
 	overflow-x: auto;
 	user-select: none;
 	--enter-offset: calc(-1 * var(--motion-distance));
@@ -80,7 +87,7 @@
 
 .github-link {
 	position: fixed;
-	top: 20px;
+	top: var(--top-row-inset);
 	right: 20px;
 	z-index: var(--z-float);
 	color: var(--text-color);

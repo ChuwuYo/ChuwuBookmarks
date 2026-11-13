@@ -54,7 +54,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
   `forced-colors: active` 下不覆盖 outline 颜色。
 - **圆角**：`--radius-1`…`--radius-8`（3/4/6/8/10/12/15/18px），圆形 `--radius-round`（50%），
   胶囊 `--radius-full`（999px）。
-- **层级**：页面层 `--z-decor`、`--z-content`、`--z-message`、`--z-float`、`--z-sidebar`、
+- **层级**：页面层 `--z-decor`、`--z-content`、`--z-top-bar`、`--z-message`、`--z-float`、`--z-sidebar`、
   `--z-sidebar-raised`、`--z-sidebar-toggle`；元素内部的局部叠放用
   `--z-local-below`、`--z-local-1`…`--z-local-3`。
 - **断点与输入方式**：布局只按宽度判断，用范围语法写媒体查询：窄屏 `(width < 480px)`、
@@ -257,6 +257,10 @@ DOM 契约：`.breadcrumb-icon > bm-icon` + `ol.breadcrumb-list > li`；每个 `
 
 面包屑项、分隔符与图标的样式（含窄屏的胶囊样式）都在 `bm-breadcrumbs.css`；
 父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
+`#breadcrumbs` 单行不换行，放在 `.top-bar` 中：`.top-bar` 以 `position: sticky` 贴在视口顶部并带页面背景色，
+与固定定位的搜索栏、GitHub 链接一起常驻，只有书签内容滚动。
+搜索栏、GitHub 链接、侧边栏按钮的顶部位置都用 `base.css` 的 `--top-row-inset`；`--top-row-height` 只是搜索栏的高度，
+其余两者的尺寸由各自样式决定。`.top-bar` 内容起点 `--top-bar-content-start` 由这两个 token 与 `--top-bar-gap` 算出，`scroll-padding-top` 也由它推出，不写固定像素。
 
 ## `<bm-card>`
 
