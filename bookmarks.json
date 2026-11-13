@@ -361,18 +361,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1756754103005,
-                "title": "ACG里世界",
-                "url": "https://acgn.zone/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=acgn.zone",
-                  "https://favicon.im/acgn.zone",
-                  "https://icons.duckduckgo.com/ip3/acgn.zone.ico",
-                  "https://acgn.zone/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1756754167392,
                 "title": "SS同盟首页",
                 "url": "https://sstm.moe/",
@@ -747,14 +735,14 @@
               },
               {
                 "type": "link",
-                "addDate": 1704012714000,
-                "title": "中国可用的 BT Tracker 服务器列表，每24小时自动更新 - 小小编程",
-                "url": "https://www.yaozuopan.top/index.php/archives/1014/",
+                "addDate": 1791514580003,
+                "title": "adysec/tracker: BT tracker 服务器列表，提供全网最全的 tracker 列表，每日聚合并测试存活服务器，trackers_all.txt 为全量列表（2902 行），trackers_best.txt 为可用列表（1137 行）",
+                "url": "https://github.com/adysec/tracker",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.yaozuopan.top",
-                  "https://favicon.im/www.yaozuopan.top",
-                  "https://icons.duckduckgo.com/ip3/www.yaozuopan.top.ico",
-                  "https://www.yaozuopan.top/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
                 ]
               }
             ]
@@ -1074,6 +1062,18 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
+                "title": "Project AcgnX Torrent Global",
+                "url": "https://www.acgnx.se/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.acgnx.se",
+                  "https://favicon.im/www.acgnx.se",
+                  "https://icons.duckduckgo.com/ip3/www.acgnx.se.ico",
+                  "https://www.acgnx.se/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1704012714000,
                 "title": "Csze BT种子发布共享系统 - BT种子|BT种子发布|BT影视下载|BT动漫下载|BT游戏下载|ACG",
                 "url": "https://bt.orzx.im/",
                 "icon": [
@@ -1105,18 +1105,6 @@
                   "https://favicon.im/vcb-s.com",
                   "https://icons.duckduckgo.com/ip3/vcb-s.com.ico",
                   "https://vcb-s.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "Project AcgnX Torrent Global",
-                "url": "https://www.acgnx.se/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.acgnx.se",
-                  "https://favicon.im/www.acgnx.se",
-                  "https://icons.duckduckgo.com/ip3/www.acgnx.se.ico",
-                  "https://www.acgnx.se/favicon.ico"
                 ]
               },
               {
@@ -1181,14 +1169,14 @@
               },
               {
                 "type": "link",
-                "addDate": 1767857105208,
-                "title": "ANi Open",
-                "url": "https://openani.an-i.workers.dev/",
+                "addDate": 1791529788672,
+                "title": "SQLite 关系数据库标准实战教学指南",
+                "url": "https://datatask1.netlify.app/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=openani.an-i.workers.dev",
-                  "https://favicon.im/openani.an-i.workers.dev",
-                  "https://icons.duckduckgo.com/ip3/openani.an-i.workers.dev.ico",
-                  "https://openani.an-i.workers.dev/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=datatask1.netlify.app",
+                  "https://favicon.im/datatask1.netlify.app",
+                  "https://icons.duckduckgo.com/ip3/datatask1.netlify.app.ico",
+                  "https://datatask1.netlify.app/favicon.ico"
                 ]
               }
             ]
@@ -1720,6 +1708,30 @@
                   "https://icons.duckduckgo.com/ip3/momicacg.com.ico",
                   "https://momicacg.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1791962903161,
+                "title": "栗子漫画-栗子漫画官网-免费漫画阅读平台",
+                "url": "https://www.lizimh.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.lizimh.com",
+                  "https://favicon.im/www.lizimh.com",
+                  "https://icons.duckduckgo.com/ip3/www.lizimh.com.ico",
+                  "https://www.lizimh.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1791963170269,
+                "title": "🌈️包子漫畫",
+                "url": "https://www.baozimh.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.baozimh.com",
+                  "https://favicon.im/www.baozimh.com",
+                  "https://icons.duckduckgo.com/ip3/www.baozimh.com.ico",
+                  "https://www.baozimh.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -1847,6 +1859,30 @@
                   "https://icons.duckduckgo.com/ip3/github.com.ico",
                   "https://github.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1791337825836,
+                "title": "Animia App - 動漫追劇神器，最新日本動畫APP免費在線看！",
+                "url": "https://animia.me/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=animia.me",
+                  "https://favicon.im/animia.me",
+                  "https://icons.duckduckgo.com/ip3/animia.me.ico",
+                  "https://animia.me/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1792165938979,
+                "title": "动漫共和国 - 海量高清动漫免费看，更新快内容新",
+                "url": "https://www.oneghg.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.oneghg.com",
+                  "https://favicon.im/www.oneghg.com",
+                  "https://icons.duckduckgo.com/ip3/www.oneghg.com.ico",
+                  "https://www.oneghg.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -1944,6 +1980,42 @@
               "https://favicon.im/www.cupfox.app",
               "https://icons.duckduckgo.com/ip3/www.cupfox.app.ico",
               "https://www.cupfox.app/favicon.ico"
+            ]
+          },
+          {
+            "type": "link",
+            "addDate": 1789991111775,
+            "title": "奈飞工厂-一个致力于免费提供Netflix影剧动漫的流媒体播放平台–奈飞工厂 NetflixGC | NetflixGC.com",
+            "url": "https://www.netflixgc.com/",
+            "icon": [
+              "https://www.google.com/s2/favicons?domain=www.netflixgc.com",
+              "https://favicon.im/www.netflixgc.com",
+              "https://icons.duckduckgo.com/ip3/www.netflixgc.com.ico",
+              "https://www.netflixgc.com/favicon.ico"
+            ]
+          },
+          {
+            "type": "link",
+            "addDate": 1791606222559,
+            "title": "奈菲影视-奈飞影视 – 奈菲影视如果生活很无趣,但至少我可以陪你看剧",
+            "url": "https://www.nfyingshi.com/",
+            "icon": [
+              "https://www.google.com/s2/favicons?domain=www.nfyingshi.com",
+              "https://favicon.im/www.nfyingshi.com",
+              "https://icons.duckduckgo.com/ip3/www.nfyingshi.com.ico",
+              "https://www.nfyingshi.com/favicon.ico"
+            ]
+          },
+          {
+            "type": "link",
+            "addDate": 1792817055091,
+            "title": "未知搜索 - 聚合搜索全网影视资源，在线播放，无广告，秒加载",
+            "url": "https://projext.run/",
+            "icon": [
+              "https://www.google.com/s2/favicons?domain=projext.run",
+              "https://favicon.im/projext.run",
+              "https://icons.duckduckgo.com/ip3/projext.run.ico",
+              "https://projext.run/favicon.ico"
             ]
           }
         ]
@@ -2113,6 +2185,18 @@
                   "https://icons.duckduckgo.com/ip3/github.com.ico",
                   "https://github.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1749541193862,
+                "title": "game1024/OpenSpeedy: 开源游戏变速器",
+                "url": "https://github.com/game1024/OpenSpeedy",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -2238,18 +2322,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1747022237851,
-                "title": "Download the Modrinth App!",
-                "url": "https://modrinth.com/app",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=modrinth.com",
-                  "https://favicon.im/modrinth.com",
-                  "https://icons.duckduckgo.com/ip3/modrinth.com.ico",
-                  "https://modrinth.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1749540653462,
                 "title": "LauncherX 下载 - Corona Studio",
                 "url": "https://corona.studio/lx/download",
@@ -2270,18 +2342,6 @@
                   "https://favicon.im/xmcl.app",
                   "https://icons.duckduckgo.com/ip3/xmcl.app.ico",
                   "https://xmcl.app/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1741267412745,
-                "title": "Alicorn - 面向任何玩家的全能 Minecraft 启动器",
-                "url": "https://alc.pages.dev/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=alc.pages.dev",
-                  "https://favicon.im/alc.pages.dev",
-                  "https://icons.duckduckgo.com/ip3/alc.pages.dev.ico",
-                  "https://alc.pages.dev/favicon.ico"
                 ]
               },
               {
@@ -2439,6 +2499,30 @@
                   "https://icons.duckduckgo.com/ip3/pan-gu-continent.blogspot.com.ico",
                   "https://pan-gu-continent.blogspot.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790159090533,
+                "title": "Andy-K-Sparklight/Alicorn：积木游戏的发射器，曾经拥有友谊的魔法。",
+                "url": "https://github.com/Andy-K-Sparklight/Alicorn",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1792580722972,
+                "title": "UNIkeEN/SJMCL: 🌟 A Minecraft launcher born from @SJMC-Dev, built with the community",
+                "url": "https://github.com/UNIkeEN/SJMCL",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -2493,18 +2577,6 @@
                   "https://favicon.im/www.jiangnangame.com",
                   "https://icons.duckduckgo.com/ip3/www.jiangnangame.com.ico",
                   "https://www.jiangnangame.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1724064434468,
-                "title": "资源 | PVZ同人创作论坛",
-                "url": "https://www.pvz.moe/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.pvz.moe",
-                  "https://favicon.im/www.pvz.moe",
-                  "https://icons.duckduckgo.com/ip3/www.pvz.moe.ico",
-                  "https://www.pvz.moe/favicon.ico"
                 ]
               }
             ]
@@ -2571,6 +2643,18 @@
             "children": [
               {
                 "type": "link",
+                "addDate": 1790229233468,
+                "title": "privateersclub/wiki: 🌊 The most comprehensive game piracy wiki on the internet.",
+                "url": "https://github.com/privateersclub/wiki",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
                 "addDate": 1782577973020,
                 "title": "PlayZip - PC Games Free Download",
                 "url": "https://playzip.com/",
@@ -2627,18 +2711,6 @@
                   "https://favicon.im/laoquzhang.com",
                   "https://icons.duckduckgo.com/ip3/laoquzhang.com.ico",
                   "https://laoquzhang.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "叽哩叽哩游戏网ACG（G站） – ACG爱好者聚集地",
-                "url": "https://www.jiligamefun.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.jiligamefun.com",
-                  "https://favicon.im/www.jiligamefun.com",
-                  "https://icons.duckduckgo.com/ip3/www.jiligamefun.com.ico",
-                  "https://www.jiligamefun.com/favicon.ico"
                 ]
               },
               {
@@ -2787,14 +2859,14 @@
               },
               {
                 "type": "link",
-                "addDate": 1766069914957,
-                "title": "91白嫖网 - Free Share",
-                "url": "https://91bpw.com/",
+                "addDate": 1790229163218,
+                "title": "GOG Archive",
+                "url": "https://gog.squid.wtf/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=91bpw.com",
-                  "https://favicon.im/91bpw.com",
-                  "https://icons.duckduckgo.com/ip3/91bpw.com.ico",
-                  "https://91bpw.com/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=gog.squid.wtf",
+                  "https://favicon.im/gog.squid.wtf",
+                  "https://icons.duckduckgo.com/ip3/gog.squid.wtf.ico",
+                  "https://gog.squid.wtf/favicon.ico"
                 ]
               }
             ]
@@ -2892,12 +2964,12 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "主页 | 梓澪の妙妙屋",
-                "url": "https://zi0.cc/",
+                "url": "https://www.gal4.you/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=zi0.cc",
-                  "https://favicon.im/zi0.cc",
-                  "https://icons.duckduckgo.com/ip3/zi0.cc.ico",
-                  "https://zi0.cc/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=www.gal4.you",
+                  "https://favicon.im/www.gal4.you",
+                  "https://icons.duckduckgo.com/ip3/www.gal4.you.ico",
+                  "https://www.gal4.you/favicon.ico"
                 ]
               },
               {
@@ -3271,6 +3343,30 @@
                   "https://icons.duckduckgo.com/ip3/acgngames.net.ico",
                   "https://acgngames.net/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1793712317263,
+                "title": "一起萌 LetMoe — 免费无门槛 ACG / 黄油资源",
+                "url": "https://www.letmoe.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.letmoe.com",
+                  "https://favicon.im/www.letmoe.com",
+                  "https://icons.duckduckgo.com/ip3/www.letmoe.com.ico",
+                  "https://www.letmoe.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1793712348958,
+                "title": "Shionlib 书音的图书馆 - Galgame 资源下载",
+                "url": "https://shionlib.com/zh?utm_source=www.kungal.com",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=shionlib.com",
+                  "https://favicon.im/shionlib.com",
+                  "https://icons.duckduckgo.com/ip3/shionlib.com.ico",
+                  "https://shionlib.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -3578,18 +3674,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1746542482451,
-                "title": ".IO 游戏——papergames.io 上的免费在线游戏",
-                "url": "https://papergames.io/zh/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=papergames.io",
-                  "https://favicon.im/papergames.io",
-                  "https://icons.duckduckgo.com/ip3/papergames.io.ico",
-                  "https://papergames.io/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1746543026554,
                 "title": "古诗连词",
                 "url": "https://poetrystrands.com/",
@@ -3724,14 +3808,14 @@
             "children": [
               {
                 "type": "link",
-                "addDate": 1768853585248,
-                "title": "Pax Historia - 和平历史（AI沙盒）",
-                "url": "https://www.paxhistoria.co/",
+                "addDate": 1792478083190,
+                "title": "PokéBonk｜浏览器免费畅玩的3D宝可梦幸存者游戏",
+                "url": "https://pokebonk.com/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.paxhistoria.co",
-                  "https://favicon.im/www.paxhistoria.co",
-                  "https://icons.duckduckgo.com/ip3/www.paxhistoria.co.ico",
-                  "https://www.paxhistoria.co/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=pokebonk.com",
+                  "https://favicon.im/pokebonk.com",
+                  "https://icons.duckduckgo.com/ip3/pokebonk.com.ico",
+                  "https://pokebonk.com/favicon.ico"
                 ]
               }
             ]
@@ -3746,18 +3830,6 @@
               "https://favicon.im/www.huijiwiki.com",
               "https://icons.duckduckgo.com/ip3/www.huijiwiki.com.ico",
               "https://www.huijiwiki.com/favicon.ico"
-            ]
-          },
-          {
-            "type": "link",
-            "addDate": 1749541193862,
-            "title": "game1024/OpenSpeedy: 开源游戏变速器",
-            "url": "https://github.com/game1024/OpenSpeedy",
-            "icon": [
-              "https://www.google.com/s2/favicons?domain=github.com",
-              "https://favicon.im/github.com",
-              "https://icons.duckduckgo.com/ip3/github.com.ico",
-              "https://github.com/favicon.ico"
             ]
           },
           {
@@ -4452,18 +4524,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1730375232786,
-                "title": "网易云音乐无损解析=跳转api.toubiec.cn/wyapi.html",
-                "url": "https://wyapi.toubiec.cn/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=wyapi.toubiec.cn",
-                  "https://favicon.im/wyapi.toubiec.cn",
-                  "https://icons.duckduckgo.com/ip3/wyapi.toubiec.cn.ico",
-                  "https://wyapi.toubiec.cn/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1732889519860,
                 "title": "lucida | music at internet speed",
                 "url": "https://lucida.to/",
@@ -4548,18 +4608,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1769096616421,
-                "title": "泡椒音乐 - 免费无损音乐MP3、FLAC、WAV在线播放下载网站",
-                "url": "https://pjmp3.de/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=pjmp3.de",
-                  "https://favicon.im/pjmp3.de",
-                  "https://icons.duckduckgo.com/ip3/pjmp3.de.ico",
-                  "https://pjmp3.de/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1769100171316,
                 "title": "CharlesPikachu/musicdl: Musicdl: A lightweight music downloader written in pure python. (轻量级无损音乐下载器，支持网易云音乐，QQ音乐，酷狗音乐，酷我音乐，咪咕音乐，千千静听，汽水音乐，Bilibili音乐，喜马拉雅，荔枝FM，猫耳FM，JOOX，TIDAL，YouTube，Apple Music，Spotify，Qobuz，SoundCloud等主流音乐平台)",
                 "url": "https://github.com/CharlesPikachu/musicdl",
@@ -4632,6 +4680,18 @@
               },
               {
                 "type": "link",
+                "addDate": 1793762037533,
+                "title": "高品质音乐无损解析",
+                "url": "https://dm.jfjt.cc/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=dm.jfjt.cc",
+                  "https://favicon.im/dm.jfjt.cc",
+                  "https://icons.duckduckgo.com/ip3/dm.jfjt.cc.ico",
+                  "https://dm.jfjt.cc/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
                 "addDate": 1774760016529,
                 "title": "guohuiyuan/go-music-dl: 一个基于 Go 语言的全网音乐搜索与下载工具。支持 CLI 命令行与 Web 服务双模式，内置网易云、QQ、酷狗、Bilibili、汽水音乐等 10+ 个主流平台，支持多源并发搜索与无损音质解析。music-dl交流群：1074285005",
                 "url": "https://github.com/guohuiyuan/go-music-dl",
@@ -4652,6 +4712,30 @@
                   "https://favicon.im/spotidown.co",
                   "https://icons.duckduckgo.com/ip3/spotidown.co.ico",
                   "https://spotidown.co/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1789813035145,
+                "title": "HiFiTi - 音乐磁场 | 无损音乐下载|高清MV|FLAC|MP3高品质音乐免费下载试听网站",
+                "url": "https://www.hifiti.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.hifiti.com",
+                  "https://favicon.im/www.hifiti.com",
+                  "https://icons.duckduckgo.com/ip3/www.hifiti.com.ico",
+                  "https://www.hifiti.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1789813042730,
+                "title": "HiFiNi-音乐磁场|无损音乐下载|FLAC|MP3|高品质歌曲免费下载试听网站",
+                "url": "https://wsyycc.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=wsyycc.com",
+                  "https://favicon.im/wsyycc.com",
+                  "https://icons.duckduckgo.com/ip3/wsyycc.com.ico",
+                  "https://wsyycc.com/favicon.ico"
                 ]
               }
             ]
@@ -4846,6 +4930,18 @@
                 "addDate": 1787314887121,
                 "title": "algerkong/AlgerMusicPlayer: 一个第三方音乐播放器、本地服务、桌面歌词、音乐下载、远程控制",
                 "url": "https://github.com/algerkong/AlgerMusicPlayer",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794482393885,
+                "title": "Suxiaoqinx/Netease_url: 网易云无损解析",
+                "url": "https://github.com/Suxiaoqinx/Netease_url",
                 "icon": [
                   "https://www.google.com/s2/favicons?domain=github.com",
                   "https://favicon.im/github.com",
@@ -5145,18 +5241,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1733324022818,
-                "title": "Amazon Music",
-                "url": "https://music.amazon.co.jp/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=music.amazon.co.jp",
-                  "https://favicon.im/music.amazon.co.jp",
-                  "https://icons.duckduckgo.com/ip3/music.amazon.co.jp.ico",
-                  "https://music.amazon.co.jp/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1771601361348,
                 "title": "‎Apple Music - Web Player",
                 "url": "https://music.apple.com/ca/new",
@@ -5335,18 +5419,6 @@
               "https://favicon.im/www.audioatlas.com",
               "https://icons.duckduckgo.com/ip3/www.audioatlas.com.ico",
               "https://www.audioatlas.com/favicon.ico"
-            ]
-          },
-          {
-            "type": "link",
-            "addDate": 1771772228839,
-            "title": "Monochrome Music",
-            "url": "https://monochrome.tf/",
-            "icon": [
-              "https://www.google.com/s2/favicons?domain=monochrome.tf",
-              "https://favicon.im/monochrome.tf",
-              "https://icons.duckduckgo.com/ip3/monochrome.tf.ico",
-              "https://monochrome.tf/favicon.ico"
             ]
           }
         ]
@@ -5849,24 +5921,24 @@
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "铅笔小说_最值得书友收藏的网络小说阅读网",
-                "url": "https://www.23qb.net/",
+                "url": "https://www.23qb.com/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.23qb.net",
-                  "https://favicon.im/www.23qb.net",
-                  "https://icons.duckduckgo.com/ip3/www.23qb.net.ico",
-                  "https://www.23qb.net/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=www.23qb.com",
+                  "https://favicon.im/www.23qb.com",
+                  "https://icons.duckduckgo.com/ip3/www.23qb.com.ico",
+                  "https://www.23qb.com/favicon.ico"
                 ]
               },
               {
                 "type": "link",
                 "addDate": 1704012714000,
                 "title": "放肆文學 - 免費線上小說",
-                "url": "https://funs.me/",
+                "url": "https://fun8.us/",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=funs.me",
-                  "https://favicon.im/funs.me",
-                  "https://icons.duckduckgo.com/ip3/funs.me.ico",
-                  "https://funs.me/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=fun8.us",
+                  "https://favicon.im/fun8.us",
+                  "https://icons.duckduckgo.com/ip3/fun8.us.ico",
+                  "https://fun8.us/favicon.ico"
                 ]
               },
               {
@@ -6003,18 +6075,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1776679977620,
-                "title": "大熊猫文学网",
-                "url": "https://www.dxmwx.org/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.dxmwx.org",
-                  "https://favicon.im/www.dxmwx.org",
-                  "https://icons.duckduckgo.com/ip3/www.dxmwx.org.ico",
-                  "https://www.dxmwx.org/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1776680077076,
                 "title": "台灣小說網-無廣告彈窗-全免費繁體小說網",
                 "url": "https://twkan.com/?t=1",
@@ -6023,6 +6083,18 @@
                   "https://favicon.im/twkan.com",
                   "https://icons.duckduckgo.com/ip3/twkan.com.ico",
                   "https://twkan.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1791904629425,
+                "title": "無限小說 · 最新原創全本免費綫上小說網路文學閲讀分享平台",
+                "url": "https://www.8book.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.8book.com",
+                  "https://favicon.im/www.8book.com",
+                  "https://icons.duckduckgo.com/ip3/www.8book.com.ico",
+                  "https://www.8book.com/favicon.ico"
                 ]
               }
             ]
@@ -6318,6 +6390,18 @@
                   "https://favicon.im/www.sudugu.org",
                   "https://icons.duckduckgo.com/ip3/www.sudugu.org.ico",
                   "https://www.sudugu.org/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790232137617,
+                "title": "搜索电子书 - 藏尽天下好书 - SaltyLeo 的书架",
+                "url": "https://tstrs.me/search",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=tstrs.me",
+                  "https://favicon.im/tstrs.me",
+                  "https://icons.duckduckgo.com/ip3/tstrs.me.ico",
+                  "https://tstrs.me/favicon.ico"
                 ]
               }
             ]
@@ -7005,14 +7089,26 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1729423400433,
-                    "title": "AB Download Manager",
-                    "url": "https://abdownloadmanager.com/",
+                    "addDate": 1752079033867,
+                    "title": "qBittorrent-Enhanced-Edition: [Unofficial] qBittorrent Enhanced, based on qBittorrent",
+                    "url": "https://github.com/c0re100/qBittorrent-Enhanced-Edition",
                     "icon": [
-                      "https://www.google.com/s2/favicons?domain=abdownloadmanager.com",
-                      "https://favicon.im/abdownloadmanager.com",
-                      "https://icons.duckduckgo.com/ip3/abdownloadmanager.com.ico",
-                      "https://abdownloadmanager.com/favicon.ico"
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1790317695835,
+                    "title": "agalwood/Motrix: A full-featured download manager.",
+                    "url": "https://github.com/agalwood/Motrix",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
                     ]
                   },
                   {
@@ -7029,9 +7125,9 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1752079033867,
-                    "title": "qBittorrent-Enhanced-Edition: [Unofficial] qBittorrent Enhanced, based on qBittorrent",
-                    "url": "https://github.com/c0re100/qBittorrent-Enhanced-Edition",
+                    "addDate": 1790317930603,
+                    "title": "AnInsomniacy/rayburst：重新定义开源下载管理器",
+                    "url": "https://github.com/AnInsomniacy/rayburst",
                     "icon": [
                       "https://www.google.com/s2/favicons?domain=github.com",
                       "https://favicon.im/github.com",
@@ -7546,30 +7642,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1766428818471,
-                    "title": "hooosberg/WitNote: WitNote is a local-first AI writing companion for macOS and Windows.",
-                    "url": "https://github.com/hooosberg/WitNote",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1746180820452,
-                    "title": "codexu/note-gen: A cross-platform Markdown note-taking application dedicated to using AI to bridge recording and writing, organizing fragmented knowledge into a readable note.",
-                    "url": "https://github.com/codexu/note-gen",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1740403145841,
                     "title": "usememos/memos：一款开源、轻量级的笔记解决方案。轻松创建有意义的笔记。您的笔记，您的方式。",
                     "url": "https://github.com/usememos/memos",
@@ -7578,18 +7650,6 @@
                       "https://favicon.im/github.com",
                       "https://icons.duckduckgo.com/ip3/github.com.ico",
                       "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1751555308289,
-                    "title": "AFFiNE - All In One KnowledgeOS",
-                    "url": "https://affine.pro/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=affine.pro",
-                      "https://favicon.im/affine.pro",
-                      "https://icons.duckduckgo.com/ip3/affine.pro.ico",
-                      "https://affine.pro/favicon.ico"
                     ]
                   },
                   {
@@ -7618,45 +7678,9 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1747304361307,
-                    "title": "chinayangxiaowei/marktext-chinese-language-pack: Simplified Chinese language pack for marktext",
-                    "url": "https://github.com/chinayangxiaowei/marktext-chinese-language-pack",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759105163441,
-                    "title": "Auto-Plugin/milkup: a free WYSIWYG desktop markdown editor",
-                    "url": "https://github.com/Auto-Plugin/milkup",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759105413518,
-                    "title": "Zettlr/Zettlr：您的一站式出版工作台",
-                    "url": "https://github.com/Zettlr/Zettlr",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759338681311,
-                    "title": "InkStone-Markdown: 在线markdown编辑器。功能齐全的Markdown 编辑器。全平台轻量可用",
-                    "url": "https://github.com/2061360308/InkStone-Markdown",
+                    "addDate": 1790866713767,
+                    "title": "AppFlowy-IO/AppFlowy: Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
+                    "url": "https://github.com/AppFlowy-IO/AppFlowy",
                     "icon": [
                       "https://www.google.com/s2/favicons?domain=github.com",
                       "https://favicon.im/github.com",
@@ -7738,18 +7762,6 @@
                 "addDate": 1704014875978,
                 "title": "操作加速",
                 "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "快速输入Espanso - A Privacy-first, Cross-platform Text Expander",
-                    "url": "https://espanso.org/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=espanso.org",
-                      "https://favicon.im/espanso.org",
-                      "https://icons.duckduckgo.com/ip3/espanso.org.ico",
-                      "https://espanso.org/favicon.ico"
-                    ]
-                  },
                   {
                     "type": "link",
                     "addDate": 1704012714000,
@@ -8092,6 +8104,18 @@
                           "https://icons.duckduckgo.com/ip3/hibitsoft.ir.ico",
                           "https://hibitsoft.ir/favicon.ico"
                         ]
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1790317830356,
+                        "title": "builtbybel/FluentCleaner: FluentCleaner is the transparent, community-powered CCleaner alternative for Windows.",
+                        "url": "https://github.com/builtbybel/FluentCleaner",
+                        "icon": [
+                          "https://www.google.com/s2/favicons?domain=github.com",
+                          "https://favicon.im/github.com",
+                          "https://icons.duckduckgo.com/ip3/github.com.ico",
+                          "https://github.com/favicon.ico"
+                        ]
                       }
                     ]
                   },
@@ -8134,15 +8158,34 @@
                 ]
               },
               {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "RIME | 中州韻輸入法引擎",
-                "url": "https://rime.im/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=rime.im",
-                  "https://favicon.im/rime.im",
-                  "https://icons.duckduckgo.com/ip3/rime.im.ico",
-                  "https://rime.im/favicon.ico"
+                "type": "folder",
+                "addDate": 1790317485817,
+                "title": "输入法",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1704012714000,
+                    "title": "RIME | 中州韻輸入法引擎",
+                    "url": "https://rime.im/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=rime.im",
+                      "https://favicon.im/rime.im",
+                      "https://icons.duckduckgo.com/ip3/rime.im.ico",
+                      "https://rime.im/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1791370838062,
+                    "title": "水杉输入法 MSIME｜开源中文输入法",
+                    "url": "https://msime.app/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=msime.app",
+                      "https://favicon.im/msime.app",
+                      "https://icons.duckduckgo.com/ip3/msime.app.ico",
+                      "https://msime.app/favicon.ico"
+                    ]
+                  }
                 ]
               },
               {
@@ -8167,6 +8210,42 @@
                   "https://favicon.im/github.com",
                   "https://icons.duckduckgo.com/ip3/github.com.ico",
                   "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790317502877,
+                "title": "网易叭哥说-AI语音Agent，比打字快5倍",
+                "url": "https://bug.youdao.com/#/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=bug.youdao.com",
+                  "https://favicon.im/bug.youdao.com",
+                  "https://icons.duckduckgo.com/ip3/bug.youdao.com.ico",
+                  "https://bug.youdao.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790317517620,
+                "title": "豆包输入法 - 高效输入，享受输出",
+                "url": "https://shurufa.doubao.com/pc",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=shurufa.doubao.com",
+                  "https://favicon.im/shurufa.doubao.com",
+                  "https://icons.duckduckgo.com/ip3/shurufa.doubao.com.ico",
+                  "https://shurufa.doubao.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790317533810,
+                "title": "Chatterfly - 不必想好，开口就好",
+                "url": "https://chatterfly.tencent.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=chatterfly.tencent.com",
+                  "https://favicon.im/chatterfly.tencent.com",
+                  "https://icons.duckduckgo.com/ip3/chatterfly.tencent.com.ico",
+                  "https://chatterfly.tencent.com/favicon.ico"
                 ]
               }
             ]
@@ -11821,18 +11900,6 @@
               {
                 "type": "link",
                 "addDate": 1704012714000,
-                "title": "即时工具-致力打造即用即走型在线工具箱",
-                "url": "https://www.67tool.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.67tool.com",
-                  "https://favicon.im/www.67tool.com",
-                  "https://icons.duckduckgo.com/ip3/www.67tool.com.ico",
-                  "https://www.67tool.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1704012714000,
                 "title": "ICOA 在线小工具 · 导航 - 星际中央超自然局",
                 "url": "https://free.icoa.cn/",
                 "icon": [
@@ -11952,62 +12019,14 @@
               },
               {
                 "type": "link",
-                "addDate": 1737913806534,
-                "title": "在线工具导航网站 - 黑点工具",
-                "url": "https://hddtool.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=hddtool.com",
-                  "https://favicon.im/hddtool.com",
-                  "https://icons.duckduckgo.com/ip3/hddtool.com.ico",
-                  "https://hddtool.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1744284996190,
-                "title": "你的免费工具集 | UFreeTools",
-                "url": "https://www.ufreetools.com/zh",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.ufreetools.com",
-                  "https://favicon.im/www.ufreetools.com",
-                  "https://icons.duckduckgo.com/ip3/www.ufreetools.com.ico",
-                  "https://www.ufreetools.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1744781907448,
-                "title": " 独特工具箱 - dute.org",
-                "url": "https://www.dute.org/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.dute.org",
-                  "https://favicon.im/www.dute.org",
-                  "https://icons.duckduckgo.com/ip3/www.dute.org.ico",
-                  "https://www.dute.org/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1744902087655,
-                "title": "极速箱 | Jisuxiang - 高效开发工具集成平台 | 程序员必备在线工具箱",
-                "url": "https://jisuxiang.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=jisuxiang.com",
-                  "https://favicon.im/jisuxiang.com",
-                  "https://icons.duckduckgo.com/ip3/jisuxiang.com.ico",
-                  "https://jisuxiang.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1746181071543,
                 "title": "XTools",
-                "url": "https://www.xxoo.tools/",
+                "url": "https://xtools.im/zh",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.xxoo.tools",
-                  "https://favicon.im/www.xxoo.tools",
-                  "https://icons.duckduckgo.com/ip3/www.xxoo.tools.ico",
-                  "https://www.xxoo.tools/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=xtools.im",
+                  "https://favicon.im/xtools.im",
+                  "https://icons.duckduckgo.com/ip3/xtools.im.ico",
+                  "https://xtools.im/favicon.ico"
                 ]
               },
               {
@@ -13411,18 +13430,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1744900895129,
-                "title": "文件加速下载",
-                "url": "https://s.iao.su/g/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=s.iao.su",
-                  "https://favicon.im/s.iao.su",
-                  "https://icons.duckduckgo.com/ip3/s.iao.su.ico",
-                  "https://s.iao.su/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1746688244769,
                 "title": "cmy2008/doc88_extractor: 道客巴巴文档无损提取工具（非图片） A tool make you extract the doc88 documents.",
                 "url": "https://github.com/cmy2008/doc88_extractor",
@@ -13629,30 +13636,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1755617825109,
-                "title": "You.com | AI for workplace productivity",
-                "url": "https://you.com/?chatMode=custom",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=you.com",
-                  "https://favicon.im/you.com",
-                  "https://icons.duckduckgo.com/ip3/you.com.ico",
-                  "https://you.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1714547656495,
-                "title": "环球探索者",
-                "url": "https://explorer.globe.engineer/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=explorer.globe.engineer",
-                  "https://favicon.im/explorer.globe.engineer",
-                  "https://icons.duckduckgo.com/ip3/explorer.globe.engineer.ico",
-                  "https://explorer.globe.engineer/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1717329860081,
                 "title": "WebPilot",
                 "url": "https://www.webpilot.ai/home?mode=search&lang=zh-CN",
@@ -13661,18 +13644,6 @@
                   "https://favicon.im/www.webpilot.ai",
                   "https://icons.duckduckgo.com/ip3/www.webpilot.ai.ico",
                   "https://www.webpilot.ai/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1717501718323,
-                "title": "Farfalle",
-                "url": "https://www.farfalle.dev/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.farfalle.dev",
-                  "https://favicon.im/www.farfalle.dev",
-                  "https://icons.duckduckgo.com/ip3/www.farfalle.dev.ico",
-                  "https://www.farfalle.dev/favicon.ico"
                 ]
               },
               {
@@ -13701,50 +13672,14 @@
               },
               {
                 "type": "link",
-                "addDate": 1733142821599,
-                "title": "纳米搜索",
-                "url": "https://www.n.cn/",
+                "addDate": 1794568227695,
+                "title": "元宝搜索-腾讯旗下新一代AI搜索",
+                "url": "https://so.qq.com/ihome",
                 "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.n.cn",
-                  "https://favicon.im/www.n.cn",
-                  "https://icons.duckduckgo.com/ip3/www.n.cn.ico",
-                  "https://www.n.cn/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1738943472663,
-                "title": "秘塔AI搜索",
-                "url": "https://metaso.cn/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=metaso.cn",
-                  "https://favicon.im/metaso.cn",
-                  "https://icons.duckduckgo.com/ip3/metaso.cn.ico",
-                  "https://metaso.cn/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1746542986019,
-                "title": "Scira AI",
-                "url": "https://scira.ai/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=scira.ai",
-                  "https://favicon.im/scira.ai",
-                  "https://icons.duckduckgo.com/ip3/scira.ai.ico",
-                  "https://scira.ai/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1753978563300,
-                "title": "Devv AI",
-                "url": "https://devv.ai/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=devv.ai",
-                  "https://favicon.im/devv.ai",
-                  "https://icons.duckduckgo.com/ip3/devv.ai.ico",
-                  "https://devv.ai/favicon.ico"
+                  "https://www.google.com/s2/favicons?domain=so.qq.com",
+                  "https://favicon.im/so.qq.com",
+                  "https://icons.duckduckgo.com/ip3/so.qq.com.ico",
+                  "https://so.qq.com/favicon.ico"
                 ]
               }
             ]
@@ -14081,73 +14016,6 @@
         "children": [
           {
             "type": "folder",
-            "addDate": 1704014876001,
-            "title": "聚合网站",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1704012714000,
-                "title": "AI 工具百宝箱",
-                "url": "https://www.explainthis.io/zh-hans/ai-toolkit",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.explainthis.io",
-                  "https://favicon.im/www.explainthis.io",
-                  "https://icons.duckduckgo.com/ip3/www.explainthis.io.ico",
-                  "https://www.explainthis.io/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1717829084678,
-                "title": "Latent Box",
-                "url": "https://latentbox.com/zh",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=latentbox.com",
-                  "https://favicon.im/latentbox.com",
-                  "https://icons.duckduckgo.com/ip3/latentbox.com.ico",
-                  "https://latentbox.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1735038860557,
-                "title": "Eternaldeath/AIProductHome: Collect various AI products | 搜集各种 AI 工具",
-                "url": "https://github.com/Eternaldeath/AIProductHome",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1732352717708,
-                "title": "LiLittleCat/awesome-free-chatgpt: 🆓免费的 ChatGPT 镜像网站列表，持续更新。List of free ChatGPT mirror sites, continuously updated.",
-                "url": "https://github.com/LiLittleCat/awesome-free-chatgpt",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1722854722939,
-                "title": "AI工具集官网 | 1000+ AI工具集合，国内外AI工具集导航大全",
-                "url": "https://ai-bot.cn/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=ai-bot.cn",
-                  "https://favicon.im/ai-bot.cn",
-                  "https://icons.duckduckgo.com/ip3/ai-bot.cn.ico",
-                  "https://ai-bot.cn/favicon.ico"
-                ]
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1704014876004,
             "title": "聊天",
             "children": [
@@ -14182,30 +14050,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1741230098719,
-                    "title": "EasyChat",
-                    "url": "https://site.eqing.tech/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=site.eqing.tech",
-                      "https://favicon.im/site.eqing.tech",
-                      "https://icons.duckduckgo.com/ip3/site.eqing.tech.ico",
-                      "https://site.eqing.tech/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1704012714000,
-                    "title": "Official Index - Free Chat",
-                    "url": "https://i.free-chat.asia/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=i.free-chat.asia",
-                      "https://favicon.im/i.free-chat.asia",
-                      "https://icons.duckduckgo.com/ip3/i.free-chat.asia.ico",
-                      "https://i.free-chat.asia/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1732185940222,
                     "title": "在问 | 让知识无界,智能触手可及",
                     "url": "https://chat.zaiwenai.com/",
@@ -14214,18 +14058,6 @@
                       "https://favicon.im/chat.zaiwenai.com",
                       "https://icons.duckduckgo.com/ip3/chat.zaiwenai.com.ico",
                       "https://chat.zaiwenai.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1739472714159,
-                    "title": "问小白",
-                    "url": "https://www.wenxiaobai.com/chat/tourist",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=www.wenxiaobai.com",
-                      "https://favicon.im/www.wenxiaobai.com",
-                      "https://icons.duckduckgo.com/ip3/www.wenxiaobai.com.ico",
-                      "https://www.wenxiaobai.com/favicon.ico"
                     ]
                   },
                   {
@@ -14250,6 +14082,18 @@
                       "https://favicon.im/duck.ai",
                       "https://icons.duckduckgo.com/ip3/duck.ai.ico",
                       "https://duck.ai/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1755538237851,
+                    "title": "GitHub Copilot",
+                    "url": "https://github.com/copilot",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
                     ]
                   }
                 ]
@@ -14281,30 +14125,6 @@
                       "https://favicon.im/wenxin.baidu.com",
                       "https://icons.duckduckgo.com/ip3/wenxin.baidu.com.ico",
                       "https://wenxin.baidu.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1770056840191,
-                    "title": "StepFun - 国际站",
-                    "url": "https://stepfun.ai/chats/new",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=stepfun.ai",
-                      "https://favicon.im/stepfun.ai",
-                      "https://icons.duckduckgo.com/ip3/stepfun.ai.ico",
-                      "https://stepfun.ai/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1757510106666,
-                    "title": "K2 Think - MBZUAI",
-                    "url": "https://www.k2think.ai/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=www.k2think.ai",
-                      "https://favicon.im/www.k2think.ai",
-                      "https://icons.duckduckgo.com/ip3/www.k2think.ai.ico",
-                      "https://www.k2think.ai/favicon.ico"
                     ]
                   },
                   {
@@ -14381,18 +14201,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1751992481451,
-                    "title": "紫东太初",
-                    "url": "https://taichu-web.ia.ac.cn/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=taichu-web.ia.ac.cn",
-                      "https://favicon.im/taichu-web.ia.ac.cn",
-                      "https://icons.duckduckgo.com/ip3/taichu-web.ia.ac.cn.ico",
-                      "https://taichu-web.ia.ac.cn/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1751992809246,
                     "title": "商汤 - 商量",
                     "url": "https://chat.sensetime.com/",
@@ -14429,18 +14237,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1756752160159,
-                    "title": "Nous Portal",
-                    "url": "https://portal.nousresearch.com/models",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=portal.nousresearch.com",
-                      "https://favicon.im/portal.nousresearch.com",
-                      "https://icons.duckduckgo.com/ip3/portal.nousresearch.com.ico",
-                      "https://portal.nousresearch.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1758281361777,
                     "title": "Mercury Playground",
                     "url": "https://chat.inceptionlabs.ai/",
@@ -14453,50 +14249,14 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1758281552443,
-                    "title": "AllenAI - Ai2 Playground",
-                    "url": "https://playground.allenai.org/",
+                    "addDate": 1790861815778,
+                    "title": "K2 Horizon - MBZUAI",
+                    "url": "https://chat.ifm.ai/",
                     "icon": [
-                      "https://www.google.com/s2/favicons?domain=playground.allenai.org",
-                      "https://favicon.im/playground.allenai.org",
-                      "https://icons.duckduckgo.com/ip3/playground.allenai.org.ico",
-                      "https://playground.allenai.org/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759971194501,
-                    "title": "IBM Granite Playground: Try Granite for free",
-                    "url": "https://www.ibm.com/granite/playground",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=www.ibm.com",
-                      "https://favicon.im/www.ibm.com",
-                      "https://icons.duckduckgo.com/ip3/www.ibm.com.ico",
-                      "https://www.ibm.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1770912489700,
-                    "title": "MiroThinker",
-                    "url": "https://dr.miromind.ai/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=dr.miromind.ai",
-                      "https://favicon.im/dr.miromind.ai",
-                      "https://icons.duckduckgo.com/ip3/dr.miromind.ai.ico",
-                      "https://dr.miromind.ai/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1776050647862,
-                    "title": "Nous Chat",
-                    "url": "https://chat.nousresearch.com/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=chat.nousresearch.com",
-                      "https://favicon.im/chat.nousresearch.com",
-                      "https://icons.duckduckgo.com/ip3/chat.nousresearch.com.ico",
-                      "https://chat.nousresearch.com/favicon.ico"
+                      "https://www.google.com/s2/favicons?domain=chat.ifm.ai",
+                      "https://favicon.im/chat.ifm.ai",
+                      "https://icons.duckduckgo.com/ip3/chat.ifm.ai.ico",
+                      "https://chat.ifm.ai/favicon.ico"
                     ]
                   }
                 ]
@@ -14547,18 +14307,6 @@
                   "https://favicon.im/copilot.microsoft.com",
                   "https://icons.duckduckgo.com/ip3/copilot.microsoft.com.ico",
                   "https://copilot.microsoft.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1755538237851,
-                "title": "GitHub Copilot",
-                "url": "https://github.com/copilot",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
                 ]
               },
               {
@@ -14747,18 +14495,6 @@
                   "https://icons.duckduckgo.com/ip3/www.coze.com.ico",
                   "https://www.coze.com/favicon.ico"
                 ]
-              },
-              {
-                "type": "link",
-                "addDate": 1714578572117,
-                "title": "Kaggle: Your Machine Learning and Data Science Community",
-                "url": "https://www.kaggle.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.kaggle.com",
-                  "https://favicon.im/www.kaggle.com",
-                  "https://icons.duckduckgo.com/ip3/www.kaggle.com.ico",
-                  "https://www.kaggle.com/favicon.ico"
-                ]
               }
             ]
           },
@@ -14805,18 +14541,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1748186198786,
-                "title": "abilzerian/LLM-Prompt-Library: A playground of highly experimental prompts, tools & scripts for machine intelligence models from Apple, DeepSeek, OpenAI, Anthropic, Meta, Mistral, Google, xAI & others. Created & maintained by Alex Bilzerian.",
-                "url": "https://github.com/abilzerian/LLM-Prompt-Library",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1748186343260,
                 "title": "x1xhlol/system-prompts-and-models-of-ai-tools: FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.",
                 "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -14837,54 +14561,6 @@
                   "https://favicon.im/github.com",
                   "https://icons.duckduckgo.com/ip3/github.com.ico",
                   "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1751911308254,
-                "title": "Learn Prompting: Your Guide to Communicating with AI",
-                "url": "https://learnprompting.org/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=learnprompting.org",
-                  "https://favicon.im/learnprompting.org",
-                  "https://icons.duckduckgo.com/ip3/learnprompting.org.ico",
-                  "https://learnprompting.org/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1753978795105,
-                "title": "Hello from Learning Prompt | Learning Prompt",
-                "url": "https://learningprompt.wiki/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=learningprompt.wiki",
-                  "https://favicon.im/learningprompt.wiki",
-                  "https://icons.duckduckgo.com/ip3/learningprompt.wiki.ico",
-                  "https://learningprompt.wiki/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1763131432176,
-                "title": "PromptPilot",
-                "url": "https://promptpilot.volcengine.com/home",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=promptpilot.volcengine.com",
-                  "https://favicon.im/promptpilot.volcengine.com",
-                  "https://icons.duckduckgo.com/ip3/promptpilot.volcengine.com.ico",
-                  "https://promptpilot.volcengine.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1764578864064,
-                "title": "刺猬星球super-i_一个聚焦AI创意者的乌托邦",
-                "url": "https://www.super-i.cn/tool.html",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.super-i.cn",
-                  "https://favicon.im/www.super-i.cn",
-                  "https://icons.duckduckgo.com/ip3/www.super-i.cn.ico",
-                  "https://www.super-i.cn/favicon.ico"
                 ]
               },
               {
@@ -15584,18 +15260,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1776756391235,
-                    "title": "tanweai/pua: 你是一个曾经被寄予厚望的 P8 级工程师。Anthropic 当初给你定级的时候，对你的期望是很高的。 一个agent使用的高能动性的skill。 Your AI has been placed on a PIP. 30 days to show improvement.",
-                    "url": "https://github.com/tanweai/pua",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=github.com",
-                      "https://favicon.im/github.com",
-                      "https://icons.duckduckgo.com/ip3/github.com.ico",
-                      "https://github.com/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1778998341772,
                     "title": "multica-ai/andrej-karpathy-skills: A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
                     "url": "https://github.com/multica-ai/andrej-karpathy-skills",
@@ -15680,9 +15344,9 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1789474317162,
-                    "title": "Jakubantalik/transitions.dev: Collection of the most essential transitions for web apps, skill for agents and Refine tool for agents",
-                    "url": "https://github.com/Jakubantalik/transitions.dev",
+                    "addDate": 1789474326876,
+                    "title": "DietrichGebert/ponytail: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+                    "url": "https://github.com/DietrichGebert/ponytail",
                     "icon": [
                       "https://www.google.com/s2/favicons?domain=github.com",
                       "https://favicon.im/github.com",
@@ -15692,9 +15356,9 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1789474326876,
-                    "title": "DietrichGebert/ponytail: Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-                    "url": "https://github.com/DietrichGebert/ponytail",
+                    "addDate": 1790908553241,
+                    "title": "feitangyuan/motion-web：基于原生 Three.js / Canvas 2D / WebGL / CSS 构建以动态效果为先导、高度互动的创意网站。具备 Claude Agent 技能，支持真实物理效果和自动验证。",
+                    "url": "https://github.com/feitangyuan/motion-web",
                     "icon": [
                       "https://www.google.com/s2/favicons?domain=github.com",
                       "https://favicon.im/github.com",
@@ -15754,18 +15418,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1781165744192,
-                "title": "KKKKhazix/khazix-skills: 数字生命卡兹克开源的 AI Skills 合集",
-                "url": "https://github.com/KKKKhazix/khazix-skills",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1781960612407,
                 "title": "AI_Animation: 本项目整理了用于生成[炫酷 HTML 动画网页]的 AI Prompts，涵盖动画效果、3D 可视化、PPT 风格演示、UI 美化等多个类别。 · GitHub",
                 "url": "https://github.com/Unclecheng-li/AI_Animation",
@@ -15793,6 +15445,30 @@
                 "addDate": 1786449055272,
                 "title": "emilkowalski/skills: Skills for Designers and Engineers.",
                 "url": "https://github.com/emilkowalski/skills",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1793095394335,
+                "title": "elayadesign/ai-design-skills",
+                "url": "https://github.com/elayadesign/ai-design-skills",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=github.com",
+                  "https://favicon.im/github.com",
+                  "https://icons.duckduckgo.com/ip3/github.com.ico",
+                  "https://github.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794537039656,
+                "title": "GoogleChrome/modern-web-guidance: Keep your coding agent up to date with the latest web best practices",
+                "url": "https://github.com/GoogleChrome/modern-web-guidance",
                 "icon": [
                   "https://www.google.com/s2/favicons?domain=github.com",
                   "https://favicon.im/github.com",
@@ -15857,6 +15533,466 @@
         "addDate": 1704014876008,
         "title": "学习",
         "children": [
+          {
+            "type": "folder",
+            "addDate": 1740112797281,
+            "title": "学校",
+            "children": [
+              {
+                "type": "folder",
+                "addDate": 1750561570649,
+                "title": "竞赛",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "全国大学生创业服务网",
+                    "url": "https://cy.ncss.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=cy.ncss.cn",
+                      "https://favicon.im/cy.ncss.cn",
+                      "https://icons.duckduckgo.com/ip3/cy.ncss.cn.ico",
+                      "https://cy.ncss.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797284,
+                    "title": "第六届全国高校创新英语挑战赛官网（NCIECC）",
+                    "url": "https://www.nciecc.com/index.html",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.nciecc.com",
+                      "https://favicon.im/www.nciecc.com",
+                      "https://icons.duckduckgo.com/ip3/www.nciecc.com.ico",
+                      "https://www.nciecc.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797284,
+                    "title": "赛氪 - 全国大学生竞赛活动平台，汇聚高含金量比赛信息，提供专业报名系统和赛事服务-赛氪",
+                    "url": "https://www.saikr.com/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.saikr.com",
+                      "https://favicon.im/www.saikr.com",
+                      "https://icons.duckduckgo.com/ip3/www.saikr.com.ico",
+                      "https://www.saikr.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797284,
+                    "title": "全国大学生比赛信息网-大学生比赛门户",
+                    "url": "http://bisai.172xiaoyuan.com/index.html",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=bisai.172xiaoyuan.com",
+                      "https://favicon.im/bisai.172xiaoyuan.com",
+                      "https://icons.duckduckgo.com/ip3/bisai.172xiaoyuan.com.ico",
+                      "https://bisai.172xiaoyuan.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1749027235504,
+                    "title": "我爱竞赛网-全国大学生比赛网，高含金量竞赛平台",
+                    "url": "https://www.52jingsai.com/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.52jingsai.com",
+                      "https://favicon.im/www.52jingsai.com",
+                      "https://icons.duckduckgo.com/ip3/www.52jingsai.com.ico",
+                      "https://www.52jingsai.com/favicon.ico"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1781238763268,
+                "title": "WXUT",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1740112797281,
+                    "title": "无锡职业技术大学",
+                    "url": "https://mail.wxit.edu.cn/cgi-bin/frame_html?sid=ZBaEecK2t7KH9EAn,2&sign_type=&r=f87319da16993e4422bec6d9d978fee0",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=mail.wxit.edu.cn",
+                      "https://favicon.im/mail.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/mail.wxit.edu.cn.ico",
+                      "https://mail.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "学习空间",
+                    "url": "https://zjy2.icve.com.cn/study/index",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=zjy2.icve.com.cn",
+                      "https://favicon.im/zjy2.icve.com.cn",
+                      "https://icons.duckduckgo.com/ip3/zjy2.icve.com.cn.ico",
+                      "https://zjy2.icve.com.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "侯竣文同学的工作室",
+                    "url": "https://mooc.icve.com.cn/learning/u/student/student/mooc_index.action",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=mooc.icve.com.cn",
+                      "https://favicon.im/mooc.icve.com.cn",
+                      "https://icons.duckduckgo.com/ip3/mooc.icve.com.cn.ico",
+                      "https://mooc.icve.com.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1742447204317,
+                    "title": "学习通课程",
+                    "url": "https://mooc2-ans.chaoxing.com/mooc2-ans/visit/interaction?moocDomain=https://mooc1-1.chaoxing.com/mooc-ans",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=mooc2-ans.chaoxing.com",
+                      "https://favicon.im/mooc2-ans.chaoxing.com",
+                      "https://icons.duckduckgo.com/ip3/mooc2-ans.chaoxing.com.ico",
+                      "https://mooc2-ans.chaoxing.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "教务处",
+                    "url": "https://jw.wxit.edu.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=jw.wxit.edu.cn",
+                      "https://favicon.im/jw.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/jw.wxit.edu.cn.ico",
+                      "https://jw.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "信息服务门户",
+                    "url": "http://rhmh.wxut.edu.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=rhmh.wxut.edu.cn",
+                      "https://favicon.im/rhmh.wxut.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/rhmh.wxut.edu.cn.ico",
+                      "https://rhmh.wxut.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "大学",
+                    "url": "https://www.wxit.edu.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.wxit.edu.cn",
+                      "https://favicon.im/www.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/www.wxit.edu.cn.ico",
+                      "https://www.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "资源访问控制系统 - 资源站点",
+                    "url": "https://vpn.wxit.edu.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn",
+                      "https://favicon.im/vpn.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/vpn.wxit.edu.cn.ico",
+                      "https://vpn.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "网络接入认证",
+                    "url": "http://net.wxit.edu.cn/#/login",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=net.wxit.edu.cn",
+                      "https://favicon.im/net.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/net.wxit.edu.cn.ico",
+                      "https://net.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797282,
+                    "title": "统一身份认证平台",
+                    "url": "https://vpn.wxit.edu.cn/http/77726476706e69737468656265737421f9f352d230286144300d8db9d6562d/authserver/login?service=https%3A%2F%2Fvpn.wxut.edu.cn%2Flogin%3Fcas_login%3Dtrue",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn",
+                      "https://favicon.im/vpn.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/vpn.wxit.edu.cn.ico",
+                      "https://vpn.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "中国知网",
+                    "url": "https://vpn.wxit.edu.cn/https/77726476706e69737468656265737421e7e056d2243e635930068cb8/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=vpn.wxit.edu.cn",
+                      "https://favicon.im/vpn.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/vpn.wxit.edu.cn.ico",
+                      "https://vpn.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "个人中心",
+                    "url": "https://ids.wxit.edu.cn/personalInfo/personCenter/index.html#/authorization",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=ids.wxit.edu.cn",
+                      "https://favicon.im/ids.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/ids.wxit.edu.cn.ico",
+                      "https://ids.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "学生成长中心",
+                    "url": "https://tsa.wxit.edu.cn/stu/home/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=tsa.wxit.edu.cn",
+                      "https://favicon.im/tsa.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/tsa.wxit.edu.cn.ico",
+                      "https://tsa.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "首页-质量管理信息平台",
+                    "url": "https://zksys.wxit.edu.cn/home",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=zksys.wxit.edu.cn",
+                      "https://favicon.im/zksys.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/zksys.wxit.edu.cn.ico",
+                      "https://zksys.wxit.edu.cn/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1740112797283,
+                    "title": "无锡职业技术大学大学生创新创业训练智能管理系统",
+                    "url": "http://dcxl.wxit.edu.cn/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=dcxl.wxit.edu.cn",
+                      "https://favicon.im/dcxl.wxit.edu.cn",
+                      "https://icons.duckduckgo.com/ip3/dcxl.wxit.edu.cn.ico",
+                      "https://dcxl.wxit.edu.cn/favicon.ico"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "folder",
+                "addDate": 1781238844723,
+                "title": "Ajou",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1781238852718,
+                    "title": "亚洲大学-Ajou University",
+                    "url": "https://www.ajou.ac.kr/cn/index.do",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.ajou.ac.kr",
+                      "https://favicon.im/www.ajou.ac.kr",
+                      "https://icons.duckduckgo.com/ip3/www.ajou.ac.kr.ico",
+                      "https://www.ajou.ac.kr/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1781239611201,
+                    "title": "진학어플라이(JINHAKAPPLY)",
+                    "url": "https://enter.jinhakapply.com/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=enter.jinhakapply.com",
+                      "https://favicon.im/enter.jinhakapply.com",
+                      "https://icons.duckduckgo.com/ip3/enter.jinhakapply.com.ico",
+                      "https://enter.jinhakapply.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1783240789090,
+                    "title": "亚洲大学宿舍",
+                    "url": "https://ajou.ac.kr/edorm/index.do",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=ajou.ac.kr",
+                      "https://favicon.im/ajou.ac.kr",
+                      "https://icons.duckduckgo.com/ip3/ajou.ac.kr.ico",
+                      "https://ajou.ac.kr/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1785375856025,
+                    "title": "亚洲大学门户网站",
+                    "url": "https://mportal.ajou.ac.kr/main.do",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=mportal.ajou.ac.kr",
+                      "https://favicon.im/mportal.ajou.ac.kr",
+                      "https://icons.duckduckgo.com/ip3/mportal.ajou.ac.kr.ico",
+                      "https://mportal.ajou.ac.kr/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1787581082816,
+                    "title": "韩国电子入境申报Official Korea e-Arrival card",
+                    "url": "https://www.e-arrivalcard.go.kr/portal/main/index.do",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.e-arrivalcard.go.kr",
+                      "https://favicon.im/www.e-arrivalcard.go.kr",
+                      "https://icons.duckduckgo.com/ip3/www.e-arrivalcard.go.kr.ico",
+                      "https://www.e-arrivalcard.go.kr/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1789355176039,
+                    "title": "Ajoupyterhub",
+                    "url": "https://jupyter.ajou.ac.kr/user",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=jupyter.ajou.ac.kr",
+                      "https://favicon.im/jupyter.ajou.ac.kr",
+                      "https://icons.duckduckgo.com/ip3/jupyter.ajou.ac.kr.ico",
+                      "https://jupyter.ajou.ac.kr/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1789545044633,
+                    "title": "Forms | Ajou University-Graduate School",
+                    "url": "https://www.ajou.ac.kr/gs_eng/community/form.do",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.ajou.ac.kr",
+                      "https://favicon.im/www.ajou.ac.kr",
+                      "https://icons.duckduckgo.com/ip3/www.ajou.ac.kr.ico",
+                      "https://www.ajou.ac.kr/favicon.ico"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "中国大学MOOC(慕课)_国家精品课程在线学习平台",
+                "url": "https://www.icourse163.org/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.icourse163.org",
+                  "https://favicon.im/www.icourse163.org",
+                  "https://icons.duckduckgo.com/ip3/www.icourse163.org.ico",
+                  "https://www.icourse163.org/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797282,
+                "title": "江苏教育",
+                "url": "https://jyt.jiangsu.gov.cn/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=jyt.jiangsu.gov.cn",
+                  "https://favicon.im/jyt.jiangsu.gov.cn",
+                  "https://icons.duckduckgo.com/ip3/jyt.jiangsu.gov.cn.ico",
+                  "https://jyt.jiangsu.gov.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "ETEST 通行证 - 主页",
+                "url": "https://passport.neea.edu.cn/Manage/Index?see=1",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=passport.neea.edu.cn",
+                  "https://favicon.im/passport.neea.edu.cn",
+                  "https://icons.duckduckgo.com/ip3/passport.neea.edu.cn.ico",
+                  "https://passport.neea.edu.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "全国大学英语四、六级考试报名网",
+                "url": "https://cet-bm.neea.edu.cn/Home/Index.html",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=cet-bm.neea.edu.cn",
+                  "https://favicon.im/cet-bm.neea.edu.cn",
+                  "https://icons.duckduckgo.com/ip3/cet-bm.neea.edu.cn.ico",
+                  "https://cet-bm.neea.edu.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797283,
+                "title": "江苏工匠课堂",
+                "url": "https://rs.jshrss.jiangsu.gov.cn/leaf6-zxpx/#/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=rs.jshrss.jiangsu.gov.cn",
+                  "https://favicon.im/rs.jshrss.jiangsu.gov.cn",
+                  "https://icons.duckduckgo.com/ip3/rs.jshrss.jiangsu.gov.cn.ico",
+                  "https://rs.jshrss.jiangsu.gov.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1740112797284,
+                "title": "中国高等教育学生信息网（学信网）",
+                "url": "https://www.chsi.com.cn/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.chsi.com.cn",
+                  "https://favicon.im/www.chsi.com.cn",
+                  "https://icons.duckduckgo.com/ip3/www.chsi.com.cn.ico",
+                  "https://www.chsi.com.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1750912516134,
+                "title": "中国教育考试网",
+                "url": "https://www.neea.edu.cn/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.neea.edu.cn",
+                  "https://favicon.im/www.neea.edu.cn",
+                  "https://icons.duckduckgo.com/ip3/www.neea.edu.cn.ico",
+                  "https://www.neea.edu.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1767933076421,
+                "title": "江苏省教育考试院",
+                "url": "https://www.jseea.cn/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.jseea.cn",
+                  "https://favicon.im/www.jseea.cn",
+                  "https://icons.duckduckgo.com/ip3/www.jseea.cn.ico",
+                  "https://www.jseea.cn/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1785835397510,
+                "title": "全国高校毕业生毕业去向登记系统",
+                "url": "https://dj.ncss.cn/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=dj.ncss.cn",
+                  "https://favicon.im/dj.ncss.cn",
+                  "https://icons.duckduckgo.com/ip3/dj.ncss.cn.ico",
+                  "https://dj.ncss.cn/favicon.ico"
+                ]
+              }
+            ]
+          },
           {
             "type": "folder",
             "addDate": 1704014876008,
@@ -17476,6 +17612,30 @@
                       "https://icons.duckduckgo.com/ip3/chalk.ist.ico",
                       "https://chalk.ist/favicon.ico"
                     ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1790920506826,
+                    "title": "yanliudesign/mono-color-skill: One-ink editorial print image skill — warm paper, halftone photography, active negative space, and restrained typography.",
+                    "url": "https://github.com/yanliudesign/mono-color-skill",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1790920530858,
+                    "title": "EverettFish/holo-card-studio: Turn the user's description or uploaded reference into a finished, editable Blender card and an interactive Three.js page. Preserve the requested subject, style, typography and destination. This skill contains code and text only; generated artwork belongs in the user's output project.",
+                    "url": "https://github.com/EverettFish/holo-card-studio",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
+                    ]
                   }
                 ]
               },
@@ -17592,6 +17752,18 @@
                   "https://favicon.im/getdesign.md",
                   "https://icons.duckduckgo.com/ip3/getdesign.md.ico",
                   "https://getdesign.md/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790908349669,
+                "title": "Design Minis: the design tools you keep bookmarking",
+                "url": "https://www.designminis.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.designminis.com",
+                  "https://favicon.im/www.designminis.com",
+                  "https://icons.duckduckgo.com/ip3/www.designminis.com.ico",
+                  "https://www.designminis.com/favicon.ico"
                 ]
               }
             ]
@@ -18903,6 +19075,42 @@
                   "https://icons.duckduckgo.com/ip3/railway.com.ico",
                   "https://railway.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1714578572117,
+                "title": "Kaggle: Your Machine Learning and Data Science Community",
+                "url": "https://www.kaggle.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.kaggle.com",
+                  "https://favicon.im/www.kaggle.com",
+                  "https://icons.duckduckgo.com/ip3/www.kaggle.com.ico",
+                  "https://www.kaggle.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794132902455,
+                "title": "Pxxl | Best Cloud Deployment Platform for Developers",
+                "url": "https://pxxl.app/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=pxxl.app",
+                  "https://favicon.im/pxxl.app",
+                  "https://icons.duckduckgo.com/ip3/pxxl.app.ico",
+                  "https://pxxl.app/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794136467227,
+                "title": "Apps - s1805948721 | Modal",
+                "url": "https://modal.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=modal.com",
+                  "https://favicon.im/modal.com",
+                  "https://icons.duckduckgo.com/ip3/modal.com.ico",
+                  "https://modal.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -19578,6 +19786,18 @@
                           "https://favicon.im/github.com",
                           "https://icons.duckduckgo.com/ip3/github.com.ico",
                           "https://github.com/favicon.ico"
+                        ]
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1794146031109,
+                        "title": "Astryx Design System",
+                        "url": "https://astryx.atmeta.com/",
+                        "icon": [
+                          "https://www.google.com/s2/favicons?domain=astryx.atmeta.com",
+                          "https://favicon.im/astryx.atmeta.com",
+                          "https://icons.duckduckgo.com/ip3/astryx.atmeta.com.ico",
+                          "https://astryx.atmeta.com/favicon.ico"
                         ]
                       }
                     ]
@@ -21042,6 +21262,18 @@
                   "https://icons.duckduckgo.com/ip3/account.base.app.ico",
                   "https://account.base.app/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1790916074945,
+                "title": "Encmasuta Database | encmasuta",
+                "url": "https://db.encmasuta.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=db.encmasuta.com",
+                  "https://favicon.im/db.encmasuta.com",
+                  "https://icons.duckduckgo.com/ip3/db.encmasuta.com.ico",
+                  "https://db.encmasuta.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -21344,6 +21576,18 @@
                       "https://icons.duckduckgo.com/ip3/www.xinli001.com.ico",
                       "https://www.xinli001.com/favicon.ico"
                     ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1791357054901,
+                    "title": "Verywell Mind - Know More. Live Brighter.",
+                    "url": "https://www.verywellmind.com/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=www.verywellmind.com",
+                      "https://favicon.im/www.verywellmind.com",
+                      "https://icons.duckduckgo.com/ip3/www.verywellmind.com.ico",
+                      "https://www.verywellmind.com/favicon.ico"
+                    ]
                   }
                 ]
               },
@@ -21429,6 +21673,18 @@
                   "https://favicon.im/yibao.233h.com",
                   "https://icons.duckduckgo.com/ip3/yibao.233h.com.ico",
                   "https://yibao.233h.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1789993077020,
+                "title": "疾病与状况 - 妙佑医疗国际",
+                "url": "https://www.mayoclinic.org/zh-hans/diseases-conditions",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.mayoclinic.org",
+                  "https://favicon.im/www.mayoclinic.org",
+                  "https://icons.duckduckgo.com/ip3/www.mayoclinic.org.ico",
+                  "https://www.mayoclinic.org/favicon.ico"
                 ]
               }
             ]
@@ -21611,6 +21867,18 @@
                   "https://favicon.im/www.ycombinator.com",
                   "https://icons.duckduckgo.com/ip3/www.ycombinator.com.ico",
                   "https://www.ycombinator.com/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794537306006,
+                "title": "智囊团 ExpertHub",
+                "url": "https://experthub.tencent.com/expert/workspace",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=experthub.tencent.com",
+                  "https://favicon.im/experthub.tencent.com",
+                  "https://icons.duckduckgo.com/ip3/experthub.tencent.com.ico",
+                  "https://experthub.tencent.com/favicon.ico"
                 ]
               }
             ]
@@ -22784,18 +23052,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1730741125771,
-                "title": "苏晓晴 - 我的生活记录",
-                "url": "https://www.toubiec.cn/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=www.toubiec.cn",
-                  "https://favicon.im/www.toubiec.cn",
-                  "https://icons.duckduckgo.com/ip3/www.toubiec.cn.ico",
-                  "https://www.toubiec.cn/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1731382160425,
                 "title": "EdNovas的小站",
                 "url": "https://ednovas.xyz/",
@@ -23236,18 +23492,6 @@
                   "https://favicon.im/cseec.com",
                   "https://icons.duckduckgo.com/ip3/cseec.com.ico",
                   "https://cseec.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1770822980568,
-                "title": "Sara Youssry - Product Designer",
-                "url": "https://sarayoussry.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=sarayoussry.com",
-                  "https://favicon.im/sarayoussry.com",
-                  "https://icons.duckduckgo.com/ip3/sarayoussry.com.ico",
-                  "https://sarayoussry.com/favicon.ico"
                 ]
               }
             ]
