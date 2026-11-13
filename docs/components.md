@@ -166,7 +166,7 @@ bm-icon { width: var(--bm-icon-size, 1em); }
 | 空结果 | 渲染空状态文本节点，不渲染列表 |
 
 页面级的临时状态同样是 `<html>` 或 `#content` 上的 `data-*`：
-`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间暂停过渡）、
+`data-reveal="loading" / "entering"`（首屏显现）、`data-theme-switching`（切换主题期间新过渡立即完成，进行中的过渡照常播完）、
 `data-theme-transition="circle" / "circle reverse"`（圆形主题过渡）、`#content` 的
 `data-page-changing`（搜索翻页反馈）、`.sidebar` 的 `data-entering`（展开时文件夹入场）。
 
@@ -259,8 +259,8 @@ DOM 契约：`.breadcrumb-icon > bm-icon` + `ol.breadcrumb-list > li`；每个 `
 父元素 `#breadcrumbs` 是页面区域，它的版式、滚动与边缘渐隐写在全局样式（`components.css`、`responsive.css`）。
 `#breadcrumbs` 单行不换行，放在 `.top-bar` 中：`.top-bar` 以 `position: sticky` 贴在视口顶部并带页面背景色，
 与固定定位的搜索栏、GitHub 链接一起常驻，只有书签内容滚动。
-搜索栏、GitHub 链接、侧边栏按钮的顶部位置都用 `base.css` 的 `--top-row-inset`；`--top-row-height` 只是搜索栏的高度，
-其余两者的尺寸由各自样式决定。`.top-bar` 内容起点 `--top-bar-content-start` 由这两个 token 与 `--top-bar-gap` 算出，`scroll-padding-top` 也由它推出，不写固定像素。
+顶部一行（侧边栏按钮、侧边栏头部与首页按钮、搜索栏、GitHub 链接）都用 `base.css` 的 `--top-row-inset` 定位、
+`--top-row-height` 定高并垂直居中内容，因此中线对齐。`.top-bar` 内容起点 `--top-bar-content-start` 由这两个 token 与 `--top-bar-gap` 算出，`scroll-padding-top` 也由它推出，不写固定像素。
 
 ## `<bm-card>`
 

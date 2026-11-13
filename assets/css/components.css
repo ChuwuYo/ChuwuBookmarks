@@ -89,6 +89,7 @@
 	position: fixed;
 	top: var(--top-row-inset);
 	right: 20px;
+	height: var(--top-row-height);
 	z-index: var(--z-float);
 	color: var(--text-color);
 	display: flex;

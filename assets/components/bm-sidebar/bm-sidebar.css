@@ -95,10 +95,10 @@ bm-sidebar {
 	flex: none;
 	box-sizing: border-box;
 	width: calc(var(--sidebar-width) - 40px);
-	margin: 20px;
+	margin: var(--top-row-inset) 20px 20px;
 	padding: 0 5px;
 	flex-wrap: nowrap;
-	min-height: 40px;
+	height: var(--top-row-height);
 }
 
 @media screen and (width < 480px) {
@@ -142,7 +142,7 @@ bm-sidebar {
 	box-sizing: border-box;
 	transform-origin: left center;
 	width: 48px;
-	height: 40px;
+	height: var(--top-row-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
