@@ -70,7 +70,7 @@ const initTheme = () => {
 };
 
 /**
- * 切换期间暂停全站 CSS 过渡：子元素继承的颜色会在父元素过渡中途反复重启，造成卡顿和多次闪烁。
+ * 切换期间新触发的 CSS 过渡时长为 0：子元素继承的颜色会在父元素过渡中途反复重启，造成卡顿和多次闪烁。
  */
 const SWITCHING_ATTR = "data-theme-switching";
 const TRANSITION_ATTR = "data-theme-transition";
@@ -155,12 +155,6 @@ const getSnapshotSize = () => {
 const circleIn = (width, height) => (radius, x, y) =>
 	`circle(${(radius / Math.hypot(width, height)) * Math.SQRT2 * 100}% at ${(x / width) * 100}% ${(y / height) * 100}%)`;
 
-const setGsapPaused = (paused) => {
-	if (typeof gsap === "undefined") return;
-	if (paused) gsap.globalTimeline.pause();
-	else gsap.globalTimeline.resume();
-};
-
 const toggleTheme = () => {
 	const root = document.documentElement;
 	const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
@@ -189,7 +183,6 @@ const toggleTheme = () => {
 	void root.offsetLeft; // 先让属性生效，再拍旧快照
 
 	const transition = document.startViewTransition(() => applyTheme(next));
-	setGsapPaused(true);
 
 	// 性能差的设备上拍快照就要几百毫秒，兜底计时在动画开始时重新计，否则会在动画末尾强行跳过
 	let safety = 0;
@@ -243,7 +236,6 @@ const toggleTheme = () => {
 			clip?.cancel();
 			probe?.remove();
 			if (!isCurrent()) return;
-			setGsapPaused(false);
 			root.removeAttribute(SWITCHING_ATTR);
 			root.removeAttribute(TRANSITION_ATTR);
 		});
