@@ -49,7 +49,7 @@
 @media screen and (width < 480px),
 	screen and (any-pointer: coarse) and (height < 600px) {
 	.search-container.centered-element {
-		top: 20px;
+		top: var(--top-row-inset);
 		transform: translateX(-50%);
 	}
 
@@ -118,18 +118,19 @@
 }
 
 @media screen and (width < 480px) {
+	:root {
+		--top-bar-gap: 10px;
+	}
+
 	.main-content,
 	.sidebar[data-state="collapsed"] + .main-content,
 	.sidebar:not([data-state="collapsed"]) + .main-content {
 		margin: 0 auto;
 		width: 100%;
 		max-width: 600px;
-		padding: 15px 25px;
+		padding: 0 25px 15px;
 		position: relative;
 		box-sizing: border-box;
-		contain: layout style;
-		backface-visibility: hidden;
-		transform: translateZ(0);
 		min-height: 100vh;
 	}
 
@@ -139,7 +140,7 @@
 	}
 
 	.search-container {
-		top: 20px;
+		top: var(--top-row-inset);
 		z-index: var(--z-float);
 		display: flex;
 		align-items: center;
@@ -153,14 +154,14 @@
 
 	#breadcrumbs {
 		transform: none;
-		padding: 50px 25px 5px;
+		padding: var(--top-bar-content-start) 25px 5px;
 		font-size: clamp(1rem, 5vw, 1.2rem);
 		width: 100%;
 		max-width: 600px;
 		margin: 0 auto 1rem;
 		line-height: 1.4;
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: nowrap;
 		align-items: center;
 		gap: 6px;
 		box-sizing: border-box;
@@ -204,7 +205,7 @@
 
 @media screen and (width >= 480px) {
 	.search-container {
-		top: 20px;
+		top: var(--top-row-inset);
 	}
 }
 

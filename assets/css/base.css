@@ -92,6 +92,7 @@
 	--z-local-3: 3;
 	--z-decor: 1;
 	--z-content: 2;
+	--z-top-bar: 5;
 	--z-message: 10;
 	--z-float: 999;
 	--z-sidebar: 1000;
@@ -99,6 +100,15 @@
 	--z-sidebar-toggle: 1002;
 
 	--desktop-base-offset: 110px;
+
+	--top-row-inset: 20px;
+	--top-row-height: calc(1rem + 22px);
+	--top-bar-gap: 25px;
+	--top-bar-content-start: calc(
+		var(--top-row-inset) +
+		var(--top-row-height) +
+		var(--top-bar-gap)
+	);
 
 	--scrollbar-thumb-color: light-dark(
 		rgb(20 70 80 / 0.22),
@@ -165,6 +175,7 @@
 
 html {
 	font-size: 13px;
+	scroll-padding-top: calc(var(--top-bar-content-start) + 3.5rem);
 }
 
 body {

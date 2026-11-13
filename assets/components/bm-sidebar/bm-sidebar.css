@@ -123,7 +123,7 @@ bm-sidebar {
 #toggle-sidebar {
 	position: fixed;
 	left: 0;
-	top: 20px;
+	top: var(--top-row-inset);
 	background: var(--button-hover);
 	border: 2px solid var(--accent-border);
 	border-radius: 0 var(--radius-7) var(--radius-7) 0;
