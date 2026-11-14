@@ -56,8 +56,8 @@ You can also visit the following links to experience the service:
 ### PC:
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/775145ba-d14d-4b6f-af1e-22172b11f248" alt="PC Light">
-    <img src="https://github.com/user-attachments/assets/51f50f97-278f-44cf-a4c7-b01660f6e72b" alt="PC Dark">
+    <img src="docs/screenshots/pc-light.png" alt="PC Light">
+    <img src="docs/screenshots/pc-dark.png" alt="PC Dark">
 </div>
 
 ### Mobile:
@@ -65,10 +65,10 @@ You can also visit the following links to experience the service:
 <table>
     <tr>
         <td>
-            <img src="https://github.com/user-attachments/assets/ef1388b7-47d0-485c-af06-83b4ee823023" alt="Mobile Light">
+            <img src="docs/screenshots/mobile-light.png" alt="Mobile Light">
         </td>
         <td>
-            <img src="https://github.com/user-attachments/assets/3d647648-2f7c-40ad-a28c-3382992291a8" alt="Mobile Dark">
+            <img src="docs/screenshots/mobile-dark.png" alt="Mobile Dark">
         </td>
     </tr>
 </table>
