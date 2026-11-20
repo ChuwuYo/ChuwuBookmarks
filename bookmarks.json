@@ -382,6 +382,18 @@
                   "https://icons.duckduckgo.com/ip3/2cycd.com.ico",
                   "https://2cycd.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794641521497,
+                "title": "喵普拉斯",
+                "url": "https://www.neko-plus.net/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.neko-plus.net",
+                  "https://favicon.im/www.neko-plus.net",
+                  "https://icons.duckduckgo.com/ip3/www.neko-plus.net.ico",
+                  "https://www.neko-plus.net/favicon.ico"
+                ]
               }
             ]
           },
@@ -2523,6 +2535,18 @@
                   "https://icons.duckduckgo.com/ip3/github.com.ico",
                   "https://github.com/favicon.ico"
                 ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794655394788,
+                "title": "Minecraft(我的世界)苦力怕论坛——我的世界中文论坛，我的世界手机版、我的世界论坛，我的世界基岩版，我的世界资源网",
+                "url": "https://klpbbs.com/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=klpbbs.com",
+                  "https://favicon.im/klpbbs.com",
+                  "https://icons.duckduckgo.com/ip3/klpbbs.com.ico",
+                  "https://klpbbs.com/favicon.ico"
+                ]
               }
             ]
           },
@@ -4070,6 +4094,18 @@
                   "https://favicon.im/share.nekogal.top",
                   "https://icons.duckduckgo.com/ip3/share.nekogal.top.ico",
                   "https://share.nekogal.top/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794967926770,
+                "title": "Hubu.cloud - Security For Everyone!",
+                "url": "https://hubu.cloud/",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=hubu.cloud",
+                  "https://favicon.im/hubu.cloud",
+                  "https://icons.duckduckgo.com/ip3/hubu.cloud.ico",
+                  "https://hubu.cloud/favicon.ico"
                 ]
               }
             ]
@@ -10931,18 +10967,6 @@
           },
           {
             "type": "link",
-            "addDate": 1715088543579,
-            "title": "ZeroTier | Global Area Networking",
-            "url": "https://www.zerotier.com/",
-            "icon": [
-              "https://www.google.com/s2/favicons?domain=www.zerotier.com",
-              "https://favicon.im/www.zerotier.com",
-              "https://icons.duckduckgo.com/ip3/www.zerotier.com.ico",
-              "https://www.zerotier.com/favicon.ico"
-            ]
-          },
-          {
-            "type": "link",
             "addDate": 1720353290978,
             "title": "EasyTier组网",
             "url": "https://www.easytier.top/",
@@ -14177,18 +14201,6 @@
                   },
                   {
                     "type": "link",
-                    "addDate": 1752334450574,
-                    "title": "RekaPlayground",
-                    "url": "https://app.reka.ai/",
-                    "icon": [
-                      "https://www.google.com/s2/favicons?domain=app.reka.ai",
-                      "https://favicon.im/app.reka.ai",
-                      "https://icons.duckduckgo.com/ip3/app.reka.ai.ico",
-                      "https://app.reka.ai/favicon.ico"
-                    ]
-                  },
-                  {
-                    "type": "link",
                     "addDate": 1751992133344,
                     "title": "书生·浦语 - 上海",
                     "url": "https://intern-ai.org.cn/home",
@@ -14806,27 +14818,53 @@
             "title": "客户端/网页UI",
             "children": [
               {
-                "type": "link",
-                "addDate": 1733210440279,
-                "title": "LM Studio - Discover, download, and run local LLMs",
-                "url": "https://lmstudio.ai/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=lmstudio.ai",
-                  "https://favicon.im/lmstudio.ai",
-                  "https://icons.duckduckgo.com/ip3/lmstudio.ai.ico",
-                  "https://lmstudio.ai/favicon.ico"
+                "type": "folder",
+                "addDate": 1794811195029,
+                "title": "Local",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1733210440279,
+                    "title": "LM Studio - Discover, download, and run local LLMs",
+                    "url": "https://lmstudio.ai/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=lmstudio.ai",
+                      "https://favicon.im/lmstudio.ai",
+                      "https://icons.duckduckgo.com/ip3/lmstudio.ai.ico",
+                      "https://lmstudio.ai/favicon.ico"
+                    ]
+                  },
+                  {
+                    "type": "link",
+                    "addDate": 1713843267568,
+                    "title": "Ollama",
+                    "url": "https://ollama.com/",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=ollama.com",
+                      "https://favicon.im/ollama.com",
+                      "https://icons.duckduckgo.com/ip3/ollama.com.ico",
+                      "https://ollama.com/favicon.ico"
+                    ]
+                  }
                 ]
               },
               {
-                "type": "link",
-                "addDate": 1713843267568,
-                "title": "Ollama",
-                "url": "https://ollama.com/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=ollama.com",
-                  "https://favicon.im/ollama.com",
-                  "https://icons.duckduckgo.com/ip3/ollama.com.ico",
-                  "https://ollama.com/favicon.ico"
+                "type": "folder",
+                "addDate": 1794811221010,
+                "title": "Android",
+                "children": [
+                  {
+                    "type": "link",
+                    "addDate": 1794811174118,
+                    "title": "wangzan101/Mika：一款适用于 Android 的设备端 AI 代理，可操作应用程序和网络，为您完成各种任务。",
+                    "url": "https://github.com/wangzan101/mika",
+                    "icon": [
+                      "https://www.google.com/s2/favicons?domain=github.com",
+                      "https://favicon.im/github.com",
+                      "https://icons.duckduckgo.com/ip3/github.com.ico",
+                      "https://github.com/favicon.ico"
+                    ]
+                  }
                 ]
               },
               {
@@ -14839,18 +14877,6 @@
                   "https://favicon.im/cherry-ai.com",
                   "https://icons.duckduckgo.com/ip3/cherry-ai.com.ico",
                   "https://cherry-ai.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1734579410486,
-                "title": "Bin-Huang/chatbox: User-friendly Desktop Client App for AI Models/LLMs (GPT, Claude, Gemini, Ollama...)",
-                "url": "https://github.com/Bin-Huang/chatbox",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
                 ]
               },
               {
@@ -15049,18 +15075,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1771945113186,
-                "title": "SkateBench - Ranking Models By Skateboarding Knowledge",
-                "url": "https://skatebench.t3.gg/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=skatebench.t3.gg",
-                  "https://favicon.im/skatebench.t3.gg",
-                  "https://icons.duckduckgo.com/ip3/skatebench.t3.gg.ico",
-                  "https://skatebench.t3.gg/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1776409612275,
                 "title": "Object Detection with AI Vision Models | Roboflow Playground",
                 "url": "https://playground.roboflow.com/object-detection/seg-preview-vs-gemini-3-1-pro-vs-gpt-5-4-vs-claude-opus-4-6",
@@ -15085,42 +15099,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1780284644937,
-                "title": "DeepSWE",
-                "url": "https://deepswe.datacurve.ai/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=deepswe.datacurve.ai",
-                  "https://favicon.im/deepswe.datacurve.ai",
-                  "https://icons.duckduckgo.com/ip3/deepswe.datacurve.ai.ico",
-                  "https://deepswe.datacurve.ai/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1781258002025,
-                "title": "petergpt/bullshit-benchmark: BullshitBench measures whether AI models challenge nonsensical prompts instead of confidently answering them, created by Peter Gostev.",
-                "url": "https://github.com/petergpt/bullshit-benchmark",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=github.com",
-                  "https://favicon.im/github.com",
-                  "https://icons.duckduckgo.com/ip3/github.com.ico",
-                  "https://github.com/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1785509918986,
-                "title": "LLM Benchmark Dashboard",
-                "url": "https://llm2014.github.io/llm_benchmark/#category=logic&dataset=logic%7C2026-08%7C0",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=llm2014.github.io",
-                  "https://favicon.im/llm2014.github.io",
-                  "https://icons.duckduckgo.com/ip3/llm2014.github.io.ico",
-                  "https://llm2014.github.io/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
                 "addDate": 1785509943923,
                 "title": "LLM Leaderboard & AI Model Benchmarks — July 2026 | 297 Models Compared | BenchLM.ai",
                 "url": "https://benchlm.ai/",
@@ -15141,18 +15119,6 @@
                   "https://favicon.im/livebench.ai",
                   "https://icons.duckduckgo.com/ip3/livebench.ai.ico",
                   "https://livebench.ai/favicon.ico"
-                ]
-              },
-              {
-                "type": "link",
-                "addDate": 1788444191091,
-                "title": "封神榜 Wiki｜大模型、AI 编程工具与测试集中文百科",
-                "url": "https://fengshenbang.wiki/",
-                "icon": [
-                  "https://www.google.com/s2/favicons?domain=fengshenbang.wiki",
-                  "https://favicon.im/fengshenbang.wiki",
-                  "https://icons.duckduckgo.com/ip3/fengshenbang.wiki.ico",
-                  "https://fengshenbang.wiki/favicon.ico"
                 ]
               }
             ]
@@ -19339,6 +19305,18 @@
                           "https://icons.duckduckgo.com/ip3/astryx.atmeta.com.ico",
                           "https://astryx.atmeta.com/favicon.ico"
                         ]
+                      },
+                      {
+                        "type": "link",
+                        "addDate": 1794892127454,
+                        "title": "Solid Glass - Form with substance.",
+                        "url": "https://deeplethe.github.io/solid-glass/",
+                        "icon": [
+                          "https://www.google.com/s2/favicons?domain=deeplethe.github.io",
+                          "https://favicon.im/deeplethe.github.io",
+                          "https://icons.duckduckgo.com/ip3/deeplethe.github.io.ico",
+                          "https://deeplethe.github.io/favicon.ico"
+                        ]
                       }
                     ]
                   },
@@ -22233,6 +22211,30 @@
                   "https://favicon.im/www.tianya.im",
                   "https://icons.duckduckgo.com/ip3/www.tianya.im.ico",
                   "https://www.tianya.im/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794714678132,
+                "title": "Dcard",
+                "url": "https://www.dcard.tw/f",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.dcard.tw",
+                  "https://favicon.im/www.dcard.tw",
+                  "https://icons.duckduckgo.com/ip3/www.dcard.tw.ico",
+                  "https://www.dcard.tw/favicon.ico"
+                ]
+              },
+              {
+                "type": "link",
+                "addDate": 1794715008737,
+                "title": "批踢踢實業坊",
+                "url": "https://www.ptt.cc/bbs/index.html",
+                "icon": [
+                  "https://www.google.com/s2/favicons?domain=www.ptt.cc",
+                  "https://favicon.im/www.ptt.cc",
+                  "https://icons.duckduckgo.com/ip3/www.ptt.cc.ico",
+                  "https://www.ptt.cc/favicon.ico"
                 ]
               }
             ]
